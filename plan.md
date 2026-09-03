@@ -257,7 +257,20 @@ Exit: three domains live with SSL; `/api/health` OK on each host; Search Console
 
 ## 9. Build log & handoff
 
-_(empty — each phase appends before merging)_
+**2026-09-03 — Orchestration mode (Fable, window opened by Anton).** Anton asked Fable to manage the build instead of pasting phase prompts himself. Phases O1–S6 run as Opus/Sonnet subagents spawned from Anton's Fable window (guardrail v2 'Inside a Fable window' clause). Each phase still gets its own `phase/<id>` branch and PR, merged only when the `verify` GitHub Actions check is green. Phases do NOT call `create_session`; Fable reviews each merged PR briefly and starts the next phase. F7 stays manual.
+
+**2026-09-03 — O1 Foundation** — PR: https://github.com/antonmarklundcom/paraguayresidency/pull/2
+
+What now exists: Next 16 + React 19 + Tailwind 4 app on TS. `src/sites/registry.ts` (three brands, hosts, nav/footer, CRM source, siblings) and the pure resolver `src/sites/resolve.ts` driving `src/middleware.ts`; all three `*.localhost:3000` hosts render distinct themed placeholder homes with their own canonical host, sitemap and robots. Complete 8-table schema + generated migration SQL + idempotent `scripts/seed.ts`. i18n layer with `verify:i18n` failing on missing/drifted keys. Tokens + three CSS themes, shared component set, `/dev/kitchen-sink`. MDX content pipeline with zod frontmatter, one placeholder article per brand, `<Fact k>` rendering hedged wording for all seven facts. `/api/health` reports `db: down` gracefully. `npm run verify` (typecheck + lint + 43 tests + i18n + build) is green and needs no database or network.
+
+Decisions and deviations:
+- Route folder is `src/app/sites/<key>/`, not `_sites` — an underscore folder is private in the App Router and cannot be a rewrite target. Direct `/sites/...` requests are still 404'd by middleware, so each page keeps exactly one public URL.
+- `middleware.ts` must live at `src/middleware.ts`. At the repo root it is silently ignored when `src/` exists (found by curling the hosts; everything 404'd). A test asserts the placement.
+- `robots.ts` is only honoured at the app root, so robots is a shared route handler `src/app/robots.txt/route.ts` that resolves the brand from the host; `/robots.txt` is a middleware passthrough. `sitemap.ts` nests fine and stays per-site.
+- MDX via `next-mdx-remote/rsc` (plan §5.1.1 asked for a choice); `output: 'standalone'` and `agentRules: false` in `next.config.ts` (Next 16 was rewriting this repo's CLAUDE.md on every dev start).
+- Deferred: migrating and seeding against a real MySQL — no MySQL and no Docker in the build container. Exact commands and expected row counts are in `KNOWN-ISSUES.md`; S6 or Anton clears it.
+
+Where O2 looks first: `src/db/schema.ts` (leads, lead_events, subscribers, products, orders, download_tokens are all already there — do not retrofit), `src/lib/current-site.ts` for the request's brand, `src/sites/resolve.ts` if a new shared `/api/...` path needs passthrough, `src/i18n/messages/en/*` for every user-facing string, and `content/shared/facts.ts` before writing any figure.
 
 ## 10. Backlog
 

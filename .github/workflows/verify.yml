@@ -1,0 +1,25 @@
+name: verify
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+concurrency:
+  group: verify-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      # typecheck + lint + tests + verify:i18n + build.
+      # No database and no network beyond npm: the app opens a DB connection
+      # lazily at request time only (plan §4.5).
+      - run: npm run verify

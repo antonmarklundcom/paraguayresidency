@@ -1,0 +1,16 @@
+/* Hub — calm, institutional, light. Split-screen hero + bento routes. */
+[data-theme='residency'] {
+  --bg: #f7f7f4;
+  --surface: #ffffff;
+  --surface-alt: #eeeee8;
+  --fg: #16181c;
+  --fg-muted: #565b63;
+  --border: #dedcd4;
+  --accent: #1d6b4f;
+  --accent-fg: #ffffff;
+  --accent-soft: #e4efe9;
+  --display-font: var(--font-serif);
+  --body-font: var(--font-system);
+  --radius-brand: var(--radius);
+  --hero-pattern: linear-gradient(180deg, #f7f7f4 0%, #eeeee8 100%);
+}
