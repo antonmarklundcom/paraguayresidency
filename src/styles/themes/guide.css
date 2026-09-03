@@ -1,0 +1,16 @@
+/* Low-ticket entry — warm, light, single long-form sales page. */
+[data-theme='guide'] {
+  --bg: #fdf8f1;
+  --surface: #ffffff;
+  --surface-alt: #f6ead8;
+  --fg: #211a12;
+  --fg-muted: #6b5c4b;
+  --border: #e6d6bf;
+  --accent: #b4471f;
+  --accent-fg: #ffffff;
+  --accent-soft: #fbe7dc;
+  --display-font: var(--font-serif);
+  --body-font: var(--font-system);
+  --radius-brand: var(--radius-lg);
+  --hero-pattern: linear-gradient(180deg, #fdf8f1 0%, #f6ead8 100%);
+}

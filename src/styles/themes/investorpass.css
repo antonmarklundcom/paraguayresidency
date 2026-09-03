@@ -1,0 +1,16 @@
+/* Premium spoke — dark-first editorial, big type, one gold accent. */
+[data-theme='investorpass'] {
+  --bg: #0d0f12;
+  --surface: #14171c;
+  --surface-alt: #1c2027;
+  --fg: #f3f1ec;
+  --fg-muted: #a5a49e;
+  --border: #2a2f37;
+  --accent: #c9a227;
+  --accent-fg: #14171c;
+  --accent-soft: #221f16;
+  --display-font: var(--font-system);
+  --body-font: var(--font-system);
+  --radius-brand: var(--radius-sm);
+  --hero-pattern: radial-gradient(120% 80% at 70% 0%, #1c2027 0%, #0d0f12 70%);
+}
