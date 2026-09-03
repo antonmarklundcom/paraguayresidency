@@ -55,8 +55,11 @@ for (const [file, msgs] of Object.entries({ 'common.json': common, ...perSite })
 
 // 3. Every literal key referenced in code must resolve.
 const known = new Set([...Object.keys(common), ...referenceKeys]);
-// t(site, 'key')  |  t('key')  |  <Fact k="…"> is checked elsewhere
-const CALL_RE = /\bt\(\s*(?:[A-Za-z0-9_.$]+\s*,\s*)?['"`]([\w.-]+)['"`]/g;
+// t(site, 'key')  |  t(siteVar, 'key')  |  t('key')
+// The first argument may itself be a quoted site key, so it must be allowed to
+// match before the key — otherwise t('residency', 'home.h1') reads "residency"
+// as the key.
+const CALL_RE = /\bt\(\s*(?:(?:[A-Za-z0-9_.$]+|['"`][\w-]+['"`])\s*,\s*)?['"`]([\w.-]+)['"`]/g;
 // labelKey: 'nav.about' / titleKey: "footer.company"
 const PROP_RE = /\b(?:labelKey|titleKey|messageKey|tKey)\s*:\s*['"`]([\w.-]+)['"`]/g;
 
