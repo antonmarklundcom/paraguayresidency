@@ -39,3 +39,11 @@ fault.
 
 `scripts/seed.ts` defaults `products.file_key` to `guide-placeholder.pdf`. The
 file itself ships in S5 per plan §6.3.
+
+## O1 — themes use system/serif font stacks, not `next/font`
+
+Plan §5.1.5 allows up to two `next/font` typefaces per theme. O1 ships CSS font
+stacks (`--display-font`, `--body-font`) so the token plumbing is in place
+without committing to a typeface the design phases have not chosen yet. S3–S5
+swap in `next/font` faces by redefining those two variables per theme — no
+component changes needed.
