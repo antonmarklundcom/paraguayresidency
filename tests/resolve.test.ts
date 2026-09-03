@@ -169,3 +169,32 @@ describe('siteOrigin', () => {
     }
   });
 });
+
+describe('regressions', () => {
+  it('serves /robots.txt from the shared handler, not the per-site folder', () => {
+    // Next only supports `robots.ts` at the app root, so rewriting this path
+    // into /sites/<key>/ returned the site's HTML 404 page.
+    expect(resolveRequest({ host: 'paraguayinvestorpass.com.py', pathname: '/robots.txt', ...prod })).toEqual({
+      type: 'pass',
+      site: 'investorpass',
+    });
+  });
+
+  it('still rewrites /sitemap.xml per brand', () => {
+    expect(resolveRequest({ host: 'paraguayinvestorguide.com', pathname: '/sitemap.xml', ...prod })).toEqual({
+      type: 'rewrite',
+      site: 'guide',
+      path: `${SITE_ROUTE_PREFIX}/guide/sitemap.xml`,
+    });
+  });
+});
+
+describe('middleware placement', () => {
+  it('lives in src/, next to the app directory', async () => {
+    // With a `src/` directory Next ignores a root-level middleware.ts in dev:
+    // every host silently fell through to the shared 404.
+    const { existsSync } = await import('node:fs');
+    expect(existsSync('src/middleware.ts')).toBe(true);
+    expect(existsSync('middleware.ts')).toBe(false);
+  });
+});

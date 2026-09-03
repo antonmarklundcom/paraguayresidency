@@ -23,7 +23,10 @@ export interface ResolveInput {
 
 /** Paths that are served by shared app routes and never rewritten per-site. */
 const PASSTHROUGH_PREFIXES = ['/api/', '/_next/', '/__nextjs'];
-const PASSTHROUGH_EXACT = ['/api', '/favicon.ico'];
+// `/robots.txt` is served by a shared route handler that resolves the brand
+// from the host (Next only supports `robots.ts` at the app root), so unlike
+// `/sitemap.xml` it must not be rewritten into the per-site folder.
+const PASSTHROUGH_EXACT = ['/api', '/favicon.ico', '/robots.txt'];
 
 function isPassthrough(pathname: string): boolean {
   return (
