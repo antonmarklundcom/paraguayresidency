@@ -702,6 +702,52 @@ sales page, no cédula/routes structure) — S5 needs its own equivalent, same a
 S4 needed its own rather than reusing S3's. `src/lib/legal-pages.tsx` and
 `src/lib/whatsapp.ts` remain brand-agnostic and reusable as-is.
 
+**2026-09-07 — S5 paraguayinvestorguide.com** — PR: (opened this session)
+
+What now exists: every §6.3 page. Home is a full rebuild — long-form sales
+page (promise, who it's for, a 12-chapter "what's inside" bento at `#inside`,
+a sample-page excerpt, author/credibility, price + `<CheckoutButton>` +
+guarantee at `#price`, FAQ, newsletter fallback) reading the live price off
+the `products` row and carrying `productOfferJsonLd` (new, additive in
+`src/lib/metadata.ts`) with the real $7 price — unlike `serviceOfferJsonLd`,
+the Guide's price is a locked business decision (§1.5), not an unverified
+legal figure, so it is not hedged. `/blog` is a new index (the registry nav
+already pointed at it); `/blog/[slug]` gained `relatedLinks`/`serviceLink`
+(→ `#price`) the same way S4 wired `/insights/[slug]`. Six new articles join
+the existing placeholder for 7 total (cost of living, banking, timeline
+realities, mistakes, documents, "do you need a lawyer"), each cross-linked
+to 2 related posts plus the Route Finder, every legal/financial claim through
+`<Fact>`. `/about` and `/refunds` (14-day, no-questions) are new. `/privacy`
+reuses `src/lib/legal-pages.tsx` as-is; `/terms` does not — the shared
+`TermsPage` describes filing government applications for a fee, which is
+false for a $7 digital product, so it gets its own `GuideTermsPage`/
+`guideTermsMetadata` in the same file (still one shared shape, just not the
+wrong one). `docs/guide-outline.md` and `private/guide-placeholder.pdf`
+already existed (shipped ahead of schedule, apparently by S4's session) and
+needed no changes. `seo-files.ts`'s `guide` sitemap entry gained `/about`,
+`/refunds`, `/blog`.
+
+Decisions and deviations:
+- Verified against a real MariaDB (same pattern as every prior phase):
+  migrated, seeded (product row confirms $7.00/USD), `npm run verify` green,
+  then `next build` + `next start` + curl checks on every route (200, unique
+  title, sitemap lists exactly the 8 static + 7 content URLs, Product +
+  Organization + FAQPage + Article JSON-LD present, every `<Fact>` renders
+  `data-verified="false"`), then Lighthouse mobile: `/` perf 0.91 / SEO 1.0,
+  a blog article perf 0.96 / SEO 1.0 — both clear the ≥90 bar.
+- Stripe was exercised the same way O2 and O9 left it: no key in this
+  environment, so no live test-mode purchase from the page. `CheckoutButton`
+  correctly reports `enabled: false` and the existing signed-webhook fixture
+  tests (untouched) cover the rest end to end. Logged in `KNOWN-ISSUES.md`
+  for S6, which already owns the live Stripe purchase + refund.
+- The hero and "what's inside" anchor (`#inside`, `#price`) match the
+  registry's existing `nav.whatsInside` → `/#inside` link exactly — that nav
+  entry was already in place from O9/S4, unused until this phase.
+
+Where S6 looks first: `docs/runbook.md` (S6 to write) needs the Stripe live
+purchase against this page's live checkout button; `KNOWN-ISSUES.md`'s S5
+entry has the exact env vars still needed.
+
 ## 10. Backlog
 
 - German brand or locale for the hub (Spanish, Portuguese and Swedish ship as brands, §1.11).

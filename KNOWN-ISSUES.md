@@ -166,6 +166,23 @@ correct on one Node process but resets on every deploy and does not survive a
 move to more than one process. Worth revisiting with the same per-IP middleware
 limit O2 put in Backlog.
 
+## S5 — Stripe was exercised with a locally-signed webhook, not a live test purchase from the sales page
+
+Same position O2 and O9 left Stripe/Lemon Squeezy in, for the same reason: there is no
+`STRIPE_SECRET_KEY` in this environment, so the hosted Checkout page cannot actually be opened
+from `paraguayinvestorguide.com`'s new sales page. Everything on our side of that boundary is
+verified end to end against a real MariaDB: the price renders correctly from the live `products`
+row ($7.00 in this run), `CheckoutButton` correctly reports `enabled: false` and shows "Checkout
+opens shortly" rather than opening a checkout that cannot complete (plan §4.5), the Product+Offer
+JSON-LD carries the same live price, and the existing signed-webhook fixture tests (unchanged by
+this phase) still cover `checkout.session.completed` → paid purchase → download token → email.
+
+**What is left for whoever has the keys (S6, or Anton earlier):** set `STRIPE_SECRET_KEY` /
+`STRIPE_WEBHOOK_SECRET` / `STRIPE_GUIDE_PRICE_ID`, then buy the guide once from
+`paraguayinvestorguide.com`'s live sales page with test card `4242 4242 4242 4242` and confirm
+`/thank-you` resolves the download link. The plan already schedules the live purchase and refund
+for S6.
+
 ## S4 — Lighthouse mobile perf on pages that embed `<LeadForm>` scores below the plan's ≥90 bar in this build container
 
 Re-running S3's own exit check in this session's fresh container (`npx lighthouse`

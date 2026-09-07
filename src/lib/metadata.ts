@@ -100,3 +100,40 @@ export function serviceOfferJsonLd(
     },
   };
 }
+
+/**
+ * Product + Offer JSON-LD for the Guide's real, fixed-price digital product
+ * (plan §6.3 exit). Unlike `serviceOfferJsonLd`, this DOES carry a numeric
+ * price — the $7 entry price is a locked business decision (plan §1.5), not
+ * an unverified legal/financial claim under §1.10, so it is read from the
+ * live `products` row (or the same env fallback the checkout button uses)
+ * rather than hardcoded here.
+ */
+export function productOfferJsonLd(
+  site: SiteKey,
+  input: {
+    name: string;
+    description: string;
+    path: string;
+    priceCents: number;
+    currency: string;
+    sku: string;
+  },
+) {
+  const origin = siteOrigin(site);
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: input.name,
+    description: input.description,
+    sku: input.sku,
+    url: `${origin}${input.path}`,
+    offers: {
+      '@type': 'Offer',
+      url: `${origin}${input.path}`,
+      priceCurrency: input.currency,
+      price: (input.priceCents / 100).toFixed(2),
+      availability: 'https://schema.org/InStock',
+    },
+  };
+}
