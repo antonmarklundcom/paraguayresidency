@@ -8,7 +8,7 @@
 | O1 | Opus (done, PR #2) | `prompts/opus-1-foundation.md` | §2, §5.1 | Anton pasted one line in a fresh Opus window |
 | O2 | Opus (done, PR #4) | `prompts/opus-2-conversion-core.md` | §5.2 | spawned by O1 |
 | F8 | Fable 5.1 (done 2026-09-07, approved §1.9) | `prompts/fable-8-platform-consolidation-plan.md` | §12 | Anton opened it manually; it spawned nothing |
-| O9 | Opus | `prompts/opus-9-consolidation-foundation.md` | §1.11–§1.15, §2, §5.4, §12 | **Anton pastes one line in a fresh Opus window** — runs BEFORE S3; last schema-shaping phase |
+| O9 | Opus (done, PR #7) | `prompts/opus-9-consolidation-foundation.md` | §1.11–§1.15, §2, §5.4, §12 | Anton pasted one line in a fresh Opus window — ran BEFORE S3; **last schema-shaping phase** |
 | S3 | Sonnet | `prompts/sonnet-3-residency-site.md` | §6.1, §11.1 | spawned by O9 |
 | S4 | Sonnet | `prompts/sonnet-4-investorpass-site.md` | §6.2, §11.2 | spawned by S3 |
 | S5 | Sonnet | `prompts/sonnet-5-guide-site.md` | §6.3, §11.3 | spawned by S4 |
@@ -497,6 +497,77 @@ Decisions and deviations:
 - Nothing was spawned. Anton opens O9 himself. O9 then spawns S3 per §4.9; the 2026-09-03 orchestration entry is superseded.
 
 Where O9 looks first: §2 (the table is the contract), §5.4, §1.12–§1.15, `src/sites/registry.ts`, `src/db/schema.ts`, `src/i18n/index.ts`, `src/lib/orders.ts` + `src/lib/stripe.ts` (what `purchases` replaces), `src/lib/signing.ts` (reuse for magic links), and in the attached repos only `pararesi/src/db/schema.ts`, `pararesi/docs/02-architecture.md`, `flyttatillparaguay/lib/vendercrm.ts`, `flyttatillparaguay/app/api/lead/route.ts`.
+
+**2026-09-07 — O9 Consolidation foundation** — PR: PR_URL_PLACEHOLDER
+
+What now exists: one foundation for all seven brands. `frontier`,
+`residenciaes`, `residenciapt` and `flytta` are registry entries with their own
+hosts, theme, currencies and locale; all seven `*.localhost:3000` hosts render
+distinct themed placeholders with the right `<html lang>` and canonical host.
+Locale is real — complete `es`, `pt-BR` and `sv` translations of all 157 common
+keys, `verify:i18n` comparing every locale against `en` and all seven brand
+files against each other, and no silent English fallback anywhere.
+
+**The §2 schema is complete and this was the last phase allowed to shape it.**
+The columns that exist now, so S3–S15 never ask:
+
+- `users` — id, email uniq, password_hash **null**, name, role(admin,editor,**member**), tier(none,entry,insider), tier_expires_at, home_site, created_at, last_login_at, updated_at
+- `provider_customers` — id, user_id, provider(stripe,lemonsqueezy), provider_customer_id, uniq(provider, provider_customer_id)
+- `leads` — everything O2 had, plus **attribution json** and **dedupe_key uniq**
+- `products` — id, slug uniq, **site**, name, **tier**(entry,insider), **kind**(one_time,subscription), **provider**, **provider_price_id** (was stripe_price_id), price_cents, currency, **interval**, file_key, version, active
+- `purchases` (was `orders`) — id, site, product_id, **user_id**, email, name, **provider**, **provider_order_id**, **provider_checkout_id**, amount_cents, currency, status, utm, **raw**, created_at, paid_at
+- `subscriptions` — id, site, product_id, user_id, provider, provider_subscription_id, status(active,past_due,cancelled,expired,paused), current_period_end, cancelled_at, ends_at, raw, created_at, updated_at
+- `download_tokens` — **purchase_id** (was order_id), token, expires_at, downloads, max_downloads
+- `webhook_events` — provider, provider_event_id, type, payload, received_at, processed_at, error, uniq(provider, provider_event_id)
+- `cron_runs` — job, started_at, finished_at, ok, note
+- `modules` / `lessons` — site null = every brand, slug, title, sort, min_tier, drip_days, content_path, active
+- `lesson_progress` — pk(user_id, lesson_id), completed_at
+- `resources` / `updates_posts` — site, slug, title, min_tier, file_key / published_at + content_path
+- `leads`, `lead_events`, `subscribers`, `facts_verification` — unchanged from O1/O2 apart from the `site` enum, which now carries all seven keys
+
+Also shipped: `src/lib/entitlements.ts` (pure tier maths, 3-day grace, decay to
+`entry` not `none`, drip), `src/lib/member-auth.ts` (magic link on a separate
+cookie and secret), both payment providers behind one `/api/checkout`, the
+Lemon Squeezy webhook, `/admin/purchases` with subscriptions and
+`/admin/members` with a logged grant action, `scripts/reconcile-tiers.ts`,
+`scripts/import-pararesi.ts` with `--dry-run` and a fixture test, and
+first-touch attribution plus phone-hash dedupe on leads. 313 tests;
+`npm run verify` green with no database and no network.
+
+Decisions and deviations:
+- The `orders` → `purchases` migration is hand-edited. drizzle-kit emitted
+  `DROP TABLE orders` plus a fresh `CREATE TABLE purchases`, which would have
+  deleted every paid order; it is `RENAME TABLE` and `CHANGE COLUMN` instead,
+  the same for `download_tokens.order_id` and `products.stripe_price_id`, and
+  the O2 product is re-slugged `guide-entry` with an `UPDATE` so purchases keep
+  their `product_id`. `tests/migration.test.ts` stops that being regenerated
+  away. Proven on a real MariaDB seeded at the O2 state: every row, id, amount,
+  status, UTM, bcrypt hash and Stripe price id survived.
+- `<html lang>` is resolved from the `x-site` header in the root layout, which
+  makes every page dynamic. Correct language on three non-English brands was
+  judged worth more than prerendering at launch traffic; the route-group fix is
+  written out in `KNOWN-ISSUES.md` for S6.
+- `members` and `updates` are reserved hubs in `src/content/index.ts`. Member
+  MDX lives in the same tree as marketing MDX, so without that it would have
+  been walked into the sitemap and served at a public URL.
+- `src/lib/entitlements.ts` deliberately does NOT import `server-only` (the two
+  CLI scripts use it); `requireTier` imports `member-auth` lazily so the guard
+  stays where cookies actually are.
+- Two bugs found by running it rather than reading it: drizzle wraps the mysql2
+  error, so the duplicate-key check never matched and every retried webhook
+  delivery answered 500; and quoting a boolean in generated frontmatter made
+  `draft: 'true'` a string the schema rejects.
+- pararesi's `amount_usd` unit is genuinely ambiguous in the column name. It is
+  never guessed silently — `PARARESI_AMOUNT_UNIT` forces it and the dry run
+  warns on every row the heuristic decided. S15 must set it explicitly.
+
+Where S3 looks first: `docs/platform.md` for tiers, providers and how a brand
+lists a product; `src/lib/conversion-pages.tsx` and `src/components/LeadForm.tsx`
+for dropping a form on a page; `src/i18n/messages/en/residency.json` for every
+string; `content/shared/facts.ts` before writing any figure. The schema is
+final — do not touch `src/db/schema.ts`, `src/lib/entitlements.ts`,
+`src/lib/member-auth.ts`, `src/lib/purchases.ts`, `src/lib/subscriptions.ts`,
+`src/app/api/*` or `src/middleware.ts` (plan §4.7).
 
 ## 10. Backlog
 
