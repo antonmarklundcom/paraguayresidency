@@ -38,11 +38,16 @@ export function buildRobots(site: SiteKey): MetadataRoute.Robots {
   };
 }
 
-/** Static routes that exist for a brand regardless of MDX content. */
+/**
+ * Static routes that exist for a brand regardless of MDX content. The
+ * conversion routes O2 added are listed here; `/route-finder/result`,
+ * `/thank-you`, `/confirm` and `/unsubscribe` are deliberately absent — each
+ * is per-visitor or single-use and carries `noindex`.
+ */
 const staticPaths: Record<SiteKey, string[]> = {
-  residency: ['/', '/privacy', '/terms'],
-  investorpass: ['/', '/privacy', '/terms'],
-  guide: ['/', '/privacy', '/terms'],
+  residency: ['/', '/route-finder', '/contact', '/book', '/privacy', '/terms'],
+  investorpass: ['/', '/route-finder', '/contact', '/privacy', '/terms'],
+  guide: ['/', '/route-finder', '/contact', '/privacy', '/terms'],
 };
 
 export function buildSitemap(site: SiteKey): MetadataRoute.Sitemap {
