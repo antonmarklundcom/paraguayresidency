@@ -210,6 +210,15 @@ export async function fulfilCheckout(input: {
   // The tier cache follows the rows, never the other way round (plan §1.12).
   if (userId) await refreshUserTier(userId, now);
 
+  // Only a product with a file has anything to download. Lemon Squeezy also
+  // fires `order_created` for the first invoice of a SUBSCRIPTION, and
+  // offering that buyer a "download the guide" link would mint a token for a
+  // product with no file and send them to a 503.
+  if (!product?.fileKey) {
+    await sendSignInLink(input.email, site);
+    return { status: 'fulfilled', purchaseId, userId };
+  }
+
   const token = await issueDownloadToken(purchaseId, now);
   await sendPurchaseEmail({
     purchaseId,
@@ -217,7 +226,7 @@ export async function fulfilCheckout(input: {
     email: input.email,
     name: input.name ?? null,
     token,
-    productName: product?.name ?? 'The Paraguay Residency Guide',
+    productName: product.name,
     now,
   });
 

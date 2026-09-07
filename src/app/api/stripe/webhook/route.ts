@@ -1,3 +1,4 @@
+import { createHash } from 'node:crypto';
 import { NextResponse, type NextRequest } from 'next/server';
 import { verifyStripeSignature } from '@/lib/stripe-signature';
 import { stripeWebhookConfigured } from '@/lib/stripe';
@@ -53,7 +54,10 @@ export async function POST(request: NextRequest) {
   // webhooks share one log so one query answers "did we see this delivery".
   const logged = await recordWebhookEvent({
     provider: 'stripe',
-    providerEventId: event.id ?? `${event.type}:${JSON.stringify(event.data?.object ?? {}).length}`,
+    // Stripe always sends `id`. The fallback hashes the exact bytes rather
+    // than something lossy like a length, so two different deliveries can
+    // never collide and silently suppress one another.
+    providerEventId: event.id ?? `sha256:${createHash('sha256').update(payload).digest('hex')}`,
     type: event.type ?? 'unknown',
     payload: event,
   });
