@@ -80,7 +80,7 @@ export function QuizResultView({
           <ul className="mt-[var(--space-6)] grid gap-[var(--space-2)] text-[var(--text-sm)] text-[var(--fg-muted)]">
             {ROUTE_FACTS[route].map((key) => (
               <li key={key}>
-                <Fact k={key} />
+                <Fact k={key} site={site} />
               </li>
             ))}
           </ul>

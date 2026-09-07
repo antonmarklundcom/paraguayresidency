@@ -1,0 +1,16 @@
+/* Brazil. Speaks to a neighbour: green-blue, open, never carnival-loud. */
+[data-theme='residenciapt'] {
+  --bg: #f5faf7;
+  --surface: #ffffff;
+  --surface-alt: #e3f1e9;
+  --fg: #10241b;
+  --fg-muted: #4e6a5c;
+  --border: #c8e0d3;
+  --accent: #006b3c;
+  --accent-fg: #ffffff;
+  --accent-soft: #d5efe0;
+  --display-font: var(--font-system);
+  --body-font: var(--font-system);
+  --radius-brand: var(--radius-lg);
+  --hero-pattern: linear-gradient(180deg, #f5faf7 0%, #e3f1e9 100%);
+}

@@ -3,6 +3,10 @@
 @import '../styles/themes/residency.css';
 @import '../styles/themes/investorpass.css';
 @import '../styles/themes/guide.css';
+@import '../styles/themes/frontier.css';
+@import '../styles/themes/residenciaes.css';
+@import '../styles/themes/residenciapt.css';
+@import '../styles/themes/flytta.css';
 
 @theme inline {
   --color-bg: var(--bg);

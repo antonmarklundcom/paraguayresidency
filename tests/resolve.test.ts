@@ -198,3 +198,83 @@ describe('middleware placement', () => {
     expect(existsSync('middleware.ts')).toBe(false);
   });
 });
+
+/**
+ * The four brands consolidated in O9 (plan §1.11). Eight hosts — an apex and a
+ * `www.` for each — plus the `*.localhost` dev host each entry carries.
+ */
+describe('resolveRequest — the four O9 brands', () => {
+  const brands = [
+    { site: 'frontier', apex: 'paraguayfrontier.com', locale: 'en' },
+    { site: 'residenciaes', apex: 'residenciaparaguay.es', locale: 'es' },
+    { site: 'residenciapt', apex: 'residencianoparaguay.com', locale: 'pt' },
+    { site: 'flytta', apex: 'flyttatillparaguay.se', locale: 'sv' },
+  ] as const;
+
+  for (const brand of brands) {
+    it(`rewrites the ${brand.apex} home into /sites/${brand.site}`, () => {
+      expect(resolveRequest({ host: brand.apex, pathname: '/', ...prod })).toEqual({
+        type: 'rewrite',
+        site: brand.site,
+        path: `${SITE_ROUTE_PREFIX}/${brand.site}`,
+      });
+    });
+
+    it(`301s www.${brand.apex} to its own apex, not the hub`, () => {
+      expect(
+        resolveRequest({ host: `www.${brand.apex}`, pathname: '/contact', search: '?a=1', ...prod }),
+      ).toEqual({
+        type: 'redirect',
+        url: `https://${brand.apex}/contact?a=1`,
+        status: 301,
+      });
+    });
+
+    it(`resolves ${brand.site}.localhost in dev`, () => {
+      expect(
+        resolveRequest({ host: `${brand.site}.localhost:3000`, pathname: '/', isDev: true }),
+      ).toEqual({
+        type: 'rewrite',
+        site: brand.site,
+        path: `${SITE_ROUTE_PREFIX}/${brand.site}`,
+      });
+    });
+
+    it(`404s /admin on ${brand.apex}`, () => {
+      expect(resolveRequest({ host: brand.apex, pathname: '/admin/leads', ...prod })).toEqual({
+        type: 'blocked',
+      });
+    });
+
+    it(`carries locale ${brand.locale}`, () => {
+      expect(sites[brand.site].locale).toBe(brand.locale);
+    });
+  }
+
+  it('gives all seven brands a distinct theme and canonical host', () => {
+    const themes = SITE_KEYS.map((k) => sites[k].theme);
+    const hosts = SITE_KEYS.map((k) => sites[k].canonicalHost);
+    expect(new Set(themes).size).toBe(SITE_KEYS.length);
+    expect(new Set(hosts).size).toBe(SITE_KEYS.length);
+  });
+
+  it('lists an apex and a www host for every brand', () => {
+    for (const key of SITE_KEYS) {
+      const config = sites[key];
+      expect(config.hosts).toContain(config.canonicalHost);
+      expect(config.hosts).toContain(`www.${config.canonicalHost}`);
+    }
+  });
+
+  it('uses the apex as the CRM source tag on every brand', () => {
+    for (const key of SITE_KEYS) {
+      expect(sites[key].crm.source).toBe(sites[key].canonicalHost);
+    }
+  });
+
+  it('never lists a brand as its own sibling', () => {
+    for (const key of SITE_KEYS) {
+      expect(sites[key].siblings).not.toContain(key);
+    }
+  });
+});

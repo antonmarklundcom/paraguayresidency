@@ -10,6 +10,10 @@ const palette: Record<SiteKey, { bg: string; fg: string; muted: string; accent: 
   residency: { bg: '#f7f7f4', fg: '#16181c', muted: '#565b63', accent: '#1d6b4f' },
   investorpass: { bg: '#0d0f12', fg: '#f3f1ec', muted: '#a5a49e', accent: '#c9a227' },
   guide: { bg: '#fdf8f1', fg: '#211a12', muted: '#6b5c4b', accent: '#b4471f' },
+  frontier: { bg: '#f4f6f5', fg: '#16211d', muted: '#5a6a64', accent: '#1d6b52' },
+  residenciaes: { bg: '#fdfaf5', fg: '#241c12', muted: '#6d5f4d', accent: '#c1121f' },
+  residenciapt: { bg: '#f5faf7', fg: '#10241b', muted: '#4e6a5c', accent: '#006b3c' },
+  flytta: { bg: '#f7f8fa', fg: '#131a24', muted: '#55606f', accent: '#0b4f8a' },
 };
 
 export function ogImage(site: SiteKey) {

@@ -1,0 +1,16 @@
+/* Spain first, Spanish-speaking LatAm second. Warm, sunlit, direct. */
+[data-theme='residenciaes'] {
+  --bg: #fdfaf5;
+  --surface: #ffffff;
+  --surface-alt: #f6ecdd;
+  --fg: #241c12;
+  --fg-muted: #6d5f4d;
+  --border: #e5d8c3;
+  --accent: #c1121f;
+  --accent-fg: #ffffff;
+  --accent-soft: #fadfe1;
+  --display-font: var(--font-serif);
+  --body-font: var(--font-system);
+  --radius-brand: var(--radius);
+  --hero-pattern: linear-gradient(180deg, #fdfaf5 0%, #f6ecdd 100%);
+}

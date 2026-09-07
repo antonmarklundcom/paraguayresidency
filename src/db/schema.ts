@@ -18,7 +18,21 @@ import {
  * later phases use these tables, they never retrofit them.
  */
 
-export const siteEnum = ['residency', 'investorpass', 'guide'] as const;
+/**
+ * Mirrors `SITE_KEYS` in `src/sites/registry.ts` exactly. It is duplicated
+ * rather than imported so `src/db` stays free of app imports, and
+ * `tests/schema-sites.test.ts` fails the build the moment the two drift
+ * (plan §2).
+ */
+export const siteEnum = [
+  'residency',
+  'investorpass',
+  'guide',
+  'frontier',
+  'residenciaes',
+  'residenciapt',
+  'flytta',
+] as const;
 
 const id = () => bigint('id', { mode: 'number', unsigned: true }).autoincrement().primaryKey();
 const createdAt = () => timestamp('created_at').notNull().defaultNow();

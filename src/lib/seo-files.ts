@@ -7,7 +7,7 @@ import { siteOrigin, type SiteKey } from '@/sites/registry';
  * Per-host robots + sitemap. Each brand lists only its own URLs, on its own
  * origin — the whole point of resolving the site from the registry (plan §2).
  */
-export const DISALLOWED = ['/admin', '/api/', '/sites/', '/dev/'];
+export const DISALLOWED = ['/admin', '/api/', '/sites/', '/dev/', '/members', '/login'];
 
 /** Serialised robots.txt for a brand, served by `src/app/robots.txt/route.ts`. */
 export function robotsText(site: SiteKey): string {
@@ -48,6 +48,10 @@ const staticPaths: Record<SiteKey, string[]> = {
   residency: ['/', '/route-finder', '/contact', '/book', '/privacy', '/terms'],
   investorpass: ['/', '/route-finder', '/contact', '/privacy', '/terms'],
   guide: ['/', '/route-finder', '/contact', '/privacy', '/terms'],
+  frontier: ['/', '/route-finder', '/contact', '/privacy', '/terms'],
+  residenciaes: ['/', '/route-finder', '/contact', '/privacy', '/terms'],
+  residenciapt: ['/', '/route-finder', '/contact', '/privacy', '/terms'],
+  flytta: ['/', '/route-finder', '/contact', '/privacy', '/terms'],
 };
 
 export function buildSitemap(site: SiteKey): MetadataRoute.Sitemap {

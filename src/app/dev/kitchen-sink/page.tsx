@@ -86,7 +86,7 @@ function ThemeBlock({ site }: { site: SiteKey }) {
             <ul>
               {factKeys.map((key) => (
                 <li key={key}>
-                  <strong>{key}</strong>: <Fact k={key} />
+                  <strong>{key}</strong>: <Fact k={key} site={site} />
                 </li>
               ))}
             </ul>

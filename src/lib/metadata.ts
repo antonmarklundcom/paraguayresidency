@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { OG_LOCALE } from '@/i18n/locales';
 import { getSite, siteOrigin, type SiteKey } from '@/sites/registry';
 
 export interface SiteMetadataInput {
@@ -34,7 +35,7 @@ export function siteMetadata(site: SiteKey, input: SiteMetadataInput): Metadata 
       title: input.title,
       description: input.description,
       siteName: config.name,
-      locale: 'en_US',
+      locale: OG_LOCALE[config.locale],
       images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: config.name }],
       ...(input.publishedTime ? { publishedTime: input.publishedTime } : {}),
       ...(input.modifiedTime ? { modifiedTime: input.modifiedTime } : {}),
