@@ -203,3 +203,40 @@ neither S3's nor S4's ≥90 perf claim reproduces here for any page carrying a
 lead form. Left for S6 (which owns the deploy + imagery + performance pass) or
 Anton to re-measure against the real hosting target rather than re-litigated
 here.
+
+## BLOCKER — the brand↔domain map is wrong; F9 must land before S10–S15
+
+Confirmed by Anton on 2026-09-07, after O9 and S3–S5 had already merged. F8 locked §1.11 / §12.2 on
+domains he does not own.
+
+| Brand | Code says | Reality |
+|---|---|---|
+| `residency` (the hub) | paraguayresidency.com | **not owned, not buyable — no domain at all** |
+| `guide` | paraguayinvestorguide.com | `paraguayresidencyguide.com` |
+| `investorpass` | paraguayinvestorpass.com.py | `paraguayinvestorpass.com` |
+| `residenciapt` | residencianoparaguay.com | `vidanoparaguai.com`, renamed **Vida no Paraguai** |
+| `frontier`, `residenciaes`, `flytta` | — | correct |
+
+The hub is the one that is not a typo: it is the primary SEO surface, the only host serving
+`/admin`, and the redirect target for any unknown host. S3 built 17 pages and 8 articles for it.
+Resolving that is a business decision, which is why it is a Fable phase and not a sweep.
+
+**Nothing else may run first.** S10–S14 write footer cross-links and article text naming sibling
+domains, so starting them now means fixing five brands' content instead of one registry file.
+S6's PR #13 is open and unmerged; S10–S15 have not started. That is the correct place to be paused.
+
+Cost of the fix, once F9 decides: domains are three lines per brand in `src/sites/registry.ts` plus
+three page files, ~6 test files and two docs. **No schema change** — `SiteKey`s are unaffected as
+long as F9 changes only what a key points at. Renaming or removing a key WOULD be a migration,
+because `siteEnum` mirrors `SITE_KEYS` on nine tables.
+
+## O9 — pararesi appears never to have been deployed
+
+Its own plan marks Phase 8 (deploy) "⛔ Owner-blocked, not started" — no Hostinger slot, no domain,
+no live Lemon Squeezy store, and its `.env.example` still has `APP_URL=http://localhost:3000`.
+
+If that is right, §1.13's "existing subscribers stay there" and §12.3's member/purchase/subscription
+import are pointed at an empty database: there is nothing to migrate, and Insider is a new product
+launch rather than a cutover. O9's import script is written, tested and idempotent either way, so
+this costs nothing — but **S15 should re-scope its "real run" from a migration to a verification**,
+and Anton should confirm before anyone plans around live pararesi subscribers. Flagged for F9.
