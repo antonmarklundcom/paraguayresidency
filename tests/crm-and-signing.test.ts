@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { buildCrmPayload, crmConfigured, readAttribution } from '@/lib/vendercrm';
+import { buildCrmPayload, crmConfigured } from '@/lib/vendercrm';
 import { idempotencyKey, pack, randomToken, sign, unpack, verify } from '@/lib/signing';
 import { leadNotification, purchaseEmail, subscribeConfirmEmail } from '@/lib/email-templates';
 
@@ -54,19 +54,8 @@ describe('buildCrmPayload', () => {
   });
 });
 
-describe('readAttribution', () => {
-  it('reads the first-touch cookie', () => {
-    const cookie = encodeURIComponent(JSON.stringify({ utm_source: 'google', gclid: 'abc' }));
-    expect(readAttribution(cookie)).toEqual({ utm_source: 'google', gclid: 'abc' });
-  });
-
-  it('returns an empty object for junk instead of throwing', () => {
-    expect(readAttribution(undefined)).toEqual({});
-    expect(readAttribution('not-json')).toEqual({});
-    expect(readAttribution(encodeURIComponent('"a string"'))).toEqual({});
-    expect(readAttribution(encodeURIComponent(JSON.stringify({ n: 5 })))).toEqual({});
-  });
-});
+// `readAttribution` moved to `src/lib/attribution.ts` in O9 and gained an
+// allowlist; it is covered by tests/leads-attribution.test.ts.
 
 describe('signing', () => {
   it('verifies its own signature and rejects a forged one', () => {

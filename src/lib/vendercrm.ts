@@ -42,22 +42,6 @@ export function crmConfigured(): boolean {
   return Boolean(process.env.VENDERCRM_API_URL && process.env.VENDERCRM_API_KEY);
 }
 
-/** First-touch attribution cookie written by the CRM's `vc-attribution.js`. */
-export function readAttribution(cookieValue: string | undefined | null): Record<string, string> {
-  if (!cookieValue) return {};
-  try {
-    const parsed: unknown = JSON.parse(decodeURIComponent(cookieValue));
-    if (!parsed || typeof parsed !== 'object') return {};
-    const out: Record<string, string> = {};
-    for (const [k, v] of Object.entries(parsed as Record<string, unknown>)) {
-      if (typeof v === 'string' && v) out[k] = v.slice(0, 2000);
-    }
-    return out;
-  } catch {
-    return {};
-  }
-}
-
 /**
  * Builds the wire payload: empty strings are dropped rather than sent, because
  * the CRM rejects `email: ""` with a 422 (skill, "Before writing code").
