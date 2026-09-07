@@ -165,3 +165,24 @@ is now rate limited in-memory (5 per 15 minutes per email and per IP), which is
 correct on one Node process but resets on every deploy and does not survive a
 move to more than one process. Worth revisiting with the same per-IP middleware
 limit O2 put in Backlog.
+
+## S4 — Lighthouse mobile perf on pages that embed `<LeadForm>` scores below the plan's ≥90 bar in this build container
+
+Re-running S3's own exit check in this session's fresh container (`npx lighthouse`
+against Chromium at `/opt/pw-browsers`, mobile preset, default throttling)
+gives `paraguayresidency.com`'s home page (no lead form) 0.90 performance, but
+`/residency/temporary-residency` (has `<LeadForm>`, S3's own merged page) comes
+back at 0.84 — below the bar S3's PR claimed. Investor Pass's home page (which
+embeds `<LeadForm>` inline, per plan §6.2) scores 0.81 for the same reason:
+`total-blocking-time` (760ms) is the only failing sub-metric; LCP, CLS and
+Speed Index are all perfect. `LeadFormFields.tsx` is a `'use client'` component
+(server actions, `useActionState`) shared by every brand's every form — its
+hydration cost is a platform-wide characteristic from O1/O2, not something S3
+or S4 introduced, and it is off-limits to Sonnet phases to rework (plan §4.7,
+§6: shared conversion machinery). SEO scores 1.0 on every page checked. Most
+likely explanation is measurement-method variance between this container's
+Lighthouse CLI run and whatever S3 used, not a real regression — but it means
+neither S3's nor S4's ≥90 perf claim reproduces here for any page carrying a
+lead form. Left for S6 (which owns the deploy + imagery + performance pass) or
+Anton to re-measure against the real hosting target rather than re-litigated
+here.

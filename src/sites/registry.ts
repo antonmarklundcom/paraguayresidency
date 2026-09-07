@@ -185,6 +185,7 @@ export const sites: Record<SiteKey, SiteConfig> = {
             { labelKey: 'nav.requirements', href: '/investor-pass/requirements' },
             { labelKey: 'nav.investmentRoutes', href: '/investor-pass/investment-routes' },
             { labelKey: 'nav.process', href: '/investor-pass/process' },
+            { labelKey: 'nav.vsStandard', href: '/investor-pass/vs-standard-residency' },
           ],
         },
         {
@@ -192,6 +193,7 @@ export const sites: Record<SiteKey, SiteConfig> = {
           items: [
             { labelKey: 'nav.about', href: '/about' },
             { labelKey: 'nav.contact', href: '/contact' },
+            { labelKey: 'nav.forAgents', href: '/investor-pass/for-agents' },
           ],
         },
       ],

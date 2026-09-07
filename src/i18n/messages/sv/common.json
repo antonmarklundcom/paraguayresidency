@@ -156,5 +156,7 @@
   "members.emptyTitle": "Inget här än",
   "members.emptyBody": "Dina lektioner och resurser dyker upp här efterhand som de publiceras.",
   "checkout.insiderBuy": "Gå med i Insider — {price}",
-  "checkout.comingSoon": "Insider öppnar snart"
+  "checkout.comingSoon": "Insider öppnar snart",
+  "nav.vsStandard": "Jämfört med vanligt uppehållstillstånd",
+  "nav.forAgents": "För agenter"
 }

@@ -636,6 +636,72 @@ equivalents) and should get their own equivalent under `src/app/sites/
 investorpass/_lib/` rather than importing this one. `src/lib/article-page.tsx`'s
 new `relatedLinks`/`serviceLink` props are available for `/insights/[slug]`.
 
+**2026-09-07 — S4 paraguayinvestorpass.com.py** — PR: (opened this session)
+
+What now exists: every §6.2 page. Home is a full rebuild (editorial hero,
+what-the-Pass-is with three hedged facts, a four-route bento linking to
+`/investor-pass/investment-routes#<route>`, who-qualifies, timeline,
+why-go-direct-to-permanent, FAQ, an inline investor-inquiry form) plus
+Service+Offer JSON-LD (`serviceOfferJsonLd`, new in `src/lib/metadata.ts`,
+additive next to `serviceJsonLd`). `src/app/sites/investorpass/_lib/ServicePage.tsx`
+is the dark-editorial equivalent of the hub's `ServicePage` (deliberately not
+shared, per O9's note) — used by `/investor-pass/{requirements,process,for-agents}`
+and `/investor-pass/investment-routes`; `/investor-pass/vs-standard-residency`
+is bespoke (links out to the hub's four service pages via `siteOrigin('residency')`,
+does not duplicate their content, per the plan's explicit instruction).
+`/investor-pass/for-agents` is new scope beyond a literal re-read of §6.2's
+page list but was already named in the phase table's page tree; it uses the
+`contact` lead variant (a referral inquiry is not a personal investment
+amount, so `investor_inquiry`'s range/route fields didn't fit). `/about`,
+`/privacy`, `/terms` are new — privacy/terms reuse `src/lib/legal-pages.tsx`
+as-is (S3's note). Four new hedged facts
+(`investorpass.route_{real_estate,business,financial,tourism}_usd`) back the
+investment-routes page and the home bento, since the generic
+`investorpass.min_investment_usd` doesn't cover per-route figures. 5 new
+`/insights/[slug]` articles (real estate deep-dive, taxes, family inclusion,
+timeline expectations, vs Uruguay/Panama) join the existing placeholder for 6
+total, each 900–1400 words, cross-linked in a small related-articles cluster,
+every legal/financial claim through `<Fact>`; the insights route now computes
+`relatedLinks`/`serviceLink` (→ investment-routes) like the hub's article page
+does. `seo-files.ts`'s `investorpass` sitemap entry lists the 11 new static
+routes; content routes are picked up automatically via `getPages`. Two new
+shared nav labels (`nav.vsStandard`, `nav.forAgents`) added to all four
+locales' `common.json` (footer links only, per §4.9's "adding nav items/copy
+inside the registry is fine").
+
+Decisions and deviations:
+- The 5 new insight articles were fanned out to parallel subagents (same
+  pattern S3 used for its MDX, and the one that produced S3's bad-link bug) —
+  this time each agent was given the exact route inventory
+  (`/investor-pass/investment-routes`, `/requirements`, `/process`,
+  `/route-finder`, `/contact`) up front rather than inferring it, and every
+  internal link was grep-checked against real routes before merging; no
+  dangling links found.
+- Verified against a real MariaDB (same pattern as O2/O9/S3): migrated,
+  seeded (13 facts mirrored, confirming the 4 new fact keys registered),
+  `npm run verify` green, then `next build` + `next start` + curl-based checks
+  for every new route (200, unique title ≤60/description ≤155, sitemap
+  matches exactly, Service+Offer/FAQPage/BreadcrumbList JSON-LD present, every
+  `<Fact>` renders `data-verified="false"`, lead forms carry `site=investorpass`
+  and the right `kind`).
+- Lighthouse mobile perf on any page carrying `<LeadForm>` (a `'use client'`
+  component) does not reproduce S3's claimed ≥90 in this container — see
+  `KNOWN-ISSUES.md`. Re-tested against S3's own already-merged
+  `/residency/temporary-residency` and got 0.84, so this is a pre-existing,
+  platform-wide, off-limits-to-Sonnet characteristic (or a measurement-method
+  difference), not an S4 regression. SEO is 1.0 on every page checked.
+- One stale-build false alarm during self-verification: an intermediate edit
+  left `.next` serving a cached page with a duplicate `Organization` JSON-LD
+  block until `rm -rf .next && npm run build`. No code defect; noted here only
+  because a later phase hitting the same "extra JSON-LD block" symptom should
+  rebuild clean before hunting for a phantom duplicate render.
+
+Where S5 looks first: `src/app/sites/investorpass/_lib/ServicePage.tsx` is
+Investor-Pass-only, not reusable for the Guide's different shape (long-form
+sales page, no cédula/routes structure) — S5 needs its own equivalent, same as
+S4 needed its own rather than reusing S3's. `src/lib/legal-pages.tsx` and
+`src/lib/whatsapp.ts` remain brand-agnostic and reusable as-is.
+
 ## 10. Backlog
 
 - German brand or locale for the hub (Spanish, Portuguese and Swedish ship as brands, §1.11).
