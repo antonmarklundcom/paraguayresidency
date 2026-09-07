@@ -122,7 +122,7 @@
   "unsubscribe.done": "Done. That address will not receive anything else from us.",
   "unsubscribe.notFound": "That address is not on our list, so there was nothing to remove.",
   "unsubscribe.bad": "That link is not valid. If you keep getting mail you did not ask for, reply to any of it and we will remove you by hand.",
-  "unsubscribe.note": "This only affects mail from {brand}. Our sister brands keep separate lists.",
+  "unsubscribe.note": "This removes the address from every list we run, not just {brand}'s — one click, all three brands.",
   "checkout.buy": "Buy the guide — {price}",
   "checkout.starting": "Opening checkout…",
   "checkout.unavailable": "Checkout opens shortly",

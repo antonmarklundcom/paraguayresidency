@@ -115,6 +115,11 @@ export type UnsubscribeResult = 'unsubscribed' | 'not-found' | 'bad-link';
  * The unsubscribe link carries a signed address rather than a stored token, so
  * it works from any email we have ever sent — including a purchase receipt for
  * an address that never joined the list.
+ *
+ * It removes the address from EVERY brand's list, not just the one that sent
+ * the mail. Someone clicking "unsubscribe" means it; making them do it three
+ * times because we run three domains would be a dark pattern. The copy on
+ * `/unsubscribe` says so.
  */
 export async function unsubscribe(packed: string | null | undefined): Promise<UnsubscribeResult> {
   const email = packed ? unpack(packed, 'unsubscribe') : null;
