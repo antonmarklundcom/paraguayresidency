@@ -318,7 +318,60 @@ Voice for all three: plain, specific, unhurried. No "unlock", "seamless", "world
 
 Investor Pass launch and framing: Fragomen — https://www.fragomen.com/insights/paraguay-new-investor-pass-expands-permanent-residence-options.html · Immigrant Invest — https://immigrantinvest.com/insider/paraguay-investor-pass/ · Yahoo Finance — https://finance.yahoo.com/economy/policy/articles/paraguay-offers-direct-permanent-residency-152937040.html. Public sources disagree on the minimum (USD 70k, 150k and 200k all appear). That disagreement is exactly why §1.10 exists. The canonical source to obtain is the resolution text itself (cited as Resolución 0283/2026 by one source).
 
-## 12. Tooling notes for build sessions
+## 12. PROPOSED — platform consolidation (pending Anton approval, not yet locked)
+
+**Status:** draft for review. Nothing in this section is a locked decision until Anton approves it; once approved, promote the relevant parts into §1/§2 and delete this section's "proposed" framing. Do not build against this section yet.
+
+**Why:** Anton is running (or planning) seven residency-adjacent domains across four separate repos (`paraguayresidency`, `pararesi`, `flyttatillparaguay`, plus two unbuilt Spanish/Portuguese brands and `paraguayfrontier.com`). Per §1.1 this app is already built to hold "N domains, one app" — the registry pattern in `src/sites/registry.ts` scales to more `SiteKey`s with no architectural change. The stronger reason to consolidate is the **buyer/member platform**: `pararesi` independently built a login + tiered-membership + content-drip + Lemon Squeezy system that duplicates what this app's `guide` brand does with Stripe. Rather than every new low-ticket brand reinventing checkout/login/drip, all brands should share one `users`/entitlement/content-drip system and just differ in which products/tiers they sell and how they're themed.
+
+### 12.1 New domains → SiteKeys
+
+| Domain | SiteKey (proposed) | Locale | Notes |
+|---|---|---|---|
+| paraguayfrontier.com | `frontier` | `en` | America/lifestyle-angle residency brand, English |
+| residenciaparaguay.es | `es` (name TBD, e.g. `residenciaES`) | `es` | Prices in EUR + PYG |
+| residencianoparaguay.com | `pt` (name TBD, e.g. `residenciaPT`) | `pt` | Brazil-focused; prices in BRL + USD + PYG |
+| flyttatillparaguay.se | `flytta` | `sv` | Swedish, personal-story brand; folds in as a SiteKey instead of staying a separate app |
+
+`pararesi`'s content/product (the $7–27 tripwire + "Insider" membership) does not need its own domain — decide whether it becomes a product line sold *through* an existing/new SiteKey (most likely `guide` or `frontier`) rather than its own brand. **Open question for Anton, §12.6.**
+
+### 12.2 Locale becomes real
+
+`SiteConfig.locale` is currently the literal type `'en'` (registry.ts:40, plan.md §2 line "locale: 'en'"). This needs to become `'en' | 'es' | 'pt' | 'sv'`, and the i18n layer (`src/i18n/`, currently `messages/en/<site>.json` only) needs per-locale message trees: `messages/{en,es,pt,sv}/<site>.json`. `<Fact k>` values that are currency amounts need locale-aware formatting (EUR/BRL/USD/PYG, not just USD). This is O1/O2-tier work (touches i18n + facts rendering), not a Sonnet page-phase task.
+
+### 12.3 Shared buyer platform — schema merge proposal
+
+Bring `pararesi`'s member/entitlement/content-drip model into `src/db/schema.ts`, generalized so any `SiteKey` can attach products to it (today `pararesi`'s schema has no `site` column anywhere — every table needs one added):
+
+- **`users`** — merge `pararesi.users` into the existing `users` table. Existing `users.role enum(admin,editor)` gets pararesi's member concept added: either widen `role` to include `member`, or (cleaner) keep `role` as staff-only and add a separate `tier enum(none,...)` + `tierExpiresAt` + `lsCustomerId`/`stripeCustomerId` pair of columns, generalized as provider-agnostic (`payment_provider enum(stripe,lemonsqueezy)`, `provider_customer_id`) so future brands aren't locked to one processor. Add `site` (or `home_site`) if a member's origin brand matters for attribution.
+- **`purchases`** and **`subscriptions`** — bring both in largely as-is (idempotency keys, `raw json`, status enums), add `site` column, generalize `ls*` columns to `provider`/`provider_order_id`/`provider_subscription_id` so Stripe and Lemon Squeezy both write into the same tables instead of two parallel schemas (this app's existing `products`/`orders`/`download_tokens` tables were Stripe-only for one guide SKU — they get subsumed by this more general model, or kept as a thin Stripe-specific view; decide during implementation, not now).
+- **`modules` / `lessons` / `lessonProgress` / `resources` / `updatesPosts`** — bring in as-is, add `site` column to each so content-drip courses can be scoped per brand (or shared across brands via a nullable `site` = global). `minTier` generalizes from `enum(guide,insider)` to whatever product-tier taxonomy is decided in §12.6.
+- **`blogPosts`** — likely redundant with this app's existing MDX content pipeline (`content/<site>/…`); pararesi's is DB-backed, this app's is repo-MDX. Recommend keeping content in MDX (per this app's locked §1.4) and NOT importing `blogPosts` as a table — port any real pararesi blog content to MDX files instead.
+- **`leads` / `leadTokens` / `leadEmails`** — this app already has `leads` + a lead pipeline via VenderCRM (§1.6). Pararesi's separate lead-magnet table is redundant; fold its nurture-sequence concept (`leadEmails.step`) into this app's `lead_events` audit table or a new `lead_nurture_steps` table if sequenced nurture emails are wanted platform-wide.
+- **`webhookEvents`** and **`cronRuns`** — bring in as-is (idempotency logging is provider-agnostic and useful regardless of which payment processor triggered it).
+- **Gating logic** (`requireTier`, tier decay on expiry, 3-day grace on cancellation) — port pararesi's `docs/02-architecture.md` logic into a shared `src/lib/entitlements.ts`, generalized to read `site` so a brand can gate on its own product tiers.
+
+### 12.4 Payment providers — decision deferred (per Anton)
+
+Anton chose "keep both, unify later" (2026-09-07). Both Stripe and Lemon Squeezy write into the generalized `purchases`/`subscriptions`/`webhookEvents` tables via a `provider` column. No forced migration of `pararesi`'s existing Lemon Squeezy buyers to Stripe, or vice versa. Revisit consolidating to one processor once real volume exists on both.
+
+### 12.5 flyttatillparaguay migration
+
+- Its lead-capture pattern (`lib/vendercrm.ts`, `app/api/lead/route.ts`, honeypot + idempotency-by-phone-hash + UTM/attribution cookie) is a well-built independent implementation of the same `vendercrm-lead-capture` skill this app already uses (§1.6). Reconcile the two instead of keeping both: compare field-for-field, keep the more complete one (flyttatillparaguay's attribution/idempotency handling looks more developed — confirm during implementation), fold into this app's `src/lib/leads.ts`.
+- Its MDX content model (`content/guider/`, `content/stader/`, frontmatter with `cluster`, `relatedSlugs`, `faq[]`, custom `<StatRow>`/`<Disclaimer>` MDX components) maps directly onto this app's existing `content/<site>/<hub>/<slug>.mdx` pipeline (§1.4, §5.1.7) — port as `content/flytta/...`. Only 2 placeholder/draft MDX files exist today, so there's little real content to migrate yet.
+- `content/site.ts`'s nav/footer/whatsapp/author config becomes the `flytta` entry in `src/sites/registry.ts`, same shape as the three existing entries.
+- Once ported, the `flyttatillparaguay` repo is retired — no second Next.js app, matching Anton's instruction.
+
+### 12.6 Open questions for Anton before implementation starts
+
+1. Does `pararesi`'s $7–27 tripwire + Insider membership become a product sold through an existing brand (`guide`?) or does it need its own SiteKey/domain? It currently has no locked domain.
+2. Product/tier taxonomy across brands: is `guide`/`insider` pararesi-specific, or should there be one platform-wide tier vocabulary (e.g. `entry`/`plus`/`insider`) that every brand's products map into?
+3. Confirm SiteKey names for the new domains (`frontier`, and short keys for the ES/PT brands) and their English URL-slug conventions (existing rule: URLs are English on all sites per §1.3 — does that still hold for `.es`/`.com` PT/ES-language brands, or do their URLs localize too?).
+4. residenciaparaguay.es (Spanish) and residencianoparaguay.com (Portuguese, Brazil) — same positioning/content as the hub adapted per-language, or distinct offers/pricing beyond currency?
+5. Sequencing: which phase order — get the 4 new SiteKeys + locale plumbing in first, then the schema merge; or schema merge first since it's the harder foundation work? Recommend schema/locale first (Opus-tier), then per-brand content phases (Sonnet-tier), matching the existing O1→O2→S3+ pattern.
+6. Should this become its own phase table entry (O1.5/O3) before more Sonnet content phases run, given schema changes are explicitly Sonnet-restricted (§6, §4.7)?
+
+## 13. Tooling notes for build sessions
 
 - `/design` (the built-in Claude Design canvas skill) works inside Claude Code in this repo. Use it in S3–S5 to draft a hero or a bento section as artboards before coding; the canvas is a draft, the React component is the deliverable. `DesignSync` can push a component library to a Claude Design project; not required for this build.
 - Imagery only via `higgsfield-web-imagery`; never hand-place files.
