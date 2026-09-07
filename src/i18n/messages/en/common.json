@@ -126,5 +126,8 @@
   "checkout.buy": "Buy the guide — {price}",
   "checkout.starting": "Opening checkout…",
   "checkout.unavailable": "Checkout opens shortly",
-  "checkout.error": "Checkout could not be opened. Please try again, or email us and we will send a payment link."
+  "checkout.error": "Checkout could not be opened. Please try again, or email us and we will send a payment link.",
+  "guideOffer.title": "Get the guide",
+  "guideOffer.body": "Every step, document, cost and mistake, written down once and kept current. Instant PDF, and updates for twelve months.",
+  "guideOffer.newsletter": "Not ready to buy? Get the free updates instead."
 }
