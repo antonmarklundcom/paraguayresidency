@@ -569,7 +569,7 @@ final — do not touch `src/db/schema.ts`, `src/lib/entitlements.ts`,
 `src/lib/member-auth.ts`, `src/lib/purchases.ts`, `src/lib/subscriptions.ts`,
 `src/app/api/*` or `src/middleware.ts` (plan §4.7).
 
-**2026-09-07 — S3 paraguayresidency.com (hub)** — PR: (see branch `phase/s3`)
+**2026-09-07 — S3 paraguayresidency.com (hub)** — PR: https://github.com/antonmarklundcom/paraguayresidency/pull/8
 
 What now exists: every §6.1 page. Home is a full rebuild (split hero with the
 exact §11.1 copy, who-it's-for, a three-route bento, a process summary, a
