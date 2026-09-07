@@ -12,8 +12,9 @@
 | S5 | Sonnet | `prompts/sonnet-5-guide-site.md` | §6.3, §11.3 | spawned by S4 |
 | S6 | Sonnet | `prompts/sonnet-6-deploy-seo-imagery.md` | §6.4 | spawned by S5 |
 | F7 | Fable 5.1 (approved by Anton, see §1.9) | `prompts/fable-7-launch-review.md` | §5.3 | **Anton opens it manually** — S6 never spawns it |
+| F8 | Fable 5.1 (approved by Anton, see §1.9) | `prompts/fable-8-platform-consolidation-plan.md` | §12 | **Anton opens it manually** — not spawned by any phase; finalizes the §12 consolidation proposal and writes the next Opus/Sonnet phase's prompt file(s) |
 
-Total automated build: 2 Opus + 4 Sonnet sessions. Fable touches the two ends only (plan, launch review).
+Total automated build: 2 Opus + 4 Sonnet sessions. Fable touches the plan ends only (F0, F7, and F8 for the consolidation replan) — F8 itself only writes a spec and spawns nothing; the phases after it are Opus/Sonnet per F8's own output.
 
 ---
 
@@ -24,14 +25,14 @@ Total automated build: 2 Opus + 4 Sonnet sessions. Fable touches the two ends on
    - `paraguayresidency.com` — **the hub.** High-ticket done-for-you residency services (temporary → permanent residency, cédula, RUC/tax residency, family). Primary SEO surface. Lead form + consultation booking.
    - `paraguayinvestorpass.com.py` — **the premium spoke.** Investor Pass (direct permanent residency by investment, launched April 2026). Dedicated brand because it targets a different searcher (investors, family offices, migration agents) and a different ticket size. Same lead pipeline, tagged `site=investorpass`.
    - `paraguayinvestorguide.com` — **the low-ticket entry.** A paid digital guide (PDF + updates) Anton runs alone. Buyers are nurtured toward the two service brands. Also the newsletter home.
-   - Funnel direction: Guide (~$49) → Residency service ($$) → Investor Pass ($$$). Every brand links to the other two in the footer; the Guide upsells the services on its thank-you page; the service sites offer the Guide as the "not ready yet" exit.
+   - Funnel direction: Guide ($7) → Residency service ($$) → Investor Pass ($$$). Every brand links to the other two in the footer; the Guide upsells the services on its thank-you page; the service sites offer the Guide as the "not ready yet" exit.
 3. **Language:** English is the only shipped locale at launch. All UI strings and copy go through an i18n layer from the first commit (`en` shipped; `es`, `de`, `pt` keys reserved). URLs are English on all three domains (`/investor-pass`, not `/pase-inversor`).
 4. **Content lives in the repo as MDX** (`content/<site>/…`), not in an admin CMS. Anton and Claude edit content via PRs. Leads, orders, subscribers live in MySQL. A minimal `/admin` (leads + orders list, email/password login, `admin` role) exists on the hub domain only.
-5. **Payments for the Guide:** Stripe Checkout (hosted page) + webhook → order row → signed download link + email. No cart, no accounts. Price is an env value, default `4900` cents (confirm in §8).
+5. **Payments for the Guide:** Stripe Checkout (hosted page) + webhook → order row → signed download link + email. No cart, no accounts. Price is an env value, default `700` cents / $7 (confirmed 2026-09-07 — see §8; this is the low-ticket entry price, deliberately matched to the tripwire price point pararesi was also testing, so the Guide brand absorbs that product line rather than needing a separate domain — resolves §12.6 Q1).
 6. **Leads:** one `leads` table with a `site` column. Every form posts to VenderCRM via `vendercrm-lead-capture` AND stores locally (local store is the source of truth if CRM is down). Email notification via Resend (or Hostinger SMTP fallback).
 7. **Hosting decision is deferred to phase S6 with a hard rule:** the app is host-agnostic (Node server, `output: 'standalone'` optional, no Vercel-only APIs). First choice: one Hostinger Node.js slot with all three domains attached. If hPanel cannot attach multiple custom domains to one Node app, fallback is a Hostinger KVM VPS running the same app behind Caddy (automatic SSL, unlimited hostnames). Never three slots.
 8. **Design:** bespoke per brand but one component library. Shared tokens (spacing, type scale, radius, motion) + a per-site theme (accent, display font, imagery mood). Patterns from `nextjs-national-lead-gen` §4: Residency = split-screen hero + bento "routes" grid; Investor Pass = big-type editorial, dark-first, one gold-ish accent; Guide = single long-form sales page, warm light theme, big-type. Visual drafts may be produced with `/design` (see §12) — those drafts are input, the Next.js components are the deliverable.
-9. **Fable 5.1 usage approved for this project:** F0 (this plan, including §11 key copy) and F7 (launch review, opened manually by Anton). No other phase, subagent, spawned session, or automation runs on Fable. This approval is recorded here per guardrail v2 §"Approved Fable work".
+9. **Fable 5.1 usage approved for this project:** F0 (this plan, including §11 key copy), F7 (launch review, opened manually by Anton), and **F8 (2026-09-07 approval)** — finalizing the §12 platform-consolidation proposal into locked decisions, naming the remaining SiteKeys, writing key copy for any new brand needing distinct positioning, and writing the next Opus/Sonnet phase's prompt file(s) per `prompts/fable-8-platform-consolidation-plan.md`. F8 is spec/planning work, never spawned, and never spawns another Fable phase. No other phase, subagent, spawned session, or automation runs on Fable. This approval is recorded here per guardrail v2 §"Approved Fable work".
 10. **Legal figures are not copy-pasted from the web.** Every number about investment thresholds, fees, timelines and residency validity is rendered from `content/shared/facts.ts` and each entry carries a `verifiedBy`/`verifiedOn` field. Until Anton's legal partner verifies an entry, the page shows "from USD X — confirm current thresholds on your call" style wording, never a bare number.
 
 ## 2. Roles & object model
@@ -249,7 +250,7 @@ Exit: three domains live with SSL; `/api/health` OK on each host; Search Console
 
 ## 8. Open business questions (parked)
 
-1. Guide price: $49 default. $29 sells more, $79 signals more; decide before S6 live.
+1. ~~Guide price: $49 default. $29 sells more, $79 signals more; decide before S6 live.~~ **Decided 2026-09-07: $7.** Matches the tripwire price point, positions the Guide as the platform's shared low-ticket entry product (see §1.5, §12.6 Q1).
 2. Is `paraguayinvestorpass.com.py` the canonical Investor Pass brand, or should a `.com` be acquired and the `.com.py` redirect? (.com.py is fine for EN searchers but odd for a non-Paraguay audience.)
 3. Referral fee structure for the `/for-agents` page.
 4. Whether the hub should show prices at all (skill says transparency wins; Paraguayan legal partners often prefer "on request").
@@ -322,7 +323,7 @@ Investor Pass launch and framing: Fragomen — https://www.fragomen.com/insights
 
 **Status:** draft for review. Nothing in this section is a locked decision until Anton approves it; once approved, promote the relevant parts into §1/§2 and delete this section's "proposed" framing. Do not build against this section yet.
 
-**Why:** Anton is running (or planning) seven residency-adjacent domains across four separate repos (`paraguayresidency`, `pararesi`, `flyttatillparaguay`, plus two unbuilt Spanish/Portuguese brands and `paraguayfrontier.com`). Per §1.1 this app is already built to hold "N domains, one app" — the registry pattern in `src/sites/registry.ts` scales to more `SiteKey`s with no architectural change. The stronger reason to consolidate is the **buyer/member platform**: `pararesi` independently built a login + tiered-membership + content-drip + Lemon Squeezy system that duplicates what this app's `guide` brand does with Stripe. Rather than every new low-ticket brand reinventing checkout/login/drip, all brands should share one `users`/entitlement/content-drip system and just differ in which products/tiers they sell and how they're themed.
+**Why:** Anton is running (or planning) seven residency-adjacent domains across three separate repos (`paraguayresidency`, `pararesi`, `flyttatillparaguay`, plus two unbuilt Spanish/Portuguese brands and `paraguayfrontier.com`) — `realestateinparaguay` is explicitly out of scope (real estate, not residency; stays its own app, see the repo-survey conversation of 2026-09-07). Per §1.1 this app is already built to hold "N domains, one app" — the registry pattern in `src/sites/registry.ts` scales to more `SiteKey`s with no architectural change. The stronger reason to consolidate is the **buyer/member platform**: `pararesi` independently built a login + tiered-membership + content-drip + Lemon Squeezy system that duplicates what this app's `guide` brand does with Stripe. Rather than every new low-ticket brand reinventing checkout/login/drip, all brands should share one `users`/entitlement/content-drip system and just differ in which products/tiers they sell and how they're themed.
 
 ### 12.1 New domains → SiteKeys
 
@@ -333,7 +334,7 @@ Investor Pass launch and framing: Fragomen — https://www.fragomen.com/insights
 | residencianoparaguay.com | `pt` (name TBD, e.g. `residenciaPT`) | `pt` | Brazil-focused; prices in BRL + USD + PYG |
 | flyttatillparaguay.se | `flytta` | `sv` | Swedish, personal-story brand; folds in as a SiteKey instead of staying a separate app |
 
-`pararesi`'s content/product (the $7–27 tripwire + "Insider" membership) does not need its own domain — decide whether it becomes a product line sold *through* an existing/new SiteKey (most likely `guide` or `frontier`) rather than its own brand. **Open question for Anton, §12.6.**
+`pararesi`'s content/product (the $7–27 tripwire + "Insider" membership) does not need its own domain — **decided 2026-09-07:** it sells through the existing `guide` SiteKey (paraguayinvestorguide.com), whose entry price is now $7 to match, resolving §12.6 Q1. `pararesi`'s "Insider" subscription tier becomes an upsell tier *within* `guide`, not a separate brand.
 
 ### 12.2 Locale becomes real
 
@@ -364,7 +365,7 @@ Anton chose "keep both, unify later" (2026-09-07). Both Stripe and Lemon Squeezy
 
 ### 12.6 Open questions for Anton before implementation starts
 
-1. Does `pararesi`'s $7–27 tripwire + Insider membership become a product sold through an existing brand (`guide`?) or does it need its own SiteKey/domain? It currently has no locked domain.
+1. ~~Does `pararesi`'s $7–27 tripwire + Insider membership become a product sold through an existing brand or need its own SiteKey?~~ **Resolved 2026-09-07:** sells through `guide` at $7. See §1.5, §8, §12.1.
 2. Product/tier taxonomy across brands: is `guide`/`insider` pararesi-specific, or should there be one platform-wide tier vocabulary (e.g. `entry`/`plus`/`insider`) that every brand's products map into?
 3. Confirm SiteKey names for the new domains (`frontier`, and short keys for the ES/PT brands) and their English URL-slug conventions (existing rule: URLs are English on all sites per §1.3 — does that still hold for `.es`/`.com` PT/ES-language brands, or do their URLs localize too?).
 4. residenciaparaguay.es (Spanish) and residencianoparaguay.com (Portuguese, Brazil) — same positioning/content as the hub adapted per-language, or distinct offers/pricing beyond currency?
