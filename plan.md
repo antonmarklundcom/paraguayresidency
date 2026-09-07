@@ -272,7 +272,7 @@ Decisions and deviations:
 
 Where O2 looks first: `src/db/schema.ts` (leads, lead_events, subscribers, products, orders, download_tokens are all already there — do not retrofit), `src/lib/current-site.ts` for the request's brand, `src/sites/resolve.ts` if a new shared `/api/...` path needs passthrough, `src/i18n/messages/en/*` for every user-facing string, and `content/shared/facts.ts` before writing any figure.
 
-**2026-09-07 — O2 Conversion core** — PR: PLACEHOLDER_PR_URL
+**2026-09-07 — O2 Conversion core** — PR: https://github.com/antonmarklundcom/paraguayresidency/pull/4
 
 What now exists: the whole conversion path, verified end to end against a real
 MySQL. `createLead()` (`src/lib/leads.ts`) is the single funnel every form on
