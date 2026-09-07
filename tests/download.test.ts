@@ -20,7 +20,7 @@ const paid = {
   expiresAt: later(TOKEN_TTL_MS),
   downloads: 0,
   maxDownloads: MAX_DOWNLOADS,
-  orderStatus: 'paid' as const,
+  purchaseStatus: 'paid' as const,
 };
 
 describe('downloadState', () => {
@@ -48,8 +48,8 @@ describe('downloadState', () => {
   });
 
   it('refuses an unpaid or refunded order however good the token is', () => {
-    expect(downloadState({ ...paid, orderStatus: 'pending' }, NOW)).toBe('unpaid');
-    expect(downloadState({ ...paid, orderStatus: 'refunded' }, NOW)).toBe('unpaid');
+    expect(downloadState({ ...paid, purchaseStatus: 'pending' }, NOW)).toBe('unpaid');
+    expect(downloadState({ ...paid, purchaseStatus: 'refunded' }, NOW)).toBe('unpaid');
   });
 
   it('reports a missing token rather than throwing', () => {

@@ -1,4 +1,4 @@
-import { HUB_SITE, isSiteKey, siteForHost, sites, type SiteKey } from './registry';
+import { HUB_SITE, isSiteKey, siteForHost, siteSellsProducts, sites, type SiteKey } from './registry';
 
 /** Internal route prefix the middleware rewrites into. Never a public URL. */
 export const SITE_ROUTE_PREFIX = '/sites';
@@ -27,6 +27,13 @@ const PASSTHROUGH_PREFIXES = ['/api/', '/_next/', '/__nextjs'];
 // from the host (Next only supports `robots.ts` at the app root), so unlike
 // `/sitemap.xml` it must not be rewritten into the per-site folder.
 const PASSTHROUGH_EXACT = ['/api', '/favicon.ico', '/robots.txt'];
+
+/** `/login`, `/members` and anything under `/members/`. */
+export const MEMBER_PATHS = ['/login', '/members'];
+
+export function isMemberPath(pathname: string): boolean {
+  return MEMBER_PATHS.some((p) => pathname === p || pathname.startsWith(`${p}/`));
+}
 
 function isPassthrough(pathname: string): boolean {
   return (
@@ -87,7 +94,14 @@ export function resolveRequest(input: ResolveInput): Resolution {
     return site.key === HUB_SITE ? { type: 'pass', site: site.key } : { type: 'blocked' };
   }
 
-  // 7. Everything else is a per-brand page.
+  // 7. The member area exists only on brands that sell something (§5.4.5).
+  //    On a lead-gen brand these paths must 404, not redirect: there is no
+  //    member area to send anyone to, and a redirect would advertise one.
+  if (isMemberPath(pathname) && !siteSellsProducts(site.key)) {
+    return { type: 'blocked' };
+  }
+
+  // 8. Everything else is a per-brand page.
   const suffix = pathname === '/' ? '' : pathname;
   return { type: 'rewrite', site: site.key, path: `${SITE_ROUTE_PREFIX}/${site.key}${suffix}` };
 }

@@ -63,7 +63,7 @@ describe('admin is reachable on the hub host only', () => {
   it('never rewrites an admin path into a per-brand folder', () => {
     for (const key of SITE_KEYS) {
       for (const host of sites[key].hosts) {
-        const result = resolveRequest({ host, pathname: '/admin/orders', isDev: false });
+        const result = resolveRequest({ host, pathname: '/admin/purchases', isDev: false });
         expect(result.type).not.toBe('rewrite');
       }
     }

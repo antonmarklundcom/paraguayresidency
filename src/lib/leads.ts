@@ -9,6 +9,8 @@ import { sendToVenderCrm, type CrmOutcome } from './vendercrm';
 import { leadAutoReply, leadNotification } from './email-templates';
 import { notifyTo, sendEmail, unsubscribeUrl } from './email';
 import { checkFormGuard, isSilentDrop, type GuardVerdict } from './form-guard';
+import { dedupeKey, firstTouch, hasAttribution, type Attribution } from './attribution';
+import { isDuplicateKey } from './webhooks';
 
 /**
  * The single path every form on every brand takes (plan §5.2.1).
@@ -21,7 +23,9 @@ import { checkFormGuard, isSilentDrop, type GuardVerdict } from './form-guard';
 
 export interface CreateLeadOptions {
   /** Attribution cookie value (`vc_attr`) if the request had one. */
-  attribution?: Record<string, string>;
+  attribution?: Attribution;
+  /** The visitor's `Referer`, for a first touch the cookie did not record. */
+  referrer?: string | null;
   honeypot?: unknown;
   timestamp?: unknown;
   /** Injected in tests; production waits for delivery inside the request. */
@@ -29,7 +33,14 @@ export interface CreateLeadOptions {
 }
 
 export type CreateLeadResult =
-  | { ok: true; leadId: number | null; dropped?: 'honeypot'; stored: boolean }
+  | {
+      ok: true;
+      leadId: number | null;
+      dropped?: 'honeypot';
+      stored: boolean;
+      /** The same phone submitted again inside the window (plan §5.4.7). */
+      duplicate?: boolean;
+    }
   | { ok: false; errors: Record<string, string>; guard?: GuardVerdict };
 
 const GUARD_MESSAGES: Record<Exclude<GuardVerdict, 'ok' | 'honeypot'>, string> = {
@@ -58,36 +69,72 @@ export async function createLead(
   if (!parsed.ok) return { ok: false, errors: parsed.errors };
   const input = parsed.data;
 
+  // First-touch attribution, ported from flytta (plan §5.4.7). `leads.utm`
+  // keeps last touch; this column keeps the session that actually earned the
+  // lead, so a branded search on the way to converting cannot claim it.
+  const attribution = firstTouch({
+    cookie: options.attribution ?? {},
+    landingPath: input.pagePath,
+    referrer: options.referrer,
+    now,
+  });
+
   if (!hasDatabase()) {
     // No DATABASE_URL (local dev, a preview build): the submission must still
     // reach a human, so the delivery side runs and the failure is loud in the
     // log rather than silent on screen.
     console.error('[leads] DATABASE_URL is not set — lead not stored, delivering anyway');
-    await deliverLead(null, input, options.attribution ?? {}, now);
+    await deliverLead(null, input, attribution, now);
     return { ok: true, leadId: null, stored: false };
   }
 
   const db = getDb();
-  const [result] = await db.insert(leads).values({
-    site: input.site as SiteKey,
-    kind: input.kind,
-    name: input.name ?? null,
-    email: input.email,
-    phone: input.phone ?? null,
-    whatsapp: input.whatsapp ?? null,
-    country: input.country ?? null,
-    nationality: input.nationality ?? null,
-    message: buildMessage(input),
-    quizAnswers: input.quizAnswers ?? null,
-    quizResult: input.quizResult ?? null,
-    pagePath: input.pagePath ?? null,
-    utm: { ...(input.utm ?? {}), ...(options.attribution ?? {}) },
-    crmStatus: 'pending',
-  });
-  const leadId = Number(result.insertId);
+  // A double submit — an impatient second click, a retried request — is one
+  // lead, not two. The unique index on `dedupe_key` is what enforces it, so
+  // two requests racing cannot both win (plan §5.4.7).
+  const key = dedupeKey({ site: input.site, phone: input.phone ?? input.whatsapp, now });
+
+  let leadId: number;
+  try {
+    const [result] = await db.insert(leads).values({
+      site: input.site as SiteKey,
+      kind: input.kind,
+      name: input.name ?? null,
+      email: input.email,
+      phone: input.phone ?? null,
+      whatsapp: input.whatsapp ?? null,
+      country: input.country ?? null,
+      nationality: input.nationality ?? null,
+      message: buildMessage(input),
+      quizAnswers: input.quizAnswers ?? null,
+      quizResult: input.quizResult ?? null,
+      pagePath: input.pagePath ?? null,
+      utm: input.utm ?? null,
+      attribution: hasAttribution(attribution) ? attribution : null,
+      dedupeKey: key,
+      crmStatus: 'pending',
+    });
+    leadId = Number(result.insertId);
+  } catch (error) {
+    if (!key || !isDuplicateKey(error)) throw error;
+    // The first submission is already stored and already delivered. Record the
+    // repeat on that lead and answer the visitor with the same success state.
+    const [existing] = await db
+      .select({ id: leads.id })
+      .from(leads)
+      .where(eq(leads.dedupeKey, key))
+      .limit(1);
+    if (!existing) throw error;
+    await recordEvent(existing.id, 'duplicate.suppressed', {
+      kind: input.kind,
+      site: input.site,
+      at: now.toISOString(),
+    });
+    return { ok: true, leadId: existing.id, stored: true, duplicate: true };
+  }
 
   await recordEvent(leadId, 'created', { kind: input.kind, site: input.site });
-  await deliverLead(leadId, input, options.attribution ?? {}, now);
+  await deliverLead(leadId, input, attribution, now);
 
   return { ok: true, leadId, stored: true };
 }
@@ -128,7 +175,7 @@ async function recordEvent(
 async function deliverLead(
   leadId: number | null,
   input: LeadInput,
-  attribution: Record<string, string>,
+  attribution: Attribution,
   now: Date,
 ): Promise<void> {
   await Promise.allSettled([
@@ -140,7 +187,7 @@ async function deliverLead(
 async function pushToCrm(
   leadId: number | null,
   input: LeadInput,
-  attribution: Record<string, string>,
+  attribution: Attribution,
   now: Date,
 ): Promise<CrmOutcome> {
   const site = getSite(input.site as SiteKey);
@@ -156,13 +203,15 @@ async function pushToCrm(
       source: site.crm.source,
       page_url: input.pagePath ? `https://${site.canonicalHost}${input.pagePath}` : undefined,
       referrer: attribution.referrer,
-      utm_source: input.utm?.utm_source ?? attribution.utm_source,
-      utm_medium: input.utm?.utm_medium ?? attribution.utm_medium,
-      utm_campaign: input.utm?.utm_campaign ?? attribution.utm_campaign,
-      utm_term: input.utm?.utm_term ?? attribution.utm_term,
-      utm_content: input.utm?.utm_content ?? attribution.utm_content,
-      gclid: input.utm?.gclid ?? attribution.gclid,
-      fbclid: input.utm?.fbclid ?? attribution.fbclid,
+      // First touch wins on the CRM contact too: the campaign that earned the
+      // visitor is the one worth crediting, not the last click before the form.
+      utm_source: attribution.utm_source ?? input.utm?.utm_source,
+      utm_medium: attribution.utm_medium ?? input.utm?.utm_medium,
+      utm_campaign: attribution.utm_campaign ?? input.utm?.utm_campaign,
+      utm_term: attribution.utm_term ?? input.utm?.utm_term,
+      utm_content: attribution.utm_content ?? input.utm?.utm_content,
+      gclid: attribution.gclid ?? input.utm?.gclid,
+      fbclid: attribution.fbclid ?? input.utm?.fbclid,
       fields: {
         kind: input.kind,
         site: input.site,
@@ -273,7 +322,7 @@ export async function retryLeadDelivery(leadId: number): Promise<CrmOutcome> {
   };
 
   await recordEvent(leadId, 'crm.retry', { by: 'admin' });
-  return pushToCrm(leadId, input, (lead.utm as Record<string, string>) ?? {}, new Date());
+  return pushToCrm(leadId, input, (lead.attribution as Attribution) ?? {}, new Date());
 }
 
 export type { Lead };

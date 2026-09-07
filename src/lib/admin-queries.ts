@@ -1,7 +1,15 @@
 import 'server-only';
-import { and, desc, eq, gte, lte, sql, type SQL } from 'drizzle-orm';
+import { and, desc, eq, gte, inArray, like, lte, sql, type SQL } from 'drizzle-orm';
 import { getDb, hasDatabase } from '@/db';
-import { leads, orders, products, factsVerification } from '@/db/schema';
+import {
+  factsVerification,
+  leads,
+  products,
+  providerCustomers,
+  purchases,
+  subscriptions,
+  users,
+} from '@/db/schema';
 import { LEAD_KINDS, type LeadKind } from './lead-schema';
 import { isSiteKey, type SiteKey } from '@/sites/registry';
 
@@ -81,26 +89,109 @@ export async function allLeadsForExport(filters: LeadFilters) {
   return getDb().select().from(leads).where(leadWhere(filters)).orderBy(desc(leads.id)).limit(5000);
 }
 
-export async function listOrders() {
+export async function listPurchases() {
   if (!hasDatabase()) return { rows: [], unavailable: true as const };
   const rows = await getDb()
     .select({
-      id: orders.id,
-      email: orders.email,
-      name: orders.name,
-      status: orders.status,
-      amountCents: orders.amountCents,
-      currency: orders.currency,
-      stripeSessionId: orders.stripeSessionId,
-      createdAt: orders.createdAt,
-      paidAt: orders.paidAt,
+      id: purchases.id,
+      site: purchases.site,
+      email: purchases.email,
+      name: purchases.name,
+      status: purchases.status,
+      provider: purchases.provider,
+      amountCents: purchases.amountCents,
+      currency: purchases.currency,
+      providerCheckoutId: purchases.providerCheckoutId,
+      providerOrderId: purchases.providerOrderId,
+      userId: purchases.userId,
+      createdAt: purchases.createdAt,
+      paidAt: purchases.paidAt,
       productName: products.name,
     })
-    .from(orders)
-    .leftJoin(products, eq(products.id, orders.productId))
-    .orderBy(desc(orders.id))
+    .from(purchases)
+    .leftJoin(products, eq(products.id, purchases.productId))
+    .orderBy(desc(purchases.id))
     .limit(200);
   return { rows, unavailable: false as const };
+}
+
+export async function listSubscriptions() {
+  if (!hasDatabase()) return { rows: [], unavailable: true as const };
+  const rows = await getDb()
+    .select({
+      id: subscriptions.id,
+      site: subscriptions.site,
+      status: subscriptions.status,
+      provider: subscriptions.provider,
+      providerSubscriptionId: subscriptions.providerSubscriptionId,
+      currentPeriodEnd: subscriptions.currentPeriodEnd,
+      cancelledAt: subscriptions.cancelledAt,
+      endsAt: subscriptions.endsAt,
+      createdAt: subscriptions.createdAt,
+      updatedAt: subscriptions.updatedAt,
+      email: users.email,
+      userId: users.id,
+      productName: products.name,
+    })
+    .from(subscriptions)
+    .leftJoin(users, eq(users.id, subscriptions.userId))
+    .leftJoin(products, eq(products.id, subscriptions.productId))
+    .orderBy(desc(subscriptions.id))
+    .limit(200);
+  return { rows, unavailable: false as const };
+}
+
+/**
+ * The member list (plan §5.4.9). `tier` here is the CACHED column — it is
+ * labelled as such on screen, because the truth is `entitlements.ts` and a
+ * disagreement between the two is exactly what the admin needs to see.
+ */
+export async function listMembers(search?: string) {
+  if (!hasDatabase()) return { rows: [], unavailable: true as const };
+  const where = search?.trim()
+    ? and(eq(users.role, 'member'), like(users.email, `%${search.trim().toLowerCase()}%`))
+    : eq(users.role, 'member');
+
+  const rows = await getDb()
+    .select({
+      id: users.id,
+      email: users.email,
+      name: users.name,
+      tier: users.tier,
+      tierExpiresAt: users.tierExpiresAt,
+      homeSite: users.homeSite,
+      createdAt: users.createdAt,
+      lastLoginAt: users.lastLoginAt,
+    })
+    .from(users)
+    .where(where)
+    .orderBy(desc(users.id))
+    .limit(200);
+
+  if (!rows.length) return { rows: [], unavailable: false as const };
+
+  // One extra query rather than N: the provider ids for everyone on the page.
+  const ids = rows.map((r) => r.id);
+  const customers = await getDb()
+    .select({
+      userId: providerCustomers.userId,
+      provider: providerCustomers.provider,
+      providerCustomerId: providerCustomers.providerCustomerId,
+    })
+    .from(providerCustomers)
+    .where(inArray(providerCustomers.userId, ids));
+
+  const byUser = new Map<number, string[]>();
+  for (const c of customers) {
+    const list = byUser.get(c.userId) ?? [];
+    list.push(`${c.provider}:${c.providerCustomerId}`);
+    byUser.set(c.userId, list);
+  }
+
+  return {
+    rows: rows.map((r) => ({ ...r, providerIds: byUser.get(r.id) ?? [] })),
+    unavailable: false as const,
+  };
 }
 
 export async function listFactVerification() {

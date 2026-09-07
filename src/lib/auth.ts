@@ -45,6 +45,17 @@ export async function getSession(): Promise<IronSession<AdminSession>> {
 
 export type Role = 'admin' | 'editor';
 
+/**
+ * The roles the ADMIN session may ever carry. `member` is deliberately absent:
+ * a member is not staff, has no password, and signs in through the separate
+ * cookie in `src/lib/member-auth.ts` (plan §5.4.5).
+ */
+export const STAFF_ROLES: readonly Role[] = ['admin', 'editor'];
+
+export function isStaffRole(role: string | null | undefined): role is Role {
+  return !!role && (STAFF_ROLES as readonly string[]).includes(role);
+}
+
 /** Throws rather than returning a boolean, so a forgotten check cannot pass. */
 export function requireRole(session: AdminSession | null, allowed: Role[]): asserts session is AdminSession & { userId: number; role: Role } {
   if (!session?.userId || !session.role || !allowed.includes(session.role)) {
@@ -79,10 +90,19 @@ export async function login(email: string, password: string): Promise<LoginResul
 
   const [user] = await getDb().select().from(users).where(eq(users.email, normalized)).limit(1);
   // Compare against a dummy hash when the user does not exist so a missing
-  // account and a wrong password take the same time to answer.
+  // account and a wrong password take the same time to answer. A member row
+  // has no password hash at all, so it lands on the same dummy and answers
+  // identically — a buyer cannot probe for staff accounts here.
   const hash = user?.passwordHash ?? '$2a$12$invalidinvalidinvalidinvalidinvalidinvalidinvalidinvalidin';
   const matches = await bcrypt.compare(password, hash);
   if (!user || !matches) return { ok: false, error: 'Those details do not match an account.' };
+
+  // Belt and braces on top of the missing hash: a `member` row can never mint
+  // an admin session, whatever else went wrong above.
+  if (!isStaffRole(user.role)) {
+    console.warn('[auth] refused an admin login for a non-staff role:', user.role);
+    return { ok: false, error: 'Those details do not match an account.' };
+  }
 
   const session = await getSession();
   session.userId = user.id;

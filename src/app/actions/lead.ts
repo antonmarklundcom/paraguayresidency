@@ -3,7 +3,7 @@
 import { cookies, headers } from 'next/headers';
 import { createLead } from '@/lib/leads';
 import { pickUtm } from '@/lib/lead-schema';
-import { readAttribution } from '@/lib/vendercrm';
+import { parseAttribution } from '@/lib/attribution';
 import { HONEYPOT_FIELD, TIMESTAMP_FIELD } from '@/lib/form-guard';
 import { subscribe } from '@/lib/subscribers';
 
@@ -28,7 +28,8 @@ export async function submitLeadAction(
   form: FormData,
 ): Promise<LeadFormState> {
   const cookieStore = await cookies();
-  const attribution = readAttribution(cookieStore.get('vc_attr')?.value);
+  const attribution = parseAttribution(cookieStore.get('vc_attr')?.value);
+  const referrer = (await headers()).get('referer');
 
   const quizAnswersRaw = str(form, 'quizAnswers');
   let quizAnswers: Record<string, string> | undefined;
@@ -61,6 +62,7 @@ export async function submitLeadAction(
     },
     {
       attribution,
+      referrer,
       honeypot: form.get(HONEYPOT_FIELD),
       timestamp: form.get(TIMESTAMP_FIELD),
     },

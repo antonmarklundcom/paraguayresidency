@@ -17,7 +17,7 @@ export interface DownloadCandidate {
   expiresAt: Date | string;
   downloads: number;
   maxDownloads: number;
-  orderStatus: 'pending' | 'paid' | 'refunded';
+  purchaseStatus: 'pending' | 'paid' | 'refunded';
 }
 
 export function downloadState(
@@ -25,7 +25,7 @@ export function downloadState(
   now: Date = new Date(),
 ): DownloadState {
   if (!candidate) return 'not-found';
-  if (candidate.orderStatus !== 'paid') return 'unpaid';
+  if (candidate.purchaseStatus !== 'paid') return 'unpaid';
   const expiresAt =
     candidate.expiresAt instanceof Date ? candidate.expiresAt : new Date(candidate.expiresAt);
   if (!Number.isFinite(expiresAt.getTime())) return 'expired';

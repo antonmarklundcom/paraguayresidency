@@ -38,12 +38,16 @@ export function PlaceholderHome({ site }: { site: SiteKey }) {
         actions={actions}
         aside={
           <div className="text-[var(--fg-muted)]">
-            <p className="text-[var(--text-xs)] tracking-[0.16em] uppercase">Investor Pass</p>
-            <p className="mt-[var(--space-3)]">
-              Qualifying investment: <Fact k="investorpass.min_investment_usd" />.
+            <p className="text-[var(--text-xs)] tracking-[0.16em] uppercase">
+              {t(site, 'placeholder.factsHeading')}
             </p>
             <p className="mt-[var(--space-3)]">
-              Temporary residency: <Fact k="temporary.duration" />.
+              {t(site, 'facts.label.minInvestment')}:{' '}
+              <Fact k="investorpass.min_investment_usd" site={site} />.
+            </p>
+            <p className="mt-[var(--space-3)]">
+              {t(site, 'facts.label.temporaryDuration')}:{' '}
+              <Fact k="temporary.duration" site={site} />.
             </p>
           </div>
         }
@@ -67,14 +71,15 @@ export function PlaceholderHome({ site }: { site: SiteKey }) {
                 {page.frontmatter.description}
               </Card>
             ))}
-            {pages.length === 0 && <Card title="No articles yet" />}
+            {pages.length === 0 && <Card title={t(site, 'placeholder.noArticles')} />}
           </Bento>
         </div>
       </Section>
       <Section>
         <Container width="narrow">
           <p className="text-[var(--fg-muted)]">
-            Presence rule: <Fact k="permanent.presence_rule" />.{' '}
+            {t(site, 'facts.label.presenceRule')}:{' '}
+            <Fact k="permanent.presence_rule" site={site} />.{' '}
             <Link href="/contact" className="text-[var(--accent)] underline underline-offset-2">
               {t(site, 'nav.contact')}
             </Link>
@@ -94,5 +99,15 @@ export function contentHref(site: SiteKey, slugPath: string): string {
       return `/insights/${slugPath.split('/').slice(1).join('/')}`;
     case 'guide':
       return `/blog/${slugPath.split('/').slice(1).join('/')}`;
+    // The four consolidated brands keep the hub's `<hub>/<slug>` shape under a
+    // locale-appropriate prefix; S10–S13 own the pages behind these paths.
+    case 'frontier':
+      return `/guides/${slugPath}`;
+    case 'residenciaes':
+      return `/guias/${slugPath}`;
+    case 'residenciapt':
+      return `/guias/${slugPath}`;
+    case 'flytta':
+      return `/guider/${slugPath}`;
   }
 }

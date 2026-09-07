@@ -3,7 +3,7 @@ import { requireAdminPage } from '../guard';
 import { verifyFactAction } from '../actions';
 import { ActionButton, panel, table, td, th } from '../ui';
 import { listFactVerification } from '@/lib/admin-queries';
-import { factKeys, facts } from '@content/shared/facts';
+import { factKeys, facts, factText, localized } from '@content/shared/facts';
 
 export const dynamic = 'force-dynamic';
 export const metadata: Metadata = { title: 'Facts', robots: { index: false, follow: false } };
@@ -59,10 +59,8 @@ export default async function Page() {
                     <code>{key}</code>
                     <div className="text-[var(--fg-muted)]">{fact.label}</div>
                   </td>
-                  <td className={`${td} max-w-[20rem]`}>
-                    {fact.verified ? fact.display : fact.hedged}
-                  </td>
-                  <td className={td}>{fact.display}</td>
+                  <td className={`${td} max-w-[20rem]`}>{factText(key)}</td>
+                  <td className={td}>{localized(fact.display)}</td>
                   <td className={td}>
                     {verified ? (
                       <span className="text-[var(--success)]">

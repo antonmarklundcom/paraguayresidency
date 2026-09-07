@@ -1,0 +1,17 @@
+/* Plan B / optionality, for Americans and expats. Cool, plain, skeptical —
+   the brand's promise is "we state the catch", so the palette is sober. */
+[data-theme='frontier'] {
+  --bg: #f4f6f5;
+  --surface: #ffffff;
+  --surface-alt: #e6ebe8;
+  --fg: #16211d;
+  --fg-muted: #5a6a64;
+  --border: #cfd9d4;
+  --accent: #1d6b52;
+  --accent-fg: #ffffff;
+  --accent-soft: #d9ece3;
+  --display-font: var(--font-system);
+  --body-font: var(--font-system);
+  --radius-brand: var(--radius-sm);
+  --hero-pattern: linear-gradient(180deg, #f4f6f5 0%, #e6ebe8 100%);
+}

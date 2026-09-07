@@ -98,3 +98,70 @@ deliberately hammering `/api/subscribe` or a lead form from one address. The
 CRM rate-limits at 60/min per site and answers 429, which we log. A per-IP
 limit in middleware is worth adding before the sites carry paid traffic —
 Backlog, not a launch blocker.
+
+## O9 — pages render per request now, because `<html lang>` is per host
+
+`src/app/layout.tsx` reads the `x-site` header to set `<html lang>`. It has to
+happen there: `<html>` exists only in the root layout, while a brand's language
+is a property of the host (plan §1.3). Reading a header makes the whole tree
+dynamic, so every page route that used to prerender (`○`) is now server-rendered
+on demand (`ƒ`). Sitemaps, robots and the OG images are unaffected.
+
+For this app that is a real but modest cost — one always-on Node process, no
+build-time database, MDX read from disk — and it buys correct `lang` on the
+Spanish, Portuguese and Swedish brands, which matters more for SEO than TTFB
+does at launch traffic.
+
+**If S6 wants static generation back**, the fix is multiple root layouts: one
+route group per locale (`src/app/(en)/`, `(es)/`, `(pt)/`, `(sv)/`) with each
+brand's folder moved under the group for its locale, and each group's
+`layout.tsx` hardcoding its own `lang`. Next allows this when the top level of
+`app/` contains only route groups. It was **not** done in O9 because it moves
+`src/app/sites/<key>/` — the path every S3–S15 prompt and plan §4.12 names — and
+that churn is not worth paying before there are real Core Web Vitals numbers to
+weigh it against.
+
+## O9 — `purchases.amount_cents` from pararesi is not yet confirmed
+
+pararesi's column is `purchases.amount_usd int`, and its name does not say
+whether a $7 order is stored as `7` or `700`. Being wrong by 100× would be the
+worst import bug available, so `scripts/import-pararesi.ts` never guesses
+silently: `PARARESI_AMOUNT_UNIT=cents|dollars` forces the reading, and the
+default heuristic (under 100 = dollars) reports every row it applied to in the
+`--dry-run` warnings.
+
+**S15 must run `npm run import:pararesi -- --dry-run` against the real database
+and set `PARARESI_AMOUNT_UNIT` explicitly before the real run.** The dry run
+prints the answer: a $7 tripwire showing `700` means cents.
+
+## O9 — Lemon Squeezy was exercised with a locally-signed webhook, not a live sale
+
+Exactly the same position O2 left Stripe in, and for the same reason: there is
+no Lemon Squeezy store or key in this environment. Everything on our side of
+that boundary is verified end to end against a real MariaDB — a correctly
+signed `subscription_created` creates the member, the subscription row, the
+provider-customer link and the `insider` tier; `cancelled` keeps access to the
+end of the paid period; `expired` decays to `entry`; `resumed` restores; a
+replay is a 200 no-op; a bad signature is 401.
+
+**What is left for whoever has the keys (S15, or Anton earlier):** set
+`LEMONSQUEEZY_API_KEY`, `LEMONSQUEEZY_STORE_ID`,
+`LEMONSQUEEZY_INSIDER_VARIANT_ID` and `LEMONSQUEEZY_WEBHOOK_SECRET`, re-run
+`npm run db:seed` (the Insider product activates itself once the variant id is
+set), point the LS webhook at `/api/lemonsqueezy/webhook`, and buy the
+membership once in test mode.
+
+## O9 — `/insider` is referenced but not built
+
+`requireTier('insider', …)` redirects an under-tiered member to `/insider`,
+which S14 builds (plan §6.9). Until then that path 404s on the guide brand. It
+is only reachable by a member who is signed in and tries to open Insider-only
+content, and O9 ships no such content, so nothing can reach it yet.
+
+## O9 — no rate limit on the public endpoints (still open, narrowed)
+
+O2's note stands for `/api/subscribe` and the lead forms. `POST /api/auth/magic`
+is now rate limited in-memory (5 per 15 minutes per email and per IP), which is
+correct on one Node process but resets on every deploy and does not survive a
+move to more than one process. Worth revisiting with the same per-IP middleware
+limit O2 put in Backlog.

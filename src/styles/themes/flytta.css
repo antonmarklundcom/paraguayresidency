@@ -1,0 +1,16 @@
+/* Anton's personal-story brand, in Swedish. Quiet Nordic light, one blue. */
+[data-theme='flytta'] {
+  --bg: #f7f8fa;
+  --surface: #ffffff;
+  --surface-alt: #e8ecf2;
+  --fg: #131a24;
+  --fg-muted: #55606f;
+  --border: #d3dae3;
+  --accent: #0b4f8a;
+  --accent-fg: #ffffff;
+  --accent-soft: #d9e7f4;
+  --display-font: var(--font-system);
+  --body-font: var(--font-system);
+  --radius-brand: var(--radius);
+  --hero-pattern: linear-gradient(180deg, #f7f8fa 0%, #e8ecf2 100%);
+}

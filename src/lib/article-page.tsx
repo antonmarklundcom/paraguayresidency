@@ -43,7 +43,7 @@ export function ArticlePage({ site, slugPath }: { site: SiteKey; slugPath: strin
           </p>
         </header>
         <Prose className="mt-[var(--space-12)]">
-          <Mdx source={page.body} />
+          <Mdx source={page.body} site={site} />
         </Prose>
         {frontmatter.faq.length > 0 && (
           <div className="mt-[var(--space-16)]">
