@@ -569,6 +569,73 @@ final — do not touch `src/db/schema.ts`, `src/lib/entitlements.ts`,
 `src/lib/member-auth.ts`, `src/lib/purchases.ts`, `src/lib/subscriptions.ts`,
 `src/app/api/*` or `src/middleware.ts` (plan §4.7).
 
+**2026-09-07 — S3 paraguayresidency.com (hub)** — PR: (see branch `phase/s3`)
+
+What now exists: every §6.1 page. Home is a full rebuild (split hero with the
+exact §11.1 copy, who-it's-for, a three-route bento, a process summary, a
+hedged "why Paraguay" facts section, FAQ, closing CTA — testimonials
+deliberately omitted, not stubbed, per plan §7). Five service pages
+(`/residency/{temporary-residency,permanent-residency,cedula,tax-residency,family}`)
+share one new component, `src/app/sites/residency/_lib/ServicePage.tsx`
+(breadcrumbs, intro, body, Service JSON-LD, FAQ, the O2 consultation form, an
+optional WhatsApp link) — residency-only, not exported from `src/lib`. `/pricing`
+renders every route as "from USD —" with a TODO title until Anton supplies real
+figures (plan §7, never an invented number). `/process`, `/about` are new.
+`/investor-pass` and `/guide` are short, honest bridge pages to the sibling
+brands — `/investor-pass` is `noindex` (thin, canonical lives on
+paraguayinvestorpass.com.py) and excluded from the sitemap; `/guide` is normal
+content and included. `/privacy` and `/terms` are generic bodies in a new
+shared `src/lib/legal-pages.tsx` (brand name interpolated) — S4/S5/S10–S15
+should reuse this rather than rewriting it per brand. 8 MDX articles across
+the four hubs (documents ×2, living-in-paraguay ×2, taxes ×2, comparisons ×2),
+each 900–1400 words, every legal/financial claim through `<Fact>`, each with 2
+related links plus one hub-appropriate service page plus the Route Finder —
+`src/lib/article-page.tsx` gained optional `relatedLinks`/`serviceLink` props
+for this (additive, other brands' article routes are unaffected if they pass
+nothing). Sitemap (`seo-files.ts` `staticPaths.residency`) lists exactly the
+15 static routes plus the 8 content pages — 23 URLs, verified against the live
+`/sitemap.xml`. WhatsApp click-to-chat (`src/lib/whatsapp.ts`, plan §3b) is
+wired into the service pages and the home CTA, gated on
+`NEXT_PUBLIC_WHATSAPP_NUMBER` and invisible until Anton sets it.
+
+Decisions and deviations:
+- Page copy for residency-only routes is hardcoded JSX, not routed through
+  `t(site, key)`. `verify:i18n` rule 2 requires identical key sets across all
+  seven brand `.json` files specifically because a *shared* component calls
+  `t(runtimeSite, key)` — these pages hardcode `site="residency"` and are
+  never rendered for another brand, so the parity rule's own stated rationale
+  doesn't apply, and mirroring ~40 new keys × 7 brands of unused placeholder
+  copy would have been pure overhead. The four genuinely shared i18n
+  surfaces (Nav, Footer, `<LeadForm>`, `<FAQ>`, the Route Finder) are
+  untouched and still route through `t()`. The one small registry-adjacent
+  addition is `nav.family`, added to all four `common.json` locale files
+  (footer link), which the plan explicitly allows (§6: "adding nav items/copy
+  inside the registry is fine").
+- `serviceJsonLd()` added to `src/lib/metadata.ts` next to `organizationJsonLd`
+  — the plan's exit criteria names Service JSON-LD but O1 never built it.
+- Verified against a real MariaDB (same pattern as O2/O9): migrated, seeded,
+  `npm run verify` green, then `npm run build` + `npm start` + Lighthouse
+  (mobile, simulated throttling) on `/` (perf 0.96, SEO 1.0) and
+  `/residency/temporary-residency` (perf 0.93, SEO 1.0) — both clear the ≥90
+  bar with no imagery yet (S6 adds it).
+- Caught in the pre-handoff audit, not by the build: three MDX articles
+  (written by parallel subagents each scoped to one hub, working from the
+  `related` frontmatter graph but not from each other's link text) linked to
+  sibling articles at `/documents/...`, `/taxes/...` etc. instead of
+  `/guides/documents/...` — a 404 in production. Fixed in the five affected
+  links; a full-repo grep for the pattern found no others. Anyone using
+  multiple parallel subagents for MDX content should grep for bare
+  `](/​<hub>/...)` links afterward — subagents scoped to their own hub have no
+  visibility into the site's actual URL prefix convention for *other* hubs.
+
+Where S4 looks first: `src/lib/legal-pages.tsx` (privacy/terms, reuse as-is)
+and `src/lib/whatsapp.ts` (reuse as-is) are brand-agnostic. `src/app/sites/
+residency/_lib/ServicePage.tsx` is NOT shared — investorpass's service pages
+have a different shape (dark editorial, investment routes, no cédula/family
+equivalents) and should get their own equivalent under `src/app/sites/
+investorpass/_lib/` rather than importing this one. `src/lib/article-page.tsx`'s
+new `relatedLinks`/`serviceLink` props are available for `/insights/[slug]`.
+
 ## 10. Backlog
 
 - German brand or locale for the hub (Spanish, Portuguese and Swedish ship as brands, §1.11).
