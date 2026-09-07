@@ -1,6 +1,26 @@
 # paraguayresidency — project rules
 
-One Next.js app serving seven brands: `residency` paraguayresidency.com (hub), `investorpass` paraguayinvestorpass.com.py, `guide` paraguayinvestorguide.com (the only brand that sells), `frontier` paraguayfrontier.com, `residenciaes` residenciaparaguay.es (es), `residenciapt` residencianoparaguay.com (pt-BR), `flytta` flyttatillparaguay.se (sv). Read `plan.md` before any work; §1 decisions are locked, §9 is the build log.
+One Next.js app serving seven brands, keyed by `SiteKey`: `residency` (the hub — services, and the only host with `/admin`), `investorpass`, `guide` (the only brand that sells), `frontier`, `residenciaes` (es), `residenciapt` (pt-BR), `flytta` (sv). Read `plan.md` before any work; §1 decisions are locked, §9 is the build log.
+
+## Domains — CONFIRMED BY ANTON 2026-09-07. Do not infer a domain from a brand name.
+
+Anton owns exactly these, and nothing else for this project:
+
+| Domain | Brand |
+|---|---|
+| `paraguayresidencyguide.com` | `guide` |
+| `paraguayinvestorpass.com` | `investorpass` — brand name "Paraguay Investor Pass" |
+| `paraguayfrontier.com` | `frontier` |
+| `residenciaparaguay.es` | `residenciaes` |
+| `vidanoparaguai.com` | `residenciapt` — brand name "Vida no Paraguai" |
+| `flyttatillparaguay.se` | `flytta` |
+| `paraguayresidency.co.uk` | unassigned — hub candidate, or a UK brand |
+
+He does **NOT** own `paraguayresidency.com` (and it is not buyable), `paraguayinvestorguide.com`, or
+`residencianoparaguay.com`. The registry still names the wrong ones — **phase F9 fixes it, and no
+brand phase may run first** (plan §1.11, `KNOWN-ISSUES.md`). A domain is three lines per brand in
+`src/sites/registry.ts` and costs nothing; a `SiteKey` is a MySQL enum on nine tables and costs a
+migration.
 
 - Host → site resolution lives in `src/middleware.ts` (NOT the repo root — Next ignores it there when `src/` exists) + `src/sites/registry.ts` + `src/sites/resolve.ts`. Adding a domain = registry entry + `src/app/sites/<key>/`. Never a second app.
 - One locale per brand, set in the registry. No silent English fallback: `npm run verify:i18n` fails on a key missing from any locale or any brand file.
