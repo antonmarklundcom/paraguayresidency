@@ -141,3 +141,8 @@ dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vite/
+
+# The real guide PDF is never committed (plan §12). The placeholder is.
+private/*
+!private/README.md
+!private/guide-placeholder.pdf

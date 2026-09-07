@@ -58,6 +58,11 @@
   --accent: #1d6b4f;
   --accent-fg: #ffffff;
   --accent-soft: #e9efec;
+
+  /* Feedback colours. Shared across the three themes: a validation error must
+     read the same everywhere, and no brand accent is allowed to be red. */
+  --danger: #b3261e;
+  --success: #1d6b4f;
   --body-font: var(--font-system);
   --display-font: var(--font-serif);
   --radius-brand: var(--radius);
