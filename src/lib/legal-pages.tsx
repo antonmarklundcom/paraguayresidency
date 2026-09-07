@@ -132,7 +132,7 @@ export function TermsPage({ site }: { site: SiteKey }) {
 export function guideTermsMetadata(site: SiteKey): Metadata {
   return siteMetadata(site, {
     title: `Terms of Service — ${getSite(site).name}`,
-    description: `The terms that apply when you buy the ${getSite(site).name} digital guide.`,
+    description: `The terms that apply when you buy the ${getSite(site).name} digital PDF.`,
     path: '/terms',
   });
 }
