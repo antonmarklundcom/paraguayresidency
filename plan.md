@@ -272,6 +272,49 @@ Decisions and deviations:
 
 Where O2 looks first: `src/db/schema.ts` (leads, lead_events, subscribers, products, orders, download_tokens are all already there — do not retrofit), `src/lib/current-site.ts` for the request's brand, `src/sites/resolve.ts` if a new shared `/api/...` path needs passthrough, `src/i18n/messages/en/*` for every user-facing string, and `content/shared/facts.ts` before writing any figure.
 
+**2026-09-07 — O2 Conversion core** — PR: PLACEHOLDER_PR_URL
+
+What now exists: the whole conversion path, verified end to end against a real
+MySQL. `createLead()` (`src/lib/leads.ts`) is the single funnel every form on
+every brand takes — signed-timestamp + honeypot guard, zod validation, the
+`leads` row first, then a fire-and-forget VenderCRM push and two emails whose
+outcome lands on `leads.crm_status` and in `lead_events`. `<LeadForm>` ships
+four variants through one server action. The Route Finder (`src/features/quiz/`,
+pure `scoring.ts`) runs on all three hosts and deep-links across brands.
+Stripe Checkout, a signature-verified idempotent webhook, 72h/5-download tokens
+and a `private/`-only streaming endpoint. Double opt-in newsletter with a
+stateless signed unsubscribe. Resend → SMTP → console email. Admin on the hub
+host only: login, leads (filters + CSV), orders (resend link), facts
+(verification audit). 146 tests; `npm run verify` green.
+
+Decisions and deviations:
+- No `stripe` npm package. Two REST calls over `fetch`, and signature
+  verification written against the documented scheme — so it is a pure
+  function that tests with a locally-built fixture, no key and no SDK.
+- Investor-inquiry extras (investment range, preferred route) go onto
+  `leads.message`, not new columns. O1 froze the schema; a form field must
+  never need a migration.
+- O2 shipped `/contact` on all three brands and `/book` on the hub, ahead of
+  S3–S5, so the nav stops 404ing and every form variant has a live page. The
+  bodies are in `src/lib/conversion-pages.tsx` for S3–S5 to restyle; the wiring
+  is off-limits to them (§6).
+- `crm_status` stays `pending` when the CRM is merely unconfigured or the lead
+  has no phone (the CRM requires one as the contact identity); `failed` means a
+  real rejection worth retrying.
+- Two bugs found by running it rather than reading it: `tsx` does not load
+  `.env` (so `db:seed` never saw `DATABASE_URL`), and `output: 'standalone'`
+  moves the cwd (so `private/` was not found and downloads 503'd). Both fixed;
+  the standalone one is a warning for S6 in `KNOWN-ISSUES.md`.
+- Cleared two O1 deferrals: migrate + seed now proven idempotent against a real
+  database, and `private/guide-placeholder.pdf` ships.
+
+Where S3 looks first: `src/lib/conversion-pages.tsx` and
+`src/components/LeadForm.tsx` for how to drop a form onto a page,
+`src/features/quiz/Quiz.tsx` for the Route Finder, `src/i18n/messages/en/*` for
+every string, `docs/conversion-core.md` for the data flow and
+`docs/route-finder.md` for the scoring. Do not edit `scoring.ts`, `leads.ts`,
+`email.ts`, `src/app/api/*` or `src/middleware.ts` (§6).
+
 ## 10. Backlog
 
 - Spanish locale (`es`) for all three sites; German for hub.

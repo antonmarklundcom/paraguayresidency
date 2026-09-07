@@ -1,3 +1,4 @@
+import { existsSync } from 'node:fs';
 import { isAbsolute, join, normalize, resolve, sep } from 'node:path';
 
 /**
@@ -39,9 +40,28 @@ export function expiryFrom(now: Date = new Date(), ttlMs: number = TOKEN_TTL_MS)
   return new Date(now.getTime() + ttlMs);
 }
 
-/** Root of the non-public file store. Never under `public/`. */
+/**
+ * Root of the non-public file store. Never under `public/`.
+ *
+ * `next.config.ts` sets `output: 'standalone'`, and the standalone server runs
+ * with its cwd inside `.next/standalone/` — so `cwd/private` is wrong in
+ * exactly the environment that matters, production. Found by running the
+ * standalone build during O2 verification.
+ *
+ * Resolution order: an explicit `PRIVATE_DIR` (what the deploy sets when the
+ * files live outside the release directory), then `cwd/private`, then the
+ * repository root as seen from `.next/standalone/`.
+ */
 export function privateRoot(): string {
-  return resolve(process.cwd(), 'private');
+  const configured = (process.env.PRIVATE_DIR ?? '').trim();
+  if (configured) return resolve(configured);
+
+  const candidates = [
+    resolve(process.cwd(), 'private'),
+    // .next/standalone → ../../private
+    resolve(process.cwd(), '..', '..', 'private'),
+  ];
+  return candidates.find((candidate) => existsSync(candidate)) ?? candidates[0];
 }
 
 /**
