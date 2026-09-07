@@ -59,3 +59,21 @@ export function organizationJsonLd(site: SiteKey) {
     sameAs: config.siblings.map((key) => siteOrigin(key)),
   };
 }
+
+/** Service JSON-LD for a service page (plan §6.1 exit: "Service on service pages"). */
+export function serviceJsonLd(
+  site: SiteKey,
+  input: { name: string; description: string; path: string },
+) {
+  const config = getSite(site);
+  const origin = siteOrigin(site);
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: input.name,
+    description: input.description,
+    url: `${origin}${input.path}`,
+    provider: { '@type': 'Organization', name: config.name, url: origin },
+    areaServed: 'Paraguay',
+  };
+}

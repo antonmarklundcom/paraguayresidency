@@ -45,7 +45,23 @@ export function buildRobots(site: SiteKey): MetadataRoute.Robots {
  * is per-visitor or single-use and carries `noindex`.
  */
 const staticPaths: Record<SiteKey, string[]> = {
-  residency: ['/', '/route-finder', '/contact', '/book', '/privacy', '/terms'],
+  residency: [
+    '/',
+    '/route-finder',
+    '/contact',
+    '/book',
+    '/privacy',
+    '/terms',
+    '/residency/temporary-residency',
+    '/residency/permanent-residency',
+    '/residency/cedula',
+    '/residency/tax-residency',
+    '/residency/family',
+    '/pricing',
+    '/process',
+    '/about',
+    '/guide',
+  ],
   investorpass: ['/', '/route-finder', '/contact', '/privacy', '/terms'],
   guide: ['/', '/route-finder', '/contact', '/privacy', '/terms'],
   frontier: ['/', '/route-finder', '/contact', '/privacy', '/terms'],
