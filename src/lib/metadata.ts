@@ -77,3 +77,26 @@ export function serviceJsonLd(
     areaServed: 'Paraguay',
   };
 }
+
+/**
+ * Service + Offer JSON-LD (plan §6.2 exit: "Product/Service + Offer JSON-LD
+ * on /"). Deliberately carries no numeric price — investment thresholds are
+ * unverified until the legal partner signs off (§1.10), and structured data
+ * is not exempt from that rule just because it is invisible to the reader.
+ * `Offer` here marks the engagement as available, not as a fixed-price
+ * checkout.
+ */
+export function serviceOfferJsonLd(
+  site: SiteKey,
+  input: { name: string; description: string; path: string },
+) {
+  return {
+    ...serviceJsonLd(site, input),
+    offers: {
+      '@type': 'Offer',
+      availability: 'https://schema.org/InStock',
+      url: `${siteOrigin(site)}${input.path}`,
+      areaServed: 'Paraguay',
+    },
+  };
+}

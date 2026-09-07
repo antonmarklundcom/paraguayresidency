@@ -156,5 +156,7 @@
   "members.emptyTitle": "Ainda não há nada aqui",
   "members.emptyBody": "Suas aulas e materiais aparecem aqui conforme forem publicados.",
   "checkout.insiderBuy": "Assinar o Insider — {price}",
-  "checkout.comingSoon": "O Insider abre em breve"
+  "checkout.comingSoon": "O Insider abre em breve",
+  "nav.vsStandard": "Vs. residência padrão",
+  "nav.forAgents": "Para agentes"
 }

@@ -156,5 +156,7 @@
   "members.emptyTitle": "Nothing here yet",
   "members.emptyBody": "Your lessons and resources appear here as they are published.",
   "checkout.insiderBuy": "Join Insider — {price}",
-  "checkout.comingSoon": "Insider opens shortly"
+  "checkout.comingSoon": "Insider opens shortly",
+  "nav.vsStandard": "Vs. standard residency",
+  "nav.forAgents": "For agents"
 }

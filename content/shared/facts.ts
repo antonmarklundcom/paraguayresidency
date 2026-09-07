@@ -105,6 +105,57 @@ export const facts = {
     note: 'Tax wording must never read as advice. Keep hedged until the partner firm signs off.',
   },
   /**
+   * Added in S4 for `/investor-pass/investment-routes` (plan §6.2): each of
+   * the four qualifying routes gets its own hedged threshold rather than
+   * reusing the generic `investorpass.min_investment_usd` figure, because
+   * public sources do not even agree the routes share one minimum.
+   */
+  'investorpass.route_real_estate_usd': {
+    key: 'investorpass.route_real_estate_usd',
+    label: 'Investor Pass — real estate route minimum',
+    display: 'from USD 70,000 in qualifying real estate',
+    hedged: 'a qualifying real-estate purchase, with the current minimum confirmed on your call',
+    verified: false,
+    sources: [
+      'https://www.fragomen.com/insights/paraguay-new-investor-pass-expands-permanent-residence-options.html',
+      'https://immigrantinvest.com/insider/paraguay-investor-pass/',
+    ],
+    note: 'Per-route minimums are not consistently reported; treat as the same open question as investorpass.min_investment_usd until the resolution text is obtained.',
+  },
+  'investorpass.route_business_usd': {
+    key: 'investorpass.route_business_usd',
+    label: 'Investor Pass — productive business route minimum',
+    display: 'from USD 70,000 invested in a productive business',
+    hedged: 'a qualifying investment in a productive business, with the current minimum confirmed on your call',
+    verified: false,
+    sources: [
+      'https://www.fragomen.com/insights/paraguay-new-investor-pass-expands-permanent-residence-options.html',
+    ],
+    note: 'Same open question as investorpass.min_investment_usd.',
+  },
+  'investorpass.route_financial_usd': {
+    key: 'investorpass.route_financial_usd',
+    label: 'Investor Pass — financial instruments route minimum',
+    display: 'from USD 70,000 in qualifying financial instruments',
+    hedged: 'a qualifying financial-instrument investment, with the current minimum confirmed on your call',
+    verified: false,
+    sources: [
+      'https://immigrantinvest.com/insider/paraguay-investor-pass/',
+    ],
+    note: 'Same open question as investorpass.min_investment_usd.',
+  },
+  'investorpass.route_tourism_usd': {
+    key: 'investorpass.route_tourism_usd',
+    label: 'Investor Pass — tourism-sector route minimum',
+    display: 'from USD 70,000 invested in a qualifying tourism project',
+    hedged: 'a qualifying tourism-sector investment, with the current minimum confirmed on your call',
+    verified: false,
+    sources: [
+      'https://finance.yahoo.com/economy/policy/articles/paraguay-offers-direct-permanent-residency-152937040.html',
+    ],
+    note: 'Same open question as investorpass.min_investment_usd. Tourism-sector qualification criteria are the least documented of the four routes publicly.',
+  },
+  /**
    * Added in O9 for the ES and PT brands (§11.6–§11.7), whose Mercosur pages
    * must never state the route as settled law without the resolution text.
    */
