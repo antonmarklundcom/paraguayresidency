@@ -1,56 +1,73 @@
-# Paraguay Residency Group — one Next.js app, three domains
+# Paraguay Residency Group — one Next.js app, seven domains
 
 **Repo:** antonmarklundcom/paraguayresidency · **Stack:** Next.js 15 (App Router) + TypeScript + Tailwind + Drizzle + MySQL, per `nodejs-mysql-hostinger-stack` · **Method:** `phased-autonomous-build` · **Model rule:** `.claude/skills/fable-cost-guardrail/SKILL.md` (v2, Fable 5.1)
 
 | Phase | Model | Prompt file | Plan sections | How it starts |
 |---|---|---|---|---|
-| F0 | Fable 5.1 (done, this conversation) | — | this plan | Anton opened it |
-| O1 | Opus | `prompts/opus-1-foundation.md` | §2, §5.1 | Anton pastes one line in a fresh Opus window |
-| O2 | Opus | `prompts/opus-2-conversion-core.md` | §5.2 | spawned by O1 |
-| S3 | Sonnet | `prompts/sonnet-3-residency-site.md` | §6.1, §11.1 | spawned by O2 |
+| F0 | Fable 5.1 (done) | — | this plan | Anton opened it |
+| O1 | Opus (done, PR #2) | `prompts/opus-1-foundation.md` | §2, §5.1 | Anton pasted one line in a fresh Opus window |
+| O2 | Opus (done, PR #4) | `prompts/opus-2-conversion-core.md` | §5.2 | spawned by O1 |
+| F8 | Fable 5.1 (done 2026-09-07, approved §1.9) | `prompts/fable-8-platform-consolidation-plan.md` | §12 | Anton opened it manually; it spawned nothing |
+| O9 | Opus | `prompts/opus-9-consolidation-foundation.md` | §1.11–§1.15, §2, §5.4, §12 | **Anton pastes one line in a fresh Opus window** — runs BEFORE S3; last schema-shaping phase |
+| S3 | Sonnet | `prompts/sonnet-3-residency-site.md` | §6.1, §11.1 | spawned by O9 |
 | S4 | Sonnet | `prompts/sonnet-4-investorpass-site.md` | §6.2, §11.2 | spawned by S3 |
 | S5 | Sonnet | `prompts/sonnet-5-guide-site.md` | §6.3, §11.3 | spawned by S4 |
-| S6 | Sonnet | `prompts/sonnet-6-deploy-seo-imagery.md` | §6.4 | spawned by S5 |
-| F7 | Fable 5.1 (approved by Anton, see §1.9) | `prompts/fable-7-launch-review.md` | §5.3 | **Anton opens it manually** — S6 never spawns it |
-| F8 | Fable 5.1 (approved by Anton, see §1.9) | `prompts/fable-8-platform-consolidation-plan.md` | §12 | **Anton opens it manually** — not spawned by any phase; finalizes the §12 consolidation proposal and writes the next Opus/Sonnet phase's prompt file(s) |
+| S6 | Sonnet | `prompts/sonnet-6-deploy-seo-imagery.md` | §6.4 | spawned by S5; goes live with the three original domains |
+| S10 | Sonnet | `prompts/sonnet-10-frontier-site.md` | §6.5, §11.5 | spawned by S6, in parallel with S11–S14 |
+| S11 | Sonnet | `prompts/sonnet-11-residenciaes-site.md` | §6.6, §11.6 | spawned by S6, parallel |
+| S12 | Sonnet | `prompts/sonnet-12-residenciapt-site.md` | §6.7, §11.7 | spawned by S6, parallel |
+| S13 | Sonnet | `prompts/sonnet-13-flytta-site.md` | §6.8, §11.8 | spawned by S6, parallel |
+| S14 | Sonnet | `prompts/sonnet-14-guide-members.md` | §6.9 | spawned by S6, parallel |
+| S15 | Sonnet | `prompts/sonnet-15-deploy-new-domains.md` | §6.10 | spawned by whichever of S10–S14 merges last (claim rule in §4.12) |
+| F7 | Fable 5.1 (approved by Anton, see §1.9) | `prompts/fable-7-launch-review.md` | §5.3 | **Anton opens it manually** — S15 never spawns it |
 
-Total automated build: 2 Opus + 4 Sonnet sessions. Fable touches the plan ends only (F0, F7, and F8 for the consolidation replan) — F8 itself only writes a spec and spawns nothing; the phases after it are Opus/Sonnet per F8's own output.
+Total automated build: 3 Opus + 10 Sonnet sessions. Fable touches the plan ends only (F0, F8 as the mid-build replan opened by Anton, F7 at the end). F8 wrote a spec and spawned nothing; O9 is the next phase and Anton starts it himself. S10–S14 run in parallel per `phased-autonomous-build`'s two-lane pattern: one sequential Opus foundation lane (O9), then content phases that each own their own files.
 
 ---
 
 ## 1. Decisions already made — do not re-litigate
 
-1. **Three domains, one app, one repo, one database, one hosting slot.** Domains are rows in a site registry; adding a fourth domain is a config entry plus a page folder, never a new app.
+1. **Seven domains, one app, one repo, one database, one hosting slot.** Domains are rows in a site registry; adding a domain is a config entry plus a page folder, never a new app. The three launch brands are below; the four consolidated brands (2026-09-07, F8) are in §1.11. `realestateinparaguay` stays its own app (real estate, not residency).
 2. **The three brands and their roles in one funnel:**
    - `paraguayresidency.com` — **the hub.** High-ticket done-for-you residency services (temporary → permanent residency, cédula, RUC/tax residency, family). Primary SEO surface. Lead form + consultation booking.
    - `paraguayinvestorpass.com.py` — **the premium spoke.** Investor Pass (direct permanent residency by investment, launched April 2026). Dedicated brand because it targets a different searcher (investors, family offices, migration agents) and a different ticket size. Same lead pipeline, tagged `site=investorpass`.
    - `paraguayinvestorguide.com` — **the low-ticket entry.** A paid digital guide (PDF + updates) Anton runs alone. Buyers are nurtured toward the two service brands. Also the newsletter home.
    - Funnel direction: Guide ($7) → Residency service ($$) → Investor Pass ($$$). Every brand links to the other two in the footer; the Guide upsells the services on its thank-you page; the service sites offer the Guide as the "not ready yet" exit.
-3. **Language:** English is the only shipped locale at launch. All UI strings and copy go through an i18n layer from the first commit (`en` shipped; `es`, `de`, `pt` keys reserved). URLs are English on all three domains (`/investor-pass`, not `/pase-inversor`).
+3. **Language:** every brand has exactly one locale, set in the registry (`en` for residency, investorpass, guide, frontier; `es` for residenciaes; `pt` for residenciapt; `sv` for flytta). All UI strings go through the i18n layer; a shipped locale must be complete (`verify:i18n` fails on any missing key per locale). Brands are not translations of each other, so no `hreflang` between them. **URL rule (amended 2026-09-07):** content and service slugs are written in the brand's locale (`/residencia/temporal` on the `.es` brand, `/investor-pass` on the English brands). The shared conversion and legal routes keep their English paths on every brand — `/route-finder`, `/route-finder/result`, `/contact`, `/book`, `/confirm`, `/unsubscribe`, `/thank-you`, `/login`, `/members`, `/privacy`, `/terms` — so O2's wiring and cross-brand deep links never change. Localizing those paths is Backlog.
 4. **Content lives in the repo as MDX** (`content/<site>/…`), not in an admin CMS. Anton and Claude edit content via PRs. Leads, orders, subscribers live in MySQL. A minimal `/admin` (leads + orders list, email/password login, `admin` role) exists on the hub domain only.
-5. **Payments for the Guide:** Stripe Checkout (hosted page) + webhook → order row → signed download link + email. No cart, no accounts. Price is an env value, default `700` cents / $7 (confirmed 2026-09-07 — see §8; this is the low-ticket entry price, deliberately matched to the tripwire price point pararesi was also testing, so the Guide brand absorbs that product line rather than needing a separate domain — resolves §12.6 Q1).
+5. **Payments:** the Guide's $7 entry product sells through Stripe Checkout (hosted page) + webhook → `purchases` row → signed download link + email; no cart. Price is an env value, default `700` cents / $7 (confirmed 2026-09-07 — the low-ticket entry price, deliberately matched to the tripwire price point pararesi was testing, so the Guide brand absorbs that product line rather than needing a separate domain). Since F8, buyers also get a member account (magic-link login, no password) because the same `users` table carries the Insider membership — see §1.12–§1.13.
 6. **Leads:** one `leads` table with a `site` column. Every form posts to VenderCRM via `vendercrm-lead-capture` AND stores locally (local store is the source of truth if CRM is down). Email notification via Resend (or Hostinger SMTP fallback).
 7. **Hosting decision is deferred to phase S6 with a hard rule:** the app is host-agnostic (Node server, `output: 'standalone'` optional, no Vercel-only APIs). First choice: one Hostinger Node.js slot with all three domains attached. If hPanel cannot attach multiple custom domains to one Node app, fallback is a Hostinger KVM VPS running the same app behind Caddy (automatic SSL, unlimited hostnames). Never three slots.
 8. **Design:** bespoke per brand but one component library. Shared tokens (spacing, type scale, radius, motion) + a per-site theme (accent, display font, imagery mood). Patterns from `nextjs-national-lead-gen` §4: Residency = split-screen hero + bento "routes" grid; Investor Pass = big-type editorial, dark-first, one gold-ish accent; Guide = single long-form sales page, warm light theme, big-type. Visual drafts may be produced with `/design` (see §12) — those drafts are input, the Next.js components are the deliverable.
 9. **Fable 5.1 usage approved for this project:** F0 (this plan, including §11 key copy), F7 (launch review, opened manually by Anton), and **F8 (2026-09-07 approval)** — finalizing the §12 platform-consolidation proposal into locked decisions, naming the remaining SiteKeys, writing key copy for any new brand needing distinct positioning, and writing the next Opus/Sonnet phase's prompt file(s) per `prompts/fable-8-platform-consolidation-plan.md`. F8 is spec/planning work, never spawned, and never spawns another Fable phase. No other phase, subagent, spawned session, or automation runs on Fable. This approval is recorded here per guardrail v2 §"Approved Fable work".
-10. **Legal figures are not copy-pasted from the web.** Every number about investment thresholds, fees, timelines and residency validity is rendered from `content/shared/facts.ts` and each entry carries a `verifiedBy`/`verifiedOn` field. Until Anton's legal partner verifies an entry, the page shows "from USD X — confirm current thresholds on your call" style wording, never a bare number.
+10. **Legal figures are not copy-pasted from the web.** Every number about investment thresholds, fees, timelines and residency validity is rendered from `content/shared/facts.ts` and each entry carries a `verifiedBy`/`verifiedOn` field. Until Anton's legal partner verifies an entry, the page shows "from USD X — confirm current thresholds on your call" style wording, never a bare number. On non-English brands the hedged text is written in the brand's locale (`facts.ts` carries per-locale `display`/`hedged` with `en` required and the others falling back to `en`).
+11. **The four consolidated brands (decided 2026-09-07, F8):** `paraguayfrontier.com` → SiteKey `frontier` (en, plan-B/lifestyle angle for Americans and expats, §11.5) · `residenciaparaguay.es` → `residenciaes` (es, Spain first then Spanish-speaking LatAm, §11.6) · `residencianoparaguay.com` → `residenciapt` (pt, Brazil, §11.7) · `flyttatillparaguay.se` → `flytta` (sv, Anton's personal-story brand, §11.8). All four are lead-gen spokes for the same service team, tagged by `site`. The `flyttatillparaguay` repo is ported into this app (§12.4) and retired in S15; `pararesi` sells through `guide` (§1.12) and is retired after its data is imported. ES and PT brands do not upsell the English Guide; their soft exit is the newsletter until a localized edition exists (Backlog).
+12. **One product-tier vocabulary for the whole platform:** `none | entry | insider`. `entry` = a one-time low-ticket purchase (the $7 Guide today; pararesi's tripwire maps here). `insider` = the recurring membership (pararesi's Insider), sold through the `guide` brand. High-ticket residency and Investor Pass work is a **service, not a tier** — it is a lead, never an entitlement, and nothing is gated on it. Member content carries `min_tier enum(entry, insider)`; `entry` outranks `none`, `insider` outranks `entry`. `users.tier` is a denormalized cache; the truth is `src/lib/entitlements.ts` computed from `purchases` + `subscriptions` (Insider decays to `entry` 3 days after a cancelled or expired subscription ends, and to `entry` not `none` because the buyer keeps what they bought).
+13. **Two payment providers, one set of tables.** Stripe handles one-time products (built in O2); Lemon Squeezy handles subscriptions (built and proven in pararesi, existing subscribers stay there). `products.provider` decides the checkout per product; both webhooks write `webhook_events` first, then `purchases`/`subscriptions`, then the user's tier. No forced migration of anyone's buyers; unifying to one processor is revisited when both carry real volume (Backlog).
+14. **Member content bodies live in MDX** (`content/<site>/members/<module>/<lesson>.mdx`), consistent with §1.4. The database holds only what needs querying: module/lesson metadata, ordering, `min_tier`, drip offsets and per-user progress. pararesi's DB-backed lesson and blog bodies are exported to MDX by the O9 import script.
+15. **Member auth is a passwordless magic link** (signed token via `src/lib/signing.ts`, emailed, exchanged for a separate `member` iron-session cookie). Staff keep the password login on `/admin`. A $7 buyer never sets a password; the email a processor gives us is the identity.
 
 ## 2. Roles & object model
 
-**Roles** (`users.role` enum, day one): `admin | editor`. Only `admin` exists at launch. `editor` reserved for a future content person; no owner-type roles needed (nothing user-owned).
+**Roles** (`users.role` enum): `admin | editor | member`. `admin` is the only staff role at launch; `editor` reserved. `member` (added in O9) is every buyer; members own their `lesson_progress` and nothing else. What a member may see is a **tier** (§1.12), not a role.
 
 **Sites** (code constant, not a DB table, but mirrored as the `site` enum on data rows):
 
 ```ts
 // src/sites/registry.ts
-export type SiteKey = 'residency' | 'investorpass' | 'guide';
+export type SiteKey =
+  | 'residency' | 'investorpass' | 'guide'                    // O1
+  | 'frontier' | 'residenciaes' | 'residenciapt' | 'flytta';  // O9
+export type Locale = 'en' | 'es' | 'pt' | 'sv';               // src/i18n, O9
 export interface SiteConfig {
   key: SiteKey;
   hosts: string[];              // ['paraguayresidency.com','www.paraguayresidency.com','residency.localhost']
   canonicalHost: string;        // apex; www 301s here
   name: string; tagline: string;
-  locale: 'en';                 // default; per-site later
-  theme: 'residency' | 'investorpass' | 'guide';  // maps to CSS variable set
+  locale: Locale;               // exactly one per brand (§1.3); drives <html lang>, messages/<locale>/, money formatting
+  currencies: string[];         // display order for money facts: ['USD'] · ['EUR','PYG'] · ['BRL','USD','PYG'] · ['SEK','USD']
+  theme: SiteKey;               // maps to CSS variable set
+  products?: string[];          // product slugs sold on this brand (guide: ['guide-entry','guide-insider']); absent = lead-gen only
   nav: NavItem[]; footer: FooterSpec;
   analytics?: { plausibleDomain?: string; gtmId?: string };
   crm: { source: string };      // VenderCRM source tag
@@ -58,18 +75,29 @@ export interface SiteConfig {
 }
 ```
 
-**Tables** (all created in O1, `src/db/schema.ts`; identifiers English; `site` enum column wherever a row belongs to a brand):
+**Tables** (`src/db/schema.ts`; identifiers English; `site` enum column wherever a row belongs to a brand; the `site` enum mirrors `SITE_KEYS` and a test keeps them in sync). O1 created the first eight; O9 generalizes `users`/`products`/`orders` and adds the member platform. **O9 is the last schema-shaping phase** — S10–S15 never touch this file.
 
 | table | purpose | key columns |
 |---|---|---|
-| `users` | admin login | `id, email, password_hash, role enum(admin,editor), created_at` |
-| `leads` | every form submission from any site | `id, site enum, kind enum(consultation,investor_inquiry,contact,quiz), name, email, phone, whatsapp, country, nationality, message, quiz_answers json, quiz_result varchar, page_path, utm json, crm_status enum(pending,sent,failed), crm_response json, created_at` |
+| `users` | staff login AND members | `id, email uniq, password_hash null (staff only), role enum(admin,editor,member), tier enum(none,entry,insider) (cache — truth is entitlements.ts), tier_expires_at null, home_site enum(site) null, created_at, last_login_at` |
+| `provider_customers` | a user's id at each processor | `id, user_id, provider enum(stripe,lemonsqueezy), provider_customer_id, uniq(provider, provider_customer_id)` |
+| `leads` | every form submission from any site | `id, site enum, kind enum(consultation,investor_inquiry,contact,quiz), name, email, phone, whatsapp, country, nationality, message, quiz_answers json, quiz_result varchar, page_path, utm json, attribution json (first-touch: utm, landing path, referrer, first seen — ported from flytta in O9), crm_status enum(pending,sent,failed), crm_response json, created_at` |
 | `lead_events` | audit trail | `id, lead_id, type, payload json, created_at` |
-| `subscribers` | newsletter (Guide brand primarily, any site may post) | `id, site, email, name, source, status enum(pending,confirmed,unsubscribed), confirm_token, created_at, confirmed_at` |
-| `products` | the Guide (one row now; editions later) | `id, slug, name, price_cents, currency, stripe_price_id, file_key, version, active` |
-| `orders` | Stripe checkout results | `id, product_id, email, name, stripe_session_id uniq, stripe_payment_intent, amount_cents, currency, status enum(pending,paid,refunded), site, utm json, created_at, paid_at` |
-| `download_tokens` | signed delivery | `id, order_id, token uniq, expires_at, downloads, max_downloads` |
-| `facts_verification` | optional mirror of `facts.ts` verification state for the admin view | `key, verified_by, verified_on, note` |
+| `subscribers` | newsletter (any site may post) | `id, site, email, name, source, status enum(pending,confirmed,unsubscribed), confirm_token, created_at, confirmed_at` |
+| `products` | everything sold on any brand | `id, slug uniq, site, name, tier enum(entry,insider), kind enum(one_time,subscription), provider enum(stripe,lemonsqueezy), provider_price_id, price_cents, currency, interval enum(month,year) null, file_key null, version, active` |
+| `purchases` (was `orders`) | one-time checkouts from either provider | `id, site, product_id, user_id null, email, name, provider, provider_order_id, provider_checkout_id (the Stripe session id), amount_cents, currency, status enum(pending,paid,refunded), utm json, raw json, created_at, paid_at; uniq(provider, provider_order_id)` |
+| `subscriptions` | recurring memberships | `id, site, product_id, user_id, provider, provider_subscription_id, status enum(active,past_due,cancelled,expired,paused), current_period_end, cancelled_at null, ends_at null, raw json, created_at, updated_at; uniq(provider, provider_subscription_id)` |
+| `download_tokens` | signed delivery | `id, purchase_id, token uniq, expires_at, downloads, max_downloads` |
+| `webhook_events` | idempotency log for both providers | `id, provider, provider_event_id, type, payload json, received_at, processed_at null, error null; uniq(provider, provider_event_id)` |
+| `cron_runs` | nightly tier reconcile + any future job | `id, job, started_at, finished_at null, ok, note` |
+| `modules` | course sections | `id, site enum null (null = every brand), slug, title, sort, min_tier enum(entry,insider), drip_days int, active; uniq(site, slug)` |
+| `lessons` | lesson metadata; body is MDX (§1.14) | `id, module_id, slug, title, sort, min_tier, drip_days, content_path, active; uniq(module_id, slug)` |
+| `lesson_progress` | per-member completion | `user_id, lesson_id, completed_at; pk(user_id, lesson_id)` |
+| `resources` | member downloads (streamed from `private/`) | `id, site null, slug, title, file_key, min_tier, sort` |
+| `updates_posts` | member-only changelog / updates feed | `id, site null, slug, title, min_tier, published_at, content_path` |
+| `facts_verification` | mirror of `facts.ts` verification state for the admin view | `key, verified_by, verified_on, note` |
+
+Not imported from pararesi (decided F8): `blogPosts` (→ MDX under `content/guide/blog/`), `leads`/`leadTokens` (its lead-magnet signups → `subscribers` with `source='pararesi-import'`), `leadEmails` (sequenced nurture → Backlog).
 
 **Routing model** (the multi-domain core, O1):
 
@@ -83,6 +111,8 @@ src/app/_sites/[site]/sitemap.ts   per-host sitemap, urls from that site's conte
 src/app/_sites/[site]/robots.ts
 src/app/api/…                      shared endpoints (leads, checkout, stripe webhook, subscribe)
 src/app/admin/…                    hub domain only (middleware blocks admin on other hosts)
+src/app/api/lemonsqueezy/webhook   O9; sibling of the Stripe webhook, same webhook_events log
+/login, /members/…                 O9 lib + S14 pages; mounted only on brands whose registry entry lists products
 ```
 
 Direct requests to `/_sites/...` are 404'd by middleware so every page has exactly one public URL. Each page's `generateMetadata` sets `metadataBase` from the site's canonical host, so canonicals, OG URLs and sitemaps are per-domain with no cross-domain duplicates.
@@ -99,6 +129,11 @@ Direct requests to `/_sites/...` are 404'd by middleware so every page has exact
 - SEO: per-site sitemap/robots/canonicals, JSON-LD (Organization, Service, FAQPage, Article, Product+Offer, BreadcrumbList), Core Web Vitals baseline.
 - Imagery via `higgsfield-web-imagery` (S6).
 
+**Platform (O9–S15, decided F8):**
+- Four more brands as registry entries + page folders (§1.11), each with its own locale, theme and content; the shared Route Finder, forms and newsletter run on all seven hosts.
+- Member platform on the `guide` brand: magic-link login, `entry`/`insider` tiers (§1.12), drip-gated modules/lessons with MDX bodies, resources, updates feed, Lemon Squeezy subscriptions beside Stripe one-time purchases (§1.13).
+- Import scripts for pararesi (members, purchases, subscriptions, lessons → MDX) and the flytta content port; both source repos retired in S15.
+
 **Approved extras (chained):** (a) WhatsApp click-to-chat on the two service brands — trivial, ship in S3/S4. (b) Consultation booking = Cal.com embed link if `NEXT_PUBLIC_BOOKING_URL` set, otherwise the form — ship in O2.
 
 **Backlog (§10):** Spanish locale, Investor Pass ROI calculator, guide editions/upsells, affiliate program, editor role UI.
@@ -111,11 +146,12 @@ Direct requests to `/_sites/...` are 404'd by middleware so every page has exact
 4. Stop and ask ONLY for: a missing credential with no graceful fallback, or a bad-foundation decision (schema shape, routing model, money math) where guessing wrong forces a rewrite. Everything else: choose reasonably, record it in §9, continue.
 5. Missing env values never block: document in `.env.example`, degrade gracefully (CRM off → local store only; Stripe off → "coming soon" button; email off → log to console).
 6. Every prompt is re-runnable: check what exists on the branch first, continue from the first unmet exit criterion.
-7. Model-B (Sonnet) hard limits: no schema, auth, middleware/routing, payment or CRM logic changes. Page data access only through the query/action layer O1–O2 built. Need something? Workaround + Backlog note.
-8. **Model cost guardrail (v2, Fable 5.1):** build phases, subagents, spawned sessions, workflows and triggers run on Opus or Sonnet only. Fable runs only in windows Anton opens himself. The only Fable phase in this plan (F7) is approved in §1.9 and is never spawned: the S6 handoff ends with a report telling Anton to open it. Any session that thinks it needs Fable elsewhere stops and asks Anton with the reason.
+7. Model-B (Sonnet) hard limits: no schema, auth, middleware/routing, payment, entitlement or CRM logic changes (`src/db`, `src/lib/leads.ts`, `src/lib/email.ts`, `src/lib/entitlements.ts`, `src/lib/member-auth.ts`, `src/lib/stripe.ts`, `src/lib/lemonsqueezy.ts`, `src/app/api`, `src/middleware.ts`, the shape of `src/sites/registry.ts`, `scoring.ts`). Page data access only through the query/action layer O1, O2 and O9 built. Need something? Workaround + Backlog note.
+8. **Model cost guardrail (v2, Fable 5.1):** build phases, subagents, spawned sessions, workflows and triggers run on Opus or Sonnet only. Fable runs only in windows Anton opens himself. The Fable phases in this plan (F7, F8) are approved in §1.9 and are never spawned: F8 was opened by Anton and ended with a report telling him to open O9 himself; the S15 handoff ends with a report telling Anton to open F7. Any session that thinks it needs Fable elsewhere stops and asks Anton with the reason.
 9. **Phase handoff** — hand off only when four gates pass: PR merged green; exit checklist passed; pre-handoff audit done (re-run `npm run build` + `npm run verify`, adversarially re-read your own merged diff, fix findings); §9 build-log entry committed. Then spawn the next phase as a NEW session via claude-code-remote `create_session`: inherit environment and permission mode (never `plan`), `model` per the phase table (Opus or Sonnet only), `prompt` exactly `Read prompts/<next-file>.md in this repo and execute it.` Then end with the phase report. Fallback when `create_session` is unavailable: continue in the same window if the next phase uses the same model; stop and report at a model switch.
 10. **Build log:** before merging, append a dated 5–10 line entry to §9 — phase id + PR link, what now exists, decisions/deviations, where the next phase should look first. Fresh sessions orient from `plan.md` + §9 + `KNOWN-ISSUES.md` only.
-11. **Facts rule (§1.10):** no session ever hardcodes a legal/financial number in JSX or MDX. Add it to `content/shared/facts.ts` with `verified: false` and render through `<Fact k="…"/>`.
+11. **Facts rule (§1.10):** no session ever hardcodes a legal/financial number in JSX or MDX. Add it to `content/shared/facts.ts` with `verified: false` and render through `<Fact k="…"/>`. On a non-English brand, add that locale's `display`/`hedged` text to the same entry; never a second facts file.
+12. **Parallel content lane (S10–S14):** S6's handoff spawns all five at once, each on its own `phase/<id>` branch off the same `main`, each owning only `src/app/sites/<key>/`, `content/<key>/`, `src/i18n/messages/<locale>/<key>.json`, `src/styles/themes/<key>.css` and its own MDX (S14 owns `src/app/sites/guide/{login,members,insider,account}/` and `content/guide/members/`). A phase that must touch a shared file (`common.json`, a shared component) makes the smallest additive change and rebases before merging; conflicts are that phase's to resolve. **S15 claim rule:** after your PR merges, list the five PRs; if all of S10–S14 are merged and no `phase/s15` branch exists on origin, push an empty `phase/s15` branch first (the claim), then spawn S15 per §4.9. If the branch already exists, someone else claimed it — end with your report.
 
 ## 5. Model-A phases (Opus)
 
@@ -156,11 +192,31 @@ Exit: `npm run verify` green; end-to-end locally: submit each form variant → r
 
 ### 5.3 Phase F7 — Launch review (Fable 5.1, Anton opens manually)
 
-Scope is review + inline fixes only, no new features: read every public page of the three sites as a first-time visitor; check the funnel (guide → residency → investor pass) actually cross-links as §1.2 says; tighten hero/positioning copy where Sonnet's fill diverged from §11; verify every `<Fact>` still hedges unless marked verified; run Lighthouse on the three homes and the guide sales page; fix small findings inline; put anything larger in Backlog. Output: a short launch report with the §7 items still open.
+Scope is review + inline fixes only, no new features: read every public page of the seven sites as a first-time visitor (the four non-English or non-hub brands included); check the funnel (guide → residency → investor pass) actually cross-links as §1.2 says and that the member area gates on tier as §1.12 says; tighten hero/positioning copy where Sonnet's fill diverged from §11; verify every `<Fact>` still hedges unless marked verified; run Lighthouse on the three homes and the guide sales page; fix small findings inline; put anything larger in Backlog. Output: a short launch report with the §7 items still open.
+
+### 5.4 Phase O9 — Consolidation foundation (SiteKeys, locales, schema merge, entitlements, both providers)
+
+Runs after O2 and **before S3**, so every content phase, old and new, builds on one final foundation and the production database receives one schema at go-live instead of a migration of live purchase rows. This is the last schema-shaping phase. It builds no pages beyond one themed placeholder home per new brand.
+
+Load skills: `nodejs-mysql-hostinger-stack`, `vendercrm-lead-capture`, `wp-to-native-admin` (§ auth + role-gating patterns only). The session must attach `antonmarklundcom/pararesi` and `antonmarklundcom/flyttatillparaguay` read-only (`add_repo`) — it reads them, it never pushes to them.
+
+Tasks:
+1. **Registry + resolver.** `SiteKey` union and `SITE_KEYS` gain `frontier`, `residenciaes`, `residenciapt`, `flytta` (§1.11); `SiteConfig` gains `locale: Locale`, `currencies`, `products?` (§2). Four entries: hosts = apex + `www.` + `<key>.localhost`; `canonicalHost` = apex; `crm.source` = apex; siblings: frontier → residency, investorpass, guide · residenciaes → residency, investorpass · residenciapt → residency, investorpass · flytta → residency, guide; nav/footer minimal (home, contact, privacy, terms — the content phases fill them). `theme` per key with a minimal `src/styles/themes/<key>.css` (distinct accent + font, nothing more). Extend `tests/resolve.test.ts` for the eight new hosts and the www redirects. Update `siteEnum` in `src/db/schema.ts` and add a test asserting it equals `SITE_KEYS`.
+2. **Locale becomes real.** `LOCALES = ['en','es','pt','sv']`; `messagesFor(site)` loads `messages/<site.locale>/common.json` + `<site>.json`; no silent fallback to `en` in production — instead `verify:i18n` fails when any key referenced in code is missing from any shipped locale's `common.json` or from a site's own file. O9 writes complete `es`, `pt` (Brazilian) and `sv` `common.json` translations (nav, footer, forms, errors, the Route Finder questions and result copy, newsletter, legal links) and a minimal `<site>.json` per new brand (name, tagline, placeholder home). `<html lang>` and `Intl` formatting from the site locale; `formatMoney(cents, currency, locale)` in `src/lib/money.ts`. `facts.ts`: `display` and `hedged` become `string | { en: string; es?; pt?; sv? }`, `<Fact>` picks the site locale and falls back to `en`; add `mercosur.residency_route` (hedged, `verified: false`, for §11.6–§11.7) and `tax.foreign_income_treatment` (hedged, for §11.5). Existing tests keep passing.
+3. **Schema merge** exactly per the §2 table: widen `users`; add `provider_customers`, `subscriptions`, `webhook_events`, `cron_runs`, `modules`, `lessons`, `lesson_progress`, `resources`, `updates_posts`; generalize `products`; rename `orders` → `purchases` with provider columns and `download_tokens.order_id` → `purchase_id`; widen `leads.site` and add `leads.attribution`. Generate the migration with drizzle-kit (write the rename statements by hand in the generated SQL if the generator emits drop+create — never lose rows). Seed: `guide-entry` (site guide, entry, one_time, stripe, `GUIDE_PRICE_CENTS` default 700, file_key = the guide PDF) and `guide-insider` (site guide, insider, subscription, lemonsqueezy, `INSIDER_PRICE_CENTS` + `INSIDER_INTERVAL` from env, `LEMONSQUEEZY_INSIDER_VARIANT_ID`). Seed stays idempotent.
+4. **Entitlements.** `src/lib/entitlements.ts`: `TIERS = ['none','entry','insider']`, `tierRank`, `effectiveTier(user, subscriptions, purchases, now)` — `insider` while a subscription is `active`/`past_due`/`paused`, or `cancelled`/`expired` with `ends_at` (or `current_period_end`) + 3 days grace still ahead; otherwise `entry` if any paid `entry` or `insider` purchase/subscription ever existed; otherwise `none`. `hasTier(tier, minTier)`, `isDripped(lesson, firstEntitledAt, now)`, `requireTier(minTier)` for server components (redirects to `/login` when anonymous, to the product's sales path when under-tiered), `reconcileTiers()` used by `scripts/reconcile-tiers.ts` (writes `cron_runs`). Pure functions, table-driven tests for decay, grace, upgrade, and drip.
+5. **Member auth.** `src/lib/member-auth.ts`: request magic link (`POST /api/auth/magic`, rate-limited, always 200), verify (`GET /api/auth/magic/[token]` → sets the `member` iron-session cookie, separate name and secret from the admin session, `last_login_at`), `GET /api/auth/logout`. `/login` page body in `src/lib/conversion-pages.tsx` (S14 restyles it). Only brands whose registry entry lists `products` mount `/login` and `/members`; middleware 404s them elsewhere, with a test.
+6. **Payments, both providers.** `POST /api/checkout` takes `{ product: slug }` and routes on `products.provider`: Stripe → the existing session flow (now writing `purchases`); Lemon Squeezy → `src/lib/lemonsqueezy.ts` creates a checkout via the LS API with `custom_data { site, product, email? }` and returns its URL. `POST /api/lemonsqueezy/webhook`: verify `X-Signature` (HMAC-SHA256 over the raw body with `LEMONSQUEEZY_WEBHOOK_SECRET`; pure function + fixture test like the Stripe one), insert `webhook_events` first (duplicate ⇒ 200, no-op), then handle `order_created` → `purchases`, `subscription_created|updated|cancelled|resumed|expired|paused|unpaused|payment_success|payment_failed` → `subscriptions` upsert, then find-or-create the `users` row by email (`role member`, `home_site`), `provider_customers`, recompute and store `tier`. Stripe's webhook does the same for its side. After any paid event: the existing purchase email plus a magic-link line; Insider gets a welcome email. Missing keys degrade per §4.5 (LS off ⇒ Insider button says "coming soon").
+7. **Leads reconcile (§12.4).** Read flytta's `lib/vendercrm.ts` and `app/api/lead/route.ts`; port into `src/lib/leads.ts` what O2 lacks — first-touch attribution cookie (utm, landing path, referrer, first seen) stored on `leads.attribution`, idempotency by phone hash within a window so a double submit does not create a second CRM contact. Keep O2's signed-timestamp + honeypot guard. Tests for both additions. Nothing from flytta replaces O2's flow; it augments it.
+8. **Import scripts.** `scripts/import-pararesi.ts` (`PARARESI_DATABASE_URL`, MySQL, same Drizzle stack): users → `users` (`member`, `home_site guide`, tier map `guide→entry`, `insider→insider`), `purchases`/`subscriptions` → same tables with `provider lemonsqueezy` and pararesi's LS ids, `lessonProgress` → `lesson_progress`, `modules`/`lessons`/`resources`/`updatesPosts` → rows with `site guide` and bodies written to `content/guide/members/<module>/<lesson>.mdx` and `content/guide/updates/<slug>.mdx`, `blogPosts` → `content/guide/blog/<slug>.mdx` with zod-valid frontmatter, pararesi `leads` → `subscribers` (`source pararesi-import`, keep their confirmed state). `--dry-run` prints counts; idempotent on provider ids and slugs; a fixture test runs it against a tiny in-memory copy of pararesi's shape. `scripts/reconcile-tiers.ts` from task 4.
+9. **Admin.** `/admin/orders` becomes `/admin/purchases` with a subscriptions tab; new `/admin/members` (email, tier, expiry, provider ids, last login, a "grant tier until" support action written through `entitlements.ts` and logged). `requireRole` unchanged.
+10. **Docs and hygiene.** `docs/platform.md` (tiers, providers, entitlement rules, how a brand lists a product, how to add the eighth domain); update `docs/conversion-core.md`; `.env.example` gains every new var (§7); `CLAUDE.md` first line says seven brands and lists the new keys; one placeholder MDX + home per new brand so all seven hosts render; `KNOWN-ISSUES.md` for anything deferred.
+
+Exit: `npm run verify` green with the new tests (resolver ×8 hosts, `siteEnum`=`SITE_KEYS`, i18n completeness for four locales, entitlements table, LS signature fixture, checkout routing, leads attribution + idempotency, import dry-run fixture); seven `*.localhost:3000` hosts render distinctly themed placeholders with the right `lang` and canonical host; migration applied to a real MySQL from the O2 state without losing seeded rows, seed idempotent (two products); Stripe test purchase still works end to end and lands in `purchases`; LS webhook fixture → `subscriptions` row → user `insider`; `/login` and `/members` 404 on non-product brands; `/admin/members` lists the LS fixture user; PR merged.
 
 ## 6. Model-B phases (Sonnet)
 
-Hard limits for all Sonnet phases: no changes under `src/db`, `src/lib/leads.ts`, `src/lib/email.ts`, `src/app/api`, `middleware.ts`, `src/sites/registry.ts` shape (adding nav items/copy inside the registry is fine), `src/features/quiz/scoring.ts`. Page data access through `getPages/getPage/getHub` and the server actions from O2. Skills to load in every Sonnet phase: `nextjs-national-lead-gen` (§3 checklist, §4 restraint baseline), `web-design-system` if present in the skill list, otherwise the tokens in `src/styles`.
+Hard limits for all Sonnet phases: the §4.7 list — no changes under `src/db`, `src/lib/leads.ts`, `src/lib/email.ts`, `src/lib/entitlements.ts`, `src/lib/member-auth.ts`, `src/lib/stripe.ts`, `src/lib/lemonsqueezy.ts`, `src/app/api`, `src/middleware.ts`, `src/sites/registry.ts` shape (adding nav items/copy inside the registry is fine), `src/features/quiz/scoring.ts`. Page data access through `getPages/getPage/getHub`, the O2 server actions and the O9 member queries. Skills to load in every Sonnet phase: `nextjs-national-lead-gen` (§3 checklist, §4 restraint baseline), `web-design-system` if present in the skill list, otherwise the tokens in `src/styles`.
 
 ### 6.1 Phase S3 — paraguayresidency.com (hub)
 
@@ -229,7 +285,108 @@ Load: `nextjs-deploy-hostinger`, `higgsfield-web-imagery`.
 6. Imagery: hero + 2 section images per site through Higgsfield, per the imagery skill's slot workflow; alt text from MDX/registry, never hand-typed.
 7. `docs/runbook.md`: how to deploy, rotate DB password (the known trap), add a fourth domain, add an article.
 
-Exit: three domains live with SSL; `/api/health` OK on each host; Search Console verified; one live Stripe purchase + refund done; PR merged; STOP footer report to Anton, telling him F7 is next and he opens it.
+Exit: three domains live with SSL; `/api/health` OK on each host; Search Console verified; one live Stripe purchase + refund done; PR merged. Handoff: spawn S10, S11, S12, S13 and S14 at once per §4.12 (five `create_session` calls, Sonnet), then the phase report. F7 is not next yet — S15 reports that.
+
+### 6.5 Phase S10 — paraguayfrontier.com (`frontier`, en)
+
+Voice and copy anchor: §11.5. Theme: warm, wide, editorial — big type over landscape imagery, one earth-tone accent; not a prepper aesthetic. Lead form variant `consultation` tagged `site=frontier`; the Guide is the "not ready yet" exit.
+
+```
+/                         hero · "plan B, honestly" section · routes compared (Temporary / Permanent / Investor Pass→sibling) · territorial tax explained (hedged) · presence rules straight · process · FAQ · form
+/why-paraguay             the frontier argument: cost, land, tax, stability — with the counter-arguments
+/routes                   the three routes for people who may never live here full-time; links to hub service pages
+/tax                      territorial tax, RUC, what it does and does not cover (every figure a <Fact>)
+/process                  timeline + documents by nationality (US, CA, UK, AU, EU)
+/pricing                  "from" table mirroring the hub's, marked TODO until Anton fills it
+/route-finder(/result)    shared quiz
+/stories/[slug]           6 articles: an American's first 90 days · land and farms as a foreigner · banking as a new resident · the presence rules nobody explains · healthcare and insurance · Paraguay vs Panama vs Uruguay vs Mexico for a plan B
+/guide                    bridge → paraguayinvestorguide.com
+/about, /contact, /privacy, /terms
+```
+
+Exit: S3's bar (titles, descriptions, sitemap, JSON-LD, `<Fact>`, Lighthouse ≥90 on `/` and `/tax`); leads tagged `site=frontier`; PR merged.
+
+### 6.6 Phase S11 — residenciaparaguay.es (`residenciaes`, es)
+
+Voice and copy anchor: §11.6. Spanish throughout (Spain register, `tú`); URLs in Spanish except the shared routes (§1.3). Prices and money facts in EUR first, PYG second. Distinct content: the Mercosur route (hedged `<Fact k="mercosur.residency_route">`) for Argentine, Uruguayan and other Mercosur nationals; the Spain exit angle (183 days, centre of interests — hedged, "confirm with your asesor"). No Guide upsell; the newsletter is the soft exit. Lead form variants `consultation` and `contact` tagged `site=residenciaes`.
+
+```
+/                                 hero split · para quién · 3 rutas bento · proceso · por qué Paraguay (facts) · FAQ · formulario
+/residencia/temporal, /residencia/permanente, /residencia/cedula, /residencia-fiscal, /familia
+/mercosur                         la vía Mercosur: quién califica y qué simplifica (hedged)
+/pase-inversor                    bridge → paraguayinvestorpass.com.py (EN; say so)
+/proceso, /precios, /nosotros
+/route-finder(/result), /contact  shared
+/guias/[hub]/[slug]               hubs: documentos · vivir-en-paraguay · impuestos · comparativas — 8 articles min (Paraguay vs Andorra, vs Portugal, vs Uruguay among them)
+/privacy, /terms
+```
+
+Exit: S3's bar; `lang="es"`; no English UI string visible on any page (`verify:i18n` proves `common.json` is complete, a page crawl proves the rest); leads tagged `site=residenciaes`; PR merged.
+
+### 6.7 Phase S12 — residencianoparaguay.com (`residenciapt`, pt-BR)
+
+Voice and copy anchor: §11.7. Brazilian Portuguese throughout; URLs in Portuguese except shared routes. Money facts in BRL first, USD, PYG. Distinct content: the Mercosur route for Brazilians (hedged), tax framing against the Brazilian declaration (hedged, no "zero imposto"), the border-region angle (Ciudad del Este / Foz). No Guide upsell; newsletter soft exit. Leads tagged `site=residenciapt`.
+
+```
+/                                 hero split · para quem · 3 rotas bento · processo · por que o Paraguai (facts) · FAQ · formulário
+/residencia/temporaria, /residencia/permanente, /residencia/cedula, /residencia-fiscal, /familia
+/mercosul                         a rota Mercosul para brasileiros (hedged)
+/investor-pass                    bridge → paraguayinvestorpass.com.py (EN; say so)
+/processo, /precos, /sobre
+/route-finder(/result), /contact  shared
+/guias/[hub]/[slug]               hubs: documentos · morar-no-paraguai · impostos · comparativos — 8 articles min (Paraguai vs Uruguai, vs Portugal, fronteira among them)
+/privacy, /terms
+```
+
+Exit: S3's bar; `lang="pt-BR"`; no English UI string visible; leads tagged `site=residenciapt`; PR merged.
+
+### 6.8 Phase S13 — flyttatillparaguay.se (`flytta`, sv)
+
+Voice and copy anchor: §11.8, **but the existing repo comes first**: attach `antonmarklundcom/flyttatillparaguay` read-only and port `content/site.ts` (nav, footer, WhatsApp, author) into the `flytta` registry entry, `content/guider/` and `content/stader/` into `content/flytta/guider/` and `content/flytta/stader/` (same frontmatter pipeline; map `cluster` → `hub`, keep `relatedSlugs`, `faq[]`), and its `<StatRow>`/`<Disclaimer>` MDX components into `src/components` as shared components. Swedish throughout; URLs in Swedish except shared routes; money in SEK first, USD. Personal-story brand: first person plural is allowed here and nowhere else. Guide upsell allowed (Swedes read English). Leads tagged `site=flytta`.
+
+```
+/                                 story-led hero · vad vi gjorde · vägarna (Temporary / Permanent / Investor Pass→sibling) · kostnader · vanliga frågor · formulär
+/uppehallstillstand, /skatt, /kostnader, /familj
+/stader/[slug]                    ported city pages + 2 new
+/guider/[slug]                    ported guides + enough new for 8 articles total
+/var-historia                     the personal story page
+/process, /priser
+/route-finder(/result), /contact, /guide (bridge), /privacy, /terms
+```
+
+Also produce `docs/flytta-redirects.md`: every public URL the old site served → its new path (S15 turns it into 301s).
+
+Exit: S3's bar; `lang="sv"`; every ported MDX renders; redirect map complete; leads tagged `site=flytta`; PR merged.
+
+### 6.9 Phase S14 — Guide member area + Insider (`guide`, en)
+
+Pages only — auth, tiers, checkout and webhooks are O9's and off-limits (§4.7). Data through O9's member queries and `requireTier`. Owns `src/app/sites/guide/{login,members,insider,account}/`, `content/guide/members/` (bodies the import wrote, plus any new lesson Anton's outline needs), and the S5 sales page's Insider section.
+
+```
+/insider                          long-form sales page for the recurring tier: what changes monthly, updates feed preview, resources, price from products, LS checkout button via /api/checkout, FAQ, refund policy
+/login                            restyle the O9 body; "check your email" state
+/members                          dashboard: tier badge, modules in order with drip state (locked / unlocks on date / open), continue-where-you-left
+/members/[module]/[lesson]        MDX body, prev/next, mark complete (O9 action), under-tier → upgrade card, not-yet-dripped → date
+/members/updates, /members/resources
+/account                          email, tier, expiry, "manage subscription" → LS customer portal URL from O9 lib, logout
+/thank-you                        extend: entry buyers see "your login link is in your inbox" + Insider upsell
+```
+
+Exit: `npm run verify` green; with the O9 fixture users: `none` sees `/insider` and `/login` only, `entry` sees entry modules and an upgrade card on insider ones, `insider` sees everything with drip dates honoured; Lighthouse ≥90 on `/insider`; Product + Offer JSON-LD on `/insider`; PR merged.
+
+### 6.10 Phase S15 — Deploy the four new domains, member platform go-live, retire the two repos
+
+Load: `nextjs-deploy-hostinger`, `higgsfield-web-imagery`. Starts only when S10–S14 are all merged (§4.12).
+
+1. Attach `paraguayfrontier.com`, `residenciaparaguay.es`, `residencianoparaguay.com`, `flyttatillparaguay.se` (+ www) to the same slot or Caddy config S6 chose; DNS, SSL on all eight new hostnames; `/api/health` per host.
+2. Env: Lemon Squeezy live API key, store id, Insider variant id, webhook secret; register the live LS webhook; `INSIDER_PRICE_CENTS`/`INSIDER_INTERVAL` as Anton set them.
+3. `scripts/import-pararesi.ts --dry-run` against the pararesi production database, review counts with Anton's numbers, then the real run; verify one real pararesi Insider can request a magic link on paraguayinvestorguide.com and sees insider content; one real entry buyer sees entry content.
+4. flytta cutover: 301 map from `docs/flytta-redirects.md` into the registry's per-site redirects (a data entry, not middleware logic), point `flyttatillparaguay.se` DNS at the app, confirm the old URLs 301.
+5. Search Console for four domains, sitemaps submitted; analytics ids in the registry.
+6. Imagery: hero + 2 section images for each of the four brands through Higgsfield; alt text from MDX/registry.
+7. Retire: README pointer + "archived, superseded by paraguayresidency" note in `pararesi` and `flyttatillparaguay` (Anton archives on GitHub); `docs/runbook.md` updated for seven domains and the LS webhook.
+
+Exit: seven domains live with SSL and healthy; pararesi members log in and are correctly tiered; flytta old URLs 301; Search Console ×7; PR merged; STOP footer report to Anton telling him F7 is next and he opens it.
 
 ## 7. Human-inputs checklist
 
@@ -247,14 +404,22 @@ Exit: three domains live with SSL; `/api/health` OK on each host; Search Console
 | Hosting choice confirmation if hPanel can't multi-domain | S6 | plan says VPS fallback |
 | Domain DNS access for all three domains | S6 | |
 | Analytics choice (Plausible vs GA4) | S6 | default Plausible |
+| Lemon Squeezy test store: API key, store id, Insider variant id, webhook secret | O9 | degrades to "coming soon" on the Insider button |
+| Insider price + interval (`INSIDER_PRICE_CENTS`, `INSIDER_INTERVAL`) | O9 seed | env; pararesi's current price is the default Anton should set |
+| pararesi database read access (`PARARESI_DATABASE_URL`) or a dump | O9 dry-run / S15 real run | import is idempotent |
+| Lemon Squeezy live keys + live webhook | S15 | |
+| DNS access for the four new domains | S15 | |
+| flyttatillparaguay.se current hosting + list of live URLs | S13 (map) / S15 (cutover) | |
+| Which LatAm cohorts the `.es` brand should name beside Spain | S11 | default: Spain first, Argentina second, others in passing |
 
 ## 8. Open business questions (parked)
 
-1. ~~Guide price: $49 default. $29 sells more, $79 signals more; decide before S6 live.~~ **Decided 2026-09-07: $7.** Matches the tripwire price point, positions the Guide as the platform's shared low-ticket entry product (see §1.5, §12.6 Q1).
+1. ~~Guide price: $49 default. $29 sells more, $79 signals more; decide before S6 live.~~ **Decided 2026-09-07: $7.** Matches the tripwire price point, positions the Guide as the platform's shared low-ticket entry product (see §1.5, §1.12).
 2. Is `paraguayinvestorpass.com.py` the canonical Investor Pass brand, or should a `.com` be acquired and the `.com.py` redirect? (.com.py is fine for EN searchers but odd for a non-Paraguay audience.)
 3. Referral fee structure for the `/for-agents` page.
 4. Whether the hub should show prices at all (skill says transparency wins; Paraguayan legal partners often prefer "on request").
-5. Second locale priority: Spanish (LatAm investors) vs German (largest EU cohort in Paraguay).
+5. ~~Second locale priority: Spanish (LatAm investors) vs German (largest EU cohort in Paraguay).~~ Overtaken by F8: `es`, `pt`, `sv` ship as their own brands (§1.11). German stays Backlog.
+6. Insider membership: monthly or yearly, and at what price? Env-driven, so nothing blocks; Anton sets it before S15's live run.
 
 ## 9. Build log & handoff
 
@@ -316,11 +481,27 @@ every string, `docs/conversion-core.md` for the data flow and
 `docs/route-finder.md` for the scoring. Do not edit `scoring.ts`, `leads.ts`,
 `email.ts`, `src/app/api/*` or `src/middleware.ts` (§6).
 
+**2026-09-07 — F8 Platform consolidation (Fable 5.1, window opened by Anton, approved §1.9)** — branch `claude/fable-8-platform-consolidation-3bk756`
+
+What now exists: the §12 proposal is decided and folded into the locked sections. §1 gains 1.11–1.15 (the four brands and their SiteKeys `frontier`, `residenciaes`, `residenciapt`, `flytta`; the platform tier vocabulary `none|entry|insider` with service work explicitly not a tier; Stripe for one-time + Lemon Squeezy for subscriptions in one set of tables; member content bodies in MDX; passwordless member auth) and an amended 1.3 (one locale per brand, localized content slugs, shared routes keep English paths). §2 has the merged schema table — `orders` becomes `purchases`, `users` carries members, plus `provider_customers`, `subscriptions`, `webhook_events`, `cron_runs`, `modules`, `lessons`, `lesson_progress`, `resources`, `updates_posts`. §5.4 specifies O9; §6.5–§6.10 specify S10–S15; §11.5–§11.8 carry key copy for the four brands; §4.12 defines the parallel lane and the S15 claim rule. `prompts/opus-9-consolidation-foundation.md` and `prompts/sonnet-10…15` are written.
+
+Decisions and deviations:
+- O9 runs before S3, not after S6: Sonnet phases may not touch schema, and the alternative was migrating live purchase rows after launch. Cost is one Opus session before the three original brands ship.
+- The Opus prompt is numbered 9, not 3 as the F8 brief suggested — phase ids are sequential across the table and 3 is taken by S3.
+- ES and PT brands are distinct positioning (Mercosur route, Spain/Brazil tax exit angles), not translations of the hub, and do not upsell the English Guide.
+- pararesi's `blogPosts`, `leads`/`leadTokens` and `leadEmails` are not imported as tables (MDX, subscribers, Backlog respectively).
+- Nothing was spawned. Anton opens O9 himself.
+
+Where O9 looks first: §2 (the table is the contract), §5.4, §1.12–§1.15, `src/sites/registry.ts`, `src/db/schema.ts`, `src/i18n/index.ts`, `src/lib/orders.ts` + `src/lib/stripe.ts` (what `purchases` replaces), `src/lib/signing.ts` (reuse for magic links), and in the attached repos only `pararesi/src/db/schema.ts`, `pararesi/docs/02-architecture.md`, `flyttatillparaguay/lib/vendercrm.ts`, `flyttatillparaguay/app/api/lead/route.ts`.
+
 ## 10. Backlog
 
-- Spanish locale (`es`) for all three sites; German for hub.
+- German brand or locale for the hub (Spanish, Portuguese and Swedish ship as brands, §1.11).
+- Localize the shared route paths (`/contact` → `/contacto`) through a per-site path map (§1.3).
+- Unify to one payment provider once Stripe and Lemon Squeezy both carry real volume (§1.13).
+- Sequenced nurture emails (pararesi's `leadEmails` concept) as `lead_nurture_steps`.
 - Investor Pass ROI / rental-yield calculator.
-- Guide editions (Spanish edition, Investor edition) as extra `products` rows.
+- Guide editions (Spanish, Portuguese, Investor edition) as extra `products` rows; until then ES/PT brands have no entry product.
 - Affiliate/referral tracking for agents.
 - `editor` role UI.
 - Blog RSS per site.
@@ -362,58 +543,90 @@ Voice for all three: plain, specific, unhurried. No "unlock", "seamless", "world
 
 Investor Pass launch and framing: Fragomen — https://www.fragomen.com/insights/paraguay-new-investor-pass-expands-permanent-residence-options.html · Immigrant Invest — https://immigrantinvest.com/insider/paraguay-investor-pass/ · Yahoo Finance — https://finance.yahoo.com/economy/policy/articles/paraguay-offers-direct-permanent-residency-152937040.html. Public sources disagree on the minimum (USD 70k, 150k and 200k all appear). That disagreement is exactly why §1.10 exists. The canonical source to obtain is the resolution text itself (cited as Resolución 0283/2026 by one source).
 
-## 12. PROPOSED — platform consolidation (pending Anton approval, not yet locked)
+### 11.5 paraguayfrontier.com (`frontier`, en)
 
-**Status:** draft for review. Nothing in this section is a locked decision until Anton approves it; once approved, promote the relevant parts into §1/§2 and delete this section's "proposed" framing. Do not build against this section yet.
+- **Audience and angle:** Americans, Canadians, Britons, Australians who want optionality — a second residency and tax ID held in reserve, land or a small business maybe, full-time relocation maybe never. Skeptical, practical voice; the reader has seen the "Paraguay golden visa" hype and wants the catch stated.
+- **Keyword cluster:** paraguay plan b residency, second residency paraguay, paraguay residency for americans, move to paraguay from the us, paraguay territorial tax, paraguay expat residency, easiest permanent residency.
+- **Hero H1:** "A second residency you can actually get."
+- **Sub:** "Paraguay grants permanent residency without a million-dollar investment, a points test or a decade of waiting. We handle the paperwork in Asunción. You decide how much of your life to move here."
+- **Three value points:** "Plan B first: a residency card and a tax ID you can hold in reserve, with the presence rules explained honestly." · "Territorial tax means foreign income is generally outside Paraguay's reach — we say exactly what that does and does not cover." · "Land, a business, or nothing at all: the routes compared for people who may never live here full-time."
+- **Meta title:** "Paraguay Residency for Americans & Expats — Your Plan B, Handled" · **Meta description:** "Second residency in Paraguay: low thresholds, territorial tax, a permanent card. Routes compared, presence rules stated plainly, done-for-you filing in Asunción."
+- **Rule:** every tax sentence renders `<Fact k="tax.foreign_income_treatment">` or `tax.territorial_rate`; the brand never says "tax-free".
 
-**Why:** Anton is running (or planning) seven residency-adjacent domains across three separate repos (`paraguayresidency`, `pararesi`, `flyttatillparaguay`, plus two unbuilt Spanish/Portuguese brands and `paraguayfrontier.com`) — `realestateinparaguay` is explicitly out of scope (real estate, not residency; stays its own app, see the repo-survey conversation of 2026-09-07). Per §1.1 this app is already built to hold "N domains, one app" — the registry pattern in `src/sites/registry.ts` scales to more `SiteKey`s with no architectural change. The stronger reason to consolidate is the **buyer/member platform**: `pararesi` independently built a login + tiered-membership + content-drip + Lemon Squeezy system that duplicates what this app's `guide` brand does with Stripe. Rather than every new low-ticket brand reinventing checkout/login/drip, all brands should share one `users`/entitlement/content-drip system and just differ in which products/tiers they sell and how they're themed.
+### 11.6 residenciaparaguay.es (`residenciaes`, es)
 
-### 12.1 New domains → SiteKeys
+- **Audience and angle:** Spain first (the TLD), Spanish-speaking Latin America second (Argentina above all). Motives: fiscal pressure, cost of living, no language barrier, retirees and autónomos. Distinct from the hub: the Mercosur route for LatAm nationals, and the Spain tax-exit angle, both hedged.
+- **Keyword cluster:** residencia en paraguay, residencia paraguay españoles, vivir en paraguay, residencia permanente paraguay, impuestos paraguay residencia, cédula paraguaya extranjeros, emigrar a paraguay, residencia mercosur paraguay.
+- **Hero H1:** "Residencia en Paraguay, sin vueltas."
+- **Sub:** "Residencia temporal, permanente y cédula, tramitadas por un equipo que lo hace cada semana en Asunción. Tú vienes a las citas. Nosotros hacemos el resto."
+- **Three value points:** "Un honorario fijo por trámite, cotizado en euros antes de que te comprometas." · "Lista de documentos según tu nacionalidad: apostillas, traducciones y plazos reales, no un PDF genérico." · "Si Paraguay no te conviene, fiscalmente o de otra forma, te lo decimos en la primera llamada."
+- **Meta title:** "Residencia en Paraguay para Españoles — Temporal, Permanente y Cédula" · **Meta description:** "Trámite de residencia en Paraguay llave en mano. Honorarios fijos en euros, documentos según tu nacionalidad, citas en Asunción. Descubre tu ruta en 2 minutos."
+- **Rule:** the Mercosur page and every Mercosur mention render `<Fact k="mercosur.residency_route">`; Spain's 183-day and centre-of-interests rules are hedged as "confírmalo con tu asesor".
 
-| Domain | SiteKey (proposed) | Locale | Notes |
-|---|---|---|---|
-| paraguayfrontier.com | `frontier` | `en` | America/lifestyle-angle residency brand, English |
-| residenciaparaguay.es | `es` (name TBD, e.g. `residenciaES`) | `es` | Prices in EUR + PYG |
-| residencianoparaguay.com | `pt` (name TBD, e.g. `residenciaPT`) | `pt` | Brazil-focused; prices in BRL + USD + PYG |
-| flyttatillparaguay.se | `flytta` | `sv` | Swedish, personal-story brand; folds in as a SiteKey instead of staying a separate app |
+### 11.7 residencianoparaguay.com (`residenciapt`, pt-BR)
 
-`pararesi`'s content/product (the $7–27 tripwire + "Insider" membership) does not need its own domain — **decided 2026-09-07:** it sells through the existing `guide` SiteKey (paraguayinvestorguide.com), whose entry price is now $7 to match, resolving §12.6 Q1. `pararesi`'s "Insider" subscription tier becomes an upsell tier *within* `guide`, not a separate brand.
+- **Audience and angle:** Brazilians — the largest foreign community in Paraguay. Motives: tax, business and agriculture, proximity (the border region), Mercosur. The brand speaks to a neighbour, not a tourist; it never promises "zero imposto".
+- **Keyword cluster:** residência no paraguai, como morar no paraguai, residência permanente paraguai, brasileiro morar no paraguai, cédula paraguaia, impostos paraguai, residência mercosul paraguai, abrir empresa no paraguai.
+- **Hero H1:** "Residência no Paraguai para brasileiros, do início ao cartão."
+- **Sub:** "Residência temporária, permanente e cédula, com um time que faz isso toda semana em Assunção. Você comparece às consultas. Nós cuidamos do resto."
+- **Three value points:** "Brasileiros contam com o acordo do Mercosul — explicamos o que ele simplifica de verdade e o que continua igual." · "Honorário fixo por rota, cotado em reais ou dólares antes de você decidir." · "Imposto territorial, RUC e o que muda na sua declaração no Brasil, ditos com clareza, sem promessa de imposto zero."
+- **Meta title:** "Residência no Paraguai para Brasileiros — Temporária, Permanente e Cédula" · **Meta description:** "Residência no Paraguai sem complicação: rota Mercosul, honorários fixos, documentos por nacionalidade, consultas em Assunção. Descubra sua rota em 2 minutos."
+- **Rule:** as §11.6 for Mercosur; Brazilian tax consequences are hedged as "confirme com seu contador".
 
-### 12.2 Locale becomes real
+### 11.8 flyttatillparaguay.se (`flytta`, sv)
 
-`SiteConfig.locale` is currently the literal type `'en'` (registry.ts:40, plan.md §2 line "locale: 'en'"). This needs to become `'en' | 'es' | 'pt' | 'sv'`, and the i18n layer (`src/i18n/`, currently `messages/en/<site>.json` only) needs per-locale message trees: `messages/{en,es,pt,sv}/<site>.json`. `<Fact k>` values that are currency amounts need locale-aware formatting (EUR/BRL/USD/PYG, not just USD). This is O1/O2-tier work (touches i18n + facts rendering), not a Sonnet page-phase task.
+- **Audience and angle:** Swedes weighing a move — tax on leaving, cost, climate, a plainer life. This is Anton's own story; first person plural is allowed here and nowhere else. **Where the old repo already has copy (`content/site.ts`, its `plan.md`), that copy wins; this block is the anchor where none exists.**
+- **Keyword cluster:** flytta till paraguay, bo i paraguay, uppehållstillstånd paraguay, skatt paraguay, utvandra till paraguay, svenskar i paraguay, kostnader paraguay.
+- **Hero H1:** "Vi flyttade till Paraguay. Så här gör du."
+- **Sub:** "Uppehållstillstånd, cédula och skatt, förklarat av någon som gjort resan själv — och ett team i Asunción som sköter pappren åt dig."
+- **Three value points:** "Hela vägen från Skatteverket till cédulan, steg för steg, utan skönmålning." · "Fast pris per väg, i kronor, innan du bestämmer dig." · "Ärligt om vad som tar tid, vad som kostar och när Paraguay inte är rätt val."
+- **Meta title:** "Flytta till Paraguay — Uppehållstillstånd, Skatt och Vardag" · **Meta description:** "Så flyttar du till Paraguay: uppehållstillstånd, cédula, skatt och verkliga kostnader, från någon som gjort det. Hitta din väg på 2 minuter."
+- **Rule:** Swedish exit-tax rules (utflyttning, väsentlig anknytning) are hedged as "stäm av med en skatterådgivare"; Paraguayan figures through `<Fact>` as everywhere.
 
-### 12.3 Shared buyer platform — schema merge proposal
+## 12. Platform consolidation — decided 2026-09-07 (F8)
 
-Bring `pararesi`'s member/entitlement/content-drip model into `src/db/schema.ts`, generalized so any `SiteKey` can attach products to it (today `pararesi`'s schema has no `site` column anywhere — every table needs one added):
+**Status:** locked. The decisions live in §1.11–§1.15, §1.3, §2; the work is §5.4 (O9) and §6.5–§6.10 (S10–S15). This section keeps only what a build session needs that is not already above: why, the source→target map, and the flytta port.
 
-- **`users`** — merge `pararesi.users` into the existing `users` table. Existing `users.role enum(admin,editor)` gets pararesi's member concept added: either widen `role` to include `member`, or (cleaner) keep `role` as staff-only and add a separate `tier enum(none,...)` + `tierExpiresAt` + `lsCustomerId`/`stripeCustomerId` pair of columns, generalized as provider-agnostic (`payment_provider enum(stripe,lemonsqueezy)`, `provider_customer_id`) so future brands aren't locked to one processor. Add `site` (or `home_site`) if a member's origin brand matters for attribution.
-- **`purchases`** and **`subscriptions`** — bring both in largely as-is (idempotency keys, `raw json`, status enums), add `site` column, generalize `ls*` columns to `provider`/`provider_order_id`/`provider_subscription_id` so Stripe and Lemon Squeezy both write into the same tables instead of two parallel schemas (this app's existing `products`/`orders`/`download_tokens` tables were Stripe-only for one guide SKU — they get subsumed by this more general model, or kept as a thin Stripe-specific view; decide during implementation, not now).
-- **`modules` / `lessons` / `lessonProgress` / `resources` / `updatesPosts`** — bring in as-is, add `site` column to each so content-drip courses can be scoped per brand (or shared across brands via a nullable `site` = global). `minTier` generalizes from `enum(guide,insider)` to whatever product-tier taxonomy is decided in §12.6.
-- **`blogPosts`** — likely redundant with this app's existing MDX content pipeline (`content/<site>/…`); pararesi's is DB-backed, this app's is repo-MDX. Recommend keeping content in MDX (per this app's locked §1.4) and NOT importing `blogPosts` as a table — port any real pararesi blog content to MDX files instead.
-- **`leads` / `leadTokens` / `leadEmails`** — this app already has `leads` + a lead pipeline via VenderCRM (§1.6). Pararesi's separate lead-magnet table is redundant; fold its nurture-sequence concept (`leadEmails.step`) into this app's `lead_events` audit table or a new `lead_nurture_steps` table if sequenced nurture emails are wanted platform-wide.
-- **`webhookEvents`** and **`cronRuns`** — bring in as-is (idempotency logging is provider-agnostic and useful regardless of which payment processor triggered it).
-- **Gating logic** (`requireTier`, tier decay on expiry, 3-day grace on cancellation) — port pararesi's `docs/02-architecture.md` logic into a shared `src/lib/entitlements.ts`, generalized to read `site` so a brand can gate on its own product tiers.
+### 12.1 Why
 
-### 12.4 Payment providers — decision deferred (per Anton)
+Anton runs seven residency-adjacent domains across three repos. §1.1 already built this app to hold N domains through the registry. The stronger reason to consolidate is the buyer platform: `pararesi` independently built login + tiered membership + content drip on Lemon Squeezy, duplicating what the `guide` brand does on Stripe. One `users`/entitlement/drip system, one product-tier vocabulary (§1.12), and brands differ only in theme, locale and which products they list. `realestateinparaguay` is a different business and stays its own app.
 
-Anton chose "keep both, unify later" (2026-09-07). Both Stripe and Lemon Squeezy write into the generalized `purchases`/`subscriptions`/`webhookEvents` tables via a `provider` column. No forced migration of `pararesi`'s existing Lemon Squeezy buyers to Stripe, or vice versa. Revisit consolidating to one processor once real volume exists on both.
+### 12.2 Brand map
 
-### 12.5 flyttatillparaguay migration
+| Domain | SiteKey | Locale | Money | Products | Copy |
+|---|---|---|---|---|---|
+| paraguayresidency.com | `residency` | en | USD | — (hub, services) | §11.1 |
+| paraguayinvestorpass.com.py | `investorpass` | en | USD | — | §11.2 |
+| paraguayinvestorguide.com | `guide` | en | USD | `guide-entry` ($7, Stripe), `guide-insider` (recurring, Lemon Squeezy) | §11.3 |
+| paraguayfrontier.com | `frontier` | en | USD | — (Guide upsell) | §11.5 |
+| residenciaparaguay.es | `residenciaes` | es | EUR, PYG | — (newsletter exit) | §11.6 |
+| residencianoparaguay.com | `residenciapt` | pt | BRL, USD, PYG | — (newsletter exit) | §11.7 |
+| flyttatillparaguay.se | `flytta` | sv | SEK, USD | — (Guide upsell) | §11.8 |
 
-- Its lead-capture pattern (`lib/vendercrm.ts`, `app/api/lead/route.ts`, honeypot + idempotency-by-phone-hash + UTM/attribution cookie) is a well-built independent implementation of the same `vendercrm-lead-capture` skill this app already uses (§1.6). Reconcile the two instead of keeping both: compare field-for-field, keep the more complete one (flyttatillparaguay's attribution/idempotency handling looks more developed — confirm during implementation), fold into this app's `src/lib/leads.ts`.
-- Its MDX content model (`content/guider/`, `content/stader/`, frontmatter with `cluster`, `relatedSlugs`, `faq[]`, custom `<StatRow>`/`<Disclaimer>` MDX components) maps directly onto this app's existing `content/<site>/<hub>/<slug>.mdx` pipeline (§1.4, §5.1.7) — port as `content/flytta/...`. Only 2 placeholder/draft MDX files exist today, so there's little real content to migrate yet.
-- `content/site.ts`'s nav/footer/whatsapp/author config becomes the `flytta` entry in `src/sites/registry.ts`, same shape as the three existing entries.
-- Once ported, the `flyttatillparaguay` repo is retired — no second Next.js app, matching Anton's instruction.
+### 12.3 pararesi → this app (O9 import script, S15 real run)
 
-### 12.6 Open questions for Anton before implementation starts
+| pararesi | here | note |
+|---|---|---|
+| `users` | `users` (`role member`, `home_site guide`) | tier map `guide→entry`, `insider→insider`; LS customer id → `provider_customers` |
+| `purchases`, `subscriptions` | same names | `provider lemonsqueezy`, `site guide`; `ls*` columns → `provider_*` |
+| `webhookEvents`, `cronRuns` | `webhook_events`, `cron_runs` | as-is with `provider` |
+| `modules`, `lessons`, `resources`, `updatesPosts` | same, `site guide` | bodies → MDX under `content/guide/members/` and `content/guide/updates/` (§1.14) |
+| `lessonProgress` | `lesson_progress` | |
+| `blogPosts` | `content/guide/blog/*.mdx` | not a table (§1.4) |
+| `leads`, `leadTokens` | `subscribers` (`source pararesi-import`) | |
+| `leadEmails` | — | Backlog: `lead_nurture_steps` |
+| gating (`requireTier`, decay, 3-day grace) | `src/lib/entitlements.ts` | generalized over tiers, reads `site` |
 
-1. ~~Does `pararesi`'s $7–27 tripwire + Insider membership become a product sold through an existing brand or need its own SiteKey?~~ **Resolved 2026-09-07:** sells through `guide` at $7. See §1.5, §8, §12.1.
-2. Product/tier taxonomy across brands: is `guide`/`insider` pararesi-specific, or should there be one platform-wide tier vocabulary (e.g. `entry`/`plus`/`insider`) that every brand's products map into?
-3. Confirm SiteKey names for the new domains (`frontier`, and short keys for the ES/PT brands) and their English URL-slug conventions (existing rule: URLs are English on all sites per §1.3 — does that still hold for `.es`/`.com` PT/ES-language brands, or do their URLs localize too?).
-4. residenciaparaguay.es (Spanish) and residencianoparaguay.com (Portuguese, Brazil) — same positioning/content as the hub adapted per-language, or distinct offers/pricing beyond currency?
-5. Sequencing: which phase order — get the 4 new SiteKeys + locale plumbing in first, then the schema merge; or schema merge first since it's the harder foundation work? Recommend schema/locale first (Opus-tier), then per-brand content phases (Sonnet-tier), matching the existing O1→O2→S3+ pattern.
-6. Should this become its own phase table entry (O1.5/O3) before more Sonnet content phases run, given schema changes are explicitly Sonnet-restricted (§6, §4.7)?
+### 12.4 flyttatillparaguay → this app (O9 for the lead logic, S13 for content, S15 for cutover)
+
+- Lead capture: its honeypot, idempotency-by-phone-hash and first-touch attribution cookie are reconciled into `src/lib/leads.ts` (O9 task 7). O2's flow stays the spine; flytta's additions augment it. The CRM tag is `site=flytta`.
+- Content: `content/guider/`, `content/stader/` → `content/flytta/…` on the existing pipeline; `cluster` → `hub`; `<StatRow>`/`<Disclaimer>` become shared components (S13).
+- `content/site.ts` → the `flytta` registry entry (S13 fills nav/footer/WhatsApp/author; O9 creates the entry).
+- Old URLs → `docs/flytta-redirects.md` (S13) → per-site 301 map in the registry (S15). Then the repo is retired.
+
+### 12.5 Nothing left open for the plan
+
+Every §12.6 question of the draft is answered above (Q1 §1.5/§1.12; Q2 §1.12; Q3 §1.11 + §1.3; Q4 §11.6–§11.7; Q5/Q6 the phase table and §5.4). What still needs Anton is in §7 (Lemon Squeezy keys, pararesi database access, DNS, flytta hosting) and §8.6 (Insider price and interval) — none of it blocks O9.
 
 ## 13. Tooling notes for build sessions
 
