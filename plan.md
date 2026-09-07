@@ -498,7 +498,7 @@ Decisions and deviations:
 
 Where O9 looks first: §2 (the table is the contract), §5.4, §1.12–§1.15, `src/sites/registry.ts`, `src/db/schema.ts`, `src/i18n/index.ts`, `src/lib/orders.ts` + `src/lib/stripe.ts` (what `purchases` replaces), `src/lib/signing.ts` (reuse for magic links), and in the attached repos only `pararesi/src/db/schema.ts`, `pararesi/docs/02-architecture.md`, `flyttatillparaguay/lib/vendercrm.ts`, `flyttatillparaguay/app/api/lead/route.ts`.
 
-**2026-09-07 — O9 Consolidation foundation** — PR: PR_URL_PLACEHOLDER
+**2026-09-07 — O9 Consolidation foundation** — PR: https://github.com/antonmarklundcom/paraguayresidency/pull/7
 
 What now exists: one foundation for all seven brands. `frontier`,
 `residenciaes`, `residenciapt` and `flytta` are registry entries with their own
