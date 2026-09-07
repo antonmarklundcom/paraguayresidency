@@ -748,6 +748,68 @@ Where S6 looks first: `docs/runbook.md` (S6 to write) needs the Stripe live
 purchase against this page's live checkout button; `KNOWN-ISSUES.md`'s S5
 entry has the exact env vars still needed.
 
+**2026-09-07 — S6 Deploy, domains, analytics, imagery (partial — blocked on Anton, see `docs/decisions-needed.md`)**
+
+What now exists: everything §6.4 asks for that doesn't require live
+credentials or physical access. `src/lib/analytics.tsx` — env-gated Plausible
+(`NEXT_PUBLIC_PLAUSIBLE_ENABLED`), no API key needed since Plausible
+identifies a site by its own `canonicalHost`; wired into the shared root
+layout so all seven brands get it for free once flipped on. `docs/runbook.md`
+— both deploy paths (Hostinger managed Node app first choice, VPS + Caddy +
+PM2 fallback per plan §1.7), adding a fourth/eighth domain, adding an
+article, and the DB-password-rotation trap from the deploy skill. A real bug
+found by running the build, not by reading it: Next 16 warns `"next start"
+does not work with "output: standalone"`, and neither real deploy path
+(`npm run build && npm start` in both cases) ever invokes `server.js`
+directly — so `output: 'standalone'` in `next.config.ts` was actively wrong,
+not merely unused, and is removed (`KNOWN-ISSUES.md`, cleared). This also
+retires the copy-assets-next-to-server.js problem O2 had logged for S6:
+there is nothing left to copy, `next start`'s cwd is always the repo root.
+Verified: clean `rm -rf .next`, `npm run verify` green (321 tests), then
+`next build` + `next start` + `/api/health` 200 on all three launch hosts
+(`paraguayresidency.com`, `paraguayinvestorpass.com.py`,
+`paraguayinvestorguide.com`) with and without `NEXT_PUBLIC_PLAUSIBLE_ENABLED`.
+
+What is genuinely blocked, and why: this session has no Hostinger
+login/SSH, no DNS registrar access, no Stripe live keys, and no Search
+Console access — none of which have a graceful in-code fallback. Per plan
+§4.4 these are recorded in `docs/decisions-needed.md` rather than guessed at:
+(1) attempt the one-Hostinger-slot-three-domains attach, VPS fallback if it
+fails; (2) set the real env vars in hPanel; (3) DNS for the three domains;
+(4) live Stripe product/keys/webhook + one real purchase and refund; (5)
+Search Console verification and sitemap submission per domain. Imagery
+(§6.4.6) is also blocked, but on a different thing: `higgsfield-image-pipeline`
+Rule 2 requires `*.cloudfront.net` on this cloud environment's network
+allowlist, and it returned 403 (`connect_rejected`, confirmed via the agent
+proxy's `/__agentproxy/status`) — so no Higgsfield credits were spent
+generating images that could not be downloaded back into the repo. The
+one-time environment-setting fix is in `docs/decisions-needed.md`.
+
+Decisions and deviations:
+- `output: 'standalone'` removed from `next.config.ts` (above) — a correction
+  of an O1 decision, not a new deviation from this phase's own scope.
+- No Hostinger attach attempt was made (there is no hPanel access to attempt
+  it with), so §1.7's "try one slot first, VPS if it fails" question is still
+  open — whoever has hPanel access answers it, per the runbook.
+- This PR is NOT merged and S10–S14 are NOT spawned. Plan §4.12 gates the
+  parallel content lane on S6's own PR being merged green, and this phase's
+  exit checklist (three domains live, Search Console verified, one live
+  Stripe purchase + refund) cannot pass without the access above. Spawning
+  the five-way parallel lane against un-deployed infrastructure would let
+  five sessions burn budget building content nobody can see live yet, and
+  plan §4.9's "never hand off with a red PR" reads the same way for S6's own
+  handoff. Merging deploy-readiness work early was judged worse than leaving
+  it on a branch: `KNOWN-ISSUES.md` already lists the standalone-output fix
+  as a real bug, and losing it to bit-rot behind an unmerged PR while five
+  more sessions build on `main` seemed like the wrong trade.
+
+Where the next S6 attempt looks first: `docs/decisions-needed.md` (every
+credential/access item, numbered); `docs/runbook.md` (exact deploy steps for
+whichever hosting path hPanel allows); `KNOWN-ISSUES.md`'s S5 entry for the
+Stripe env vars. Once items 1–5 there are done, re-run this same prompt file
+in a fresh Sonnet session (or resume this branch) to finish the exit
+checklist, merge, and spawn S10–S14.
+
 ## 10. Backlog
 
 - German brand or locale for the hub (Spanish, Portuguese and Swedish ship as brands, §1.11).

@@ -2,6 +2,7 @@ import type { ReactNode } from 'react';
 import { headers } from 'next/headers';
 import { HTML_LANG } from '@/i18n/locales';
 import { getSite, HUB_SITE, isSiteKey, siteForHost } from '@/sites/registry';
+import { Analytics } from '@/lib/analytics';
 import './globals.css';
 
 /**
@@ -22,7 +23,10 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
 
   return (
     <html lang={HTML_LANG[getSite(site).locale]}>
-      <body>{children}</body>
+      <body>
+        <Analytics domain={getSite(site).analytics?.plausibleDomain ?? getSite(site).canonicalHost} />
+        {children}
+      </body>
     </html>
   );
 }
