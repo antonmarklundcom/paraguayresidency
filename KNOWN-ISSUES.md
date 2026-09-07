@@ -216,6 +216,7 @@ domains he does not own.
 | `investorpass` | paraguayinvestorpass.com.py | `paraguayinvestorpass.com` |
 | `residenciapt` | residencianoparaguay.com | `vidanoparaguai.com`, renamed **Vida no Paraguai** |
 | `frontier`, `residenciaes`, `flytta` | — | correct |
+| — | (absent from the plan) | **`paraguayresidency.co.uk` is owned** — hub candidate, or a UK brand |
 
 The hub is the one that is not a typo: it is the primary SEO surface, the only host serving
 `/admin`, and the redirect target for any unknown host. S3 built 17 pages and 8 articles for it.

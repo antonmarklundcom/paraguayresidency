@@ -50,7 +50,10 @@ Total automated build: 3 Opus + 10 Sonnet sessions. Fable touches the plan ends 
     `paraguayfrontier.com`, `residenciaparaguay.es`, `vidanoparaguai.com` (the Brazil brand, renamed
     **Vida no Paraguai**) and `flyttatillparaguay.se`. He does **not** own
     `paraguayresidency.com` — the hub — and it is not available to buy, nor
-    `paraguayinvestorguide.com` or `residencianoparaguay.com`. The registry, the §11 copy blocks and
+    `paraguayinvestorguide.com` or `residencianoparaguay.com`. He DOES own
+    **`paraguayresidency.co.uk`**, which no version of this plan had recorded — the only
+    `paraguayresidency`-branded domain available to the project, and therefore the leading hub
+    candidate, against the objection that a `.co.uk` is geo-targeted to the UK. The registry, the §11 copy blocks and
     the S10–S15 prompt files are therefore wrong until **F9** resolves them
     (`prompts/fable-9-domain-rebrand-replan.md`). **No further brand phase may start before F9
     lands** — S10–S14 would otherwise write footers and articles pointing at domains that do not

@@ -24,9 +24,18 @@ were wrong and one brand has no domain at all.
 | `residenciaparaguay.es` | `residenciaes` | ✅ correct |
 | `vidanoparaguai.com` | `residenciapt` — brand name **"Vida no Paraguai"** | ~~residencianoparaguay.com~~ (not owned) |
 | `flyttatillparaguay.se` | `flytta` | ✅ correct |
+| `paraguayresidency.co.uk` | **unassigned — see below** | not in the plan at all |
 
 **`paraguayresidency.com` is NOT owned and is not available to buy.** That is the `residency`
 brand — the hub. This is the decision this phase exists for.
+
+**`paraguayresidency.co.uk` is owned and was missing from every version of the plan.** Anton
+surfaced it after the list above. It is the only `paraguayresidency`-branded domain he has, which
+makes it the obvious hub candidate — but `.co.uk` is a ccTLD that Google geo-targets to the United
+Kingdom, and the hub is meant to be the global English service brand (§1.2), so using it as the hub
+trades brand fit against international reach. Weigh that honestly. It is also a legitimate eighth
+brand — a UK-market spoke, the way `frontier` serves Americans — and appending a SiteKey is free
+(§3). Ask Anton which he wants if the answer is not clear from the funnel.
 
 Anton's brief for the Brazil brand, verbatim: *"For brand go Vida no Paraguai and sell residency in
 paraguay in portugese focus on brazil."* Note the name means "Life in Paraguay", which is broader
@@ -42,6 +51,10 @@ for it.
 
 Options seen so far — weigh them, pick one, record why:
 
+0. **Use `paraguayresidency.co.uk` as the hub.** Zero cost, right brand name, already owned. The
+   objection is the ccTLD geo-signal — decide whether that actually hurts a business whose
+   customers are worldwide and whose traffic will be long-tail informational, or whether it is a
+   theoretical worry.
 1. **Buy a different residency domain** (`paraguayresidency.com.py`, `residencyparaguay.com`,
    `paraguay-residency.com`, …). Cheapest in rework; Anton must agree to register it.
 2. **Promote `paraguayfrontier.com` to be the hub** and drop `frontier` as a separate brand.
