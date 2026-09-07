@@ -423,7 +423,7 @@ Exit: seven domains live with SSL and healthy; pararesi members log in and are c
 
 ## 9. Build log & handoff
 
-**2026-09-03 — Orchestration mode (Fable, window opened by Anton).** Anton asked Fable to manage the build instead of pasting phase prompts himself. Phases O1–S6 run as Opus/Sonnet subagents spawned from Anton's Fable window (guardrail v2 'Inside a Fable window' clause). Each phase still gets its own `phase/<id>` branch and PR, merged only when the `verify` GitHub Actions check is green. Phases do NOT call `create_session`; Fable reviews each merged PR briefly and starts the next phase. F7 stays manual.
+**2026-09-03 — Orchestration mode (Fable, window opened by Anton).** ~~Phases O1–S6 run as Opus/Sonnet subagents spawned from Anton's Fable window; phases do NOT call `create_session`; Fable reviews each merged PR and starts the next phase.~~ **Superseded 2026-09-07 (F8):** this contradicted §4.9 and left O2 unsure whether to hand off. The standing rule is §4.9 — each phase spawns the next on Opus/Sonnet via `create_session` after its four gates pass; the two exceptions are the phases Anton starts himself (O9 now; F7 at the end). A Fable window is never needed to advance the chain. Each phase still gets its own `phase/<id>` branch and PR, merged only when the `verify` check is green.
 
 **2026-09-03 — O1 Foundation** — PR: https://github.com/antonmarklundcom/paraguayresidency/pull/2
 
@@ -438,7 +438,7 @@ Decisions and deviations:
 
 Where O2 looks first: `src/db/schema.ts` (leads, lead_events, subscribers, products, orders, download_tokens are all already there — do not retrofit), `src/lib/current-site.ts` for the request's brand, `src/sites/resolve.ts` if a new shared `/api/...` path needs passthrough, `src/i18n/messages/en/*` for every user-facing string, and `content/shared/facts.ts` before writing any figure.
 
-**2026-09-07 — O2 Conversion core** — PR: https://github.com/antonmarklundcom/paraguayresidency/pull/4
+**2026-09-07 — O2 Conversion core** — PRs: https://github.com/antonmarklundcom/paraguayresidency/pull/4 and the audit fix https://github.com/antonmarklundcom/paraguayresidency/pull/5 (unsubscribe now honours the brand the page promised)
 
 What now exists: the whole conversion path, verified end to end against a real
 MySQL. `createLead()` (`src/lib/leads.ts`) is the single funnel every form on
@@ -472,7 +472,11 @@ Decisions and deviations:
   moves the cwd (so `private/` was not found and downloads 503'd). Both fixed;
   the standalone one is a warning for S6 in `KNOWN-ISSUES.md`.
 - Cleared two O1 deferrals: migrate + seed now proven idempotent against a real
-  database, and `private/guide-placeholder.pdf` ships.
+  database, and `private/guide-placeholder.pdf` ships. MariaDB installs with
+  `apt-get` in the build container, so later phases can run their exit checks
+  against a real database too.
+- O2 did not spawn S3 — correctly, as it turned out: the handoff rule was
+  contradictory (fixed above) and O9 now runs before S3 anyway.
 
 Where S3 looks first: `src/lib/conversion-pages.tsx` and
 `src/components/LeadForm.tsx` for how to drop a form onto a page,
@@ -490,7 +494,7 @@ Decisions and deviations:
 - The Opus prompt is numbered 9, not 3 as the F8 brief suggested — phase ids are sequential across the table and 3 is taken by S3.
 - ES and PT brands are distinct positioning (Mercosur route, Spain/Brazil tax exit angles), not translations of the hub, and do not upsell the English Guide.
 - pararesi's `blogPosts`, `leads`/`leadTokens` and `leadEmails` are not imported as tables (MDX, subscribers, Backlog respectively).
-- Nothing was spawned. Anton opens O9 himself.
+- Nothing was spawned. Anton opens O9 himself. O9 then spawns S3 per §4.9; the 2026-09-03 orchestration entry is superseded.
 
 Where O9 looks first: §2 (the table is the contract), §5.4, §1.12–§1.15, `src/sites/registry.ts`, `src/db/schema.ts`, `src/i18n/index.ts`, `src/lib/orders.ts` + `src/lib/stripe.ts` (what `purchases` replaces), `src/lib/signing.ts` (reuse for magic links), and in the attached repos only `pararesi/src/db/schema.ts`, `pararesi/docs/02-architecture.md`, `flyttatillparaguay/lib/vendercrm.ts`, `flyttatillparaguay/app/api/lead/route.ts`.
 

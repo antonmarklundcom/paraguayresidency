@@ -18,6 +18,7 @@ Traps:
 - Locale: no silent `en` fallback in production. `verify:i18n` must fail on a missing `es`/`pt`/`sv` key. You write the three `common.json` translations yourself, completely (Brazilian Portuguese for `pt`).
 - Facts: `display`/`hedged` become per-locale with `en` required; add `mercosur.residency_route` and `tax.foreign_income_treatment`, both `verified: false`, hedged in all four locales. No bare number anywhere (§4.11).
 - The pararesi import writes lesson, update and blog bodies to MDX files (§1.14); it is idempotent on provider ids and slugs and has `--dry-run`. Test it against a tiny fixture of pararesi's shape, not against production.
+- A real database is available: `apt-get install mariadb-server` works in the build container (O2 proved it). Run the migration and seed checks against it; do not defer them.
 - Missing keys never block (§4.5): no Lemon Squeezy env ⇒ the Insider product seeds inactive and the checkout returns a "coming soon" response.
 
 Phase rules:
