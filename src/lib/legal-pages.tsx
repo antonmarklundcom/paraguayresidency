@@ -122,3 +122,64 @@ export function TermsPage({ site }: { site: SiteKey }) {
     </Section>
   );
 }
+
+/**
+ * The Guide sells a digital product, not a filing service — reusing
+ * `TermsPage` verbatim would describe government fees and application filing
+ * that never happen here, so it gets its own terms rather than an inaccurate
+ * shared one (still one shared shape, per the §4 restraint baseline).
+ */
+export function guideTermsMetadata(site: SiteKey): Metadata {
+  return siteMetadata(site, {
+    title: `Terms of Service — ${getSite(site).name}`,
+    description: `The terms that apply when you buy the ${getSite(site).name} digital guide.`,
+    path: '/terms',
+  });
+}
+
+export function GuideTermsPage({ site }: { site: SiteKey }) {
+  const config = getSite(site);
+  return (
+    <Section>
+      <Container width="narrow">
+        <Heading level={1}>Terms of Service</Heading>
+        <p className="mt-[var(--space-4)] text-[var(--fg-muted)]">Last updated 2026-09-07.</p>
+        <Prose className="mt-[var(--space-8)]">
+          <h2>What you are buying</h2>
+          <p>
+            {config.name} sells a digital guide (PDF) delivered instantly by download link after
+            payment, plus free content updates for 12 months from your purchase date. It is
+            information, written by people who file Paraguay residency cases every week — it is
+            not legal or tax advice, and it does not include filing your case for you.
+          </p>
+          <h2>Delivery</h2>
+          <p>
+            Your download link is emailed immediately after payment and shown on the confirmation
+            page. It expires after a limited time and a limited number of downloads; save the file
+            once you have it. If a link stops working within the update period, contact us and we
+            reissue it.
+          </p>
+          <h2>Refunds</h2>
+          <p>
+            See our <a href="/refunds">refund policy</a>: a 14-day, no-questions refund from the
+            date of purchase.
+          </p>
+          <h2>Accuracy and limits</h2>
+          <p>
+            We keep the guide current and correct as far as we are able, and every legal or
+            financial figure in it is treated the same way as on this site: hedged until our legal
+            partner has verified it. Paraguayan law and procedure can change, and your own
+            circumstances may differ from the examples in the guide. Where your case needs advice
+            specific to you, engage a qualified professional or our done-for-you service rather
+            than relying on the guide alone.
+          </p>
+          <h2>Changes</h2>
+          <p>
+            We may update these terms as the product changes. The version in force is the one
+            published here at the time of your purchase.
+          </p>
+        </Prose>
+      </Container>
+    </Section>
+  );
+}
