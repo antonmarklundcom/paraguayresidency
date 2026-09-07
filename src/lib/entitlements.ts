@@ -174,12 +174,14 @@ export function tierIsStale(
 /*  tests exercise; this half only fetches rows and hands them to it.         */
 /* ========================================================================== */
 
-import 'server-only';
+// Deliberately NOT `server-only`. Everything below reaches the database but
+// nothing reaches a request, and `scripts/reconcile-tiers.ts` and
+// `scripts/import-pararesi.ts` both run this code outside Next. The guard
+// stays on `member-auth.ts`, which is where cookies actually live.
 import { and, eq, inArray } from 'drizzle-orm';
 import { redirect } from 'next/navigation';
 import { getDb, hasDatabase } from '@/db';
 import { cronRuns, products, purchases, subscriptions, users } from '@/db/schema';
-import { currentMember } from './member-auth';
 import { GUIDE_ENTRY_SLUG } from '@/sites/registry';
 
 export interface MemberEntitlement {
@@ -249,6 +251,9 @@ export async function requireTier(
   minTier: MinTier,
   now: Date = new Date(),
 ): Promise<MemberEntitlement> {
+  // Imported lazily so this module's graph stays free of `server-only` and the
+  // CLI scripts above can use the rest of the file.
+  const { currentMember } = await import('./member-auth');
   const user = await currentMember();
   if (!user) redirect('/login');
 

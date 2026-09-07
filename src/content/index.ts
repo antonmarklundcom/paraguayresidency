@@ -64,10 +64,24 @@ function parse(site: SiteKey, slugPath: string): ContentPage {
 
 const includeDrafts = process.env.NODE_ENV !== 'production';
 
-/** Every publishable page for a site, newest first. */
+/**
+ * Hubs that are NEVER public pages (plan §1.14). Member lesson and update
+ * bodies live as MDX under `content/<site>/members/` and
+ * `content/<site>/updates/`, in the same tree as the marketing content — so
+ * without this they would be walked by `getPages`, listed in the sitemap and
+ * served at a public URL. They are read by path, after a tier check, only.
+ */
+export const RESERVED_HUBS = ['members', 'updates'] as const;
+
+export function isReservedHub(hub: string): boolean {
+  return (RESERVED_HUBS as readonly string[]).includes(hub);
+}
+
+/** Every publishable page for a site, newest first. Member content excluded. */
 export function getPages(site: SiteKey): ContentPage[] {
   return listMdx(siteDir(site))
     .filter((slugPath) => slugPath.includes('/'))
+    .filter((slugPath) => !isReservedHub(slugPath.split('/')[0]))
     .map((slugPath) => parse(site, slugPath))
     .filter((page) => includeDrafts || !page.frontmatter.draft)
     .sort((a, b) => b.frontmatter.publishedAt.localeCompare(a.frontmatter.publishedAt));
@@ -76,6 +90,8 @@ export function getPages(site: SiteKey): ContentPage[] {
 export function getPage(site: SiteKey, slugPath: string): ContentPage | undefined {
   const safe = slugPath.replace(/^\/+|\/+$/g, '');
   if (!/^[a-z0-9/-]+$/.test(safe)) return undefined;
+  // A public route must never be able to reach member content by guessing.
+  if (isReservedHub(safe.split('/')[0])) return undefined;
   if (!existsSync(join(siteDir(site), `${safe}.mdx`))) return undefined;
   const page = parse(site, safe);
   return includeDrafts || !page.frontmatter.draft ? page : undefined;
