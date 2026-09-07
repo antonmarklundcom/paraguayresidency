@@ -1,8 +1,8 @@
-# Phase S3 — paraguayresidency.com pages, copy, SEO. Paste into a fresh SONNET session, ONLY after phase O2 is merged.
+# Phase S3 — paraguayresidency.com pages, copy, SEO. Paste into a fresh SONNET session, ONLY after phase O9 is merged (O9 runs between O2 and S3 — see the phase table).
 
 Read `plan.md` FIRST, in full — plus §9 build log and `KNOWN-ISSUES.md` (if present). Execute plan §6.1 and §11.1 under the autonomy protocol §4. Build nothing outside the plan.
 
-HARD LIMITS (plan §6): no changes under `src/db`, `src/lib/leads.ts`, `src/lib/email.ts`, `src/app/api`, `middleware.ts`, `src/features/quiz/scoring.ts`, or the shape of `src/sites/registry.ts`. Data only through `getPages/getPage/getHub` and the O2 server actions. Need more ⇒ workaround + Backlog note.
+HARD LIMITS (plan §6): no changes under `src/db`, `src/lib/leads.ts`, `src/lib/email.ts`, `src/app/api`, `middleware.ts`, `src/features/quiz/scoring.ts`, or the shape of `src/sites/registry.ts`. Data only through `getPages/getPage/getHub` and the O2 server actions. The §4.7 list is the full set of off-limits files (it grew in O9). Need more ⇒ workaround + Backlog note.
 
 Load skills: `nextjs-national-lead-gen` (§3 checklist, §4 restraint baseline). `/design` may be used to draft a hero/section as artboards before coding.
 
