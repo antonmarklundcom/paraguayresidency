@@ -1,9 +1,9 @@
 import 'server-only';
 import { desc, eq } from 'drizzle-orm';
 import { getDb, hasDatabase } from '@/db';
-import { downloadTokens, orders } from '@/db/schema';
+import { downloadTokens, purchases } from '@/db/schema';
 import { downloadState } from './download-policy';
-import { fulfilCheckout, downloadUrl } from './orders';
+import { fulfilCheckout, downloadUrl } from './purchases';
 import { retrieveCheckoutSession, stripeConfigured } from './stripe';
 
 /**
@@ -23,14 +23,14 @@ export async function resolveThankYou(sessionId: string | undefined): Promise<Th
   if (!sessionId || !hasDatabase()) return { status: 'unknown' };
   const db = getDb();
 
-  const [order] = await db
+  const [purchase] = await db
     .select()
-    .from(orders)
-    .where(eq(orders.stripeSessionId, sessionId))
+    .from(purchases)
+    .where(eq(purchases.providerCheckoutId, sessionId))
     .limit(1);
 
-  if (order?.status === 'paid') {
-    const url = await latestUsableToken(order.id);
+  if (purchase?.status === 'paid') {
+    const url = await latestUsableToken(purchase.id);
     return url ? { status: 'ready', url } : { status: 'pending' };
   }
 
@@ -42,16 +42,19 @@ export async function resolveThankYou(sessionId: string | undefined): Promise<Th
       const email = session.customer_details?.email ?? session.customer_email ?? '';
       if (session.payment_status === 'paid' && email) {
         const result = await fulfilCheckout({
-          sessionId: session.id,
-          paymentIntent: session.payment_intent ?? null,
+          checkoutId: session.id,
+          provider: 'stripe',
+          providerOrderId: session.payment_intent ?? null,
           email,
           name: session.customer_details?.name ?? null,
           amountCents: session.amount_total ?? 0,
           currency: (session.currency ?? 'usd').toUpperCase(),
+          productSlug: session.metadata?.product_slug,
+          raw: session,
         });
         if (result.token) return { status: 'ready', url: downloadUrl(result.token) };
-        if (result.orderId) {
-          const url = await latestUsableToken(result.orderId);
+        if (result.purchaseId) {
+          const url = await latestUsableToken(result.purchaseId);
           if (url) return { status: 'ready', url };
         }
         return { status: 'pending' };
@@ -61,14 +64,14 @@ export async function resolveThankYou(sessionId: string | undefined): Promise<Th
     }
   }
 
-  return order ? { status: 'pending' } : { status: 'unknown' };
+  return purchase ? { status: 'pending' } : { status: 'unknown' };
 }
 
-async function latestUsableToken(orderId: number): Promise<string | null> {
+async function latestUsableToken(purchaseId: number): Promise<string | null> {
   const rows = await getDb()
     .select()
     .from(downloadTokens)
-    .where(eq(downloadTokens.orderId, orderId))
+    .where(eq(downloadTokens.purchaseId, purchaseId))
     .orderBy(desc(downloadTokens.id))
     .limit(1);
   const row = rows[0];
@@ -77,7 +80,7 @@ async function latestUsableToken(orderId: number): Promise<string | null> {
     expiresAt: row.expiresAt,
     downloads: row.downloads,
     maxDownloads: row.maxDownloads,
-    orderStatus: 'paid',
+    purchaseStatus: 'paid',
   });
   return state === 'ok' ? downloadUrl(row.token) : null;
 }

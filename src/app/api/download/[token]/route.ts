@@ -4,7 +4,7 @@ import { basename } from 'node:path';
 import { NextResponse, type NextRequest } from 'next/server';
 import { and, eq, lt, sql } from 'drizzle-orm';
 import { getDb, hasDatabase } from '@/db';
-import { downloadTokens, orders, products } from '@/db/schema';
+import { downloadTokens, products, purchases } from '@/db/schema';
 import { downloadState, resolvePrivateFile } from '@/lib/download-policy';
 
 export const runtime = 'nodejs';
@@ -33,14 +33,14 @@ export async function GET(
       expiresAt: downloadTokens.expiresAt,
       downloads: downloadTokens.downloads,
       maxDownloads: downloadTokens.maxDownloads,
-      orderStatus: orders.status,
+      purchaseStatus: purchases.status,
       fileKey: products.fileKey,
       productName: products.name,
       version: products.version,
     })
     .from(downloadTokens)
-    .innerJoin(orders, eq(orders.id, downloadTokens.orderId))
-    .innerJoin(products, eq(products.id, orders.productId))
+    .innerJoin(purchases, eq(purchases.id, downloadTokens.purchaseId))
+    .innerJoin(products, eq(products.id, purchases.productId))
     .where(eq(downloadTokens.token, token))
     .limit(1);
 
@@ -48,7 +48,7 @@ export async function GET(
   if (state !== 'ok') {
     const messages: Record<Exclude<typeof state, 'ok'>, string> = {
       'not-found': 'That download link is not valid.',
-      unpaid: 'That order has not been paid, or has been refunded.',
+      unpaid: 'That purchase has not been paid, or has been refunded.',
       expired: 'That download link has expired. Reply to your receipt and we will send a new one.',
       exhausted:
         'That download link has been used the maximum number of times. Reply to your receipt and we will send a new one.',

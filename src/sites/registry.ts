@@ -322,6 +322,20 @@ export function getSite(key: SiteKey): SiteConfig {
   return sites[key];
 }
 
+/**
+ * Whether a brand sells anything. `/login` and `/members` exist only on the
+ * brands that do; everywhere else the resolver 404s them (plan §5.4.5), so a
+ * lead-gen brand never shows a member area it has no products for.
+ */
+export function siteSellsProducts(key: SiteKey): boolean {
+  return (sites[key].products?.length ?? 0) > 0;
+}
+
+/** Brands that list a given product slug. */
+export function sitesSelling(slug: string): SiteKey[] {
+  return SITE_KEYS.filter((k) => sites[k].products?.includes(slug));
+}
+
 export const hubSite = (): SiteConfig => sites[HUB_SITE];
 
 /** `https://paraguayresidency.com` — used for metadataBase and sitemaps. */

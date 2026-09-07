@@ -187,3 +187,70 @@ ${input.confirmUrl}
 If you did not ask for this, ignore this email — nothing is sent until you confirm.`;
   return { subject, html, text };
 }
+
+/**
+ * The sign-in link (plan §1.15). Transactional and single-purpose: no offers,
+ * no newsletter copy, nothing to make a spam filter reconsider it. The
+ * unsubscribe footer still goes on because the same address is on the list.
+ */
+export function magicLinkEmail(input: {
+  site: SiteKey;
+  url: string;
+  unsubscribeUrl?: string;
+}): EmailBody {
+  const config = getSite(input.site);
+  const subject = `Your sign-in link — ${config.name}`;
+  const html = layout(
+    input.site,
+    'Sign in',
+    [
+      p('Here is your sign-in link. It works once and expires in 30 minutes.'),
+      p(
+        `<a href="${esc(input.url)}" style="display:inline-block;background:#111;color:#fff;padding:12px 20px;border-radius:6px;text-decoration:none">Sign me in</a>`,
+      ),
+      p('If you did not ask to sign in, ignore this email — the link does nothing on its own.'),
+    ],
+    input.unsubscribeUrl ?? `${siteOrigin(input.site)}/unsubscribe`,
+  );
+  const text = `Here is your sign-in link for ${config.name}. It works once and expires in 30 minutes.
+
+${input.url}
+
+If you did not ask to sign in, ignore this email — the link does nothing on its own.`;
+  return { subject, html, text };
+}
+
+/** Sent once, when a subscription first makes someone an Insider. */
+export function insiderWelcomeEmail(input: {
+  site: SiteKey;
+  name?: string | null;
+  membersUrl: string;
+  unsubscribeUrl: string;
+}): EmailBody {
+  const config = getSite(input.site);
+  const greeting = input.name ? `Hi ${input.name},` : 'Hi,';
+  const subject = `You're in — ${config.name} Insider`;
+  const html = layout(
+    input.site,
+    'Welcome to Insider',
+    [
+      p(esc(greeting)),
+      p(
+        'Your membership is active. Everything you have access to is in your account, and new updates land there as they are published.',
+      ),
+      p(
+        `<a href="${esc(input.membersUrl)}" style="display:inline-block;background:#111;color:#fff;padding:12px 20px;border-radius:6px;text-decoration:none">Open your account</a>`,
+      ),
+      p('No password to remember — ask for a sign-in link any time.'),
+    ],
+    input.unsubscribeUrl,
+  );
+  const text = `${greeting}
+
+Your ${config.name} Insider membership is active.
+
+Open your account: ${input.membersUrl}
+
+No password to remember — ask for a sign-in link any time.`;
+  return { subject, html, text };
+}

@@ -16,10 +16,12 @@ export interface CheckoutLabels {
  */
 export function CheckoutButtonClient({
   enabled,
+  product,
   timestamp,
   labels,
 }: {
   enabled: boolean;
+  product: string;
   timestamp: string;
   labels: CheckoutLabels;
 }) {
@@ -41,7 +43,11 @@ export function CheckoutButtonClient({
       const response = await fetch('/api/checkout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ts: timestamp, utm: window.location.search.replace(/^\?/, '') }),
+        body: JSON.stringify({
+          product,
+          ts: timestamp,
+          utm: window.location.search.replace(/^\?/, ''),
+        }),
       });
       const body = (await response.json()) as { ok?: boolean; url?: string | null };
       if (body.ok && body.url) {

@@ -1,6 +1,6 @@
 'use client';
 
-import { useActionState } from 'react';
+import { useActionState, type ReactNode } from 'react';
 import { useFormStatus } from 'react-dom';
 import type { ActionState } from './actions';
 
@@ -25,7 +25,11 @@ function Pending({ label, busyLabel }: { label: string; busyLabel: string }) {
   );
 }
 
-/** A one-button form bound to a server action, with its result shown inline. */
+/**
+ * A form bound to a server action, with its result shown inline. `extra`
+ * carries hidden values; `children` carries visible inputs the action needs
+ * (the member grant's tier select and expiry date).
+ */
 export function ActionButton({
   action,
   name,
@@ -33,6 +37,7 @@ export function ActionButton({
   label,
   busyLabel = 'Working…',
   extra,
+  children,
 }: {
   action: (prev: ActionState, form: FormData) => Promise<ActionState>;
   name: string;
@@ -40,6 +45,7 @@ export function ActionButton({
   label: string;
   busyLabel?: string;
   extra?: Record<string, string>;
+  children?: ReactNode;
 }) {
   const [state, formAction] = useActionState<ActionState, FormData>(action, {});
   return (
@@ -48,6 +54,7 @@ export function ActionButton({
       {Object.entries(extra ?? {}).map(([k, v]) => (
         <input key={k} type="hidden" name={k} value={v} />
       ))}
+      {children}
       <Pending label={label} busyLabel={busyLabel} />
       {state.message ? (
         <span className="text-[var(--text-xs)] text-[var(--success)]">{state.message}</span>
