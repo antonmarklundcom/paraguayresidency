@@ -14,11 +14,14 @@ Anton owns exactly these, and nothing else for this project:
 | `residenciaparaguay.es` | `residenciaes` |
 | `vidanoparaguai.com` | `residenciapt` — brand name "Vida no Paraguai" |
 | `flyttatillparaguay.se` | `flytta` |
-| `paraguayresidency.co.uk` | unassigned — hub candidate, or a UK brand |
+| `paraguayresidency.co.uk` | `residency` — **the hub** (decided F9); `/admin`, unknown-host redirect target |
 
-He does **NOT** own `paraguayresidency.com` (and it is not buyable), `paraguayinvestorguide.com`, or
-`residencianoparaguay.com`. The registry still names the wrong ones — **phase F9 fixes it, and no
-brand phase may run first** (plan §1.11, `KNOWN-ISSUES.md`). A domain is three lines per brand in
+He does **NOT** own `paraguayresidency.com` (and it is not buyable), `paraguayinvestorguide.com`,
+`residencianoparaguay.com` or `paraguayinvestorpass.com.py`. **Decided by F9 (2026-09-07, plan §1.11,
+§12.2): the hub `residency` runs on `paraguayresidency.co.uk`**; `guide` is "Paraguay Residency Guide"
+on `paraguayresidencyguide.com`; `residenciapt` is "Vida no Paraguai" on `vidanoparaguai.com`. The
+registry still names the wrong ones — **phase S16 sweeps it, and no brand phase may run first**
+(`prompts/sonnet-16-domain-sweep.md`, plan §6.11). A domain is three lines per brand in
 `src/sites/registry.ts` and costs nothing; a `SiteKey` is a MySQL enum on nine tables and costs a
 migration.
 
