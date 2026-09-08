@@ -204,7 +204,7 @@ lead form. Left for S6 (which owns the deploy + imagery + performance pass) or
 Anton to re-measure against the real hosting target rather than re-litigated
 here.
 
-## BLOCKER — the brand↔domain map is wrong; F9 must land before S10–S15
+## BLOCKER — the brand↔domain map is wrong; DECIDED by F9 (2026-09-07), S16 executes it before S10–S15
 
 Confirmed by Anton on 2026-09-07, after O9 and S3–S5 had already merged. F8 locked §1.11 / §12.2 on
 domains he does not own.
@@ -226,6 +226,13 @@ Resolving that is a business decision, which is why it is a Fable phase and not 
 domains, so starting them now means fixing five brands' content instead of one registry file.
 S6's PR #13 is open and unmerged; S10–S15 have not started. That is the correct place to be paused.
 
+**F9 decided (plan §1.11, §12.2):** the hub is `paraguayresidency.co.uk`; `guide` is
+`paraguayresidencyguide.com` as "Paraguay Residency Guide"; `investorpass` is the `.com`;
+`residenciapt` is `vidanoparaguai.com` as "Vida no Paraguai". No SiteKey changes. The sweep is
+phase S16 (`prompts/sonnet-16-domain-sweep.md`, plan §6.11), which Anton pastes into a Sonnet
+window; S16 then spawns S10–S14. S6 is re-run by Anton after S16 with the amendment at the top of
+its prompt. S16 retitles this entry "CLEARED" when its grep comes back empty.
+
 Cost of the fix, once F9 decides: domains are three lines per brand in `src/sites/registry.ts` plus
 three page files, ~6 test files and two docs. **No schema change** — `SiteKey`s are unaffected as
 long as F9 changes only what a key points at. Renaming or removing a key WOULD be a migration,
@@ -240,4 +247,8 @@ If that is right, §1.13's "existing subscribers stay there" and §12.3's member
 import are pointed at an empty database: there is nothing to migrate, and Insider is a new product
 launch rather than a cutover. O9's import script is written, tested and idempotent either way, so
 this costs nothing — but **S15 should re-scope its "real run" from a migration to a verification**,
-and Anton should confirm before anyone plans around live pararesi subscribers. Flagged for F9.
+and Anton should confirm before anyone plans around live pararesi subscribers.
+
+**Folded in by F9:** plan §1.13, §6.10.3, §7 and §12.3 now say verification, expected zero rows,
+import only if the dry run finds any. The Insider tier is a new product launch. Anton's one-word
+confirmation is a §7 row; S15 is correct under either answer.

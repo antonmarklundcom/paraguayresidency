@@ -1,5 +1,8 @@
 # Phase S6 — Deploy, domains, analytics, imagery. Paste into a fresh SONNET session, ONLY after phase S5 is merged.
 
+> **F9 amendment (2026-09-07) — read before re-running.** The three domains are now `paraguayresidency.co.uk` (hub, `/admin`), `paraguayinvestorpass.com` and `paraguayresidencyguide.com` (plan §12.2) — not the `.com`, `.com.py` and `investorguide` hosts this prompt and your branch's docs were written for. Anton does not own those. Before anything else: merge latest `main` into `phase/s6` (S16, the domain sweep, must already be merged — if `src/sites/registry.ts` on `main` still says `paraguayresidency.com`, stop and tell Anton to run S16 first), then replace every old host in `docs/runbook.md` and `docs/decisions-needed.md` with the new ones (the Stripe live webhook is `https://paraguayresidencyguide.com/api/stripe/webhook`; the sending domain for Resend/SMTP is `paraguayresidency.co.uk`). Everything below still applies with those names. You no longer spawn S10–S14 — S16 does (plan §4.12, amended). Your handoff is: PR merged green, §9 entry, then a report; S15 is spawned by the content lane's claim rule once you and S10–S14 have all merged.
+
+
 Read `plan.md` FIRST, in full — plus §9 build log and `KNOWN-ISSUES.md`. Execute plan §6.4 under the autonomy protocol §4. Build nothing outside the plan.
 
 HARD LIMITS (plan §6) still apply: no schema/auth/API/middleware changes. Config, env, DNS, hosting, imagery and docs only.
