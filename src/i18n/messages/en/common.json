@@ -13,6 +13,7 @@
   "nav.requirements": "Requirements",
   "nav.routeFinder": "Route Finder",
   "nav.routes": "Routes",
+  "nav.whyParaguay": "Why Paraguay",
   "nav.taxResidency": "Tax residency",
   "nav.temporary": "Temporary residency",
   "nav.terms": "Terms",
@@ -159,5 +160,7 @@
   "checkout.comingSoon": "Insider opens shortly",
   "nav.vsStandard": "Vs. standard residency",
   "nav.forAgents": "For agents",
-  "nav.insider": "Insider"
+  "nav.insider": "Insider",
+  "nav.mercosur": "Mercosur route",
+  "nav.costOfLiving": "Cost of living"
 }

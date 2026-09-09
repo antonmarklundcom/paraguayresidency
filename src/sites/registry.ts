@@ -266,8 +266,35 @@ export const sites: Record<SiteKey, SiteConfig> = {
     locale: 'en',
     currencies: ['USD'],
     theme: 'frontier',
-    nav: minimalNav(),
-    footer: minimalFooter(),
+    nav: [
+      { labelKey: 'nav.whyParaguay', href: '/why-paraguay' },
+      { labelKey: 'nav.routes', href: '/routes' },
+      { labelKey: 'nav.taxResidency', href: '/tax' },
+      { labelKey: 'nav.routeFinder', href: '/route-finder' },
+      { labelKey: 'nav.contact', href: '/contact' },
+    ],
+    footer: {
+      columns: [
+        {
+          titleKey: 'footer.services',
+          items: [
+            { labelKey: 'nav.whyParaguay', href: '/why-paraguay' },
+            { labelKey: 'nav.routes', href: '/routes' },
+            { labelKey: 'nav.taxResidency', href: '/tax' },
+            { labelKey: 'nav.process', href: '/process' },
+            { labelKey: 'nav.pricing', href: '/pricing' },
+          ],
+        },
+        {
+          titleKey: 'footer.company',
+          items: [
+            { labelKey: 'nav.about', href: '/about' },
+            { labelKey: 'nav.contact', href: '/contact' },
+          ],
+        },
+      ],
+      legal: legalNav(),
+    },
     crm: { source: 'paraguayfrontier.com' },
     siblings: ['residency', 'investorpass', 'guide'],
   },
@@ -281,8 +308,37 @@ export const sites: Record<SiteKey, SiteConfig> = {
     locale: 'es',
     currencies: ['EUR', 'PYG'],
     theme: 'residenciaes',
-    nav: minimalNav(),
-    footer: minimalFooter(),
+    // S11 (plan §6.6): Spanish routes for everything except the shared
+    // conversion/legal paths (§1.3), which keep their English form.
+    nav: [
+      { labelKey: 'nav.routes', href: '/proceso' },
+      { labelKey: 'nav.pricing', href: '/precios' },
+      { labelKey: 'nav.routeFinder', href: '/route-finder' },
+      { labelKey: 'nav.about', href: '/nosotros' },
+      { labelKey: 'nav.contact', href: '/contact' },
+    ],
+    footer: {
+      columns: [
+        {
+          titleKey: 'footer.services',
+          items: [
+            { labelKey: 'nav.temporary', href: '/residencia/temporal' },
+            { labelKey: 'nav.permanent', href: '/residencia/permanente' },
+            { labelKey: 'nav.cedula', href: '/residencia/cedula' },
+            { labelKey: 'nav.taxResidency', href: '/residencia-fiscal' },
+            { labelKey: 'nav.family', href: '/familia' },
+          ],
+        },
+        {
+          titleKey: 'footer.company',
+          items: [
+            { labelKey: 'nav.about', href: '/nosotros' },
+            { labelKey: 'nav.contact', href: '/contact' },
+          ],
+        },
+      ],
+      legal: legalNav(),
+    },
     crm: { source: 'residenciaparaguay.es' },
     // No Guide upsell: the Guide is English-only (plan §1.11).
     siblings: ['residency', 'investorpass'],
@@ -297,9 +353,38 @@ export const sites: Record<SiteKey, SiteConfig> = {
     locale: 'pt',
     currencies: ['BRL', 'USD', 'PYG'],
     theme: 'residenciapt',
-    nav: minimalNav(),
-    footer: minimalFooter(),
+    nav: [
+      { labelKey: 'nav.temporary', href: '/residencia/temporaria' },
+      { labelKey: 'nav.permanent', href: '/residencia/permanente' },
+      { labelKey: 'nav.mercosur', href: '/mercosul' },
+      { labelKey: 'nav.costOfLiving', href: '/custo-de-vida' },
+      { labelKey: 'nav.routeFinder', href: '/route-finder' },
+      { labelKey: 'nav.contact', href: '/contact' },
+    ],
+    footer: {
+      columns: [
+        {
+          titleKey: 'footer.services',
+          items: [
+            { labelKey: 'nav.temporary', href: '/residencia/temporaria' },
+            { labelKey: 'nav.permanent', href: '/residencia/permanente' },
+            { labelKey: 'nav.cedula', href: '/residencia/cedula' },
+            { labelKey: 'nav.taxResidency', href: '/residencia-fiscal' },
+            { labelKey: 'nav.family', href: '/familia' },
+          ],
+        },
+        {
+          titleKey: 'footer.company',
+          items: [
+            { labelKey: 'nav.about', href: '/sobre' },
+            { labelKey: 'nav.contact', href: '/contact' },
+          ],
+        },
+      ],
+      legal: legalNav(),
+    },
     crm: { source: 'vidanoparaguai.com' },
+    // No Guide upsell: ES/PT brands soft-exit to the newsletter (plan §1.11).
     siblings: ['residency', 'investorpass'],
   },
 
