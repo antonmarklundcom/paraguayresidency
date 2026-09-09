@@ -886,6 +886,57 @@ phase (only header lines on S3–S5 changed); the registry's `hosts` /
 `canonicalHost` / `name` for their brand are now final — do not re-litigate
 domains, only build the content §6.5–§6.9 and §11.5–§11.8 specify.
 
+**2026-09-09 — S13 flyttatillparaguay.se (`flytta`)** — PR:
+https://github.com/antonmarklundcom/paraguayresidency/pull/21
+
+What now exists: the full `flytta` brand. Home, `/uppehallstillstand`,
+`/skatt`, `/kostnader`, `/familj`, `/var-historia`, `/process`, `/priser`,
+`/guide` (Guide upsell bridge) and the `/guider/[slug]` + `/stader/[slug]`
+content routes. All 32 `content/guider/` articles and 5 `content/stader/`
+city profiles ported from `antonmarklundcom/flyttatillparaguay`, plus 2 new
+city profiles (Luque, Villarrica) — 40 content files total, all with real
+finished bodies (800–1500 words for guides, 600–1000 for cities), fresh FAQ
+blocks and `related` cross-links. `<StatRow>`/`<Disclaimer>` ported into
+`src/components`, registered in the MDX component map. `flytta`'s registry
+nav/footer filled in. `docs/flytta-redirects.md` maps every old public URL.
+`npm run verify` green (322 tests).
+
+Decisions and deviations (full detail in `KNOWN-ISSUES.md` "S13 — flytta
+content-scope decisions"):
+- The old repo's 32 guides and 5 city profiles were **all still
+  `draft: true` outline stubs** — its own `sonnet-3-content` phase never
+  ran. "Port the content" therefore meant writing all 37 bodies from
+  scratch against each stub's brief, not a mechanical copy. Fanned this out
+  to five parallel subagents (four for the guides, one for the cities),
+  each writing full MDX against the exact target frontmatter schema, then
+  centrally audited every file (title/description length, `<Fact>` key
+  validity, `related`-link validity, no forbidden frontmatter fields)
+  before merging.
+- The old site's EUR-priced service packages (`content/packages.ts`) are
+  dropped, not ported — `flytta` has no `products` in the consolidated
+  lead-gen model (plan §2); `/priser` keeps the tier names/inclusions but
+  follows `residency`'s own "from —, TODO" pattern rather than inventing a
+  number (plan §4.11).
+- Cost-of-living figures (rent, land, building costs) are NOT added to
+  `content/shared/facts.ts` — that registry is the legal/program-figure
+  register the launch review verifies. They render as explicitly-hedged
+  "uppskattning 2026" prose instead, the same convention the old site used.
+  Only genuine Paraguay legal/program figures render through `<Fact>`;
+  Swedish tax rules (väsentlig anknytning, 183-dagarsregeln) are hedged
+  toward "en skatterådgivare" and never go through `<Fact>`.
+- `src/lib/site-pages.tsx`'s `contentHref` for `flytta` was a placeholder
+  from O9 that double-prefixed the hub segment (`/guider/guider/x`) —
+  corrected to `/${slugPath}` since flytta's two hubs are each already
+  their own top-level route, unlike `residency`'s multi-hub shape.
+  `src/lib/seo-files.ts` gained flytta's new static routes.
+- No `/guider` or `/stader` index route — matches `residency`'s own
+  `/guides/[hub]/[slug]` having no hub-index page. Discovery is via the
+  home page's guides/cities sections and each article's `related` links.
+
+Where S15 looks first: `docs/flytta-redirects.md` is the complete
+old-URL→new-path table it turns into the registry's per-site 301 map
+(plan §6.10 task 4).
+
 ## 10. Backlog
 
 - German brand or locale for the hub (Spanish, Portuguese and Swedish ship as brands, §1.11).
