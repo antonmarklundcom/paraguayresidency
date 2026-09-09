@@ -159,5 +159,7 @@
   "checkout.insiderBuy": "Únete a Insider — {price}",
   "checkout.comingSoon": "Insider abre en breve",
   "nav.vsStandard": "Vs. residencia estándar",
-  "nav.forAgents": "Para agentes"
+  "nav.forAgents": "Para agentes",
+  "nav.mercosur": "Ruta Mercosur",
+  "nav.costOfLiving": "Costo de vida"
 }

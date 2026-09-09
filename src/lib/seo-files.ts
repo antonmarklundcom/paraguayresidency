@@ -108,7 +108,23 @@ const staticPaths: Record<SiteKey, string[]> = {
     // /pase-inversor is a thin, noindex bridge (plan §6.6) — excluded from
     // the sitemap, the same treatment the hub gives its own /investor-pass.
   ],
-  residenciapt: ['/', '/route-finder', '/contact', '/privacy', '/terms'],
+  residenciapt: [
+    '/',
+    '/route-finder',
+    '/contact',
+    '/privacy',
+    '/terms',
+    '/residencia/temporaria',
+    '/residencia/permanente',
+    '/residencia/cedula',
+    '/residencia-fiscal',
+    '/familia',
+    '/mercosul',
+    '/custo-de-vida',
+    '/processo',
+    '/precos',
+    '/sobre',
+  ],
   flytta: ['/', '/route-finder', '/contact', '/privacy', '/terms'],
 };
 
