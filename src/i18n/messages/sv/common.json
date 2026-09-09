@@ -158,5 +158,6 @@
   "checkout.insiderBuy": "Gå med i Insider — {price}",
   "checkout.comingSoon": "Insider öppnar snart",
   "nav.vsStandard": "Jämfört med vanligt uppehållstillstånd",
-  "nav.forAgents": "För agenter"
+  "nav.forAgents": "För agenter",
+  "nav.insider": "Insider"
 }

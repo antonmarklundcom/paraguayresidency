@@ -2,11 +2,8 @@
 
 import { useActionState, useId } from 'react';
 import { useFormStatus } from 'react-dom';
-import {
-  initialSubscribeState,
-  subscribeAction,
-  type SubscribeFormState,
-} from '@/app/actions/lead';
+import { subscribeAction } from '@/app/actions/lead';
+import { initialSubscribeState, type SubscribeFormState } from '@/app/actions/lead-state';
 import { HONEYPOT_FIELD, TIMESTAMP_FIELD } from '@/lib/form-guard';
 import type { SiteKey } from '@/sites/registry';
 

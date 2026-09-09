@@ -259,3 +259,64 @@ and Anton should confirm before anyone plans around live pararesi subscribers.
 **Folded in by F9:** plan §1.13, §6.10.3, §7 and §12.3 now say verification, expected zero rows,
 import only if the dry run finds any. The Insider tier is a new product launch. Anton's one-word
 confirmation is a §7 row; S15 is correct under either answer.
+
+## FIXED in S14 — a latent "use server" export bug in `src/app/actions/lead.ts`, surfaced by the new member routes
+
+`src/app/actions/lead.ts` (O2) exported two plain objects — `initialLeadState` and
+`initialSubscribeState` — from a `'use server'` module, alongside its actual server actions. Next's
+own rule is that a `'use server'` file may export **only async functions**; the objects are
+`useActionState` seed values, not actions. This was already wrong when O2 wrote it, but `npm run
+build` never caught it and every page rendered fine — until S14 added a third `'use server'` file
+(`src/app/sites/guide/members/[module]/[lesson]/actions.ts`, the lesson "mark complete" action).
+Turbopack's chunk graph changed enough that the pre-existing violation started throwing at request
+time only: `Error: A "use server" file can only export async functions, found object`, a 500 on
+every page in the chunk, every time. Build-time (`next build`) still shows nothing wrong — the
+failure is `next start` / the standalone server actually evaluating the chunk — so this could not
+have been caught by `npm run verify` alone; it took clicking "Mark complete" against a real
+database to reproduce.
+
+**Fix:** moved the two `const` objects (and their `LeadFormState`/`SubscribeFormState` interfaces)
+out of `lead.ts` into a new plain module, `src/app/actions/lead-state.ts` (no `'use server'`).
+`lead.ts` now exports only its two async actions; `LeadFormFields.tsx` and
+`NewsletterFormFields.tsx` import the initial state from the new file and the actions from the old
+one. No behavioural change to `createLead`/`subscribe`/the CRM pipeline — `leads.ts` itself was not
+touched, and this was flagged as necessary rather than optional because S14's own exit criterion
+("mark complete" working) could not pass with the platform in this state. `npm run verify` and a
+Playwright-driven click-through against a real MariaDB both confirm the fix; 322 existing tests
+still pass unchanged.
+
+**Lesson for later phases:** a `'use server'` file's export shape is not checked by `next build` in
+this Next 16 / Turbopack setup — only exercised at runtime, and only once something changes how
+that specific chunk gets bundled. Grep for `'use server'` files and confirm every top-level export
+is an `async function` before assuming a green `npm run verify` proves server actions work.
+
+## S14 — Insider drip is a design choice, not an import artifact
+
+No `PARARESI_DATABASE_URL` was available in this environment, so `scripts/import-pararesi.ts` never
+ran and the `modules`/`lessons`/`resources`/`updates_posts` tables were empty going in — exactly the
+case plan §6.9 anticipated ("if the import left no lessons, write the module/lesson MDX from
+`docs/guide-outline.md`"). `scripts/seed.ts` now seeds that content itself, idempotently, alongside
+the two products: four entry-tier modules covering the twelve guide chapters (`dripDays: 0` on every
+module and lesson — a one-time buyer paid for the whole book, so nothing about the entry tier
+drips), and two Insider-only modules — "Insider extras" (open immediately) and "Insider deep dives"
+(`dripDays: 30`) — so a fresh Insider fixture actually sees `locked` (entry tier), `dripped`
+(Insider, days from `firstEntitledAt`) and `open` all at once, which is what plan §6.9's exit
+criterion needs to be checkable. **If S15's real pararesi import finds actual Insider content**,
+its module/lesson slugs are extremely unlikely to collide with `getting-started` /
+`costs-and-timeline` / `after-approval` / `next-steps` / `insider-extras` / `insider-deep-dives`,
+but check `modules.slug` before assuming the seed and a real import coexist cleanly — both are
+idempotent upserts keyed on `(site, slug)`, so a genuine collision would silently prefer whichever
+ran last.
+
+## S14 — `/members/resources/[slug]/download` lives outside `src/app/api` on purpose
+
+Plan §4.7 puts `src/app/api` off-limits to Sonnet phases (it's O9's auth/payment/webhook surface).
+Member resources needed a file-streaming endpoint that does not exist anywhere in O9's API, so S14
+added one as a Route Handler colocated under its own owned tree —
+`src/app/sites/guide/members/resources/[slug]/download/route.ts` — reusing
+`download-policy.ts`'s already-audited `resolvePrivateFile` path-safety check and gating on
+`currentMember()` + `entitlementFor()` (calling, not editing, `member-auth.ts`/`entitlements.ts`).
+Functionally identical in shape to `/api/download/[token]`, just not under the literal folder the
+plan names as off-limits. If a later phase wants every private-file route physically under one
+folder, this one is a candidate to fold into `src/app/api/members/resources/...` — a mechanical
+move, not a rewrite.

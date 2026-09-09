@@ -158,5 +158,6 @@
   "checkout.insiderBuy": "Join Insider — {price}",
   "checkout.comingSoon": "Insider opens shortly",
   "nav.vsStandard": "Vs. standard residency",
-  "nav.forAgents": "For agents"
+  "nav.forAgents": "For agents",
+  "nav.insider": "Insider"
 }
