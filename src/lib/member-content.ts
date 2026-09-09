@@ -82,9 +82,10 @@ async function completedLessonIds(userId: number, lessonIds: number[]): Promise<
   return new Set(rows.map((r) => r.lessonId));
 }
 
-function moduleOpensAt(module: Module, firstEntitledAt: Date | null): Date | null {
-  if (module.dripDays <= 0 || !firstEntitledAt) return null;
-  return new Date(firstEntitledAt.getTime() + module.dripDays * 24 * 60 * 60 * 1000);
+/** When a `Drippable` opens for a member, or null if it isn't dripping. */
+function opensAtFor(item: { dripDays: number }, firstEntitledAt: Date | null): Date | null {
+  if (item.dripDays <= 0 || !firstEntitledAt) return null;
+  return new Date(firstEntitledAt.getTime() + item.dripDays * 24 * 60 * 60 * 1000);
 }
 
 /** The `/members` dashboard: every module in order, with its rolled-up state. */
@@ -126,7 +127,7 @@ export async function memberDashboard(input: {
     return {
       module,
       state,
-      opensAt: state === 'dripped' ? moduleOpensAt(module, input.firstEntitledAt) : null,
+      opensAt: state === 'dripped' ? opensAtFor(module, input.firstEntitledAt) : null,
       lessons: lessonCards,
       lessonCount: moduleLessons.length,
       completedCount: moduleLessons.filter((l) => completed.has(l.id)).length,
@@ -190,10 +191,7 @@ export async function lessonView(input: {
   const tierOk = hasTier(input.tier, lesson.minTier);
   const dripped = isDripped(lesson, input.firstEntitledAt, now);
   const unlocked = isUnlocked(lesson, input.tier, input.firstEntitledAt, now);
-  const opensAt =
-    !tierOk || dripped || lesson.dripDays <= 0 || !input.firstEntitledAt
-      ? null
-      : new Date(input.firstEntitledAt.getTime() + lesson.dripDays * 24 * 60 * 60 * 1000);
+  const opensAt = !tierOk || dripped ? null : opensAtFor(lesson, input.firstEntitledAt);
 
   const completedSet = await completedLessonIds(input.userId, [lesson.id]);
 
