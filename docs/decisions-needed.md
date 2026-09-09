@@ -11,12 +11,16 @@ This session has no Hostinger login/SSH, no DNS registrar access, no Stripe
 live keys, and no Google Search Console access — S6's remaining exit criteria
 are physically blocked on these, not on missing code:
 
-1. **Hosting.** Try attaching `paraguayresidency.com`, `paraguayinvestorpass.com.py`
-   and `paraguayinvestorguide.com` to one Hostinger Node.js app (`docs/runbook.md`
-   → Deploy → first choice). Report back here (or just tell the next session)
-   whether hPanel accepted all three custom domains on one app. If it refuses
-   more than one, use the VPS + Caddy + PM2 fallback in the same runbook
-   section instead — do not create three separate Node slots (plan §1.7).
+1. **Hosting.** Try attaching `paraguayresidency.co.uk` (the hub),
+   `paraguayinvestorpass.com` and `paraguayresidencyguide.com` (the only brand
+   that sells) to one Hostinger Node.js app (`docs/runbook.md` → Deploy →
+   first choice). Report back here (or just tell the next session) whether
+   hPanel accepted all three custom domains on one app. If it refuses more
+   than one, use the VPS + Caddy + PM2 fallback in the same runbook section
+   instead — do not create three separate Node slots (plan §1.7). The
+   remaining four domains (`paraguayfrontier.com`, `residenciaparaguay.es`,
+   `vidanoparaguai.com`, `flyttatillparaguay.se`) attach to this same app in
+   S15, once S6 and S10–S14 are all merged.
 2. **Env vars.** Set every var in `.env.example` that has a real value in
    hPanel's Environment Variables screen (`DATABASE_URL`, `SESSION_SECRET`,
    `SEED_ADMIN_*`, `STRIPE_*`, `VENDERCRM_*`, `RESEND_API_KEY` or `SMTP_*`,
@@ -29,7 +33,7 @@ are physically blocked on these, not on missing code:
 4. **Stripe live.** Create/confirm the live product + price, set
    `STRIPE_SECRET_KEY` / `STRIPE_WEBHOOK_SECRET` / `STRIPE_GUIDE_PRICE_ID` in
    hPanel, register the live webhook endpoint
-   (`https://paraguayinvestorguide.com/api/stripe/webhook`), then buy the
+   (`https://paraguayresidencyguide.com/api/stripe/webhook`), then buy the
    Guide once for real from the live sales page and refund it from the
    Stripe dashboard. This is the one exit-criterion item that genuinely
    cannot be scripted — it needs a real card and a real Stripe account.
@@ -58,10 +62,13 @@ not work with `next start`, and neither real deploy path runs `server.js`
 directly — see `KNOWN-ISSUES.md`); `docs/runbook.md` (deploy, domain, article
 and DB-password-rotation procedures).
 
-**S6 will not merge, and will not spawn S10–S14, until item 1 (hosting) and
-item 4 (live Stripe purchase + refund) are done** — those are named in the
-phase's own exit checklist and plan §4.12 gates the parallel content lane on
-S6's PR being merged green. Whoever completes items 1–5 above should re-run
-S6 (`Read prompts/sonnet-6-deploy-seo-imagery.md in this repo and execute it.`
+**S6 will not merge until item 1 (hosting) and item 4 (live Stripe purchase +
+refund) are done** — those are named in the phase's own exit checklist. Per
+the F9 amendment, S6 no longer spawns the parallel content lane (S10–S14 are
+gated on S16 instead, and have already merged) — S6's own handoff is just a
+merged green PR and a §9 entry; S15 (the remaining four domains, member
+platform go-live) is spawned by the content lane's own claim rule once S6 and
+S10–S14 have all merged. Whoever completes items 1–5 above should re-run S6
+(`Read prompts/sonnet-6-deploy-seo-imagery.md in this repo and execute it.`
 in a fresh Sonnet session, or resume this one) to verify `/api/health` on each
-live host, merge the PR, and spawn the five parallel phases.
+live host and merge the PR.

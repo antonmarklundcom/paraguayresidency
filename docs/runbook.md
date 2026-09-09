@@ -16,10 +16,14 @@ operational reference; `plan.md` is the design reference.
    S6 removed it; see `KNOWN-ISSUES.md`).
 3. Add every env var from `.env.example` that has a real value (§7 of
    `plan.md`) in hPanel's Environment Variables screen — never commit secrets.
-4. Attempt to attach all three (later, all seven) custom domains to this one
-   app in hPanel's domain mapping screen. If hPanel refuses more than one
-   custom domain per Node app, STOP — do not create a second/third slot (plan
-   §1.7 forbids it) — and move to the VPS fallback below.
+4. Attempt to attach custom domains to this one app in hPanel's domain mapping
+   screen. S6 attaches the first three — `paraguayresidency.co.uk` (the hub),
+   `paraguayinvestorpass.com`, `paraguayresidencyguide.com` (the only brand
+   that sells); S15 attaches the remaining four — `paraguayfrontier.com`,
+   `residenciaparaguay.es`, `vidanoparaguai.com`, `flyttatillparaguay.se` — to
+   this same app, never a new slot. If hPanel refuses more than one custom
+   domain per Node app, STOP — do not create a second/third slot (plan §1.7
+   forbids it) — and move to the VPS fallback below.
 5. Map DNS for each domain: A/AAAA (or CNAME, per hPanel's instructions) at
    apex and `www`; SSL issues automatically once DNS resolves.
 6. Redeploy after any env var change — hPanel does not hot-reload them.
@@ -39,9 +43,13 @@ pm2 start npm --name paraguayresidency -- start
 Caddyfile (one block per domain that shares this app):
 
 ```
-paraguayresidency.com, www.paraguayresidency.com,
-paraguayinvestorpass.com.py, www.paraguayinvestorpass.com.py,
-paraguayinvestorguide.com, www.paraguayinvestorguide.com {
+paraguayresidency.co.uk, www.paraguayresidency.co.uk,
+paraguayinvestorpass.com, www.paraguayinvestorpass.com,
+paraguayresidencyguide.com, www.paraguayresidencyguide.com,
+paraguayfrontier.com, www.paraguayfrontier.com,
+residenciaparaguay.es, www.residenciaparaguay.es,
+vidanoparaguai.com, www.vidanoparaguai.com,
+flyttatillparaguay.se, www.flyttatillparaguay.se {
     reverse_proxy localhost:3000
 }
 ```
@@ -49,7 +57,7 @@ paraguayinvestorguide.com, www.paraguayinvestorguide.com {
 `www` → apex redirects are handled by `src/middleware.ts`, not Caddy — every
 host above must reach the app, not redirect at the edge.
 
-## Adding a fourth (or eighth) domain
+## Adding an eighth domain
 
 The registry is the only place a domain is "known" (plan §2):
 

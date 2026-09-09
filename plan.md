@@ -1273,6 +1273,40 @@ Where S15 looks first: `docs/flytta-redirects.md` is the complete
 old-URL→new-path table it turns into the registry's per-site 301 map
 (plan §6.10 task 4).
 
+**2026-09-09 — S6 re-run: merge the domain sweep, still owner-blocked** — branch `phase/s6`
+
+What now exists: `phase/s6` merged with latest `main` (S16's domain sweep, plus S10–S14, all merged
+in the meantime), resolving one conflict in this file's own build log (both sides' entries kept, in
+chronological order). Per the F9 amendment at the top of `prompts/sonnet-6-deploy-seo-imagery.md`,
+`docs/runbook.md` and `docs/decisions-needed.md` are swept to the domains Anton actually owns —
+`paraguayresidency.co.uk` (hub), `paraguayinvestorpass.com`, `paraguayresidencyguide.com` for S6's own
+three; the Caddyfile example and the "adding a domain" section now name all seven since S10–S14 have
+since shipped the other four brands (S15 attaches those four domains later, same app, never a new
+slot). The Stripe live webhook host in `docs/decisions-needed.md` is corrected to
+`paraguayresidencyguide.com`. `src/lib/email.ts`'s sending domain was already
+`hello@paraguayresidency.co.uk` from S16 — nothing to change there. `npm run verify` re-run green (322
+tests) after the merge.
+
+Decisions and deviations:
+- Confirmed still genuinely blocked, unchanged from this phase's first run: no Hostinger login/SSH, no
+  DNS registrar access, no Stripe live keys, no Search Console access in this session. Re-tested the
+  imagery blocker directly (`curl` to `*.cloudfront.net` through the agent proxy) — still
+  `connect_rejected` / 403, so still no Higgsfield images generated or downloaded.
+- The F9 amendment also retires this phase's own handoff instruction to spawn S10–S14 (plan §4.12 was
+  amended to gate that lane on S16 instead) — corrected the stale "S6 will not merge, and will not
+  spawn S10–S14" line in `docs/decisions-needed.md` to match: S6's handoff is a merged green PR and
+  this §9 entry; S15 is spawned by the content lane's own claim rule once S6 and S10–S14 have all
+  merged (they already have).
+- This PR is still NOT merged — items 1 (hosting attach) and 4 (live Stripe purchase + refund) in
+  `docs/decisions-needed.md` are exit-checklist items that need Anton's credentials/access, not code
+  this session can write. Nothing here is a build-time blocker: verify is green, the app builds and
+  starts cleanly, `/api/health` still responds correctly wherever it's run.
+
+Where the next S6 attempt looks first: `docs/decisions-needed.md`, items 1–6, unchanged in substance
+from the first run — only the domain names and the (already-complete) S10–S14 dependency were stale.
+Once Anton or a session with the right access completes them, re-run this same prompt (or resume
+`phase/s6`) to verify `/api/health` on the three live hosts and merge.
+
 ## 10. Backlog
 
 - German brand or locale for the hub (Spanish, Portuguese and Swedish ship as brands, §1.11).
