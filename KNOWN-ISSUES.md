@@ -245,6 +245,20 @@ three page files, ~6 test files and two docs. **No schema change** — `SiteKey`
 long as F9 changes only what a key points at. Renaming or removing a key WOULD be a migration,
 because `siteEnum` mirrors `SITE_KEYS` on nine tables.
 
+## S10 — Lighthouse mobile perf on `/` and `/tax` reproduces S4's `<LeadForm>` finding, not a new regression
+
+Same root cause S4 already logged: `LeadFormFields.tsx` is a shared `'use client'` component
+(server actions, `useActionState`) used by every brand's every form, and its hydration cost drags
+`total-blocking-time` on any page that embeds it. Frontier's `/routes` page (no form) scores 0.94
+mobile performance in this container's `npx lighthouse` run; `/` and `/tax` (both embed
+`<LeadForm>` inline, per plan §6.5's page composition) score 0.81 and 0.86 respectively — LCP, CLS
+and Speed Index are all near-perfect on both, and TBT is the only failing sub-metric, exactly as
+S4 found on Investor Pass's home page. SEO scores 1.0 on every frontier page checked.
+
+`LeadFormFields.tsx` is shared conversion machinery, off-limits to Sonnet phases to rework (plan
+§4.7, §6). Left for S6 (deploy + performance pass) or Anton to re-measure against the real hosting
+target rather than re-litigated here, per the same reasoning S4 already recorded.
+
 ## O9 — pararesi appears never to have been deployed
 
 Its own plan marks Phase 8 (deploy) "⛔ Owner-blocked, not started" — no Hostinger slot, no domain,

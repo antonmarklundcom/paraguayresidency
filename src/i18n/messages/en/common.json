@@ -13,6 +13,7 @@
   "nav.requirements": "Requirements",
   "nav.routeFinder": "Route Finder",
   "nav.routes": "Routes",
+  "nav.whyParaguay": "Why Paraguay",
   "nav.taxResidency": "Tax residency",
   "nav.temporary": "Temporary residency",
   "nav.terms": "Terms",
@@ -162,5 +163,7 @@
   "nav.permits": "Residency permits",
   "nav.tax": "Tax",
   "nav.costs": "Costs",
-  "nav.ourStory": "Our story"
+  "nav.ourStory": "Our story",
+  "nav.mercosur": "Mercosur route",
+  "nav.costOfLiving": "Cost of living"
 }
