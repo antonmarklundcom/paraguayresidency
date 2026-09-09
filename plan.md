@@ -923,6 +923,18 @@ Where the next reader looks first: `src/app/sites/frontier/` for the page tree,
 `content/frontier/stories/` for the six articles. S11–S14 build their own brands the same
 way; nothing here touches their files.
 
+**2026-09-09 — S10 audit fix** — branch `phase/s10-audit-fix` (mirrors the `phase/s5-audit-fix`
+precedent)
+
+The pre-handoff audit (§4.9) on the merged S10 PR found all six `/stories` articles running
+556–706 words — short of §6.5's 900–1400 word requirement, missed because the exit checklist
+was run before an explicit word-count pass. Expanded each article with one to two genuine new
+sections (no padding) covering material already implied by the topic — apostille/legalisation
+snags, the Chaco vs. the eastern region, fintech-as-a-bridge banking, common presence-rule
+misreadings, dental/evacuation coverage, language and paperwork-burden comparisons. All six now
+run 922–968 words. Titles/descriptions unchanged (frontmatter untouched) and still within the
+≤60/≤155 bar. `npm run verify` re-run green after the fix.
+
 ## 10. Backlog
 
 - German brand or locale for the hub (Spanish, Portuguese and Swedish ship as brands, §1.11).
