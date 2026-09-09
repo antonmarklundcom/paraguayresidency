@@ -12,16 +12,18 @@
 | S3 | Sonnet | `prompts/sonnet-3-residency-site.md` | §6.1, §11.1 | spawned by O9 |
 | S4 | Sonnet | `prompts/sonnet-4-investorpass-site.md` | §6.2, §11.2 | spawned by S3 |
 | S5 | Sonnet | `prompts/sonnet-5-guide-site.md` | §6.3, §11.3 | spawned by S4 |
-| S6 | Sonnet | `prompts/sonnet-6-deploy-seo-imagery.md` | §6.4 | spawned by S5; goes live with the three original domains |
-| S10 | Sonnet | `prompts/sonnet-10-frontier-site.md` | §6.5, §11.5 | spawned by S6, in parallel with S11–S14 |
-| S11 | Sonnet | `prompts/sonnet-11-residenciaes-site.md` | §6.6, §11.6 | spawned by S6, parallel |
-| S12 | Sonnet | `prompts/sonnet-12-residenciapt-site.md` | §6.7, §11.7 | spawned by S6, parallel |
-| S13 | Sonnet | `prompts/sonnet-13-flytta-site.md` | §6.8, §11.8 | spawned by S6, parallel |
-| S14 | Sonnet | `prompts/sonnet-14-guide-members.md` | §6.9 | spawned by S6, parallel |
-| S15 | Sonnet | `prompts/sonnet-15-deploy-new-domains.md` | §6.10 | spawned by whichever of S10–S14 merges last (claim rule in §4.12) |
+| S6 | Sonnet (PR #13 open, owner-blocked) | `prompts/sonnet-6-deploy-seo-imagery.md` | §6.4 | spawned by S5; goes live with the three original brands on their real domains. Blocked on Anton (hosting, DNS, Stripe live — `docs/decisions-needed.md` on `phase/s6`); he re-runs it after S16 |
+| F9 | Fable 5.1 (done 2026-09-07, approved §1.9) | `prompts/fable-9-domain-rebrand-replan.md` | §1.11, §11.1–§11.3, §11.7, §12.2, §6.11 | Anton opened it manually; it spawned nothing |
+| S16 | Sonnet | `prompts/sonnet-16-domain-sweep.md` | §6.11 | **Anton pastes one line in a fresh Sonnet window** — the domain sweep; nothing brand-shaped runs before it merges |
+| S10 | Sonnet | `prompts/sonnet-10-frontier-site.md` | §6.5, §11.5 | spawned by S16, in parallel with S11–S14 |
+| S11 | Sonnet | `prompts/sonnet-11-residenciaes-site.md` | §6.6, §11.6 | spawned by S16, parallel |
+| S12 | Sonnet | `prompts/sonnet-12-residenciapt-site.md` | §6.7, §11.7 | spawned by S16, parallel |
+| S13 | Sonnet | `prompts/sonnet-13-flytta-site.md` | §6.8, §11.8 | spawned by S16, parallel |
+| S14 | Sonnet | `prompts/sonnet-14-guide-members.md` | §6.9 | spawned by S16, parallel |
+| S15 | Sonnet | `prompts/sonnet-15-deploy-new-domains.md` | §6.10 | spawned by whichever of S10–S14 merges last, **and only if S6 has merged** (claim rule in §4.12); otherwise Anton pastes it after S6 |
 | F7 | Fable 5.1 (approved by Anton, see §1.9) | `prompts/fable-7-launch-review.md` | §5.3 | **Anton opens it manually** — S15 never spawns it |
 
-Total automated build: 3 Opus + 10 Sonnet sessions. Fable touches the plan ends only (F0, F8 as the mid-build replan opened by Anton, F7 at the end). F8 wrote a spec and spawned nothing; O9 is the next phase and Anton starts it himself. S10–S14 run in parallel per `phased-autonomous-build`'s two-lane pattern: one sequential Opus foundation lane (O9), then content phases that each own their own files.
+Total automated build: 3 Opus + 11 Sonnet sessions. Fable touches the plan ends and the two replans only (F0; F8 and F9 as mid-build replans opened by Anton; F7 at the end). Neither replan spawned anything. **Chain as of F9:** S16 (Anton pastes) → S10–S14 in parallel (spawned by S16) → S15 (claim rule, needs S6 merged) → F7 (Anton opens). S6 sits beside that chain: it is owner-blocked on hosting, DNS and Stripe live, and Anton re-runs it whenever those are done; S15 is the only phase that waits on it. S10–S14 run in parallel per `phased-autonomous-build`'s two-lane pattern: one sequential Opus foundation lane (O9), then content phases that each own their own files.
 
 ---
 
@@ -29,9 +31,9 @@ Total automated build: 3 Opus + 10 Sonnet sessions. Fable touches the plan ends 
 
 1. **Seven domains, one app, one repo, one database, one hosting slot.** Domains are rows in a site registry; adding a domain is a config entry plus a page folder, never a new app. The three launch brands are below; the four consolidated brands (2026-09-07, F8) are in §1.11. `realestateinparaguay` stays its own app (real estate, not residency).
 2. **The three brands and their roles in one funnel:**
-   - `paraguayresidency.com` — **the hub.** High-ticket done-for-you residency services (temporary → permanent residency, cédula, RUC/tax residency, family). Primary SEO surface. Lead form + consultation booking.
-   - `paraguayinvestorpass.com.py` — **the premium spoke.** Investor Pass (direct permanent residency by investment, launched April 2026). Dedicated brand because it targets a different searcher (investors, family offices, migration agents) and a different ticket size. Same lead pipeline, tagged `site=investorpass`.
-   - `paraguayinvestorguide.com` — **the low-ticket entry.** A paid digital guide (PDF + updates) Anton runs alone. Buyers are nurtured toward the two service brands. Also the newsletter home.
+   - `paraguayresidency.co.uk` (domain decided F9, see §1.11) — **the hub.** High-ticket done-for-you residency services (temporary → permanent residency, cédula, RUC/tax residency, family). Primary English service surface, `/admin` host, redirect target for unknown hosts. Lead form + consultation booking.
+   - `paraguayinvestorpass.com` — **the premium spoke.** Brand name "Paraguay Investor Pass". Investor Pass (direct permanent residency by investment, launched April 2026). Dedicated brand because it targets a different searcher (investors, family offices, migration agents) and a different ticket size. Same lead pipeline, tagged `site=investorpass`.
+   - `paraguayresidencyguide.com` — **the low-ticket entry.** Brand name "Paraguay Residency Guide". A paid digital guide (PDF + updates) Anton runs alone. Buyers are nurtured toward the two service brands. Also the newsletter home, and the only brand that sells.
    - Funnel direction: Guide ($7) → Residency service ($$) → Investor Pass ($$$). Every brand links to the other two in the footer; the Guide upsells the services on its thank-you page; the service sites offer the Guide as the "not ready yet" exit.
 3. **Language:** every brand has exactly one locale, set in the registry (`en` for residency, investorpass, guide, frontier; `es` for residenciaes; `pt` for residenciapt; `sv` for flytta). All UI strings go through the i18n layer; a shipped locale must be complete (`verify:i18n` fails on any missing key per locale). Brands are not translations of each other, so no `hreflang` between them. **URL rule (amended 2026-09-07):** content and service slugs are written in the brand's locale (`/residencia/temporal` on the `.es` brand, `/investor-pass` on the English brands). The shared conversion and legal routes keep their English paths on every brand — `/route-finder`, `/route-finder/result`, `/contact`, `/book`, `/confirm`, `/unsubscribe`, `/thank-you`, `/login`, `/members`, `/privacy`, `/terms` — so O2's wiring and cross-brand deep links never change. Localizing those paths is Backlog.
 4. **Content lives in the repo as MDX** (`content/<site>/…`), not in an admin CMS. Anton and Claude edit content via PRs. Leads, orders, subscribers live in MySQL. A minimal `/admin` (leads + orders list, email/password login, `admin` role) exists on the hub domain only.
@@ -39,11 +41,59 @@ Total automated build: 3 Opus + 10 Sonnet sessions. Fable touches the plan ends 
 6. **Leads:** one `leads` table with a `site` column. Every form posts to VenderCRM via `vendercrm-lead-capture` AND stores locally (local store is the source of truth if CRM is down). Email notification via Resend (or Hostinger SMTP fallback).
 7. **Hosting decision is deferred to phase S6 with a hard rule:** the app is host-agnostic (Node server, `output: 'standalone'` optional, no Vercel-only APIs). First choice: one Hostinger Node.js slot with all three domains attached. If hPanel cannot attach multiple custom domains to one Node app, fallback is a Hostinger KVM VPS running the same app behind Caddy (automatic SSL, unlimited hostnames). Never three slots.
 8. **Design:** bespoke per brand but one component library. Shared tokens (spacing, type scale, radius, motion) + a per-site theme (accent, display font, imagery mood). Patterns from `nextjs-national-lead-gen` §4: Residency = split-screen hero + bento "routes" grid; Investor Pass = big-type editorial, dark-first, one gold-ish accent; Guide = single long-form sales page, warm light theme, big-type. Visual drafts may be produced with `/design` (see §12) — those drafts are input, the Next.js components are the deliverable.
-9. **Fable 5.1 usage approved for this project:** F0 (this plan, including §11 key copy), F7 (launch review, opened manually by Anton), and **F8 (2026-09-07 approval)** — finalizing the §12 platform-consolidation proposal into locked decisions, naming the remaining SiteKeys, writing key copy for any new brand needing distinct positioning, and writing the next Opus/Sonnet phase's prompt file(s) per `prompts/fable-8-platform-consolidation-plan.md`. F8 is spec/planning work, never spawned, and never spawns another Fable phase. No other phase, subagent, spawned session, or automation runs on Fable. This approval is recorded here per guardrail v2 §"Approved Fable work".
+9. **Fable 5.1 usage approved for this project:** F0 (this plan, including §11 key copy), F7 (launch review, opened manually by Anton), and **F8 (2026-09-07 approval)** — finalizing the §12 platform-consolidation proposal into locked decisions, naming the remaining SiteKeys, writing key copy for any new brand needing distinct positioning, and writing the next Opus/Sonnet phase's prompt file(s) per `prompts/fable-8-platform-consolidation-plan.md`. F8 is spec/planning work, never spawned, and never spawns another Fable phase. **F9 (2026-09-07 approval)** — re-planning the brand↔domain map after Anton confirmed which domains he actually owns, rewriting the §11 copy for the renamed brands, and updating the S10–S15 prompt files, per `prompts/fable-9-domain-rebrand-replan.md`. Same terms: Anton opens it himself, it spawns nothing. No other phase, subagent, spawned session, or automation runs on Fable. These approvals are recorded here per guardrail v2 §"Approved Fable work".
 10. **Legal figures are not copy-pasted from the web.** Every number about investment thresholds, fees, timelines and residency validity is rendered from `content/shared/facts.ts` and each entry carries a `verifiedBy`/`verifiedOn` field. Until Anton's legal partner verifies an entry, the page shows "from USD X — confirm current thresholds on your call" style wording, never a bare number. On non-English brands the hedged text is written in the brand's locale (`facts.ts` carries per-locale `display`/`hedged` with `en` required and the others falling back to `en`).
-11. **The four consolidated brands (decided 2026-09-07, F8):** `paraguayfrontier.com` → SiteKey `frontier` (en, plan-B/lifestyle angle for Americans and expats, §11.5) · `residenciaparaguay.es` → `residenciaes` (es, Spain first then Spanish-speaking LatAm, §11.6) · `residencianoparaguay.com` → `residenciapt` (pt, Brazil, §11.7) · `flyttatillparaguay.se` → `flytta` (sv, Anton's personal-story brand, §11.8). All four are lead-gen spokes for the same service team, tagged by `site`. The `flyttatillparaguay` repo is ported into this app (§12.4) and retired in S15; `pararesi` sells through `guide` (§1.12) and is retired after its data is imported. ES and PT brands do not upsell the English Guide; their soft exit is the newsletter until a localized edition exists (Backlog).
+11. **The four consolidated brands (decided 2026-09-07, F8; domains corrected by F9):** `paraguayfrontier.com` → SiteKey `frontier` (en, plan-B/lifestyle angle for Americans and expats, §11.5) · `residenciaparaguay.es` → `residenciaes` (es, Spain first then Spanish-speaking LatAm, §11.6) · `vidanoparaguai.com` → `residenciapt` (pt-BR, brand name **Vida no Paraguai**, Brazil, §11.7) · `flyttatillparaguay.se` → `flytta` (sv, Anton's personal-story brand, §11.8). All four are lead-gen spokes for the same service team, tagged by `site`. The `flyttatillparaguay` repo is ported into this app (§12.4) and retired in S15; `pararesi` sells through `guide` (§1.12) and is retired after its data is imported. ES and PT brands do not upsell the English Guide; their soft exit is the newsletter until a localized edition exists (Backlog).
+
+    **Amended 2026-09-07 — the domains F8 assumed are not the domains Anton owns.** Confirmed by him
+    after O9 and S3–S5 had merged. He owns: `paraguayresidencyguide.com` (the `guide` brand),
+    `paraguayinvestorpass.com` (the `.com`, not the `.com.py` — this closes §8.2),
+    `paraguayfrontier.com`, `residenciaparaguay.es`, `vidanoparaguai.com` (the Brazil brand, renamed
+    **Vida no Paraguai**) and `flyttatillparaguay.se`. He does **not** own
+    `paraguayresidency.com` — the hub — and it is not available to buy, nor
+    `paraguayinvestorguide.com` or `residencianoparaguay.com`. He DOES own
+    **`paraguayresidency.co.uk`**, which no version of this plan had recorded — the only
+    `paraguayresidency`-branded domain available to the project, and therefore the leading hub
+    candidate, against the objection that a `.co.uk` is geo-targeted to the UK. Changing a domain is
+    free (three lines per brand in the registry); changing a `SiteKey` is a migration, because
+    `siteEnum` mirrors `SITE_KEYS` on nine tables.
+
+    **Decided 2026-09-07 (F9) — the hub runs on `paraguayresidency.co.uk`. Locked.** The corrected
+    map is §12.2; the registry sweep is phase S16 (§6.11) and nothing brand-shaped runs before it
+    merges. Why this and not the alternatives:
+
+    - *Every SiteKey keeps its meaning and every owned domain maps one-to-one to a brand.* Seven
+      keys, seven domains, no migration, no purchase, no phase deleted. S3's 17 pages and 8 articles
+      stay exactly what they are; only what `residency` points at changes.
+    - *The ccTLD cost is real, and bounded.* Google treats `.co.uk` as UK-targeted and Search
+      Console cannot override that for a ccTLD, so the hub will rank harder than a `.com` would for
+      a searcher in the US, Canada or Australia. But those three searchers are exactly the audience
+      §11.5 already gives to `paraguayfrontier.com`, a `.com`, and the informational long tail that
+      the hub's articles chase is the kind of query where ccTLDs do rank worldwide. The hub keeps its
+      global positioning (§11.1 is unchanged in voice and H1); it simply gains a UK boost for a
+      cohort §11.5 names anyway, and loses some US reach that `frontier` is built to carry. The
+      Guide's `.com` now literally matches its own keyword cluster, which it never did before.
+    - *Promoting `paraguayfrontier.com` to hub* (option 2) would have given up the one brand name
+      that says what the company does, put "Paraguay Frontier" in every sibling's footer as "the
+      service team", and left `.co.uk` idle or needing a new content phase to fill. It trades the
+      brand for the TLD; the TLD is the cheaper thing to be wrong about.
+    - *Running the hub on the Guide domain* (option 3) puts `/admin`, `/login` and `/members` on the
+      one selling domain and mixes a $7 product with high-ticket services on one host. Rejected.
+    - *Buying a domain* (option 1) is the only alternative that keeps a `.com`, and it is still
+      available later: if Anton ever acquires a global residency `.com`, the move is three registry
+      lines plus a 301 from `.co.uk`, with the usual temporary ranking dip of a domain move
+      (Backlog, §10). Nothing decided here forecloses it.
+    - *A UK spoke as an eighth brand* is not needed while the hub itself is the UK-domain brand; if a
+      distinct UK-only positioning ever earns its own phase it would want its own domain, so it is
+      moot for now.
+
+    Consequences: `HUB_SITE` stays `residency`; `/admin` lives on `paraguayresidency.co.uk` only; the
+    unknown-host redirect and `APP_ORIGIN_FALLBACK` target `https://paraguayresidency.co.uk`; the CRM
+    source tag for the hub is `paraguayresidency.co.uk`; the sending address default becomes
+    `hello@paraguayresidency.co.uk` (Anton's DNS for that domain must carry the Resend/SMTP records,
+    §7). `paraguayinvestorpass.com.py` is **not** registered and not held (§8.2).
 12. **One product-tier vocabulary for the whole platform:** `none | entry | insider`. `entry` = a one-time low-ticket purchase (the $7 Guide today; pararesi's tripwire maps here). `insider` = the recurring membership (pararesi's Insider), sold through the `guide` brand. High-ticket residency and Investor Pass work is a **service, not a tier** — it is a lead, never an entitlement, and nothing is gated on it. Member content carries `min_tier enum(entry, insider)`; `entry` outranks `none`, `insider` outranks `entry`. `users.tier` is a denormalized cache; the truth is `src/lib/entitlements.ts` computed from `purchases` + `subscriptions` (Insider decays to `entry` 3 days after a cancelled or expired subscription ends, and to `entry` not `none` because the buyer keeps what they bought).
-13. **Two payment providers, one set of tables.** Stripe handles one-time products (built in O2); Lemon Squeezy handles subscriptions (built and proven in pararesi, existing subscribers stay there). `products.provider` decides the checkout per product; both webhooks write `webhook_events` first, then `purchases`/`subscriptions`, then the user's tier. No forced migration of anyone's buyers; unifying to one processor is revisited when both carry real volume (Backlog).
+13. **Two payment providers, one set of tables.** Stripe handles one-time products (built in O2); Lemon Squeezy handles subscriptions (built and proven in pararesi's code). **Amended F9:** pararesi was never deployed — its own plan marks deploy "owner-blocked, not started", it has no domain, no live store and no live database — so there are, on the evidence, no existing subscribers to keep anywhere. The Insider tier is therefore a **new product launch**, not a cutover; S15's import step is a verification that the pararesi database is empty (or an import if it is not — same idempotent script either way, §6.10.3). Anton confirms with one word before S15; the plan is correct under either answer. `products.provider` decides the checkout per product; both webhooks write `webhook_events` first, then `purchases`/`subscriptions`, then the user's tier. No forced migration of anyone's buyers; unifying to one processor is revisited when both carry real volume (Backlog).
 14. **Member content bodies live in MDX** (`content/<site>/members/<module>/<lesson>.mdx`), consistent with §1.4. The database holds only what needs querying: module/lesson metadata, ordering, `min_tier`, drip offsets and per-user progress. pararesi's DB-backed lesson and blog bodies are exported to MDX by the O9 import script.
 15. **Member auth is a passwordless magic link** (signed token via `src/lib/signing.ts`, emailed, exchanged for a separate `member` iron-session cookie). Staff keep the password login on `/admin`. A $7 buyer never sets a password; the email a processor gives us is the identity.
 
@@ -61,7 +111,7 @@ export type SiteKey =
 export type Locale = 'en' | 'es' | 'pt' | 'sv';               // src/i18n, O9
 export interface SiteConfig {
   key: SiteKey;
-  hosts: string[];              // ['paraguayresidency.com','www.paraguayresidency.com','residency.localhost']
+  hosts: string[];              // ['paraguayresidency.co.uk','www.paraguayresidency.co.uk','residency.localhost']
   canonicalHost: string;        // apex; www 301s here
   name: string; tagline: string;
   locale: Locale;               // exactly one per brand (§1.3); drives <html lang>, messages/<locale>/, money formatting
@@ -103,7 +153,7 @@ Not imported from pararesi (decided F8): `blogPosts` (→ MDX under `content/gui
 
 ```
 middleware.ts       host header → SiteKey (registry lookup) → rewrite to /_sites/<key>/<path>
-                    www.* → 301 apex · unknown host → 301 https://paraguayresidency.com
+                    www.* → 301 apex · unknown host → 301 https://paraguayresidency.co.uk (HUB_SITE's canonical host)
                     sets request header x-site; local dev via *.localhost or ?site= override
 src/app/_sites/[site]/layout.tsx   theme class + nav/footer from registry
 src/app/_sites/[site]/(pages)…     each brand's routes; shared components in src/components
@@ -147,11 +197,11 @@ Direct requests to `/_sites/...` are 404'd by middleware so every page has exact
 5. Missing env values never block: document in `.env.example`, degrade gracefully (CRM off → local store only; Stripe off → "coming soon" button; email off → log to console).
 6. Every prompt is re-runnable: check what exists on the branch first, continue from the first unmet exit criterion.
 7. Model-B (Sonnet) hard limits: no schema, auth, middleware/routing, payment, entitlement or CRM logic changes (`src/db`, `src/lib/leads.ts`, `src/lib/email.ts`, `src/lib/entitlements.ts`, `src/lib/member-auth.ts`, `src/lib/stripe.ts`, `src/lib/lemonsqueezy.ts`, `src/app/api`, `src/middleware.ts`, the shape of `src/sites/registry.ts`, `scoring.ts`). Page data access only through the query/action layer O1, O2 and O9 built. Need something? Workaround + Backlog note.
-8. **Model cost guardrail (v2, Fable 5.1):** build phases, subagents, spawned sessions, workflows and triggers run on Opus or Sonnet only. Fable runs only in windows Anton opens himself. The Fable phases in this plan (F7, F8) are approved in §1.9 and are never spawned: F8 was opened by Anton and ended with a report telling him to open O9 himself; the S15 handoff ends with a report telling Anton to open F7. Any session that thinks it needs Fable elsewhere stops and asks Anton with the reason.
+8. **Model cost guardrail (v2, Fable 5.1):** build phases, subagents, spawned sessions, workflows and triggers run on Opus or Sonnet only. Fable runs only in windows Anton opens himself. The Fable phases in this plan (F7, F8, F9) are approved in §1.9 and are never spawned: F8 and F9 were opened by Anton and each ended with a report telling him which Sonnet/Opus line to paste next; the S15 handoff ends with a report telling Anton to open F7. Any session that thinks it needs Fable elsewhere stops and asks Anton with the reason.
 9. **Phase handoff** — hand off only when four gates pass: PR merged green; exit checklist passed; pre-handoff audit done (re-run `npm run build` + `npm run verify`, adversarially re-read your own merged diff, fix findings); §9 build-log entry committed. Then spawn the next phase as a NEW session via claude-code-remote `create_session`: inherit environment and permission mode (never `plan`), `model` per the phase table (Opus or Sonnet only), `prompt` exactly `Read prompts/<next-file>.md in this repo and execute it.` Then end with the phase report. Fallback when `create_session` is unavailable: continue in the same window if the next phase uses the same model; stop and report at a model switch.
 10. **Build log:** before merging, append a dated 5–10 line entry to §9 — phase id + PR link, what now exists, decisions/deviations, where the next phase should look first. Fresh sessions orient from `plan.md` + §9 + `KNOWN-ISSUES.md` only.
 11. **Facts rule (§1.10):** no session ever hardcodes a legal/financial number in JSX or MDX. Add it to `content/shared/facts.ts` with `verified: false` and render through `<Fact k="…"/>`. On a non-English brand, add that locale's `display`/`hedged` text to the same entry; never a second facts file.
-12. **Parallel content lane (S10–S14):** S6's handoff spawns all five at once, each on its own `phase/<id>` branch off the same `main`, each owning only `src/app/sites/<key>/`, `content/<key>/`, `src/i18n/messages/<locale>/<key>.json`, `src/styles/themes/<key>.css` and its own MDX (S14 owns `src/app/sites/guide/{login,members,insider,account}/` and `content/guide/members/`). A phase that must touch a shared file (`common.json`, a shared component) makes the smallest additive change and rebases before merging; conflicts are that phase's to resolve. **S15 claim rule:** after your PR merges, list the five PRs; if all of S10–S14 are merged and no `phase/s15` branch exists on origin, push an empty `phase/s15` branch first (the claim), then spawn S15 per §4.9. If the branch already exists, someone else claimed it — end with your report.
+12. **Parallel content lane (S10–S14):** gated on **S16 merged** (amended F9 — it was S6, but S6 is owner-blocked on hosting and DNS and the content phases do not depend on a deploy). S16's handoff spawns all five at once, each on its own `phase/<id>` branch off the same `main`, each owning only `src/app/sites/<key>/`, `content/<key>/`, `src/i18n/messages/<locale>/<key>.json`, `src/styles/themes/<key>.css` and its own MDX (S14 owns `src/app/sites/guide/{login,members,insider,account}/` and `content/guide/members/`). A phase that must touch a shared file (`common.json`, a shared component) makes the smallest additive change and rebases before merging; conflicts are that phase's to resolve. **S15 claim rule:** after your PR merges, list the five PRs; if all of S10–S14 are merged and no `phase/s15` branch exists on origin, push an empty `phase/s15` branch first (the claim). Then, **only if S6 (PR #13) has also merged**, spawn S15 per §4.9; if S6 is still open, do not spawn — end with a report saying S15 is claimed and waits on S6, and that Anton pastes `Read prompts/sonnet-15-deploy-new-domains.md in this repo and execute it.` into a fresh Sonnet window once S6 merges. If the branch already exists, someone else claimed it — end with your report.
 
 ## 5. Model-A phases (Opus)
 
@@ -218,7 +268,7 @@ Exit: `npm run verify` green with the new tests (resolver ×8 hosts, `siteEnum`=
 
 Hard limits for all Sonnet phases: the §4.7 list — no changes under `src/db`, `src/lib/leads.ts`, `src/lib/email.ts`, `src/lib/entitlements.ts`, `src/lib/member-auth.ts`, `src/lib/stripe.ts`, `src/lib/lemonsqueezy.ts`, `src/app/api`, `src/middleware.ts`, `src/sites/registry.ts` shape (adding nav items/copy inside the registry is fine), `src/features/quiz/scoring.ts`. Page data access through `getPages/getPage/getHub`, the O2 server actions and the O9 member queries. Skills to load in every Sonnet phase: `nextjs-national-lead-gen` (§3 checklist, §4 restraint baseline), `web-design-system` if present in the skill list, otherwise the tokens in `src/styles`.
 
-### 6.1 Phase S3 — paraguayresidency.com (hub)
+### 6.1 Phase S3 — the hub (`residency`; domain `paraguayresidency.co.uk` since F9)
 
 Pages (all under `src/app/_sites/residency/`), one primary intent each:
 
@@ -229,13 +279,13 @@ Pages (all under `src/app/_sites/residency/`), one primary intent each:
 /residency/cedula                  cédula de identidad process
 /residency/tax-residency           RUC, territorial tax, who it suits (hedged facts)
 /residency/family                  spouse/children/dependents
-/investor-pass                     short bridge page → paraguayinvestorpass.com.py (canonical there; this page is a teaser, noindex if thin)
+/investor-pass                     short bridge page → paraguayinvestorpass.com (canonical there; this page is a teaser, noindex if thin)
 /route-finder, /route-finder/result  the quiz (from O2)
 /pricing                           packages table (Anton fills real prices; placeholder rows marked TODO → shown as "from" with a note until filled)
 /process                           step-by-step timeline with documents checklist
 /about, /contact, /book (booking embed or form)
 /guides/[hub]/[slug]               content hub: hubs = documents, living-in-paraguay, taxes, comparisons ("Paraguay vs Uruguay residency", "Paraguay vs Panama")
-/guide                             bridge → paraguayinvestorguide.com (soft CTA)
+/guide                             bridge → paraguayresidencyguide.com (soft CTA)
 /privacy, /terms
 ```
 
@@ -243,7 +293,7 @@ Content to write in this phase: 8 MDX articles minimum (2 per hub), each 900–1
 
 Exit: all pages render with unique titles ≤60 / descriptions ≤155; sitemap lists exactly these; JSON-LD validates (Organization sitewide, Service on service pages, FAQPage, BreadcrumbList, Article); no `<Fact>` bypassed; Lighthouse mobile ≥90 perf/SEO on `/` and one service page; forms submit through O2 actions; PR merged.
 
-### 6.2 Phase S4 — paraguayinvestorpass.com.py
+### 6.2 Phase S4 — paraguayinvestorpass.com (`investorpass`; the `.com`, corrected by F9)
 
 ```
 /                                  editorial hero (dark, big type) · what the Investor Pass is (hedged facts) · 4 investment routes grid · who qualifies · timeline · "why go direct to permanent" · investor inquiry form
@@ -259,7 +309,7 @@ Exit: all pages render with unique titles ≤60 / descriptions ≤155; sitemap l
 
 Exit: same bar as S3; Product/Service + Offer JSON-LD on `/`; every investment figure via `<Fact>`; inquiry form tags `site=investorpass`; PR merged.
 
-### 6.3 Phase S5 — paraguayinvestorguide.com
+### 6.3 Phase S5 — paraguayresidencyguide.com (`guide`; domain and brand name corrected by F9)
 
 ```
 /                                  long-form sales page: promise · who it's for · what's inside (chapters) · sample pages · author/credibility · price + Stripe button · guarantee · FAQ · newsletter fallback
@@ -300,7 +350,7 @@ Voice and copy anchor: §11.5. Theme: warm, wide, editorial — big type over la
 /pricing                  "from" table mirroring the hub's, marked TODO until Anton fills it
 /route-finder(/result)    shared quiz
 /stories/[slug]           6 articles: an American's first 90 days · land and farms as a foreigner · banking as a new resident · the presence rules nobody explains · healthcare and insurance · Paraguay vs Panama vs Uruguay vs Mexico for a plan B
-/guide                    bridge → paraguayinvestorguide.com
+/guide                    bridge → paraguayresidencyguide.com
 /about, /contact, /privacy, /terms
 ```
 
@@ -314,7 +364,7 @@ Voice and copy anchor: §11.6. Spanish throughout (Spain register, `tú`); URLs 
 /                                 hero split · para quién · 3 rutas bento · proceso · por qué Paraguay (facts) · FAQ · formulario
 /residencia/temporal, /residencia/permanente, /residencia/cedula, /residencia-fiscal, /familia
 /mercosur                         la vía Mercosur: quién califica y qué simplifica (hedged)
-/pase-inversor                    bridge → paraguayinvestorpass.com.py (EN; say so)
+/pase-inversor                    bridge → paraguayinvestorpass.com (EN; say so)
 /proceso, /precios, /nosotros
 /route-finder(/result), /contact  shared
 /guias/[hub]/[slug]               hubs: documentos · vivir-en-paraguay · impuestos · comparativas — 8 articles min (Paraguay vs Andorra, vs Portugal, vs Uruguay among them)
@@ -323,15 +373,16 @@ Voice and copy anchor: §11.6. Spanish throughout (Spain register, `tú`); URLs 
 
 Exit: S3's bar; `lang="es"`; no English UI string visible on any page (`verify:i18n` proves `common.json` is complete, a page crawl proves the rest); leads tagged `site=residenciaes`; PR merged.
 
-### 6.7 Phase S12 — residencianoparaguay.com (`residenciapt`, pt-BR)
+### 6.7 Phase S12 — vidanoparaguai.com (`residenciapt`, pt-BR, brand "Vida no Paraguai")
 
-Voice and copy anchor: §11.7. Brazilian Portuguese throughout; URLs in Portuguese except shared routes. Money facts in BRL first, USD, PYG. Distinct content: the Mercosur route for Brazilians (hedged), tax framing against the Brazilian declaration (hedged, no "zero imposto"), the border-region angle (Ciudad del Este / Foz). No Guide upsell; newsletter soft exit. Leads tagged `site=residenciapt`.
+Voice and copy anchor: §11.7 (rewritten by F9 — the brand is "life in Paraguay", and residency is the product that starts it; read the angle before the page list). Brazilian Portuguese throughout; URLs in Portuguese except shared routes. Money facts in BRL first, USD, PYG. Distinct content: the Mercosur route for Brazilians (hedged), tax framing against the Brazilian declaration (hedged, no "imposto zero"), the border-region angle (Ciudad del Este / Foz), and — new with the brand name — the living side: cost of living, safety, business and agro, schooling, healthcare. Every "life" page ends in a residency CTA; the brand sells residency, not tourism. The `morar-no-paraguai` hub is the lead hub and carries at least 3 of the 8 articles. No Guide upsell; newsletter soft exit. Leads tagged `site=residenciapt`.
 
 ```
 /                                 hero split · para quem · 3 rotas bento · processo · por que o Paraguai (facts) · FAQ · formulário
 /residencia/temporaria, /residencia/permanente, /residencia/cedula, /residencia-fiscal, /familia
 /mercosul                         a rota Mercosul para brasileiros (hedged)
-/investor-pass                    bridge → paraguayinvestorpass.com.py (EN; say so)
+/investor-pass                    bridge → paraguayinvestorpass.com (EN; say so)
+/custo-de-vida                    the living-cost page the brand name promises (every figure a <Fact>, BRL first)
 /processo, /precos, /sobre
 /route-finder(/result), /contact  shared
 /guias/[hub]/[slug]               hubs: documentos · morar-no-paraguai · impostos · comparativos — 8 articles min (Paraguai vs Uruguai, vs Portugal, fronteira among them)
@@ -378,15 +429,29 @@ Exit: `npm run verify` green; with the O9 fixture users: `none` sees `/insider` 
 
 Load: `nextjs-deploy-hostinger`, `higgsfield-web-imagery`. Starts only when S10–S14 are all merged (§4.12).
 
-1. Attach `paraguayfrontier.com`, `residenciaparaguay.es`, `residencianoparaguay.com`, `flyttatillparaguay.se` (+ www) to the same slot or Caddy config S6 chose; DNS, SSL on all eight new hostnames; `/api/health` per host.
+1. Attach `paraguayfrontier.com`, `residenciaparaguay.es`, `vidanoparaguai.com`, `flyttatillparaguay.se` (+ www) to the same slot or Caddy config S6 chose; DNS, SSL on all eight new hostnames; `/api/health` per host.
 2. Env: Lemon Squeezy live API key, store id, Insider variant id, webhook secret; register the live LS webhook; `INSIDER_PRICE_CENTS`/`INSIDER_INTERVAL` as Anton set them.
-3. `scripts/import-pararesi.ts --dry-run` against the pararesi production database, review counts with Anton's numbers, then the real run; verify one real pararesi Insider can request a magic link on paraguayinvestorguide.com and sees insider content; one real entry buyer sees entry content.
+3. **Verification, not migration (amended F9, §1.13).** pararesi was never deployed, so the expected outcome is an empty source. If Anton provides `PARARESI_DATABASE_URL` (or a dump), run `scripts/import-pararesi.ts --dry-run`: zero rows confirms the finding and the step is done; non-zero rows means real buyers exist after all — set `PARARESI_AMOUNT_UNIT`, review the counts with Anton, then the real run, exactly as O9 specified. If he provides no database, record "no pararesi data, Insider launched new" in §9 and move on. Either way, verify the member platform with a fresh test buyer instead of an imported one: one Lemon Squeezy test-mode Insider purchase and one Stripe entry purchase, each requesting a magic link on paraguayresidencyguide.com and seeing the right tier.
 4. flytta cutover: 301 map from `docs/flytta-redirects.md` into the registry's per-site redirects (a data entry, not middleware logic), point `flyttatillparaguay.se` DNS at the app, confirm the old URLs 301.
 5. Search Console for four domains, sitemaps submitted; analytics ids in the registry.
 6. Imagery: hero + 2 section images for each of the four brands through Higgsfield; alt text from MDX/registry.
 7. Retire: README pointer + "archived, superseded by paraguayresidency" note in `pararesi` and `flyttatillparaguay` (Anton archives on GitHub); `docs/runbook.md` updated for seven domains and the LS webhook.
 
-Exit: seven domains live with SSL and healthy; pararesi members log in and are correctly tiered; flytta old URLs 301; Search Console ×7; PR merged; STOP footer report to Anton telling him F7 is next and he opens it.
+Exit: seven domains live with SSL and healthy; a test Insider and a test entry buyer log in and are correctly tiered (imported pararesi members too, if any existed); flytta old URLs 301; Search Console ×7; PR merged; STOP footer report to Anton telling him F7 is next and he opens it.
+
+### 6.11 Phase S16 — Domain sweep (Sonnet; Anton pastes it; runs before S10–S14)
+
+The mechanical half of F9. Everything below is a rename of what a key *points at*; no `SiteKey` changes, no schema, no new pages. Delta-spec is `prompts/sonnet-16-domain-sweep.md`; the authoritative map is §12.2 and the copy is §11.3 and §11.7.
+
+1. `src/sites/registry.ts`: `residency` hosts → `paraguayresidency.co.uk` + `www.` (keep `residency.localhost` and `localhost`), `canonicalHost` and `crm.source` to match; `investorpass` → `paraguayinvestorpass.com`; `guide` → `paraguayresidencyguide.com` and `name: 'Paraguay Residency Guide'`; `residenciapt` → `vidanoparaguai.com` and `name: 'Vida no Paraguai'`. Fix the doc comments that quote the old hosts (the `siteOrigin` docstring, the `SiteConfig.hosts` example).
+2. `.env.example` (`APP_ORIGIN_FALLBACK`, `EMAIL_FROM`) and the `EMAIL_FROM` default in `src/lib/email.ts` → `paraguayresidency.co.uk`.
+3. Page copy that names a sibling domain or the old Guide name: `src/app/sites/guide/{page,about/page,blog/page,refunds/page}.tsx`, `src/app/sites/investorpass/{page,about/page,investor-pass/vs-standard-residency/page}.tsx`, `src/app/sites/residency/investor-pass/page.tsx` (comment), `content/guide/blog/do-you-need-a-lawyer-for-paraguay-residency.mdx`. Prefer `siteOrigin('<key>')` / the registry `name` over a new literal wherever the file already imports them; a literal is acceptable in prose.
+4. `src/i18n/messages/pt/residenciapt.json`: the seven Vida no Paraguai strings exactly as §11.7 gives them (`site.tagline`, `home.metaTitle`, `home.metaDescription`, `home.h1`, `home.sub`, `contact.metaTitle`, `book.metaTitle`). Every other locale file is untouched.
+5. Tests that hardcode a host: `tests/resolve.test.ts` (including the per-brand apex table near the end), `tests/admin-guard.test.ts`, `tests/leads-flow.test.ts`, `tests/checkout-routing.test.ts`, `tests/crm-and-signing.test.ts`, `tests/member-session.test.ts`. Add one assertion: an unknown production host 301s to `https://paraguayresidency.co.uk/`.
+6. Docs: the brand table in `docs/platform.md`; the heading of `docs/guide-outline.md`; the header lines of `prompts/sonnet-3`, `-4`, `-5` (historical, header only); the F9 blocker entry in `KNOWN-ISSUES.md` becomes "CLEARED in S16"; `CLAUDE.md` drops the sentence saying the registry still names the wrong domains.
+7. Do not touch `plan.md` §9 history, `prompts/fable-*`, or any `src/app/sites/<key>/` folder beyond the files in step 3.
+
+Exit: `grep -rn` (excluding `node_modules`, `.next`, `.git`, `plan.md`, `prompts/fable-*`) for `paraguayresidency.com`, `paraguayinvestorpass.com.py`, `paraguayinvestorguide.com`, `residencianoparaguay.com`, `Paraguay Investor Guide` and `Residência no Paraguai` returns nothing; `npm run verify` green; the seven `*.localhost:3000` hosts still render and `curl -sI -H 'Host: nothing.example' :3000/` in production mode 301s to the `.co.uk`; one PR. Handoff: spawn S10, S11, S12, S13 and S14 at once per §4.12 (five `create_session` calls, Sonnet), then a report to Anton that also restates the S6 items still on him (`docs/decisions-needed.md` on `phase/s6`, with the corrected domains).
 
 ## 7. Human-inputs checklist
 
@@ -402,11 +467,11 @@ Exit: seven domains live with SSL and healthy; pararesi members log in and are c
 | The Guide PDF (real file) + author bio + photo | S5/S6 | placeholder ships |
 | Testimonials (real, with consent) | S3 | section hidden until provided |
 | Hosting choice confirmation if hPanel can't multi-domain | S6 | plan says VPS fallback |
-| Domain DNS access for all three domains | S6 | |
+| Domain DNS access for `paraguayresidency.co.uk`, `paraguayinvestorpass.com`, `paraguayresidencyguide.com` — plus Resend/SMTP sending records on `paraguayresidency.co.uk` | S6 | |
 | Analytics choice (Plausible vs GA4) | S6 | default Plausible |
 | Lemon Squeezy test store: API key, store id, Insider variant id, webhook secret | O9 | degrades to "coming soon" on the Insider button |
 | Insider price + interval (`INSIDER_PRICE_CENTS`, `INSIDER_INTERVAL`) | O9 seed | env; pararesi's current price is the default Anton should set |
-| pararesi database read access (`PARARESI_DATABASE_URL`) or a dump | O9 dry-run / S15 real run | import is idempotent |
+| pararesi database read access (`PARARESI_DATABASE_URL`) or a dump — **or Anton's one-word confirmation that pararesi never went live** | S15 verification run (§6.10.3) | import is idempotent; expected result is zero rows |
 | Lemon Squeezy live keys + live webhook | S15 | |
 | DNS access for the four new domains | S15 | |
 | flyttatillparaguay.se current hosting + list of live URLs | S13 (map) / S15 (cutover) | |
@@ -415,7 +480,7 @@ Exit: seven domains live with SSL and healthy; pararesi members log in and are c
 ## 8. Open business questions (parked)
 
 1. ~~Guide price: $49 default. $29 sells more, $79 signals more; decide before S6 live.~~ **Decided 2026-09-07: $7.** Matches the tripwire price point, positions the Guide as the platform's shared low-ticket entry product (see §1.5, §1.12).
-2. Is `paraguayinvestorpass.com.py` the canonical Investor Pass brand, or should a `.com` be acquired and the `.com.py` redirect? (.com.py is fine for EN searchers but odd for a non-Paraguay audience.)
+2. ~~Is `paraguayinvestorpass.com.py` the canonical Investor Pass brand, or should a `.com` be acquired and the `.com.py` redirect?~~ **Closed 2026-09-07 (F9):** Anton owns `paraguayinvestorpass.com`; it is the canonical brand domain. The `.com.py` is not owned and not worth registering: nobody searches a `.com.py`, and holding it would cost a NIC.py registration for a redirect no one follows. A defensive registration is Backlog-optional (§10), not a plan item.
 3. Referral fee structure for the `/for-agents` page.
 4. Whether the hub should show prices at all (skill says transparency wins; Paraguayan legal partners often prefer "on request").
 5. ~~Second locale priority: Spanish (LatAm investors) vs German (largest EU cohort in Paraguay).~~ Overtaken by F8: `es`, `pt`, `sv` ship as their own brands (§1.11). German stays Backlog.
@@ -810,6 +875,404 @@ Stripe env vars. Once items 1–5 there are done, re-run this same prompt file
 in a fresh Sonnet session (or resume this branch) to finish the exit
 checklist, merge, and spawn S10–S14.
 
+**2026-09-07 — F9 Domain reality re-plan (Fable 5.1, window opened by Anton, approved §1.9)** — branch `claude/fable-domain-rebrand-replan-cyyn7r`
+
+What now exists: the brand↔domain map is re-decided on the seven domains Anton
+owns (§1.11, §12.2). The hub runs on `paraguayresidency.co.uk`; the reasoning
+and the rejected options are in §1.11 so nobody re-opens it. `guide` is
+`paraguayresidencyguide.com` under the name "Paraguay Residency Guide" (§11.3
+reconciles registry, product and page titles); `investorpass` is the `.com`
+(§11.2, §8.2 closed); `residenciapt` is `vidanoparaguai.com` under the name
+"Vida no Paraguai" with §11.7 rewritten from a residency brand into a
+life-in-Paraguay brand that sells residency, including the exact pt-BR
+strings S16 copies into the i18n file. §6.11 specifies S16, the Sonnet sweep
+that swaps every old host in the registry, three brands' pages, six test
+files, the i18n file and the docs. Prompt files `sonnet-10` … `-15` are
+rewritten for the new domains and the new chain; `sonnet-6` carries an
+amendment for its re-run; `sonnet-16-domain-sweep.md` is new. `CLAUDE.md`
+and `KNOWN-ISSUES.md` record the decision.
+
+Decisions and deviations:
+- No SiteKey changes, no schema, no domain purchase. Every decision changes
+  only what a key points at, so the sweep is a Sonnet phase.
+- The parallel lane (S10–S14) is now gated on S16, not S6 (§4.12). S6 is
+  owner-blocked indefinitely on hosting, DNS and Stripe live, and the content
+  phases do not depend on a deploy. S15 still waits on S6, through an added
+  condition in the claim rule.
+- pararesi's never-deployed state is folded into §1.13, §6.10.3, §7, §12.3 as
+  "verification, expected zero rows; import if not" — correct under either
+  answer, so it did not need to block on Anton.
+- `paraguayinvestorpass.com.py` is not registered and not held.
+- Nothing was spawned. Anton pastes the S16 line himself.
+
+Where S16 looks first: §6.11 (the file list is exhaustive as of this commit;
+the grep in its exit criterion is the real test), §12.2 for the map, §11.7
+for the pt-BR strings, §11.3 for the Guide names. Where S6's re-run looks
+first: the amendment at the top of `prompts/sonnet-6-deploy-seo-imagery.md`.
+
+**2026-09-09 — S16 Domain sweep** — branch `phase/s16`
+
+What now exists: `src/sites/registry.ts`, `.env.example` and `src/lib/email.ts`
+point at the domains Anton owns — `residency` → `paraguayresidency.co.uk`,
+`investorpass` → `paraguayinvestorpass.com`, `guide` →
+`paraguayresidencyguide.com` ("Paraguay Residency Guide"), `residenciapt` →
+`vidanoparaguai.com` ("Vida no Paraguai"). All prose/anchor-text mentions of
+the old domains in `src/app/sites/guide/*`, `src/app/sites/investorpass/*`,
+`src/app/sites/residency/investor-pass/page.tsx` and one Guide blog MDX are
+updated, preferring `siteOrigin('<key>')` over new literals where a file
+already imports it. `pt/residenciapt.json` carries the seven §11.7 strings
+verbatim (title 55 chars, description 145 — both under the limit).
+`tests/resolve.test.ts` (+ admin-guard, leads-flow, checkout-routing,
+crm-and-signing, member-session) assert the new hosts; added an explicit
+"unknown host → 301 `https://paraguayresidency.co.uk/`" case alongside the
+existing dynamic one. `npm run verify` is green (typecheck, lint, 190+ tests,
+i18n, build).
+
+Decisions and deviations:
+- The exit grep (plan §6.11) is clean except three places the prompt's own
+  filter didn't anticipate and which are correct left alone: `CLAUDE.md`'s
+  "He does NOT own paraguayresidency.com…" sentence (documents what Anton
+  does *not* own — flipping it would make it false), `KNOWN-ISSUES.md`'s
+  already-historical entries describing what O2 actually tested against at
+  the time, and `prompts/sonnet-16-domain-sweep.md` itself (this file), which
+  necessarily quotes the old domains as its own spec. Treated the same as the
+  `plan.md`/`sonnet-6`/`fable-*` exemptions the prompt already lists.
+- `src/app/sites/guide/page.tsx` needed one added import (`siteOrigin`) that
+  a literal-domain edit turned into a real reference — caught by `tsc`, not
+  by the domain grep.
+- `KNOWN-ISSUES.md`'s "BLOCKER — brand↔domain map" entry is retitled
+  "CLEARED in S16" with a short note on what changed, per §6.11 step 6.
+
+Where S10–S14 look first: their own prompt files are unchanged by this
+phase (only header lines on S3–S5 changed); the registry's `hosts` /
+`canonicalHost` / `name` for their brand are now final — do not re-litigate
+domains, only build the content §6.5–§6.9 and §11.5–§11.8 specify.
+
+**2026-09-09 — S14 Guide member area + Insider** — branch `phase/s14`
+
+What now exists: every §6.9 page. `/insider` is the long-form Insider sales page (what changes
+monthly, an updates-feed preview, a resources teaser, price read live from the `guide-insider`
+product, `<CheckoutButton product={GUIDE_INSIDER_SLUG}>`, FAQ, refund policy, Product+Offer JSON-LD)
+— "coming soon" falls out of `CheckoutButton`'s existing inactive-product handling, nothing new
+needed there. `/login` is restyled inside the Guide brand (own JSX body, not the shared
+`conversion-pages.tsx` one — nothing else used that shared body, so the swap was clean). `/members`
+is a real dashboard: tier badge, every module in order with its rolled-up locked/dripped/open state
+(computed only via `hasTier`/`isDripped`/`isUnlocked` from `entitlements.ts`, never re-implemented),
+per-lesson checkmarks, and "continue where you left off". `/members/[module]/[lesson]` renders MDX
+from disk by `lessons.content_path`, prev/next, a mark-complete action, and never reads the file at
+all for an under-tier or not-yet-dripped request. `/members/updates` and `/members/resources` gate
+per-item on the member's tier; resources download through a new tier-checked streaming route.
+`/account` shows tier, expiry, a Lemon Squeezy "manage subscription" link when available, logout.
+`/thank-you` gained the sign-in-link note and an Insider upsell block. New query layer
+`src/lib/member-content.ts` (modules/lessons/resources/updates_posts reads, MDX-by-content_path,
+drip/tier rollups, `markLessonComplete`) since nothing under O9 queried those four tables yet.
+`scripts/seed.ts` now also seeds four entry-tier modules (the twelve guide chapters, `dripDays: 0`
+throughout — a one-time buyer already paid for the whole book) and two Insider-only modules, the
+second carrying `dripDays: 30` specifically so a fresh Insider fixture sees all three states at
+once; `content/guide/members/` and `content/guide/updates/` carry the MDX bodies (per §6.9's
+"if the import left no lessons, write them" — no `PARARESI_DATABASE_URL` in this environment, so the
+import never ran).
+
+Decisions and deviations:
+- **Fixed, not just found:** `src/app/actions/lead.ts` (O2) was exporting two plain objects from a
+  `'use server'` file — invalid per Next's own rule, silent until S14's new server action changed
+  Turbopack's chunking enough to make it throw a 500 on every page in that chunk. The two objects
+  moved to a new `src/app/actions/lead-state.ts` (no `'use server'`); `lead.ts` now exports only its
+  two async actions. `leads.ts` itself is untouched — this is a build-graph fix, not a lead-pipeline
+  change. Full account in `KNOWN-ISSUES.md` ("FIXED in S14"), because the next phase to add a
+  `'use server'` file anywhere in the app could resurface the same class of bug elsewhere if nobody
+  knows the rule.
+- The LS "manage subscription" URL (plan §6.9's `/account`) doesn't exist anywhere under O9 —
+  `src/lib/subscription-portal.ts` is a small new file (not an edit to the off-limits
+  `lemonsqueezy.ts`) that reads `provider_customers` and calls LS's `GET /customers/:id`, degrading
+  to a "email us" fallback exactly like the rest of the platform degrades on a missing key.
+- `/members/resources/[slug]/download` is a Route Handler under S14's own owned tree, not under
+  `src/app/api` (plan §4.7 puts that folder off-limits) — reuses `download-policy.ts`'s
+  `resolvePrivateFile` and the same `currentMember`/`entitlementFor` gate every member page uses.
+  Two placeholder resource PDFs ship in `private/`, whitelisted in `.gitignore` next to the existing
+  guide placeholder.
+- Verified against a real MariaDB (same pattern as every prior phase): migrated, seeded (6 modules /
+  14 lessons / 2 resources / 3 updates posts, idempotent on a second run), `npm run verify` green.
+  Then end-to-end against `next build` + the standalone server (`node .next/standalone/server.js` —
+  `next start` warns it is incompatible with `output: 'standalone'`, the same trap O2's
+  `KNOWN-ISSUES.md` entry already named): a Stripe-webhook-fulfilled entry fixture and an
+  LS-webhook-fulfilled Insider fixture, both signed in via real magic links. Confirmed server-side
+  (not just hidden by CSS): an anonymous visitor reaches only `/insider` and `/login`; the entry
+  fixture sees its four modules open and both Insider modules as a locked upgrade card with zero
+  lesson titles or body text in the response; the Insider fixture sees "Insider extras" open and
+  "Insider deep dives" reporting "Opens October 9, 2026" (`dripDays: 30` from today); a
+  Playwright-driven click on "Mark complete" wrote a real `lesson_progress` row; the resource
+  download route answered 200/403/401 correctly by tier and sign-in state. Lighthouse on `/insider`:
+  desktop perf/SEO 1.0/1.0, mobile perf 0.99/SEO 1.0 — clears the ≥90 bar.
+- Genuinely guide-only copy (the Insider sales page body, the dashboard chrome, the lesson viewer)
+  is hardcoded JSX rather than routed through `t(site, key)` — S3's precedent (plan §9's S3 entry):
+  these components only ever render with `site="guide"` as a literal, so mirroring the strings
+  across all seven brands' i18n files would be pure overhead. The one addition to the shared
+  namespace is `nav.insider` in all four `common.json` locales (footer/nav link), which plan §6
+  explicitly allows.
+- Twelve guide-chapter lessons and two Insider lessons are new MDX under `content/guide/members/`;
+  three Insider updates under `content/guide/updates/`. Every legal/financial claim renders through
+  `<Fact k>` from the existing key set (`tax.territorial_rate`, `cedula.timeline`,
+  `permanent.presence_rule`, `investorpass.*`, `tax.foreign_income_treatment`) — no new fact keys
+  needed.
+
+Where S15 looks first: `KNOWN-ISSUES.md`'s "S14 — Insider drip is a design choice" entry, before
+assuming the real pararesi import and this phase's seeded modules coexist without checking slugs;
+the "FIXED in S14" entry, so the next `'use server'` file anywhere in the app is written export-only
+from the start.
+
+**2026-09-09 — S10 paraguayfrontier.com** — branch `phase/s10`
+
+What now exists: the full page tree from plan §6.5 under `src/app/sites/frontier/` — real
+`/` (replacing O9's `PlaceholderHome`), `/why-paraguay`, `/routes`, `/tax`, `/process`,
+`/pricing`, `/about`, `/guide` (bridge to `paraguayresidencyguide.com`, name and host read
+from the registry), `/privacy`, `/terms`, and `/stories/[slug]` with six articles
+(900–1400 words each, cross-linked, hedged tax facts, no "tax-free"). Registry gets
+frontier's real nav/footer (content only, `minimalNav`/`minimalFooter` shape unchanged for
+the other three unbuilt brands). Every tax sentence renders `<Fact k="tax.territorial_rate">`
+or `tax.foreign_income_treatment"`; no new facts were needed. `npm run verify` is green
+(typecheck, lint, 322 tests, i18n, build).
+
+Decisions and deviations:
+- `contentHref`'s `frontier` case (`src/lib/site-pages.tsx`, a shared file) changed from the
+  hub-shaped `/guides/<hub>/<slug>` it inherited from O9's placeholder to the flat
+  `/stories/<slug>` plan §6.5 actually specifies — same shape as investorpass's `/insights`
+  and guide's `/blog`. Smallest additive change to a shared file, scoped to the one brand
+  whose content didn't exist yet.
+- Added one shared i18n key, `nav.whyParaguay`, to all four locales' `common.json` (parity
+  rule, verify:i18n rule 1) for the new nav item. No new per-brand JSON keys were needed —
+  like S3–S5, all new page copy is written directly in each page's JSX/metadata rather than
+  routed through `t()`, since brands are not translations of each other (plan §1.3).
+- Deleted O9's placeholder article (`content/frontier/plan-b/what-a-second-residency-buys-you.mdx`),
+  which lived under a `plan-b` hub with no route — left in place it would have produced a
+  broken sitemap URL under the new flat `/stories/<slug>` shape.
+- Trimmed two article titles and the home page's title/description to fit S3's ≤60/≤155
+  bar; §11.5's verbatim hero copy (64 chars) was 4 over on the meta title, fixed as
+  "Paraguay Residency for Americans & Expats — Plan B, Handled" (dropped "Your").
+- Lighthouse mobile perf on `/` (0.81) and `/tax` (0.86) reproduces S4's already-logged
+  `<LeadForm>` hydration finding rather than a new regression — `/routes` (no form) scores
+  0.94 in the same run. Logged in `KNOWN-ISSUES.md`, not fixed (shared component, off-limits
+  to Sonnet phases).
+
+Where the next reader looks first: `src/app/sites/frontier/` for the page tree,
+`content/frontier/stories/` for the six articles. S11–S14 build their own brands the same
+way; nothing here touches their files.
+
+**2026-09-09 — S10 audit fix** — branch `phase/s10-audit-fix` (mirrors the `phase/s5-audit-fix`
+precedent)
+
+The pre-handoff audit (§4.9) on the merged S10 PR found all six `/stories` articles running
+556–706 words — short of §6.5's 900–1400 word requirement, missed because the exit checklist
+was run before an explicit word-count pass. Expanded each article with one to two genuine new
+sections (no padding) covering material already implied by the topic — apostille/legalisation
+snags, the Chaco vs. the eastern region, fintech-as-a-bridge banking, common presence-rule
+misreadings, dental/evacuation coverage, language and paperwork-burden comparisons. All six now
+run 922–968 words. Titles/descriptions unchanged (frontmatter untouched) and still within the
+≤60/≤155 bar. `npm run verify` re-run green after the fix.
+
+**2026-09-09 — S11 residenciaparaguay.es (`residenciaes`)** — branch `phase/s11`
+
+What now exists: every §6.6 page, Spanish throughout (Spain register, `tú`),
+Spanish routes for everything except the shared conversion/legal paths
+(§1.3). Home is a full rebuild (split hero with the exact §11.6 copy, para
+quién, a three-route bento, cómo funciona, a hedged "por qué Paraguay" facts
+section, FAQ, closing CTA). Five service pages
+(`/residencia/{temporal,permanente,cedula}`, `/residencia-fiscal`,
+`/familia`) share a new brand-local component,
+`src/app/sites/residenciaes/_lib/ServicePage.tsx` — Spanish copy, not the
+hub's English `ServicePage` (S3/S4 already established this is per-brand,
+not shared). `/mercosur` renders `<Fact k="mercosur.residency_route">`
+(with `site="residenciaes"` — see the deviation below) and explains what the
+Mercosur agreement actually changes versus what stays the same. `/proceso`,
+`/precios` (same "from — TODO" pattern as the hub's `/pricing`, EUR instead
+of USD) and `/nosotros` are new. `/pase-inversor` is a short, `noindex`
+bridge to `paraguayinvestorpass.com` via `siteOrigin('investorpass')`, same
+treatment as the hub's own `/investor-pass`. `/privacy` and `/terms` are
+brand-own Spanish bodies (not routed through the hub's English
+`legal-pages.tsx`, which would have needed a translation layer that does not
+exist yet for a two-file shared module). 8 MDX articles across the four
+plan hubs (documentos ×2, vivir-en-paraguay ×2, impuestos ×2, comparativas
+×2 — Portugal and Uruguay, both named in §6.6), each with `related` links
+and a hub→service mapping in the new `/guias/[hub]/[slug]` route (same
+shape as the hub's `/guides/[hub]/[slug]`). `content/shared/facts.ts` gained
+`es` `display`/`hedged` text (additive, `en` untouched) for
+`temporary.duration`, `permanent.presence_rule`, `cedula.timeline`,
+`tax.territorial_rate` and `investorpass.min_investment_usd` — O9 had only
+localized `mercosur.residency_route` and `tax.foreign_income_treatment`;
+every other fact this brand's pages actually render needed the same
+treatment or it would render English wording on a Spanish page (plan §4.11,
+§1.10). Registry: filled the `residenciaes` nav/footer (routes, pricing,
+about, contact; services column with the five Spanish service paths) —
+shape unchanged, entry-filling only, as the phase prompt allows. `staticPaths.residenciaes`
+in `src/lib/seo-files.ts` lists the 14 static routes (`/pase-inversor`
+excluded — thin, noindex, same treatment as the hub's own bridge page); the
+8 articles are picked up automatically via `getPages`. The one pre-existing
+placeholder MDX (`residencia/rutas-de-residencia.mdx`, hub `residencia`,
+not one of the four plan hubs) was moved into `documentos/` with a
+corrected `hub` field rather than left as a ninth, unlisted hub. `npm run
+verify` green (typecheck, lint, 322 tests, i18n, build).
+
+Decisions and deviations:
+- `<Fact>`'s `site` prop is bound automatically inside MDX bodies (the
+  content renderer curries it in `src/content/mdx.tsx`), but a plain `.tsx`
+  page must pass `site="residenciaes"` explicitly or the component falls
+  back to `en`. Caught by manually crawling every route and diffing the
+  rendered HTML against every English `common.json` value (not by a test —
+  there isn't one that renders `.tsx` pages and inspects `<Fact>` output) on
+  `/mercosur`, where the hero paragraph's `<Fact k="mercosur.residency_route">`
+  rendered in English until the `site` prop was added. Grepped the rest of
+  this phase's new `.tsx` files for the same pattern; no other instance.
+  Worth a shared lint rule or a test if a later phase hits it again.
+- Two SEO-limit test fixes: three article titles (`costo-de-vida-en-paraguay`,
+  both `comparativas` pieces) were shortened to fit the existing
+  `tests/content.test.ts` 70-character title cap — a Spanish comparison
+  title ("Paraguay vs. Uruguay: residencia y fiscalidad para nacionales del
+  Mercosur") runs long fast; trimmed the qualifier, not the substance.
+- `/nosotros` and `/precios` link to `/pase-inversor` and `/route-finder`
+  rather than the hub's `/book`, which this brand does not have (plan §6.6's
+  page list has no `/book` for `residenciaes`) — matches the About/Pricing
+  pattern the hub used, minus the route this brand never shipped.
+- Privacy/terms are brand-own Spanish files rather than an extension of
+  `src/lib/legal-pages.tsx`, which is English-only prose with the brand name
+  interpolated — adding a second language there would have meant a
+  translation branch inside a shared file for a first non-English brand,
+  more machinery than two Spanish pages justify. `residenciapt` (S12) will
+  hit the same choice.
+
+Where S12–S13 look first (the other two non-English content phases still to
+run): `src/app/sites/residenciaes/_lib/ServicePage.tsx` and the privacy/terms
+pages here are the pattern for a brand-own, non-English page shape rather
+than reusing the hub's English shared components; the `<Fact site=...>` trap
+above applies to any `.tsx` page, not just this brand's.
+
+**2026-09-09 — S12 vidanoparaguai.com ("Vida no Paraguai")** — branch `phase/s12`
+
+What now exists: every §6.7 page, in Brazilian Portuguese, all hardcoded JSX
+(not routed through `t()`) per the S3 precedent — a shared component calling
+`t(runtimeSite, key)` needs parity across all seven brand files, but a
+residenciapt-only page never runs for another brand, so mirroring unused
+copy would be pure overhead. Home is a full rebuild using the exact §11.7
+hero/meta/tagline strings S16 already placed in `pt/residenciapt.json`. Five
+service pages (`/residencia/{temporaria,permanente,cedula}`,
+`/residencia-fiscal`, `/familia`) share a new
+`src/app/sites/residenciapt/_lib/ServicoPage.tsx` — the Portuguese sibling of
+the hub's `ServicePage.tsx`, not a shared/exported component, same reasoning
+as S3's `investorpass`-needs-its-own-shape note. `/mercosul` renders
+`<Fact k="mercosur.residency_route">` as its own page, not folded into a
+service page. `/custo-de-vida` is a standing page and required three new
+hedged, unverified entries in `content/shared/facts.ts`
+(`costofliving.overview`, `costofliving.rent`, `costofliving.groceries`) —
+no reviewed local cost-of-living source exists yet, so all three stay
+comparative ("closer to a mid-sized Brazilian capital than Rio or São
+Paulo") rather than naming a rent or grocery figure that would look precise
+and be unverifiable. `/investor-pass` is the required bridge to
+`paraguayinvestorpass.com` via `siteOrigin('investorpass')`, noindex and
+excluded from the sitemap, same as S3's version. `/privacy` and `/terms` are
+NOT built from `src/lib/legal-pages.tsx` — that shared component is English
+prose and would have put English UI text on a Portuguese brand, so this
+phase wrote its own Portuguese bodies instead, residenciapt-only.
+`/guias/[hub]/[slug]` covers four hubs (`documentos`, `morar-no-paraguai`,
+`impostos`, `comparativos`), each mapped to a `HUB_SERVICE` link exactly
+like S3's hub, with `morar-no-paraguai` → `/custo-de-vida` since that hub is
+about a life before a document. Nine articles ship (minimum was eight):
+`documentos`×3 (one is O9's placeholder, moved into this hub and given a
+`related` array — its hub was `residencia`, which is not one of the four
+named hubs, so S12 relocated rather than left it orphaned),
+`morar-no-paraguai`×4 (custo de vida, segurança, saúde e escola, a dedicated
+border-region article on Ciudad del Este/Foz — all four §11.7 names, not
+just the required three), `impostos`×1, `comparativos`×2 (vs. Uruguai, vs.
+Portugal). The eight new articles were written by four parallel subagents,
+one per hub pairing, each briefed with the exact fact-key allowlist, the
+frontmatter schema and — learned from S3's own audit note — the
+`/guias/<hub>/<slug>` link-prefix rule up front rather than discovered by a
+post-hoc grep. `nav.mercosur` and `nav.costOfLiving` were added to all four
+locales' `common.json` (additive, one line each, same pattern as S3's
+`nav.family`) since they are genuinely shared nav keys, not brand-only copy.
+The registry's `residenciapt` entry now has real nav/footer (was
+`minimalNav()`/`minimalFooter()`); `src/lib/seo-files.ts`'s `residenciapt`
+array now lists its 15 static routes. 331 tests; `npm run verify` green with
+no database. Lighthouse mobile on `/` and `/residencia/temporaria`: perf
+0.99, SEO 1.0, accessibility ≥0.96 on both, no imagery yet (S15 adds it).
+
+Decisions and deviations:
+- No new fact keys beyond the three cost-of-living ones were needed —
+  O9 had already added `mercosur.residency_route` and
+  `tax.foreign_income_treatment` with `pt` translations for exactly this
+  brand.
+- Comparison articles (vs. Uruguai, vs. Portugal) never cite a number for
+  the other country — there is no fact source for Uruguayan or Portuguese
+  program terms, so both stay qualitative ("a meaningfully larger up-front
+  commitment", never a figure) rather than only hedging the Paraguayan side.
+- `node_modules` did not exist in this session's container; installed via
+  `npm install` before any verify step could run — noted here in case a
+  future phase's container also starts clean.
+- A subagent left a scratch validation script (`scripts_tmp_validate.mjs`)
+  in the repo root; caught and deleted in the pre-handoff audit, not by the
+  build. A repo-root grep for stray non-tracked files is worth adding to
+  the next phase's own audit step.
+- One MDX title (cédula article, 64 chars) and one page's meta description
+  (residencia-fiscal, 169 chars) exceeded S3's ≤60/≤155 bar; neither is
+  caught by any automated test (`content.test.ts` only enforces ≤70/≤160),
+  so both were only found by manually walking every title/description
+  length after the build was already green. Fixed in the pre-handoff audit.
+
+Where S15 looks first: this phase touched no shared file beyond the four
+`nav.*` common.json lines and its own `residenciapt` entries in
+`src/sites/registry.ts` / `src/lib/seo-files.ts` — nothing here should
+conflict with S10/S11/S13/S14. Imagery for this brand (hero + 2 section
+images) is still open, per §6.10.6.
+
+**2026-09-09 — S13 flyttatillparaguay.se (`flytta`)** — PR:
+https://github.com/antonmarklundcom/paraguayresidency/pull/21
+
+What now exists: the full `flytta` brand. Home, `/uppehallstillstand`,
+`/skatt`, `/kostnader`, `/familj`, `/var-historia`, `/process`, `/priser`,
+`/guide` (Guide upsell bridge) and the `/guider/[slug]` + `/stader/[slug]`
+content routes. All 32 `content/guider/` articles and 5 `content/stader/`
+city profiles ported from `antonmarklundcom/flyttatillparaguay`, plus 2 new
+city profiles (Luque, Villarrica) — 40 content files total, all with real
+finished bodies (800–1500 words for guides, 600–1000 for cities), fresh FAQ
+blocks and `related` cross-links. `<StatRow>`/`<Disclaimer>` ported into
+`src/components`, registered in the MDX component map. `flytta`'s registry
+nav/footer filled in. `docs/flytta-redirects.md` maps every old public URL.
+`npm run verify` green (322 tests).
+
+Decisions and deviations (full detail in `KNOWN-ISSUES.md` "S13 — flytta
+content-scope decisions"):
+- The old repo's 32 guides and 5 city profiles were **all still
+  `draft: true` outline stubs** — its own `sonnet-3-content` phase never
+  ran. "Port the content" therefore meant writing all 37 bodies from
+  scratch against each stub's brief, not a mechanical copy. Fanned this out
+  to five parallel subagents (four for the guides, one for the cities),
+  each writing full MDX against the exact target frontmatter schema, then
+  centrally audited every file (title/description length, `<Fact>` key
+  validity, `related`-link validity, no forbidden frontmatter fields)
+  before merging.
+- The old site's EUR-priced service packages (`content/packages.ts`) are
+  dropped, not ported — `flytta` has no `products` in the consolidated
+  lead-gen model (plan §2); `/priser` keeps the tier names/inclusions but
+  follows `residency`'s own "from —, TODO" pattern rather than inventing a
+  number (plan §4.11).
+- Cost-of-living figures (rent, land, building costs) are NOT added to
+  `content/shared/facts.ts` — that registry is the legal/program-figure
+  register the launch review verifies. They render as explicitly-hedged
+  "uppskattning 2026" prose instead, the same convention the old site used.
+  Only genuine Paraguay legal/program figures render through `<Fact>`;
+  Swedish tax rules (väsentlig anknytning, 183-dagarsregeln) are hedged
+  toward "en skatterådgivare" and never go through `<Fact>`.
+- `src/lib/site-pages.tsx`'s `contentHref` for `flytta` was a placeholder
+  from O9 that double-prefixed the hub segment (`/guider/guider/x`) —
+  corrected to `/${slugPath}` since flytta's two hubs are each already
+  their own top-level route, unlike `residency`'s multi-hub shape.
+  `src/lib/seo-files.ts` gained flytta's new static routes.
+- No `/guider` or `/stader` index route — matches `residency`'s own
+  `/guides/[hub]/[slug]` having no hub-index page. Discovery is via the
+  home page's guides/cities sections and each article's `related` links.
+
+Where S15 looks first: `docs/flytta-redirects.md` is the complete
+old-URL→new-path table it turns into the registry's per-site 301 map
+(plan §6.10 task 4).
+
 ## 10. Backlog
 
 - German brand or locale for the hub (Spanish, Portuguese and Swedish ship as brands, §1.11).
@@ -821,14 +1284,18 @@ checklist, merge, and spawn S10–S14.
 - Affiliate/referral tracking for agents.
 - `editor` role UI.
 - Blog RSS per site.
+- **Hub on a global `.com`.** If a residency-named `.com` ever becomes available to Anton, move `residency` to it (three registry lines) and 301 `paraguayresidency.co.uk` → it; expect the usual temporary ranking dip of a domain move. Until then the `.co.uk` hub stands (§1.11).
+- Defensive registration of `paraguayinvestorpass.com.py` (optional, §8.2).
+- Hub UK tilt for F7: the hub stays global in voice, but `/process` and one documents article should name the UK issuers a British applicant deals with, hedged as everything else; a small win the `.co.uk` hands us for free.
 
 ## 11. Key copy & SEO structure (Fable-written; Sonnet keeps the voice)
 
 Voice for all three: plain, specific, unhurried. No "unlock", "seamless", "world-class". Second person. Short sentences. Admit what takes time. Every claim about law is hedged until verified (§1.10).
 
-### 11.1 paraguayresidency.com
+### 11.1 paraguayresidency.co.uk (`residency`, en — the hub; domain decided F9)
 
-- **Primary keyword cluster:** paraguay residency, paraguay permanent residency, paraguay temporary residency, paraguay residency requirements, paraguay cedula, paraguay tax residency, move to paraguay.
+- **Positioning note (F9):** the domain is a `.co.uk`, the brand is not a UK brand. Voice, H1 and the service pages stay global; a British reader should feel at home and an American should not feel excluded. The US/CA/AU plan-B angle belongs to `frontier` (§11.5), not here.
+- **Primary keyword cluster:** paraguay residency, paraguay permanent residency, paraguay temporary residency, paraguay residency requirements, paraguay cedula, paraguay tax residency, move to paraguay, paraguay residency uk, move to paraguay from the uk.
 - **Hero H1:** "Paraguay residency, handled end to end."
 - **Sub:** "Temporary residency, permanent residency and your cédula, prepared by people who do this every week in Asunción. You show up for the appointments. We do the rest."
 - **Three value points:** "One fixed fee per route, quoted before you commit." · "Document checklist tailored to your nationality, not a generic PDF." · "We tell you when the standard route is wrong for you and point you to the Investor Pass or to waiting."
@@ -836,7 +1303,7 @@ Voice for all three: plain, specific, unhurried. No "unlock", "seamless", "world
 - **Meta title:** "Paraguay Residency Services — Temporary, Permanent & Cédula" · **Meta description:** "Done-for-you Paraguay residency. Fixed fees, nationality-specific checklists, appointments in Asunción. Find your route in 2 minutes."
 - **Internal linking rule:** every article → its hub + the one service page it supports + the Route Finder.
 
-### 11.2 paraguayinvestorpass.com.py
+### 11.2 paraguayinvestorpass.com (`investorpass`, en — brand name "Paraguay Investor Pass", confirmed F9)
 
 - **Keyword cluster:** paraguay investor pass, paraguay residency by investment, paraguay golden visa, paraguay permanent residency investment, invest in paraguay residency.
 - **Hero H1:** "Permanent residency in Paraguay, in one step."
@@ -845,8 +1312,9 @@ Voice for all three: plain, specific, unhurried. No "unlock", "seamless", "world
 - **Meta title:** "Paraguay Investor Pass — Direct Permanent Residency by Investment" · **Meta description:** "Skip temporary residency. The Paraguay Investor Pass (2026) grants permanent residency to qualifying investors. Routes, requirements, timeline and a straight answer on whether you qualify."
 - **Comparison page angle:** "Investor Pass vs standard residency: the Pass buys time, not a different outcome. Here is when the time is worth the money."
 
-### 11.3 paraguayinvestorguide.com
+### 11.3 paraguayresidencyguide.com (`guide`, en — brand name "Paraguay Residency Guide", reconciled F9)
 
+- **Names, reconciled:** the brand is **Paraguay Residency Guide** (registry `name`, page titles, `docs/guide-outline.md`); the product is **The Paraguay Residency Guide** (`products.name`, already seeded); the membership is **Paraguay Residency Insider** (already seeded). "Paraguay Investor Guide" was F8's domain-driven placeholder and is retired everywhere by S16 — the domain now matches the keyword cluster below, which it never did.
 - **Keyword cluster:** paraguay residency guide, how to get paraguay residency, paraguay residency cost, moving to paraguay guide, paraguay residency step by step.
 - **Hero H1:** "The Paraguay residency guide we wish existed before we did it ourselves."
 - **Sub:** "Every step, document, cost and mistake, written down once, kept current. Read it in an evening. Decide with real numbers."
@@ -879,15 +1347,19 @@ Investor Pass launch and framing: Fragomen — https://www.fragomen.com/insights
 - **Meta title:** "Residencia en Paraguay para Españoles — Temporal, Permanente y Cédula" · **Meta description:** "Trámite de residencia en Paraguay llave en mano. Honorarios fijos en euros, documentos según tu nacionalidad, citas en Asunción. Descubre tu ruta en 2 minutos."
 - **Rule:** the Mercosur page and every Mercosur mention render `<Fact k="mercosur.residency_route">`; Spain's 183-day and centre-of-interests rules are hedged as "confírmalo con tu asesor".
 
-### 11.7 residencianoparaguay.com (`residenciapt`, pt-BR)
+### 11.7 vidanoparaguai.com (`residenciapt`, pt-BR — brand "Vida no Paraguai", rewritten F9)
 
-- **Audience and angle:** Brazilians — the largest foreign community in Paraguay. Motives: tax, business and agriculture, proximity (the border region), Mercosur. The brand speaks to a neighbour, not a tourist; it never promises "zero imposto".
-- **Keyword cluster:** residência no paraguai, como morar no paraguai, residência permanente paraguai, brasileiro morar no paraguai, cédula paraguaia, impostos paraguai, residência mercosul paraguai, abrir empresa no paraguai.
-- **Hero H1:** "Residência no Paraguai para brasileiros, do início ao cartão."
-- **Sub:** "Residência temporária, permanente e cédula, com um time que faz isso toda semana em Assunção. Você comparece às consultas. Nós cuidamos do resto."
-- **Three value points:** "Brasileiros contam com o acordo do Mercosul — explicamos o que ele simplifica de verdade e o que continua igual." · "Honorário fixo por rota, cotado em reais ou dólares antes de você decidir." · "Imposto territorial, RUC e o que muda na sua declaração no Brasil, ditos com clareza, sem promessa de imposto zero."
-- **Meta title:** "Residência no Paraguai para Brasileiros — Temporária, Permanente e Cédula" · **Meta description:** "Residência no Paraguai sem complicação: rota Mercosul, honorários fixos, documentos por nacionalidade, consultas em Assunção. Descubra sua rota em 2 minutos."
-- **Rule:** as §11.6 for Mercosur; Brazilian tax consequences are hedged as "confirme com seu contador".
+Anton's brief, verbatim: *"For brand go Vida no Paraguai and sell residency in paraguay in portugese focus on brazil."*
+
+- **Audience and angle:** Brazilians who are thinking about a life in Paraguay, not only a document — the largest foreign community in the country, mostly across the border and in the agro belt. Motives: cost of living, tax, a business or land, proximity (Foz / Ciudad del Este, Pedro Juan), Mercosur, a calmer pace. The brand name is the promise ("a life in Paraguay"); residency is the product that starts it and every page ends there. It speaks to a neighbour, plainly, in `você`. It never promises "imposto zero", never sells Paraguay as a paradise, and says out loud what is worse than Brazil (healthcare outside Asunción, bureaucracy, roads) so the rest is believed.
+- **Keyword cluster:** vida no paraguai, morar no paraguai, como morar no paraguai, custo de vida no paraguai, residência no paraguai, residência permanente paraguai, brasileiro no paraguai, cédula paraguaia, residência mercosul paraguai, abrir empresa no paraguai, impostos no paraguai.
+- **Hero H1:** "Morar no Paraguai começa pela residência. Nós cuidamos dela."
+- **Sub:** "Residência temporária, permanente e cédula para brasileiros, com um time que faz isso toda semana em Assunção. E o que ninguém explica direito: custo de vida, negócios, fronteira e o que muda na sua declaração no Brasil. Você comparece às consultas. Nós fazemos o resto."
+- **Three value points:** "Brasileiro tem o Mercosul a favor. Explicamos o que o acordo simplifica de verdade e o que continua igual." · "Honorário fixo por rota, cotado em reais ou dólares antes de você decidir, e a lista de documentos do seu caso, não um PDF genérico." · "Imposto territorial, RUC e a sua declaração no Brasil, explicados com clareza. Sem promessa de imposto zero, e com um 'confirme com seu contador' onde ele é necessário."
+- **Meta title:** "Vida no Paraguai — Residência e Cédula para Brasileiros" · **Meta description:** "Morar no Paraguai: residência, cédula, rota Mercosul, custo de vida e impostos para brasileiros, sem promessa de imposto zero. Descubra sua rota."
+- **Registry and i18n values (S16 copies these verbatim into `src/i18n/messages/pt/residenciapt.json`):** `name` = `Vida no Paraguai` · `site.tagline` = "Morar no Paraguai começa pela residência." · `home.metaTitle` = the meta title above · `home.metaDescription` = the meta description above · `home.h1` = the H1 above · `home.sub` = the sub above · `contact.metaTitle` = "Contato — Vida no Paraguai" · `book.metaTitle` = "Agende uma conversa — Vida no Paraguai".
+- **Content shape (S12):** the `morar-no-paraguai` hub leads (custo de vida, segurança, saúde e escola, fronteira — at least 3 of the 8 articles); `/custo-de-vida` is a standing page, every figure a `<Fact>` in BRL first. The residency pages are the same structure as §6.7's tree; the difference from the hub and from `residenciaes` is that the reader arrives thinking about a life and leaves with a route.
+- **Rule:** `/mercosul` and every Mercosur mention render `<Fact k="mercosur.residency_route">` (unverified — hedge it); Brazilian tax consequences are hedged as "confirme com seu contador"; Paraguayan figures through `<Fact>` as everywhere; "imposto zero" never appears, not even negated in a heading.
 
 ### 11.8 flyttatillparaguay.se (`flytta`, sv)
 
@@ -911,15 +1383,17 @@ Anton runs seven residency-adjacent domains across three repos. §1.1 already bu
 
 | Domain | SiteKey | Locale | Money | Products | Copy |
 |---|---|---|---|---|---|
-| paraguayresidency.com | `residency` | en | USD | — (hub, services) | §11.1 |
-| paraguayinvestorpass.com.py | `investorpass` | en | USD | — | §11.2 |
-| paraguayinvestorguide.com | `guide` | en | USD | `guide-entry` ($7, Stripe), `guide-insider` (recurring, Lemon Squeezy) | §11.3 |
+| paraguayresidency.co.uk | `residency` | en | USD | — (hub, services, `/admin`, unknown-host target) | §11.1 |
+| paraguayinvestorpass.com | `investorpass` | en | USD | — | §11.2 |
+| paraguayresidencyguide.com | `guide` | en | USD | `guide-entry` ($7, Stripe), `guide-insider` (recurring, Lemon Squeezy) | §11.3 |
 | paraguayfrontier.com | `frontier` | en | USD | — (Guide upsell) | §11.5 |
 | residenciaparaguay.es | `residenciaes` | es | EUR, PYG | — (newsletter exit) | §11.6 |
-| residencianoparaguay.com | `residenciapt` | pt | BRL, USD, PYG | — (newsletter exit) | §11.7 |
+| vidanoparaguai.com | `residenciapt` | pt-BR | BRL, USD, PYG | — (newsletter exit) | §11.7 |
 | flyttatillparaguay.se | `flytta` | sv | SEK, USD | — (Guide upsell) | §11.8 |
 
-### 12.3 pararesi → this app (O9 import script, S15 real run)
+**Corrected 2026-09-07 (F9)** to the domains Anton actually owns (§1.11). Brand names: "Paraguay Residency" · "Paraguay Investor Pass" · "Paraguay Residency Guide" · "Paraguay Frontier" · "Residencia Paraguay" · "Vida no Paraguai" · "Flytta till Paraguay". Registry `name` values are these strings; the localhost dev hosts (`<key>.localhost`) are unchanged. Not owned and never to be referenced: `paraguayresidency.com`, `paraguayinvestorpass.com.py`, `paraguayinvestorguide.com`, `residencianoparaguay.com`.
+
+### 12.3 pararesi → this app (O9 import script; S15 runs it as a verification — pararesi was probably never deployed, §1.13)
 
 | pararesi | here | note |
 |---|---|---|
@@ -942,7 +1416,7 @@ Anton runs seven residency-adjacent domains across three repos. §1.1 already bu
 
 ### 12.5 Nothing left open for the plan
 
-Every §12.6 question of the draft is answered above (Q1 §1.5/§1.12; Q2 §1.12; Q3 §1.11 + §1.3; Q4 §11.6–§11.7; Q5/Q6 the phase table and §5.4). What still needs Anton is in §7 (Lemon Squeezy keys, pararesi database access, DNS, flytta hosting) and §8.6 (Insider price and interval) — none of it blocks O9.
+Every §12.6 question of the draft is answered above (Q1 §1.5/§1.12; Q2 §1.12; Q3 §1.11 + §1.3; Q4 §11.6–§11.7; Q5/Q6 the phase table and §5.4). The domain map was re-decided by F9 (§1.11, §12.2). What still needs Anton is in §7 (Lemon Squeezy keys, the pararesi yes/no, DNS for seven domains, flytta hosting) and §8.6 (Insider price and interval) — none of it blocks S16 or S10–S14.
 
 ## 13. Tooling notes for build sessions
 

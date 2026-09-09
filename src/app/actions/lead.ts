@@ -6,20 +6,17 @@ import { pickUtm } from '@/lib/lead-schema';
 import { parseAttribution } from '@/lib/attribution';
 import { HONEYPOT_FIELD, TIMESTAMP_FIELD } from '@/lib/form-guard';
 import { subscribe } from '@/lib/subscribers';
+import type { LeadFormState, SubscribeFormState } from './lead-state';
 
 /**
  * Server actions for the public forms. Everything that touches a secret (the
  * CRM key, SMTP, the database) happens here, never in a client component
  * (`vendercrm-lead-capture`, "the one architectural rule").
+ *
+ * The initial `useActionState` values live in `./lead-state.ts`, not here —
+ * see that file's comment (S14 fix, a `'use server'` module may only export
+ * async functions).
  */
-
-export interface LeadFormState {
-  status: 'idle' | 'ok' | 'error';
-  errors?: Record<string, string>;
-  message?: string;
-}
-
-export const initialLeadState: LeadFormState = { status: 'idle' };
 
 const str = (form: FormData, key: string): string => String(form.get(key) ?? '');
 
@@ -71,13 +68,6 @@ export async function submitLeadAction(
   if (!result.ok) return { status: 'error', errors: result.errors };
   return { status: 'ok' };
 }
-
-export interface SubscribeFormState {
-  status: 'idle' | 'ok' | 'error';
-  message?: string;
-}
-
-export const initialSubscribeState: SubscribeFormState = { status: 'idle' };
 
 export async function subscribeAction(
   _prev: SubscribeFormState,

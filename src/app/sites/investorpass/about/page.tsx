@@ -9,7 +9,7 @@ export function generateMetadata(): Metadata {
   return siteMetadata('investorpass', {
     title: 'About Paraguay Investor Pass — Who Files Your Case',
     description:
-      'The same Asunción team behind paraguayresidency.com, running a dedicated brand for direct permanent residency by investment.',
+      'The same Asunción team behind paraguayresidency.co.uk, running a dedicated brand for direct permanent residency by investment.',
     path: PATH,
   });
 }
@@ -30,7 +30,7 @@ export default function Page() {
             rel="noopener"
             className="text-[var(--accent)] underline underline-offset-2"
           >
-            paraguayresidency.com
+            paraguayresidency.co.uk
           </a>
           . We separated the brand because investors, family offices and migration agents ask
           different questions and need a different depth of detail than someone filing for
@@ -64,7 +64,7 @@ export default function Page() {
                 rel="noopener"
                 className="text-[var(--accent)] underline underline-offset-2"
               >
-                paraguayresidency.com
+                paraguayresidency.co.uk
               </a>
               , and a written-down, kept-current reference guide is at{' '}
               <a
@@ -72,7 +72,7 @@ export default function Page() {
                 rel="noopener"
                 className="text-[var(--accent)] underline underline-offset-2"
               >
-                paraguayinvestorguide.com
+                paraguayresidencyguide.com
               </a>{' '}
               if you would rather read the whole process yourself first.
             </p>

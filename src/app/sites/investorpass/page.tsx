@@ -70,7 +70,7 @@ const FAQ_ITEMS = [
       'Take the Route Finder, or send an inquiry with your rough capital and timeline. We tell you which of the four routes fits, or tell you honestly that the standard residency route is the better deal for your case.',
   },
   {
-    question: 'Is this the same team as paraguayresidency.com?',
+    question: 'Is this the same team as paraguayresidency.co.uk?',
     answer:
       'Yes. Investor Pass is a dedicated brand because it targets a different applicant — investors, family offices, migration agents — with a different ticket size, filed by the same team in Asunción.',
   },
@@ -224,7 +224,7 @@ export default function Page() {
             <a href={siteOrigin('residency')} className="text-[var(--accent)] underline underline-offset-2">
               standard residency routes
             </a>{' '}
-            on paraguayresidency.com instead.
+            on paraguayresidency.co.uk instead.
           </p>
         </Container>
       </Section>

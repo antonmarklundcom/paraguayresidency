@@ -1,4 +1,4 @@
-# Paraguay Investor Guide — chapter outline (from plan §11.3)
+# Paraguay Residency Guide — chapter outline (from plan §11.3)
 
 Product: PDF, instant delivery, 12 months of updates, 14-day refund. Anton writes/owns the content; this outline is the contract between the sales page and the file.
 

@@ -113,12 +113,12 @@ export const sites: Record<SiteKey, SiteConfig> = {
   residency: {
     key: 'residency',
     hosts: [
-      'paraguayresidency.com',
-      'www.paraguayresidency.com',
+      'paraguayresidency.co.uk',
+      'www.paraguayresidency.co.uk',
       'residency.localhost',
       'localhost',
     ],
-    canonicalHost: 'paraguayresidency.com',
+    canonicalHost: 'paraguayresidency.co.uk',
     name: 'Paraguay Residency',
     tagline: 'site.tagline',
     locale: 'en',
@@ -153,18 +153,18 @@ export const sites: Record<SiteKey, SiteConfig> = {
       ],
       legal: legalNav(),
     },
-    crm: { source: 'paraguayresidency.com' },
+    crm: { source: 'paraguayresidency.co.uk' },
     siblings: ['investorpass', 'guide'],
   },
 
   investorpass: {
     key: 'investorpass',
     hosts: [
-      'paraguayinvestorpass.com.py',
-      'www.paraguayinvestorpass.com.py',
+      'paraguayinvestorpass.com',
+      'www.paraguayinvestorpass.com',
       'investorpass.localhost',
     ],
-    canonicalHost: 'paraguayinvestorpass.com.py',
+    canonicalHost: 'paraguayinvestorpass.com',
     name: 'Paraguay Investor Pass',
     tagline: 'site.tagline',
     locale: 'en',
@@ -199,19 +199,19 @@ export const sites: Record<SiteKey, SiteConfig> = {
       ],
       legal: legalNav(),
     },
-    crm: { source: 'paraguayinvestorpass.com.py' },
+    crm: { source: 'paraguayinvestorpass.com' },
     siblings: ['residency', 'guide'],
   },
 
   guide: {
     key: 'guide',
     hosts: [
-      'paraguayinvestorguide.com',
-      'www.paraguayinvestorguide.com',
+      'paraguayresidencyguide.com',
+      'www.paraguayresidencyguide.com',
       'guide.localhost',
     ],
-    canonicalHost: 'paraguayinvestorguide.com',
-    name: 'Paraguay Investor Guide',
+    canonicalHost: 'paraguayresidencyguide.com',
+    name: 'Paraguay Residency Guide',
     tagline: 'site.tagline',
     locale: 'en',
     currencies: ['USD'],
@@ -221,6 +221,7 @@ export const sites: Record<SiteKey, SiteConfig> = {
     products: [GUIDE_ENTRY_SLUG, GUIDE_INSIDER_SLUG],
     nav: [
       { labelKey: 'nav.whatsInside', href: '/#inside' },
+      { labelKey: 'nav.insider', href: '/insider' },
       { labelKey: 'nav.blog', href: '/blog' },
       { labelKey: 'nav.about', href: '/about' },
       { labelKey: 'nav.contact', href: '/contact' },
@@ -231,6 +232,7 @@ export const sites: Record<SiteKey, SiteConfig> = {
           titleKey: 'footer.guide',
           items: [
             { labelKey: 'nav.whatsInside', href: '/#inside' },
+            { labelKey: 'nav.insider', href: '/insider' },
             { labelKey: 'nav.blog', href: '/blog' },
             { labelKey: 'nav.refunds', href: '/refunds' },
           ],
@@ -245,7 +247,7 @@ export const sites: Record<SiteKey, SiteConfig> = {
       ],
       legal: legalNav(),
     },
-    crm: { source: 'paraguayinvestorguide.com' },
+    crm: { source: 'paraguayresidencyguide.com' },
     siblings: ['residency', 'investorpass'],
   },
 
@@ -264,8 +266,35 @@ export const sites: Record<SiteKey, SiteConfig> = {
     locale: 'en',
     currencies: ['USD'],
     theme: 'frontier',
-    nav: minimalNav(),
-    footer: minimalFooter(),
+    nav: [
+      { labelKey: 'nav.whyParaguay', href: '/why-paraguay' },
+      { labelKey: 'nav.routes', href: '/routes' },
+      { labelKey: 'nav.taxResidency', href: '/tax' },
+      { labelKey: 'nav.routeFinder', href: '/route-finder' },
+      { labelKey: 'nav.contact', href: '/contact' },
+    ],
+    footer: {
+      columns: [
+        {
+          titleKey: 'footer.services',
+          items: [
+            { labelKey: 'nav.whyParaguay', href: '/why-paraguay' },
+            { labelKey: 'nav.routes', href: '/routes' },
+            { labelKey: 'nav.taxResidency', href: '/tax' },
+            { labelKey: 'nav.process', href: '/process' },
+            { labelKey: 'nav.pricing', href: '/pricing' },
+          ],
+        },
+        {
+          titleKey: 'footer.company',
+          items: [
+            { labelKey: 'nav.about', href: '/about' },
+            { labelKey: 'nav.contact', href: '/contact' },
+          ],
+        },
+      ],
+      legal: legalNav(),
+    },
     crm: { source: 'paraguayfrontier.com' },
     siblings: ['residency', 'investorpass', 'guide'],
   },
@@ -279,8 +308,37 @@ export const sites: Record<SiteKey, SiteConfig> = {
     locale: 'es',
     currencies: ['EUR', 'PYG'],
     theme: 'residenciaes',
-    nav: minimalNav(),
-    footer: minimalFooter(),
+    // S11 (plan §6.6): Spanish routes for everything except the shared
+    // conversion/legal paths (§1.3), which keep their English form.
+    nav: [
+      { labelKey: 'nav.routes', href: '/proceso' },
+      { labelKey: 'nav.pricing', href: '/precios' },
+      { labelKey: 'nav.routeFinder', href: '/route-finder' },
+      { labelKey: 'nav.about', href: '/nosotros' },
+      { labelKey: 'nav.contact', href: '/contact' },
+    ],
+    footer: {
+      columns: [
+        {
+          titleKey: 'footer.services',
+          items: [
+            { labelKey: 'nav.temporary', href: '/residencia/temporal' },
+            { labelKey: 'nav.permanent', href: '/residencia/permanente' },
+            { labelKey: 'nav.cedula', href: '/residencia/cedula' },
+            { labelKey: 'nav.taxResidency', href: '/residencia-fiscal' },
+            { labelKey: 'nav.family', href: '/familia' },
+          ],
+        },
+        {
+          titleKey: 'footer.company',
+          items: [
+            { labelKey: 'nav.about', href: '/nosotros' },
+            { labelKey: 'nav.contact', href: '/contact' },
+          ],
+        },
+      ],
+      legal: legalNav(),
+    },
     crm: { source: 'residenciaparaguay.es' },
     // No Guide upsell: the Guide is English-only (plan §1.11).
     siblings: ['residency', 'investorpass'],
@@ -288,16 +346,45 @@ export const sites: Record<SiteKey, SiteConfig> = {
 
   residenciapt: {
     key: 'residenciapt',
-    hosts: ['residencianoparaguay.com', 'www.residencianoparaguay.com', 'residenciapt.localhost'],
-    canonicalHost: 'residencianoparaguay.com',
-    name: 'Residência no Paraguai',
+    hosts: ['vidanoparaguai.com', 'www.vidanoparaguai.com', 'residenciapt.localhost'],
+    canonicalHost: 'vidanoparaguai.com',
+    name: 'Vida no Paraguai',
     tagline: 'site.tagline',
     locale: 'pt',
     currencies: ['BRL', 'USD', 'PYG'],
     theme: 'residenciapt',
-    nav: minimalNav(),
-    footer: minimalFooter(),
-    crm: { source: 'residencianoparaguay.com' },
+    nav: [
+      { labelKey: 'nav.temporary', href: '/residencia/temporaria' },
+      { labelKey: 'nav.permanent', href: '/residencia/permanente' },
+      { labelKey: 'nav.mercosur', href: '/mercosul' },
+      { labelKey: 'nav.costOfLiving', href: '/custo-de-vida' },
+      { labelKey: 'nav.routeFinder', href: '/route-finder' },
+      { labelKey: 'nav.contact', href: '/contact' },
+    ],
+    footer: {
+      columns: [
+        {
+          titleKey: 'footer.services',
+          items: [
+            { labelKey: 'nav.temporary', href: '/residencia/temporaria' },
+            { labelKey: 'nav.permanent', href: '/residencia/permanente' },
+            { labelKey: 'nav.cedula', href: '/residencia/cedula' },
+            { labelKey: 'nav.taxResidency', href: '/residencia-fiscal' },
+            { labelKey: 'nav.family', href: '/familia' },
+          ],
+        },
+        {
+          titleKey: 'footer.company',
+          items: [
+            { labelKey: 'nav.about', href: '/sobre' },
+            { labelKey: 'nav.contact', href: '/contact' },
+          ],
+        },
+      ],
+      legal: legalNav(),
+    },
+    crm: { source: 'vidanoparaguai.com' },
+    // No Guide upsell: ES/PT brands soft-exit to the newsletter (plan §1.11).
     siblings: ['residency', 'investorpass'],
   },
 
@@ -310,8 +397,39 @@ export const sites: Record<SiteKey, SiteConfig> = {
     locale: 'sv',
     currencies: ['SEK', 'USD'],
     theme: 'flytta',
-    nav: minimalNav(),
-    footer: minimalFooter(),
+    // Nav/footer/WhatsApp/author ported from antonmarklundcom/flyttatillparaguay's
+    // content/site.ts onto this app's routes and i18n keys (plan §12.4). WhatsApp
+    // itself is the shared NEXT_PUBLIC_WHATSAPP_NUMBER env var (plan §3b); author
+    // (Anton Marklund) informs the personal-story copy rather than a registry field.
+    nav: [
+      { labelKey: 'nav.permits', href: '/uppehallstillstand' },
+      { labelKey: 'nav.costs', href: '/kostnader' },
+      { labelKey: 'nav.ourStory', href: '/var-historia' },
+      { labelKey: 'nav.routeFinder', href: '/route-finder' },
+      { labelKey: 'nav.contact', href: '/contact' },
+    ],
+    footer: {
+      columns: [
+        {
+          titleKey: 'footer.services',
+          items: [
+            { labelKey: 'nav.permits', href: '/uppehallstillstand' },
+            { labelKey: 'nav.tax', href: '/skatt' },
+            { labelKey: 'nav.costs', href: '/kostnader' },
+            { labelKey: 'nav.family', href: '/familj' },
+            { labelKey: 'nav.pricing', href: '/priser' },
+          ],
+        },
+        {
+          titleKey: 'footer.company',
+          items: [
+            { labelKey: 'nav.ourStory', href: '/var-historia' },
+            { labelKey: 'nav.contact', href: '/contact' },
+          ],
+        },
+      ],
+      legal: legalNav(),
+    },
     crm: { source: 'flyttatillparaguay.se' },
     siblings: ['residency', 'guide'],
   },
@@ -341,7 +459,7 @@ export function sitesSelling(slug: string): SiteKey[] {
 
 export const hubSite = (): SiteConfig => sites[HUB_SITE];
 
-/** `https://paraguayresidency.com` — used for metadataBase and sitemaps. */
+/** `https://paraguayresidency.co.uk` — used for metadataBase and sitemaps. */
 export function siteOrigin(key: SiteKey): string {
   const host = sites[key].canonicalHost;
   const proto = host.endsWith('.localhost') || host === 'localhost' ? 'http' : 'https';

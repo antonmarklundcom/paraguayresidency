@@ -7,7 +7,7 @@ const PATH = '/about';
 
 export function generateMetadata(): Metadata {
   return siteMetadata('guide', {
-    title: 'About the Paraguay Investor Guide',
+    title: 'About the Paraguay Residency Guide',
     description:
       'Written by the team that files Paraguay residency, cédula and tax cases every week in Asunción.',
     path: PATH,
@@ -29,7 +29,7 @@ export default function Page() {
             rel="noopener"
             className="text-[var(--accent)] underline underline-offset-2"
           >
-            paraguayresidency.com
+            paraguayresidency.co.uk
           </a>
           , filing temporary residency, permanent residency and cédula cases every week in
           Asunción. Every client asks roughly the same questions in roughly the same order. This
@@ -64,7 +64,7 @@ export default function Page() {
                 rel="noopener"
                 className="text-[var(--accent)] underline underline-offset-2"
               >
-                paraguayresidency.com
+                paraguayresidency.co.uk
               </a>
               , or, for a qualifying investment,{' '}
               <a
@@ -72,7 +72,7 @@ export default function Page() {
                 rel="noopener"
                 className="text-[var(--accent)] underline underline-offset-2"
               >
-                paraguayinvestorpass.com.py
+                paraguayinvestorpass.com
               </a>
               .
             </p>

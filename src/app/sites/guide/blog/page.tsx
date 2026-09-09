@@ -8,7 +8,7 @@ const PATH = '/blog';
 
 export function generateMetadata(): Metadata {
   return siteMetadata('guide', {
-    title: 'Articles — Paraguay Investor Guide',
+    title: 'Articles — Paraguay Residency Guide',
     description:
       'Costs, banking, timelines and mistakes: honest answers to the questions people ask before they buy the guide.',
     path: PATH,

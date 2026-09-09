@@ -13,6 +13,7 @@
   "nav.requirements": "Krav",
   "nav.routeFinder": "Hitta din väg",
   "nav.routes": "Vägar",
+  "nav.whyParaguay": "Varför Paraguay",
   "nav.taxResidency": "Skatterättslig hemvist",
   "nav.temporary": "Tillfälligt uppehållstillstånd",
   "nav.terms": "Villkor",
@@ -158,5 +159,12 @@
   "checkout.insiderBuy": "Gå med i Insider — {price}",
   "checkout.comingSoon": "Insider öppnar snart",
   "nav.vsStandard": "Jämfört med vanligt uppehållstillstånd",
-  "nav.forAgents": "För agenter"
+  "nav.forAgents": "För agenter",
+  "nav.permits": "Uppehållstillstånd",
+  "nav.tax": "Skatt",
+  "nav.costs": "Kostnader",
+  "nav.ourStory": "Vår historia",
+  "nav.insider": "Insider",
+  "nav.mercosur": "Mercosur-vägen",
+  "nav.costOfLiving": "Levnadskostnader"
 }

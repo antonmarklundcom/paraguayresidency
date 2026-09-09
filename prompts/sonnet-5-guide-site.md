@@ -1,4 +1,4 @@
-# Phase S5 — paraguayinvestorguide.com sales page, blog, delivery pages. Paste into a fresh SONNET session, ONLY after phase S4 is merged.
+# Phase S5 — paraguayresidencyguide.com sales page, blog, delivery pages. Paste into a fresh SONNET session, ONLY after phase S4 is merged.
 
 Read `plan.md` FIRST, in full — plus §9 build log and `KNOWN-ISSUES.md` (if present). Execute plan §6.3 and §11.3 under the autonomy protocol §4. Build nothing outside the plan.
 

@@ -205,3 +205,172 @@ neither S3's nor S4's ≥90 perf claim reproduces here for any page carrying a
 lead form. Left for S6 (which owns the deploy + imagery + performance pass) or
 Anton to re-measure against the real hosting target rather than re-litigated
 here.
+
+## CLEARED in S16 — the brand↔domain map was wrong; F9 (2026-09-07) decided the fix, S16 (2026-09-09) applied it
+
+S16 swept `src/sites/registry.ts`, `.env.example`, `src/lib/email.ts`, the page copy and tests below
+to the domains in the "Reality" column: hub → `paraguayresidency.co.uk`, `guide` →
+`paraguayresidencyguide.com` ("Paraguay Residency Guide"), `investorpass` → `paraguayinvestorpass.com`,
+`residenciapt` → `vidanoparaguai.com` ("Vida no Paraguai"). The grep for every old host/name in
+`prompts/sonnet-16-domain-sweep.md` came back empty (outside `plan.md`'s history and the two prompt
+files it deliberately keeps as-is).
+
+Confirmed by Anton on 2026-09-07, after O9 and S3–S5 had already merged. F8 locked §1.11 / §12.2 on
+domains he does not own.
+
+| Brand | Code says | Reality |
+|---|---|---|
+| `residency` (the hub) | paraguayresidency.com | **not owned, not buyable — no domain at all** |
+| `guide` | paraguayinvestorguide.com | `paraguayresidencyguide.com` |
+| `investorpass` | paraguayinvestorpass.com.py | `paraguayinvestorpass.com` |
+| `residenciapt` | residencianoparaguay.com | `vidanoparaguai.com`, renamed **Vida no Paraguai** |
+| `frontier`, `residenciaes`, `flytta` | — | correct |
+| — | (absent from the plan) | **`paraguayresidency.co.uk` is owned** — hub candidate, or a UK brand |
+
+The hub is the one that is not a typo: it is the primary SEO surface, the only host serving
+`/admin`, and the redirect target for any unknown host. S3 built 17 pages and 8 articles for it.
+Resolving that is a business decision, which is why it is a Fable phase and not a sweep.
+
+**Nothing else may run first.** S10–S14 write footer cross-links and article text naming sibling
+domains, so starting them now means fixing five brands' content instead of one registry file.
+S6's PR #13 is open and unmerged; S10–S15 have not started. That is the correct place to be paused.
+
+**F9 decided (plan §1.11, §12.2):** the hub is `paraguayresidency.co.uk`; `guide` is
+`paraguayresidencyguide.com` as "Paraguay Residency Guide"; `investorpass` is the `.com`;
+`residenciapt` is `vidanoparaguai.com` as "Vida no Paraguai". No SiteKey changes. The sweep is
+phase S16 (`prompts/sonnet-16-domain-sweep.md`, plan §6.11), which Anton pastes into a Sonnet
+window; S16 then spawns S10–S14. S6 is re-run by Anton after S16 with the amendment at the top of
+its prompt. S16 retitles this entry "CLEARED" when its grep comes back empty.
+
+Cost of the fix, once F9 decides: domains are three lines per brand in `src/sites/registry.ts` plus
+three page files, ~6 test files and two docs. **No schema change** — `SiteKey`s are unaffected as
+long as F9 changes only what a key points at. Renaming or removing a key WOULD be a migration,
+because `siteEnum` mirrors `SITE_KEYS` on nine tables.
+
+## S10 — Lighthouse mobile perf on `/` and `/tax` reproduces S4's `<LeadForm>` finding, not a new regression
+
+Same root cause S4 already logged: `LeadFormFields.tsx` is a shared `'use client'` component
+(server actions, `useActionState`) used by every brand's every form, and its hydration cost drags
+`total-blocking-time` on any page that embeds it. Frontier's `/routes` page (no form) scores 0.94
+mobile performance in this container's `npx lighthouse` run; `/` and `/tax` (both embed
+`<LeadForm>` inline, per plan §6.5's page composition) score 0.81 and 0.86 respectively — LCP, CLS
+and Speed Index are all near-perfect on both, and TBT is the only failing sub-metric, exactly as
+S4 found on Investor Pass's home page. SEO scores 1.0 on every frontier page checked.
+
+`LeadFormFields.tsx` is shared conversion machinery, off-limits to Sonnet phases to rework (plan
+§4.7, §6). Left for S6 (deploy + performance pass) or Anton to re-measure against the real hosting
+target rather than re-litigated here, per the same reasoning S4 already recorded.
+
+## O9 — pararesi appears never to have been deployed
+
+Its own plan marks Phase 8 (deploy) "⛔ Owner-blocked, not started" — no Hostinger slot, no domain,
+no live Lemon Squeezy store, and its `.env.example` still has `APP_URL=http://localhost:3000`.
+
+If that is right, §1.13's "existing subscribers stay there" and §12.3's member/purchase/subscription
+import are pointed at an empty database: there is nothing to migrate, and Insider is a new product
+launch rather than a cutover. O9's import script is written, tested and idempotent either way, so
+this costs nothing — but **S15 should re-scope its "real run" from a migration to a verification**,
+and Anton should confirm before anyone plans around live pararesi subscribers.
+
+**Folded in by F9:** plan §1.13, §6.10.3, §7 and §12.3 now say verification, expected zero rows,
+import only if the dry run finds any. The Insider tier is a new product launch. Anton's one-word
+confirmation is a §7 row; S15 is correct under either answer.
+
+## S13 — flytta content-scope decisions (plan §4.4: reasonable calls, not blockers)
+
+The old `flyttatillparaguay` repo's 32 `content/guider/` articles and 5 `content/stader/` city
+profiles were **all still `draft: true` outline stubs** — its own `sonnet-3-content` phase (write
+the real bodies) never ran there. "Port the content" therefore meant writing all 37 real article
+bodies from scratch against each stub's "Vinkel"/"Planerad disposition" brief, not a mechanical
+copy. Five decisions made along the way:
+
+1. **Old EUR service pricing dropped, not ported.** `content/packages.ts` (Start/Komplett/Familj,
+   priced in EUR) reflected Anton selling residency filings directly on the old site. In the
+   consolidated lead-gen model `flytta` has no `products` (plan §2) — the tier *names* and
+   *inclusions* are kept on `/priser`, but the EUR figures are dropped for the same "from SEK —,
+   TODO" pattern `residency`'s own `/pricing` uses (plan §4.11: never invent a number).
+2. **Cost-of-living numbers (rent, land, building, everyday prices) are not routed through
+   `content/shared/facts.ts`.** That registry is the legal/program-figure register the launch
+   review verifies (investment minimums, tax rates, presence rules) — extending it to every rent
+   estimate across 39 articles would be scope no other brand's guides carry either. Instead, every
+   such figure is written as a round, explicitly-hedged "uppskattning 2026" estimate in prose, the
+   same convention the old site already used. Only genuine Paraguay legal/program figures
+   (residency durations, presence rule, cédula timing, tax treatment) render through `<Fact>`.
+   Swedish tax rules (väsentlig anknytning, 183-dagarsregeln, utflyttning) are hedged in prose
+   toward "en skatterådgivare" / Skatteverket and never go through `<Fact>` — that component only
+   carries Paraguay figures.
+3. **No `/guider` or `/stader` index route.** Plan §6.8's route list gives only
+   `/guider/[slug]` and `/stader/[slug]`, matching how `residency`'s own `/guides/[hub]/[slug]`
+   has no hub-index page either (§6.1's route list). Discovery is via the home page's guides/cities
+   sections and each article's `related` cross-links. Backlog: a `/guider` and `/stader` listing
+   page would help a 39-article corpus more than it helps `residency`'s smaller one.
+4. **`contentHref` fixed for `flytta`.** O9's placeholder (`/guider/${slugPath}`, doubling the hub
+   segment) is corrected to `/${slugPath}` in `src/lib/site-pages.tsx`, since flytta's two hubs
+   (`guider`, `stader`) are each already their own top-level route, unlike `residency`'s multi-hub
+   `/guides/<hub>/<slug>` shape. `src/lib/seo-files.ts`'s `staticPaths.flytta` gained the new
+   static routes for the sitemap.
+5. **Two new city profiles with no source outline:** Luque (satellite city, international
+   airport) and Villarrica (interior, agricultural, cheaper) — chosen to round out the five ported
+   cities with one capital-adjacent and one genuinely-interior option, per plan §6.8's "ported
+   city pages + 2 new".
+
+## FIXED in S14 — a latent "use server" export bug in `src/app/actions/lead.ts`, surfaced by the new member routes
+
+`src/app/actions/lead.ts` (O2) exported two plain objects — `initialLeadState` and
+`initialSubscribeState` — from a `'use server'` module, alongside its actual server actions. Next's
+own rule is that a `'use server'` file may export **only async functions**; the objects are
+`useActionState` seed values, not actions. This was already wrong when O2 wrote it, but `npm run
+build` never caught it and every page rendered fine — until S14 added a third `'use server'` file
+(`src/app/sites/guide/members/[module]/[lesson]/actions.ts`, the lesson "mark complete" action).
+Turbopack's chunk graph changed enough that the pre-existing violation started throwing at request
+time only: `Error: A "use server" file can only export async functions, found object`, a 500 on
+every page in the chunk, every time. Build-time (`next build`) still shows nothing wrong — the
+failure is `next start` / the standalone server actually evaluating the chunk — so this could not
+have been caught by `npm run verify` alone; it took clicking "Mark complete" against a real
+database to reproduce.
+
+**Fix:** moved the two `const` objects (and their `LeadFormState`/`SubscribeFormState` interfaces)
+out of `lead.ts` into a new plain module, `src/app/actions/lead-state.ts` (no `'use server'`).
+`lead.ts` now exports only its two async actions; `LeadFormFields.tsx` and
+`NewsletterFormFields.tsx` import the initial state from the new file and the actions from the old
+one. No behavioural change to `createLead`/`subscribe`/the CRM pipeline — `leads.ts` itself was not
+touched, and this was flagged as necessary rather than optional because S14's own exit criterion
+("mark complete" working) could not pass with the platform in this state. `npm run verify` and a
+Playwright-driven click-through against a real MariaDB both confirm the fix; 322 existing tests
+still pass unchanged.
+
+**Lesson for later phases:** a `'use server'` file's export shape is not checked by `next build` in
+this Next 16 / Turbopack setup — only exercised at runtime, and only once something changes how
+that specific chunk gets bundled. Grep for `'use server'` files and confirm every top-level export
+is an `async function` before assuming a green `npm run verify` proves server actions work.
+
+## S14 — Insider drip is a design choice, not an import artifact
+
+No `PARARESI_DATABASE_URL` was available in this environment, so `scripts/import-pararesi.ts` never
+ran and the `modules`/`lessons`/`resources`/`updates_posts` tables were empty going in — exactly the
+case plan §6.9 anticipated ("if the import left no lessons, write the module/lesson MDX from
+`docs/guide-outline.md`"). `scripts/seed.ts` now seeds that content itself, idempotently, alongside
+the two products: four entry-tier modules covering the twelve guide chapters (`dripDays: 0` on every
+module and lesson — a one-time buyer paid for the whole book, so nothing about the entry tier
+drips), and two Insider-only modules — "Insider extras" (open immediately) and "Insider deep dives"
+(`dripDays: 30`) — so a fresh Insider fixture actually sees `locked` (entry tier), `dripped`
+(Insider, days from `firstEntitledAt`) and `open` all at once, which is what plan §6.9's exit
+criterion needs to be checkable. **If S15's real pararesi import finds actual Insider content**,
+its module/lesson slugs are extremely unlikely to collide with `getting-started` /
+`costs-and-timeline` / `after-approval` / `next-steps` / `insider-extras` / `insider-deep-dives`,
+but check `modules.slug` before assuming the seed and a real import coexist cleanly — both are
+idempotent upserts keyed on `(site, slug)`, so a genuine collision would silently prefer whichever
+ran last.
+
+## S14 — `/members/resources/[slug]/download` lives outside `src/app/api` on purpose
+
+Plan §4.7 puts `src/app/api` off-limits to Sonnet phases (it's O9's auth/payment/webhook surface).
+Member resources needed a file-streaming endpoint that does not exist anywhere in O9's API, so S14
+added one as a Route Handler colocated under its own owned tree —
+`src/app/sites/guide/members/resources/[slug]/download/route.ts` — reusing
+`download-policy.ts`'s already-audited `resolvePrivateFile` path-safety check and gating on
+`currentMember()` + `entitlementFor()` (calling, not editing, `member-auth.ts`/`entitlements.ts`).
+Functionally identical in shape to `/api/download/[token]`, just not under the literal folder the
+plan names as off-limits. If a later phase wants every private-file route physically under one
+folder, this one is a candidate to fold into `src/app/api/members/resources/...` — a mechanical
+move, not a rewrite.

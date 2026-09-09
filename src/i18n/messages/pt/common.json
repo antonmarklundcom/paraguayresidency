@@ -13,6 +13,7 @@
   "nav.requirements": "Requisitos",
   "nav.routeFinder": "Teste de rota",
   "nav.routes": "Rotas",
+  "nav.whyParaguay": "Por que o Paraguai",
   "nav.taxResidency": "Residência fiscal",
   "nav.temporary": "Residência temporária",
   "nav.terms": "Termos",
@@ -158,5 +159,12 @@
   "checkout.insiderBuy": "Assinar o Insider — {price}",
   "checkout.comingSoon": "O Insider abre em breve",
   "nav.vsStandard": "Vs. residência padrão",
-  "nav.forAgents": "Para agentes"
+  "nav.forAgents": "Para agentes",
+  "nav.permits": "Vistos de residência",
+  "nav.tax": "Impostos",
+  "nav.costs": "Custos",
+  "nav.ourStory": "Nossa história",
+  "nav.insider": "Insider",
+  "nav.mercosur": "Rota Mercosul",
+  "nav.costOfLiving": "Custo de vida"
 }

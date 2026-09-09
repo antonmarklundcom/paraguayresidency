@@ -132,7 +132,7 @@ describe('sendToVenderCrm', () => {
       .spyOn(globalThis, 'fetch')
       .mockResolvedValue(Response.json({ contactId: 1 }, { status: 201 }));
 
-    await sendToVenderCrm({ phone: '0981 123 456', source: 'paraguayresidency.com' });
+    await sendToVenderCrm({ phone: '0981 123 456', source: 'paraguayresidency.co.uk' });
 
     const [url, init] = fetchSpy.mock.calls[0] as [string, RequestInit];
     expect(url).toBe('https://crm.example.com/api/v1/leads');
@@ -160,14 +160,14 @@ describe('email fallbacks', () => {
 
   it('falls back to the from-address mailbox when no notify address is set', () => {
     delete process.env.EMAIL_NOTIFY_TO;
-    process.env.EMAIL_FROM = 'Paraguay Residency <hello@paraguayresidency.com>';
-    expect(notifyTo()).toBe('hello@paraguayresidency.com');
+    process.env.EMAIL_FROM = 'Paraguay Residency <hello@paraguayresidency.co.uk>';
+    expect(notifyTo()).toBe('hello@paraguayresidency.co.uk');
     process.env.EMAIL_NOTIFY_TO = 'anton@example.com';
     expect(notifyTo()).toBe('anton@example.com');
   });
 
   it('builds an unsubscribe link on the brand that sent the mail', () => {
     const url = unsubscribeUrl('guide', 'Ana@Example.com');
-    expect(url.startsWith('https://paraguayinvestorguide.com/unsubscribe?u=')).toBe(true);
+    expect(url.startsWith('https://paraguayresidencyguide.com/unsubscribe?u=')).toBe(true);
   });
 });
