@@ -306,8 +306,37 @@ export const sites: Record<SiteKey, SiteConfig> = {
     locale: 'es',
     currencies: ['EUR', 'PYG'],
     theme: 'residenciaes',
-    nav: minimalNav(),
-    footer: minimalFooter(),
+    // S11 (plan §6.6): Spanish routes for everything except the shared
+    // conversion/legal paths (§1.3), which keep their English form.
+    nav: [
+      { labelKey: 'nav.routes', href: '/proceso' },
+      { labelKey: 'nav.pricing', href: '/precios' },
+      { labelKey: 'nav.routeFinder', href: '/route-finder' },
+      { labelKey: 'nav.about', href: '/nosotros' },
+      { labelKey: 'nav.contact', href: '/contact' },
+    ],
+    footer: {
+      columns: [
+        {
+          titleKey: 'footer.services',
+          items: [
+            { labelKey: 'nav.temporary', href: '/residencia/temporal' },
+            { labelKey: 'nav.permanent', href: '/residencia/permanente' },
+            { labelKey: 'nav.cedula', href: '/residencia/cedula' },
+            { labelKey: 'nav.taxResidency', href: '/residencia-fiscal' },
+            { labelKey: 'nav.family', href: '/familia' },
+          ],
+        },
+        {
+          titleKey: 'footer.company',
+          items: [
+            { labelKey: 'nav.about', href: '/nosotros' },
+            { labelKey: 'nav.contact', href: '/contact' },
+          ],
+        },
+      ],
+      legal: legalNav(),
+    },
     crm: { source: 'residenciaparaguay.es' },
     // No Guide upsell: the Guide is English-only (plan §1.11).
     siblings: ['residency', 'investorpass'],

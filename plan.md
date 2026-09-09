@@ -923,6 +923,81 @@ Where the next reader looks first: `src/app/sites/frontier/` for the page tree,
 `content/frontier/stories/` for the six articles. S11–S14 build their own brands the same
 way; nothing here touches their files.
 
+**2026-09-09 — S11 residenciaparaguay.es (`residenciaes`)** — branch `phase/s11`
+
+What now exists: every §6.6 page, Spanish throughout (Spain register, `tú`),
+Spanish routes for everything except the shared conversion/legal paths
+(§1.3). Home is a full rebuild (split hero with the exact §11.6 copy, para
+quién, a three-route bento, cómo funciona, a hedged "por qué Paraguay" facts
+section, FAQ, closing CTA). Five service pages
+(`/residencia/{temporal,permanente,cedula}`, `/residencia-fiscal`,
+`/familia`) share a new brand-local component,
+`src/app/sites/residenciaes/_lib/ServicePage.tsx` — Spanish copy, not the
+hub's English `ServicePage` (S3/S4 already established this is per-brand,
+not shared). `/mercosur` renders `<Fact k="mercosur.residency_route">`
+(with `site="residenciaes"` — see the deviation below) and explains what the
+Mercosur agreement actually changes versus what stays the same. `/proceso`,
+`/precios` (same "from — TODO" pattern as the hub's `/pricing`, EUR instead
+of USD) and `/nosotros` are new. `/pase-inversor` is a short, `noindex`
+bridge to `paraguayinvestorpass.com` via `siteOrigin('investorpass')`, same
+treatment as the hub's own `/investor-pass`. `/privacy` and `/terms` are
+brand-own Spanish bodies (not routed through the hub's English
+`legal-pages.tsx`, which would have needed a translation layer that does not
+exist yet for a two-file shared module). 8 MDX articles across the four
+plan hubs (documentos ×2, vivir-en-paraguay ×2, impuestos ×2, comparativas
+×2 — Portugal and Uruguay, both named in §6.6), each with `related` links
+and a hub→service mapping in the new `/guias/[hub]/[slug]` route (same
+shape as the hub's `/guides/[hub]/[slug]`). `content/shared/facts.ts` gained
+`es` `display`/`hedged` text (additive, `en` untouched) for
+`temporary.duration`, `permanent.presence_rule`, `cedula.timeline`,
+`tax.territorial_rate` and `investorpass.min_investment_usd` — O9 had only
+localized `mercosur.residency_route` and `tax.foreign_income_treatment`;
+every other fact this brand's pages actually render needed the same
+treatment or it would render English wording on a Spanish page (plan §4.11,
+§1.10). Registry: filled the `residenciaes` nav/footer (routes, pricing,
+about, contact; services column with the five Spanish service paths) —
+shape unchanged, entry-filling only, as the phase prompt allows. `staticPaths.residenciaes`
+in `src/lib/seo-files.ts` lists the 14 static routes (`/pase-inversor`
+excluded — thin, noindex, same treatment as the hub's own bridge page); the
+8 articles are picked up automatically via `getPages`. The one pre-existing
+placeholder MDX (`residencia/rutas-de-residencia.mdx`, hub `residencia`,
+not one of the four plan hubs) was moved into `documentos/` with a
+corrected `hub` field rather than left as a ninth, unlisted hub. `npm run
+verify` green (typecheck, lint, 322 tests, i18n, build).
+
+Decisions and deviations:
+- `<Fact>`'s `site` prop is bound automatically inside MDX bodies (the
+  content renderer curries it in `src/content/mdx.tsx`), but a plain `.tsx`
+  page must pass `site="residenciaes"` explicitly or the component falls
+  back to `en`. Caught by manually crawling every route and diffing the
+  rendered HTML against every English `common.json` value (not by a test —
+  there isn't one that renders `.tsx` pages and inspects `<Fact>` output) on
+  `/mercosur`, where the hero paragraph's `<Fact k="mercosur.residency_route">`
+  rendered in English until the `site` prop was added. Grepped the rest of
+  this phase's new `.tsx` files for the same pattern; no other instance.
+  Worth a shared lint rule or a test if a later phase hits it again.
+- Two SEO-limit test fixes: three article titles (`costo-de-vida-en-paraguay`,
+  both `comparativas` pieces) were shortened to fit the existing
+  `tests/content.test.ts` 70-character title cap — a Spanish comparison
+  title ("Paraguay vs. Uruguay: residencia y fiscalidad para nacionales del
+  Mercosur") runs long fast; trimmed the qualifier, not the substance.
+- `/nosotros` and `/precios` link to `/pase-inversor` and `/route-finder`
+  rather than the hub's `/book`, which this brand does not have (plan §6.6's
+  page list has no `/book` for `residenciaes`) — matches the About/Pricing
+  pattern the hub used, minus the route this brand never shipped.
+- Privacy/terms are brand-own Spanish files rather than an extension of
+  `src/lib/legal-pages.tsx`, which is English-only prose with the brand name
+  interpolated — adding a second language there would have meant a
+  translation branch inside a shared file for a first non-English brand,
+  more machinery than two Spanish pages justify. `residenciapt` (S12) will
+  hit the same choice.
+
+Where S12–S13 look first (the other two non-English content phases still to
+run): `src/app/sites/residenciaes/_lib/ServicePage.tsx` and the privacy/terms
+pages here are the pattern for a brand-own, non-English page shape rather
+than reusing the hub's English shared components; the `<Fact site=...>` trap
+above applies to any `.tsx` page, not just this brand's.
+
 ## 10. Backlog
 
 - German brand or locale for the hub (Spanish, Portuguese and Swedish ship as brands, §1.11).

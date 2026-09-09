@@ -40,8 +40,14 @@ export const facts = {
   'investorpass.min_investment_usd': {
     key: 'investorpass.min_investment_usd',
     label: 'Investor Pass — minimum qualifying investment',
-    display: 'from USD 70,000',
-    hedged: 'from a qualifying investment amount we confirm on your call',
+    display: {
+      en: 'from USD 70,000',
+      es: 'desde USD 70.000',
+    },
+    hedged: {
+      en: 'from a qualifying investment amount we confirm on your call',
+      es: 'desde un monto de inversión que confirmamos en tu llamada',
+    },
     verified: false,
     sources: [
       'https://www.fragomen.com/insights/paraguay-new-investor-pass-expands-permanent-residence-options.html',
@@ -71,8 +77,14 @@ export const facts = {
   'permanent.presence_rule': {
     key: 'permanent.presence_rule',
     label: 'Permanent residency — presence requirement',
-    display: 'at least one entry every three years',
-    hedged: 'a minimum-presence rule applies — we tell you exactly what it means for your travel pattern',
+    display: {
+      en: 'at least one entry every three years',
+      es: 'al menos una entrada cada tres años',
+    },
+    hedged: {
+      en: 'a minimum-presence rule applies — we tell you exactly what it means for your travel pattern',
+      es: 'existe una regla de presencia mínima — te decimos exactamente qué significa para tu forma de viajar',
+    },
     verified: false,
     sources: [
       'https://www.fragomen.com/insights/paraguay-new-investor-pass-expands-permanent-residence-options.html',
@@ -82,24 +94,42 @@ export const facts = {
   'temporary.duration': {
     key: 'temporary.duration',
     label: 'Temporary residency — duration',
-    display: 'two years, then permanent',
-    hedged: 'a fixed initial term, after which you apply for permanent residency — current term confirmed on your call',
+    display: {
+      en: 'two years, then permanent',
+      es: 'dos años, y después permanente',
+    },
+    hedged: {
+      en: 'a fixed initial term, after which you apply for permanent residency — current term confirmed on your call',
+      es: 'un plazo inicial fijo, tras el cual solicitas la residencia permanente — el plazo vigente te lo confirmamos en tu llamada',
+    },
     verified: false,
     sources: ['https://immigrantinvest.com/insider/paraguay-investor-pass/'],
   },
   'cedula.timeline': {
     key: 'cedula.timeline',
     label: 'Cédula — typical timeline',
-    display: 'issued within weeks of residency approval',
-    hedged: 'issued after your residency is approved — we give you a current, realistic window, not a best case',
+    display: {
+      en: 'issued within weeks of residency approval',
+      es: 'se emite semanas después de aprobarse la residencia',
+    },
+    hedged: {
+      en: 'issued after your residency is approved — we give you a current, realistic window, not a best case',
+      es: 'se emite una vez aprobada tu residencia — te damos un plazo real y actual, no el mejor caso posible',
+    },
     verified: false,
     sources: [],
   },
   'tax.territorial_rate': {
     key: 'tax.territorial_rate',
     label: 'Personal income tax — territorial rate',
-    display: '10% on Paraguay-sourced income',
-    hedged: 'a low flat rate on Paraguay-sourced income under a territorial system — your accountant confirms your case',
+    display: {
+      en: '10% on Paraguay-sourced income',
+      es: '10% sobre la renta de fuente paraguaya',
+    },
+    hedged: {
+      en: 'a low flat rate on Paraguay-sourced income under a territorial system — your accountant confirms your case',
+      es: 'un tipo fijo bajo sobre la renta de fuente paraguaya bajo un sistema territorial — tu asesor confirma tu caso concreto',
+    },
     verified: false,
     sources: [],
     note: 'Tax wording must never read as advice. Keep hedged until the partner firm signs off.',
