@@ -848,6 +848,44 @@ the grep in its exit criterion is the real test), §12.2 for the map, §11.7
 for the pt-BR strings, §11.3 for the Guide names. Where S6's re-run looks
 first: the amendment at the top of `prompts/sonnet-6-deploy-seo-imagery.md`.
 
+**2026-09-09 — S16 Domain sweep** — branch `phase/s16`
+
+What now exists: `src/sites/registry.ts`, `.env.example` and `src/lib/email.ts`
+point at the domains Anton owns — `residency` → `paraguayresidency.co.uk`,
+`investorpass` → `paraguayinvestorpass.com`, `guide` →
+`paraguayresidencyguide.com` ("Paraguay Residency Guide"), `residenciapt` →
+`vidanoparaguai.com` ("Vida no Paraguai"). All prose/anchor-text mentions of
+the old domains in `src/app/sites/guide/*`, `src/app/sites/investorpass/*`,
+`src/app/sites/residency/investor-pass/page.tsx` and one Guide blog MDX are
+updated, preferring `siteOrigin('<key>')` over new literals where a file
+already imports it. `pt/residenciapt.json` carries the seven §11.7 strings
+verbatim (title 55 chars, description 145 — both under the limit).
+`tests/resolve.test.ts` (+ admin-guard, leads-flow, checkout-routing,
+crm-and-signing, member-session) assert the new hosts; added an explicit
+"unknown host → 301 `https://paraguayresidency.co.uk/`" case alongside the
+existing dynamic one. `npm run verify` is green (typecheck, lint, 190+ tests,
+i18n, build).
+
+Decisions and deviations:
+- The exit grep (plan §6.11) is clean except three places the prompt's own
+  filter didn't anticipate and which are correct left alone: `CLAUDE.md`'s
+  "He does NOT own paraguayresidency.com…" sentence (documents what Anton
+  does *not* own — flipping it would make it false), `KNOWN-ISSUES.md`'s
+  already-historical entries describing what O2 actually tested against at
+  the time, and `prompts/sonnet-16-domain-sweep.md` itself (this file), which
+  necessarily quotes the old domains as its own spec. Treated the same as the
+  `plan.md`/`sonnet-6`/`fable-*` exemptions the prompt already lists.
+- `src/app/sites/guide/page.tsx` needed one added import (`siteOrigin`) that
+  a literal-domain edit turned into a real reference — caught by `tsc`, not
+  by the domain grep.
+- `KNOWN-ISSUES.md`'s "BLOCKER — brand↔domain map" entry is retitled
+  "CLEARED in S16" with a short note on what changed, per §6.11 step 6.
+
+Where S10–S14 look first: their own prompt files are unchanged by this
+phase (only header lines on S3–S5 changed); the registry's `hosts` /
+`canonicalHost` / `name` for their brand are now final — do not re-litigate
+domains, only build the content §6.5–§6.9 and §11.5–§11.8 specify.
+
 ## 10. Backlog
 
 - German brand or locale for the hub (Spanish, Portuguese and Swedish ship as brands, §1.11).

@@ -113,12 +113,12 @@ export const sites: Record<SiteKey, SiteConfig> = {
   residency: {
     key: 'residency',
     hosts: [
-      'paraguayresidency.com',
-      'www.paraguayresidency.com',
+      'paraguayresidency.co.uk',
+      'www.paraguayresidency.co.uk',
       'residency.localhost',
       'localhost',
     ],
-    canonicalHost: 'paraguayresidency.com',
+    canonicalHost: 'paraguayresidency.co.uk',
     name: 'Paraguay Residency',
     tagline: 'site.tagline',
     locale: 'en',
@@ -153,18 +153,18 @@ export const sites: Record<SiteKey, SiteConfig> = {
       ],
       legal: legalNav(),
     },
-    crm: { source: 'paraguayresidency.com' },
+    crm: { source: 'paraguayresidency.co.uk' },
     siblings: ['investorpass', 'guide'],
   },
 
   investorpass: {
     key: 'investorpass',
     hosts: [
-      'paraguayinvestorpass.com.py',
-      'www.paraguayinvestorpass.com.py',
+      'paraguayinvestorpass.com',
+      'www.paraguayinvestorpass.com',
       'investorpass.localhost',
     ],
-    canonicalHost: 'paraguayinvestorpass.com.py',
+    canonicalHost: 'paraguayinvestorpass.com',
     name: 'Paraguay Investor Pass',
     tagline: 'site.tagline',
     locale: 'en',
@@ -199,19 +199,19 @@ export const sites: Record<SiteKey, SiteConfig> = {
       ],
       legal: legalNav(),
     },
-    crm: { source: 'paraguayinvestorpass.com.py' },
+    crm: { source: 'paraguayinvestorpass.com' },
     siblings: ['residency', 'guide'],
   },
 
   guide: {
     key: 'guide',
     hosts: [
-      'paraguayinvestorguide.com',
-      'www.paraguayinvestorguide.com',
+      'paraguayresidencyguide.com',
+      'www.paraguayresidencyguide.com',
       'guide.localhost',
     ],
-    canonicalHost: 'paraguayinvestorguide.com',
-    name: 'Paraguay Investor Guide',
+    canonicalHost: 'paraguayresidencyguide.com',
+    name: 'Paraguay Residency Guide',
     tagline: 'site.tagline',
     locale: 'en',
     currencies: ['USD'],
@@ -245,7 +245,7 @@ export const sites: Record<SiteKey, SiteConfig> = {
       ],
       legal: legalNav(),
     },
-    crm: { source: 'paraguayinvestorguide.com' },
+    crm: { source: 'paraguayresidencyguide.com' },
     siblings: ['residency', 'investorpass'],
   },
 
@@ -288,16 +288,16 @@ export const sites: Record<SiteKey, SiteConfig> = {
 
   residenciapt: {
     key: 'residenciapt',
-    hosts: ['residencianoparaguay.com', 'www.residencianoparaguay.com', 'residenciapt.localhost'],
-    canonicalHost: 'residencianoparaguay.com',
-    name: 'Residência no Paraguai',
+    hosts: ['vidanoparaguai.com', 'www.vidanoparaguai.com', 'residenciapt.localhost'],
+    canonicalHost: 'vidanoparaguai.com',
+    name: 'Vida no Paraguai',
     tagline: 'site.tagline',
     locale: 'pt',
     currencies: ['BRL', 'USD', 'PYG'],
     theme: 'residenciapt',
     nav: minimalNav(),
     footer: minimalFooter(),
-    crm: { source: 'residencianoparaguay.com' },
+    crm: { source: 'vidanoparaguai.com' },
     siblings: ['residency', 'investorpass'],
   },
 
@@ -341,7 +341,7 @@ export function sitesSelling(slug: string): SiteKey[] {
 
 export const hubSite = (): SiteConfig => sites[HUB_SITE];
 
-/** `https://paraguayresidency.com` — used for metadataBase and sitemaps. */
+/** `https://paraguayresidency.co.uk` — used for metadataBase and sitemaps. */
 export function siteOrigin(key: SiteKey): string {
   const host = sites[key].canonicalHost;
   const proto = host.endsWith('.localhost') || host === 'localhost' ? 'http' : 'https';

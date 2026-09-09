@@ -31,7 +31,7 @@ export function emailMode(): EmailMode {
 }
 
 export function emailFrom(): string {
-  return process.env.EMAIL_FROM || 'Paraguay Residency <hello@paraguayresidency.com>';
+  return process.env.EMAIL_FROM || 'Paraguay Residency <hello@paraguayresidency.co.uk>';
 }
 
 /** Where internal notifications go. Falls back to the from-address mailbox. */

@@ -9,12 +9,12 @@ any of them (plan §4.7).**
 
 | Domain | SiteKey | Locale | Money | Sells |
 |---|---|---|---|---|
-| paraguayresidency.com | `residency` | en | USD | — (the hub; also hosts `/admin`) |
-| paraguayinvestorpass.com.py | `investorpass` | en | USD | — |
-| paraguayinvestorguide.com | `guide` | en | USD | `guide-entry`, `guide-insider` |
+| paraguayresidency.co.uk | `residency` | en | USD | — (the hub; also hosts `/admin`) |
+| paraguayinvestorpass.com | `investorpass` | en | USD | — |
+| paraguayresidencyguide.com | `guide` | en | USD | `guide-entry`, `guide-insider` |
 | paraguayfrontier.com | `frontier` | en | USD | — |
 | residenciaparaguay.es | `residenciaes` | es | EUR, PYG | — |
-| residencianoparaguay.com | `residenciapt` | pt-BR | BRL, USD, PYG | — |
+| vidanoparaguai.com | `residenciapt` | pt-BR | BRL, USD, PYG | — |
 | flyttatillparaguay.se | `flytta` | sv | SEK, USD | — |
 
 A brand is a row in `src/sites/registry.ts` plus a folder under

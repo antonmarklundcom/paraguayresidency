@@ -62,7 +62,7 @@ const { issueFormTimestamp } = await import('@/lib/form-guard');
 
 function post(body: Record<string, unknown>) {
   return POST(
-    new Request('https://paraguayinvestorguide.com/api/checkout', {
+    new Request('https://paraguayresidencyguide.com/api/checkout', {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify({ ts: issueFormTimestamp(Date.now() - 5000), ...body }),
@@ -183,7 +183,7 @@ describe('checkout refuses what it should', () => {
 
   it('rejects a form with no signed timestamp', async () => {
     const response = await POST(
-      new Request('https://paraguayinvestorguide.com/api/checkout', {
+      new Request('https://paraguayresidencyguide.com/api/checkout', {
         method: 'POST',
         headers: { 'content-type': 'application/json' },
         body: JSON.stringify({ product: GUIDE_ENTRY_SLUG }),

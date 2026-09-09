@@ -35,7 +35,7 @@ describe('buildCrmPayload', () => {
   });
 
   it('never sends pipeline, stage, owner or tag — routing lives in the CRM', () => {
-    const payload = buildCrmPayload({ ...lead, source: 'paraguayresidency.com' });
+    const payload = buildCrmPayload({ ...lead, source: 'paraguayresidency.co.uk' });
     for (const forbidden of ['pipeline', 'stage', 'owner', 'tag']) {
       expect(payload).not.toHaveProperty(forbidden);
     }
@@ -85,7 +85,7 @@ describe('signing', () => {
 
 describe('email templates', () => {
   it('puts an unsubscribe link in every message', () => {
-    const url = 'https://paraguayinvestorguide.com/unsubscribe?u=token';
+    const url = 'https://paraguayresidencyguide.com/unsubscribe?u=token';
     const bodies = [
       leadNotification({
         site: 'residency',
@@ -97,15 +97,15 @@ describe('email templates', () => {
       purchaseEmail({
         site: 'guide',
         productName: 'The Guide',
-        downloadUrl: 'https://paraguayinvestorguide.com/api/download/t',
+        downloadUrl: 'https://paraguayresidencyguide.com/api/download/t',
         expiresAt: new Date('2026-09-10T12:00:00Z'),
         maxDownloads: 5,
-        consultationUrl: 'https://paraguayresidency.com/book',
+        consultationUrl: 'https://paraguayresidency.co.uk/book',
         unsubscribeUrl: url,
       }),
       subscribeConfirmEmail({
         site: 'guide',
-        confirmUrl: 'https://paraguayinvestorguide.com/confirm?token=t',
+        confirmUrl: 'https://paraguayresidencyguide.com/confirm?token=t',
         unsubscribeUrl: url,
       }),
     ];
@@ -124,7 +124,7 @@ describe('email templates', () => {
       name: '<script>alert(1)</script>',
       email: 'a@b.co',
       message: '<img src=x onerror=alert(1)>',
-      unsubscribeUrl: 'https://paraguayresidency.com/unsubscribe?u=t',
+      unsubscribeUrl: 'https://paraguayresidency.co.uk/unsubscribe?u=t',
     });
     expect(body.html).not.toContain('<script>');
     expect(body.html).not.toContain('<img src=x');
@@ -135,12 +135,12 @@ describe('email templates', () => {
     const body = purchaseEmail({
       site: 'guide',
       productName: 'The Guide',
-      downloadUrl: 'https://paraguayinvestorguide.com/api/download/t',
+      downloadUrl: 'https://paraguayresidencyguide.com/api/download/t',
       expiresAt: new Date('2026-09-10T12:00:00Z'),
       maxDownloads: 5,
-      consultationUrl: 'https://paraguayresidency.com/book',
-      unsubscribeUrl: 'https://paraguayinvestorguide.com/unsubscribe?u=t',
+      consultationUrl: 'https://paraguayresidency.co.uk/book',
+      unsubscribeUrl: 'https://paraguayresidencyguide.com/unsubscribe?u=t',
     });
-    expect(body.html).toContain('https://paraguayresidency.com/book');
+    expect(body.html).toContain('https://paraguayresidency.co.uk/book');
   });
 });

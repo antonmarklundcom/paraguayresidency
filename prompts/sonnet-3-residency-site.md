@@ -1,4 +1,4 @@
-# Phase S3 — paraguayresidency.com pages, copy, SEO. Paste into a fresh SONNET session, ONLY after phase O9 is merged (O9 runs between O2 and S3 — see the phase table).
+# Phase S3 — paraguayresidency.co.uk pages, copy, SEO. Paste into a fresh SONNET session, ONLY after phase O9 is merged (O9 runs between O2 and S3 — see the phase table).
 
 Read `plan.md` FIRST, in full — plus §9 build log and `KNOWN-ISSUES.md` (if present). Execute plan §6.1 and §11.1 under the autonomy protocol §4. Build nothing outside the plan.
 

@@ -204,7 +204,14 @@ lead form. Left for S6 (which owns the deploy + imagery + performance pass) or
 Anton to re-measure against the real hosting target rather than re-litigated
 here.
 
-## BLOCKER — the brand↔domain map is wrong; DECIDED by F9 (2026-09-07), S16 executes it before S10–S15
+## CLEARED in S16 — the brand↔domain map was wrong; F9 (2026-09-07) decided the fix, S16 (2026-09-09) applied it
+
+S16 swept `src/sites/registry.ts`, `.env.example`, `src/lib/email.ts`, the page copy and tests below
+to the domains in the "Reality" column: hub → `paraguayresidency.co.uk`, `guide` →
+`paraguayresidencyguide.com` ("Paraguay Residency Guide"), `investorpass` → `paraguayinvestorpass.com`,
+`residenciapt` → `vidanoparaguai.com` ("Vida no Paraguai"). The grep for every old host/name in
+`prompts/sonnet-16-domain-sweep.md` came back empty (outside `plan.md`'s history and the two prompt
+files it deliberately keeps as-is).
 
 Confirmed by Anton on 2026-09-07, after O9 and S3–S5 had already merged. F8 locked §1.11 / §12.2 on
 domains he does not own.

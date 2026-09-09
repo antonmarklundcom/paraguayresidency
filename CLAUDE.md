@@ -20,7 +20,7 @@ He does **NOT** own `paraguayresidency.com` (and it is not buyable), `paraguayin
 `residencianoparaguay.com` or `paraguayinvestorpass.com.py`. **Decided by F9 (2026-09-07, plan §1.11,
 §12.2): the hub `residency` runs on `paraguayresidency.co.uk`**; `guide` is "Paraguay Residency Guide"
 on `paraguayresidencyguide.com`; `residenciapt` is "Vida no Paraguai" on `vidanoparaguai.com`. The
-registry still names the wrong ones — **phase S16 sweeps it, and no brand phase may run first**
+registry named the wrong ones until **phase S16 (2026-09-09) swept it** to the domains above
 (`prompts/sonnet-16-domain-sweep.md`, plan §6.11). A domain is three lines per brand in
 `src/sites/registry.ts` and costs nothing; a `SiteKey` is a MySQL enum on nine tables and costs a
 migration.
