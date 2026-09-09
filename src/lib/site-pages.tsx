@@ -107,7 +107,9 @@ export function contentHref(site: SiteKey, slugPath: string): string {
       return `/guias/${slugPath}`;
     case 'residenciapt':
       return `/guias/${slugPath}`;
+    // flytta has exactly two hubs (`guider`, `stader`), each its own top-level
+    // route (plan §6.8), so the hub segment already is the route prefix.
     case 'flytta':
-      return `/guider/${slugPath}`;
+      return `/${slugPath}`;
   }
 }

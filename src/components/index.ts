@@ -8,6 +8,8 @@ export { JsonLd } from './JsonLd';
 export { Nav } from './Nav';
 export { Footer } from './Footer';
 export { Fact } from './Fact';
+export { StatRow, type Stat } from './StatRow';
+export { Disclaimer } from './Disclaimer';
 export { LeadForm, type LeadVariant, INVESTMENT_ROUTE_IDS } from './LeadForm';
 export { NewsletterForm } from './NewsletterForm';
 export { CheckoutButton } from './CheckoutButton';

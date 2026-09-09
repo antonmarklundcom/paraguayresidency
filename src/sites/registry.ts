@@ -310,8 +310,39 @@ export const sites: Record<SiteKey, SiteConfig> = {
     locale: 'sv',
     currencies: ['SEK', 'USD'],
     theme: 'flytta',
-    nav: minimalNav(),
-    footer: minimalFooter(),
+    // Nav/footer/WhatsApp/author ported from antonmarklundcom/flyttatillparaguay's
+    // content/site.ts onto this app's routes and i18n keys (plan §12.4). WhatsApp
+    // itself is the shared NEXT_PUBLIC_WHATSAPP_NUMBER env var (plan §3b); author
+    // (Anton Marklund) informs the personal-story copy rather than a registry field.
+    nav: [
+      { labelKey: 'nav.permits', href: '/uppehallstillstand' },
+      { labelKey: 'nav.costs', href: '/kostnader' },
+      { labelKey: 'nav.ourStory', href: '/var-historia' },
+      { labelKey: 'nav.routeFinder', href: '/route-finder' },
+      { labelKey: 'nav.contact', href: '/contact' },
+    ],
+    footer: {
+      columns: [
+        {
+          titleKey: 'footer.services',
+          items: [
+            { labelKey: 'nav.permits', href: '/uppehallstillstand' },
+            { labelKey: 'nav.tax', href: '/skatt' },
+            { labelKey: 'nav.costs', href: '/kostnader' },
+            { labelKey: 'nav.family', href: '/familj' },
+            { labelKey: 'nav.pricing', href: '/priser' },
+          ],
+        },
+        {
+          titleKey: 'footer.company',
+          items: [
+            { labelKey: 'nav.ourStory', href: '/var-historia' },
+            { labelKey: 'nav.contact', href: '/contact' },
+          ],
+        },
+      ],
+      legal: legalNav(),
+    },
     crm: { source: 'flyttatillparaguay.se' },
     siblings: ['residency', 'guide'],
   },

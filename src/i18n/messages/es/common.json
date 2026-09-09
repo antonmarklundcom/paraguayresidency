@@ -158,5 +158,9 @@
   "checkout.insiderBuy": "Únete a Insider — {price}",
   "checkout.comingSoon": "Insider abre en breve",
   "nav.vsStandard": "Vs. residencia estándar",
-  "nav.forAgents": "Para agentes"
+  "nav.forAgents": "Para agentes",
+  "nav.permits": "Permisos de residencia",
+  "nav.tax": "Impuestos",
+  "nav.costs": "Costes",
+  "nav.ourStory": "Nuestra historia"
 }
