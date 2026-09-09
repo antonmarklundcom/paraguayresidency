@@ -998,6 +998,83 @@ pages here are the pattern for a brand-own, non-English page shape rather
 than reusing the hub's English shared components; the `<Fact site=...>` trap
 above applies to any `.tsx` page, not just this brand's.
 
+**2026-09-09 — S12 vidanoparaguai.com ("Vida no Paraguai")** — branch `phase/s12`
+
+What now exists: every §6.7 page, in Brazilian Portuguese, all hardcoded JSX
+(not routed through `t()`) per the S3 precedent — a shared component calling
+`t(runtimeSite, key)` needs parity across all seven brand files, but a
+residenciapt-only page never runs for another brand, so mirroring unused
+copy would be pure overhead. Home is a full rebuild using the exact §11.7
+hero/meta/tagline strings S16 already placed in `pt/residenciapt.json`. Five
+service pages (`/residencia/{temporaria,permanente,cedula}`,
+`/residencia-fiscal`, `/familia`) share a new
+`src/app/sites/residenciapt/_lib/ServicoPage.tsx` — the Portuguese sibling of
+the hub's `ServicePage.tsx`, not a shared/exported component, same reasoning
+as S3's `investorpass`-needs-its-own-shape note. `/mercosul` renders
+`<Fact k="mercosur.residency_route">` as its own page, not folded into a
+service page. `/custo-de-vida` is a standing page and required three new
+hedged, unverified entries in `content/shared/facts.ts`
+(`costofliving.overview`, `costofliving.rent`, `costofliving.groceries`) —
+no reviewed local cost-of-living source exists yet, so all three stay
+comparative ("closer to a mid-sized Brazilian capital than Rio or São
+Paulo") rather than naming a rent or grocery figure that would look precise
+and be unverifiable. `/investor-pass` is the required bridge to
+`paraguayinvestorpass.com` via `siteOrigin('investorpass')`, noindex and
+excluded from the sitemap, same as S3's version. `/privacy` and `/terms` are
+NOT built from `src/lib/legal-pages.tsx` — that shared component is English
+prose and would have put English UI text on a Portuguese brand, so this
+phase wrote its own Portuguese bodies instead, residenciapt-only.
+`/guias/[hub]/[slug]` covers four hubs (`documentos`, `morar-no-paraguai`,
+`impostos`, `comparativos`), each mapped to a `HUB_SERVICE` link exactly
+like S3's hub, with `morar-no-paraguai` → `/custo-de-vida` since that hub is
+about a life before a document. Nine articles ship (minimum was eight):
+`documentos`×3 (one is O9's placeholder, moved into this hub and given a
+`related` array — its hub was `residencia`, which is not one of the four
+named hubs, so S12 relocated rather than left it orphaned),
+`morar-no-paraguai`×4 (custo de vida, segurança, saúde e escola, a dedicated
+border-region article on Ciudad del Este/Foz — all four §11.7 names, not
+just the required three), `impostos`×1, `comparativos`×2 (vs. Uruguai, vs.
+Portugal). The eight new articles were written by four parallel subagents,
+one per hub pairing, each briefed with the exact fact-key allowlist, the
+frontmatter schema and — learned from S3's own audit note — the
+`/guias/<hub>/<slug>` link-prefix rule up front rather than discovered by a
+post-hoc grep. `nav.mercosur` and `nav.costOfLiving` were added to all four
+locales' `common.json` (additive, one line each, same pattern as S3's
+`nav.family`) since they are genuinely shared nav keys, not brand-only copy.
+The registry's `residenciapt` entry now has real nav/footer (was
+`minimalNav()`/`minimalFooter()`); `src/lib/seo-files.ts`'s `residenciapt`
+array now lists its 15 static routes. 331 tests; `npm run verify` green with
+no database. Lighthouse mobile on `/` and `/residencia/temporaria`: perf
+0.99, SEO 1.0, accessibility ≥0.96 on both, no imagery yet (S15 adds it).
+
+Decisions and deviations:
+- No new fact keys beyond the three cost-of-living ones were needed —
+  O9 had already added `mercosur.residency_route` and
+  `tax.foreign_income_treatment` with `pt` translations for exactly this
+  brand.
+- Comparison articles (vs. Uruguai, vs. Portugal) never cite a number for
+  the other country — there is no fact source for Uruguayan or Portuguese
+  program terms, so both stay qualitative ("a meaningfully larger up-front
+  commitment", never a figure) rather than only hedging the Paraguayan side.
+- `node_modules` did not exist in this session's container; installed via
+  `npm install` before any verify step could run — noted here in case a
+  future phase's container also starts clean.
+- A subagent left a scratch validation script (`scripts_tmp_validate.mjs`)
+  in the repo root; caught and deleted in the pre-handoff audit, not by the
+  build. A repo-root grep for stray non-tracked files is worth adding to
+  the next phase's own audit step.
+- One MDX title (cédula article, 64 chars) and one page's meta description
+  (residencia-fiscal, 169 chars) exceeded S3's ≤60/≤155 bar; neither is
+  caught by any automated test (`content.test.ts` only enforces ≤70/≤160),
+  so both were only found by manually walking every title/description
+  length after the build was already green. Fixed in the pre-handoff audit.
+
+Where S15 looks first: this phase touched no shared file beyond the four
+`nav.*` common.json lines and its own `residenciapt` entries in
+`src/sites/registry.ts` / `src/lib/seo-files.ts` — nothing here should
+conflict with S10/S11/S13/S14. Imagery for this brand (hero + 2 section
+images) is still open, per §6.10.6.
+
 ## 10. Backlog
 
 - German brand or locale for the hub (Spanish, Portuguese and Swedish ship as brands, §1.11).

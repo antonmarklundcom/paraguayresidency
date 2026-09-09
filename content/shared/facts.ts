@@ -232,6 +232,59 @@ export const facts = {
     sources: [],
     note: 'Never renders as "tax-free" (plan §11.5). Territoriality is not exemption, and the reader\'s home country still has its own rules.',
   },
+  /**
+   * Added in S12 for `/custo-de-vida` (plan §6.7, §11.7): the brand name
+   * promises a living-cost answer, but no verified local cost-of-living
+   * source has been reviewed yet, so every entry stays comparative and
+   * hedged rather than naming a rent or grocery figure that would look
+   * precise and be unverifiable. `en` is required by `LocalizedText`; only
+   * `residenciapt` renders these today.
+   */
+  'costofliving.overview': {
+    key: 'costofliving.overview',
+    label: 'Cost of living — general comparison for Brazilians',
+    display: {
+      en: 'a monthly budget most people compare to a mid-sized Brazilian capital, not Rio or São Paulo prices',
+      pt: 'um orçamento mensal que a maioria compara ao de uma capital brasileira de porte médio, não aos preços do Rio ou de São Paulo',
+    },
+    hedged: {
+      en: 'noticeably lower than Rio or São Paulo for most people, but we walk through your own numbers — city, lifestyle, family size — on a call instead of quoting one average that fits nobody',
+      pt: 'visivelmente mais baixo do que Rio ou São Paulo para a maioria das pessoas, mas passamos pelos seus números de verdade — cidade, estilo de vida, tamanho da família — numa consulta, em vez de citar uma média que não serve para ninguém',
+    },
+    verified: false,
+    sources: [],
+    note: 'No reviewed local cost-of-living index yet. Keep comparative, never a bare monthly figure.',
+  },
+  'costofliving.rent': {
+    key: 'costofliving.rent',
+    label: 'Cost of living — typical rent range',
+    display: {
+      en: 'rent that runs well below equivalent Brazilian capitals, with Asunción costing more than smaller cities and the border region',
+      pt: 'um aluguel que fica bem abaixo do de capitais brasileiras equivalentes, com Assunção custando mais do que cidades menores e a região de fronteira',
+    },
+    hedged: {
+      en: 'rent is one of the categories where Paraguay clearly costs less — the exact range for your city and the kind of place you want is something we confirm together rather than a number that goes stale',
+      pt: 'aluguel é uma das categorias em que o Paraguai claramente custa menos — a faixa exata para a sua cidade e o tipo de imóvel que você quer é algo que confirmamos juntos, em vez de um número que fica desatualizado',
+    },
+    verified: false,
+    sources: [],
+    note: 'No reviewed local cost-of-living index yet. Keep comparative, never a bare rent figure.',
+  },
+  'costofliving.groceries': {
+    key: 'costofliving.groceries',
+    label: 'Cost of living — groceries and eating out',
+    display: {
+      en: 'groceries and eating out priced closer to a Brazilian interior city than to Rio or São Paulo',
+      pt: 'mercado e restaurante com preço mais parecido com o de uma cidade do interior brasileiro do que com o Rio ou São Paulo',
+    },
+    hedged: {
+      en: 'day-to-day spending is one of the categories we can walk through with real receipts from clients already living there, rather than a generic basket-of-goods number',
+      pt: 'o gasto do dia a dia é uma das categorias que conseguimos mostrar com recibos reais de clientes que já moram lá, em vez de uma cesta básica genérica',
+    },
+    verified: false,
+    sources: [],
+    note: 'No reviewed local cost-of-living index yet. Keep comparative, never a bare grocery figure.',
+  },
 } as const satisfies Record<string, Fact>;
 
 export type FactKey = keyof typeof facts;

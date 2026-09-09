@@ -351,9 +351,38 @@ export const sites: Record<SiteKey, SiteConfig> = {
     locale: 'pt',
     currencies: ['BRL', 'USD', 'PYG'],
     theme: 'residenciapt',
-    nav: minimalNav(),
-    footer: minimalFooter(),
+    nav: [
+      { labelKey: 'nav.temporary', href: '/residencia/temporaria' },
+      { labelKey: 'nav.permanent', href: '/residencia/permanente' },
+      { labelKey: 'nav.mercosur', href: '/mercosul' },
+      { labelKey: 'nav.costOfLiving', href: '/custo-de-vida' },
+      { labelKey: 'nav.routeFinder', href: '/route-finder' },
+      { labelKey: 'nav.contact', href: '/contact' },
+    ],
+    footer: {
+      columns: [
+        {
+          titleKey: 'footer.services',
+          items: [
+            { labelKey: 'nav.temporary', href: '/residencia/temporaria' },
+            { labelKey: 'nav.permanent', href: '/residencia/permanente' },
+            { labelKey: 'nav.cedula', href: '/residencia/cedula' },
+            { labelKey: 'nav.taxResidency', href: '/residencia-fiscal' },
+            { labelKey: 'nav.family', href: '/familia' },
+          ],
+        },
+        {
+          titleKey: 'footer.company',
+          items: [
+            { labelKey: 'nav.about', href: '/sobre' },
+            { labelKey: 'nav.contact', href: '/contact' },
+          ],
+        },
+      ],
+      legal: legalNav(),
+    },
     crm: { source: 'vidanoparaguai.com' },
+    // No Guide upsell: ES/PT brands soft-exit to the newsletter (plan §1.11).
     siblings: ['residency', 'investorpass'],
   },
 
