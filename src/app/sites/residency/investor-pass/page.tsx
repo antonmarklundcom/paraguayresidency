@@ -8,7 +8,7 @@ const PATH = '/investor-pass';
 /**
  * A short bridge page (plan §6.1): the Investor Pass brand is canonical for
  * this content, so this page stays deliberately thin and noindex to avoid
- * competing with paraguayinvestorpass.com.py in search.
+ * competing with paraguayinvestorpass.com in search.
  */
 export function generateMetadata(): Metadata {
   return siteMetadata('residency', {

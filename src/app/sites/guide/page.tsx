@@ -19,7 +19,7 @@ import {
   formatPrice,
   getProductBySlug,
 } from '@/lib/purchases';
-import { GUIDE_ENTRY_SLUG } from '@/sites/registry';
+import { GUIDE_ENTRY_SLUG, siteOrigin } from '@/sites/registry';
 import { t } from '@/i18n';
 
 const SITE = 'guide' as const;
@@ -173,11 +173,11 @@ export default async function Page() {
             The same team that files temporary residency, permanent residency and cédula cases
             every week in Asunción, on{' '}
             <a
-              href="https://paraguayresidency.com"
+              href={siteOrigin('residency')}
               rel="noopener"
               className="text-[var(--accent)] underline underline-offset-2"
             >
-              paraguayresidency.com
+              paraguayresidency.co.uk
             </a>
             . The guide is the written-down version of what we tell clients on the first call —
             without the sales conversation attached.

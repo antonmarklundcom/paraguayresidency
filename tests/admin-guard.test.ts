@@ -35,17 +35,17 @@ describe('admin is reachable on the hub host only', () => {
 
   it('sends a www non-hub admin request to its own apex, which then blocks', () => {
     const first = resolveRequest({
-      host: 'www.paraguayinvestorpass.com.py',
+      host: 'www.paraguayinvestorpass.com',
       pathname: '/admin/leads',
       isDev: false,
     });
     expect(first).toEqual({
       type: 'redirect',
-      url: 'https://paraguayinvestorpass.com.py/admin/leads',
+      url: 'https://paraguayinvestorpass.com/admin/leads',
       status: 301,
     });
     expect(
-      resolveRequest({ host: 'paraguayinvestorpass.com.py', pathname: '/admin/leads', isDev: false }),
+      resolveRequest({ host: 'paraguayinvestorpass.com', pathname: '/admin/leads', isDev: false }),
     ).toEqual({ type: 'blocked' });
   });
 
@@ -71,7 +71,7 @@ describe('admin is reachable on the hub host only', () => {
 
   it('does not block a path that merely starts with the same letters', () => {
     const result = resolveRequest({
-      host: 'paraguayinvestorpass.com.py',
+      host: 'paraguayinvestorpass.com',
       pathname: '/administration-of-estates',
       isDev: false,
     });

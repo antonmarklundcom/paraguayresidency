@@ -1,4 +1,4 @@
-# Phase S4 — paraguayinvestorpass.com.py pages, copy, SEO. Paste into a fresh SONNET session, ONLY after phase S3 is merged.
+# Phase S4 — paraguayinvestorpass.com pages, copy, SEO. Paste into a fresh SONNET session, ONLY after phase S3 is merged.
 
 Read `plan.md` FIRST, in full — plus §9 build log and `KNOWN-ISSUES.md` (if present). Execute plan §6.2 and §11.2 under the autonomy protocol §4. Build nothing outside the plan.
 

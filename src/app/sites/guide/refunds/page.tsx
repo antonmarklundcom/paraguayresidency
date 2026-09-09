@@ -6,7 +6,7 @@ const PATH = '/refunds';
 
 export function generateMetadata(): Metadata {
   return siteMetadata('guide', {
-    title: 'Refund Policy — Paraguay Investor Guide',
+    title: 'Refund Policy — Paraguay Residency Guide',
     description: '14 days, no questions. How to ask for a refund and what happens next.',
     path: PATH,
   });

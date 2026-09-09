@@ -75,7 +75,7 @@ export default function Page() {
         <div className="mt-[var(--space-16)]">
           <Heading level={2}>The standard routes, on our hub site</Heading>
           <p className="mt-[var(--space-2)] text-[var(--fg-muted)] max-w-[var(--measure)]">
-            Full detail on each standard route lives on paraguayresidency.com, filed by the same
+            Full detail on each standard route lives on paraguayresidency.co.uk, filed by the same
             team.
           </p>
           <div className="mt-[var(--space-6)] grid gap-[var(--space-4)] sm:grid-cols-2">

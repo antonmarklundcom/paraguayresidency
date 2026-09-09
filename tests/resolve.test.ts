@@ -30,7 +30,7 @@ describe('siteForHost', () => {
 
 describe('resolveRequest — apex hosts', () => {
   it('rewrites the apex home into the site folder', () => {
-    expect(resolveRequest({ host: 'paraguayresidency.com', pathname: '/', ...prod })).toEqual({
+    expect(resolveRequest({ host: 'paraguayresidency.co.uk', pathname: '/', ...prod })).toEqual({
       type: 'rewrite',
       site: 'residency',
       path: `${SITE_ROUTE_PREFIX}/residency`,
@@ -39,7 +39,7 @@ describe('resolveRequest — apex hosts', () => {
 
   it('rewrites a sub-path per brand', () => {
     expect(
-      resolveRequest({ host: 'paraguayinvestorpass.com.py', pathname: '/investor-pass/requirements', ...prod }),
+      resolveRequest({ host: 'paraguayinvestorpass.com', pathname: '/investor-pass/requirements', ...prod }),
     ).toEqual({
       type: 'rewrite',
       site: 'investorpass',
@@ -48,7 +48,7 @@ describe('resolveRequest — apex hosts', () => {
   });
 
   it('routes the guide host to the guide site', () => {
-    const r = resolveRequest({ host: 'paraguayinvestorguide.com', pathname: '/blog/x', ...prod });
+    const r = resolveRequest({ host: 'paraguayresidencyguide.com', pathname: '/blog/x', ...prod });
     expect(r).toMatchObject({ type: 'rewrite', site: 'guide' });
   });
 });
@@ -56,20 +56,28 @@ describe('resolveRequest — apex hosts', () => {
 describe('resolveRequest — redirects', () => {
   it('301s www to the apex, preserving path and query', () => {
     expect(
-      resolveRequest({ host: 'www.paraguayresidency.com', pathname: '/pricing', search: '?a=1', ...prod }),
-    ).toEqual({ type: 'redirect', url: 'https://paraguayresidency.com/pricing?a=1', status: 301 });
+      resolveRequest({ host: 'www.paraguayresidency.co.uk', pathname: '/pricing', search: '?a=1', ...prod }),
+    ).toEqual({ type: 'redirect', url: 'https://paraguayresidency.co.uk/pricing?a=1', status: 301 });
   });
 
-  it('301s www on the .com.py brand to its own apex, not the hub', () => {
+  it('301s www on the investorpass brand to its own apex, not the hub', () => {
     expect(
-      resolveRequest({ host: 'www.paraguayinvestorpass.com.py', pathname: '/', ...prod }),
-    ).toMatchObject({ type: 'redirect', url: 'https://paraguayinvestorpass.com.py/' });
+      resolveRequest({ host: 'www.paraguayinvestorpass.com', pathname: '/', ...prod }),
+    ).toMatchObject({ type: 'redirect', url: 'https://paraguayinvestorpass.com/' });
   });
 
   it('301s an unknown host to the hub apex in production', () => {
     expect(resolveRequest({ host: 'random.example.com', pathname: '/anything', ...prod })).toEqual({
       type: 'redirect',
       url: `https://${sites[HUB_SITE].canonicalHost}/`,
+      status: 301,
+    });
+  });
+
+  it('301s an unknown host straight to paraguayresidency.co.uk (plan §12.2, F9)', () => {
+    expect(resolveRequest({ host: 'nothing.example', pathname: '/', ...prod })).toEqual({
+      type: 'redirect',
+      url: 'https://paraguayresidency.co.uk/',
       status: 301,
     });
   });
@@ -83,7 +91,7 @@ describe('resolveRequest — the internal prefix is never public', () => {
   it.each([`${SITE_ROUTE_PREFIX}/residency`, `${SITE_ROUTE_PREFIX}/guide/blog/x`, SITE_ROUTE_PREFIX])(
     '404s a direct request to %s',
     (pathname) => {
-      expect(resolveRequest({ host: 'paraguayresidency.com', pathname, ...prod })).toEqual({
+      expect(resolveRequest({ host: 'paraguayresidency.co.uk', pathname, ...prod })).toEqual({
         type: 'blocked',
       });
     },
@@ -98,27 +106,27 @@ describe('resolveRequest — the internal prefix is never public', () => {
 
 describe('resolveRequest — shared routes', () => {
   it('passes /api through without rewriting, tagged with the site', () => {
-    expect(resolveRequest({ host: 'paraguayinvestorguide.com', pathname: '/api/health', ...prod })).toEqual({
+    expect(resolveRequest({ host: 'paraguayresidencyguide.com', pathname: '/api/health', ...prod })).toEqual({
       type: 'pass',
       site: 'guide',
     });
   });
 
   it('serves /admin on the hub host only', () => {
-    expect(resolveRequest({ host: 'paraguayresidency.com', pathname: '/admin/leads', ...prod })).toEqual({
+    expect(resolveRequest({ host: 'paraguayresidency.co.uk', pathname: '/admin/leads', ...prod })).toEqual({
       type: 'pass',
       site: HUB_SITE,
     });
-    expect(resolveRequest({ host: 'paraguayinvestorpass.com.py', pathname: '/admin', ...prod })).toEqual({
+    expect(resolveRequest({ host: 'paraguayinvestorpass.com', pathname: '/admin', ...prod })).toEqual({
       type: 'blocked',
     });
-    expect(resolveRequest({ host: 'paraguayinvestorguide.com', pathname: '/admin/leads', ...prod })).toEqual({
+    expect(resolveRequest({ host: 'paraguayresidencyguide.com', pathname: '/admin/leads', ...prod })).toEqual({
       type: 'blocked',
     });
   });
 
   it('404s /dev/* in production and allows it in development', () => {
-    expect(resolveRequest({ host: 'paraguayresidency.com', pathname: '/dev/kitchen-sink', ...prod })).toEqual({
+    expect(resolveRequest({ host: 'paraguayresidency.co.uk', pathname: '/dev/kitchen-sink', ...prod })).toEqual({
       type: 'blocked',
     });
     expect(
@@ -134,7 +142,7 @@ describe('resolveRequest — dev conveniences', () => {
     ).toMatchObject({ type: 'rewrite', site: 'guide' });
 
     expect(
-      resolveRequest({ host: 'paraguayresidency.com', pathname: '/', siteOverride: 'guide', ...prod }),
+      resolveRequest({ host: 'paraguayresidency.co.uk', pathname: '/', siteOverride: 'guide', ...prod }),
     ).toMatchObject({ type: 'rewrite', site: 'residency' });
   });
 
@@ -174,14 +182,14 @@ describe('regressions', () => {
   it('serves /robots.txt from the shared handler, not the per-site folder', () => {
     // Next only supports `robots.ts` at the app root, so rewriting this path
     // into /sites/<key>/ returned the site's HTML 404 page.
-    expect(resolveRequest({ host: 'paraguayinvestorpass.com.py', pathname: '/robots.txt', ...prod })).toEqual({
+    expect(resolveRequest({ host: 'paraguayinvestorpass.com', pathname: '/robots.txt', ...prod })).toEqual({
       type: 'pass',
       site: 'investorpass',
     });
   });
 
   it('still rewrites /sitemap.xml per brand', () => {
-    expect(resolveRequest({ host: 'paraguayinvestorguide.com', pathname: '/sitemap.xml', ...prod })).toEqual({
+    expect(resolveRequest({ host: 'paraguayresidencyguide.com', pathname: '/sitemap.xml', ...prod })).toEqual({
       type: 'rewrite',
       site: 'guide',
       path: `${SITE_ROUTE_PREFIX}/guide/sitemap.xml`,
@@ -207,7 +215,7 @@ describe('resolveRequest — the four O9 brands', () => {
   const brands = [
     { site: 'frontier', apex: 'paraguayfrontier.com', locale: 'en' },
     { site: 'residenciaes', apex: 'residenciaparaguay.es', locale: 'es' },
-    { site: 'residenciapt', apex: 'residencianoparaguay.com', locale: 'pt' },
+    { site: 'residenciapt', apex: 'vidanoparaguai.com', locale: 'pt' },
     { site: 'flytta', apex: 'flyttatillparaguay.se', locale: 'sv' },
   ] as const;
 

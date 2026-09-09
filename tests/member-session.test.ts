@@ -142,7 +142,7 @@ describe('/login and /members exist only where something is sold (§5.4.5)', () 
 
   it('serves /login and /members on the guide host', () => {
     for (const path of ['/login', '/members']) {
-      expect(resolveRequest({ host: 'paraguayinvestorguide.com', pathname: path, ...prod })).toEqual({
+      expect(resolveRequest({ host: 'paraguayresidencyguide.com', pathname: path, ...prod })).toEqual({
         type: 'rewrite',
         site: 'guide',
         path: `/sites/guide${path}`,
