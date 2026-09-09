@@ -221,6 +221,7 @@ export const sites: Record<SiteKey, SiteConfig> = {
     products: [GUIDE_ENTRY_SLUG, GUIDE_INSIDER_SLUG],
     nav: [
       { labelKey: 'nav.whatsInside', href: '/#inside' },
+      { labelKey: 'nav.insider', href: '/insider' },
       { labelKey: 'nav.blog', href: '/blog' },
       { labelKey: 'nav.about', href: '/about' },
       { labelKey: 'nav.contact', href: '/contact' },
@@ -231,6 +232,7 @@ export const sites: Record<SiteKey, SiteConfig> = {
           titleKey: 'footer.guide',
           items: [
             { labelKey: 'nav.whatsInside', href: '/#inside' },
+            { labelKey: 'nav.insider', href: '/insider' },
             { labelKey: 'nav.blog', href: '/blog' },
             { labelKey: 'nav.refunds', href: '/refunds' },
           ],

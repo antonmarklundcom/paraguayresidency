@@ -10,7 +10,15 @@
 import { eq, sql } from 'drizzle-orm';
 import bcrypt from 'bcryptjs';
 import { getDb, hasDatabase } from '../src/db';
-import { factsVerification, products, users } from '../src/db/schema';
+import {
+  factsVerification,
+  lessons,
+  modules,
+  products,
+  resources,
+  updatesPosts,
+  users,
+} from '../src/db/schema';
 import { getFact, factKeys } from '../content/shared/facts';
 import { GUIDE_ENTRY_SLUG, GUIDE_INSIDER_SLUG } from '../src/sites/registry';
 
@@ -153,8 +161,248 @@ async function main() {
   }
   console.log(`· ${factKeys.length} facts mirrored`);
 
+  // 4. Guide member content (plan §6.9). The pararesi import (plan §5.4.8)
+  //    writes real modules/lessons when Anton supplies `PARARESI_DATABASE_URL`;
+  //    until then — and S15's dry run found no pararesi database at all — this
+  //    is what makes the member area non-empty, from `docs/guide-outline.md`'s
+  //    twelve chapters plus one Insider-only module that demonstrates drip.
+  //    Idempotent on (site, slug) / (moduleId, slug), same pattern as above.
+  await seedGuideMemberContent(db);
+
   console.log('seed complete.');
   process.exit(0);
+}
+
+interface SeedModule {
+  slug: string;
+  title: string;
+  description: string;
+  sort: number;
+  minTier: 'entry' | 'insider';
+  dripDays: number;
+  lessons: { slug: string; title: string; sort: number; dripDays: number; contentPath: string }[];
+}
+
+/**
+ * Plan §6.9's chapter outline as modules/lessons — four entry-tier modules
+ * covering the twelve chapters (open the moment someone buys the guide; they
+ * paid for the whole book, so nothing here drips), plus two Insider-only
+ * modules where the SECOND one carries a real `dripDays` so a fresh Insider
+ * fixture user actually sees the "unlocks on date" state, not just "locked"
+ * and "open" (plan §6.9 exit: "drip dates honoured").
+ */
+const GUIDE_MODULES: SeedModule[] = [
+  {
+    slug: 'getting-started',
+    title: 'Getting started',
+    description: 'Why Paraguay, the three routes compared, and documents by nationality.',
+    sort: 1,
+    minTier: 'entry',
+    dripDays: 0,
+    lessons: [
+      { slug: 'why-paraguay-and-why-not', title: 'Why Paraguay (and why not)', sort: 1, dripDays: 0, contentPath: 'guide/members/getting-started/why-paraguay-and-why-not.mdx' },
+      { slug: 'the-routes-compared', title: 'The routes compared', sort: 2, dripDays: 0, contentPath: 'guide/members/getting-started/the-routes-compared.mdx' },
+      { slug: 'documents-by-nationality', title: 'Documents, apostilles, translations by nationality', sort: 3, dripDays: 0, contentPath: 'guide/members/getting-started/documents-by-nationality.mdx' },
+    ],
+  },
+  {
+    slug: 'costs-and-timeline',
+    title: 'Costs & timeline',
+    description: 'Real costs, and the week-by-week timeline.',
+    sort: 2,
+    minTier: 'entry',
+    dripDays: 0,
+    lessons: [
+      { slug: 'real-costs', title: 'Costs, real ones', sort: 1, dripDays: 0, contentPath: 'guide/members/costs-and-timeline/real-costs.mdx' },
+      { slug: 'timeline-week-by-week', title: 'Timeline week by week', sort: 2, dripDays: 0, contentPath: 'guide/members/costs-and-timeline/timeline-week-by-week.mdx' },
+    ],
+  },
+  {
+    slug: 'after-approval',
+    title: 'After approval',
+    description: 'Cédula, RUC, banking, taxes and family.',
+    sort: 3,
+    minTier: 'entry',
+    dripDays: 0,
+    lessons: [
+      { slug: 'cedula-and-ruc', title: 'Cédula and RUC', sort: 1, dripDays: 0, contentPath: 'guide/members/after-approval/cedula-and-ruc.mdx' },
+      { slug: 'banking', title: 'Banking', sort: 2, dripDays: 0, contentPath: 'guide/members/after-approval/banking.mdx' },
+      { slug: 'taxes-for-residents', title: 'Taxes for residents', sort: 3, dripDays: 0, contentPath: 'guide/members/after-approval/taxes-for-residents.mdx' },
+      { slug: 'family', title: 'Family', sort: 4, dripDays: 0, contentPath: 'guide/members/after-approval/family.mdx' },
+    ],
+  },
+  {
+    slug: 'next-steps',
+    title: 'Next steps & mistakes to avoid',
+    description: 'The Investor Pass, common mistakes, and the working checklists.',
+    sort: 4,
+    minTier: 'entry',
+    dripDays: 0,
+    lessons: [
+      { slug: 'investor-pass-overview', title: 'Investor Pass overview', sort: 1, dripDays: 0, contentPath: 'guide/members/next-steps/investor-pass-overview.mdx' },
+      { slug: 'mistakes-we-see-monthly', title: 'Mistakes we see monthly', sort: 2, dripDays: 0, contentPath: 'guide/members/next-steps/mistakes-we-see-monthly.mdx' },
+      { slug: 'checklists', title: 'Checklists', sort: 3, dripDays: 0, contentPath: 'guide/members/next-steps/checklists.mdx' },
+    ],
+  },
+  {
+    slug: 'insider-extras',
+    title: 'Insider extras',
+    description: 'What Insider adds on top of the guide.',
+    sort: 5,
+    minTier: 'insider',
+    dripDays: 0,
+    lessons: [
+      { slug: 'welcome-to-insider', title: 'Welcome to Insider', sort: 1, dripDays: 0, contentPath: 'guide/members/insider-extras/welcome-to-insider.mdx' },
+    ],
+  },
+  {
+    slug: 'insider-deep-dives',
+    title: 'Insider deep dives',
+    description: 'The monthly deep dive — goes further than the guide has room for.',
+    sort: 6,
+    minTier: 'insider',
+    dripDays: 30,
+    lessons: [
+      { slug: 'this-months-deep-dive', title: "This month's deep dive: reading a processing delay correctly", sort: 1, dripDays: 30, contentPath: 'guide/members/insider-deep-dives/this-months-deep-dive.mdx' },
+    ],
+  },
+];
+
+const GUIDE_RESOURCES = [
+  {
+    slug: 'document-checklist',
+    title: 'Document checklist (all nationalities)',
+    description: 'The chapter 12 checklist as a standalone, printable download.',
+    fileKey: 'document-checklist-placeholder.pdf',
+    minTier: 'entry' as const,
+    sort: 1,
+  },
+  {
+    slug: 'insider-case-studies',
+    title: 'Insider case studies pack',
+    description: 'Anonymised case studies referenced in the Insider deep dives.',
+    fileKey: 'insider-case-studies-placeholder.pdf',
+    minTier: 'insider' as const,
+    sort: 2,
+  },
+];
+
+const GUIDE_UPDATES = [
+  { slug: 'insider-launch', title: 'Insider is live', publishedAt: '2026-09-09', contentPath: 'guide/updates/insider-launch.mdx' },
+  { slug: 'document-requirement-note', title: 'A note on police certificate validity windows', publishedAt: '2026-09-05', contentPath: 'guide/updates/document-requirement-note.mdx' },
+  { slug: 'whats-next', title: 'What we are working on next', publishedAt: '2026-09-01', contentPath: 'guide/updates/whats-next.mdx' },
+];
+
+async function seedGuideMemberContent(db: ReturnType<typeof getDb>): Promise<void> {
+  let moduleCount = 0;
+  let lessonCount = 0;
+
+  for (const mod of GUIDE_MODULES) {
+    await db
+      .insert(modules)
+      .values({
+        site: 'guide',
+        slug: mod.slug,
+        title: mod.title,
+        description: mod.description,
+        sort: mod.sort,
+        minTier: mod.minTier,
+        dripDays: mod.dripDays,
+        active: true,
+      })
+      .onDuplicateKeyUpdate({
+        set: {
+          title: sql`values(title)`,
+          description: sql`values(description)`,
+          sort: sql`values(sort)`,
+          minTier: sql`values(min_tier)`,
+          dripDays: sql`values(drip_days)`,
+          active: sql`values(active)`,
+        },
+      });
+    moduleCount += 1;
+
+    const [row] = await db
+      .select({ id: modules.id })
+      .from(modules)
+      .where(sql`${modules.site} = 'guide' AND ${modules.slug} = ${mod.slug}`)
+      .limit(1);
+    if (!row) continue;
+
+    for (const lesson of mod.lessons) {
+      await db
+        .insert(lessons)
+        .values({
+          moduleId: row.id,
+          slug: lesson.slug,
+          title: lesson.title,
+          sort: lesson.sort,
+          minTier: mod.minTier,
+          dripDays: lesson.dripDays,
+          contentPath: lesson.contentPath,
+          active: true,
+        })
+        .onDuplicateKeyUpdate({
+          set: {
+            title: sql`values(title)`,
+            sort: sql`values(sort)`,
+            minTier: sql`values(min_tier)`,
+            dripDays: sql`values(drip_days)`,
+            contentPath: sql`values(content_path)`,
+            active: sql`values(active)`,
+          },
+        });
+      lessonCount += 1;
+    }
+  }
+  console.log(`· ${moduleCount} guide modules / ${lessonCount} lessons upserted`);
+
+  for (const resource of GUIDE_RESOURCES) {
+    await db
+      .insert(resources)
+      .values({
+        site: 'guide',
+        slug: resource.slug,
+        title: resource.title,
+        description: resource.description,
+        fileKey: resource.fileKey,
+        minTier: resource.minTier,
+        sort: resource.sort,
+        active: true,
+      })
+      .onDuplicateKeyUpdate({
+        set: {
+          title: sql`values(title)`,
+          description: sql`values(description)`,
+          fileKey: sql`values(file_key)`,
+          minTier: sql`values(min_tier)`,
+          sort: sql`values(sort)`,
+          active: sql`values(active)`,
+        },
+      });
+  }
+  console.log(`· ${GUIDE_RESOURCES.length} guide resources upserted`);
+
+  for (const update of GUIDE_UPDATES) {
+    await db
+      .insert(updatesPosts)
+      .values({
+        site: 'guide',
+        slug: update.slug,
+        title: update.title,
+        minTier: 'insider',
+        publishedAt: new Date(`${update.publishedAt}T00:00:00Z`),
+        contentPath: update.contentPath,
+      })
+      .onDuplicateKeyUpdate({
+        set: {
+          title: sql`values(title)`,
+          publishedAt: sql`values(published_at)`,
+          contentPath: sql`values(content_path)`,
+        },
+      });
+  }
+  console.log(`· ${GUIDE_UPDATES.length} guide updates posts upserted`);
 }
 
 main().catch((err) => {

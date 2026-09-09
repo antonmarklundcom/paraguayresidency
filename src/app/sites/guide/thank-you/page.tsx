@@ -53,6 +53,30 @@ export default async function Page({ searchParams }: { searchParams: SearchParam
           <p className="mt-[var(--space-6)] text-[var(--text-sm)] text-[var(--fg-muted)]">
             {t(SITE, 'thankYou.emailNote')}
           </p>
+          <p className="mt-[var(--space-2)] text-[var(--text-sm)] text-[var(--fg-muted)]">
+            Your login link is in your inbox too — use it any time to read the guide online,
+            track your progress and see everything your account includes.
+          </p>
+        </Container>
+      </Section>
+
+      {/* Insider upsell (plan §6.9: entry buyers see this on their way out). */}
+      <Section>
+        <Container width="narrow">
+          <Heading level={2}>Want the guide to stay current?</Heading>
+          <p className="mt-[var(--space-4)] text-[var(--fg-muted)]">
+            Paraguay Residency Insider adds a monthly deep dive, an updates feed for whatever
+            changes, and the case studies behind it — on top of the twelve chapters you already
+            have.
+          </p>
+          <div className="mt-[var(--space-6)]">
+            <Link
+              href="/insider"
+              className="inline-flex items-center rounded-[var(--radius-brand)] border border-[var(--border)] px-5 py-3 text-[var(--text-sm)] font-medium hover:border-[var(--accent)]"
+            >
+              See what Insider includes
+            </Link>
+          </div>
         </Container>
       </Section>
 

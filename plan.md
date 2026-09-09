@@ -886,6 +886,79 @@ phase (only header lines on S3–S5 changed); the registry's `hosts` /
 `canonicalHost` / `name` for their brand are now final — do not re-litigate
 domains, only build the content §6.5–§6.9 and §11.5–§11.8 specify.
 
+**2026-09-09 — S14 Guide member area + Insider** — branch `phase/s14`
+
+What now exists: every §6.9 page. `/insider` is the long-form Insider sales page (what changes
+monthly, an updates-feed preview, a resources teaser, price read live from the `guide-insider`
+product, `<CheckoutButton product={GUIDE_INSIDER_SLUG}>`, FAQ, refund policy, Product+Offer JSON-LD)
+— "coming soon" falls out of `CheckoutButton`'s existing inactive-product handling, nothing new
+needed there. `/login` is restyled inside the Guide brand (own JSX body, not the shared
+`conversion-pages.tsx` one — nothing else used that shared body, so the swap was clean). `/members`
+is a real dashboard: tier badge, every module in order with its rolled-up locked/dripped/open state
+(computed only via `hasTier`/`isDripped`/`isUnlocked` from `entitlements.ts`, never re-implemented),
+per-lesson checkmarks, and "continue where you left off". `/members/[module]/[lesson]` renders MDX
+from disk by `lessons.content_path`, prev/next, a mark-complete action, and never reads the file at
+all for an under-tier or not-yet-dripped request. `/members/updates` and `/members/resources` gate
+per-item on the member's tier; resources download through a new tier-checked streaming route.
+`/account` shows tier, expiry, a Lemon Squeezy "manage subscription" link when available, logout.
+`/thank-you` gained the sign-in-link note and an Insider upsell block. New query layer
+`src/lib/member-content.ts` (modules/lessons/resources/updates_posts reads, MDX-by-content_path,
+drip/tier rollups, `markLessonComplete`) since nothing under O9 queried those four tables yet.
+`scripts/seed.ts` now also seeds four entry-tier modules (the twelve guide chapters, `dripDays: 0`
+throughout — a one-time buyer already paid for the whole book) and two Insider-only modules, the
+second carrying `dripDays: 30` specifically so a fresh Insider fixture sees all three states at
+once; `content/guide/members/` and `content/guide/updates/` carry the MDX bodies (per §6.9's
+"if the import left no lessons, write them" — no `PARARESI_DATABASE_URL` in this environment, so the
+import never ran).
+
+Decisions and deviations:
+- **Fixed, not just found:** `src/app/actions/lead.ts` (O2) was exporting two plain objects from a
+  `'use server'` file — invalid per Next's own rule, silent until S14's new server action changed
+  Turbopack's chunking enough to make it throw a 500 on every page in that chunk. The two objects
+  moved to a new `src/app/actions/lead-state.ts` (no `'use server'`); `lead.ts` now exports only its
+  two async actions. `leads.ts` itself is untouched — this is a build-graph fix, not a lead-pipeline
+  change. Full account in `KNOWN-ISSUES.md` ("FIXED in S14"), because the next phase to add a
+  `'use server'` file anywhere in the app could resurface the same class of bug elsewhere if nobody
+  knows the rule.
+- The LS "manage subscription" URL (plan §6.9's `/account`) doesn't exist anywhere under O9 —
+  `src/lib/subscription-portal.ts` is a small new file (not an edit to the off-limits
+  `lemonsqueezy.ts`) that reads `provider_customers` and calls LS's `GET /customers/:id`, degrading
+  to a "email us" fallback exactly like the rest of the platform degrades on a missing key.
+- `/members/resources/[slug]/download` is a Route Handler under S14's own owned tree, not under
+  `src/app/api` (plan §4.7 puts that folder off-limits) — reuses `download-policy.ts`'s
+  `resolvePrivateFile` and the same `currentMember`/`entitlementFor` gate every member page uses.
+  Two placeholder resource PDFs ship in `private/`, whitelisted in `.gitignore` next to the existing
+  guide placeholder.
+- Verified against a real MariaDB (same pattern as every prior phase): migrated, seeded (6 modules /
+  14 lessons / 2 resources / 3 updates posts, idempotent on a second run), `npm run verify` green.
+  Then end-to-end against `next build` + the standalone server (`node .next/standalone/server.js` —
+  `next start` warns it is incompatible with `output: 'standalone'`, the same trap O2's
+  `KNOWN-ISSUES.md` entry already named): a Stripe-webhook-fulfilled entry fixture and an
+  LS-webhook-fulfilled Insider fixture, both signed in via real magic links. Confirmed server-side
+  (not just hidden by CSS): an anonymous visitor reaches only `/insider` and `/login`; the entry
+  fixture sees its four modules open and both Insider modules as a locked upgrade card with zero
+  lesson titles or body text in the response; the Insider fixture sees "Insider extras" open and
+  "Insider deep dives" reporting "Opens October 9, 2026" (`dripDays: 30` from today); a
+  Playwright-driven click on "Mark complete" wrote a real `lesson_progress` row; the resource
+  download route answered 200/403/401 correctly by tier and sign-in state. Lighthouse on `/insider`:
+  desktop perf/SEO 1.0/1.0, mobile perf 0.99/SEO 1.0 — clears the ≥90 bar.
+- Genuinely guide-only copy (the Insider sales page body, the dashboard chrome, the lesson viewer)
+  is hardcoded JSX rather than routed through `t(site, key)` — S3's precedent (plan §9's S3 entry):
+  these components only ever render with `site="guide"` as a literal, so mirroring the strings
+  across all seven brands' i18n files would be pure overhead. The one addition to the shared
+  namespace is `nav.insider` in all four `common.json` locales (footer/nav link), which plan §6
+  explicitly allows.
+- Twelve guide-chapter lessons and two Insider lessons are new MDX under `content/guide/members/`;
+  three Insider updates under `content/guide/updates/`. Every legal/financial claim renders through
+  `<Fact k>` from the existing key set (`tax.territorial_rate`, `cedula.timeline`,
+  `permanent.presence_rule`, `investorpass.*`, `tax.foreign_income_treatment`) — no new fact keys
+  needed.
+
+Where S15 looks first: `KNOWN-ISSUES.md`'s "S14 — Insider drip is a design choice" entry, before
+assuming the real pararesi import and this phase's seeded modules coexist without checking slugs;
+the "FIXED in S14" entry, so the next `'use server'` file anywhere in the app is written export-only
+from the start.
+
 **2026-09-09 — S10 paraguayfrontier.com** — branch `phase/s10`
 
 What now exists: the full page tree from plan §6.5 under `src/app/sites/frontier/` — real

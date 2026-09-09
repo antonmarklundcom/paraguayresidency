@@ -2,7 +2,8 @@
 
 import { useActionState, useEffect, useId, useRef } from 'react';
 import { useFormStatus } from 'react-dom';
-import { initialLeadState, submitLeadAction, type LeadFormState } from '@/app/actions/lead';
+import { submitLeadAction } from '@/app/actions/lead';
+import { initialLeadState, type LeadFormState } from '@/app/actions/lead-state';
 import { COUNTRIES } from '@/lib/countries';
 import { HONEYPOT_FIELD, TIMESTAMP_FIELD } from '@/lib/form-guard';
 import { INVESTMENT_RANGES, type LeadKind } from '@/lib/lead-schema';
