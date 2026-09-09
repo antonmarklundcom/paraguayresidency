@@ -886,6 +886,43 @@ phase (only header lines on S3–S5 changed); the registry's `hosts` /
 `canonicalHost` / `name` for their brand are now final — do not re-litigate
 domains, only build the content §6.5–§6.9 and §11.5–§11.8 specify.
 
+**2026-09-09 — S10 paraguayfrontier.com** — branch `phase/s10`
+
+What now exists: the full page tree from plan §6.5 under `src/app/sites/frontier/` — real
+`/` (replacing O9's `PlaceholderHome`), `/why-paraguay`, `/routes`, `/tax`, `/process`,
+`/pricing`, `/about`, `/guide` (bridge to `paraguayresidencyguide.com`, name and host read
+from the registry), `/privacy`, `/terms`, and `/stories/[slug]` with six articles
+(900–1400 words each, cross-linked, hedged tax facts, no "tax-free"). Registry gets
+frontier's real nav/footer (content only, `minimalNav`/`minimalFooter` shape unchanged for
+the other three unbuilt brands). Every tax sentence renders `<Fact k="tax.territorial_rate">`
+or `tax.foreign_income_treatment"`; no new facts were needed. `npm run verify` is green
+(typecheck, lint, 322 tests, i18n, build).
+
+Decisions and deviations:
+- `contentHref`'s `frontier` case (`src/lib/site-pages.tsx`, a shared file) changed from the
+  hub-shaped `/guides/<hub>/<slug>` it inherited from O9's placeholder to the flat
+  `/stories/<slug>` plan §6.5 actually specifies — same shape as investorpass's `/insights`
+  and guide's `/blog`. Smallest additive change to a shared file, scoped to the one brand
+  whose content didn't exist yet.
+- Added one shared i18n key, `nav.whyParaguay`, to all four locales' `common.json` (parity
+  rule, verify:i18n rule 1) for the new nav item. No new per-brand JSON keys were needed —
+  like S3–S5, all new page copy is written directly in each page's JSX/metadata rather than
+  routed through `t()`, since brands are not translations of each other (plan §1.3).
+- Deleted O9's placeholder article (`content/frontier/plan-b/what-a-second-residency-buys-you.mdx`),
+  which lived under a `plan-b` hub with no route — left in place it would have produced a
+  broken sitemap URL under the new flat `/stories/<slug>` shape.
+- Trimmed two article titles and the home page's title/description to fit S3's ≤60/≤155
+  bar; §11.5's verbatim hero copy (64 chars) was 4 over on the meta title, fixed as
+  "Paraguay Residency for Americans & Expats — Plan B, Handled" (dropped "Your").
+- Lighthouse mobile perf on `/` (0.81) and `/tax` (0.86) reproduces S4's already-logged
+  `<LeadForm>` hydration finding rather than a new regression — `/routes` (no form) scores
+  0.94 in the same run. Logged in `KNOWN-ISSUES.md`, not fixed (shared component, off-limits
+  to Sonnet phases).
+
+Where the next reader looks first: `src/app/sites/frontier/` for the page tree,
+`content/frontier/stories/` for the six articles. S11–S14 build their own brands the same
+way; nothing here touches their files.
+
 ## 10. Backlog
 
 - German brand or locale for the hub (Spanish, Portuguese and Swedish ship as brands, §1.11).

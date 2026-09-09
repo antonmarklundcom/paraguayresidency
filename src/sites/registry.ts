@@ -264,8 +264,35 @@ export const sites: Record<SiteKey, SiteConfig> = {
     locale: 'en',
     currencies: ['USD'],
     theme: 'frontier',
-    nav: minimalNav(),
-    footer: minimalFooter(),
+    nav: [
+      { labelKey: 'nav.whyParaguay', href: '/why-paraguay' },
+      { labelKey: 'nav.routes', href: '/routes' },
+      { labelKey: 'nav.taxResidency', href: '/tax' },
+      { labelKey: 'nav.routeFinder', href: '/route-finder' },
+      { labelKey: 'nav.contact', href: '/contact' },
+    ],
+    footer: {
+      columns: [
+        {
+          titleKey: 'footer.services',
+          items: [
+            { labelKey: 'nav.whyParaguay', href: '/why-paraguay' },
+            { labelKey: 'nav.routes', href: '/routes' },
+            { labelKey: 'nav.taxResidency', href: '/tax' },
+            { labelKey: 'nav.process', href: '/process' },
+            { labelKey: 'nav.pricing', href: '/pricing' },
+          ],
+        },
+        {
+          titleKey: 'footer.company',
+          items: [
+            { labelKey: 'nav.about', href: '/about' },
+            { labelKey: 'nav.contact', href: '/contact' },
+          ],
+        },
+      ],
+      legal: legalNav(),
+    },
     crm: { source: 'paraguayfrontier.com' },
     siblings: ['residency', 'investorpass', 'guide'],
   },
