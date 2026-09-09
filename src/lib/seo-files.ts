@@ -125,7 +125,21 @@ const staticPaths: Record<SiteKey, string[]> = {
     '/precos',
     '/sobre',
   ],
-  flytta: ['/', '/route-finder', '/contact', '/privacy', '/terms'],
+  flytta: [
+    '/',
+    '/route-finder',
+    '/contact',
+    '/privacy',
+    '/terms',
+    '/uppehallstillstand',
+    '/skatt',
+    '/kostnader',
+    '/familj',
+    '/var-historia',
+    '/process',
+    '/priser',
+    '/guide',
+  ],
 };
 
 export function buildSitemap(site: SiteKey): MetadataRoute.Sitemap {

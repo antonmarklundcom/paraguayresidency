@@ -274,6 +274,44 @@ and Anton should confirm before anyone plans around live pararesi subscribers.
 import only if the dry run finds any. The Insider tier is a new product launch. Anton's one-word
 confirmation is a §7 row; S15 is correct under either answer.
 
+## S13 — flytta content-scope decisions (plan §4.4: reasonable calls, not blockers)
+
+The old `flyttatillparaguay` repo's 32 `content/guider/` articles and 5 `content/stader/` city
+profiles were **all still `draft: true` outline stubs** — its own `sonnet-3-content` phase (write
+the real bodies) never ran there. "Port the content" therefore meant writing all 37 real article
+bodies from scratch against each stub's "Vinkel"/"Planerad disposition" brief, not a mechanical
+copy. Five decisions made along the way:
+
+1. **Old EUR service pricing dropped, not ported.** `content/packages.ts` (Start/Komplett/Familj,
+   priced in EUR) reflected Anton selling residency filings directly on the old site. In the
+   consolidated lead-gen model `flytta` has no `products` (plan §2) — the tier *names* and
+   *inclusions* are kept on `/priser`, but the EUR figures are dropped for the same "from SEK —,
+   TODO" pattern `residency`'s own `/pricing` uses (plan §4.11: never invent a number).
+2. **Cost-of-living numbers (rent, land, building, everyday prices) are not routed through
+   `content/shared/facts.ts`.** That registry is the legal/program-figure register the launch
+   review verifies (investment minimums, tax rates, presence rules) — extending it to every rent
+   estimate across 39 articles would be scope no other brand's guides carry either. Instead, every
+   such figure is written as a round, explicitly-hedged "uppskattning 2026" estimate in prose, the
+   same convention the old site already used. Only genuine Paraguay legal/program figures
+   (residency durations, presence rule, cédula timing, tax treatment) render through `<Fact>`.
+   Swedish tax rules (väsentlig anknytning, 183-dagarsregeln, utflyttning) are hedged in prose
+   toward "en skatterådgivare" / Skatteverket and never go through `<Fact>` — that component only
+   carries Paraguay figures.
+3. **No `/guider` or `/stader` index route.** Plan §6.8's route list gives only
+   `/guider/[slug]` and `/stader/[slug]`, matching how `residency`'s own `/guides/[hub]/[slug]`
+   has no hub-index page either (§6.1's route list). Discovery is via the home page's guides/cities
+   sections and each article's `related` cross-links. Backlog: a `/guider` and `/stader` listing
+   page would help a 39-article corpus more than it helps `residency`'s smaller one.
+4. **`contentHref` fixed for `flytta`.** O9's placeholder (`/guider/${slugPath}`, doubling the hub
+   segment) is corrected to `/${slugPath}` in `src/lib/site-pages.tsx`, since flytta's two hubs
+   (`guider`, `stader`) are each already their own top-level route, unlike `residency`'s multi-hub
+   `/guides/<hub>/<slug>` shape. `src/lib/seo-files.ts`'s `staticPaths.flytta` gained the new
+   static routes for the sitemap.
+5. **Two new city profiles with no source outline:** Luque (satellite city, international
+   airport) and Villarrica (interior, agricultural, cheaper) — chosen to round out the five ported
+   cities with one capital-adjacent and one genuinely-interior option, per plan §6.8's "ported
+   city pages + 2 new".
+
 ## FIXED in S14 — a latent "use server" export bug in `src/app/actions/lead.ts`, surfaced by the new member routes
 
 `src/app/actions/lead.ts` (O2) exported two plain objects — `initialLeadState` and

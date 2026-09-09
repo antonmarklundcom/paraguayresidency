@@ -2,7 +2,7 @@ import { MDXRemote } from 'next-mdx-remote/rsc';
 import Link from 'next/link';
 import type { ComponentProps } from 'react';
 import { Fact } from '@/components/Fact';
-import { Button, Card } from '@/components';
+import { Button, Card, StatRow, Disclaimer } from '@/components';
 import type { SiteKey } from '@/sites/registry';
 
 /**
@@ -20,6 +20,8 @@ function componentsFor(site: SiteKey) {
     Fact: (props: Omit<ComponentProps<typeof Fact>, 'site'>) => <Fact {...props} site={site} />,
     Button,
     Card,
+    StatRow,
+    Disclaimer,
     a: ({ href = '', ...props }: ComponentProps<'a'>) =>
       href.startsWith('/') ? <Link href={href} {...props} /> : <a href={href} rel="noopener" {...props} />,
   };
