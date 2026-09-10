@@ -21,19 +21,28 @@ export async function CheckoutButton({
   product: slug = GUIDE_ENTRY_SLUG,
 }: { site?: 'guide'; product?: string } = {}) {
   const product = await getProductBySlug(slug);
-  const price = formatPrice(
-    product?.priceCents ?? fallbackPriceCents(),
-    product?.currency ?? fallbackCurrency(),
-  );
   const provider = product?.provider ?? 'stripe';
   const subscription = product?.kind === 'subscription';
+
+  // TEMPORARY — plan §7: no Stripe keys yet, so FREE_ACCESS_MODE grants the
+  // entry product for free instead. See KNOWN-ISSUES.md; remove with the
+  // matching branch in /api/checkout once Stripe live keys land.
+  const freeAccess =
+    process.env.FREE_ACCESS_MODE === 'true' && provider === 'stripe' && slug === GUIDE_ENTRY_SLUG;
+
+  // Reuses the existing "Buy the guide — {price}" copy rather than adding a
+  // new i18n key that would need parity across all four locale files for a
+  // temporary flag (plan §1.3 parity rule).
+  const price = freeAccess
+    ? 'free'
+    : formatPrice(product?.priceCents ?? fallbackPriceCents(), product?.currency ?? fallbackCurrency());
 
   // Whichever processor this product sells through has to be configured, and
   // the product itself has to be active. Otherwise the button says so rather
   // than opening a checkout that cannot complete (plan §4.5).
   const enabled =
     (product?.active ?? true) &&
-    (provider === 'lemonsqueezy' ? lemonSqueezyConfigured() : stripeConfigured());
+    (freeAccess || (provider === 'lemonsqueezy' ? lemonSqueezyConfigured() : stripeConfigured()));
 
   const labels: CheckoutLabels = {
     buy: t(site, subscription ? 'checkout.insiderBuy' : 'checkout.buy', { price }),

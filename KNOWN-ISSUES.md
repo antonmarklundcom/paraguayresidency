@@ -3,6 +3,37 @@
 Non-blocking findings. Each entry names the phase that found it and, where it
 matters, the phase that should clear it.
 
+## TEMPORARY — FREE_ACCESS_MODE bypasses Stripe on the Guide entry product
+
+Added outside the phase table (direct request from Anton, 2026-09-10), ahead
+of S6's live Stripe keys (plan §7). With `FREE_ACCESS_MODE=true`,
+`/api/checkout` grants `guide-entry` for free instead of charging: it calls
+`fulfilCheckout()` directly (the same function both webhooks call), inserting
+a real `purchases` row (`amount_cents 0`, `status paid`), a member account,
+and sending the normal download email — no Stripe session, no webhook. Gated
+to `provider === 'stripe' && slug === GUIDE_ENTRY_SLUG`, so it can never touch
+Lemon Squeezy/Insider or a future Stripe product. The button
+(`CheckoutButtonClient`) asks for an email inline when the server returns
+`email-required`, since there is no hosted Stripe page to collect one, and
+`CheckoutButton` treats the product as `enabled` without checking
+`stripeConfigured()` when the flag is on (otherwise the button would render
+"coming soon" forever).
+
+This deliberately touches `src/app/api/checkout/route.ts` — payments
+territory CLAUDE.md reserves off-limits to Sonnet *build phases* (§ "Sonnet
+phases do not touch … payments"). That rule governs the autonomous
+phased-build sessions (S3–S16); this was a direct, supervised request in an
+interactive session, not a spawned phase, so it was made here rather than
+handed to Opus. Flagging it explicitly so a later phase or reviewer doesn't
+mistake the carve-out for a precedent.
+
+**Remove when S6 sets real Stripe keys:** delete the `FREE_ACCESS_MODE` var
+(`.env.example`), the branch in `src/app/api/checkout/route.ts`, the
+`freeAccess` branch in `src/components/CheckoutButton.tsx`, and the
+`needsEmail` branch in `src/components/CheckoutButtonClient.tsx` (or leave the
+client changes — they're inert once the server never returns
+`email-required`).
+
 ## CLEARED in O2 — migrate + seed ran against a real MySQL
 
 O1 deferred "schema migrated on a local/remote MySQL and seed idempotent (run
