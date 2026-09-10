@@ -9,13 +9,24 @@ import {
 import {
   fallbackCurrency,
   fallbackPriceCents,
+  fulfilCheckout,
   getProductBySlug,
   recordPendingPurchase,
 } from '@/lib/purchases';
+import { randomToken } from '@/lib/signing';
 import { pickUtm } from '@/lib/lead-schema';
 import { checkFormGuard, isSilentDrop } from '@/lib/form-guard';
 import { currentSite } from '@/lib/current-site';
 import { GUIDE_ENTRY_SLUG, isSiteKey, siteOrigin, siteSellsProducts } from '@/sites/registry';
+
+/**
+ * TEMPORARY — remove once Stripe live keys are in place (plan §7). Grants the
+ * Guide entry product for free instead of charging: FREE_ACCESS_MODE=true
+ * skips Stripe entirely and calls the same `fulfilCheckout` a real webhook
+ * would, so the buyer still gets a real `purchases` row (amount 0, marked
+ * paid), a member account and the download email — see KNOWN-ISSUES.md.
+ */
+const FREE_ACCESS_MODE = process.env.FREE_ACCESS_MODE === 'true';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -99,6 +110,31 @@ export async function POST(request: NextRequest) {
       console.error('[checkout] Lemon Squeezy checkout failed', message);
       return NextResponse.json({ ok: false, error: 'checkout-failed' }, { status: 502 });
     }
+  }
+
+  if (FREE_ACCESS_MODE && provider === 'stripe' && slug === GUIDE_ENTRY_SLUG) {
+    if (!body.email) {
+      return NextResponse.json({ ok: false, error: 'email-required' }, { status: 422 });
+    }
+    const checkoutId = `free_${randomToken()}`;
+    const result = await fulfilCheckout({
+      checkoutId,
+      provider: 'stripe',
+      providerOrderId: 'free-access-mode',
+      email: body.email,
+      amountCents: 0,
+      currency,
+      site,
+      productSlug: slug,
+      raw: { freeAccessMode: true, utm },
+    });
+    if (result.status === 'ignored') return comingSoon('free access mode could not fulfil');
+    return NextResponse.json({
+      ok: true,
+      url: `${origin}/thank-you?session_id=${checkoutId}`,
+      id: checkoutId,
+      provider: 'free',
+    });
   }
 
   if (!stripeConfigured()) return comingSoon('STRIPE_SECRET_KEY is not set');
