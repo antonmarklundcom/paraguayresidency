@@ -72,11 +72,12 @@ grant, which does expire. See Backlog `purchases.expires_at`.
 
 ## CLEARED in O17 — the P0s and P1s of `docs/improvement-report.md` §1.1–1.6
 
-Items 1–6 and 10 of the report are fixed on `phase/o17`: the webhook retry,
-the claim before processing, the production weak-secret refusal, the Lemon
-Squeezy idempotency key and `order_refunded`, admin grants as rows, the
-`FREE_ACCESS_MODE` order id, never-paid subscriptions and the resource drip
-gate. Items 7–9 are O18's.
+Items 1–6 are fixed on `phase/o17`, plus the two halves of item 10 that are
+O17's: the webhook retry, the claim before processing, the production
+weak-secret refusal, the Lemon Squeezy idempotency key and `order_refunded`,
+admin grants as rows, the `FREE_ACCESS_MODE` order id, never-paid
+subscriptions, and the resource download's drip gate. Items 7–9, and item 10's
+`x-site` spoof and security headers, are O18's.
 
 ## CLEARED in O2 — migrate + seed ran against a real MySQL
 
