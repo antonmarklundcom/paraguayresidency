@@ -1,5 +1,5 @@
 import 'server-only';
-import { and, eq, sql } from 'drizzle-orm';
+import { and, eq, ne, sql } from 'drizzle-orm';
 import { getDb, hasDatabase } from '@/db';
 import {
   downloadTokens,
@@ -12,6 +12,7 @@ import {
 } from '@/db/schema';
 import { GUIDE_ENTRY_SLUG, siteOrigin, type SiteKey } from '@/sites/registry';
 import { randomToken } from './signing';
+import { isDuplicateKey } from './webhooks';
 import { expiryFrom, MAX_DOWNLOADS } from './download-policy';
 import { absoluteUrl, sendEmail, unsubscribeUrl } from './email';
 import { magicLinkEmail, purchaseEmail } from './email-templates';
@@ -111,11 +112,30 @@ export interface FulfilmentResult {
 }
 
 /**
+ * Did THIS caller mark the purchase paid, or did a concurrent one get there
+ * first? Pure, so the rule is testable without a database (O17 §14.1.2).
+ *
+ * The claim is `UPDATE purchases SET status='paid' … WHERE id = ? AND status
+ * <> 'paid'`. MySQL reports `affectedRows` as the number of rows the statement
+ * actually changed, and the SET always changes `status`, so one means "I
+ * claimed it" and zero means "someone else already did". Everything with a
+ * side effect — the download token, the receipt, the sign-in link — hangs off
+ * that one row, which is why two deliveries racing produce one token and one
+ * email rather than two.
+ */
+export function claimVerdict(affectedRows: number | undefined): 'claimed' | 'already-paid' {
+  return (affectedRows ?? 0) > 0 ? 'claimed' : 'already-paid';
+}
+
+/**
  * Marks a purchase paid and delivers it. Called by BOTH webhooks (plan §5.4.6).
  *
- * Idempotent on the provider's checkout id: a replayed delivery (Stripe retries
- * for days) finds the row already `paid` and returns without minting a second
- * download token or sending a second email.
+ * Idempotent on the provider's checkout id, and since O17 idempotent under
+ * CONCURRENCY too: the read-then-write was a check-then-act, so two deliveries
+ * of one event could both see `pending` and both fulfil — two download tokens,
+ * two receipts (`docs/improvement-report.md` §1.6). The write is now a
+ * conditional UPDATE whose affected-row count gates every side effect, and a
+ * losing INSERT race is caught on `purchases_checkout_uq` instead of 500ing.
  *
  * Since O9 it also gives the buyer an account and a sign-in link — the same
  * `users` row that carries an Insider membership (plan §1.5, §1.15).
@@ -144,12 +164,16 @@ export async function fulfilCheckout(input: {
   const site = input.site ?? 'guide';
   const db = getDb();
 
-  const [existing] = await db
-    .select()
-    .from(purchases)
-    .where(eq(purchases.providerCheckoutId, input.checkoutId))
-    .limit(1);
+  const readExisting = async () => {
+    const [row] = await db
+      .select()
+      .from(purchases)
+      .where(eq(purchases.providerCheckoutId, input.checkoutId))
+      .limit(1);
+    return row ?? null;
+  };
 
+  let existing = await readExisting();
   if (existing?.status === 'paid') {
     return { status: 'already-paid', purchaseId: existing.id, userId: existing.userId ?? undefined };
   }
@@ -170,41 +194,66 @@ export async function fulfilCheckout(input: {
     console.error('[purchases] could not create the buyer account', error);
   }
 
-  let purchaseId: number;
-  if (existing) {
-    await db
+  /** The conditional claim. Zero rows changed ⇒ a concurrent caller won. */
+  const claim = async (row: Purchase): Promise<'claimed' | 'already-paid'> => {
+    const [result] = await db
       .update(purchases)
       .set({
         status: 'paid',
         paidAt: now,
         email: input.email,
-        name: input.name ?? existing.name,
-        userId: userId ?? existing.userId,
+        name: input.name ?? row.name,
+        userId: userId ?? row.userId,
         provider,
         providerOrderId: input.providerOrderId ?? null,
         amountCents: input.amountCents,
         currency: input.currency,
-        raw: (input.raw as object) ?? existing.raw,
+        raw: (input.raw as object) ?? row.raw,
       })
-      .where(eq(purchases.id, existing.id));
+      .where(and(eq(purchases.id, row.id), ne(purchases.status, 'paid')));
+    return claimVerdict((result as { affectedRows?: number }).affectedRows);
+  };
+
+  let purchaseId: number;
+  if (existing) {
+    if ((await claim(existing)) === 'already-paid') {
+      return { status: 'already-paid', purchaseId: existing.id, userId: existing.userId ?? undefined };
+    }
     purchaseId = existing.id;
   } else {
-    const [inserted] = await db.insert(purchases).values({
-      productId: product!.id,
-      site,
-      userId: userId ?? null,
-      email: input.email,
-      name: input.name ?? null,
-      provider,
-      providerCheckoutId: input.checkoutId,
-      providerOrderId: input.providerOrderId ?? null,
-      amountCents: input.amountCents,
-      currency: input.currency,
-      status: 'paid',
-      raw: (input.raw as object) ?? null,
-      paidAt: now,
-    });
-    purchaseId = Number(inserted.insertId);
+    try {
+      const [inserted] = await db.insert(purchases).values({
+        productId: product!.id,
+        site,
+        userId: userId ?? null,
+        email: input.email,
+        name: input.name ?? null,
+        provider,
+        providerCheckoutId: input.checkoutId,
+        providerOrderId: input.providerOrderId ?? null,
+        amountCents: input.amountCents,
+        currency: input.currency,
+        status: 'paid',
+        raw: (input.raw as object) ?? null,
+        paidAt: now,
+      });
+      purchaseId = Number(inserted.insertId);
+    } catch (error) {
+      // Two deliveries inserted at once, or a pending row appeared between the
+      // read above and here. `purchases_checkout_uq` decided; re-read and let
+      // the conditional UPDATE settle who delivers.
+      if (!isDuplicateKey(error)) throw error;
+      existing = await readExisting();
+      if (!existing) throw error;
+      if (existing.status === 'paid' || (await claim(existing)) === 'already-paid') {
+        return {
+          status: 'already-paid',
+          purchaseId: existing.id,
+          userId: existing.userId ?? undefined,
+        };
+      }
+      purchaseId = existing.id;
+    }
   }
 
   // The tier cache follows the rows, never the other way round (plan §1.12).

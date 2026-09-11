@@ -75,6 +75,32 @@ export function subscriptionGrantsInsider(
 }
 
 /**
+ * Did this subscription ever have a paid period? (O17 §14.1.4.)
+ *
+ * `effectiveTier` used to hand `entry` to anyone with ANY subscription row, so
+ * a membership that was created and never paid for — a card declined on the
+ * first invoice, a checkout abandoned after Lemon Squeezy had already written
+ * the subscription — left permanent paid-tier access behind
+ * (`docs/improvement-report.md` §1.10).
+ *
+ * No new column (the schema is FINAL, O9). The signal is already in the row:
+ *
+ *  - a **live** status (`active`, `past_due`, `paused`) only exists after Lemon
+ *    Squeezy has taken, or is retrying, a payment;
+ *  - `current_period_end` (`renews_at`) or `ends_at` is only ever set once a
+ *    period exists to run to.
+ *
+ * A row that is `expired`/`cancelled` with neither date is the never-paid case,
+ * and it grants nothing.
+ */
+export function subscriptionEverPaid(
+  sub: EntitlementInput['subscriptions'][number],
+): boolean {
+  if (LIVE_SUBSCRIPTION.has(sub.status)) return true;
+  return asDate(sub.currentPeriodEnd) !== null || asDate(sub.endsAt) !== null;
+}
+
+/**
  * The tier a person is actually entitled to, right now.
  *
  * `insider` while any subscription is live, or is winding down inside its
@@ -83,13 +109,14 @@ export function subscriptionGrantsInsider(
  * keep what they bought (plan §1.12). Otherwise `none`.
  *
  * A refunded purchase grants nothing. A subscription that once existed but has
- * expired still leaves `entry` behind: they paid for the months they had.
+ * expired still leaves `entry` behind: they paid for the months they had. A
+ * subscription that never took a payment leaves nothing (`subscriptionEverPaid`).
  */
 export function effectiveTier(input: EntitlementInput, now: Date = new Date()): Tier {
   if (input.subscriptions.some((s) => subscriptionGrantsInsider(s, now))) return 'insider';
 
   const paidPurchase = input.purchases.some((p) => p.status === 'paid');
-  const everSubscribed = input.subscriptions.length > 0;
+  const everSubscribed = input.subscriptions.some(subscriptionEverPaid);
   if (paidPurchase || everSubscribed) return 'entry';
 
   return 'none';
@@ -150,7 +177,11 @@ export function isUnlocked(
 export function firstEntitledAt(input: EntitlementInput): Date | null {
   const dates = [
     ...input.purchases.filter((p) => p.status === 'paid').map((p) => asDate(p.paidAt)),
-    ...input.subscriptions.map((s) => asDate((s as { createdAt?: Date }).createdAt ?? null)),
+    // Only subscriptions that took a payment — a never-paid row must not start
+    // someone's drip clock any more than it grants them a tier.
+    ...input.subscriptions
+      .filter(subscriptionEverPaid)
+      .map((s) => asDate((s as { createdAt?: Date }).createdAt ?? null)),
   ].filter((d): d is Date => d !== null);
   return dates.length ? new Date(Math.min(...dates.map((d) => d.getTime()))) : null;
 }

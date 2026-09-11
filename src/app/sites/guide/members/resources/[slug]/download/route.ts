@@ -2,8 +2,8 @@ import { createReadStream, existsSync, statSync } from 'node:fs';
 import { Readable } from 'node:stream';
 import { NextResponse, type NextRequest } from 'next/server';
 import { currentMember } from '@/lib/member-auth';
-import { entitlementFor, hasTier } from '@/lib/entitlements';
-import { resolvePrivateFile } from '@/lib/download-policy';
+import { entitlementFor } from '@/lib/entitlements';
+import { resolvePrivateFile, resourceUnlocked } from '@/lib/download-policy';
 import { resourceBySlug } from '@/lib/member-content';
 
 export const runtime = 'nodejs';
@@ -31,9 +31,11 @@ export async function GET(
   const resource = await resourceBySlug('guide', slug);
   if (!resource) return problem(404, 'That resource does not exist.');
 
+  // Tier AND drip, through the same `isUnlocked()` the lesson pages use — this
+  // route checked only the tier before O17 (plan §14.1.7).
   const entitlement = await entitlementFor(user);
-  if (!hasTier(entitlement.tier, resource.minTier)) {
-    return problem(403, 'This resource is part of a higher membership tier.');
+  if (!resourceUnlocked(resource, entitlement.tier, entitlement.firstEntitledAt)) {
+    return problem(403, 'This resource is not available on your membership yet.');
   }
 
   const path = resolvePrivateFile(resource.fileKey);

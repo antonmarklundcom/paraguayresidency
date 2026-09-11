@@ -88,9 +88,9 @@ describe('clientIp', () => {
 
 describe('freeAccessMode — the temporary Stripe bypass', () => {
   it('is off unless the flag is exactly "true"', () => {
-    expect(freeAccessMode({} as NodeJS.ProcessEnv)).toBe(false);
-    expect(freeAccessMode({ FREE_ACCESS_MODE: 'yes' } as NodeJS.ProcessEnv)).toBe(false);
-    expect(freeAccessMode({ FREE_ACCESS_MODE: 'true' } as NodeJS.ProcessEnv)).toBe(true);
+    expect(freeAccessMode({} as unknown as NodeJS.ProcessEnv)).toBe(false);
+    expect(freeAccessMode({ FREE_ACCESS_MODE: 'yes' } as unknown as NodeJS.ProcessEnv)).toBe(false);
+    expect(freeAccessMode({ FREE_ACCESS_MODE: 'true' } as unknown as NodeJS.ProcessEnv)).toBe(true);
   });
 
   it('REFUSES to run next to a live Stripe key, whatever the flag says', () => {
@@ -98,13 +98,13 @@ describe('freeAccessMode — the temporary Stripe bypass', () => {
       freeAccessMode({
         FREE_ACCESS_MODE: 'true',
         STRIPE_SECRET_KEY: 'sk_live_realkey',
-      } as NodeJS.ProcessEnv),
+      } as unknown as NodeJS.ProcessEnv),
     ).toBe(false);
   });
 
   it('ignores an empty STRIPE_SECRET_KEY, which is how .env.example ships', () => {
     expect(
-      freeAccessMode({ FREE_ACCESS_MODE: 'true', STRIPE_SECRET_KEY: '  ' } as NodeJS.ProcessEnv),
+      freeAccessMode({ FREE_ACCESS_MODE: 'true', STRIPE_SECRET_KEY: '  ' } as unknown as NodeJS.ProcessEnv),
     ).toBe(true);
   });
 });
