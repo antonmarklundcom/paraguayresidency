@@ -4,6 +4,7 @@ import { getDb, hasDatabase } from '@/db';
 import { leadEvents, products, purchases, subscriptions, users } from '@/db/schema';
 import { TIERS, entitlementFor, refreshUserTier, tierRank } from './entitlements';
 import { GUIDE_ENTRY_SLUG, GUIDE_INSIDER_SLUG } from '@/sites/registry';
+import { randomToken } from './signing';
 import type { Tier } from '@/db/schema';
 
 /**
@@ -38,6 +39,26 @@ export type GrantResult = { ok: true; message: string } | { ok: false; error: st
 
 /** Marks the rows this module writes, so `none` can find and revoke them. */
 export const ADMIN_GRANT_PREFIX = 'admin_grant_';
+
+/**
+ * The same prefix as a MySQL `LIKE` pattern.
+ *
+ * `_` is a single-character wildcard in `LIKE`, so the bare prefix would also
+ * match `adminXgrantY…`. Real Lemon Squeezy subscription ids and Stripe session
+ * ids never look like that, so nothing was actually mis-revoked — but a revoke
+ * is a destructive statement and it should match exactly what it claims to.
+ * Backslash is MySQL's default `LIKE` escape character.
+ */
+export const ADMIN_GRANT_LIKE = 'admin\\_grant\\_%';
+
+/**
+ * The id one grant's row carries. The timestamp alone collided when two grants
+ * for one member landed in the same millisecond — `subscriptions_provider_uq`
+ * threw and the admin saw a bare "Grant failed".
+ */
+export function grantMarker(userId: number, now: Date = new Date()): string {
+  return `${ADMIN_GRANT_PREFIX}${userId}_${now.getTime()}_${randomToken(6)}`;
+}
 
 export type GrantPlan =
   | { kind: 'subscription'; status: 'active' | 'cancelled'; endsAt: Date | null }
@@ -151,7 +172,7 @@ export async function grantTierUntil(input: {
   // actually overrode.
   const before = (await entitlementFor(user)).tier;
   const now = new Date();
-  const marker = `${ADMIN_GRANT_PREFIX}${user.id}_${now.getTime()}`;
+  const marker = grantMarker(user.id, now);
 
   if (plan.kind === 'subscription') {
     const productId = await productIdForSlug(GUIDE_INSIDER_SLUG);
@@ -233,7 +254,7 @@ export async function grantTierUntil(input: {
  */
 async function revokeAdminGrants(userId: number): Promise<void> {
   const db = getDb();
-  const pattern = `${ADMIN_GRANT_PREFIX}%`;
+  const pattern = ADMIN_GRANT_LIKE;
   await db
     .update(subscriptions)
     // Both dates back to null as well as the status: a row with an `ends_at`
