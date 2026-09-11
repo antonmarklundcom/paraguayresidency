@@ -199,3 +199,38 @@ describe('checkout refuses what it should', () => {
     expect(state.stripeCalled).toBe(0);
   });
 });
+
+describe('POST /api/checkout is limited per IP (O18, plan §14.2.1)', () => {
+  it('opens ten checkouts an hour from one IP and refuses the eleventh', async () => {
+    const open = () =>
+      POST(
+        new Request('https://paraguayresidencyguide.com/api/checkout', {
+          method: 'POST',
+          headers: { 'content-type': 'application/json', 'x-forwarded-for': '203.0.113.60' },
+          body: JSON.stringify({ product: GUIDE_ENTRY_SLUG }),
+        }) as never,
+      );
+
+    for (let i = 0; i < 10; i += 1) expect((await open()).status).not.toBe(429);
+
+    const refused = await open();
+    expect(refused.status).toBe(429);
+    expect(refused.headers.get('retry-after')).toBeTruthy();
+    expect(await refused.json()).toMatchObject({ ok: false, error: 'rate-limited' });
+    // The limit runs before anything is parsed, so no processor was called.
+    expect(state.stripeCalled).toBe(0);
+  });
+
+  it('counts per IP, not globally — a second visitor is unaffected', async () => {
+    const open = (ip: string) =>
+      POST(
+        new Request('https://paraguayresidencyguide.com/api/checkout', {
+          method: 'POST',
+          headers: { 'content-type': 'application/json', 'x-forwarded-for': ip },
+          body: JSON.stringify({ product: GUIDE_ENTRY_SLUG }),
+        }) as never,
+      );
+    for (let i = 0; i < 11; i += 1) await open('203.0.113.61');
+    expect((await open('203.0.113.62')).status).not.toBe(429);
+  });
+});

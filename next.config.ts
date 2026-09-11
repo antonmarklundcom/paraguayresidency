@@ -97,16 +97,22 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
+        // Everything, including `_next/static` and `/api` — the headers that
+        // are never wrong anywhere.
         source: '/:path*',
-        headers: [
-          ...BASELINE,
-          ...(isProduction ? [HSTS] : []),
-          { key: 'Content-Security-Policy-Report-Only', value: PUBLIC_CSP },
-        ],
+        headers: [...BASELINE, ...(isProduction ? [HSTS] : [])],
       },
       {
-        // `/admin` and `/members` keep an ENFORCING policy; it is listed after
-        // the catch-all so its CSP header is the one that applies.
+        // The public tree only: the negative lookahead keeps the report-only
+        // policy off `/admin` and `/members`, so those two carry exactly one
+        // CSP and a violation there is a real block rather than a report.
+        // These sources match the PUBLIC path, before `src/middleware.ts`
+        // rewrites `/members` into `/sites/guide/members` — verified against
+        // `next start`, not assumed.
+        source: '/((?!admin$|admin/|members$|members/).*)',
+        headers: [{ key: 'Content-Security-Policy-Report-Only', value: PUBLIC_CSP }],
+      },
+      {
         source: '/:path(admin|members)/:rest*',
         headers: [{ key: 'Content-Security-Policy', value: PRIVATE_CSP }],
       },
