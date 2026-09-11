@@ -1,7 +1,7 @@
 # Improvement report — F10 (Fable 5.1, window opened by Anton, 2026-09-11)
 
 State when this was written: every content phase has merged (S3–S5, S10–S14, S16). `npm run verify`
-is green on `main` (typecheck, lint, 331 tests, i18n, build). Nothing is live: S6 (PR #13) waits on
+is green on `main` (typecheck, lint, 322 tests, i18n, build). Nothing is live: S6 (PR #13) waits on
 hosting, DNS, live Stripe and the imagery CDN allowlist; S15 and F7 wait on S6. The build has
 114 pages and 101 MDX files across seven brands.
 
