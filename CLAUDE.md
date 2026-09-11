@@ -1,6 +1,6 @@
 # paraguayresidency — project rules
 
-One Next.js app serving seven brands, keyed by `SiteKey`: `residency` (the hub — services, and the only host with `/admin`), `investorpass`, `guide` (the only brand that sells), `frontier`, `residenciaes` (es), `residenciapt` (pt-BR), `flytta` (sv). Read `plan.md` before any work; §1 decisions are locked, §9 is the build log.
+One Next.js app serving seven brands, keyed by `SiteKey`: `residency` (the hub — services, and the only host with `/admin`), `investorpass`, `guide` (the only brand that sells), `frontier`, `residenciaes` (es), `residenciapt` (pt-BR), `flytta` (sv). Read `plan.md` before any work; §1 decisions are locked, §9 is the build log. §14 is the F10 improvement plan (O17–O19 Opus, then S20–S23 Sonnet); `docs/improvement-report.md` is its evidence.
 
 ## Domains — CONFIRMED BY ANTON 2026-09-07. Do not infer a domain from a brand name.
 

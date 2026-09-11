@@ -22,8 +22,16 @@
 | S14 | Sonnet | `prompts/sonnet-14-guide-members.md` | §6.9 | spawned by S16, parallel |
 | S15 | Sonnet | `prompts/sonnet-15-deploy-new-domains.md` | §6.10 | spawned by whichever of S10–S14 merges last, **and only if S6 has merged** (claim rule in §4.12); otherwise Anton pastes it after S6 |
 | F7 | Fable 5.1 (approved by Anton, see §1.9) | `prompts/fable-7-launch-review.md` | §5.3 | **Anton opens it manually** — S15 never spawns it |
+| F10 | Fable 5.1 (done 2026-09-11, approved §1.9) | — (`docs/improvement-report.md`) | §14 | Anton opened it manually; it spawned nothing |
+| O17 | Opus | `prompts/opus-17-money-and-auth-correctness.md` | §14.1 | **Anton pastes one line in a fresh Opus window** — first improvement phase |
+| O18 | Opus | `prompts/opus-18-abuse-and-ops-hardening.md` | §14.2 | spawned by O17 |
+| O19 | Opus | `prompts/opus-19-rendering-and-leadform-perf.md` | §14.3 | spawned by O18; **moves the brand folders** (§14.3) |
+| S20 | Sonnet | `prompts/sonnet-20-quality-gates-and-repo-hygiene.md` | §14.4 | spawned by O19; runs alone before S21–S23 |
+| S21 | Sonnet | `prompts/sonnet-21-seo-surfaces.md` | §14.5 | spawned by S20, in parallel with S22–S23 |
+| S22 | Sonnet | `prompts/sonnet-22-funnel-fixes.md` | §14.6 | spawned by S20, parallel |
+| S23 | Sonnet | `prompts/sonnet-23-content-depth.md` | §14.7 | spawned by S20, parallel; spawns nothing |
 
-Total automated build: 3 Opus + 11 Sonnet sessions. Fable touches the plan ends and the two replans only (F0; F8 and F9 as mid-build replans opened by Anton; F7 at the end). Neither replan spawned anything. **Chain as of F9:** S16 (Anton pastes) → S10–S14 in parallel (spawned by S16) → S15 (claim rule, needs S6 merged) → F7 (Anton opens). S6 sits beside that chain: it is owner-blocked on hosting, DNS and Stripe live, and Anton re-runs it whenever those are done; S15 is the only phase that waits on it. S10–S14 run in parallel per `phased-autonomous-build`'s two-lane pattern: one sequential Opus foundation lane (O9), then content phases that each own their own files.
+Total automated build: 6 Opus + 15 Sonnet sessions (F10 added O17–O19 and S20–S23, §14). **Chain as of F10:** O17 (Anton pastes) → O18 → O19 → S20 → S21 ∥ S22 ∥ S23 (each ends with a report, none spawns S6/S15). S6 → S15 → F7 stay gated on Anton's §7 items; S15 must run after O19 merges because it deploys the moved tree. Original total: 3 Opus + 11 Sonnet sessions. Fable touches the plan ends and the two replans only (F0; F8 and F9 as mid-build replans opened by Anton; F7 at the end). Neither replan spawned anything. **Chain as of F9:** S16 (Anton pastes) → S10–S14 in parallel (spawned by S16) → S15 (claim rule, needs S6 merged) → F7 (Anton opens). S6 sits beside that chain: it is owner-blocked on hosting, DNS and Stripe live, and Anton re-runs it whenever those are done; S15 is the only phase that waits on it. S10–S14 run in parallel per `phased-autonomous-build`'s two-lane pattern: one sequential Opus foundation lane (O9), then content phases that each own their own files.
 
 ---
 
@@ -41,7 +49,7 @@ Total automated build: 3 Opus + 11 Sonnet sessions. Fable touches the plan ends 
 6. **Leads:** one `leads` table with a `site` column. Every form posts to VenderCRM via `vendercrm-lead-capture` AND stores locally (local store is the source of truth if CRM is down). Email notification via Resend (or Hostinger SMTP fallback).
 7. **Hosting decision is deferred to phase S6 with a hard rule:** the app is host-agnostic (Node server, `output: 'standalone'` optional, no Vercel-only APIs). First choice: one Hostinger Node.js slot with all three domains attached. If hPanel cannot attach multiple custom domains to one Node app, fallback is a Hostinger KVM VPS running the same app behind Caddy (automatic SSL, unlimited hostnames). Never three slots.
 8. **Design:** bespoke per brand but one component library. Shared tokens (spacing, type scale, radius, motion) + a per-site theme (accent, display font, imagery mood). Patterns from `nextjs-national-lead-gen` §4: Residency = split-screen hero + bento "routes" grid; Investor Pass = big-type editorial, dark-first, one gold-ish accent; Guide = single long-form sales page, warm light theme, big-type. Visual drafts may be produced with `/design` (see §12) — those drafts are input, the Next.js components are the deliverable.
-9. **Fable 5.1 usage approved for this project:** F0 (this plan, including §11 key copy), F7 (launch review, opened manually by Anton), and **F8 (2026-09-07 approval)** — finalizing the §12 platform-consolidation proposal into locked decisions, naming the remaining SiteKeys, writing key copy for any new brand needing distinct positioning, and writing the next Opus/Sonnet phase's prompt file(s) per `prompts/fable-8-platform-consolidation-plan.md`. F8 is spec/planning work, never spawned, and never spawns another Fable phase. **F9 (2026-09-07 approval)** — re-planning the brand↔domain map after Anton confirmed which domains he actually owns, rewriting the §11 copy for the renamed brands, and updating the S10–S15 prompt files, per `prompts/fable-9-domain-rebrand-replan.md`. Same terms: Anton opens it himself, it spawns nothing. No other phase, subagent, spawned session, or automation runs on Fable. These approvals are recorded here per guardrail v2 §"Approved Fable work".
+9. **Fable 5.1 usage approved for this project:** F0 (this plan, including §11 key copy), F7 (launch review, opened manually by Anton), and **F8 (2026-09-07 approval)** — finalizing the §12 platform-consolidation proposal into locked decisions, naming the remaining SiteKeys, writing key copy for any new brand needing distinct positioning, and writing the next Opus/Sonnet phase's prompt file(s) per `prompts/fable-8-platform-consolidation-plan.md`. F8 is spec/planning work, never spawned, and never spawns another Fable phase. **F9 (2026-09-07 approval)** — re-planning the brand↔domain map after Anton confirmed which domains he actually owns, rewriting the §11 copy for the renamed brands, and updating the S10–S15 prompt files, per `prompts/fable-9-domain-rebrand-replan.md`. Same terms: Anton opens it himself, it spawns nothing. **F10 (2026-09-11 approval)** — the improvement review after the content lane merged: four Opus/Sonnet audits read by Fable, decisions written into §14, `docs/improvement-report.md`, the O17–S23 prompt files and `docs/design-prompts.md`. Same terms: Anton opened it himself, it spawned nothing. No other phase, subagent, spawned session, or automation runs on Fable. These approvals are recorded here per guardrail v2 §"Approved Fable work".
 10. **Legal figures are not copy-pasted from the web.** Every number about investment thresholds, fees, timelines and residency validity is rendered from `content/shared/facts.ts` and each entry carries a `verifiedBy`/`verifiedOn` field. Until Anton's legal partner verifies an entry, the page shows "from USD X — confirm current thresholds on your call" style wording, never a bare number. On non-English brands the hedged text is written in the brand's locale (`facts.ts` carries per-locale `display`/`hedged` with `en` required and the others falling back to `en`).
 11. **The four consolidated brands (decided 2026-09-07, F8; domains corrected by F9):** `paraguayfrontier.com` → SiteKey `frontier` (en, plan-B/lifestyle angle for Americans and expats, §11.5) · `residenciaparaguay.es` → `residenciaes` (es, Spain first then Spanish-speaking LatAm, §11.6) · `vidanoparaguai.com` → `residenciapt` (pt-BR, brand name **Vida no Paraguai**, Brazil, §11.7) · `flyttatillparaguay.se` → `flytta` (sv, Anton's personal-story brand, §11.8). All four are lead-gen spokes for the same service team, tagged by `site`. The `flyttatillparaguay` repo is ported into this app (§12.4) and retired in S15; `pararesi` sells through `guide` (§1.12) and is retired after its data is imported. ES and PT brands do not upsell the English Guide; their soft exit is the newsletter until a localized edition exists (Backlog).
 
@@ -1211,6 +1219,10 @@ Where S15 looks first: `docs/flytta-redirects.md` is the complete
 old-URL→new-path table it turns into the registry's per-site 301 map
 (plan §6.10 task 4).
 
+**2026-09-11 — F10 Improvement review (Fable 5.1, window opened by Anton, approved §1.9)** — branch `claude/fervent-gauss-0a5r5f`
+
+What now exists: `docs/improvement-report.md` (25 ranked findings from four Opus/Sonnet audits, each P0/P1 re-verified in source by Fable), plan §14 (seven new phases O17–O19 Opus sequential, S20 Sonnet sequential, S21–S23 Sonnet parallel), their seven prompt files, `docs/design-prompts.md` (one Claude Design prompt per brand). No application code changed. Verified `npm run verify` green on `main` at a629025 (331 tests) before writing. Three P0s worth naming here so no session re-diagnoses them: `finishWebhookEvent` marks failed deliveries processed (retries are no-ops); `SESSION_SECRET` falls back to a public literal in production; `FREE_ACCESS_MODE` reuses one `providerOrderId` and hard-errors on the second buyer. All three are O17's. Where O17 looks first: §14.1 and the report's §1 items 1–6.
+
 ## 10. Backlog
 
 - German brand or locale for the hub (Spanish, Portuguese and Swedish ship as brands, §1.11).
@@ -1224,6 +1236,11 @@ old-URL→new-path table it turns into the registry's per-site 301 map
 - Blog RSS per site.
 - **Hub on a global `.com`.** If a residency-named `.com` ever becomes available to Anton, move `residency` to it (three registry lines) and 301 `paraguayresidency.co.uk` → it; expect the usual temporary ranking dip of a domain move. Until then the `.co.uk` hub stands (§1.11).
 - Defensive registration of `paraguayinvestorpass.com.py` (optional, §8.2).
+- **Design uplift per brand (S24+, Sonnet, one phase per brand).** Anton runs `docs/design-prompts.md` in Claude Design, picks one canvas per brand; each phase ports one canvas into that brand's pages using the existing component library and tokens. Not started until he picks.
+- DB-backed rate limits (`rate_limits` table) if the app ever runs on more than one Node process; O18's in-process limiter is the one-process answer.
+- Structured logging + error reporting (pino → a hosted sink) before real traffic volume; O18 adds only the health-check signals.
+- One shared `ServicePage` shell for the five per-brand copies (398 lines, same structure) — only if a structural fix has to be applied five times twice.
+- WhatsApp-first single-field lead capture as its own `leads.kind` — O19 ships the short variant on the existing kinds.
 - Hub UK tilt for F7: the hub stays global in voice, but `/process` and one documents article should name the UK issuers a British applicant deals with, hedged as everything else; a small win the `.co.uk` hands us for free.
 
 ## 11. Key copy & SEO structure (Fable-written; Sonnet keeps the voice)
@@ -1361,3 +1378,212 @@ Every §12.6 question of the draft is answered above (Q1 §1.5/§1.12; Q2 §1.12
 - `/design` (the built-in Claude Design canvas skill) works inside Claude Code in this repo. Use it in S3–S5 to draft a hero or a bento section as artboards before coding; the canvas is a draft, the React component is the deliverable. `DesignSync` can push a component library to a Claude Design project; not required for this build.
 - Imagery only via `higgsfield-web-imagery`; never hand-place files.
 - Never commit `.env`, the real guide PDF, or Stripe keys.
+
+## 14. Improvement plan — decided 2026-09-11 (F10)
+
+Evidence and reasoning: `docs/improvement-report.md`. Order: O17 → O18 → O19 → S20 → (S21 ∥ S22 ∥ S23). All
+Opus work first, all Sonnet work after, per Anton's instruction. Every phase runs under §4; the Sonnet hard
+limits in §4.7 hold unchanged except where a phase below names one file it may open. No phase changes
+`src/db/schema.ts` — the schema is FINAL (O9). S6 → S15 → F7 are untouched and remain gated on §7; S15 must
+run after O19 merges.
+
+**Path note (O19 onward):** brand folders move from `src/app/sites/<key>/` to
+`src/app/(<locale>)/sites/<key>/` — `(en)` for residency, investorpass, guide, frontier; `(es)` residenciaes;
+`(pt)` residenciapt; `(sv)` flytta. Route groups do not appear in URLs, so `src/middleware.ts` rewrites,
+sitemaps, tests and every public path are unchanged. Wherever an older section says `src/app/sites/<key>/`,
+read the new location after O19 has merged.
+
+### 14.1 Phase O17 — Money & auth correctness (Opus)
+
+Owns: `src/lib/{webhooks,signing,auth,member-auth,lemonsqueezy,subscriptions,purchases,entitlements,member-admin,download-policy}.ts`,
+`src/app/api/**`, `src/app/(en)/sites/guide/members/resources/[slug]/download/route.ts` (still at
+`src/app/sites/guide/...` when O17 runs), `src/app/api/health/**`, `tests/**`, `.env.example`, `docs/platform.md`.
+
+1. **Webhook retries must retry.** `finishWebhookEvent(id, error)` on the error path writes `error` and leaves
+   `processedAt` null, so the next delivery re-runs the handler. Both routes keep answering 500 on failure.
+2. **Claim before processing, one fulfilment per event.** Single Node process: an in-process per-event-id lock
+   around the handler in both webhook routes, plus `fulfilCheckout` marking a purchase paid inside a transaction
+   (`SELECT … FOR UPDATE` on the checkout row, or an `UPDATE … WHERE status <> 'paid'` whose affected-row count
+   gates the email/token side effects). Two concurrent deliveries → one purchase, one token, one email.
+3. **Production refuses a weak secret.** When `NODE_ENV === 'production'` and `hasStrongSecret()` is false,
+   `sessionOptions()`, `memberSessionOptions()`, `issueMagicToken` and every `signingSecret()` consumer throw a
+   clear error; `next build` still passes with an empty `.env` (the check is at request time, not import time).
+   `/api/health` reports `secret: "weak"|"ok"`. `.env.example` says so above `SESSION_SECRET`.
+4. **Lemon Squeezy idempotency and refunds.** `lemonSqueezyEventId` uses `meta.webhook_id` when present, else
+   `<event>:<id>:<sha256(rawBody)>`; verify against the LS webhook docs what a retry carries and record it in a
+   comment. Handle `order_refunded` → `markRefunded`. `effectiveTier` grants `entry` only for a subscription that
+   has had a paid period (Opus picks the field: `current_period_end`/status history — no new column).
+5. **Admin grants are rows, not cache writes.** `grantTierUntil` inserts a real `subscriptions` (or zero-amount
+   `purchases`) row with the right `ends_at`, then `refreshUserTier()`; the success message becomes true.
+   `reconcileTiers` needs no exemption because the truth now carries the grant.
+6. **`FREE_ACCESS_MODE`** passes `providerOrderId: checkoutId`, refuses to run when `STRIPE_SECRET_KEY` is set,
+   and is limited per IP (5/hour) using a tiny `src/lib/rate-limit.ts` `take(key, max, windowMs)` over a `Map`
+   with lazy eviction (never a global `clear()`). O18 reuses the module everywhere else.
+7. Member resource downloads check `isUnlocked` (tier **and** drip), matching lessons.
+8. Tests, all pure or against the in-memory fixtures the existing tests use: `finishWebhookEvent` semantics,
+   duplicate-then-retry flow, `fulfilCheckout` idempotency and the already-paid branch, the LS event id for a
+   retried `subscription_updated`, `order_refunded`, never-paid subscription → `none`, `grantTierUntil` visible to
+   `effectiveTier`, production weak-secret refusal, free-mode second buyer succeeds. Target ≥ 15 new tests.
+
+Exit: `npm run verify` green; every item above has a named test; `docs/platform.md` §3 (webhooks) and the tier
+rules updated in ≤ 15 lines; PR merged; §9 entry. Handoff: spawn O18 (Opus).
+
+### 14.2 Phase O18 — Abuse & ops hardening (Opus)
+
+Owns: `src/lib/{rate-limit,leads,email,form-guard}.ts`, `src/app/actions/**`, `src/app/admin/actions.ts`,
+`src/app/api/{subscribe,auth,checkout}/**`, `src/middleware.ts`, `src/sites/resolve.ts`, `next.config.ts`,
+`src/app/api/health/**`, `tests/**`, `docs/runbook.md` (create if S6 has not merged; S6 keeps its own text on merge).
+
+1. **Rate limits through O17's `take()`**: admin `loginAction` 5 per 15 min per IP+email with a fixed ~250 ms
+   delay on failure; `/api/subscribe` 3 per hour per email and 20 per hour per IP (a pending address is NOT
+   re-mailed on every call — one resend per hour); `/api/checkout` 10 per hour per IP; lead server actions 10 per
+   hour per IP; `/api/auth/magic` keeps its limits but increments email **and** IP and drops `attempts.clear()`.
+   Middleware applies a coarse 120/min per IP to `POST /api/*`. The IP is `x-forwarded-for`'s first hop when
+   present. Everything answers 429 with a plain message the forms render.
+2. **A lead is never lost.** `createLead` catches non-duplicate insert errors, logs, still calls `deliverLead`
+   (CRM + notification email) and returns `{ok:true, stored:false}`; the visitor sees success. Test it.
+3. **No credentials or PII in logs.** Console email mode logs subject + recipient only in production (full body
+   stays in development); `/api/health` reports `email: "resend"|"smtp"|"console"`, `crm: on|off`,
+   `secret` (from O17). `sendEmail` in console mode returns `ok:false, mode:'console'` in production so callers
+   can surface it.
+4. **Headers.** `next.config.ts` `headers()`: HSTS (only in production), `X-Content-Type-Options`,
+   `Referrer-Policy: strict-origin-when-cross-origin`, `Permissions-Policy` minimal, `frame-ancestors 'none'`
+   via CSP for `/admin` and `/members`; a report-only CSP for the public tree that allows Plausible. Middleware
+   deletes any client-supplied `x-site` before setting its own.
+5. Tests: limiter windows and eviction, each limited route's 429, lead DB-failure path, header presence,
+   `x-site` spoof. Target ≥ 10 new tests.
+
+Exit: verify green; a scripted `tests/abuse.mjs` hits login/subscribe/magic 30× against `next start` and shows
+429s (kept under `tests/`, not in CI); PR merged; §9 entry. Handoff: spawn O19 (Opus).
+
+### 14.3 Phase O19 — Rendering & LeadForm performance (Opus)
+
+Owns: everything under `src/app/` (the move), `src/lib/{site-shell,metadata,seo-files,site-pages,analytics}.ts(x)`,
+`src/components/{LeadForm,LeadFormFields,NewsletterForm*,MagicLinkForm*,CheckoutButton*}.tsx`, `src/lib/countries.ts`,
+`tests/**`, `docs/platform.md`, `CLAUDE.md` (the one path line), `plan.md` §4.12 (path note only).
+
+1. **Route groups per locale.** Move `src/app/sites/<key>/` → `src/app/(<locale>)/sites/<key>/` per the path
+   note. Each group gets its own root `layout.tsx` with a hardcoded `lang`, `globals.css` import and the theme
+   plumbing the old root layout had; the old `src/app/layout.tsx` goes away (Next requires the top level to be
+   route groups only). `admin`, `api`, `blocked`, `dev`, `robots.txt`, `not-found` live under `(en)` (or a
+   `(shared)` group with `lang="en"`); each group has its own `not-found.tsx`. `currentSite()` stays for API and
+   shared routes only.
+2. **Static where possible.** After the move, `next build` must print `○` for every marketing page that reads
+   no request-time data. Pages that read the live price (`guide` home, `/insider`) use `export const revalidate = 300`
+   instead of `force-dynamic`; `next build` still passes with no database (`getProductBySlug` already falls back).
+   Member, account, admin, route-finder result, thank-you and confirm pages stay `ƒ`.
+3. **LeadForm.** Server-render a plain `<form action={serverAction}>` that submits without JavaScript (country
+   `<select>` options rendered on the server — the client bundle no longer imports `COUNTRIES`); hydrate the
+   enhancement (pending state, inline errors) lazily via `next/dynamic` when the form scrolls into view or receives
+   focus. Add a `variant="whatsapp"` short form (name + WhatsApp number + one line) on the existing `contact`
+   kind for the LatAm brands (S22 places it). Same treatment for `NewsletterFormFields` and `MagicLinkFormFields`.
+4. **Events.** `src/lib/analytics.tsx` (from S6's branch if unmerged — port the file, S6 keeps its own on merge)
+   exposes `track(name, props)` that no-ops without Plausible; fire `lead_submitted`, `newsletter_subscribed`,
+   `checkout_started`, `quiz_completed`. No PII in props.
+5. **Measure.** `tests/lighthouse.mjs` (Chromium at `/opt/pw-browsers`, mobile preset) runs the seven homes plus
+   `/residency/temporary-residency`, investorpass `/`, frontier `/tax` and prints a table; commit the script, not
+   the reports. Bar: perf ≥ 0.90 on every one of them in this container.
+6. Update `docs/platform.md` "Adding the eighth domain", the CLAUDE.md line on host → site resolution, and §4.12's
+   file-ownership paths to the new location. `tests/resolve.test.ts` and any test that asserts the old folder
+   must still pass unchanged where it tests URLs, and be updated where it tests file placement.
+
+Exit: verify green; build output shows ≥ 80 % of `src/app/(…)/sites/**` page routes as `○`; Lighthouse table
+committed to the §9 entry; all seven `*.localhost:3000` hosts render with the right `<html lang>`; PR merged.
+Handoff: spawn S20 (Sonnet).
+
+### 14.4 Phase S20 — Quality gates & repo hygiene (Sonnet, sequential)
+
+Owns: `tests/**`, `.github/**`, `package.json` (`engines`, `@types/node` only), `.nvmrc`, `content/**/*.mdx`
+**frontmatter only** (title/description trims), `docs/log/**` (new), `docs/known-issues-archive.md` (new),
+`plan.md` §9 and `KNOWN-ISSUES.md` (the split), `CLAUDE.md` (two lines).
+
+1. `tests/content.test.ts` enforces title ≤ 60 and description ≤ 155 (the plan's bar); trim the 12 offending
+   files (10 titles, 2 descriptions) without changing their slugs or meaning.
+2. A test that every `.tsx` page under a non-`en` brand group passes `site=` to `<Fact>` (the S11 trap), and a
+   repo-root stray-file check (no untracked files outside the known set after a build).
+3. CI: `npm audit --omit=dev --audit-level=high`; `.github/dependabot.yml` (npm, weekly, grouped minor/patch);
+   a migration-drift job (`drizzle-kit generate` must produce no new file; fail if it does); a Lighthouse job
+   running O19's `tests/lighthouse.mjs` against `next start` on PRs, uploading the table as an artifact
+   (non-blocking the first two weeks — mark it `continue-on-error` and say so in the workflow comment).
+4. `package.json` `"engines": {"node": ">=22"}`, `.nvmrc` `22`, `@types/node` → `^22`.
+5. Pure tests for `metadata.ts` (canonical, OG, JSON-LD shapes), `whatsapp.ts`, `thank-you.ts`, `subscribers.ts`
+   token shape; ≥ 12 new tests.
+6. **Docs split.** Move every §9 phase entry into `docs/log/<phase>.md` (one file per phase, content verbatim),
+   leave §9 as a one-line-per-phase index (id, date, PR, log path). Move every `CLEARED`/`FIXED` entry of
+   `KNOWN-ISSUES.md` to `docs/known-issues-archive.md`; the root file keeps only open items. Update §4.10 and the
+   orientation-read sentence in CLAUDE.md to point at the index + per-phase logs. Target: `plan.md` < 700 lines.
+
+Exit: verify green with the tighter bar; CI has the four new jobs and they run on this PR; `plan.md` < 700
+lines; PR merged. Handoff: spawn S21, S22 and S23 at once (three `create_session` calls, Sonnet).
+
+### 14.5 Phase S21 — SEO surfaces (Sonnet, parallel with S22–S23)
+
+Owns: new index `page.tsx` files for every article hub (`residency/guides` + `/guides/[hub]`,
+`investorpass/insights`, `frontier/stories`, `residenciaes/guias` + hub indexes, `residenciapt/guias` + hub
+indexes, `flytta/guider`, `flytta/stader`), a `feed.xml/route.ts` per brand, `src/lib/seo-files.ts`,
+`src/lib/rss.ts` (new), `src/sites/registry.ts` **string/array values only** (nav/footer items), the three
+frontier pages `routes`, `tax`, `why-paraguay`, and `residenciaes`'s pages for the WhatsApp link.
+
+1. Index pages: list every published article with title, description, date, hub; breadcrumbs; `CollectionPage`
+   JSON-LD; in the brand's locale; added to `staticPaths` and the sitemap. Hub-level indexes on the multi-hub
+   brands (`/guides/documents` etc.).
+2. RSS 2.0 per brand at `/feed.xml` (articles only, absolute URLs from the registry), `<link rel="alternate">`
+   in the brand layout via `siteMetadata` if that needs a one-line additive prop.
+3. Nav/footer values: `residenciapt` gets `/precos` and `/investor-pass`; `residenciaes` gets `/mercosur` and
+   `/pase-inversor`. Both brands' article indexes in the footer. i18n: reuse existing `nav.*` keys; add a key to
+   all four `common.json` only if none fits.
+4. `frontier`'s three service-style pages emit `Service` JSON-LD like the other brands' `ServicePage`s.
+5. `residenciapt`'s `/investor-pass` sitemap exclusion gets the same explanatory comment `residenciaes` has.
+6. WhatsApp click-to-chat on `residenciaes` (contact page, service pages, home) via `whatsappHref`, Spanish
+   prefilled message.
+
+Exit: every brand has a crawlable article index and a feed; `staticPaths` and sitemaps list them; verify
+green; PR merged; §9 index line + `docs/log/s21.md`. Spawns nothing.
+
+### 14.6 Phase S22 — Funnel fixes (Sonnet, parallel)
+
+Owns: `src/features/quiz/questions.ts` (**the `ROUTE_DESTINATIONS` table only** — `scoring.ts` stays closed),
+`src/app/(en)/sites/residency/pricing/**`, `src/app/(en)/sites/guide/insider/page.tsx`, the service pages of
+every brand (a trust/process block), `content/shared/facts.ts` (new `pricing.*` keys), the contact pages of
+`residenciaes`, `residenciapt`, `frontier`, `flytta` (the short WhatsApp variant from O19),
+`src/components/ProcessTimeline.tsx` (new, additive), `src/i18n/messages/*/common.json` (additive keys only).
+
+1. **Quiz destinations per site.** `ROUTE_DESTINATIONS` becomes a per-`SiteKey` map: each brand's own
+   temporary/permanent page when it has one, the hub only for `residency`-less brands (`guide`); `investor-pass`
+   keeps crossing to `paraguayinvestorpass.com` by design. `docs/route-finder.md` updated; a test per brand.
+2. **Hub `/pricing`.** Rebuild as "what a fixed fee covers, what it never covers, how quoting works, what you
+   pay the state vs. us", per route. Every figure is a `<Fact k="pricing.<route>">` seeded `verified:false` with a
+   hedged display ("quoted on your call"); Anton types the real numbers in `/admin/facts` (§7). Same treatment
+   on `residenciaes` `/precios`, `residenciapt` `/precos`, `flytta` `/priser`, `frontier` `/pricing` — one key set,
+   per-locale `display`.
+3. **Trust and process.** A `ProcessTimeline` component (steps, "who does what", typical durations through
+   existing `<Fact>` timeline keys) on every brand's service pages; an honest "who files your case" block using
+   the copy that exists (the Asunción team, the weekly cadence); testimonials stay hidden until §7.
+4. **Short WhatsApp form** (O19's variant) beside the full form on the four non-hub service brands' contact
+   pages and home CTAs.
+5. `/insider` FAQ reads the live Guide price via `formatPrice` instead of "$7".
+
+Exit: quiz on each brand lands on-brand (tests); five pricing pages render through facts; timeline on every
+service page; verify green; PR merged; log. Spawns nothing.
+
+### 14.7 Phase S23 — Content depth (Sonnet, parallel, fan-out)
+
+Owns: **bodies only** of `content/**/*.mdx` (frontmatter titles/descriptions were trimmed by S20 — do not
+change them), new MDX files under existing hubs, `docs/guide-outline.md`.
+
+1. Expand the five ~100-word public stubs to 900–1200 words each, delivering the comparison their titles
+   promise (`is-paraguay-residency-worth-it`, `what-the-investor-pass-is`, `sa-gar-flytten-till`,
+   `rutas-de-residencia`, `rotas-de-residencia-temporaria-permanente-mercosul`).
+2. **Paid content first.** Every lesson under `content/guide/members/` to 700–1200 words; the three Insider
+   updates and the deep dive to 1000–1500 with a worked case (anonymised, hedged, every figure a `<Fact>`).
+   This is the product people pay for; it must out-depth the free blog.
+3. Nationality pillar articles under the hub's `documents` hub: British, American, German, South African
+   applicants (apostille chain, police certificate issuer, translation needs — hedged, no figures outside
+   `<Fact>`); two under `frontier/stories` (US, Canada). The `.co.uk` UK tilt from §10 lands here.
+4. Fan-out per `fable-directs-sonnet-builds`: brief each subagent with the fact-key allowlist, the frontmatter
+   schema, the `related` link rule and the S20 length bar; one audit pass (word counts, `<Fact>` keys, links)
+   before the PR.
+
+Exit: no public article under 600 words, no member lesson under 700; six new pillar articles; every new file
+passes `content.test.ts` and `content-links.test.ts`; verify green; PR merged; log. Spawns nothing. The
+closing report restates the §7 items that gate S6 and that S15 runs after O19.
