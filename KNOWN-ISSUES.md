@@ -88,23 +88,25 @@ without committing to a typeface the design phases have not chosen yet. S3–S5
 swap in `next/font` faces by redefining those two variables per theme — no
 component changes needed.
 
-## O2 — `output: 'standalone'` moves the working directory
+## CLEARED in S6 — `output: 'standalone'` moves the working directory
 
-`next.config.ts` sets `output: 'standalone'`, and the standalone server runs
-with its cwd inside `.next/standalone/`. Anything resolved from
-`process.cwd()` is therefore wrong in exactly the environment that matters.
-This bit the download endpoint during O2 verification: `private/` was not
-found and every download answered 503.
+O1 set `next.config.ts`'s `output: 'standalone'` on the theory that both
+deploy paths would run `node .next/standalone/server.js`, whose cwd is
+`.next/standalone/` and therefore breaks anything resolved from
+`process.cwd()` — this bit the download endpoint during O2 verification
+(`private/` not found, every download answered 503), "fixed" by
+`privateRoot()`'s `PRIVATE_DIR` override.
 
-Fixed in `privateRoot()` (`src/lib/download-policy.ts`), which now honours an
-explicit `PRIVATE_DIR`, then tries `<cwd>/private`, then the repo root as seen
-from `.next/standalone/`. **S6 must still copy `private/`, `public/` and
-`.next/static` into the release next to `server.js`** — the standalone bundle
-does not include them — or set `PRIVATE_DIR` to wherever the files live.
-
-O2 verified behaviour against `next start`. Whether the Hostinger slot runs
-`next start` or `node .next/standalone/server.js` is S6's call; if it is the
-latter, re-run the download check after the first deploy.
+**S6 found the premise was wrong and removed `output: 'standalone'`
+entirely.** Next 16 actively warns `"next start" does not work with "output:
+standalone" configuration` — and both real deploy paths (plan §1.7: Hostinger
+managed Node.js app first, VPS + Caddy + PM2 fallback) run
+`npm run build && npm start` (`next start`), never `server.js` directly. With
+standalone removed, `next start`'s cwd is always the repo root, `private/`
+resolves correctly with zero extra steps, and the copy-assets-next-to-
+server.js problem this note used to describe no longer exists on either path.
+`privateRoot()` is unchanged (its `PRIVATE_DIR` override and cwd fallback are
+harmless defensive code either way) — see `docs/runbook.md` → Deploy.
 
 ## O2 — Stripe was exercised with a locally-signed webhook, not a live test purchase
 

@@ -813,6 +813,68 @@ Where S6 looks first: `docs/runbook.md` (S6 to write) needs the Stripe live
 purchase against this page's live checkout button; `KNOWN-ISSUES.md`'s S5
 entry has the exact env vars still needed.
 
+**2026-09-07 — S6 Deploy, domains, analytics, imagery (partial — blocked on Anton, see `docs/decisions-needed.md`)**
+
+What now exists: everything §6.4 asks for that doesn't require live
+credentials or physical access. `src/lib/analytics.tsx` — env-gated Plausible
+(`NEXT_PUBLIC_PLAUSIBLE_ENABLED`), no API key needed since Plausible
+identifies a site by its own `canonicalHost`; wired into the shared root
+layout so all seven brands get it for free once flipped on. `docs/runbook.md`
+— both deploy paths (Hostinger managed Node app first choice, VPS + Caddy +
+PM2 fallback per plan §1.7), adding a fourth/eighth domain, adding an
+article, and the DB-password-rotation trap from the deploy skill. A real bug
+found by running the build, not by reading it: Next 16 warns `"next start"
+does not work with "output: standalone"`, and neither real deploy path
+(`npm run build && npm start` in both cases) ever invokes `server.js`
+directly — so `output: 'standalone'` in `next.config.ts` was actively wrong,
+not merely unused, and is removed (`KNOWN-ISSUES.md`, cleared). This also
+retires the copy-assets-next-to-server.js problem O2 had logged for S6:
+there is nothing left to copy, `next start`'s cwd is always the repo root.
+Verified: clean `rm -rf .next`, `npm run verify` green (321 tests), then
+`next build` + `next start` + `/api/health` 200 on all three launch hosts
+(`paraguayresidency.com`, `paraguayinvestorpass.com.py`,
+`paraguayinvestorguide.com`) with and without `NEXT_PUBLIC_PLAUSIBLE_ENABLED`.
+
+What is genuinely blocked, and why: this session has no Hostinger
+login/SSH, no DNS registrar access, no Stripe live keys, and no Search
+Console access — none of which have a graceful in-code fallback. Per plan
+§4.4 these are recorded in `docs/decisions-needed.md` rather than guessed at:
+(1) attempt the one-Hostinger-slot-three-domains attach, VPS fallback if it
+fails; (2) set the real env vars in hPanel; (3) DNS for the three domains;
+(4) live Stripe product/keys/webhook + one real purchase and refund; (5)
+Search Console verification and sitemap submission per domain. Imagery
+(§6.4.6) is also blocked, but on a different thing: `higgsfield-image-pipeline`
+Rule 2 requires `*.cloudfront.net` on this cloud environment's network
+allowlist, and it returned 403 (`connect_rejected`, confirmed via the agent
+proxy's `/__agentproxy/status`) — so no Higgsfield credits were spent
+generating images that could not be downloaded back into the repo. The
+one-time environment-setting fix is in `docs/decisions-needed.md`.
+
+Decisions and deviations:
+- `output: 'standalone'` removed from `next.config.ts` (above) — a correction
+  of an O1 decision, not a new deviation from this phase's own scope.
+- No Hostinger attach attempt was made (there is no hPanel access to attempt
+  it with), so §1.7's "try one slot first, VPS if it fails" question is still
+  open — whoever has hPanel access answers it, per the runbook.
+- This PR is NOT merged and S10–S14 are NOT spawned. Plan §4.12 gates the
+  parallel content lane on S6's own PR being merged green, and this phase's
+  exit checklist (three domains live, Search Console verified, one live
+  Stripe purchase + refund) cannot pass without the access above. Spawning
+  the five-way parallel lane against un-deployed infrastructure would let
+  five sessions burn budget building content nobody can see live yet, and
+  plan §4.9's "never hand off with a red PR" reads the same way for S6's own
+  handoff. Merging deploy-readiness work early was judged worse than leaving
+  it on a branch: `KNOWN-ISSUES.md` already lists the standalone-output fix
+  as a real bug, and losing it to bit-rot behind an unmerged PR while five
+  more sessions build on `main` seemed like the wrong trade.
+
+Where the next S6 attempt looks first: `docs/decisions-needed.md` (every
+credential/access item, numbered); `docs/runbook.md` (exact deploy steps for
+whichever hosting path hPanel allows); `KNOWN-ISSUES.md`'s S5 entry for the
+Stripe env vars. Once items 1–5 there are done, re-run this same prompt file
+in a fresh Sonnet session (or resume this branch) to finish the exit
+checklist, merge, and spawn S10–S14.
+
 **2026-09-07 — F9 Domain reality re-plan (Fable 5.1, window opened by Anton, approved §1.9)** — branch `claude/fable-domain-rebrand-replan-cyyn7r`
 
 What now exists: the brand↔domain map is re-decided on the seven domains Anton
@@ -1210,6 +1272,40 @@ content-scope decisions"):
 Where S15 looks first: `docs/flytta-redirects.md` is the complete
 old-URL→new-path table it turns into the registry's per-site 301 map
 (plan §6.10 task 4).
+
+**2026-09-09 — S6 re-run: merge the domain sweep, still owner-blocked** — branch `phase/s6`
+
+What now exists: `phase/s6` merged with latest `main` (S16's domain sweep, plus S10–S14, all merged
+in the meantime), resolving one conflict in this file's own build log (both sides' entries kept, in
+chronological order). Per the F9 amendment at the top of `prompts/sonnet-6-deploy-seo-imagery.md`,
+`docs/runbook.md` and `docs/decisions-needed.md` are swept to the domains Anton actually owns —
+`paraguayresidency.co.uk` (hub), `paraguayinvestorpass.com`, `paraguayresidencyguide.com` for S6's own
+three; the Caddyfile example and the "adding a domain" section now name all seven since S10–S14 have
+since shipped the other four brands (S15 attaches those four domains later, same app, never a new
+slot). The Stripe live webhook host in `docs/decisions-needed.md` is corrected to
+`paraguayresidencyguide.com`. `src/lib/email.ts`'s sending domain was already
+`hello@paraguayresidency.co.uk` from S16 — nothing to change there. `npm run verify` re-run green (322
+tests) after the merge.
+
+Decisions and deviations:
+- Confirmed still genuinely blocked, unchanged from this phase's first run: no Hostinger login/SSH, no
+  DNS registrar access, no Stripe live keys, no Search Console access in this session. Re-tested the
+  imagery blocker directly (`curl` to `*.cloudfront.net` through the agent proxy) — still
+  `connect_rejected` / 403, so still no Higgsfield images generated or downloaded.
+- The F9 amendment also retires this phase's own handoff instruction to spawn S10–S14 (plan §4.12 was
+  amended to gate that lane on S16 instead) — corrected the stale "S6 will not merge, and will not
+  spawn S10–S14" line in `docs/decisions-needed.md` to match: S6's handoff is a merged green PR and
+  this §9 entry; S15 is spawned by the content lane's own claim rule once S6 and S10–S14 have all
+  merged (they already have).
+- This PR is still NOT merged — items 1 (hosting attach) and 4 (live Stripe purchase + refund) in
+  `docs/decisions-needed.md` are exit-checklist items that need Anton's credentials/access, not code
+  this session can write. Nothing here is a build-time blocker: verify is green, the app builds and
+  starts cleanly, `/api/health` still responds correctly wherever it's run.
+
+Where the next S6 attempt looks first: `docs/decisions-needed.md`, items 1–6, unchanged in substance
+from the first run — only the domain names and the (already-complete) S10–S14 dependency were stale.
+Once Anton or a session with the right access completes them, re-run this same prompt (or resume
+`phase/s6`) to verify `/api/health` on the three live hosts and merge.
 
 ## 10. Backlog
 
