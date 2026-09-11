@@ -540,3 +540,23 @@ with a botnet unlimited bcrypt guesses at one account, which is the CPU-DoS this
 phase exists to close, so the trade is deliberate. The escape hatch is that the
 window is 15 minutes and the limiter is in-process: waiting it out works, and a
 redeploy clears it immediately.
+
+## OPEN — the coarse middleware limit also covers the two webhook routes (O18)
+
+Plan §14.2.1 puts a 120/min per-IP ceiling on every `POST /api/*` and carves out
+no exception, so `/api/stripe/webhook` and `/api/lemonsqueezy/webhook` are under
+it too. A processor delivers from a small set of IPs, so a burst of more than
+120 events a minute — a backlog being drained after an outage, a bulk refund —
+would meet our own limit rather than an attacker's.
+
+Not fixed, for two reasons: at a $7 entry product and a single subscription tier
+that burst is not a realistic volume, and the failure is safe rather than
+silent. Both processors retry a non-2xx (Stripe for up to three days, Lemon
+Squeezy three times with exponential backoff), both webhooks are idempotent
+through `webhook_events`, and O17 made a failed delivery's retry actually re-run.
+So the worst case is a delayed fulfilment, not a lost one.
+
+What would make it worth fixing: real volume, or a processor that does not
+retry. The fix is a `startsWith('/api/stripe/') || startsWith('/api/lemonsqueezy/')`
+skip in `src/middleware.ts` — safe only because those two routes verify a
+signature before doing anything, which is what makes them not worth flooding.
