@@ -1,7 +1,13 @@
 import { describe, expect, it } from 'vitest';
 import { claimVerdict } from '@/lib/purchases';
 import { handleLemonSqueezyEvent } from '@/lib/subscriptions';
-import { ADMIN_GRANT_PREFIX, describeGrant, planGrant } from '@/lib/member-admin';
+import {
+  ADMIN_GRANT_LIKE,
+  ADMIN_GRANT_PREFIX,
+  describeGrant,
+  grantMarker,
+  planGrant,
+} from '@/lib/member-admin';
 import { effectiveTier, subscriptionEverPaid } from '@/lib/entitlements';
 import { resourceUnlocked } from '@/lib/download-policy';
 
@@ -158,6 +164,24 @@ describe('the granted row is visible to effectiveTier — the point of §14.1.5'
 
   it('marks its rows so a revoke can find exactly them', () => {
     expect(ADMIN_GRANT_PREFIX).toBe('admin_grant_');
+    expect(grantMarker(7, new Date(1_800_000_000_000)).startsWith('admin_grant_7_')).toBe(true);
+  });
+
+  it('gives two grants in the same millisecond different ids', () => {
+    // The timestamp alone collided on `subscriptions_provider_uq` and the
+    // admin saw a bare "Grant failed".
+    const at = new Date(1_800_000_000_000);
+    const markers = new Set(Array.from({ length: 50 }, () => grantMarker(7, at)));
+    expect(markers.size).toBe(50);
+  });
+
+  it('escapes the LIKE pattern a revoke matches on', () => {
+    // `_` is a single-character wildcard in MySQL LIKE, so the bare prefix
+    // would also match `adminXgrantY…`. A revoke is destructive; it should
+    // match exactly what it claims to.
+    expect(ADMIN_GRANT_LIKE).toBe(String.raw`admin\_grant\_%`);
+    // And the ids it is meant to match still satisfy it once unescaped.
+    expect(grantMarker(1).startsWith(ADMIN_GRANT_PREFIX)).toBe(true);
   });
 });
 

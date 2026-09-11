@@ -1235,6 +1235,8 @@ Decisions and deviations:
 - `resources` has no `drip_days`, so `resourceUnlocked()` passes a documented constant 0 — the route runs the full gate, so the column is one constant away. Backlog.
 - Every test is pure or in-memory, as §14.1.8 requires. What that does NOT cover is the SQL under the decisions (`affectedRows` on a re-claim, `ER_DUP_ENTRY` on `purchases_checkout_uq`); logged as an open item in `KNOWN-ISSUES.md` and the Backlog.
 
+Pre-handoff audit (§4.9): `npm run verify` re-run green on merged `main` (395 tests); the adversarial re-read of the merged diff found two real defects in `member-admin.ts`, fixed in one follow-up PR — the revoke's `LIKE 'admin_grant_%'` used `_` as a wildcard (MySQL treats it as one; escaped now), and the grant marker was `<userId>_<ms>`, which collided on `subscriptions_provider_uq` when two grants for one member landed in the same millisecond (random suffix now). 397 tests.
+
 Where O18 looks first: `src/lib/rate-limit.ts` — `take`, `peek`, `reset(key)` and `clientIp(headers)` are built for §14.2.1 and already used by the free-access branch of `/api/checkout`. Note `/api/health` already returns `secret`, so O18 adds `email` and `crm` beside it. `src/middleware.ts` and `next.config.ts` were deliberately left untouched.
 
 ## 10. Backlog
