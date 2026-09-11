@@ -5,11 +5,12 @@ import { createHash, createHmac, randomBytes, timingSafeEqual } from 'node:crypt
  * the download tokens. Everything here is pure and synchronous so it can be
  * unit-tested without a database, a request or a network call.
  *
- * `SESSION_SECRET` is the one secret. It is optional at build time (plan
+ * `SESSION_SECRET` is the one secret. Outside production it is optional (plan
  * §4.5): without it we fall back to a clearly-marked development key so
- * `next build` and `npm run verify` pass on a clean checkout. Anything the
- * fallback signs is worthless to an attacker anyway, because the fallback is
- * only ever reached on a machine that has no real secret set.
+ * `next build` and `npm run verify` pass on a clean checkout. **In production
+ * that fallback is refused** — see `signingSecret` below, which O17 rewrote
+ * because the fallback is published in this repository and a deploy that
+ * forgot the secret was handing out forgeable admin sessions.
  */
 const DEV_FALLBACK_SECRET = 'dev-insecure-secret-set-SESSION_SECRET-in-env';
 
