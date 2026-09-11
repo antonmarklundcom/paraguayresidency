@@ -177,6 +177,17 @@ export function takeLimit(name: LimitName, key: string, now = Date.now()): RateL
 }
 
 /**
+ * Forget one named limit's counter — the `reset` above, with the same key
+ * namespacing `takeLimit` applies. Call sites must not rebuild the prefix by
+ * hand: a change to how `takeLimit` names its keys would then silently stop
+ * resetting anything, and the symptom would be an admin who mistyped twice
+ * being locked out for fifteen minutes.
+ */
+export function resetLimit(name: LimitName, key: string): void {
+  reset(`${name}:${key}`);
+}
+
+/**
  * The one message every limited surface shows. Deliberately plain and free of
  * numbers: telling a script the exact window is telling it how long to sleep.
  */

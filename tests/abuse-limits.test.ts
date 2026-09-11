@@ -4,6 +4,7 @@ import {
   claimConfirmationSend,
   LIMITS,
   peek,
+  resetLimit,
   subscribeLimit,
   takeBoth,
   takeLimit,
@@ -124,5 +125,28 @@ describe('subscribeLimit — one gate for the action and the API route', () => {
     expect(claimConfirmationSend('guide', 'reader@example.com', t0)).toBe(true);
     expect(claimConfirmationSend('guide', 'READER@example.com', t0)).toBe(false);
     expect(claimConfirmationSend('residency', 'reader@example.com', t0)).toBe(true);
+  });
+});
+
+describe('resetLimit — what a successful login forgets', () => {
+  it('clears the named limit without touching its neighbours', () => {
+    for (let i = 0; i < 5; i += 1) takeLimit('adminLogin', 'ip:2.2.2.2', t0);
+    for (let i = 0; i < 5; i += 1) takeLimit('adminLogin', 'email:someone@example.com', t0);
+    expect(takeLimit('adminLogin', 'ip:2.2.2.2', t0).ok).toBe(false);
+
+    resetLimit('adminLogin', 'ip:2.2.2.2');
+
+    // The person who finally typed their password correctly starts fresh…
+    expect(takeLimit('adminLogin', 'ip:2.2.2.2', t0).ok).toBe(true);
+    // …and nothing else was forgotten.
+    expect(takeLimit('adminLogin', 'email:someone@example.com', t0).ok).toBe(false);
+  });
+
+  it('applies the same key namespace takeLimit does', () => {
+    // The bug this guards: a call site that rebuilt the prefix by hand would
+    // silently stop resetting anything the day `takeLimit` renamed its keys.
+    takeLimit('lead', '4.4.4.4', t0);
+    resetLimit('lead', '4.4.4.4');
+    expect(peek('lead:4.4.4.4', 1, t0)).toBe(true);
   });
 });

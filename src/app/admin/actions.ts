@@ -10,7 +10,7 @@ import { currentAdmin, login, logout, requireRole } from '@/lib/auth';
 import { retryLeadDelivery } from '@/lib/leads';
 import { resendDownload } from '@/lib/purchases';
 import { grantTierUntil } from '@/lib/member-admin';
-import { clientIp, RATE_LIMIT_MESSAGE, reset, takeBoth } from '@/lib/rate-limit';
+import { clientIp, RATE_LIMIT_MESSAGE, resetLimit, takeBoth } from '@/lib/rate-limit';
 import { factKeys } from '@content/shared/facts';
 
 /**
@@ -61,7 +61,7 @@ export async function loginAction(_prev: LoginState, form: FormData): Promise<Lo
     return { error: result.error };
   }
 
-  for (const key of keys) reset(`adminLogin:${key}`);
+  for (const key of keys) resetLimit('adminLogin', key);
   redirect('/admin/leads');
 }
 

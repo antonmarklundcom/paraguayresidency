@@ -28,16 +28,15 @@ import type { LeadFormState, SubscribeFormState } from './lead-state';
 const str = (form: FormData, key: string): string => String(form.get(key) ?? '');
 
 /**
- * The limits (plan §14.2.1). A server action is a POST to the page's own URL,
- * not to `/api/*`, so the middleware's coarse net does NOT cover these two —
- * they carry their own, and they are the highest-volume public write path in
- * the app.
+ * The two limited public writes (plan §14.2.1). A server action is a POST to
+ * the page's own URL, not to `/api/*`, so the middleware's coarse net does NOT
+ * cover them — they carry their own, and they are the highest-volume public
+ * write path in the app.
  *
  * `state.errors.form` and `state.message` are what `LeadFormFields` and
- * `NewsletterFormFields` already render, so a 429 arrives as a sentence in the
- * form rather than as a thrown error.
+ * `NewsletterFormFields` already render, so a refusal arrives as a sentence in
+ * the form rather than as a thrown error.
  */
-
 export async function submitLeadAction(
   _prev: LeadFormState,
   form: FormData,

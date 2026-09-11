@@ -516,3 +516,27 @@ not have to touch `next.config.ts` and so the first deploy with analytics does
 not produce a wall of violation reports. If the analytics decision ever lands on
 something other than Plausible, the two allowances in `PUBLIC_CSP` are the only
 lines to change.
+
+## OPEN — two costs of limiting per IP and per email (O18, accepted)
+
+Both are inherent to the limits plan §14.2.1 specifies, not bugs in them. Named
+here so nobody re-diagnoses them from a support ticket.
+
+**Shared IPs share a bucket.** The lead forms are 10/hour per IP and
+`/api/subscribe` is 20/hour per IP. A company office, a co-working space or a
+mobile carrier behind CGNAT is one IP to us, so a genuine burst from one network
+can meet a limit. The numbers are set well above one person's use, and a refused
+visitor sees a sentence telling them to wait rather than an error — but this is
+the one limit whose false positive costs a lead, which is the thing this whole
+project exists to collect. If `/admin/leads` ever shows a suspicious gap, check
+the app log for the refusals before assuming a traffic drop; the number to raise
+is one line in `LIMITS`.
+
+**An admin can be locked out by someone spraying their email.** Admin login is
+5 per 15 minutes counted against the IP *and* the email, so anyone who knows
+(or guesses) Anton's admin address can keep that bucket full from anywhere and
+hold the door shut. The alternative — limiting per IP only — hands an attacker
+with a botnet unlimited bcrypt guesses at one account, which is the CPU-DoS this
+phase exists to close, so the trade is deliberate. The escape hatch is that the
+window is 15 minutes and the limiter is in-process: waiting it out works, and a
+redeploy clears it immediately.
