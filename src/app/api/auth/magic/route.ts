@@ -9,6 +9,7 @@ import { currentSite } from '@/lib/current-site';
 import { magicLinkEmail } from '@/lib/email-templates';
 import { sendEmail } from '@/lib/email';
 import { isSiteKey, siteSellsProducts } from '@/sites/registry';
+import { clientIp, takeBoth } from '@/lib/rate-limit';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -27,22 +28,17 @@ const bodySchema = z.object({
   website: z.string().max(200).optional(),
 });
 
-/** In-memory fixed window. One Node process (stack skill), so this is correct. */
-const attempts = new Map<string, { count: number; resetAt: number }>();
-const WINDOW_MS = 15 * 60 * 1000;
-const MAX_PER_WINDOW = 5;
-
-function rateLimited(key: string, now = Date.now()): boolean {
-  const entry = attempts.get(key);
-  if (!entry || entry.resetAt <= now) {
-    attempts.set(key, { count: 1, resetAt: now + WINDOW_MS });
-    if (attempts.size > 5000) attempts.clear();
-    return false;
-  }
-  entry.count += 1;
-  return entry.count > MAX_PER_WINDOW;
-}
-
+/**
+ * The limits moved to `src/lib/rate-limit.ts` in O18. The local map this route
+ * used to keep had two faults, both from `docs/improvement-report.md` §1.7:
+ *
+ *  - `if (attempts.size > 5000) attempts.clear()` — spraying 5000 addresses
+ *    wiped EVERY limiter in the process, this one included. The shared limiter
+ *    evicts per key and lazily, and has no global clear at all.
+ *  - `rateLimited(email) || rateLimited(ip)` short-circuited, so once an
+ *    address was over its limit the IP stopped being counted. `takeBoth` spends
+ *    both, always.
+ */
 const OK = { ok: true as const, sent: true as const };
 
 export async function POST(request: NextRequest) {
@@ -62,9 +58,11 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ ok: false, error: 'not-found' }, { status: 404 });
   }
 
-  const ip = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ?? 'unknown';
-  if (rateLimited(`e:${body.email}`) || rateLimited(`i:${ip}`)) {
-    // Still 200: a 429 tells a prober their guess is being counted.
+  const ip = clientIp(request.headers);
+  if (!takeBoth('magicLink', [`e:${body.email}`, `i:${ip}`]).ok) {
+    // Still 200, and still `sent: true`: a 429 here tells a prober that this
+    // address is the one being counted, which is the same account-existence
+    // oracle the neutral answer above exists to close.
     console.warn('[member-auth] magic link rate limited', ip);
     return NextResponse.json(OK);
   }

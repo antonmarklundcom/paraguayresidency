@@ -1,5 +1,6 @@
 import { describe, expect, it, beforeEach, afterEach, vi } from 'vitest';
 import { GUIDE_ENTRY_SLUG, GUIDE_INSIDER_SLUG, sites, siteSellsProducts } from '@/sites/registry';
+import { __resetAllForTests } from '@/lib/rate-limit';
 
 /**
  * `POST /api/checkout` routes on `products.provider` (plan §5.4.6). The route
@@ -71,6 +72,11 @@ function post(body: Record<string, unknown>) {
 }
 
 beforeEach(() => {
+  // O18 added a 10/hour/IP limit to this route and every request in this file
+  // arrives with no `x-forwarded-for`, so they all share the `unknown` bucket.
+  // Each case starts with a fresh window; the limit itself is tested in
+  // `tests/abuse-limits.test.ts`.
+  __resetAllForTests();
   state.product = product();
   state.stripeCalled = 0;
   state.lsCalled = 0;
