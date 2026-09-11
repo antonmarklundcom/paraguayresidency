@@ -55,6 +55,14 @@ expects it. O2 proved MariaDB can be installed in this container, so a phase
 with time to spare can replay a fixture against it; `npm run verify` must keep
 passing with no database either way (plan §4.5).
 
+## OPEN — the doc comment above `grantTierAction` is stale after O17
+
+Found in O17. `src/app/admin/actions.ts` still says the grant "is the one thing
+that can make the cache disagree with the purchase rows on purpose". Since O17
+a grant IS a purchase/subscription row, so nothing disagrees. Not fixed here
+because that file belongs to O18 (plan §14.2); O18 should correct the two
+sentences while it is rate-limiting the same function.
+
 ## OPEN — an admin `entry` grant cannot be given an expiry
 
 Found in O17. `grantTierUntil` refuses a dated `entry` grant with a message
