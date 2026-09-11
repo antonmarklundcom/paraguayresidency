@@ -5,7 +5,7 @@ import {
   verifyLemonSqueezySignature,
   type LsWebhookBody,
 } from '@/lib/lemonsqueezy';
-import { finishWebhookEvent, recordWebhookEvent } from '@/lib/webhooks';
+import { finishWebhookEvent, recordWebhookEvent, shouldRunHandler, withEventLock } from '@/lib/webhooks';
 import { handleLemonSqueezyEvent } from '@/lib/subscriptions';
 
 export const runtime = 'nodejs';
@@ -46,7 +46,9 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ ok: false, error: 'invalid-json' }, { status: 400 });
   }
 
-  const eventId = lemonSqueezyEventId(body);
+  // The RAW bytes, not the re-serialised object: a retry repeats the exact
+  // body it signed, which is what makes the hash in the key stable.
+  const eventId = lemonSqueezyEventId(body, payload);
   const type = body.meta?.event_name ?? 'unknown';
   if (!eventId) {
     // Nothing to be idempotent on: log it and drop it rather than risk
@@ -55,15 +57,22 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ ok: true, ignored: 'no-event-id' });
   }
 
+  // Claim before processing (O17 §14.1.2) — see the Stripe sibling.
+  return withEventLock(`lemonsqueezy:${eventId}`, () => handle(body, eventId, type));
+}
+
+async function handle(
+  body: LsWebhookBody,
+  eventId: string,
+  type: string,
+): Promise<NextResponse> {
   const logged = await recordWebhookEvent({
     provider: 'lemonsqueezy',
     providerEventId: eventId,
     type,
     payload: body,
   });
-  // Seen AND finished: a plain retry, so do nothing. Seen but never finished:
-  // the previous attempt failed, and this retry is the second chance.
-  if (logged.duplicate && logged.processed) {
+  if (!shouldRunHandler(logged)) {
     return NextResponse.json({ ok: true, duplicate: true });
   }
 

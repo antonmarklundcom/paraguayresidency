@@ -5,7 +5,7 @@ import { products, providerCustomers, subscriptions } from '@/db/schema';
 import { mapSubscriptionStatus, type LsWebhookBody } from './lemonsqueezy';
 import { findOrCreateUser } from './member-auth';
 import { entitlementFor, refreshUserTier } from './entitlements';
-import { fulfilCheckout } from './purchases';
+import { fulfilCheckout, markRefunded } from './purchases';
 import { insiderWelcomeEmail } from './email-templates';
 import { sendEmail, unsubscribeUrl } from './email';
 import { GUIDE_INSIDER_SLUG, isSiteKey, siteOrigin, type SiteKey } from '@/sites/registry';
@@ -64,6 +64,7 @@ export async function handleLemonSqueezyEvent(body: LsWebhookBody): Promise<LsHa
   const site = siteFrom(body);
 
   if (event === 'order_created') return handleOrder(body, attrs, site);
+  if (event === 'order_refunded') return handleOrderRefunded(body);
   if (SUBSCRIPTION_EVENTS.has(event)) return handleSubscription(body, attrs, site, event);
 
   // Unknown events are logged by the route and ignored here, exactly as
@@ -106,6 +107,23 @@ async function handleOrder(
     await linkCustomer(result.userId, str(attrs.customer_id));
   }
   return { handled: 'order_created', purchaseId: result.purchaseId, userId: result.userId };
+}
+
+/**
+ * The charge came back (O17 §14.1.4). Before O17 `order_refunded` was in the
+ * ignored bucket, so a refunded Lemon Squeezy buyer kept `entry` for ever —
+ * `markRefunded` existed and nothing called it on this side.
+ *
+ * `purchases.provider_order_id` for a Lemon Squeezy order is the order id, which
+ * is exactly what `data.id` carries on this event, so the row is found the same
+ * way the Stripe refund path finds its own. `markRefunded` recomputes the tier
+ * immediately rather than waiting for the nightly reconcile.
+ */
+async function handleOrderRefunded(body: LsWebhookBody): Promise<LsHandled> {
+  const orderId = str(body.data?.id);
+  if (!orderId) return { handled: 'order_refunded:incomplete' };
+  await markRefunded(orderId, 'lemonsqueezy');
+  return { handled: 'order_refunded' };
 }
 
 /* ----------------------------------------------------------- subscriptions */

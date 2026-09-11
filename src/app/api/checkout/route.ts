@@ -14,6 +14,7 @@ import {
   recordPendingPurchase,
 } from '@/lib/purchases';
 import { randomToken } from '@/lib/signing';
+import { clientIp, take } from '@/lib/rate-limit';
 import { pickUtm } from '@/lib/lead-schema';
 import { checkFormGuard, isSilentDrop } from '@/lib/form-guard';
 import { currentSite } from '@/lib/current-site';
@@ -25,8 +26,51 @@ import { GUIDE_ENTRY_SLUG, isSiteKey, siteOrigin, siteSellsProducts } from '@/si
  * skips Stripe entirely and calls the same `fulfilCheckout` a real webhook
  * would, so the buyer still gets a real `purchases` row (amount 0, marked
  * paid), a member account and the download email — see KNOWN-ISSUES.md.
+ *
+ * O17 hardened three things about it (plan §14.1.6):
+ *
+ *  - it worked exactly ONCE. Every free purchase was written with the constant
+ *    `providerOrderId: 'free-access-mode'`, and `purchases_provider_order_uq`
+ *    is `(provider, provider_order_id)` — so the second free buyer got an
+ *    uncaught ER_DUP_ENTRY 500 (`docs/improvement-report.md` §1.3). The order
+ *    id is now the checkout id, which is already unique and already random.
+ *  - it stayed armed after Stripe went live. A forgotten `FREE_ACCESS_MODE=true`
+ *    next to a real `STRIPE_SECRET_KEY` gave the product away; the two are now
+ *    mutually exclusive and the live key wins.
+ *  - it was an unauthenticated "create an account and email a sign-in link to
+ *    any address" endpoint with no limit. Five per hour per IP.
  */
-const FREE_ACCESS_MODE = process.env.FREE_ACCESS_MODE === 'true';
+const FREE_ACCESS_WINDOW_MS = 60 * 60 * 1000;
+const FREE_ACCESS_PER_IP = 5;
+
+/**
+ * Read at request time, not module scope: the tests and a running process must
+ * both see a changed env, and a live Stripe key disarms it whatever the flag
+ * says.
+ */
+export function freeAccessMode(env: NodeJS.ProcessEnv = process.env): boolean {
+  if (env.FREE_ACCESS_MODE !== 'true') return false;
+  if ((env.STRIPE_SECRET_KEY ?? '').trim() !== '') {
+    console.error(
+      '[checkout] FREE_ACCESS_MODE=true is ignored because STRIPE_SECRET_KEY is set — ' +
+        'remove the flag (KNOWN-ISSUES.md) rather than giving the guide away next to a live key',
+    );
+    return false;
+  }
+  return true;
+}
+
+/**
+ * The ids one free purchase is written with. `provider_order_id` MUST vary per
+ * buyer: `purchases_provider_order_uq` is `(provider, provider_order_id)`, so
+ * the old constant `'free-access-mode'` made the second free buyer an uncaught
+ * ER_DUP_ENTRY 500. The checkout id is already unique and unguessable, so it
+ * serves as both.
+ */
+export function freeAccessIds(): { checkoutId: string; providerOrderId: string } {
+  const checkoutId = `free_${randomToken()}`;
+  return { checkoutId, providerOrderId: checkoutId };
+}
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -112,15 +156,28 @@ export async function POST(request: NextRequest) {
     }
   }
 
-  if (FREE_ACCESS_MODE && provider === 'stripe' && slug === GUIDE_ENTRY_SLUG) {
+  if (freeAccessMode() && provider === 'stripe' && slug === GUIDE_ENTRY_SLUG) {
     if (!body.email) {
       return NextResponse.json({ ok: false, error: 'email-required' }, { status: 422 });
     }
-    const checkoutId = `free_${randomToken()}`;
+    // Unauthenticated, and it emails a sign-in link to whatever address it is
+    // given — so it is limited per IP even though it charges nothing.
+    const limit = take(
+      `free-access:${clientIp(request.headers)}`,
+      FREE_ACCESS_PER_IP,
+      FREE_ACCESS_WINDOW_MS,
+    );
+    if (!limit.ok) {
+      return NextResponse.json(
+        { ok: false, error: 'rate-limited', message: 'Too many requests. Try again later.' },
+        { status: 429, headers: { 'retry-after': String(limit.retryAfterSeconds) } },
+      );
+    }
+    const { checkoutId, providerOrderId } = freeAccessIds();
     const result = await fulfilCheckout({
       checkoutId,
       provider: 'stripe',
-      providerOrderId: 'free-access-mode',
+      providerOrderId,
       email: body.email,
       amountCents: 0,
       currency,

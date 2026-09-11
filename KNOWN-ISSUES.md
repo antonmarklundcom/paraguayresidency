@@ -27,12 +27,57 @@ interactive session, not a spawned phase, so it was made here rather than
 handed to Opus. Flagging it explicitly so a later phase or reviewer doesn't
 mistake the carve-out for a precedent.
 
+**Hardened in O17** (plan §14.1.6), still temporary: the flag is **ignored**
+whenever `STRIPE_SECRET_KEY` is set (the live key wins, so a forgotten flag
+cannot give the guide away), every free purchase gets a unique
+`provider_order_id` (the constant `'free-access-mode'` collided on
+`purchases_provider_order_uq` and 500'd the second buyer), and the branch is
+limited to 5 per hour per IP because it creates an account and emails a sign-in
+link to any address it is handed.
+
 **Remove when S6 sets real Stripe keys:** delete the `FREE_ACCESS_MODE` var
 (`.env.example`), the branch in `src/app/api/checkout/route.ts`, the
 `freeAccess` branch in `src/components/CheckoutButton.tsx`, and the
 `needsEmail` branch in `src/components/CheckoutButtonClient.tsx` (or leave the
 client changes — they're inert once the server never returns
 `email-required`).
+
+## OPEN — the webhook and fulfilment paths still have no live-MySQL test
+
+Found in O17. Every O17 fix is covered by a pure or in-memory test
+(`tests/webhook-retry.test.ts`, `tests/money-correctness.test.ts`), and the
+decisions they encode — `webhookClosure`, `shouldRunHandler`, `claimVerdict`,
+`planGrant` — are the parts that were wrong. What is still untested against a
+real database is the SQL those decisions sit on: that `UPDATE … WHERE status <>
+'paid'` really reports `affectedRows: 0` on a second call, and that
+`purchases_checkout_uq` really raises `ER_DUP_ENTRY` where the insert path
+expects it. O2 proved MariaDB can be installed in this container, so a phase
+with time to spare can replay a fixture against it; `npm run verify` must keep
+passing with no database either way (plan §4.5).
+
+## OPEN — the doc comment above `grantTierAction` is stale after O17
+
+Found in O17. `src/app/admin/actions.ts` still says the grant "is the one thing
+that can make the cache disagree with the purchase rows on purpose". Since O17
+a grant IS a purchase/subscription row, so nothing disagrees. Not fixed here
+because that file belongs to O18 (plan §14.2); O18 should correct the two
+sentences while it is rate-limiting the same function.
+
+## OPEN — an admin `entry` grant cannot be given an expiry
+
+Found in O17. `grantTierUntil` refuses a dated `entry` grant with a message
+saying why: an `entry` grant is a zero-amount `purchases` row, purchases have no
+expiry column, and the schema is FINAL (O9). The workaround is a dated `insider`
+grant, which does expire. See Backlog `purchases.expires_at`.
+
+## CLEARED in O17 — the P0s and P1s of `docs/improvement-report.md` §1.1–1.6
+
+Items 1–6 are fixed on `phase/o17`, plus the two halves of item 10 that are
+O17's: the webhook retry, the claim before processing, the production
+weak-secret refusal, the Lemon Squeezy idempotency key and `order_refunded`,
+admin grants as rows, the `FREE_ACCESS_MODE` order id, never-paid
+subscriptions, and the resource download's drip gate. Items 7–9, and item 10's
+`x-site` spoof and security headers, are O18's.
 
 ## CLEARED in O2 — migrate + seed ran against a real MySQL
 

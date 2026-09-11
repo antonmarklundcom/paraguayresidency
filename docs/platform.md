@@ -70,17 +70,25 @@ The rules, in order:
    not an end date: someone who cancels on day 2 keeps the month they paid for.
 3. Otherwise `entry` if they ever paid for anything — including a lapsed
    Insider, who decays to `entry` and **not** to `none`, because they keep what
-   they bought.
+   they bought. A subscription that **never took a payment** (cancelled/expired
+   with no period end and no `ends_at`) grants nothing — `subscriptionEverPaid`.
 4. Otherwise `none`.
 
 A refunded purchase grants nothing, and `markRefunded()` recomputes the tier
 immediately rather than waiting for the nightly job.
 
+**An admin grant is a row, never a cache write** (O17): a real `subscriptions`
+row (`active`, or `cancelled` with `ends_at` when dated) or a zero-amount paid
+`purchases` row, marked `admin_grant_…`, then `refreshUserTier()`. It therefore
+survives `reconcileTiers` and is visible to `effectiveTier`.
+
 ### Drip
 
 `modules.drip_days` and `lessons.drip_days` are offsets from `firstEntitledAt`
 — the member's earliest paid row, so someone who returns after a year does not
-restart at lesson one. `isUnlocked()` requires **both** the tier and the drip.
+restart at lesson one. `isUnlocked()` requires **both** the tier and the drip,
+and since O17 the resource download runs it too (`resourceUnlocked`; `resources`
+has no `drip_days`, so its offset is 0).
 
 ### Reconcile
 
@@ -116,8 +124,16 @@ tests build their own fixture and `npm run verify` needs no key and no network.
 4. Handle inline, mark the event processed, answer 200. A 500 is reserved for
    faults worth retrying.
 
-The Lemon Squeezy idempotency key is `<event_name>:<resource id>`; LS does not
-send a delivery id on every event.
+Since O17: `processed_at` is written **only on success**, so a failed delivery
+keeps a null one and the retry re-runs the handler. Steps 3–4 hold one
+in-process lock per event id (`withEventLock` — one Node process, plan §1.7),
+and `fulfilCheckout` claims the row with `UPDATE … WHERE status <> 'paid'`, so
+only the caller that changed a row sends the token and the receipt.
+
+`order_refunded` is handled, not ignored. The Lemon Squeezy idempotency key is
+`<event_name>:<id>:<sha256(raw body)>`: LS sends no delivery id,
+`meta.webhook_id` names the ENDPOINT, and a retry repeats the exact signed
+bytes — the finding is above `lemonSqueezyEventId`.
 
 ### After any paid event
 
@@ -146,6 +162,10 @@ credential.
   `users.last_login_at`: a link issued before the last successful sign-in is
   spent, so nothing has to be stored or cleaned up.
 - `GET /api/auth/logout`.
+
+In production a missing or short `SESSION_SECRET` makes all of this refuse
+rather than sign with the development fallback (O17); `/api/health` reports
+`secret: "ok" | "weak"`.
 
 The member session is a **different cookie with a different secret** from the
 admin session. A member cookie unseals to nothing when read as an admin one, and

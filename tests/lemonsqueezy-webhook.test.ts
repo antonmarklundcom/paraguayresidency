@@ -77,14 +77,68 @@ describe('Lemon Squeezy signature (plan §5.4.6)', () => {
   });
 });
 
-describe('Lemon Squeezy idempotency key', () => {
-  it('is event name plus resource id, so a retry collapses', () => {
-    expect(lemonSqueezyEventId(fixture)).toBe('subscription_created:923456');
+describe('Lemon Squeezy idempotency key (rewritten in O17, plan §14.1.4)', () => {
+  it('is event name, resource id and a hash of the raw signed body', () => {
+    expect(lemonSqueezyEventId(fixture, payload)).toMatch(
+      /^subscription_created:923456:[0-9a-f]{32}$/,
+    );
   });
 
-  it('separates two different events for the same subscription', () => {
+  it('collapses a RETRY: Lemon Squeezy repeats the exact signed bytes', () => {
+    // Their retry policy is up to three more attempts with exponential backoff
+    // (~5 s, 25 s, 125 s) and the body must be byte-identical, because
+    // `X-Signature` is an HMAC over it. Same bytes ⇒ same key ⇒ duplicate.
+    expect(lemonSqueezyEventId(fixture, payload)).toBe(lemonSqueezyEventId(fixture, payload));
+  });
+
+  it('separates two DIFFERENT subscription_updated events for one subscription', () => {
+    // The pre-O17 key was `<event>:<data.id>`, and for `subscription_updated`
+    // the id is the SUBSCRIPTION id — so only the first update a membership
+    // ever produced was processed and `effectiveTier` drifted for good
+    // (`docs/improvement-report.md` §1.4).
+    const first = {
+      ...fixture,
+      meta: { ...fixture.meta, event_name: 'subscription_updated' },
+    };
+    const second = {
+      ...first,
+      data: {
+        ...first.data,
+        attributes: { ...first.data.attributes, renews_at: '2026-08-15T12:00:00.000000Z' },
+      },
+    };
+    const firstId = lemonSqueezyEventId(first, JSON.stringify(first));
+    const secondId = lemonSqueezyEventId(second, JSON.stringify(second));
+    expect(firstId).not.toBe(secondId);
+    expect(firstId!.startsWith('subscription_updated:923456:')).toBe(true);
+    expect(secondId!.startsWith('subscription_updated:923456:')).toBe(true);
+  });
+
+  it('separates two different event names for the same resource', () => {
     const cancelled = { ...fixture, meta: { ...fixture.meta, event_name: 'subscription_cancelled' } };
-    expect(lemonSqueezyEventId(cancelled)).not.toBe(lemonSqueezyEventId(fixture));
+    expect(lemonSqueezyEventId(cancelled, JSON.stringify(cancelled))).not.toBe(
+      lemonSqueezyEventId(fixture, payload),
+    );
+  });
+
+  it('never uses meta.webhook_id — that id names the ENDPOINT, not the delivery', () => {
+    // Keying on it would collapse every event from one webhook into a single
+    // `webhook_events` row and silently drop every purchase after the first.
+    const withWebhookId = {
+      ...fixture,
+      meta: { ...fixture.meta, webhook_id: '1f2e3d4c-0000-0000-0000-000000000000' },
+    };
+    const id = lemonSqueezyEventId(withWebhookId, JSON.stringify(withWebhookId));
+    expect(id).not.toContain('1f2e3d4c');
+    expect(id).toMatch(/^subscription_created:923456:[0-9a-f]{32}$/);
+  });
+
+  it('falls back to the parsed body when no raw bytes are passed', () => {
+    expect(lemonSqueezyEventId(fixture)).toBe(lemonSqueezyEventId(fixture, JSON.stringify(fixture)));
+  });
+
+  it('fits the varchar(191) idempotency column', () => {
+    expect(lemonSqueezyEventId(fixture, payload)!.length).toBeLessThanOrEqual(191);
   });
 
   it('is null when there is nothing to be idempotent on', () => {

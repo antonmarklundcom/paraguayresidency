@@ -3,7 +3,7 @@ import { NextResponse, type NextRequest } from 'next/server';
 import { verifyStripeSignature } from '@/lib/stripe-signature';
 import { stripeWebhookConfigured } from '@/lib/stripe';
 import { fulfilCheckout, markRefunded } from '@/lib/purchases';
-import { recordWebhookEvent, finishWebhookEvent } from '@/lib/webhooks';
+import { recordWebhookEvent, finishWebhookEvent, shouldRunHandler, withEventLock } from '@/lib/webhooks';
 import { isSiteKey } from '@/sites/registry';
 
 export const runtime = 'nodejs';
@@ -50,20 +50,29 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ ok: false, error: 'invalid-json' }, { status: 400 });
   }
 
+  // Stripe always sends `id`. The fallback hashes the exact bytes rather than
+  // something lossy like a length, so two different deliveries can never
+  // collide and silently suppress one another.
+  const eventId =
+    event.id ?? `sha256:${createHash('sha256').update(payload).digest('hex')}`;
+
+  // Claim before processing (O17 §14.1.2): everything from the idempotency
+  // insert to `finishWebhookEvent` runs under one in-process lock per event id,
+  // so two deliveries racing are serialised and the second one sees the first
+  // one's `processed_at`.
+  return withEventLock(`stripe:${eventId}`, () => handle(event, eventId));
+}
+
+async function handle(event: StripeEvent, eventId: string): Promise<NextResponse> {
   // Idempotency first, work second. Stripe retries for days, and both
   // webhooks share one log so one query answers "did we see this delivery".
   const logged = await recordWebhookEvent({
     provider: 'stripe',
-    // Stripe always sends `id`. The fallback hashes the exact bytes rather
-    // than something lossy like a length, so two different deliveries can
-    // never collide and silently suppress one another.
-    providerEventId: event.id ?? `sha256:${createHash('sha256').update(payload).digest('hex')}`,
+    providerEventId: eventId,
     type: event.type ?? 'unknown',
     payload: event,
   });
-  // Seen AND finished: a plain retry, so do nothing. Seen but never finished:
-  // the previous attempt failed, and this retry is the second chance.
-  if (logged.duplicate && logged.processed) {
+  if (!shouldRunHandler(logged)) {
     return NextResponse.json({ ok: true, duplicate: true });
   }
 

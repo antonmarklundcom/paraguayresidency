@@ -1,5 +1,7 @@
 import { existsSync } from 'node:fs';
 import { isAbsolute, join, normalize, resolve, sep } from 'node:path';
+import { isUnlocked } from './entitlements';
+import type { MinTier, Tier } from '@/db/schema';
 
 /**
  * Delivery rules for the paid guide, as pure functions (plan §5.2.4 traps:
@@ -34,6 +36,36 @@ export function downloadState(
   if (expiresAt.getTime() <= now.getTime()) return 'expired';
   if (candidate.downloads >= candidate.maxDownloads) return 'exhausted';
   return 'ok';
+}
+
+/* ------------------------------------------------------ member resources */
+
+/**
+ * Drip offset for a member `resources` row (O17 §14.1.7).
+ *
+ * `modules` and `lessons` carry `drip_days`; `resources` does not, and the
+ * schema is FINAL (O9), so the columnless answer is an explicit zero rather
+ * than a second gate that quietly ignores the drip. What matters is that the
+ * download route now goes through the SAME `isUnlocked()` the lesson pages use,
+ * so the day `resources.drip_days` exists (Backlog) one constant changes here
+ * and the route needs no edit at all.
+ */
+export const RESOURCE_DRIP_DAYS = 0;
+
+/**
+ * The gate for one member resource: tier AND drip, exactly as a lesson.
+ *
+ * Before O17 the download route checked `hasTier` only, so it was the one
+ * member surface whose rule could drift from the pages around it
+ * (`docs/improvement-report.md` §1.10).
+ */
+export function resourceUnlocked(
+  resource: { minTier: MinTier },
+  tier: Tier,
+  firstEntitledAt: Date | string | null | undefined,
+  now: Date = new Date(),
+): boolean {
+  return isUnlocked({ minTier: resource.minTier, dripDays: RESOURCE_DRIP_DAYS }, tier, firstEntitledAt, now);
 }
 
 export function expiryFrom(now: Date = new Date(), ttlMs: number = TOKEN_TTL_MS): Date {

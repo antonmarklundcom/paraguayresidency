@@ -69,20 +69,88 @@ export async function recordWebhookEvent(input: {
   }
 }
 
-/** Marks the delivery processed, or records why it failed. */
+/**
+ * The route's one decision after logging the delivery, as a pure predicate.
+ *
+ * Seen AND finished ⇒ a plain retry of work that already succeeded, so do
+ * nothing and answer 200. Seen but NEVER finished ⇒ the previous attempt threw,
+ * and this delivery is the second chance — run the handler again.
+ */
+export function shouldRunHandler(logged: Pick<LoggedEvent, 'duplicate' | 'processed'>): boolean {
+  return !(logged.duplicate && logged.processed);
+}
+
+/**
+ * What `finishWebhookEvent` writes, as a pure function so the rule is testable
+ * without a database.
+ *
+ * The rule (O17 P0 #1): **`processed_at` is set ONLY on success.** Before O17
+ * it was set unconditionally, including on the error path, so a MySQL blip
+ * during `checkout.session.completed` answered 500, the processor retried, and
+ * `recordWebhookEvent` reported `{duplicate: true, processed: true}` — the
+ * retry became a no-op and a real buyer was charged with no purchase row, no
+ * account and no download. Leaving `processed_at` null is what makes the next
+ * delivery run the handler again; `error` keeps the reason for support.
+ */
+export function webhookClosure(
+  error?: unknown,
+  now: Date = new Date(),
+): { processedAt: Date | null; error: string | null } {
+  if (error === undefined) return { processedAt: now, error: null };
+  return { processedAt: null, error: String(error).slice(0, 2000) };
+}
+
+/** Marks the delivery processed, or records why it failed and leaves it open. */
 export async function finishWebhookEvent(id: number | null, error?: unknown): Promise<void> {
   if (id === null || !hasDatabase()) return;
   try {
-    await getDb()
-      .update(webhookEvents)
-      .set({
-        processedAt: new Date(),
-        error: error === undefined ? null : String(error).slice(0, 2000),
-      })
-      .where(eq(webhookEvents.id, id));
+    await getDb().update(webhookEvents).set(webhookClosure(error)).where(eq(webhookEvents.id, id));
   } catch (updateError) {
     console.error('[webhooks] could not close out event', id, updateError);
   }
+}
+
+/* ------------------------------------------------------------------- locks */
+
+/**
+ * In-process claim, one delivery at a time per event id (O17 P0 #2).
+ *
+ * Between `recordWebhookEvent` and `finishWebhookEvent` there is a window in
+ * which a second delivery of the SAME event sees `{duplicate: true, processed:
+ * false}` — correct for a retry after a failure, wrong for two deliveries
+ * racing — and both would fulfil: two download tokens, two receipts.
+ *
+ * This app runs as ONE Node process behind one hosting slot (plan §1.7, and
+ * the `nextjs-deploy-hostinger` skill's single-slot model), so a per-key
+ * promise chain is a real mutex, not an approximation. The database-level
+ * guard is separate and belongs to `fulfilCheckout`'s conditional UPDATE — this
+ * only removes the overlap; correctness does not depend on it alone.
+ */
+const eventLocks = new Map<string, Promise<void>>();
+
+export async function withEventLock<T>(key: string, fn: () => Promise<T>): Promise<T> {
+  const previous = eventLocks.get(key) ?? Promise.resolve();
+  // `.then(fn, fn)` so a failed predecessor still releases the lock, and no
+  // `await` before the map is written — two deliveries in the same tick must
+  // not both find the key missing.
+  const run = previous.then(fn, fn);
+  const tail = run.then(
+    () => undefined,
+    () => undefined,
+  );
+  eventLocks.set(key, tail);
+  try {
+    return await run;
+  } finally {
+    // Lazy eviction: only the last waiter in the chain clears the key, so the
+    // map never accumulates one entry per delivery for the life of the process.
+    if (eventLocks.get(key) === tail) eventLocks.delete(key);
+  }
+}
+
+/** Test seam: how many keys the lock map is currently holding. */
+export function eventLockSize(): number {
+  return eventLocks.size;
 }
 
 /**

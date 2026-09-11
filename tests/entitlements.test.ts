@@ -8,6 +8,7 @@ import {
   isDripped,
   isUnlocked,
   subscriptionAccessUntil,
+  subscriptionEverPaid,
   tierExpiresAt,
   tierIsStale,
   tierRank,
@@ -123,13 +124,39 @@ describe('effectiveTier', () => {
     expect(effectiveTier(input, new Date(NOW.getTime() + 1000))).toBe('entry');
   });
 
-  it('grants nothing from a cancelled subscription with no end date at all', () => {
+  it('grants NOTHING for a subscription that never took a payment (O17 §14.1.4)', () => {
+    // Cancelled/expired with neither `ends_at` nor `current_period_end` is the
+    // never-paid row: a declined first invoice, or a checkout abandoned after
+    // Lemon Squeezy had already created the subscription. Before O17 any
+    // subscription row at all granted `entry` for ever
+    // (`docs/improvement-report.md` §1.10).
     const input = {
       subscriptions: [sub({ status: 'cancelled', endsAt: null, currentPeriodEnd: null })],
       purchases: [],
     };
-    // It still counts as "they once paid", so entry, never insider.
+    expect(effectiveTier(input, NOW)).toBe('none');
+    expect(subscriptionEverPaid(input.subscriptions[0])).toBe(false);
+  });
+
+  it('an expired subscription that DID have a period still leaves entry behind', () => {
+    const input = {
+      subscriptions: [sub({ status: 'expired', endsAt: day(-90), currentPeriodEnd: day(-90) })],
+      purchases: [],
+    };
+    expect(subscriptionEverPaid(input.subscriptions[0])).toBe(true);
+    // They keep what they bought (plan §1.12 rule 3).
     expect(effectiveTier(input, NOW)).toBe('entry');
+  });
+
+  it('a live status counts as paid even before a renewal date is known', () => {
+    for (const status of ['active', 'past_due', 'paused'] as const) {
+      expect(subscriptionEverPaid(sub({ status, endsAt: null, currentPeriodEnd: null }))).toBe(true);
+    }
+  });
+
+  it('a never-paid subscription does not start the drip clock either', () => {
+    const never = sub({ status: 'expired', endsAt: null, currentPeriodEnd: null });
+    expect(firstEntitledAt({ subscriptions: [never], purchases: [] })).toBeNull();
   });
 
   it('falls back to current_period_end when ends_at is absent', () => {

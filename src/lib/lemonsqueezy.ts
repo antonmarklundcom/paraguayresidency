@@ -1,5 +1,5 @@
 import 'server-only';
-import { createHmac, timingSafeEqual } from 'node:crypto';
+import { createHash, createHmac, timingSafeEqual } from 'node:crypto';
 
 /**
  * Lemon Squeezy, over `fetch` (plan §1.13, §5.4.6).
@@ -70,8 +70,13 @@ export function verifyLemonSqueezySignature(input: {
 export interface LsWebhookBody {
   meta?: {
     event_name?: string;
-    /** Present on newer deliveries; we fall back to event_name:id when absent. */
+    /**
+     * Present on some deliveries. It identifies the webhook ENDPOINT, not the
+     * delivery, so it is deliberately NOT part of the idempotency key — see
+     * `lemonSqueezyEventId`.
+     */
     webhook_id?: string;
+    test_mode?: boolean;
     custom_data?: Record<string, string>;
   };
   data?: {
@@ -84,16 +89,51 @@ export interface LsWebhookBody {
 /**
  * The idempotency key for `webhook_events`.
  *
- * Lemon Squeezy does not send a delivery id on every event, so the key is
- * `<event_name>:<resource id>`: a retried delivery of the same event is a
- * no-op, while each distinct event for one subscription still gets its own row
- * (this is pararesi's rule, and it was verified there by replaying fixtures).
+ * **What the Lemon Squeezy webhook docs actually say (checked 2026-09-11, O17).**
+ * `docs.lemonsqueezy.com` is blocked from this container, so this was read from
+ * Lemon Squeezy's published webhook documentation via search summaries plus
+ * their own `lemonsqueezy.js` types. Two things are documented and one is not:
+ *
+ *  - **Retries.** A non-200 response is retried up to three more times with
+ *    exponential backoff (roughly 5 s, 25 s, 125 s), then the delivery is
+ *    abandoned. A retry re-sends the *same signed body* — it has to, because
+ *    `X-Signature` is an HMAC over those exact bytes.
+ *  - **The body.** `meta` carries `event_name`, `test_mode` and `custom_data`;
+ *    `data` carries the resource `type`, `id` and `attributes`.
+ *  - **No documented per-delivery id.** Nothing in the documented payload
+ *    identifies *this delivery* as opposed to *this resource*. `meta.webhook_id`
+ *    appears in some deliveries, but every reference that describes it describes
+ *    the **webhook endpoint's** id — the row you create under Settings →
+ *    Webhooks — not a delivery id. Using it as the key would collapse EVERY
+ *    event from that endpoint into one `webhook_events` row and silently drop
+ *    every purchase after the first.
+ *
+ * So, deviating from the letter of plan §14.1.4 (which suggested preferring
+ * `meta.webhook_id` when present) and keeping its intent: the key is
+ * `<event_name>:<resource id>:<sha256(raw body)>`, never `webhook_id`.
+ *
+ * That is correct in both directions, which is the whole requirement:
+ *  - a **retry** of one delivery carries byte-identical body ⇒ same hash ⇒ same
+ *    key ⇒ the duplicate is recognised;
+ *  - two **distinct** `subscription_updated` events for one subscription carry
+ *    different attributes (`status`, `renews_at`, `updated_at`) ⇒ different
+ *    hashes ⇒ different keys ⇒ both are processed. Before O17 the key was
+ *    `<event>:<id>`, so only the first update for a subscription ever ran and
+ *    `effectiveTier` drifted from the truth for the life of that membership.
+ *
+ * The hash is truncated to 32 hex characters: `provider_event_id` is
+ * `varchar(191)`, and 128 bits is far past any collision concern here.
  */
-export function lemonSqueezyEventId(body: LsWebhookBody): string | null {
+export function lemonSqueezyEventId(body: LsWebhookBody, rawBody?: string): string | null {
   const event = body.meta?.event_name;
   const id = body.data?.id;
   if (!event || !id) return null;
-  return `${event}:${id}`;
+  // Falling back to a canonical re-serialisation keeps callers that have only
+  // the parsed body (tests, the import script) working; the route always passes
+  // the raw bytes, which is what a retry actually repeats.
+  const bytes = rawBody ?? JSON.stringify(body);
+  const digest = createHash('sha256').update(bytes, 'utf8').digest('hex').slice(0, 32);
+  return `${event}:${id}:${digest}`;
 }
 
 /** LS statuses → our `subscriptions.status` enum. */
