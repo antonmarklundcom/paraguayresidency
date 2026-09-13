@@ -35,7 +35,7 @@ function contentPaths(site: string): Set<string> {
   const dir = join(CONTENT, site);
   const paths = new Set<string>();
   for (const file of mdxFiles(dir)) {
-    const slugPath = file.slice(dir.length + 1).replace(/\.mdx$/, '');
+    const slugPath = file.slice(dir.length + 1).replace(/\\/g, '/').replace(/\.mdx$/, '');
     if (!slugPath.includes('/')) continue;
     paths.add(contentHref(site as never, slugPath));
   }
@@ -79,7 +79,7 @@ describe('every internal MDX link resolves', () => {
         while ((match = LINK_RE.exec(src))) {
           const href = match[1];
           if (!known.has(href)) {
-            dead.push(`${file.replace(`${ROOT}/`, '')} → ${href}`);
+            dead.push(`${file.replace(ROOT, '').replace(/^[/\\]/, '').replace(/\\/g, '/')} → ${href}`);
           }
         }
       }
