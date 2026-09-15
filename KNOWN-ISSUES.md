@@ -167,7 +167,11 @@ is refused; expired, unknown and refunded cases all answer correctly.
 buy the guide once with test card `4242 4242 4242 4242`. The plan already
 schedules the live purchase and refund for S6.
 
-## O2 — no rate limit on the public endpoints
+## O2 — no rate limit on the public endpoints — **CLEARED in O18**
+
+> Superseded by "CLEARED in O18 — the public endpoints are rate limited" at the
+> end of this file. Kept for the reasoning; the per-IP middleware limit it asks
+> for now exists.
 
 The honeypot and the signed timing token stop bots; they do not stop someone
 deliberately hammering `/api/subscribe` or a lead form from one address. The
@@ -234,7 +238,10 @@ which S14 builds (plan §6.9). Until then that path 404s on the guide brand. It
 is only reachable by a member who is signed in and tries to open Insider-only
 content, and O9 ships no such content, so nothing can reach it yet.
 
-## O9 — no rate limit on the public endpoints (still open, narrowed)
+## O9 — no rate limit on the public endpoints (narrowed) — **CLEARED in O18**
+
+> Superseded by "CLEARED in O18 — the public endpoints are rate limited" at the
+> end of this file.
 
 O2's note stands for `/api/subscribe` and the lead forms. `POST /api/auth/magic`
 is now rate limited in-memory (5 per 15 minutes per email and per IP), which is
@@ -448,3 +455,108 @@ Functionally identical in shape to `/api/download/[token]`, just not under the l
 plan names as off-limits. If a later phase wants every private-file route physically under one
 folder, this one is a candidate to fold into `src/app/api/members/resources/...` — a mechanical
 move, not a rewrite.
+
+## CLEARED in O18 — the public endpoints are rate limited
+
+Closes the O2 entry ("no rate limit on the public endpoints") and the narrowed
+O9 one. Every limit now goes through O17's `src/lib/rate-limit.ts` and is listed
+in one table, `LIMITS`, with `docs/runbook.md` describing each: admin login
+5/15 min per IP **and** email with a fixed ~250 ms failure delay, `/api/subscribe`
+3/hour per address and 20/hour per IP, `/api/checkout` 10/hour per IP, the lead
+actions 10/hour per IP, `/api/auth/magic` 5/15 min per email **and** IP, and a
+coarse 120/min per IP over every `POST /api/*` in `src/middleware.ts`. A pending
+newsletter address is mailed at most once an hour, which is the actual
+inbox-bombing fix.
+
+What is NOT cleared, and stays as O2 and O9 wrote it: the limiter is one `Map`
+in one Node process. A deploy resets every window and a second process would
+double every limit. That is acceptable for abuse friction and is why nothing in
+this file is used as an entitlement; the DB-backed answer is the `rate_limits`
+table in the plan's Backlog, and it is only worth building if the app is ever
+scaled past one process.
+
+## OPEN — the report-only CSP has nowhere to report to (O18)
+
+`next.config.ts` puts a `Content-Security-Policy-Report-Only` on the public tree
+so S6 or S15 can flip it to enforcing "after a week of clean reports"
+(plan §14.2.4). The policy carries no `report-uri` / `report-to` directive, so
+the reports currently reach each visitor's own browser console and nowhere else
+— there is no week of reports to read.
+
+Before that flip, someone has to give the policy a destination: a collector
+route (`/api/csp-report`, a POST handler that logs and returns 204) or a hosted
+endpoint. O18 did not build one — a half-built collector that nobody watches is
+worse than an honest gap, and `src/app/api/csp-report/` is outside this phase's
+owned paths. The alternative evidence, if a collector is not wanted, is to open
+every brand's page types in a real browser with the console open. Either way:
+do not flip the header on the strength of "no reports came in".
+
+## OPEN — `tests/abuse.mjs` is not wired into CI (O18, by design)
+
+The scripted probe needs a server on a port and spends real limiter windows in a
+real process, so it is a pre/post-deploy tool rather than a per-push check
+(plan §14.2 exit; S20 decides what CI carries — plan §14.4). Everything it
+demonstrates is also asserted in-process with an injected clock by
+`tests/abuse-limits.test.ts` and `tests/abuse-surfaces.test.ts`, which DO run in
+`npm run verify`.
+
+One part of it is brittle on purpose: the admin-login probe drives a Next server
+action, so it scrapes the action id out of `/admin/login` and posts it with a
+`Next-Action` header. That encoding is a Next internal. If a Next upgrade
+changes it the probe prints `could not find the server-action id` and fails
+rather than reporting a false pass — that message means "update the probe", not
+"the limiter broke".
+
+## OPEN — the CSP allows Plausible before Plausible is rendered (O18)
+
+`src/sites/registry.ts` has an `analytics.plausibleDomain` field but no brand
+renders the script yet; S6 adds it (plan §6.4). The report-only policy already
+allows `https://plausible.io` in `script-src` and `connect-src` so that S6 does
+not have to touch `next.config.ts` and so the first deploy with analytics does
+not produce a wall of violation reports. If the analytics decision ever lands on
+something other than Plausible, the two allowances in `PUBLIC_CSP` are the only
+lines to change.
+
+## OPEN — two costs of limiting per IP and per email (O18, accepted)
+
+Both are inherent to the limits plan §14.2.1 specifies, not bugs in them. Named
+here so nobody re-diagnoses them from a support ticket.
+
+**Shared IPs share a bucket.** The lead forms are 10/hour per IP and
+`/api/subscribe` is 20/hour per IP. A company office, a co-working space or a
+mobile carrier behind CGNAT is one IP to us, so a genuine burst from one network
+can meet a limit. The numbers are set well above one person's use, and a refused
+visitor sees a sentence telling them to wait rather than an error — but this is
+the one limit whose false positive costs a lead, which is the thing this whole
+project exists to collect. If `/admin/leads` ever shows a suspicious gap, check
+the app log for the refusals before assuming a traffic drop; the number to raise
+is one line in `LIMITS`.
+
+**An admin can be locked out by someone spraying their email.** Admin login is
+5 per 15 minutes counted against the IP *and* the email, so anyone who knows
+(or guesses) Anton's admin address can keep that bucket full from anywhere and
+hold the door shut. The alternative — limiting per IP only — hands an attacker
+with a botnet unlimited bcrypt guesses at one account, which is the CPU-DoS this
+phase exists to close, so the trade is deliberate. The escape hatch is that the
+window is 15 minutes and the limiter is in-process: waiting it out works, and a
+redeploy clears it immediately.
+
+## OPEN — the coarse middleware limit also covers the two webhook routes (O18)
+
+Plan §14.2.1 puts a 120/min per-IP ceiling on every `POST /api/*` and carves out
+no exception, so `/api/stripe/webhook` and `/api/lemonsqueezy/webhook` are under
+it too. A processor delivers from a small set of IPs, so a burst of more than
+120 events a minute — a backlog being drained after an outage, a bulk refund —
+would meet our own limit rather than an attacker's.
+
+Not fixed, for two reasons: at a $7 entry product and a single subscription tier
+that burst is not a realistic volume, and the failure is safe rather than
+silent. Both processors retry a non-2xx (Stripe for up to three days, Lemon
+Squeezy three times with exponential backoff), both webhooks are idempotent
+through `webhook_events`, and O17 made a failed delivery's retry actually re-run.
+So the worst case is a delayed fulfilment, not a lost one.
+
+What would make it worth fixing: real volume, or a processor that does not
+retry. The fix is a `startsWith('/api/stripe/') || startsWith('/api/lemonsqueezy/')`
+skip in `src/middleware.ts` — safe only because those two routes verify a
+signature before doing anything, which is what makes them not worth flooding.

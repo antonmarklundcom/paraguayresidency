@@ -1,5 +1,6 @@
 'use server';
 
+import { headers } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { revalidatePath } from 'next/cache';
 import { eq } from 'drizzle-orm';
@@ -9,6 +10,7 @@ import { currentAdmin, login, logout, requireRole } from '@/lib/auth';
 import { retryLeadDelivery } from '@/lib/leads';
 import { resendDownload } from '@/lib/purchases';
 import { grantTierUntil } from '@/lib/member-admin';
+import { clientIp, RATE_LIMIT_MESSAGE, resetLimit, takeBoth } from '@/lib/rate-limit';
 import { factKeys } from '@content/shared/facts';
 
 /**
@@ -25,10 +27,46 @@ export interface LoginState {
   error?: string;
 }
 
+/**
+ * The one password form in the whole app, so the one place bcrypt can be made
+ * to burn CPU on demand (`docs/improvement-report.md` §1.7). Five attempts per
+ * 15 minutes, counted against the IP **and** the email — both, always, so an
+ * attacker cannot keep one bucket full to stop the other from filling
+ * (plan §14.2.1).
+ *
+ * Two details that are deliberate:
+ *  - the ~250 ms delay is FIXED, not a backoff. A backoff is a timing oracle:
+ *    it tells the caller which guesses were "closer". A constant pause costs a
+ *    script 250 ms per try and costs the admin who mistyped their password
+ *    a quarter of a second they will not notice.
+ *  - a successful login forgets the counters, so the person who mistyped twice
+ *    this morning is not four attempts from being locked out this afternoon.
+ */
+const LOGIN_FAILURE_DELAY_MS = 250;
+
 export async function loginAction(_prev: LoginState, form: FormData): Promise<LoginState> {
-  const result = await login(String(form.get('email') ?? ''), String(form.get('password') ?? ''));
-  if (!result.ok) return { error: result.error };
+  const email = String(form.get('email') ?? '').trim().toLowerCase();
+  const ip = clientIp(await headers());
+  const keys: [string, string] = [`ip:${ip}`, `email:${email}`];
+
+  const limit = takeBoth('adminLogin', keys);
+  if (!limit.ok) {
+    await pause(LOGIN_FAILURE_DELAY_MS);
+    return { error: RATE_LIMIT_MESSAGE };
+  }
+
+  const result = await login(email, String(form.get('password') ?? ''));
+  if (!result.ok) {
+    await pause(LOGIN_FAILURE_DELAY_MS);
+    return { error: result.error };
+  }
+
+  for (const key of keys) resetLimit('adminLogin', key);
   redirect('/admin/leads');
+}
+
+function pause(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 export async function logoutAction(): Promise<void> {

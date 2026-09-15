@@ -94,7 +94,7 @@ export async function createLead(
   // two requests racing cannot both win (plan §5.4.7).
   const key = dedupeKey({ site: input.site, phone: input.phone ?? input.whatsapp, now });
 
-  let leadId: number;
+  let leadId: number | null = null;
   try {
     const [result] = await db.insert(leads).values({
       site: input.site as SiteKey,
@@ -116,27 +116,56 @@ export async function createLead(
     });
     leadId = Number(result.insertId);
   } catch (error) {
-    if (!key || !isDuplicateKey(error)) throw error;
-    // The first submission is already stored and already delivered. Record the
-    // repeat on that lead and answer the visitor with the same success state.
-    const [existing] = await db
-      .select({ id: leads.id })
-      .from(leads)
-      .where(eq(leads.dedupeKey, key))
-      .limit(1);
-    if (!existing) throw error;
-    await recordEvent(existing.id, 'duplicate.suppressed', {
-      kind: input.kind,
-      site: input.site,
-      at: now.toISOString(),
-    });
-    return { ok: true, leadId: existing.id, stored: true, duplicate: true };
+    if (key && isDuplicateKey(error)) {
+      // The first submission is already stored and already delivered. Record
+      // the repeat on that lead and answer the visitor with the same success
+      // state.
+      const existing = await findByDedupeKey(key);
+      if (existing) {
+        await recordEvent(existing, 'duplicate.suppressed', {
+          kind: input.kind,
+          site: input.site,
+          at: now.toISOString(),
+        });
+        return { ok: true, leadId: existing, stored: true, duplicate: true };
+      }
+    }
+
+    // ANY other insert failure — MySQL unreachable, the connection pool
+    // exhausted, a column rejected — must not cost us the lead
+    // (`docs/improvement-report.md` §1.8, CLAUDE.md "never let an integration
+    // failure fail a form"). This used to re-throw, which lost the submission
+    // AND showed the visitor a stack trace, while the no-database branch above
+    // did the right thing. Now both branches do: the delivery side still runs,
+    // the failure is loud in the log, and the visitor sees success.
+    console.error('[leads] could not store the lead — delivering anyway', error);
+    await deliverLead(null, input, attribution, now);
+    return { ok: true, leadId: null, stored: false };
   }
 
   await recordEvent(leadId, 'created', { kind: input.kind, site: input.site });
   await deliverLead(leadId, input, attribution, now);
 
   return { ok: true, leadId, stored: true };
+}
+
+/**
+ * The id behind a dedupe key, or null if the lookup itself fails. A dead
+ * database on the read is the same situation as a dead database on the write:
+ * the caller falls through to "deliver it anyway", never to an exception.
+ */
+async function findByDedupeKey(key: string): Promise<number | null> {
+  try {
+    const [existing] = await getDb()
+      .select({ id: leads.id })
+      .from(leads)
+      .where(eq(leads.dedupeKey, key))
+      .limit(1);
+    return existing?.id ?? null;
+  } catch (error) {
+    console.error('[leads] could not look up the duplicate lead', error);
+    return null;
+  }
 }
 
 /**

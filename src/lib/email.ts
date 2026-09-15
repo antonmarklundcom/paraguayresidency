@@ -72,9 +72,37 @@ export async function sendEmail(message: EmailMessage): Promise<EmailOutcome> {
     return { ok: false, mode, error: detail };
   }
 
-  console.info(
-    `[email] (console mode — no RESEND_API_KEY or SMTP config)\n  to: ${to.join(', ')}\n  subject: ${message.subject}\n${message.text.replace(/^/gm, '  | ')}`,
-  );
+  return logToConsole(message, to);
+}
+
+/**
+ * Console mode — the last fallback, and in production a DEGRADED state, not a
+ * success (plan §14.2.3).
+ *
+ * Two things changed in O18, both from `docs/improvement-report.md` §1.9:
+ *
+ *  - **The body no longer reaches the log in production.** A magic link and a
+ *    download link are live credentials, and a lead notification is somebody's
+ *    name, email, phone and country. Hostinger's log is not the place for
+ *    either. In development the full text still prints, because that is the
+ *    only way to click the link you just generated.
+ *  - **It reports `ok: false` in production.** Reporting success for a message
+ *    nobody will ever receive is how an unconfigured mailer stays unnoticed for
+ *    a month; every caller already logs a failed outcome, and `/api/health`
+ *    reports `email: "console"` beside it.
+ *
+ * In development it still reports `ok: true`: there, the log IS the delivery.
+ */
+function logToConsole(message: EmailMessage, to: string[]): EmailOutcome {
+  const production = process.env.NODE_ENV === 'production';
+  const header = `[email] console mode — no RESEND_API_KEY or SMTP config; NOTHING WAS SENT\n  to: ${to.join(', ')}\n  subject: ${message.subject}`;
+
+  if (production) {
+    console.error(header);
+    return { ok: false, mode: 'console', error: 'email is not configured (console mode)' };
+  }
+
+  console.info(`${header}\n${message.text.replace(/^/gm, '  | ')}`);
   return { ok: true, mode: 'console' };
 }
 

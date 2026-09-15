@@ -14,7 +14,7 @@ import {
   recordPendingPurchase,
 } from '@/lib/purchases';
 import { randomToken } from '@/lib/signing';
-import { clientIp, take } from '@/lib/rate-limit';
+import { clientIp, RATE_LIMIT_MESSAGE, take, takeLimit } from '@/lib/rate-limit';
 import { pickUtm } from '@/lib/lead-schema';
 import { checkFormGuard, isSilentDrop } from '@/lib/form-guard';
 import { currentSite } from '@/lib/current-site';
@@ -97,6 +97,18 @@ function comingSoon(reason: string) {
 }
 
 export async function POST(request: NextRequest) {
+  // Every caller, before any parsing: creating a checkout session is a call to
+  // Stripe or Lemon Squeezy on our API key, and `recordPendingPurchase` writes
+  // a row (plan §14.2.1). Ten an hour is more purchases than any one visitor
+  // makes and far fewer than a script wants.
+  const limit = takeLimit('checkout', clientIp(request.headers));
+  if (!limit.ok) {
+    return NextResponse.json(
+      { ok: false, error: 'rate-limited', message: RATE_LIMIT_MESSAGE },
+      { status: 429, headers: { 'retry-after': String(limit.retryAfterSeconds) } },
+    );
+  }
+
   const parsed = bodySchema.safeParse(await request.json().catch(() => ({})));
   if (!parsed.success) {
     return NextResponse.json({ ok: false, error: 'invalid-request' }, { status: 422 });

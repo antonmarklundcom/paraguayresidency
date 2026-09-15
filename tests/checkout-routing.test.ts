@@ -1,5 +1,6 @@
 import { describe, expect, it, beforeEach, afterEach, vi } from 'vitest';
 import { GUIDE_ENTRY_SLUG, GUIDE_INSIDER_SLUG, sites, siteSellsProducts } from '@/sites/registry';
+import { __resetAllForTests } from '@/lib/rate-limit';
 
 /**
  * `POST /api/checkout` routes on `products.provider` (plan §5.4.6). The route
@@ -71,6 +72,11 @@ function post(body: Record<string, unknown>) {
 }
 
 beforeEach(() => {
+  // O18 added a 10/hour/IP limit to this route and every request in this file
+  // arrives with no `x-forwarded-for`, so they all share the `unknown` bucket.
+  // Each case starts with a fresh window; the limit itself is tested in
+  // `tests/abuse-limits.test.ts`.
+  __resetAllForTests();
   state.product = product();
   state.stripeCalled = 0;
   state.lsCalled = 0;
@@ -191,5 +197,40 @@ describe('checkout refuses what it should', () => {
     );
     expect(response.status).toBe(400);
     expect(state.stripeCalled).toBe(0);
+  });
+});
+
+describe('POST /api/checkout is limited per IP (O18, plan §14.2.1)', () => {
+  it('opens ten checkouts an hour from one IP and refuses the eleventh', async () => {
+    const open = () =>
+      POST(
+        new Request('https://paraguayresidencyguide.com/api/checkout', {
+          method: 'POST',
+          headers: { 'content-type': 'application/json', 'x-forwarded-for': '203.0.113.60' },
+          body: JSON.stringify({ product: GUIDE_ENTRY_SLUG }),
+        }) as never,
+      );
+
+    for (let i = 0; i < 10; i += 1) expect((await open()).status).not.toBe(429);
+
+    const refused = await open();
+    expect(refused.status).toBe(429);
+    expect(refused.headers.get('retry-after')).toBeTruthy();
+    expect(await refused.json()).toMatchObject({ ok: false, error: 'rate-limited' });
+    // The limit runs before anything is parsed, so no processor was called.
+    expect(state.stripeCalled).toBe(0);
+  });
+
+  it('counts per IP, not globally — a second visitor is unaffected', async () => {
+    const open = (ip: string) =>
+      POST(
+        new Request('https://paraguayresidencyguide.com/api/checkout', {
+          method: 'POST',
+          headers: { 'content-type': 'application/json', 'x-forwarded-for': ip },
+          body: JSON.stringify({ product: GUIDE_ENTRY_SLUG }),
+        }) as never,
+      );
+    for (let i = 0; i < 11; i += 1) await open('203.0.113.61');
+    expect((await open('203.0.113.62')).status).not.toBe(429);
   });
 });

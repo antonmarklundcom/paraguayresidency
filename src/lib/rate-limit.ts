@@ -127,3 +127,141 @@ export function clientIp(headers: { get(name: string): string | null }): string 
   if (first) return first;
   return headers.get('x-real-ip')?.trim() || 'unknown';
 }
+
+/* --------------------------------------------------------------- the policy */
+
+/**
+ * Every limit the app applies, in one table (plan §14.2.1). They live here
+ * rather than next to each route so that `docs/runbook.md` has one thing to
+ * describe and a change is one diff, not five.
+ *
+ * The numbers are abuse friction, not capacity planning: each is set high
+ * enough that a person using the site normally — mistyping a password, resending
+ * a confirmation, buying twice — never meets it, and low enough that a script
+ * does.
+ */
+export const LIMITS = {
+  /** Admin password login, per IP **and** per email (both are counted). */
+  adminLogin: { max: 5, windowMs: 15 * 60 * 1000 },
+  /** Newsletter signup, per email. */
+  subscribeEmail: { max: 3, windowMs: 60 * 60 * 1000 },
+  /** Newsletter signup, per IP — the shared-NAT-friendly ceiling. */
+  subscribeIp: { max: 20, windowMs: 60 * 60 * 1000 },
+  /**
+   * How often a PENDING address may actually be e-mailed a confirmation.
+   * Distinct from `subscribeEmail`: that one answers 429, this one answers the
+   * normal success state and simply does not re-send (`docs/improvement-report.md`
+   * §1.7 — "re-sends confirmation on every call, inbox bombing").
+   */
+  subscribeResend: { max: 1, windowMs: 60 * 60 * 1000 },
+  /** Checkout session creation, per IP. */
+  checkout: { max: 10, windowMs: 60 * 60 * 1000 },
+  /** Public lead forms (every brand, every variant), per IP. */
+  lead: { max: 10, windowMs: 60 * 60 * 1000 },
+  /** Magic sign-in link requests, per email **and** per IP. */
+  magicLink: { max: 5, windowMs: 15 * 60 * 1000 },
+  /** The coarse middleware net over every `POST /api/*`, per IP. */
+  apiPost: { max: 120, windowMs: 60 * 1000 },
+} as const satisfies Record<string, { max: number; windowMs: number }>;
+
+export type LimitName = keyof typeof LIMITS;
+
+/**
+ * Spend one call against a named limit. Thin sugar over `take`, but it keeps
+ * the numbers out of the call sites and makes a miswired limit a type error
+ * rather than a silently generous window.
+ */
+export function takeLimit(name: LimitName, key: string, now = Date.now()): RateLimitResult {
+  const { max, windowMs } = LIMITS[name];
+  return take(`${name}:${key}`, max, windowMs, now);
+}
+
+/**
+ * Forget one named limit's counter — the `reset` above, with the same key
+ * namespacing `takeLimit` applies. Call sites must not rebuild the prefix by
+ * hand: a change to how `takeLimit` names its keys would then silently stop
+ * resetting anything, and the symptom would be an admin who mistyped twice
+ * being locked out for fifteen minutes.
+ */
+export function resetLimit(name: LimitName, key: string): void {
+  reset(`${name}:${key}`);
+}
+
+/**
+ * The one message every limited surface shows. Deliberately plain and free of
+ * numbers: telling a script the exact window is telling it how long to sleep.
+ */
+export const RATE_LIMIT_MESSAGE = 'Too many attempts. Please wait a little and try again.';
+
+/**
+ * Count against BOTH keys, always — never `a() || b()`.
+ *
+ * Short-circuiting was the actual shape of the magic-link bug: once the email
+ * bucket was full the IP bucket stopped being incremented, so an attacker who
+ * kept one address hot never accumulated an IP count at all
+ * (`docs/improvement-report.md` §1.7).
+ */
+export function takeBoth(
+  name: LimitName,
+  keys: [string, string],
+  now = Date.now(),
+): RateLimitResult {
+  const first = takeLimit(name, keys[0], now);
+  const second = takeLimit(name, keys[1], now);
+  // The stricter verdict wins, and the longer wait is the honest one to report.
+  if (first.ok && second.ok) return first;
+  const over = !first.ok ? first : second;
+  const other = over === first ? second : first;
+  return other.ok ? over : { ...over, retryAfterSeconds: Math.max(over.retryAfterSeconds, other.retryAfterSeconds) };
+}
+
+/**
+ * Whether a confirmation mail may go out to this address now, spending the
+ * allowance if so. Separate from the 429 limit above on purpose: the caller
+ * still stores the subscriber and still answers "check your inbox", it just
+ * does not put a second identical mail in a stranger's inbox.
+ */
+export function claimConfirmationSend(site: string, email: string, now = Date.now()): boolean {
+  return takeLimit('subscribeResend', `${site}:${email.trim().toLowerCase()}`, now).ok;
+}
+
+/**
+ * The newsletter's gate, shared by the server action and `/api/subscribe` —
+ * two doors onto one list (plan §5.2.5), so they must count into one bucket.
+ *
+ * It lives here rather than beside the action because `src/app/actions/lead.ts`
+ * carries `'use server'`, and such a module may export ONLY async functions
+ * (see the comment in `src/app/actions/lead-state.ts` — S14 learned this at
+ * request time, not at build time).
+ *
+ * Three decisions, in order:
+ *  - the per-IP ceiling, generous enough for an office behind one NAT;
+ *  - the per-email ceiling, which is what an inbox-bomber meets;
+ *  - the resend claim, which is not a refusal: it is the difference between
+ *    "stored you and mailed you" and "mailed you again".
+ *
+ * Both counters are always spent — never `a() || b()` — so neither can be
+ * starved by keeping the other full.
+ */
+export type SubscribeGate = 'ok' | 'limited' | 'already-sent';
+
+export const SUBSCRIBE_PENDING_MESSAGE =
+  'Check your inbox — click the link in the confirmation email to finish.';
+
+export function subscribeLimit(input: {
+  ip: string;
+  email: string;
+  site: string;
+  now?: number;
+}): SubscribeGate {
+  const now = input.now ?? Date.now();
+  const email = input.email.trim().toLowerCase();
+  const byIp = takeLimit('subscribeIp', input.ip, now);
+  const byEmail = email ? takeLimit('subscribeEmail', email, now) : { ok: true };
+  if (!byIp.ok || !byEmail.ok) return 'limited';
+  // A missing or malformed address never claims the send allowance: zod
+  // rejects it a moment later, and a real subscriber must not be locked out
+  // for an hour by somebody else's typo.
+  if (!email.includes('@')) return 'ok';
+  return claimConfirmationSend(input.site, email, now) ? 'ok' : 'already-sent';
+}
