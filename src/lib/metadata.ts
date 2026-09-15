@@ -27,7 +27,10 @@ export function siteMetadata(site: SiteKey, input: SiteMetadataInput): Metadata 
     metadataBase: new URL(origin),
     title: input.title,
     description: input.description,
-    alternates: { canonical: path },
+    alternates: {
+      canonical: path,
+      types: { 'application/rss+xml': `${origin}/feed.xml` },
+    },
     robots: input.noindex ? { index: false, follow: true } : undefined,
     openGraph: {
       type: input.type ?? 'website',
@@ -44,6 +47,32 @@ export function siteMetadata(site: SiteKey, input: SiteMetadataInput): Metadata 
       card: 'summary_large_image',
       title: input.title,
       description: input.description,
+    },
+  };
+}
+
+/** A collection of articles or hubs on the brand's own origin. */
+export function collectionPageJsonLd(
+  site: SiteKey,
+  input: { name: string; description: string; path: string; items: { name: string; path: string }[] },
+) {
+  const origin = siteOrigin(site);
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: input.name,
+    description: input.description,
+    url: origin + input.path,
+    inLanguage: getSite(site).locale,
+    mainEntity: {
+      '@type': 'ItemList',
+      numberOfItems: input.items.length,
+      itemListElement: input.items.map((item, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        name: item.name,
+        url: origin + item.path,
+      })),
     },
   };
 }

@@ -1,3 +1,5 @@
+import { whatsappHref } from '@/lib/whatsapp';
+import { t } from '@/i18n';
 import type { Metadata } from 'next';
 import { Fact } from '@/components';
 import { siteMetadata } from '@/lib/metadata';
@@ -15,6 +17,7 @@ export function generateMetadata(): Metadata {
 }
 
 export default function Page() {
+  const whatsapp = whatsappHref('Hola, me gustaría saber más sobre la residencia en Paraguay.');
   return (
     <ServicePage
       crumbLabel="Residencia temporal"
@@ -77,6 +80,15 @@ export default function Page() {
           <a href="/precios">precios</a>.
         </li>
       </ul>
+      {whatsapp && (
+        <a
+          href={whatsapp}
+          rel="noopener"
+          className="mt-[var(--space-4)] inline-flex items-center gap-2 text-[var(--text-sm)] text-[var(--accent)] underline underline-offset-2"
+        >
+          {t('residenciaes', 'form.whatsapp')}
+        </a>
+      )}
     </ServicePage>
   );
 }

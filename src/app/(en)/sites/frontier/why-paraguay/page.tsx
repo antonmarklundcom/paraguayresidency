@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
-import { Breadcrumbs, Container, Fact, Heading, Section } from '@/components';
-import { siteMetadata } from '@/lib/metadata';
+import { Breadcrumbs, Container, Fact, Heading, JsonLd, Section } from '@/components';
+import { serviceJsonLd, siteMetadata } from '@/lib/metadata';
 
 const PATH = '/why-paraguay';
 
@@ -89,6 +89,13 @@ export default function Page() {
           </a>{' '}
           to see where you fit.
         </p>
+        <JsonLd
+          data={serviceJsonLd('frontier', {
+            name: 'Paraguay plan-B residency guidance',
+            description: 'Guidance on Paraguay as a plan B, including costs, lifestyle tradeoffs and residency routes.',
+            path: PATH,
+          })}
+        />
       </Container>
     </Section>
   );

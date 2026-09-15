@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
-import { Breadcrumbs, Container, Fact, Heading, Section } from '@/components';
-import { siteMetadata } from '@/lib/metadata';
+import { Breadcrumbs, Container, Fact, Heading, JsonLd, Section } from '@/components';
+import { serviceJsonLd, siteMetadata } from '@/lib/metadata';
 import { siteOrigin } from '@/sites/registry';
 
 const PATH = '/routes';
@@ -109,6 +109,13 @@ export default function Page() {
           </a>{' '}
           and we will point you at the right one.
         </p>
+        <JsonLd
+          data={serviceJsonLd('frontier', {
+            name: 'Paraguay residency route guidance',
+            description: 'Guidance on temporary residency, permanent residency and Investor Pass routes for a Paraguay plan B.',
+            path: PATH,
+          })}
+        />
       </Container>
     </Section>
   );
