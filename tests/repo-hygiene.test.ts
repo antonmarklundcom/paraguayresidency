@@ -8,6 +8,7 @@ const additions = new Set([
   '.nvmrc', 'tests/repo-hygiene.test.ts', 'tests/fact-site.test.ts',
   'tests/metadata.test.ts', 'tests/whatsapp.test.ts',
   'tests/thank-you-token.test.ts', 'tests/subscriber-token.test.ts',
+  '.github/dependabot.yml',
 ]);
 function allowed(path: string): boolean {
   return additions.has(path) || /^(?:\.next|node_modules|coverage)\//.test(path)

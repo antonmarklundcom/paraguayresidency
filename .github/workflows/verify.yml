@@ -23,3 +23,69 @@ jobs:
       # No database and no network beyond npm: the app opens a DB connection
       # lazily at request time only (plan §4.5).
       - run: npm run verify
+      - name: Audit production dependencies
+        run: npm audit --omit=dev --audit-level=high
+
+  migration-drift:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npx drizzle-kit generate
+      - name: Check for uncommitted migrations
+        run: |
+          changes=$(git status --porcelain --untracked-files=all -- drizzle/)
+          if [ -n "$changes" ]; then
+            printf '%s\n' "$changes"
+            echo 'Migration drift: generate and commit the migrations in drizzle/.'
+            exit 1
+          fi
+
+  lighthouse:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    # S20, plan.md sec14.4 item 3: non-blocking for the first two weeks.
+    # Reconsider removing continue-on-error two weeks after this job first runs on a PR.
+    continue-on-error: true
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      # Linux setup documented in tests/lighthouse.mjs.
+      - run: npx playwright install --with-deps chromium
+      - run: npm run build
+      - name: Run Lighthouse against the production server
+        shell: bash
+        run: |
+          npm start > "$RUNNER_TEMP/lighthouse-server.log" 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid" 2>/dev/null || true' EXIT
+          ready=false
+          for attempt in {1..60}; do
+            if curl --fail --silent --output /dev/null --max-time 2 \
+              -H 'x-forwarded-host: paraguayresidency.co.uk' http://127.0.0.1:3000; then
+              ready=true
+              break
+            fi
+            sleep 1
+          done
+          if [ "$ready" != true ]; then
+            echo 'Production server did not become ready.' | tee lighthouse-results.txt
+            exit 1
+          fi
+          set -o pipefail
+          node tests/lighthouse.mjs http://127.0.0.1:3000 2>&1 | tee lighthouse-results.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: lighthouse-results
+          path: lighthouse-results.txt
+          if-no-files-found: warn
