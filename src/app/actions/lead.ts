@@ -1,6 +1,9 @@
 'use server';
 
 import { cookies, headers } from 'next/headers';
+import { redirect } from 'next/navigation';
+import { NextRequest } from 'next/server';
+import { POST as requestMagicLink } from '@/app/(en)/api/auth/magic/route';
 import { createLead } from '@/lib/leads';
 import { pickUtm } from '@/lib/lead-schema';
 import { parseAttribution } from '@/lib/attribution';
@@ -122,4 +125,52 @@ export async function subscribeAction(
         ? 'You are already on the list.'
         : SUBSCRIBE_PENDING_MESSAGE,
   };
+}
+
+/** Only native form submissions redirect; useActionState keeps its inline result. */
+async function redirectFormResult(form: FormData, key: string, status: 'ok' | 'error'): Promise<never> {
+  const h = await headers();
+  const host = h.get('x-forwarded-host') ?? h.get('host');
+  let path = str(form, 'pagePath') || (key === 'magic' ? '/login' : '/');
+  try {
+    const referrer = new URL(h.get('referer') ?? '');
+    if (referrer.host === host) path = referrer.pathname + referrer.search;
+  } catch { /* A browser may omit Referer; use the form's public path. */ }
+  if (!path.startsWith('/') || path.startsWith('//') || path.includes('\\')) path = '/';
+  const target = new URL(path, 'https://form.invalid');
+  target.searchParams.set(key, status);
+  redirect(target.pathname + target.search);
+}
+
+export async function submitLeadFormAction(form: FormData): Promise<void> {
+  const result = await submitLeadAction({ status: 'idle' }, form);
+  return redirectFormResult(form, 'lead', result.status === 'ok' ? 'ok' : 'error');
+}
+
+export async function subscribeFormAction(form: FormData): Promise<void> {
+  const result = await subscribeAction({ status: 'idle' }, form);
+  return redirectFormResult(form, 'newsletter', result.status === 'ok' ? 'ok' : 'error');
+}
+
+/** Reuse the API's guard, email/IP limits and account-neutral response without an HTTP self-call. */
+export async function magicLinkAction(_prev: SubscribeFormState, form: FormData): Promise<SubscribeFormState> {
+  const h = await headers();
+  const requestHeaders = new Headers(h);
+  requestHeaders.set('content-type', 'application/json');
+  requestHeaders.delete('content-length');
+  const response = await requestMagicLink(new NextRequest('http://localhost/api/auth/magic', {
+    method: 'POST',
+    headers: requestHeaders,
+    body: JSON.stringify({
+      email: str(form, 'email'), site: str(form, 'site'),
+      [TIMESTAMP_FIELD]: str(form, TIMESTAMP_FIELD),
+      [HONEYPOT_FIELD]: str(form, HONEYPOT_FIELD),
+    }),
+  }));
+  return response.ok ? { status: 'ok' } : { status: 'error', message: 'Check your email address and try again.' };
+}
+
+export async function magicLinkFormAction(form: FormData): Promise<void> {
+  const result = await magicLinkAction({ status: 'idle' }, form);
+  return redirectFormResult(form, 'magic', result.status === 'ok' ? 'ok' : 'error');
 }

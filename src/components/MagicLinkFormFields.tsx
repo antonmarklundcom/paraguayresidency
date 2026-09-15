@@ -1,6 +1,4 @@
-'use client';
-
-import { useId, useState } from 'react';
+import { initialSubscribeState, type SubscribeFormState } from '@/app/actions/lead-state';
 import { HONEYPOT_FIELD, TIMESTAMP_FIELD } from '@/lib/form-guard';
 import type { SiteKey } from '@/sites/registry';
 
@@ -12,24 +10,25 @@ export interface MagicLinkLabels {
   sentBody: string;
 }
 
-/**
- * Requests a sign-in link. It posts to `/api/auth/magic`, which always answers
- * 200 — so this component shows the same "check your inbox" state whether or
- * not the address has an account. That is the point (plan §5.4.5).
- */
+/** Shared server-rendered view, also used by the client enhancement. */
 export function MagicLinkFormFields({
   site,
   timestamp,
   labels,
+  id,
+  action,
+  state = initialSubscribeState,
+  pending = false,
 }: {
   site: SiteKey;
   timestamp: string;
   labels: MagicLinkLabels;
+  id: string;
+  action: (form: FormData) => void | Promise<void>;
+  state?: SubscribeFormState;
+  pending?: boolean;
 }) {
-  const [status, setStatus] = useState<'idle' | 'sending' | 'sent'>('idle');
-  const id = useId();
-
-  if (status === 'sent') {
+  if (state.status === 'ok') {
     return (
       <div role="status">
         <p className="font-[family-name:var(--display-font)] text-[var(--text-lg)]">
@@ -43,28 +42,10 @@ export function MagicLinkFormFields({
   return (
     <form
       className="grid gap-[var(--space-3)]"
-      onSubmit={async (event) => {
-        event.preventDefault();
-        const form = new FormData(event.currentTarget);
-        setStatus('sending');
-        try {
-          await fetch('/api/auth/magic', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              email: String(form.get('email') ?? ''),
-              site,
-              [TIMESTAMP_FIELD]: String(form.get(TIMESTAMP_FIELD) ?? ''),
-              [HONEYPOT_FIELD]: String(form.get(HONEYPOT_FIELD) ?? ''),
-            }),
-          });
-        } catch {
-          // A network failure must not tell the visitor anything either; the
-          // link is either in their inbox or it is not.
-        }
-        setStatus('sent');
-      }}
+      action={action}
     >
+      <input type="hidden" name="site" value={site} />
+      {state.status === 'error' ? <p role="alert" className="text-[var(--text-sm)] text-[var(--danger)]">{state.message}</p> : null}
       <input type="hidden" name={TIMESTAMP_FIELD} value={timestamp} />
       <input
         type="text"
@@ -87,10 +68,10 @@ export function MagicLinkFormFields({
       />
       <button
         type="submit"
-        disabled={status === 'sending'}
+        disabled={pending}
         className="justify-self-start rounded-[var(--radius-brand)] bg-[var(--accent)] px-5 py-3 text-[var(--text-sm)] font-medium text-[var(--accent-fg)] transition-opacity hover:opacity-90 disabled:opacity-60"
       >
-        {status === 'sending' ? labels.sending : labels.submit}
+        {pending ? labels.sending : labels.submit}
       </button>
     </form>
   );

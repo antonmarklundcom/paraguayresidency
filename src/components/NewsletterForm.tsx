@@ -1,3 +1,7 @@
+import { randomUUID } from 'node:crypto';
+import { ProgressiveForm } from './ProgressiveForm';
+import { subscribeFormAction } from '@/app/actions/lead';
+import { SUBSCRIBE_PENDING_MESSAGE } from '@/lib/rate-limit';
 import { t } from '@/i18n';
 import { issueFormTimestamp } from '@/lib/form-guard';
 import type { SiteKey } from '@/sites/registry';
@@ -11,12 +15,8 @@ export function NewsletterForm({ site, source = 'inline' }: { site: SiteKey; sou
     sending: t(site, 'newsletter.sending'),
     note: t(site, 'newsletter.note'),
   };
-  return (
-    <NewsletterFormFields
-      site={site}
-      timestamp={issueFormTimestamp()}
-      source={source}
-      labels={labels}
-    />
-  );
+  const fields = { site, source, labels, timestamp: issueFormTimestamp(), id: 'newsletter-' + randomUUID() };
+  return <ProgressiveForm kind="newsletter" fields={fields}
+    base={<NewsletterFormFields {...fields} action={subscribeFormAction} />}
+    success={<NewsletterFormFields {...fields} action={subscribeFormAction} state={{ status: 'ok', message: SUBSCRIBE_PENDING_MESSAGE }} />} />;
 }

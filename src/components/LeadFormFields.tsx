@@ -1,21 +1,16 @@
-'use client';
-
-import { useActionState, useEffect, useId, useRef } from 'react';
-import { useFormStatus } from 'react-dom';
-import { submitLeadAction } from '@/app/actions/lead';
 import { initialLeadState, type LeadFormState } from '@/app/actions/lead-state';
-import { COUNTRIES } from '@/lib/countries';
 import { HONEYPOT_FIELD, TIMESTAMP_FIELD } from '@/lib/form-guard';
-import { INVESTMENT_RANGES, type LeadKind } from '@/lib/lead-schema';
+import type { INVESTMENT_RANGES, LeadKind } from '@/lib/lead-schema';
 import type { SiteKey } from '@/sites/registry';
 
-export type LeadVariant = 'consultation' | 'investor_inquiry' | 'contact' | 'quiz';
+export type LeadVariant = 'consultation' | 'investor_inquiry' | 'contact' | 'quiz' | 'whatsapp';
 
-const KIND_BY_VARIANT: Record<LeadVariant, LeadKind> = {
+const KIND_BY_VARIANT: Record<LeadVariant, LeadKind | 'whatsapp'> = {
   consultation: 'consultation',
   investor_inquiry: 'investor_inquiry',
   contact: 'contact',
   quiz: 'quiz',
+  whatsapp: 'whatsapp',
 };
 
 export interface LeadFormLabels {
@@ -43,8 +38,7 @@ const field =
 const label = 'block text-[var(--text-sm)] font-medium text-[var(--fg)]';
 const hint = 'text-[var(--text-xs)] font-normal text-[var(--fg-muted)]';
 
-function Submit({ labels }: { labels: LeadFormLabels }) {
-  const { pending } = useFormStatus();
+function Submit({ labels, pending }: { labels: LeadFormLabels; pending: boolean }) {
   return (
     <button
       type="submit"
@@ -64,6 +58,11 @@ export function LeadFormFields({
   quizResult,
   quizAnswers,
   labels,
+  countryOptions,
+  id,
+  action,
+  state = initialLeadState,
+  pending = false,
 }: {
   site: SiteKey;
   variant: LeadVariant;
@@ -72,30 +71,15 @@ export function LeadFormFields({
   quizResult?: string;
   quizAnswers?: string;
   labels: LeadFormLabels;
+  countryOptions: React.ReactNode;
+  id: string;
+  action: (form: FormData) => void | Promise<void>;
+  state?: LeadFormState;
+  pending?: boolean;
 }) {
-  const [state, action] = useActionState<LeadFormState, FormData>(
-    submitLeadAction,
-    initialLeadState,
-  );
-  const id = useId();
-  const successRef = useRef<HTMLDivElement>(null);
-
-  // In-place success, plus `?lead=ok` so analytics can count conversions
-  // without a separate thank-you page (plan §5.2.2).
-  useEffect(() => {
-    if (state.status !== 'ok') return;
-    successRef.current?.focus();
-    const url = new URL(window.location.href);
-    if (url.searchParams.get('lead') !== 'ok') {
-      url.searchParams.set('lead', 'ok');
-      window.history.replaceState({}, '', url);
-    }
-  }, [state.status]);
-
   if (state.status === 'ok') {
     return (
       <div
-        ref={successRef}
         tabIndex={-1}
         role="status"
         className="rounded-[var(--radius-brand)] border border-[var(--accent)] bg-[var(--accent-soft)] p-[var(--space-6)]"
@@ -142,7 +126,7 @@ export function LeadFormFields({
           </label>
           <input id={`${id}-name`} name="name" autoComplete="name" className={field} />
         </div>
-        <div>
+        {variant !== 'whatsapp' ? <div>
           <label className={label} htmlFor={`${id}-email`}>
             {labels.email}
           </label>
@@ -158,11 +142,11 @@ export function LeadFormFields({
           {err('email') ? (
             <p className="mt-1 text-[var(--text-xs)] text-[var(--danger)]">{err('email')}</p>
           ) : null}
-        </div>
+        </div> : null}
       </div>
 
       <div className="grid gap-[var(--space-4)] sm:grid-cols-2">
-        <div>
+        {variant !== 'whatsapp' ? <div>
           <label className={label} htmlFor={`${id}-phone`}>
             {labels.phone}
           </label>
@@ -178,16 +162,17 @@ export function LeadFormFields({
           {err('phone') ? (
             <p className="mt-1 text-[var(--text-xs)] text-[var(--danger)]">{err('phone')}</p>
           ) : null}
-        </div>
+        </div> : null}
         <div>
           <label className={label} htmlFor={`${id}-whatsapp`}>
-            {labels.whatsapp} <span className={hint}>{labels.optional}</span>
+            {labels.whatsapp} {variant !== 'whatsapp' ? <span className={hint}>{labels.optional}</span> : null}
           </label>
-          <input id={`${id}-whatsapp`} name="whatsapp" type="tel" className={field} />
+          <input id={`${id}-whatsapp`} name="whatsapp" type="tel" autoComplete="tel" required={variant === 'whatsapp'} aria-invalid={err('whatsapp') ? true : undefined} className={field} />
+          {err('whatsapp') ? <p className="mt-1 text-[var(--text-xs)] text-[var(--danger)]">{err('whatsapp')}</p> : null}
         </div>
       </div>
 
-      {variant !== 'contact' ? (
+      {variant !== 'contact' && variant !== 'whatsapp' ? (
         <div className="grid gap-[var(--space-4)] sm:grid-cols-2">
           <div>
             <label className={label} htmlFor={`${id}-nationality`}>
@@ -195,11 +180,7 @@ export function LeadFormFields({
             </label>
             <select id={`${id}-nationality`} name="nationality" defaultValue="" className={field}>
               <option value="">{labels.choose}</option>
-              {COUNTRIES.map((c) => (
-                <option key={c.code} value={c.code}>
-                  {c.name}
-                </option>
-              ))}
+              {countryOptions}
             </select>
           </div>
           <div>
@@ -208,11 +189,7 @@ export function LeadFormFields({
             </label>
             <select id={`${id}-country`} name="country" defaultValue="" className={field}>
               <option value="">{labels.choose}</option>
-              {COUNTRIES.map((c) => (
-                <option key={c.code} value={c.code}>
-                  {c.name}
-                </option>
-              ))}
+              {countryOptions}
             </select>
           </div>
         </div>
@@ -226,7 +203,7 @@ export function LeadFormFields({
             </label>
             <select id={`${id}-range`} name="investmentRange" defaultValue="" className={field}>
               <option value="">{labels.choose}</option>
-              {INVESTMENT_RANGES.map((range) => (
+              {(Object.keys(labels.investmentRanges) as (keyof LeadFormLabels['investmentRanges'])[]).map((range) => (
                 <option key={range} value={range}>
                   {labels.investmentRanges[range]}
                 </option>
@@ -253,11 +230,11 @@ export function LeadFormFields({
         <label className={label} htmlFor={`${id}-message`}>
           {labels.message}
         </label>
-        <textarea id={`${id}-message`} name="message" rows={4} className={field} />
+        {variant === 'whatsapp' ? <input id={`${id}-message`} name="message" className={field} /> : <textarea id={`${id}-message`} name="message" rows={4} className={field} />}
       </div>
 
       <div>
-        <Submit labels={labels} />
+        <Submit labels={labels} pending={pending} />
       </div>
     </form>
   );

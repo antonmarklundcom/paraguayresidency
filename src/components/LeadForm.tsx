@@ -1,3 +1,7 @@
+import { randomUUID } from 'node:crypto';
+import { ProgressiveForm } from './ProgressiveForm';
+import { submitLeadFormAction } from '@/app/actions/lead';
+import { COUNTRIES } from '@/lib/countries';
 import { t } from '@/i18n';
 import { issueFormTimestamp } from '@/lib/form-guard';
 import { INVESTMENT_RANGES } from '@/lib/lead-schema';
@@ -41,7 +45,7 @@ export function LeadForm({
     message: t(site, 'form.message'),
     investmentRange: t(site, 'form.investmentRange'),
     investmentRoute: t(site, 'form.investmentRoute'),
-    submit: t(site, `form.submit.${variant}`),
+    submit: t(site, `form.submit.${variant === 'whatsapp' ? 'contact' : variant}`),
     sending: t(site, 'form.sending'),
     successTitle: t(site, 'form.successTitle'),
     successBody: t(site, 'form.successBody'),
@@ -56,17 +60,14 @@ export function LeadForm({
     })),
   };
 
-  return (
-    <LeadFormFields
-      site={site}
-      variant={variant}
-      timestamp={issueFormTimestamp()}
-      pagePath={pagePath}
-      quizResult={quizResult}
-      quizAnswers={quizAnswers}
-      labels={labels}
-    />
-  );
+  const fields = {
+    site, variant, pagePath, quizResult, quizAnswers, labels,
+    timestamp: issueFormTimestamp(), id: 'lead-' + randomUUID(),
+    countryOptions: COUNTRIES.map((country) => <option key={country.code} value={country.code}>{country.name}</option>),
+  };
+  return <ProgressiveForm kind="lead" fields={fields}
+    base={<LeadFormFields {...fields} action={submitLeadFormAction} />}
+    success={<LeadFormFields {...fields} action={submitLeadFormAction} state={{ status: 'ok' }} />} />;
 }
 
 export type { LeadVariant };

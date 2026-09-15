@@ -48,9 +48,9 @@ const phone = z
 
 export const leadInputSchema = z.object({
   site: z.enum(SITE_KEYS as unknown as [string, ...string[]]),
-  kind: z.enum(LEAD_KINDS),
+  kind: z.enum([...LEAD_KINDS, 'whatsapp']),
   name: optionalTrimmed(160),
-  email: z.string().trim().toLowerCase().email('Enter a valid email address').max(255),
+  email: z.union([z.string().trim().toLowerCase().email('Enter a valid email address').max(255), z.literal('')]).default(''),
   phone,
   whatsapp: phone,
   country: countryCode,
@@ -68,7 +68,19 @@ export const leadInputSchema = z.object({
   quizAnswers: z.record(z.string(), z.string()).optional(),
   pagePath: optionalTrimmed(512),
   utm: z.record(z.string(), z.string()).optional(),
-});
+}).superRefine((input, ctx) => {
+  if (input.kind !== 'whatsapp' && !input.email) {
+    ctx.addIssue({ code: 'custom', path: ['email'], message: 'Enter a valid email address' });
+  }
+  if (input.kind === 'whatsapp' && !input.phone && !input.whatsapp) {
+    ctx.addIssue({ code: 'custom', path: ['whatsapp'], message: 'Enter a valid WhatsApp number' });
+  }
+}).transform((input) => ({
+  ...input,
+  // WhatsApp is a short contact form, not a new database enum value.
+  // The existing NOT NULL email column stores absence as an empty string.
+  kind: input.kind === 'whatsapp' ? 'contact' as const : input.kind,
+}));
 
 export type LeadInput = z.infer<typeof leadInputSchema>;
 

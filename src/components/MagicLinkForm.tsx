@@ -1,3 +1,6 @@
+import { randomUUID } from 'node:crypto';
+import { ProgressiveForm } from './ProgressiveForm';
+import { magicLinkFormAction } from '@/app/actions/lead';
 import { t } from '@/i18n';
 import { issueFormTimestamp } from '@/lib/form-guard';
 import type { SiteKey } from '@/sites/registry';
@@ -12,5 +15,8 @@ export function MagicLinkForm({ site }: { site: SiteKey }) {
     sentTitle: t(site, 'login.sentTitle'),
     sentBody: t(site, 'login.sentBody'),
   };
-  return <MagicLinkFormFields site={site} timestamp={issueFormTimestamp()} labels={labels} />;
+  const fields = { site, labels, timestamp: issueFormTimestamp(), id: 'magic-' + randomUUID() };
+  return <ProgressiveForm kind="magic" fields={fields}
+    base={<MagicLinkFormFields {...fields} action={magicLinkFormAction} />}
+    success={<MagicLinkFormFields {...fields} action={magicLinkFormAction} state={{ status: 'ok' }} />} />;
 }
