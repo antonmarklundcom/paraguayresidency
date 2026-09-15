@@ -79,7 +79,7 @@ describe('every internal MDX link resolves', () => {
         while ((match = LINK_RE.exec(src))) {
           const href = match[1];
           if (!known.has(href)) {
-            dead.push(`${file.slice(ROOT.length + 1).replace(/\\/g, '/')} → ${href}`);
+            dead.push(`${file.replace(ROOT, '').replace(/^[/\\]/, '').replace(/\\/g, '/')} → ${href}`);
           }
         }
       }
