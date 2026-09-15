@@ -516,7 +516,7 @@ Exit: `grep -rn` (excluding `node_modules`, `.next`, `.git`, `plan.md`, `prompts
 - O18 | 2026-09-11 | [PR #28](https://github.com/antonmarklundcom/paraguayresidency/pull/28) | [docs/log/o18.md](docs/log/o18.md)
 - O19 | 2026-09-15 | [PR #32](https://github.com/antonmarklundcom/paraguayresidency/pull/32) | [docs/log/o19.md](docs/log/o19.md)
 - S20 | 2026-09-15 | [PR #33](https://github.com/antonmarklundcom/paraguayresidency/pull/33) | [docs/log/s20.md](docs/log/s20.md)
-- S21 | 2026-09-15 | PR pending | [docs/log/s21.md](docs/log/s21.md)
+- S21 | 2026-09-15 | [PR #39](https://github.com/antonmarklundcom/paraguayresidency/pull/39) | [docs/log/s21.md](docs/log/s21.md)
 
 ## 10. Backlog
 
