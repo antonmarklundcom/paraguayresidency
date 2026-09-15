@@ -114,8 +114,12 @@ describe('privateRoot', () => {
 
   it('honours an explicit PRIVATE_DIR — the standalone build needs it', () => {
     process.env.PRIVATE_DIR = '/srv/paraguayresidency/private';
-    expect(privateRoot()).toBe('/srv/paraguayresidency/private');
-    expect(resolvePrivateFile('guide.pdf')).toBe('/srv/paraguayresidency/private/guide.pdf');
+    expect(privateRoot().replace(/\\/g, '/')).toBe(
+      resolve('/srv/paraguayresidency/private').replace(/\\/g, '/'),
+    );
+    expect(resolvePrivateFile('guide.pdf')?.replace(/\\/g, '/')).toBe(
+      resolve('/srv/paraguayresidency/private/guide.pdf').replace(/\\/g, '/'),
+    );
     expect(resolvePrivateFile('../public/guide.pdf')).toBeNull();
   });
 
