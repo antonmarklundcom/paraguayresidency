@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
-import { Breadcrumbs, Container, Fact, FAQ, Heading, LeadForm, Section } from '@/components';
-import { siteMetadata } from '@/lib/metadata';
+import { Breadcrumbs, Container, Fact, FAQ, Heading, JsonLd, LeadForm, Section } from '@/components';
+import { serviceJsonLd, siteMetadata } from '@/lib/metadata';
 
 const PATH = '/tax';
 
@@ -105,6 +105,13 @@ export default function Page() {
             <LeadForm site="frontier" variant="consultation" pagePath={PATH} />
           </div>
         </div>
+        <JsonLd
+          data={serviceJsonLd('frontier', {
+            name: 'Paraguay tax residency and RUC registration',
+            description: 'RUC registration alongside residency filing and guidance on Paraguay territorial taxation and its limits.',
+            path: PATH,
+          })}
+        />
       </Container>
     </Section>
   );

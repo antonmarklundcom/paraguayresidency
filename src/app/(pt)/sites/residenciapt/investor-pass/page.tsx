@@ -9,6 +9,8 @@ const PATH = '/investor-pass';
  * A short bridge page (plan §6.7): the Investor Pass brand is canonical for
  * this content and sells in English, so this page stays deliberately thin
  * and noindex rather than competing with paraguayinvestorpass.com in search.
+ * Excluded from the sitemap for the same reason as residenciaes /pase-inversor
+ * and the hub /investor-pass: a thin bridge to the English-selling brand.
  */
 export function generateMetadata(): Metadata {
   return siteMetadata('residenciapt', {

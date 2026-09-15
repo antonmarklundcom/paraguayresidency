@@ -1,3 +1,5 @@
+import { whatsappHref } from '@/lib/whatsapp';
+import { t } from '@/i18n';
 import type { Metadata } from 'next';
 import { Fact } from '@/components';
 import { siteMetadata } from '@/lib/metadata';
@@ -15,6 +17,7 @@ export function generateMetadata(): Metadata {
 }
 
 export default function Page() {
+  const whatsapp = whatsappHref('Hola, me gustaría saber más sobre la residencia en Paraguay.');
   return (
     <ServicePage
       crumbLabel="Residencia permanente"
@@ -68,6 +71,15 @@ export default function Page() {
         de Inversor? El <a href="/route-finder">test de ruta</a> compara ambas opciones frente a tu
         situación real en unos dos minutos.
       </p>
+      {whatsapp && (
+        <a
+          href={whatsapp}
+          rel="noopener"
+          className="mt-[var(--space-4)] inline-flex items-center gap-2 text-[var(--text-sm)] text-[var(--accent)] underline underline-offset-2"
+        >
+          {t('residenciaes', 'form.whatsapp')}
+        </a>
+      )}
     </ServicePage>
   );
 }

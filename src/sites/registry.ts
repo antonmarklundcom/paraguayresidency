@@ -327,6 +327,8 @@ export const sites: Record<SiteKey, SiteConfig> = {
             { labelKey: 'nav.cedula', href: '/residencia/cedula' },
             { labelKey: 'nav.taxResidency', href: '/residencia-fiscal' },
             { labelKey: 'nav.family', href: '/familia' },
+            { labelKey: 'nav.mercosur', href: '/mercosur' },
+            { labelKey: 'nav.investorPass', href: '/pase-inversor' },
           ],
         },
         {
@@ -334,6 +336,7 @@ export const sites: Record<SiteKey, SiteConfig> = {
           items: [
             { labelKey: 'nav.about', href: '/nosotros' },
             { labelKey: 'nav.contact', href: '/contact' },
+            { labelKey: 'nav.blog', href: '/guias' },
           ],
         },
       ],
@@ -371,6 +374,8 @@ export const sites: Record<SiteKey, SiteConfig> = {
             { labelKey: 'nav.cedula', href: '/residencia/cedula' },
             { labelKey: 'nav.taxResidency', href: '/residencia-fiscal' },
             { labelKey: 'nav.family', href: '/familia' },
+            { labelKey: 'nav.pricing', href: '/precos' },
+            { labelKey: 'nav.investorPass', href: '/investor-pass' },
           ],
         },
         {
@@ -378,6 +383,7 @@ export const sites: Record<SiteKey, SiteConfig> = {
           items: [
             { labelKey: 'nav.about', href: '/sobre' },
             { labelKey: 'nav.contact', href: '/contact' },
+            { labelKey: 'nav.blog', href: '/guias' },
           ],
         },
       ],

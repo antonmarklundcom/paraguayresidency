@@ -1,3 +1,5 @@
+import { whatsappHref } from '@/lib/whatsapp';
+import { t } from '@/i18n';
 import type { Metadata } from 'next';
 import {
   Bento,
@@ -66,6 +68,7 @@ const FAQ_ITEMS = [
 ];
 
 export default function Page() {
+  const whatsapp = whatsappHref('Hola, me gustaría saber más sobre la residencia en Paraguay.');
   const actions = (
     <>
       <Button href="/route-finder">Descubre tu ruta</Button>
@@ -179,6 +182,15 @@ export default function Page() {
           <div className="mt-[var(--space-8)] flex flex-wrap justify-center gap-[var(--space-3)]">
             {actions}
           </div>
+          {whatsapp && (
+            <a
+              href={whatsapp}
+              rel="noopener"
+              className="mt-[var(--space-4)] inline-flex items-center gap-2 text-[var(--text-sm)] text-[var(--accent)] underline underline-offset-2"
+            >
+              {t('residenciaes', 'form.whatsapp')}
+            </a>
+          )}
         </Container>
       </Section>
     </>

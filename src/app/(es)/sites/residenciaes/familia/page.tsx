@@ -1,3 +1,5 @@
+import { whatsappHref } from '@/lib/whatsapp';
+import { t } from '@/i18n';
 import type { Metadata } from 'next';
 import { siteMetadata } from '@/lib/metadata';
 import { ServicePage } from '@/app/(es)/sites/residenciaes/_lib/ServicePage';
@@ -14,6 +16,7 @@ export function generateMetadata(): Metadata {
 }
 
 export default function Page() {
+  const whatsapp = whatsappHref('Hola, me gustaría saber más sobre la residencia en Paraguay.');
   return (
     <ServicePage
       crumbLabel="Familia"
@@ -62,6 +65,15 @@ export default function Page() {
         <a href="/route-finder">test de ruta</a> o <a href="/contact">cuéntanos tu situación</a>{' '}
         directamente.
       </p>
+      {whatsapp && (
+        <a
+          href={whatsapp}
+          rel="noopener"
+          className="mt-[var(--space-4)] inline-flex items-center gap-2 text-[var(--text-sm)] text-[var(--accent)] underline underline-offset-2"
+        >
+          {t('residenciaes', 'form.whatsapp')}
+        </a>
+      )}
     </ServicePage>
   );
 }
