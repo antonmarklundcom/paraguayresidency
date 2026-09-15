@@ -8,10 +8,11 @@ const additions = new Set([
   '.nvmrc', 'tests/repo-hygiene.test.ts', 'tests/fact-site.test.ts',
   'tests/metadata.test.ts', 'tests/whatsapp.test.ts',
   'tests/thank-you-token.test.ts', 'tests/subscriber-token.test.ts',
-  '.github/dependabot.yml',
+  '.github/dependabot.yml', 'docs/known-issues-archive.md',
 ]);
 function allowed(path: string): boolean {
   return additions.has(path) || /^(?:\.next|node_modules|coverage)\//.test(path)
+    || /^docs\/log\/[\w-]+\.md$/.test(path)
     || /^(?:\.DS_Store|Thumbs\.db|desktop\.ini)$/.test(basename(path))
     || /^\..+\.sw[op]$/.test(basename(path)) || /~$/.test(basename(path));
 }
