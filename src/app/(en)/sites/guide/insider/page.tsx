@@ -30,7 +30,7 @@ import { GUIDE_INSIDER_SLUG } from '@/sites/registry';
 const SITE = 'guide' as const;
 const PATH = '/insider';
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 300;
 
 export function generateMetadata(): Metadata {
   return siteMetadata(SITE, {

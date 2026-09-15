@@ -25,8 +25,8 @@ import { t } from '@/i18n';
 const SITE = 'guide' as const;
 const PATH = '/';
 
-/** Reads the live price from the `products` row on every request. */
-export const dynamic = 'force-dynamic';
+/** Refreshes the live product price every five minutes. */
+export const revalidate = 300;
 
 export function generateMetadata(): Metadata {
   return siteMetadata(SITE, {
