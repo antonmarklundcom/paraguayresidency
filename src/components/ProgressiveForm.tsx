@@ -1,6 +1,7 @@
 'use client';
 
 import dynamic from 'next/dynamic';
+import { track } from '@/lib/analytics';
 import { createContext, useCallback, useContext, useEffect, useLayoutEffect, useRef, useState, useSyncExternalStore, type ReactNode } from 'react';
 import type { EnhancementProps, FormSnapshot } from './FormEnhancement';
 
@@ -22,6 +23,7 @@ export function ProgressiveForm({ base, success, ...props }: EnhancementProps & 
   const root = useRef<HTMLDivElement>(null);
   const snapshot = useRef<FormSnapshot>({ values: [] });
   const submitted = useRef(false);
+  const trackedSuccess = useRef(false);
   const [active, setActive] = useState(false);
   const result = useSyncExternalStore(subscribeToQuery, () => new URLSearchParams(window.location.search).get(props.kind), () => null);
   const capture = useCallback(() => {
@@ -47,6 +49,28 @@ export function ProgressiveForm({ base, success, ...props }: EnhancementProps & 
     capture();
     setActive(true);
   };
+  const trackSuccess = useCallback(() => {
+    if (trackedSuccess.current || props.kind === 'magic') return;
+    trackedSuccess.current = true;
+    track(props.kind === 'lead' ? 'lead_submitted' : 'newsletter_subscribed', {
+      site: props.fields.site, kind: props.kind,
+    });
+  }, [props.kind, props.fields.site]);
+  useEffect(() => {
+    if (result === 'ok') trackSuccess();
+  }, [result, trackSuccess]);
+  useEffect(() => {
+    const element = root.current;
+    if (!element) return;
+    // Enhanced actions update history without a popstate event.
+    const check = () => {
+      if (element.querySelector('[data-enhanced] [role="status"]')) trackSuccess();
+    };
+    const observer = new MutationObserver(check);
+    observer.observe(element, { childList: true, subtree: true });
+    check();
+    return () => observer.disconnect();
+  }, [trackSuccess]);
   useEffect(() => {
     if (result === 'ok') return;
     const element = root.current;

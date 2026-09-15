@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { QuizCompleted } from '@/components/QuizCompleted';
 import { QuizResultView, resolveResult } from '@/features/quiz/ResultView';
 import { t } from '@/i18n';
 import { siteMetadata } from '@/lib/metadata';
@@ -21,5 +22,8 @@ export default async function Page({ searchParams }: { searchParams: SearchParam
     r: firstParam(params, 'r'),
     a: firstParam(params, 'a'),
   });
-  return <QuizResultView site={SITE} route={route} encoded={encoded} empty={empty} />;
+  return <>
+    {!empty ? <QuizCompleted site={SITE} route={route} /> : null}
+    <QuizResultView site={SITE} route={route} encoded={encoded} empty={empty} />
+  </>;
 }

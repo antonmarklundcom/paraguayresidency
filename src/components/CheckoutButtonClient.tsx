@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { track } from '@/lib/analytics';
 
 export interface CheckoutLabels {
   buy: string;
@@ -25,11 +26,13 @@ export interface CheckoutLabels {
  */
 export function CheckoutButtonClient({
   enabled,
+  site,
   product,
   timestamp,
   labels,
 }: {
   enabled: boolean;
+  site: 'guide';
   product: string;
   timestamp: string;
   labels: CheckoutLabels;
@@ -48,6 +51,7 @@ export function CheckoutButtonClient({
   }
 
   async function start(withEmail?: string) {
+    if (!withEmail) track('checkout_started', { site, product });
     setBusy(true);
     setError(null);
     try {
