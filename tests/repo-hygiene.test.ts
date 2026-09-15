@@ -5,6 +5,7 @@ import { expect, it } from 'vitest';
 // Exact additions in this dispatch may be untracked until the caller commits.
 // Do not allow entire source directories: a stray file there must still fail.
 const additions = new Set([
+  'tests/quiz-destinations.test.ts',
   'tests/s21-surfaces.test.ts',
   '.nvmrc', 'tests/repo-hygiene.test.ts', 'tests/fact-site.test.ts',
   'tests/metadata.test.ts', 'tests/whatsapp.test.ts',

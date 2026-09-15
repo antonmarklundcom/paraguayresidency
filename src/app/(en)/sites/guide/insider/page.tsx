@@ -19,7 +19,7 @@ import {
   getProductBySlug,
 } from '@/lib/purchases';
 import { resourcesForSite, updatesForSite } from '@/lib/member-content';
-import { GUIDE_INSIDER_SLUG } from '@/sites/registry';
+import { GUIDE_ENTRY_SLUG, GUIDE_INSIDER_SLUG } from '@/sites/registry';
 
 /**
  * The recurring-membership sales page (plan §6.9). Guide-only content, site is
@@ -41,9 +41,9 @@ export function generateMetadata(): Metadata {
   });
 }
 
-const FAQ_ITEMS = [
+const faqItems = (guidePrice: string) => [
   {
-    question: 'Is this different from the $7 guide?',
+    question: `Is this different from the ${guidePrice} guide?`,
     answer:
       'The guide is a one-time purchase — twelve chapters, yours forever, with 12 months of free updates included. Insider is a separate, ongoing membership: a monthly deep dive, an updates feed, and case studies that go further than a general-audience guide has room for. You do not need Insider to use the guide, and the guide is not required to join Insider — most members have both.',
   },
@@ -65,7 +65,14 @@ const FAQ_ITEMS = [
 ];
 
 export default async function Page() {
-  const product = await getProductBySlug(GUIDE_INSIDER_SLUG);
+  const [product, guideProduct] = await Promise.all([
+    getProductBySlug(GUIDE_INSIDER_SLUG),
+    getProductBySlug(GUIDE_ENTRY_SLUG),
+  ]);
+  const guidePrice = formatPrice(
+    guideProduct?.priceCents ?? fallbackPriceCents(),
+    guideProduct?.currency ?? fallbackCurrency(),
+  );
   const priceCents = product?.priceCents ?? fallbackPriceCents();
   const currency = product?.currency ?? fallbackCurrency();
   const interval = product?.interval ?? 'month';
@@ -193,7 +200,7 @@ export default async function Page() {
       {/* FAQ */}
       <Section>
         <Container width="narrow">
-          <FAQ title="Questions" items={FAQ_ITEMS} />
+          <FAQ title="Questions" items={faqItems(guidePrice)} />
         </Container>
       </Section>
 

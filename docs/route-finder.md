@@ -1,8 +1,8 @@
 # Route Finder — scoring, and the three documented outcomes
 
 The Route Finder (plan §3, §5.2.3) is the strongest cross-brand link: the same
-six questions run on all three domains, and the result deep-links to whichever
-brand owns the recommended route.
+six questions run on all seven domains. Results prefer the quiz brand's own
+standard residency pages; Investor Pass always links to its dedicated brand.
 
 Scoring lives in `src/features/quiz/scoring.ts` and is a pure function — no
 i18n, no database, no request. Question and answer *copy* lives in
@@ -81,3 +81,33 @@ is used only when `a` carries no readable answers at all.
 
 Submitting the form on the result page stores the route in `leads.quiz_result`
 and the answers in `leads.quiz_answers`, and sends both to the CRM timeline.
+
+## Destinations by quiz brand
+
+`ROUTE_DESTINATIONS[site][route]` selects the destination brand and path.
+Scoring and the three outcomes are unchanged.
+
+| Quiz brand | Temporary destination | Permanent destination |
+|---|---|---|
+| residency | residency `/residency/temporary-residency` | residency `/residency/permanent-residency` |
+| investorpass | residency `/residency/temporary-residency` | residency `/residency/permanent-residency` |
+| guide | residency `/residency/temporary-residency` | residency `/residency/permanent-residency` |
+| frontier | frontier `/routes#temporary` | frontier `/routes#permanent` |
+| residenciaes | residenciaes `/residencia/temporal` | residenciaes `/residencia/permanente` |
+| residenciapt | residenciapt `/residencia/temporaria` | residenciapt `/residencia/permanente` |
+| flytta | flytta `/uppehallstillstand` | flytta `/uppehallstillstand` |
+
+Frontier's combined route page has existing section anchors. Flytta's combined
+residency service page has no anchors, so both outcomes link to that page while
+retaining distinct result copy. No new route or destination field is needed.
+Guide has no residency service page. Investorpass's comparison page explicitly
+sends standard residency visitors to the hub, so its standard outcomes also use
+the hub's dedicated pages.
+
+For every quiz brand, `investor-pass` targets investorpass
+`/investor-pass/requirements`, even where a local Investor Pass overview exists.
+`ResultView` uses relative links for destinations owned by the current brand;
+otherwise it uses the destination's canonical origin, an external link and the
+sibling-brand explanation. Investorpass's own Investor Pass result remains local.
+`tests/quiz-destinations.test.ts` checks all three destinations per brand,
+including link behavior and destination page/anchor existence.

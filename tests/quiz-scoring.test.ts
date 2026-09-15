@@ -136,9 +136,9 @@ describe('question and route wiring', () => {
     expect(QUESTION_IDS.length).toBeLessThanOrEqual(7);
   });
 
-  it('routes the Investor Pass to its own brand and the rest to the hub', () => {
-    expect(ROUTE_DESTINATIONS['investor-pass'].site).toBe('investorpass');
-    expect(ROUTE_DESTINATIONS.temporary.site).toBe('residency');
-    expect(ROUTE_DESTINATIONS.permanent.site).toBe('residency');
+  it('routes the hub quiz to the owning service brands', () => {
+    expect(ROUTE_DESTINATIONS.residency['investor-pass'].site).toBe('investorpass');
+    expect(ROUTE_DESTINATIONS.residency.temporary.site).toBe('residency');
+    expect(ROUTE_DESTINATIONS.residency.permanent.site).toBe('residency');
   });
 });
