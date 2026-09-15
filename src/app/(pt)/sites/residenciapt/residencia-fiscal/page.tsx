@@ -1,3 +1,4 @@
+import { ProcessTimeline } from '@/components/ProcessTimeline';
 import type { Metadata } from 'next';
 import { Fact } from '@/components';
 import { siteMetadata } from '@/lib/metadata';
@@ -72,6 +73,7 @@ export default function Page() {
           inventar uma.
         </li>
       </ul>
+      <ProcessTimeline site="residenciapt" route="tax" />
     </ServicoPage>
   );
 }

@@ -14,7 +14,7 @@ export default function Page() {
   const whatsapp = whatsappHref('Hola, me gustaría saber más sobre la residencia en Paraguay.');
   return (
     <Section>
-      <Container width="narrow">
+      <Container>
         <Heading level={1}>{t(SITE, 'contact.h1')}</Heading>
         <p className="mt-[var(--space-4)] text-[var(--fg-muted)]">{t(SITE, 'contact.sub')}</p>
         {whatsapp && (
@@ -26,9 +26,17 @@ export default function Page() {
           {t('residenciaes', 'form.whatsapp')}
         </a>
       )}
-        <div className="mt-[var(--space-10)]">
-          <LeadForm site={SITE} variant="contact" pagePath="/contact" />
-        </div>
+        <div className="mt-[var(--space-10)] grid gap-[var(--space-8)] text-left lg:grid-cols-2">
+            <div>
+              <Heading level={2}>{t('residenciaes', 'process.fullForm')}</Heading>
+              <div className="mt-[var(--space-4)]"><LeadForm site="residenciaes" variant="contact" pagePath="/contact" /></div>
+            </div>
+            <div>
+              <Heading level={2}>{t('residenciaes', 'form.whatsapp')}</Heading>
+              <p className="my-[var(--space-4)] text-[var(--fg-muted)]">{t('residenciaes', 'process.whatsappIntro')}</p>
+              <LeadForm site="residenciaes" variant="whatsapp" pagePath="/contact" />
+            </div>
+          </div>
       </Container>
     </Section>
   );

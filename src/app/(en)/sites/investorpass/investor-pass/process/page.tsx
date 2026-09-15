@@ -1,3 +1,4 @@
+import { ProcessTimeline } from '@/components/ProcessTimeline';
 import type { Metadata } from 'next';
 import { Fact } from '@/components';
 import { siteMetadata } from '@/lib/metadata';
@@ -81,6 +82,7 @@ export default function Page() {
         If you are still deciding whether the Investor Pass is worth the investment compared with
         the standard route, see the <a href="/investor-pass/vs-standard-residency">full comparison</a>.
       </p>
+      <ProcessTimeline site="investorpass" route="investor" />
     </ServicePage>
   );
 }

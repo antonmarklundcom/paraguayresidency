@@ -1,3 +1,4 @@
+import { ProcessTimeline } from '@/components/ProcessTimeline';
 import { whatsappHref } from '@/lib/whatsapp';
 import { t } from '@/i18n';
 import type { Metadata } from 'next';
@@ -89,6 +90,7 @@ export default function Page() {
           {t('residenciaes', 'form.whatsapp')}
         </a>
       )}
+      <ProcessTimeline site="residenciaes" route="temporary" />
     </ServicePage>
   );
 }

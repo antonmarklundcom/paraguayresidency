@@ -1,3 +1,4 @@
+import { t } from '@/i18n';
 import type { Metadata } from 'next';
 import {
   Bento,
@@ -224,8 +225,18 @@ export default function Page() {
       </Section>
 
       <Section tone="accent">
-        <Container width="narrow">
-          <LeadForm site="frontier" variant="consultation" pagePath={PATH} />
+        <Container>
+          <div className="mt-[var(--space-10)] grid gap-[var(--space-8)] text-left lg:grid-cols-2">
+            <div>
+              <Heading level={2}>{t('frontier', 'process.fullForm')}</Heading>
+              <div className="mt-[var(--space-4)]"><LeadForm site="frontier" variant="consultation" pagePath="/" /></div>
+            </div>
+            <div>
+              <Heading level={2}>{t('frontier', 'form.whatsapp')}</Heading>
+              <p className="my-[var(--space-4)] text-[var(--fg-muted)]">{t('frontier', 'process.whatsappIntro')}</p>
+              <LeadForm site="frontier" variant="whatsapp" pagePath="/" />
+            </div>
+          </div>
           <p className="mt-[var(--space-6)] text-[var(--text-sm)] text-[var(--fg-muted)]">
             Investing serious capital instead?{' '}
             <a

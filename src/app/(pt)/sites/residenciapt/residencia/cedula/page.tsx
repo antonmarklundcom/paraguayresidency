@@ -1,3 +1,4 @@
+import { ProcessTimeline } from '@/components/ProcessTimeline';
 import type { Metadata } from 'next';
 import { Fact } from '@/components';
 import { siteMetadata } from '@/lib/metadata';
@@ -66,6 +67,7 @@ export default function Page() {
         <a href="/residencia/temporaria">residência temporária</a> ou pela{' '}
         <a href="/residencia/permanente">permanente</a>, dependendo do seu caso.
       </p>
+      <ProcessTimeline site="residenciapt" route="cedula" />
     </ServicoPage>
   );
 }

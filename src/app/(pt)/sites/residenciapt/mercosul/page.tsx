@@ -1,3 +1,4 @@
+import { ProcessTimeline } from '@/components/ProcessTimeline';
 import type { Metadata } from 'next';
 import { Fact } from '@/components';
 import { siteMetadata } from '@/lib/metadata';
@@ -71,6 +72,7 @@ export default function Page() {
         <a href="/route-finder">teste de rota</a> já leva isso em conta, ou fale direto com a gente
         pelo formulário abaixo.
       </p>
+      <ProcessTimeline site="residenciapt" route="standard" />
     </ServicoPage>
   );
 }

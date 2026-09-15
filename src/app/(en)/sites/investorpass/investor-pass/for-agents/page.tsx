@@ -1,3 +1,4 @@
+import { ProcessTimeline } from '@/components/ProcessTimeline';
 import type { Metadata } from 'next';
 import { siteMetadata } from '@/lib/metadata';
 import { ServicePage } from '../../_lib/ServicePage';
@@ -72,6 +73,7 @@ export default function Page() {
         a closing summary to regular updates as it progresses. Tell us what your relationship with
         the client calls for.
       </p>
+      <ProcessTimeline site="investorpass" route="investor" />
     </ServicePage>
   );
 }

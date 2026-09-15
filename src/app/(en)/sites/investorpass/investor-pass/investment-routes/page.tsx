@@ -1,3 +1,4 @@
+import { ProcessTimeline } from '@/components/ProcessTimeline';
 import type { Metadata } from 'next';
 import { Fact } from '@/components';
 import { siteMetadata } from '@/lib/metadata';
@@ -85,6 +86,7 @@ export default function Page() {
         <a href="/route-finder">take the Route Finder</a> if you are still deciding whether the
         Investor Pass is the right program at all.
       </p>
+      <ProcessTimeline site="investorpass" route="investor" />
     </ServicePage>
   );
 }

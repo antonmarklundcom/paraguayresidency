@@ -1,3 +1,4 @@
+import { LeadForm } from '@/components/LeadForm';
 import { whatsappHref } from '@/lib/whatsapp';
 import { t } from '@/i18n';
 import type { Metadata } from 'next';
@@ -174,7 +175,7 @@ export default function Page() {
       </Section>
 
       <Section tone="alt">
-        <Container width="narrow" className="text-center">
+        <Container className="text-center">
           <Heading level={2}>¿Listo para descubrir tu ruta?</Heading>
           <p className="mt-[var(--space-4)] text-[var(--fg-muted)]">
             Dos minutos te dicen qué ruta encaja. O salta directo a una llamada.
@@ -191,6 +192,17 @@ export default function Page() {
               {t('residenciaes', 'form.whatsapp')}
             </a>
           )}
+        <div className="mt-[var(--space-10)] grid gap-[var(--space-8)] text-left lg:grid-cols-2">
+            <div>
+              <Heading level={2}>{t('residenciaes', 'process.fullForm')}</Heading>
+              <div className="mt-[var(--space-4)]"><LeadForm site="residenciaes" variant="contact" pagePath="/" /></div>
+            </div>
+            <div>
+              <Heading level={2}>{t('residenciaes', 'form.whatsapp')}</Heading>
+              <p className="my-[var(--space-4)] text-[var(--fg-muted)]">{t('residenciaes', 'process.whatsappIntro')}</p>
+              <LeadForm site="residenciaes" variant="whatsapp" pagePath="/" />
+            </div>
+          </div>
         </Container>
       </Section>
     </>
