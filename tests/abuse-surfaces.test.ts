@@ -24,7 +24,7 @@ vi.mock('@/lib/subscribers', () => ({
 
 vi.mock('@/lib/current-site', () => ({ currentSite: async () => 'guide' }));
 
-const { POST: subscribePost } = await import('@/app/api/subscribe/route');
+const { POST: subscribePost } = await import('@/app/(en)/api/subscribe/route');
 
 const post = (body: unknown, ip = '203.0.113.10') =>
   subscribePost(
@@ -84,7 +84,7 @@ describe('POST /api/subscribe', () => {
 
 describe('POST /api/auth/magic', () => {
   it('stays 200 when limited — a 429 would be the account oracle it avoids', async () => {
-    const { POST } = await import('@/app/api/auth/magic/route');
+    const { POST } = await import('@/app/(en)/api/auth/magic/route');
     const call = () =>
       POST(
         new Request('https://paraguayresidencyguide.com/api/auth/magic', {
