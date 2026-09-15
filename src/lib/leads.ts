@@ -295,7 +295,7 @@ async function notifyLead(leadId: number | null, input: LeadInput): Promise<void
     to
       ? sendEmail({
           to,
-          replyTo: input.email,
+          replyTo: input.email || undefined,
           ...leadNotification({
             site,
             kind: input.kind,
@@ -313,10 +313,10 @@ async function notifyLead(leadId: number | null, input: LeadInput): Promise<void
           }),
         })
       : Promise.resolve({ ok: false, mode: 'console' as const, error: 'EMAIL_NOTIFY_TO not set' }),
-    sendEmail({
+    input.email ? sendEmail({
       to: input.email,
       ...leadAutoReply({ site, name: input.name, unsubscribeUrl: unsubscribeUrl(site, input.email) }),
-    }),
+    }) : Promise.resolve({ skipped: 'no-lead-email' }),
   ]);
 
   const summary = results.map((r) => (r.status === 'fulfilled' ? r.value : { ok: false, error: String(r.reason) }));

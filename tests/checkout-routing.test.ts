@@ -58,7 +58,7 @@ vi.mock('@/lib/lemonsqueezy', () => ({
 
 vi.mock('@/lib/current-site', () => ({ currentSite: async () => 'guide' }));
 
-const { POST } = await import('@/app/api/checkout/route');
+const { POST } = await import('@/app/(en)/api/checkout/route');
 const { issueFormTimestamp } = await import('@/lib/form-guard');
 
 function post(body: Record<string, unknown>) {

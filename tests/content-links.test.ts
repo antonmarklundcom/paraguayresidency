@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
-import { SITE_KEYS } from '@/sites/registry';
+import { SITE_KEYS, getSite } from '@/sites/registry';
 import { contentHref } from '@/lib/site-pages';
 
 /**
@@ -15,7 +15,7 @@ import { contentHref } from '@/lib/site-pages';
  */
 const ROOT = process.cwd();
 const CONTENT = join(ROOT, 'content');
-const APP = join(ROOT, 'src/app/sites');
+const APP = join(ROOT, 'src/app');
 
 /** `](/some/path)` — markdown links only; bare URLs and anchors are ignored. */
 const LINK_RE = /\]\((\/[A-Za-z0-9/_-]*)\)/g;
@@ -44,7 +44,9 @@ function contentPaths(site: string): Set<string> {
 
 /** Public paths a brand serves from a `page.tsx`, including shared O2 routes. */
 function routePaths(site: string): Set<string> {
-  const dir = join(APP, site);
+  // O19: pages live under a locale route group, e.g. src/app/(en)/sites/<key>/.
+  const locale = getSite(site as never).locale;
+  const dir = join(APP, `(${locale})`, 'sites', site);
   const paths = new Set<string>();
   const walk = (current: string, prefix: string) => {
     if (!existsSync(current)) return;

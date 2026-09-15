@@ -7,7 +7,7 @@ import {
   take,
   windowCount,
 } from '@/lib/rate-limit';
-import { freeAccessIds, freeAccessMode } from '@/app/api/checkout/route';
+import { freeAccessIds, freeAccessMode } from '@/app/(en)/api/checkout/route';
 
 /**
  * O17 §14.1.6 — `FREE_ACCESS_MODE` and the limiter O18 will reuse everywhere.

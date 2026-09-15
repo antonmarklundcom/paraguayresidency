@@ -53,6 +53,7 @@ export async function CheckoutButton({
 
   return (
     <CheckoutButtonClient
+      site={site}
       enabled={enabled}
       product={slug}
       timestamp={issueFormTimestamp()}

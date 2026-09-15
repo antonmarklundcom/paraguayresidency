@@ -28,5 +28,14 @@ function componentsFor(site: SiteKey) {
 }
 
 export function Mdx({ source, site }: { source: string; site: SiteKey }) {
-  return <MDXRemote source={source} components={componentsFor(site)} />;
+  // These sources are repository-authored MDX. next-mdx-remote 6 otherwise
+  // strips expression-valued props, including StatRow's literal stats array.
+  // Keep its dangerous-JavaScript checks enabled while allowing those props.
+  return (
+    <MDXRemote
+      source={source}
+      components={componentsFor(site)}
+      options={{ blockJS: false, blockDangerousJS: true }}
+    />
+  );
 }
