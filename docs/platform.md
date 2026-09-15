@@ -36,7 +36,7 @@ exactly one public URL.
 5. Add `src/i18n/messages/<locale>/<key>.json` with the same key set as the
    other brand files, and a locale folder with a complete `common.json` if the
    locale is new. `npm run verify:i18n` fails until both are true.
-6. Add the folder `src/app/sites/<key>/` (layout, page, not-found, sitemap,
+6. Add the folder `src/app/(<locale>)/sites/<key>/` (layout, page, not-found, sitemap,
    opengraph-image) and at least one MDX file under `content/<key>/`.
 7. Add the brand to `staticPaths` in `src/lib/seo-files.ts` and to
    `contentHref` in `src/lib/site-pages.tsx` — both are exhaustive switches, so
