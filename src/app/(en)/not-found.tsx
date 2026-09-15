@@ -1,9 +1,9 @@
 import { NotFoundBody } from '@/lib/not-found-body';
 import { SiteShell } from '@/lib/site-shell';
-import { currentSite } from '@/lib/current-site';
+import { HUB_SITE } from '@/sites/registry';
 
-export default async function NotFound() {
-  const site = await currentSite();
+export default function NotFound() {
+  const site = HUB_SITE;
   return (
     <SiteShell site={site}>
       <NotFoundBody site={site} />
