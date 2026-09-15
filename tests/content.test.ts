@@ -42,8 +42,8 @@ describe('content pipeline', () => {
   it('keeps titles and descriptions inside SEO limits', () => {
     for (const site of SITE_KEYS) {
       for (const page of getPages(site)) {
-        expect(page.frontmatter.title.length).toBeLessThanOrEqual(70);
-        expect(page.frontmatter.description.length).toBeLessThanOrEqual(160);
+        expect.soft(page.frontmatter.title.length, `${site}/${page.slugPath}: title`).toBeLessThanOrEqual(60);
+        expect.soft(page.frontmatter.description.length, `${site}/${page.slugPath}: description`).toBeLessThanOrEqual(155);
       }
     }
   });
