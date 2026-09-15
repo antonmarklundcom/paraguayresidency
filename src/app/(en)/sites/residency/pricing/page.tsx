@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Breadcrumbs, Button, Container, Heading, LeadForm, Section } from '@/components';
+import { Breadcrumbs, Button, Container, Fact, Heading, LeadForm, Section } from '@/components';
 import { siteMetadata } from '@/lib/metadata';
 
 const PATH = '/pricing';
@@ -13,110 +13,74 @@ export function generateMetadata(): Metadata {
   });
 }
 
-interface Row {
-  service: string;
-  href: string;
-  note: string;
-}
-
-/**
- * Anton has not supplied real packages/prices yet (plan §7: "Real packages &
- * prices for /pricing" first needed at S3). Every row renders as "from" with a
- * TODO note rather than an invented number (plan §4.11, quality bar).
- */
-const ROWS: Row[] = [
-  {
-    service: 'Temporary residency',
-    href: '/residency/temporary-residency',
-    note: 'Document checklist, filing and appointments in Asunción.',
-  },
-  {
-    service: 'Permanent residency',
-    href: '/residency/permanent-residency',
-    note: 'After temporary status, or standalone if you already qualify.',
-  },
-  {
-    service: 'Cédula de identidad',
-    href: '/residency/cedula',
-    note: 'Filed to follow your residency approval without a gap.',
-  },
-  {
-    service: 'Tax residency & RUC',
-    href: '/residency/tax-residency',
-    note: 'RUC registration and territorial tax system guidance.',
-  },
-  {
-    service: 'Family filing (per additional person)',
-    href: '/residency/family',
-    note: 'Spouse, children and qualifying dependents alongside the primary applicant.',
-  },
-];
-
 export default function Page() {
   return (
     <Section>
       <Container width="narrow">
         <Breadcrumbs site="residency" items={[{ label: 'Pricing', href: PATH }]} />
-        <Heading level={1} className="mt-[var(--space-8)]">
-          One fixed fee per route, quoted before you commit
-        </Heading>
-        <p className="mt-[var(--space-4)] text-[var(--text-lg)] text-[var(--fg-muted)]">
-          We do not publish a single universal number because your nationality and situation
-          change what has to be prepared — and we would rather quote your real fee than a figure
-          that turns out to be wrong for your case. What follows is every route we file, with the
-          real fee confirmed on your call.
-        </p>
+        <Heading level={1} className="mt-[var(--space-8)]">A fixed service fee, with separate costs explained before you commit</Heading>
+        <p className="mt-[var(--space-4)] text-[var(--text-lg)] text-[var(--fg-muted)]">Your quote starts with a call about your nationality, documents, route and travel plans. We agree the work and fixed service fee before you commit. There is no self-service calculator: the document checklist and the people applying determine the scope.</p>
+        <section className="mt-[var(--space-12)] border-t border-[var(--border)] pt-[var(--space-6)]" aria-labelledby="temporary">
+          <Heading level={2} id="temporary"><a href="/residency/temporary-residency" className="text-[var(--accent)] underline">Temporary residency</a></Heading>
+          <p className="mt-[var(--space-4)] font-medium">Service fee: <Fact k="pricing.temporary" site="residency" /></p>
+          <dl className="mt-[var(--space-6)] space-y-[var(--space-4)]">
+            <div><dt className="font-semibold">What the fixed fee covers</dt><dd>We prepare your nationality-specific document checklist, coordinate appointments in Asunción and file your temporary-residency application. Document sequencing is part of that work.</dd></div>
+            <div><dt className="font-semibold">What it never covers</dt><dd>Government fees, apostilles and required translations are never included in our service fee. We identify which document costs apply to this application before you decide.</dd></div>
+            <div><dt className="font-semibold">How we quote this route</dt><dd>On the call we review your passport nationality and the documents you already have before quoting the filing work.</dd></div>
+            <div><dt className="font-semibold">What you pay the state and what you pay us</dt><dd>You pay the applicable official application fees directly to the Paraguayan state. You pay us for the preparation and coordination described here. Apostilles and translations are paid separately to their providers, not treated as our service fee.</dd></div>
+          </dl>
+        </section>
 
-        <div className="mt-[var(--space-12)] overflow-x-auto">
-          <table className="w-full min-w-[32rem] border-collapse text-left text-[var(--text-sm)]">
-            <thead>
-              <tr className="border-b border-[var(--border)] text-[var(--fg-muted)]">
-                <th className="py-[var(--space-3)] pr-[var(--space-4)] font-normal">Service</th>
-                <th className="py-[var(--space-3)] pr-[var(--space-4)] font-normal">Fee</th>
-                <th className="py-[var(--space-3)] font-normal">What it covers</th>
-              </tr>
-            </thead>
-            <tbody>
-              {ROWS.map((row) => (
-                <tr key={row.service} className="border-b border-[var(--border)]">
-                  <td className="py-[var(--space-4)] pr-[var(--space-4)]">
-                    <a href={row.href} className="text-[var(--accent)] underline underline-offset-2">
-                      {row.service}
-                    </a>
-                  </td>
-                  <td className="py-[var(--space-4)] pr-[var(--space-4)] whitespace-nowrap">
-                    from <span title="TODO: real figure pending — plan §7">USD —</span>
-                  </td>
-                  <td className="py-[var(--space-4)] text-[var(--fg-muted)]">{row.note}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+        <section className="mt-[var(--space-12)] border-t border-[var(--border)] pt-[var(--space-6)]" aria-labelledby="permanent">
+          <Heading level={2} id="permanent"><a href="/residency/permanent-residency" className="text-[var(--accent)] underline">Permanent residency</a></Heading>
+          <p className="mt-[var(--space-4)] font-medium">Service fee: <Fact k="pricing.permanent" site="residency" /></p>
+          <dl className="mt-[var(--space-6)] space-y-[var(--space-4)]">
+            <div><dt className="font-semibold">What the fixed fee covers</dt><dd>We file your permanent-residency application once you qualify, explain the presence rule for your travel plans and coordinate the timing with your cédula renewal.</dd></div>
+            <div><dt className="font-semibold">What it never covers</dt><dd>Government fees, apostilles and required translations are never included in our service fee. We identify which document costs apply to this application before you decide.</dd></div>
+            <div><dt className="font-semibold">How we quote this route</dt><dd>On the call we check your current status and eligibility, then quote the permanent application separately from any earlier temporary filing.</dd></div>
+            <div><dt className="font-semibold">What you pay the state and what you pay us</dt><dd>You pay the applicable official application fees directly to the Paraguayan state. You pay us for the preparation and coordination described here. Apostilles and translations are paid separately to their providers, not treated as our service fee.</dd></div>
+          </dl>
+        </section>
 
-        <p className="mt-[var(--space-6)] text-[var(--text-sm)] text-[var(--fg-muted)]">
-          The Investor Pass has its own fee structure on its own brand — see{' '}
-          <a href="/investor-pass" className="text-[var(--accent)] underline underline-offset-2">
-            the Investor Pass
-          </a>
-          .
-        </p>
+        <section className="mt-[var(--space-12)] border-t border-[var(--border)] pt-[var(--space-6)]" aria-labelledby="cedula">
+          <Heading level={2} id="cedula"><a href="/residency/cedula" className="text-[var(--accent)] underline">Cédula de identidad</a></Heading>
+          <p className="mt-[var(--space-4)] font-medium">Service fee: <Fact k="pricing.cedula" site="residency" /></p>
+          <dl className="mt-[var(--space-6)] space-y-[var(--space-4)]">
+            <div><dt className="font-semibold">What the fixed fee covers</dt><dd>We coordinate the application after residency approval, including photo, biometric and appointment logistics. We flag the renewal timing so you know what follows.</dd></div>
+            <div><dt className="font-semibold">What it never covers</dt><dd>Government fees, apostilles and required translations are never included in our service fee. We identify which document costs apply to this application before you decide.</dd></div>
+            <div><dt className="font-semibold">How we quote this route</dt><dd>On the call we check your residency stage and whether cédula coordination is already included in your residency quote, so the same work is not quoted again.</dd></div>
+            <div><dt className="font-semibold">What you pay the state and what you pay us</dt><dd>You pay the applicable official application fees directly to the Paraguayan state. You pay us for the preparation and coordination described here. Apostilles and translations are paid separately to their providers, not treated as our service fee.</dd></div>
+          </dl>
+        </section>
 
+        <section className="mt-[var(--space-12)] border-t border-[var(--border)] pt-[var(--space-6)]" aria-labelledby="tax_residency">
+          <Heading level={2} id="tax_residency"><a href="/residency/tax-residency" className="text-[var(--accent)] underline">Tax residency and RUC</a></Heading>
+          <p className="mt-[var(--space-4)] font-medium">Service fee: <Fact k="pricing.tax_residency" site="residency" /></p>
+          <dl className="mt-[var(--space-6)] space-y-[var(--space-4)]">
+            <div><dt className="font-semibold">What the fixed fee covers</dt><dd>We register your RUC and explain the territorial system in general terms, coordinating the administrative work with your residency filing.</dd></div>
+            <div><dt className="font-semibold">What it never covers</dt><dd>The fee does not cover your own accountant’s advice or payments due to the state. Any required apostilles and translations remain separate document costs; we confirm whether they apply.</dd></div>
+            <div><dt className="font-semibold">How we quote this route</dt><dd>On the call we discuss your planned activity and the RUC work you need. Your own accountant handles advice about obligations in your home country.</dd></div>
+            <div><dt className="font-semibold">What you pay the state and what you pay us</dt><dd>You pay us for the agreed RUC registration and guidance. Any applicable official charges are paid directly to the Paraguayan state; we identify them on the call without assuming a registration charge applies.</dd></div>
+          </dl>
+        </section>
+
+        <section className="mt-[var(--space-12)] border-t border-[var(--border)] pt-[var(--space-6)]" aria-labelledby="family">
+          <Heading level={2} id="family"><a href="/residency/family" className="text-[var(--accent)] underline">Family filing</a></Heading>
+          <p className="mt-[var(--space-4)] font-medium">Service fee: <Fact k="pricing.family" site="residency" /></p>
+          <dl className="mt-[var(--space-6)] space-y-[var(--space-4)]">
+            <div><dt className="font-semibold">What the fixed fee covers</dt><dd>We coordinate the document checklist for each relative, clarify who can apply as a dependent and schedule family appointments together where the office permits. Each person still needs their own file.</dd></div>
+            <div><dt className="font-semibold">What it never covers</dt><dd>Government fees, apostilles and required translations are never included in our service fee. We identify which document costs apply to this application before you decide.</dd></div>
+            <div><dt className="font-semibold">How we quote this route</dt><dd>On the call we review each family member and their documents. We quote the additional-person service alongside the primary applicant and identify exactly who is covered.</dd></div>
+            <div><dt className="font-semibold">What you pay the state and what you pay us</dt><dd>You pay the applicable official application fees directly to the Paraguayan state. You pay us for the preparation and coordination described here. Apostilles and translations are paid separately to their providers, not treated as our service fee.</dd></div>
+          </dl>
+        </section>
+
+        <p className="mt-[var(--space-8)]"><a href="/investor-pass" className="text-[var(--accent)] underline">Investor Pass work has its own scope and quote through our sibling brand. See the Investor Pass route.</a></p>
         <div className="mt-[var(--space-16)] rounded-[var(--radius-brand)] border border-[var(--border)] bg-[var(--surface-alt)] p-[var(--space-8)]">
-          <Heading level={2}>Get your real fee</Heading>
-          <p className="mt-[var(--space-2)] text-[var(--fg-muted)]">
-            Tell us your nationality, route and timeline. We quote the fixed fee for your case
-            before you commit to anything.
-          </p>
-          <div className="mt-[var(--space-8)] flex flex-wrap gap-[var(--space-3)]">
-            <Button href="/book">Book a call</Button>
-            <Button href="/route-finder" variant="secondary">
-              Find your route first
-            </Button>
-          </div>
-          <div className="mt-[var(--space-8)]">
-            <LeadForm site="residency" variant="consultation" pagePath={PATH} />
-          </div>
+          <Heading level={2}>Get your written quote</Heading>
+          <p className="mt-[var(--space-4)]">Tell us your nationality, route and timeline. On your call we confirm the service scope, then set out the fixed fee and separate costs in writing before you decide.</p>
+          <div className="mt-[var(--space-6)]"><Button href="/book">Book a call</Button></div>
+          <div className="mt-[var(--space-8)]"><LeadForm site="residency" variant="consultation" pagePath={PATH} /></div>
         </div>
       </Container>
     </Section>
