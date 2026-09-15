@@ -1,3 +1,4 @@
+import { ProcessTimeline } from '@/components/ProcessTimeline';
 import type { Metadata } from 'next';
 import { Fact } from '@/components';
 import { siteMetadata } from '@/lib/metadata';
@@ -82,6 +83,7 @@ export default function Page() {
           Honorário fixo, cotado antes de você decidir — veja nossos <a href="/precos">preços</a>.
         </li>
       </ul>
+      <ProcessTimeline site="residenciapt" route="temporary" />
     </ServicoPage>
   );
 }

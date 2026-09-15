@@ -1,3 +1,4 @@
+import { LeadForm } from '@/components/LeadForm';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import {
@@ -238,7 +239,7 @@ export default function Page() {
       </Section>
 
       <Section tone="alt">
-        <Container width="narrow" className="text-center">
+        <Container className="text-center">
           <Heading level={2}>Berätta var du står idag</Heading>
           <p className="mt-[var(--space-4)] text-[var(--fg-muted)]">
             Skriv en rad, så säger vi vilken väg som passar — även när svaret är att du bör vänta.
@@ -253,6 +254,17 @@ export default function Page() {
               </a>
             </p>
           )}
+        <div className="mt-[var(--space-10)] grid gap-[var(--space-8)] text-left lg:grid-cols-2">
+            <div>
+              <Heading level={2}>{t('flytta', 'process.fullForm')}</Heading>
+              <div className="mt-[var(--space-4)]"><LeadForm site="flytta" variant="contact" pagePath="/" /></div>
+            </div>
+            <div>
+              <Heading level={2}>{t('flytta', 'form.whatsapp')}</Heading>
+              <p className="my-[var(--space-4)] text-[var(--fg-muted)]">{t('flytta', 'process.whatsappIntro')}</p>
+              <LeadForm site="flytta" variant="whatsapp" pagePath="/" />
+            </div>
+          </div>
         </Container>
       </Section>
     </>

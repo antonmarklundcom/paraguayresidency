@@ -1,3 +1,4 @@
+import { ProcessTimeline } from '@/components/ProcessTimeline';
 import type { Metadata } from 'next';
 import { siteMetadata } from '@/lib/metadata';
 import { ServicoPage } from '@/app/(pt)/sites/residenciapt/_lib/ServicoPage';
@@ -69,6 +70,7 @@ export default function Page() {
           <a href="/precos">nossos preços</a>.
         </li>
       </ul>
+      <ProcessTimeline site="residenciapt" route="family" />
     </ServicoPage>
   );
 }

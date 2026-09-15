@@ -8,7 +8,7 @@ import { decodeAnswers, encodeAnswers, ROUTE_DESTINATIONS } from './questions';
 import { isRoute, sanitizeAnswers, scoreQuiz, type Route } from './scoring';
 
 /**
- * `/route-finder/result?r=…&a=…` on any of the three brands (plan §5.2.3).
+ * `/route-finder/result?r=…&a=…` on any of the seven brands (plan §5.2.3).
  *
  * The `r` parameter is a convenience for sharing the link; it is never
  * trusted. The answers in `a` are re-scored server-side, so a hand-edited URL
@@ -56,7 +56,7 @@ export function QuizResultView({
   encoded: string;
   empty: boolean;
 }) {
-  const destination = ROUTE_DESTINATIONS[route];
+  const destination = ROUTE_DESTINATIONS[site][route];
   const ownsRoute = destination.site === site;
   const href = ownsRoute
     ? destination.path

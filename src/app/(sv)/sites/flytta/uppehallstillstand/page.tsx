@@ -1,3 +1,4 @@
+import { ProcessTimeline } from '@/components/ProcessTimeline';
 import type { Metadata } from 'next';
 import { Fact } from '@/components';
 import { TopicPage } from '../_lib/TopicPage';
@@ -78,6 +79,7 @@ export default function Page() {
         för bankkonto, hyreskontrakt och sjukvård. Den är <Fact k="cedula.timeline" site={SITE} />,
         och vi håller dig uppdaterad snarare än att lova ett datum vi inte kan hålla.
       </p>
+      <ProcessTimeline site="flytta" route="standard" />
     </TopicPage>
   );
 }

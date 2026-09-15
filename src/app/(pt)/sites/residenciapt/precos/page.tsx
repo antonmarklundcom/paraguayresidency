@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Breadcrumbs, Button, Container, Heading, LeadForm, Section } from '@/components';
+import { Breadcrumbs, Button, Container, Fact, Heading, LeadForm, Section } from '@/components';
 import { siteMetadata } from '@/lib/metadata';
 
 const PATH = '/precos';
@@ -13,110 +13,74 @@ export function generateMetadata(): Metadata {
   });
 }
 
-interface Row {
-  service: string;
-  href: string;
-  note: string;
-}
-
-/**
- * Anton has not supplied real packages/prices yet (plan §7, same deferral S3
- * recorded). Every row renders as "a partir de" with a TODO note instead of
- * an invented number (plan §4.11).
- */
-const ROWS: Row[] = [
-  {
-    service: 'Residência temporária',
-    href: '/residencia/temporaria',
-    note: 'Checklist de documentos, protocolo e consultas em Assunção.',
-  },
-  {
-    service: 'Residência permanente',
-    href: '/residencia/permanente',
-    note: 'Depois da temporária, ou direto, se o seu caso já se qualifica.',
-  },
-  {
-    service: 'Cédula de identidade',
-    href: '/residencia/cedula',
-    note: 'Protocolada para seguir a aprovação da sua residência sem intervalo.',
-  },
-  {
-    service: 'Residência fiscal e RUC',
-    href: '/residencia-fiscal',
-    note: 'Registro de RUC e orientação sobre o sistema territorial.',
-  },
-  {
-    service: 'Residência em família (por pessoa adicional)',
-    href: '/familia',
-    note: 'Cônjuge, filhos e dependentes junto com o titular do processo.',
-  },
-];
-
 export default function Page() {
   return (
     <Section>
       <Container width="narrow">
         <Breadcrumbs site="residenciapt" items={[{ label: 'Preços', href: PATH }]} />
-        <Heading level={1} className="mt-[var(--space-8)]">
-          Um honorário fixo por rota, cotado antes de você decidir
-        </Heading>
-        <p className="mt-[var(--space-4)] text-[var(--text-lg)] text-[var(--fg-muted)]">
-          Não publicamos um número único para todo mundo porque sua nacionalidade e a sua situação
-          mudam o que precisa ser preparado — e preferimos cotar o seu honorário real a te dar uma
-          cifra que acaba errada para o seu caso. Aqui vai cada rota que protocolamos, com o valor
-          real confirmado em reais ou dólares na sua consulta.
-        </p>
+        <Heading level={1} className="mt-[var(--space-8)]">Honorário fixo, com os custos separados explicados antes de decidir</Heading>
+        <p className="mt-[var(--space-4)] text-[var(--text-lg)] text-[var(--fg-muted)]">A cotação começa numa consulta sobre sua nacionalidade, documentos, rota e planos de viagem. Combinamos o trabalho e o honorário fixo antes de você contratar. Não há calculadora automática: os documentos e as pessoas que vão solicitar definem o escopo.</p>
+        <section className="mt-[var(--space-12)] border-t border-[var(--border)] pt-[var(--space-6)]" aria-labelledby="temporary">
+          <Heading level={2} id="temporary"><a href="/residencia/temporaria" className="text-[var(--accent)] underline">Residência temporária</a></Heading>
+          <p className="mt-[var(--space-4)] font-medium">Honorário do serviço: <Fact k="pricing.temporary" site="residenciapt" /></p>
+          <dl className="mt-[var(--space-6)] space-y-[var(--space-4)]">
+            <div><dt className="font-semibold">O que o honorário fixo cobre</dt><dd>Montamos o checklist pela sua nacionalidade, organizamos os documentos, agendamos as consultas em Assunção e protocolamos o pedido de residência temporária.</dd></div>
+            <div><dt className="font-semibold">O que nunca está incluído</dt><dd>Taxas públicas, apostilas e traduções necessárias nunca estão incluídas no nosso honorário. Identificamos os custos de documentos aplicáveis ao pedido antes de você decidir.</dd></div>
+            <div><dt className="font-semibold">Como cotamos esta rota</dt><dd>Na consulta revisamos sua nacionalidade e os documentos que já tem antes de cotar o protocolo. Também avaliamos a rota Mercosul para o seu caso.</dd></div>
+            <div><dt className="font-semibold">O que você paga ao Estado e o que paga para nós</dt><dd>Você paga as taxas oficiais aplicáveis ao pedido diretamente ao Estado paraguaio. Paga para nós pela preparação e coordenação descritas aqui. Apostilas e traduções são pagas separadamente aos respectivos prestadores.</dd></div>
+          </dl>
+        </section>
 
-        <div className="mt-[var(--space-12)] overflow-x-auto">
-          <table className="w-full min-w-[32rem] border-collapse text-left text-[var(--text-sm)]">
-            <thead>
-              <tr className="border-b border-[var(--border)] text-[var(--fg-muted)]">
-                <th className="py-[var(--space-3)] pr-[var(--space-4)] font-normal">Serviço</th>
-                <th className="py-[var(--space-3)] pr-[var(--space-4)] font-normal">Honorário</th>
-                <th className="py-[var(--space-3)] font-normal">O que cobre</th>
-              </tr>
-            </thead>
-            <tbody>
-              {ROWS.map((row) => (
-                <tr key={row.service} className="border-b border-[var(--border)]">
-                  <td className="py-[var(--space-4)] pr-[var(--space-4)]">
-                    <a href={row.href} className="text-[var(--accent)] underline underline-offset-2">
-                      {row.service}
-                    </a>
-                  </td>
-                  <td className="py-[var(--space-4)] pr-[var(--space-4)] whitespace-nowrap">
-                    a partir de <span title="TODO: valor real pendente — plano §7">R$ —</span>
-                  </td>
-                  <td className="py-[var(--space-4)] text-[var(--fg-muted)]">{row.note}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+        <section className="mt-[var(--space-12)] border-t border-[var(--border)] pt-[var(--space-6)]" aria-labelledby="permanent">
+          <Heading level={2} id="permanent"><a href="/residencia/permanente" className="text-[var(--accent)] underline">Residência permanente</a></Heading>
+          <p className="mt-[var(--space-4)] font-medium">Honorário do serviço: <Fact k="pricing.permanent" site="residenciapt" /></p>
+          <dl className="mt-[var(--space-6)] space-y-[var(--space-4)]">
+            <div><dt className="font-semibold">O que o honorário fixo cobre</dt><dd>Avaliamos se você já se qualifica, montamos o checklist com base no seu histórico e protocolamos a residência permanente. Explicamos a regra de presença para seus planos de viagem.</dd></div>
+            <div><dt className="font-semibold">O que nunca está incluído</dt><dd>Taxas públicas, apostilas e traduções necessárias nunca estão incluídas no nosso honorário. Identificamos os custos de documentos aplicáveis ao pedido antes de você decidir.</dd></div>
+            <div><dt className="font-semibold">Como cotamos esta rota</dt><dd>Na consulta verificamos seu status atual e se você já se qualifica. Cotamos o pedido permanente separadamente de qualquer protocolo temporário anterior.</dd></div>
+            <div><dt className="font-semibold">O que você paga ao Estado e o que paga para nós</dt><dd>Você paga as taxas oficiais aplicáveis ao pedido diretamente ao Estado paraguaio. Paga para nós pela preparação e coordenação descritas aqui. Apostilas e traduções são pagas separadamente aos respectivos prestadores.</dd></div>
+          </dl>
+        </section>
 
-        <p className="mt-[var(--space-6)] text-[var(--text-sm)] text-[var(--fg-muted)]">
-          O Investor Pass tem sua própria estrutura de honorários, no seu próprio site — veja{' '}
-          <a href="/investor-pass" className="text-[var(--accent)] underline underline-offset-2">
-            o Investor Pass
-          </a>
-          .
-        </p>
+        <section className="mt-[var(--space-12)] border-t border-[var(--border)] pt-[var(--space-6)]" aria-labelledby="cedula">
+          <Heading level={2} id="cedula"><a href="/residencia/cedula" className="text-[var(--accent)] underline">Cédula de identidade</a></Heading>
+          <p className="mt-[var(--space-4)] font-medium">Honorário do serviço: <Fact k="pricing.cedula" site="residenciapt" /></p>
+          <dl className="mt-[var(--space-6)] space-y-[var(--space-4)]">
+            <div><dt className="font-semibold">O que o honorário fixo cobre</dt><dd>Agendamos a biometria após a aprovação da residência e acompanhamos o pedido até a emissão. Também avisamos sobre os prazos de renovação.</dd></div>
+            <div><dt className="font-semibold">O que nunca está incluído</dt><dd>Taxas públicas, apostilas e traduções necessárias nunca estão incluídas no nosso honorário. Identificamos os custos de documentos aplicáveis ao pedido antes de você decidir.</dd></div>
+            <div><dt className="font-semibold">Como cotamos esta rota</dt><dd>Na consulta verificamos a etapa da residência e se a coordenação da cédula já está no seu orçamento, para não cotar o mesmo trabalho novamente.</dd></div>
+            <div><dt className="font-semibold">O que você paga ao Estado e o que paga para nós</dt><dd>Você paga as taxas oficiais aplicáveis ao pedido diretamente ao Estado paraguaio. Paga para nós pela preparação e coordenação descritas aqui. Apostilas e traduções são pagas separadamente aos respectivos prestadores.</dd></div>
+          </dl>
+        </section>
 
+        <section className="mt-[var(--space-12)] border-t border-[var(--border)] pt-[var(--space-6)]" aria-labelledby="tax_residency">
+          <Heading level={2} id="tax_residency"><a href="/residencia-fiscal" className="text-[var(--accent)] underline">Residência fiscal e RUC</a></Heading>
+          <p className="mt-[var(--space-4)] font-medium">Honorário do serviço: <Fact k="pricing.tax_residency" site="residenciapt" /></p>
+          <dl className="mt-[var(--space-6)] space-y-[var(--space-4)]">
+            <div><dt className="font-semibold">O que o honorário fixo cobre</dt><dd>Explicamos a diferença entre residência migratória e fiscal e registramos o RUC quando sua atividade exige. Combinamos esse trabalho administrativo com seu processo de residência.</dd></div>
+            <div><dt className="font-semibold">O que nunca está incluído</dt><dd>O honorário não cobre a orientação do seu próprio contador nem pagamentos ao Estado. Apostilas e traduções necessárias são custos separados; confirmamos se se aplicam ao seu caso.</dd></div>
+            <div><dt className="font-semibold">Como cotamos esta rota</dt><dd>Na consulta conversamos sobre sua atividade no Paraguai e se precisa de RUC. As obrigações no Brasil ficam com seu próprio contador.</dd></div>
+            <div><dt className="font-semibold">O que você paga ao Estado e o que paga para nós</dt><dd>Você paga para nós pelo registro de RUC e pela orientação combinados. Qualquer taxa oficial aplicável é paga diretamente ao Estado paraguaio; identificamos isso na consulta sem presumir que exista uma taxa de registro.</dd></div>
+          </dl>
+        </section>
+
+        <section className="mt-[var(--space-12)] border-t border-[var(--border)] pt-[var(--space-6)]" aria-labelledby="family">
+          <Heading level={2} id="family"><a href="/familia" className="text-[var(--accent)] underline">Residência em família</a></Heading>
+          <p className="mt-[var(--space-4)] font-medium">Honorário do serviço: <Fact k="pricing.family" site="residenciapt" /></p>
+          <dl className="mt-[var(--space-6)] space-y-[var(--space-4)]">
+            <div><dt className="font-semibold">O que o honorário fixo cobre</dt><dd>Montamos um checklist por pessoa e organizamos a ordem de protocolo do titular e dos dependentes. Consideramos os documentos de vínculo e as autorizações necessárias para cada familiar.</dd></div>
+            <div><dt className="font-semibold">O que nunca está incluído</dt><dd>Taxas públicas, apostilas e traduções necessárias nunca estão incluídas no nosso honorário. Identificamos os custos de documentos aplicáveis ao pedido antes de você decidir.</dd></div>
+            <div><dt className="font-semibold">Como cotamos esta rota</dt><dd>Na consulta revisamos cada familiar e seus documentos. O honorário por pessoa adicional é cotado junto com o do titular, deixando claro quem está incluído.</dd></div>
+            <div><dt className="font-semibold">O que você paga ao Estado e o que paga para nós</dt><dd>Você paga as taxas oficiais aplicáveis ao pedido diretamente ao Estado paraguaio. Paga para nós pela preparação e coordenação descritas aqui. Apostilas e traduções são pagas separadamente aos respectivos prestadores.</dd></div>
+          </dl>
+        </section>
+        <p className="mt-[var(--space-6)]">A <a href="/mercosul" className="underline">rota Mercosul</a> é avaliada dentro da cotação de residência, conforme sua nacionalidade e documentação.</p>
+        <p className="mt-[var(--space-8)]"><a href="/investor-pass" className="text-[var(--accent)] underline">O Investor Pass tem escopo e cotação próprios na nossa marca irmã. Veja a rota do Investor Pass.</a></p>
         <div className="mt-[var(--space-16)] rounded-[var(--radius-brand)] border border-[var(--border)] bg-[var(--surface-alt)] p-[var(--space-8)]">
-          <Heading level={2}>Descubra o seu honorário real</Heading>
-          <p className="mt-[var(--space-2)] text-[var(--fg-muted)]">
-            Diga sua nacionalidade, sua rota e seu prazo. Cotamos o honorário fixo do seu caso
-            antes de você se comprometer com qualquer coisa.
-          </p>
-          <div className="mt-[var(--space-8)] flex flex-wrap gap-[var(--space-3)]">
-            <Button href="/contact">Falar com a gente</Button>
-            <Button href="/route-finder" variant="secondary">
-              Descobrir minha rota primeiro
-            </Button>
-          </div>
-          <div className="mt-[var(--space-8)]">
-            <LeadForm site="residenciapt" variant="consultation" pagePath={PATH} />
-          </div>
+          <Heading level={2}>Receba sua cotação por escrito</Heading>
+          <p className="mt-[var(--space-4)]">Diga sua nacionalidade, rota e prazo. Na consulta confirmamos o escopo e depois detalhamos por escrito o honorário fixo e os custos separados, antes de você decidir.</p>
+          <div className="mt-[var(--space-6)]"><Button href="/contact">Solicitar uma consulta</Button></div>
+          <div className="mt-[var(--space-8)]"><LeadForm site="residenciapt" variant="consultation" pagePath={PATH} /></div>
         </div>
       </Container>
     </Section>

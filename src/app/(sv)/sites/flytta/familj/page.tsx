@@ -1,3 +1,4 @@
+import { ProcessTimeline } from '@/components/ProcessTimeline';
 import type { Metadata } from 'next';
 import { TopicPage } from '../_lib/TopicPage';
 import { siteMetadata } from '@/lib/metadata';
@@ -71,6 +72,7 @@ export default function Page() {
         inget vi själva erbjuder som tjänst, men något vi delar med varje familj som frågar,
         eftersom vi själva gick igenom exakt samma sak.
       </p>
+      <ProcessTimeline site="flytta" route="family" />
     </TopicPage>
   );
 }

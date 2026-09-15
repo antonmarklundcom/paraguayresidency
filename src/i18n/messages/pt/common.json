@@ -167,5 +167,25 @@
   "nav.ourStory": "Nossa história",
   "nav.insider": "Insider",
   "nav.mercosur": "Rota Mercosul",
-  "nav.costOfLiving": "Custo de vida"
+  "nav.costOfLiving": "Custo de vida",
+  "process.title": "Seu processo, passo a passo",
+  "process.prepare": "Prepare seus documentos",
+  "process.prepareBody": "Você fornece seus documentos e objetivos. Confirmamos a rota, a lista de documentos e o escopo antes de protocolar o pedido.",
+  "process.prepareInvestor": "Você fornece documentos de identidade e de origem dos recursos. Revisamos a estrutura do investimento e confirmamos o escopo antes de movimentar recursos ou protocolar o pedido.",
+  "process.prepareFamily": "Você fornece os documentos de cada familiar. Confirmamos a rota e a lista de cada pessoa antes de coordenar os pedidos.",
+  "process.prepareDuration": "Depende da obtenção, legalização e tradução dos documentos; combinamos a sequência com você.",
+  "process.file": "Protocolo e atendimentos",
+  "process.fileBody": "Preparamos e cuidamos do protocolo em Assunção. Você comparece aos atendimentos necessários para o seu caso.",
+  "process.fileDuration": "A agenda depende das vagas e dos documentos prontos; confirmamos antes da sua viagem.",
+  "process.decision": "Análise da autoridade",
+  "process.decisionBody": "A autoridade analisa e decide seu pedido. Acompanhamos o processo e avisamos se forem necessários mais documentos ou atendimentos.",
+  "process.cedula": "Cédula após a aprovação da residência",
+  "process.cedulaBody": "Após a aprovação da residência, preparamos o pedido de cédula e você comparece ao atendimento necessário.",
+  "process.term": "Prazo temporário e pedido de permanente",
+  "process.termBody": "Na rota padrão de temporária para permanente, você mantém primeiro o status temporário. Confirmamos quando pode pedir a permanente; é um pedido separado.",
+  "process.duration": "Prazo",
+  "process.trustTitle": "Quem protocola seu processo",
+  "process.trustBody": "Seu processo é tratado pela mesma equipe que protocola casos de residência padrão, cédula e questões fiscais toda semana em Assunção. Você comparece aos atendimentos; nós cuidamos do protocolo.",
+  "process.whatsappIntro": "Prefere WhatsApp? Deixe seu nome, número de WhatsApp e uma linha sobre seu caso. Não precisa de e-mail.",
+  "process.fullForm": "Conte seu caso"
 }

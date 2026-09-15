@@ -97,10 +97,14 @@ export const facts = {
     display: {
       en: 'two years, then permanent',
       es: 'dos años, y después permanente',
+      pt: "dois anos, depois permanente",
+      sv: "två år, sedan permanent",
     },
     hedged: {
       en: 'a fixed initial term, after which you apply for permanent residency — current term confirmed on your call',
       es: 'un plazo inicial fijo, tras el cual solicitas la residencia permanente — el plazo vigente te lo confirmamos en tu llamada',
+      pt: "um prazo inicial fixo, após o qual você solicita a residência permanente — confirmamos o prazo vigente na consulta",
+      sv: "en fast inledande period, varefter du ansöker om permanent uppehållstillstånd — aktuell giltighet bekräftas på samtalet",
     },
     verified: false,
     sources: ['https://immigrantinvest.com/insider/paraguay-investor-pass/'],
@@ -111,10 +115,14 @@ export const facts = {
     display: {
       en: 'issued within weeks of residency approval',
       es: 'se emite semanas después de aprobarse la residencia',
+      pt: "emitida em semanas após a aprovação da residência",
+      sv: "utfärdas inom veckor efter beviljat uppehållstillstånd",
     },
     hedged: {
       en: 'issued after your residency is approved — we give you a current, realistic window, not a best case',
       es: 'se emite una vez aprobada tu residencia — te damos un plazo real y actual, no el mejor caso posible',
+      pt: "emitida após a aprovação da residência — damos um prazo atual e realista, não o melhor cenário",
+      sv: "utfärdas efter att ditt uppehållstillstånd har beviljats — vi ger dig en aktuell, realistisk tidsram, inte ett bästa scenario",
     },
     verified: false,
     sources: [],
@@ -284,6 +292,158 @@ export const facts = {
     verified: false,
     sources: [],
     note: 'No reviewed local cost-of-living index yet. Keep comparative, never a bare grocery figure.',
+  },
+  'pricing.temporary': {
+    key: 'pricing.temporary',
+    label: 'Temporary residency — service fee',
+    display: {
+      en: 'fixed service fee confirmed on your call',
+      es: 'honorario fijo confirmado en tu llamada',
+      pt: 'honorário fixo confirmado na sua consulta',
+      sv: 'fast arvode som bekräftas på ditt samtal',
+    },
+    hedged: {
+      en: 'a fixed service fee quoted on your call — we confirm the scope and separate costs before you commit',
+      es: 'un honorario fijo cotizado en tu llamada — confirmamos el alcance y los gastos separados antes de que te comprometas',
+      pt: 'um honorário fixo cotado na sua consulta — confirmamos o escopo e os custos separados antes de você decidir',
+      sv: 'ett fast arvode som vi offererar på ditt samtal — vi bekräftar omfattningen och de separata kostnaderna innan du bestämmer dig',
+    },
+    verified: false,
+    sources: [],
+    note: 'No approved service price supplied. Confirm the route scope and separate costs with the team before entering a figure or verifying. Government fees and document-provider charges are not this service fee.',
+  },
+  'pricing.permanent': {
+    key: 'pricing.permanent',
+    label: 'Permanent residency — service fee',
+    display: {
+      en: 'fixed service fee confirmed on your call',
+      es: 'honorario fijo confirmado en tu llamada',
+      pt: 'honorário fixo confirmado na sua consulta',
+      sv: 'fast arvode som bekräftas på ditt samtal',
+    },
+    hedged: {
+      en: 'a fixed service fee quoted on your call — we confirm the scope and separate costs before you commit',
+      es: 'un honorario fijo cotizado en tu llamada — confirmamos el alcance y los gastos separados antes de que te comprometas',
+      pt: 'um honorário fixo cotado na sua consulta — confirmamos o escopo e os custos separados antes de você decidir',
+      sv: 'ett fast arvode som vi offererar på ditt samtal — vi bekräftar omfattningen och de separata kostnaderna innan du bestämmer dig',
+    },
+    verified: false,
+    sources: [],
+    note: 'No approved service price supplied. Confirm the route scope and separate costs with the team before entering a figure or verifying. Government fees and document-provider charges are not this service fee.',
+  },
+  'pricing.cedula': {
+    key: 'pricing.cedula',
+    label: 'Cédula de identidad — service fee',
+    display: {
+      en: 'fixed service fee confirmed on your call',
+      es: 'honorario fijo confirmado en tu llamada',
+      pt: 'honorário fixo confirmado na sua consulta',
+      sv: 'fast arvode som bekräftas på ditt samtal',
+    },
+    hedged: {
+      en: 'a fixed service fee quoted on your call — we confirm the scope and separate costs before you commit',
+      es: 'un honorario fijo cotizado en tu llamada — confirmamos el alcance y los gastos separados antes de que te comprometas',
+      pt: 'um honorário fixo cotado na sua consulta — confirmamos o escopo e os custos separados antes de você decidir',
+      sv: 'ett fast arvode som vi offererar på ditt samtal — vi bekräftar omfattningen och de separata kostnaderna innan du bestämmer dig',
+    },
+    verified: false,
+    sources: [],
+    note: 'No approved service price supplied. Confirm the route scope and separate costs with the team before entering a figure or verifying. Government fees and document-provider charges are not this service fee.',
+  },
+  'pricing.tax_residency': {
+    key: 'pricing.tax_residency',
+    label: 'Tax residency and RUC — service fee',
+    display: {
+      en: 'fixed service fee confirmed on your call',
+      es: 'honorario fijo confirmado en tu llamada',
+      pt: 'honorário fixo confirmado na sua consulta',
+      sv: 'fast arvode som bekräftas på ditt samtal',
+    },
+    hedged: {
+      en: 'a fixed service fee quoted on your call — we confirm the scope and separate costs before you commit',
+      es: 'un honorario fijo cotizado en tu llamada — confirmamos el alcance y los gastos separados antes de que te comprometas',
+      pt: 'um honorário fixo cotado na sua consulta — confirmamos o escopo e os custos separados antes de você decidir',
+      sv: 'ett fast arvode som vi offererar på ditt samtal — vi bekräftar omfattningen och de separata kostnaderna innan du bestämmer dig',
+    },
+    verified: false,
+    sources: [],
+    note: 'No approved service price supplied. Confirm the route scope and separate costs with the team before entering a figure or verifying. Government fees and document-provider charges are not this service fee.',
+  },
+  'pricing.family': {
+    key: 'pricing.family',
+    label: 'Family filing — service fee',
+    display: {
+      en: 'fixed service fee confirmed on your call',
+      es: 'honorario fijo confirmado en tu llamada',
+      pt: 'honorário fixo confirmado na sua consulta',
+      sv: 'fast arvode som bekräftas på ditt samtal',
+    },
+    hedged: {
+      en: 'a fixed service fee quoted on your call — we confirm the scope and separate costs before you commit',
+      es: 'un honorario fijo cotizado en tu llamada — confirmamos el alcance y los gastos separados antes de que te comprometas',
+      pt: 'um honorário fixo cotado na sua consulta — confirmamos o escopo e os custos separados antes de você decidir',
+      sv: 'ett fast arvode som vi offererar på ditt samtal — vi bekräftar omfattningen och de separata kostnaderna innan du bestämmer dig',
+    },
+    verified: false,
+    sources: [],
+    note: 'No approved service price supplied. Confirm the route scope and separate costs with the team before entering a figure or verifying. Government fees and document-provider charges are not this service fee.',
+  },
+  'residency.timeline': {
+    "key": "residency.timeline",
+    "label": "Residency application — processing window",
+    "display": {
+      "en": "a case-specific processing window confirmed on your call; document readiness and authority review affect the timing",
+      "es": "un plazo de tramitación para tu caso confirmado en la llamada; depende de los documentos y de la revisión de la autoridad",
+      "pt": "um prazo de tramitação para seu caso confirmado na consulta; depende dos documentos e da análise da autoridade",
+      "sv": "en handläggningstid för ditt ärende som bekräftas på samtalet; dokument och myndighetens prövning påverkar tiden"
+    },
+    "hedged": {
+      "en": "a case-specific processing window confirmed on your call; document readiness and authority review affect the timing",
+      "es": "un plazo de tramitación para tu caso confirmado en la llamada; depende de los documentos y de la revisión de la autoridad",
+      "pt": "um prazo de tramitação para seu caso confirmado na consulta; depende dos documentos e da análise da autoridade",
+      "sv": "en handläggningstid för ditt ärende som bekräftas på samtalet; dokument och myndighetens prövning påverkar tiden"
+    },
+    "verified": false,
+    "sources": [],
+    "note": "No verified processing estimate supplied. Confirm a case-specific window before adding any number or verifying; this is not the residency validity term."
+  },
+  'tax.timeline': {
+    "key": "tax.timeline",
+    "label": "Tax residency and RUC — processing window",
+    "display": {
+      "en": "a separate tax and RUC processing window confirmed with the accountant for your case; residency approval does not set this timeline",
+      "es": "un plazo separado para los trámites fiscales y el RUC, confirmado con el asesor para tu caso; la aprobación de residencia no fija este plazo",
+      "pt": "um prazo separado para os trâmites fiscais e o RUC, confirmado com o contador para seu caso; a aprovação da residência não define esse prazo",
+      "sv": "en separat tidsram för skatteärendet och RUC som bekräftas med revisorn för ditt ärende; beviljat uppehållstillstånd avgör inte denna tidsram"
+    },
+    "hedged": {
+      "en": "a separate tax and RUC processing window confirmed with the accountant for your case; residency approval does not set this timeline",
+      "es": "un plazo separado para los trámites fiscales y el RUC, confirmado con el asesor para tu caso; la aprobación de residencia no fija este plazo",
+      "pt": "um prazo separado para os trâmites fiscais e o RUC, confirmado com o contador para seu caso; a aprovação da residência não define esse prazo",
+      "sv": "en separat tidsram för skatteärendet och RUC som bekräftas med revisorn för ditt ärende; beviljat uppehållstillstånd avgör inte denna tidsram"
+    },
+    "verified": false,
+    "sources": [],
+    "note": "No verified processing estimate supplied. Confirm a case-specific window before adding any number or verifying; this is not the residency validity term."
+  },
+  'investorpass.timeline': {
+    "key": "investorpass.timeline",
+    "label": "Investor Pass — processing window",
+    "display": {
+      "en": "a case-specific window confirmed in writing before filing; investment structuring, source-of-funds documents and authority review affect the timing",
+      "es": "un plazo para tu caso confirmado por escrito antes de presentar la solicitud; depende de la estructura de inversión, el origen de los fondos y la revisión de la autoridad",
+      "pt": "um prazo para seu caso confirmado por escrito antes do protocolo; depende da estrutura do investimento, da origem dos recursos e da análise da autoridade",
+      "sv": "en tidsram för ditt ärende som bekräftas skriftligt före ansökan; investeringens upplägg, dokument om kapitalets ursprung och myndighetens prövning påverkar tiden"
+    },
+    "hedged": {
+      "en": "a case-specific window confirmed in writing before filing; investment structuring, source-of-funds documents and authority review affect the timing",
+      "es": "un plazo para tu caso confirmado por escrito antes de presentar la solicitud; depende de la estructura de inversión, el origen de los fondos y la revisión de la autoridad",
+      "pt": "um prazo para seu caso confirmado por escrito antes do protocolo; depende da estrutura do investimento, da origem dos recursos e da análise da autoridade",
+      "sv": "en tidsram för ditt ärende som bekräftas skriftligt före ansökan; investeringens upplägg, dokument om kapitalets ursprung och myndighetens prövning påverkar tiden"
+    },
+    "verified": false,
+    "sources": [],
+    "note": "No verified processing estimate supplied. Confirm a case-specific window before adding any number or verifying; this is not the residency validity term."
   },
 } as const satisfies Record<string, Fact>;
 

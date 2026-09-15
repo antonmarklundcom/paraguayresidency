@@ -1,3 +1,4 @@
+import { ProcessTimeline } from '@/components/ProcessTimeline';
 import type { Metadata } from 'next';
 import { Breadcrumbs, Container, Fact, Heading, Section } from '@/components';
 import { siteMetadata } from '@/lib/metadata';
@@ -102,7 +103,8 @@ export default function Page() {
           </a>{' '}
           or take the <a href="/route-finder" className="text-[var(--accent)] underline underline-offset-2">Route Finder</a> first.
         </p>
-      </Container>
+          <ProcessTimeline site="residency" route="standard" />
+        </Container>
     </Section>
   );
 }

@@ -1,5 +1,7 @@
+import { Container, Heading, LeadForm, Section } from '@/components';
+import { t } from '@/i18n';
 import type { Metadata } from 'next';
-import { ContactPage, contactMetadata } from '@/lib/conversion-pages';
+import { contactMetadata } from '@/lib/conversion-pages';
 
 const SITE = 'frontier' as const;
 
@@ -8,5 +10,19 @@ export function generateMetadata(): Metadata {
 }
 
 export default function Page() {
-  return <ContactPage site={SITE} />;
+  return <Section><Container>
+        <Heading level={1}>{t(SITE, 'contact.h1')}</Heading>
+        <p className="mt-[var(--space-4)] text-[var(--fg-muted)]">{t(SITE, 'contact.sub')}</p>
+        <div className="mt-[var(--space-10)] grid gap-[var(--space-8)] text-left lg:grid-cols-2">
+            <div>
+              <Heading level={2}>{t('frontier', 'process.fullForm')}</Heading>
+              <div className="mt-[var(--space-4)]"><LeadForm site="frontier" variant="contact" pagePath="/contact" /></div>
+            </div>
+            <div>
+              <Heading level={2}>{t('frontier', 'form.whatsapp')}</Heading>
+              <p className="my-[var(--space-4)] text-[var(--fg-muted)]">{t('frontier', 'process.whatsappIntro')}</p>
+              <LeadForm site="frontier" variant="whatsapp" pagePath="/contact" />
+            </div>
+          </div>
+      </Container></Section>;
 }

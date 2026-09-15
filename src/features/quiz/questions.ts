@@ -43,40 +43,62 @@ export function decodeAnswers(encoded: string | null | undefined): Answers {
 }
 
 /**
- * Where a recommended route actually lives. Two of the three routes belong to
- * the hub; the Investor Pass is its own brand, so the result page deep-links
- * across domains (plan §5.2.3) rather than pretending the page exists here.
+ * A destination can be a dedicated page or a combined page with a fragment.
  */
 export interface RouteDestination {
   /** Which brand owns the page for this route. */
   site: SiteKey;
-  /** Path on that brand's own host. */
+  /** Path (and optional fragment) on that brand's own host. */
   path: string;
   titleKey: string;
   bodyKey: string;
   ctaKey: string;
 }
 
-export const ROUTE_DESTINATIONS: Record<Route, RouteDestination> = {
-  temporary: {
-    site: 'residency',
-    path: '/residency/temporary-residency',
-    titleKey: 'quiz.result.temporary.title',
-    bodyKey: 'quiz.result.temporary.body',
-    ctaKey: 'quiz.result.temporary.cta',
-  },
-  permanent: {
-    site: 'residency',
-    path: '/residency/permanent-residency',
-    titleKey: 'quiz.result.permanent.title',
-    bodyKey: 'quiz.result.permanent.body',
-    ctaKey: 'quiz.result.permanent.cta',
-  },
-  'investor-pass': {
-    site: 'investorpass',
-    path: '/investor-pass/requirements',
-    titleKey: 'quiz.result.investor-pass.title',
-    bodyKey: 'quiz.result.investor-pass.body',
-    ctaKey: 'quiz.result.investor-pass.cta',
-  },
+function destinations(
+  site: SiteKey,
+  temporaryPath: string,
+  permanentPath: string,
+): Record<Route, RouteDestination> {
+  return {
+    temporary: {
+      site,
+      path: temporaryPath,
+      titleKey: 'quiz.result.temporary.title',
+      bodyKey: 'quiz.result.temporary.body',
+      ctaKey: 'quiz.result.temporary.cta',
+    },
+    permanent: {
+      site,
+      path: permanentPath,
+      titleKey: 'quiz.result.permanent.title',
+      bodyKey: 'quiz.result.permanent.body',
+      ctaKey: 'quiz.result.permanent.cta',
+    },
+    'investor-pass': {
+      site: 'investorpass',
+      path: '/investor-pass/requirements',
+      titleKey: 'quiz.result.investor-pass.title',
+      bodyKey: 'quiz.result.investor-pass.body',
+      ctaKey: 'quiz.result.investor-pass.cta',
+    },
+  };
+}
+
+const HUB_DESTINATIONS = destinations(
+  'residency', '/residency/temporary-residency', '/residency/permanent-residency',
+);
+
+/** Prefer on-brand standard routes; Investor Pass always belongs to investorpass. */
+export const ROUTE_DESTINATIONS: Record<SiteKey, Record<Route, RouteDestination>> = {
+  residency: HUB_DESTINATIONS,
+  // Neither brand has its own standard residency service page.
+  investorpass: HUB_DESTINATIONS,
+  guide: HUB_DESTINATIONS,
+  // Frontier's combined page has existing section anchors.
+  frontier: destinations('frontier', '/routes#temporary', '/routes#permanent'),
+  residenciaes: destinations('residenciaes', '/residencia/temporal', '/residencia/permanente'),
+  residenciapt: destinations('residenciapt', '/residencia/temporaria', '/residencia/permanente'),
+  // Flytta covers both routes on one page, without section anchors.
+  flytta: destinations('flytta', '/uppehallstillstand', '/uppehallstillstand'),
 };

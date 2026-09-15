@@ -1,3 +1,4 @@
+import { ProcessTimeline } from '@/components/ProcessTimeline';
 import type { Metadata } from 'next';
 import { Fact } from '@/components';
 import { siteMetadata } from '@/lib/metadata';
@@ -81,6 +82,7 @@ export default function Page() {
         moves, specifically so you are not the one discovering a disqualifying issue after
         committing funds. If your case is unusual, we say so on the first call.
       </p>
+      <ProcessTimeline site="investorpass" route="investor" />
     </ServicePage>
   );
 }

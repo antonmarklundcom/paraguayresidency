@@ -1,3 +1,4 @@
+import { ProcessTimeline } from '@/components/ProcessTimeline';
 import type { Metadata } from 'next';
 import { Breadcrumbs, Container, Fact, FAQ, Heading, LeadForm, Section } from '@/components';
 import { siteMetadata } from '@/lib/metadata';
@@ -100,7 +101,8 @@ export default function Page() {
             <LeadForm site="residenciaes" variant="consultation" pagePath={PATH} />
           </div>
         </div>
-      </Container>
+          <ProcessTimeline site="residenciaes" route="standard" />
+        </Container>
     </Section>
   );
 }

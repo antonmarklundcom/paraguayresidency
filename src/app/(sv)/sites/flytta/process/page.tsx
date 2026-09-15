@@ -1,3 +1,4 @@
+import { ProcessTimeline } from '@/components/ProcessTimeline';
 import type { Metadata } from 'next';
 import { Breadcrumbs, Container, Fact, Heading, Section } from '@/components';
 import { siteMetadata } from '@/lib/metadata';
@@ -106,7 +107,8 @@ export default function Page() {
           </a>{' '}
           först.
         </p>
-      </Container>
+          <ProcessTimeline site="flytta" route="standard" />
+        </Container>
     </Section>
   );
 }

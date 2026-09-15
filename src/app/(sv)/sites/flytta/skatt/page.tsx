@@ -1,3 +1,4 @@
+import { ProcessTimeline } from '@/components/ProcessTimeline';
 import type { Metadata } from 'next';
 import { Disclaimer, Fact } from '@/components';
 import { TopicPage } from '../_lib/TopicPage';
@@ -77,6 +78,7 @@ export default function Page() {
         en del av processen. Det är ett administrativt steg, inte i sig ett bevis på skatterättslig
         hemvist i något land.
       </p>
+      <ProcessTimeline site="flytta" route="tax" />
     </TopicPage>
   );
 }

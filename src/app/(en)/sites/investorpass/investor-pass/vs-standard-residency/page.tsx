@@ -1,3 +1,4 @@
+import { ProcessTimeline } from '@/components/ProcessTimeline';
 import type { Metadata } from 'next';
 import { Breadcrumbs, Button, Card, Container, Fact, FAQ, Heading, JsonLd, Prose, Section } from '@/components';
 import { siteMetadata, serviceJsonLd } from '@/lib/metadata';
@@ -125,7 +126,8 @@ export default function Page() {
             path: PATH,
           })}
         />
-      </Container>
+          <ProcessTimeline site="investorpass" route="investor" />
+        </Container>
     </Section>
   );
 }

@@ -1,3 +1,4 @@
+import { ProcessTimeline } from '@/components/ProcessTimeline';
 import type { Metadata } from 'next';
 import { Fact } from '@/components';
 import { siteMetadata } from '@/lib/metadata';
@@ -73,6 +74,7 @@ export default function Page() {
         <li>Appointment scheduling, coordinated so one trip covers the filing.</li>
         <li>A fixed fee, quoted before you commit — see our <a href="/pricing">pricing</a>.</li>
       </ul>
+      <ProcessTimeline site="residency" route="temporary" />
     </ServicePage>
   );
 }

@@ -1,3 +1,4 @@
+import { ProcessTimeline } from '@/components/ProcessTimeline';
 import type { Metadata } from 'next';
 import { Fact } from '@/components';
 import { siteMetadata } from '@/lib/metadata';
@@ -71,6 +72,7 @@ export default function Page() {
           <a href="/route-finder">Route Finder</a> asks about your tax motive directly.
         </li>
       </ul>
+      <ProcessTimeline site="residency" route="tax" />
     </ServicePage>
   );
 }

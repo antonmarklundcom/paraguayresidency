@@ -167,5 +167,25 @@
   "nav.ourStory": "Nuestra historia",
   "nav.insider": "Insider",
   "nav.mercosur": "Ruta Mercosur",
-  "nav.costOfLiving": "Costo de vida"
+  "nav.costOfLiving": "Costo de vida",
+  "process.title": "Tu trámite, paso a paso",
+  "process.prepare": "Prepara tu expediente",
+  "process.prepareBody": "Tú aportas tus documentos y objetivos. Nosotros confirmamos la ruta, la lista de documentos y el alcance antes de presentar la solicitud.",
+  "process.prepareInvestor": "Tú aportas documentos de identidad y del origen de los fondos. Revisamos la estructura de inversión y confirmamos el alcance antes de mover fondos o presentar la solicitud.",
+  "process.prepareFamily": "Tú aportas los documentos de cada familiar. Confirmamos la ruta y la lista de cada persona antes de coordinar las solicitudes.",
+  "process.prepareDuration": "Depende de la obtención, legalización y traducción de documentos; acordamos el orden contigo.",
+  "process.file": "Presentación y citas",
+  "process.fileBody": "Preparamos y gestionamos la presentación en Asunción. Tú asistes a las citas necesarias para tu caso.",
+  "process.fileDuration": "El calendario depende de las citas disponibles y los documentos listos; lo confirmamos antes de que viajes.",
+  "process.decision": "Revisión de la autoridad",
+  "process.decisionBody": "La autoridad revisa y decide tu solicitud. Hacemos seguimiento y te avisamos si hacen falta más documentos o citas.",
+  "process.cedula": "Cédula tras la aprobación de residencia",
+  "process.cedulaBody": "Una vez aprobada la residencia, preparamos la solicitud de cédula y tú asistes a la cita necesaria.",
+  "process.term": "Plazo temporal y solicitud de permanente",
+  "process.termBody": "En la ruta estándar de temporal a permanente, primero mantienes el estatus temporal. Confirmamos cuándo puedes solicitar la permanente; es una solicitud aparte.",
+  "process.duration": "Plazo",
+  "process.trustTitle": "Quién presenta tu expediente",
+  "process.trustBody": "Tu expediente lo gestiona el mismo equipo que presenta casos de residencia estándar, cédula y trámites fiscales cada semana en Asunción. Tú asistes a las citas; nosotros gestionamos la presentación.",
+  "process.whatsappIntro": "¿Prefieres WhatsApp? Deja tu nombre, número de WhatsApp y una línea sobre tu caso. No necesitas correo electrónico.",
+  "process.fullForm": "Cuéntanos tu caso"
 }

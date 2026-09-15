@@ -1,3 +1,4 @@
+import { ProcessTimeline } from '@/components/ProcessTimeline';
 import type { Metadata } from 'next';
 import {
   Bento,
@@ -226,6 +227,7 @@ export default function Page() {
             </a>{' '}
             on paraguayresidency.co.uk instead.
           </p>
+          <ProcessTimeline site="investorpass" route="investor" />
         </Container>
       </Section>
 
