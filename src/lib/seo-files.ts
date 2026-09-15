@@ -46,6 +46,11 @@ export function buildRobots(site: SiteKey): MetadataRoute.Robots {
  */
 const staticPaths: Record<SiteKey, string[]> = {
   residency: [
+    '/guides',
+    '/guides/comparisons',
+    '/guides/documents',
+    '/guides/living-in-paraguay',
+    '/guides/taxes',
     '/',
     '/route-finder',
     '/contact',
@@ -63,6 +68,7 @@ const staticPaths: Record<SiteKey, string[]> = {
     '/guide',
   ],
   investorpass: [
+    '/insights',
     '/',
     '/route-finder',
     '/contact',
@@ -77,6 +83,7 @@ const staticPaths: Record<SiteKey, string[]> = {
   ],
   guide: ['/', '/route-finder', '/contact', '/privacy', '/terms', '/about', '/refunds', '/blog'],
   frontier: [
+    '/stories',
     '/',
     '/route-finder',
     '/contact',
@@ -91,6 +98,11 @@ const staticPaths: Record<SiteKey, string[]> = {
     '/guide',
   ],
   residenciaes: [
+    '/guias',
+    '/guias/comparativas',
+    '/guias/documentos',
+    '/guias/impuestos',
+    '/guias/vivir-en-paraguay',
     '/',
     '/route-finder',
     '/contact',
@@ -109,6 +121,11 @@ const staticPaths: Record<SiteKey, string[]> = {
     // the sitemap, the same treatment the hub gives its own /investor-pass.
   ],
   residenciapt: [
+    '/guias',
+    '/guias/comparativos',
+    '/guias/documentos',
+    '/guias/impostos',
+    '/guias/morar-no-paraguai',
     '/',
     '/route-finder',
     '/contact',
@@ -126,6 +143,8 @@ const staticPaths: Record<SiteKey, string[]> = {
     '/sobre',
   ],
   flytta: [
+    '/guider',
+    '/stader',
     '/',
     '/route-finder',
     '/contact',
