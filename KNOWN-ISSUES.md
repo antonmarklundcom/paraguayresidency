@@ -42,26 +42,38 @@ link to any address it is handed.
 client changes — they're inert once the server never returns
 `email-required`).
 
-## OPEN — the webhook and fulfilment paths still have no live-MySQL test
+## CLEARED in O20 — the webhook and fulfilment paths now have a live-MySQL test
 
-Found in O17. Every O17 fix is covered by a pure or in-memory test
-(`tests/webhook-retry.test.ts`, `tests/money-correctness.test.ts`), and the
-decisions they encode — `webhookClosure`, `shouldRunHandler`, `claimVerdict`,
-`planGrant` — are the parts that were wrong. What is still untested against a
-real database is the SQL those decisions sit on: that `UPDATE … WHERE status <>
-'paid'` really reports `affectedRows: 0` on a second call, and that
-`purchases_checkout_uq` really raises `ER_DUP_ENTRY` where the insert path
-expects it. O2 proved MariaDB can be installed in this container, so a phase
-with time to spare can replay a fixture against it; `npm run verify` must keep
-passing with no database either way (plan §4.5).
+Raised by O17. `tests/webhook-live-db.test.ts` replays a signed
+`checkout.session.completed` through the real `/api/stripe/webhook` handler
+against a real MariaDB, built from `drizzle/*.sql` in a scratch
+`o20_live_<timestamp>` schema it drops again. Ten tests, all green against
+MariaDB 11.4.4, covering the two assumptions that could only be checked against
+an engine: `UPDATE … WHERE status <> 'paid'` reports `affectedRows` 1 then 0
+(what `claimVerdict` reads), and `purchases_checkout_uq` raises `ER_DUP_ENTRY`.
 
-## OPEN — the doc comment above `grantTierAction` is stale after O17
+One thing it pinned down that the code only asserted in a comment: Drizzle's own
+error is `Failed query: insert into \`purchases\` …` with **no `code` and no
+constraint name** — `ER_DUP_ENTRY`, errno 1062 and `purchases_checkout_uq` are
+all one level down on `.cause`. That is exactly why `isDuplicateKey` walks the
+cause chain, and it is now a test rather than a comment.
 
-Found in O17. `src/app/admin/actions.ts` still says the grant "is the one thing
-that can make the cache disagree with the purchase rows on purpose". Since O17
-a grant IS a purchase/subscription row, so nothing disagrees. Not fixed here
-because that file belongs to O18 (plan §14.2); O18 should correct the two
-sentences while it is rate-limiting the same function.
+It reads `TEST_DATABASE_URL`, **not** `DATABASE_URL`, because it creates and
+drops a database and must not be aimable at a real one by accident. Unset — CI,
+and any clean checkout — every test in the file skips and `npm run verify` is
+green with no database (plan §4.5). To run it:
+`TEST_DATABASE_URL=mysql://root@127.0.0.1:3306/mysql npx vitest run tests/webhook-live-db.test.ts`.
+
+## CLEARED in O20 — the doc comment above `grantTierAction` is accurate again
+
+Raised by O17. The comment in `src/app/(en)/admin/actions.ts` (the file moved
+under `(en)` in O19) said a grant "is the one thing that can make the cache
+disagree with the purchase rows on purpose". Since O17 §14.1.5 a grant IS a
+row — a zero-amount `purchases` row for `entry`, a `subscriptions` row for
+`insider` — and `refreshUserTier` then recomputes the cache from those rows, so
+nothing disagrees. The comment now says that, and names the `admin_grant_`
+provider id and the `admin.grant_tier` audit entry as how a grant is told apart
+from a purchase later. No behaviour change.
 
 ## OPEN — an admin `entry` grant cannot be given an expiry
 
@@ -320,21 +332,28 @@ plan names as off-limits. If a later phase wants every private-file route physic
 folder, this one is a candidate to fold into `src/app/api/members/resources/...` — a mechanical
 move, not a rewrite.
 
-## OPEN — the report-only CSP has nowhere to report to (O18)
+## CLEARED in O20 — the report-only CSP now reports to `/api/csp-report`
 
-`next.config.ts` puts a `Content-Security-Policy-Report-Only` on the public tree
-so S6 or S15 can flip it to enforcing "after a week of clean reports"
-(plan §14.2.4). The policy carries no `report-uri` / `report-to` directive, so
-the reports currently reach each visitor's own browser console and nowhere else
-— there is no week of reports to read.
+Raised by O18. `src/app/(en)/api/csp-report/route.ts` is the collector: POST,
+logs one flat `[csp-report]` line per violation via `console.error` (there is no
+log service in this repo — plan §14.2.3 keeps ops output on the process log),
+answers 204. `PUBLIC_CSP` in `next.config.ts` carries both `report-uri
+/api/csp-report` and `report-to csp-endpoint`, with a companion
+`Reporting-Endpoints` header naming the group — both, because Safari and Firefox
+honour the first and Chrome the second, and the path is relative because seven
+brands share one build (plan §1.7).
 
-Before that flip, someone has to give the policy a destination: a collector
-route (`/api/csp-report`, a POST handler that logs and returns 204) or a hosted
-endpoint. O18 did not build one — a half-built collector that nobody watches is
-worse than an honest gap, and `src/app/api/csp-report/` is outside this phase's
-owned paths. The alternative evidence, if a collector is not wanted, is to open
-every brand's page types in a real browser with the console open. Either way:
-do not flip the header on the strength of "no reports came in".
+It handles both wire formats (`application/csp-report`'s
+`{"csp-report": {…}}` and the Reporting API's array of `{type, body}`
+envelopes, whose fields are spelled differently), and answers 204 on junk,
+empty and unparseable bodies too: a collector that 500s on a shape it did not
+expect is worse than no collector.
+
+**Still report-only, deliberately.** The flip to enforcing is unchanged and
+still gated on reading real reports (plan §14.2.4) — this is what makes there be
+reports to read. The enforcing `PRIVATE_CSP` was left without a destination on
+purpose: a violation there is a real block on a page a signed-in admin is
+looking at, which is already visible.
 
 ## OPEN — `tests/abuse.mjs` is not wired into CI (O18, by design)
 
