@@ -145,9 +145,13 @@ export async function verifyFactAction(_prev: ActionState, form: FormData): Prom
  * Support action (plan §5.4.9): grant a member a tier until a date — a refund
  * gone wrong, a processor outage, a goodwill extension.
  *
- * It writes through `entitlements.ts` rather than poking `users.tier`, and it
- * is logged, because a manual grant is the one thing that can make the cache
- * disagree with the purchase rows on purpose.
+ * Since O17 (plan §14.1.5) it writes a REAL row — a zero-amount `purchases`
+ * row for `entry`, a `subscriptions` row for `insider` — and then refreshes the
+ * cache from those rows like any webhook would, so `users.tier` and the
+ * entitlement rows still agree afterwards; nothing here overrides the cache by
+ * hand. The `admin_grant_` provider id on the row is what marks it as ours, and
+ * the `admin.grant_tier` audit entry `grantTierUntil` writes is how a grant is
+ * told apart from a purchase later.
  */
 export async function grantTierAction(_prev: ActionState, form: FormData): Promise<ActionState> {
   try {
