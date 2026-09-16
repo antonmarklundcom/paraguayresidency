@@ -1,0 +1,12 @@
+{
+  // CI type-checks the tests with this config. The production build does NOT:
+  // `next build` uses tsconfig.json, which excludes `tests/`, so a test file
+  // can never fail a deploy. See `npm run typecheck`.
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "incremental": false
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.mts"],
+  "exclude": ["node_modules", ".next"]
+}
