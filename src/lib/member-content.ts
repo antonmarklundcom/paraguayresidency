@@ -32,6 +32,18 @@ import type { SiteKey } from '@/sites/registry';
 
 const CONTENT_ROOT = join(process.cwd(), 'content');
 
+/** Degrade to `fallback` instead of failing the page/build when the query
+ * throws (e.g. a table migration hasn't landed on this environment yet) —
+ * mirrors the try/catch already used around every query in `purchases.ts`. */
+async function safeQuery<T>(fallback: T, fn: () => Promise<T>): Promise<T> {
+  try {
+    return await fn();
+  } catch (error) {
+    console.error('[member-content] query failed', error);
+    return fallback;
+  }
+}
+
 /* --------------------------------------------------------------- modules */
 
 export type ModuleState = 'locked' | 'dripped' | 'open';
@@ -57,29 +69,35 @@ export interface ModuleCard {
 async function modulesForSite(site: SiteKey): Promise<Module[]> {
   if (!hasDatabase()) return [];
   // `site = null` on these tables means "every brand" (plan §2's table).
-  return getDb()
-    .select()
-    .from(modules)
-    .where(and(or(eq(modules.site, site), isNull(modules.site)), eq(modules.active, true)))
-    .orderBy(asc(modules.sort), asc(modules.id));
+  return safeQuery([], () =>
+    getDb()
+      .select()
+      .from(modules)
+      .where(and(or(eq(modules.site, site), isNull(modules.site)), eq(modules.active, true)))
+      .orderBy(asc(modules.sort), asc(modules.id)),
+  );
 }
 
 async function lessonsForModules(moduleIds: number[]): Promise<Lesson[]> {
   if (!hasDatabase() || moduleIds.length === 0) return [];
-  return getDb()
-    .select()
-    .from(lessons)
-    .where(and(inArray(lessons.moduleId, moduleIds), eq(lessons.active, true)))
-    .orderBy(asc(lessons.sort), asc(lessons.id));
+  return safeQuery([], () =>
+    getDb()
+      .select()
+      .from(lessons)
+      .where(and(inArray(lessons.moduleId, moduleIds), eq(lessons.active, true)))
+      .orderBy(asc(lessons.sort), asc(lessons.id)),
+  );
 }
 
 async function completedLessonIds(userId: number, lessonIds: number[]): Promise<Set<number>> {
   if (!hasDatabase() || lessonIds.length === 0) return new Set();
-  const rows = await getDb()
-    .select({ lessonId: lessonProgress.lessonId })
-    .from(lessonProgress)
-    .where(and(eq(lessonProgress.userId, userId), inArray(lessonProgress.lessonId, lessonIds)));
-  return new Set(rows.map((r) => r.lessonId));
+  return safeQuery(new Set<number>(), async () => {
+    const rows = await getDb()
+      .select({ lessonId: lessonProgress.lessonId })
+      .from(lessonProgress)
+      .where(and(eq(lessonProgress.userId, userId), inArray(lessonProgress.lessonId, lessonIds)));
+    return new Set(rows.map((r) => r.lessonId));
+  });
 }
 
 /** When a `Drippable` opens for a member, or null if it isn't dripping. */
@@ -174,16 +192,18 @@ export async function lessonView(input: {
 }): Promise<LessonView | null> {
   if (!hasDatabase()) return null;
   const now = input.now ?? new Date();
-  const db = getDb();
 
-  const [module] = await db
-    .select()
-    .from(modules)
-    .where(and(or(eq(modules.site, input.site), isNull(modules.site)), eq(modules.slug, input.moduleSlug), eq(modules.active, true)))
-    .limit(1);
-  if (!module) return null;
+  const moduleRow = await safeQuery(null, async () => {
+    const [row] = await getDb()
+      .select()
+      .from(modules)
+      .where(and(or(eq(modules.site, input.site), isNull(modules.site)), eq(modules.slug, input.moduleSlug), eq(modules.active, true)))
+      .limit(1);
+    return row ?? null;
+  });
+  if (!moduleRow) return null;
 
-  const siblings = await lessonsForModules([module.id]);
+  const siblings = await lessonsForModules([moduleRow.id]);
   const index = siblings.findIndex((l) => l.slug === input.lessonSlug);
   if (index === -1) return null;
   const lesson = siblings[index];
@@ -196,7 +216,7 @@ export async function lessonView(input: {
   const completedSet = await completedLessonIds(input.userId, [lesson.id]);
 
   return {
-    module,
+    module: moduleRow,
     lesson,
     prev: siblings[index - 1] ?? null,
     next: siblings[index + 1] ?? null,
@@ -227,22 +247,26 @@ export async function updatesForSite(
   limit?: number,
 ): Promise<UpdatesPost[]> {
   if (!hasDatabase()) return [];
-  const query = getDb()
-    .select()
-    .from(updatesPosts)
-    .where(or(eq(updatesPosts.site, site), isNull(updatesPosts.site)))
-    .orderBy(desc(updatesPosts.publishedAt), desc(updatesPosts.id));
-  return limit ? query.limit(limit) : query;
+  return safeQuery([], () => {
+    const query = getDb()
+      .select()
+      .from(updatesPosts)
+      .where(or(eq(updatesPosts.site, site), isNull(updatesPosts.site)))
+      .orderBy(desc(updatesPosts.publishedAt), desc(updatesPosts.id));
+    return limit ? query.limit(limit) : query;
+  });
 }
 
 export async function updateBySlug(site: SiteKey, slug: string): Promise<UpdatesPost | null> {
   if (!hasDatabase()) return null;
-  const [row] = await getDb()
-    .select()
-    .from(updatesPosts)
-    .where(and(or(eq(updatesPosts.site, site), isNull(updatesPosts.site)), eq(updatesPosts.slug, slug)))
-    .limit(1);
-  return row ?? null;
+  return safeQuery(null, async () => {
+    const [row] = await getDb()
+      .select()
+      .from(updatesPosts)
+      .where(and(or(eq(updatesPosts.site, site), isNull(updatesPosts.site)), eq(updatesPosts.slug, slug)))
+      .limit(1);
+    return row ?? null;
+  });
 }
 
 export function updateBody(post: UpdatesPost): string | null {
@@ -253,21 +277,25 @@ export function updateBody(post: UpdatesPost): string | null {
 
 export async function resourcesForSite(site: SiteKey): Promise<Resource[]> {
   if (!hasDatabase()) return [];
-  return getDb()
-    .select()
-    .from(resources)
-    .where(and(or(eq(resources.site, site), isNull(resources.site)), eq(resources.active, true)))
-    .orderBy(asc(resources.sort), asc(resources.id));
+  return safeQuery([], () =>
+    getDb()
+      .select()
+      .from(resources)
+      .where(and(or(eq(resources.site, site), isNull(resources.site)), eq(resources.active, true)))
+      .orderBy(asc(resources.sort), asc(resources.id)),
+  );
 }
 
 export async function resourceBySlug(site: SiteKey, slug: string): Promise<Resource | null> {
   if (!hasDatabase()) return null;
-  const [row] = await getDb()
-    .select()
-    .from(resources)
-    .where(and(or(eq(resources.site, site), isNull(resources.site)), eq(resources.slug, slug), eq(resources.active, true)))
-    .limit(1);
-  return row ?? null;
+  return safeQuery(null, async () => {
+    const [row] = await getDb()
+      .select()
+      .from(resources)
+      .where(and(or(eq(resources.site, site), isNull(resources.site)), eq(resources.slug, slug), eq(resources.active, true)))
+      .limit(1);
+    return row ?? null;
+  });
 }
 
 /* -------------------------------------------------------------------- mdx */
