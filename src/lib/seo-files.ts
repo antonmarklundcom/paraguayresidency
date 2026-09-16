@@ -81,7 +81,7 @@ const staticPaths: Record<SiteKey, string[]> = {
     '/investor-pass/vs-standard-residency',
     '/investor-pass/for-agents',
   ],
-  guide: ['/', '/route-finder', '/contact', '/privacy', '/terms', '/about', '/refunds', '/blog'],
+  guide: ['/', '/route-finder', '/contact', '/privacy', '/terms', '/about', '/refunds', '/blog', '/insider'],
   frontier: [
     '/stories',
     '/',
