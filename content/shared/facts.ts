@@ -37,6 +37,15 @@ export interface Fact {
 }
 
 export const facts = {
+  'documents.police_certificate_validity': {
+    key: 'documents.police_certificate_validity',
+    label: 'Police certificate — recency and acceptance',
+    display: 'the applicable certificate recency window and acceptance conditions must be confirmed for your issuing country, route and filing stage',
+    hedged: 'the applicable certificate recency window and acceptance conditions must be confirmed for your issuing country, route and filing stage',
+    verified: false,
+    sources: [],
+    note: 'No verified validity window or nationality-specific enforcement evidence supplied. Confirm the accepted issuer, document form, authentication and translation conditions, the date used to assess recency, and whether later review can require a replacement before adding figures or verifying.',
+  },
   'investorpass.min_investment_usd': {
     key: 'investorpass.min_investment_usd',
     label: 'Investor Pass — minimum qualifying investment',
