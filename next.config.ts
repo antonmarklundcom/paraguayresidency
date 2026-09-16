@@ -13,6 +13,25 @@ import type { NextConfig } from 'next';
 /** Plausible is the only third-party script the app loads (plan §6.4). */
 const PLAUSIBLE = 'https://plausible.io';
 
+/**
+ * Where violations go (O20, clearing the KNOWN-ISSUES item O18 left open).
+ *
+ * `src/app/(en)/api/csp-report/route.ts` logs and answers 204. Both directives
+ * are set because browsers disagree about which one they honour:
+ * `report-uri` is deprecated but is what Safari and Firefox actually use, and
+ * `report-to` is the Reporting API replacement Chrome prefers — it needs the
+ * companion `Reporting-Endpoints` header below to name the group.
+ *
+ * The path is relative on purpose: seven brands share this build (plan §1.7),
+ * so an absolute URL here would send six of them reports to the wrong origin.
+ */
+const CSP_REPORT_PATH = '/api/csp-report';
+const CSP_REPORT_GROUP = 'csp-endpoint';
+const REPORTING_ENDPOINTS = {
+  key: 'Reporting-Endpoints',
+  value: `${CSP_REPORT_GROUP}="${CSP_REPORT_PATH}"`,
+};
+
 const BASELINE = [
   { key: 'X-Content-Type-Options', value: 'nosniff' },
   { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
@@ -70,6 +89,12 @@ const PRIVATE_CSP = [
  * inline flight data on every page. Tightening them means a nonce, which means
  * every page becomes dynamic — exactly what O19 is removing. Revisit with O19's
  * rendering work, not before.
+ *
+ * Since O20 it also has somewhere to report to. Only the report-only policy
+ * carries the directives: a violation under `PRIVATE_CSP` is a real block on a
+ * page a signed-in admin is looking at, which surfaces as a broken page and a
+ * browser console error immediately — the collector exists for the violations
+ * nobody is watching for.
  */
 const PUBLIC_CSP = [
   "default-src 'self'",
@@ -82,6 +107,8 @@ const PUBLIC_CSP = [
   "base-uri 'self'",
   "frame-ancestors 'none'",
   "object-src 'none'",
+  `report-uri ${CSP_REPORT_PATH}`,
+  `report-to ${CSP_REPORT_GROUP}`,
 ].join('; ');
 
 const isProduction = process.env.NODE_ENV === 'production';
@@ -110,7 +137,12 @@ const nextConfig: NextConfig = {
         // rewrites `/members` into `/sites/guide/members` — verified against
         // `next start`, not assumed.
         source: '/((?!admin$|admin/|members$|members/).*)',
-        headers: [{ key: 'Content-Security-Policy-Report-Only', value: PUBLIC_CSP }],
+        headers: [
+          { key: 'Content-Security-Policy-Report-Only', value: PUBLIC_CSP },
+          // Names the group `report-to` above points at. Without this header
+          // `report-to` is inert in Chrome, which is most of the traffic.
+          REPORTING_ENDPOINTS,
+        ],
       },
       {
         source: '/:path(admin|members)/:rest*',
@@ -129,5 +161,5 @@ const nextConfig: NextConfig = {
   },
 };
 
-export { PRIVATE_CSP, PUBLIC_CSP, BASELINE, HSTS };
+export { PRIVATE_CSP, PUBLIC_CSP, BASELINE, HSTS, REPORTING_ENDPOINTS, CSP_REPORT_PATH };
 export default nextConfig;
