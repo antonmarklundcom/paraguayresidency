@@ -93,22 +93,6 @@ const legalNav = (): NavItem[] => [
 export const GUIDE_ENTRY_SLUG = 'guide-entry';
 export const GUIDE_INSIDER_SLUG = 'guide-insider';
 
-/** Home, contact and the legal pages — all a new brand has until its phase. */
-const minimalNav = (): NavItem[] => [
-  { labelKey: 'nav.routeFinder', href: '/route-finder' },
-  { labelKey: 'nav.contact', href: '/contact' },
-];
-
-const minimalFooter = (): FooterSpec => ({
-  columns: [
-    {
-      titleKey: 'footer.company',
-      items: [{ labelKey: 'nav.contact', href: '/contact' }],
-    },
-  ],
-  legal: legalNav(),
-});
-
 export const sites: Record<SiteKey, SiteConfig> = {
   residency: {
     key: 'residency',
