@@ -139,7 +139,10 @@ export async function memberDashboard(input: {
         : 'dripped';
     const lessonCards: LessonCard[] = moduleLessons.map((lesson) => ({
       lesson,
-      unlocked: state !== 'locked' && isUnlocked(lesson, input.tier, input.firstEntitledAt, now),
+      // A lesson can only be open when its own gate passes AND its parent
+      // module is fully open — `state !== 'locked'` alone also let a
+      // dripped module's not-yet-open lessons show unlocked.
+      unlocked: state === 'open' && isUnlocked(lesson, input.tier, input.firstEntitledAt, now),
       completed: completed.has(lesson.id),
     }));
     return {
@@ -208,9 +211,17 @@ export async function lessonView(input: {
   if (index === -1) return null;
   const lesson = siblings[index];
 
-  const tierOk = hasTier(input.tier, lesson.minTier);
-  const dripped = isDripped(lesson, input.firstEntitledAt, now);
-  const unlocked = isUnlocked(lesson, input.tier, input.firstEntitledAt, now);
+  // Direct URL access must respect both gates — the module's own tier/drip
+  // state, and the lesson's — not just the lesson's, or a dripped module's
+  // lesson could be opened straight from its URL before the module itself
+  // has opened.
+  const moduleTierOk = hasTier(input.tier, moduleRow.minTier);
+  const moduleDripped = isDripped(moduleRow, input.firstEntitledAt, now);
+  const moduleOpen = moduleTierOk && moduleDripped;
+
+  const tierOk = moduleTierOk && hasTier(input.tier, lesson.minTier);
+  const dripped = moduleDripped && isDripped(lesson, input.firstEntitledAt, now);
+  const unlocked = moduleOpen && isUnlocked(lesson, input.tier, input.firstEntitledAt, now);
   const opensAt = !tierOk || dripped ? null : opensAtFor(lesson, input.firstEntitledAt);
 
   const completedSet = await completedLessonIds(input.userId, [lesson.id]);
