@@ -214,7 +214,7 @@ describe('middleware placement', () => {
 describe('resolveRequest — the four O9 brands', () => {
   const brands = [
     { site: 'frontier', apex: 'paraguayfrontier.com', locale: 'en' },
-    { site: 'residenciaes', apex: 'residenciaparaguay.es', locale: 'es' },
+    { site: 'residenciaes', apex: 'residenciaenparaguay.es', locale: 'es' },
     { site: 'residenciapt', apex: 'vidanoparaguai.com', locale: 'pt' },
     { site: 'flytta', apex: 'flyttatillparaguay.se', locale: 'sv' },
   ] as const;

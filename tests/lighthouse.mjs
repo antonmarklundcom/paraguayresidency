@@ -32,7 +32,7 @@ const brands = [
   ['investorpass', 'paraguayinvestorpass.com'],
   ['guide', 'paraguayresidencyguide.com'],
   ['frontier', 'paraguayfrontier.com'],
-  ['residenciaes', 'residenciaparaguay.es'],
+  ['residenciaes', 'residenciaenparaguay.es'],
   ['residenciapt', 'vidanoparaguai.com'],
   ['flytta', 'flyttatillparaguay.se'],
 ];

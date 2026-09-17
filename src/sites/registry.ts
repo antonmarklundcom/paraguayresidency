@@ -285,8 +285,8 @@ export const sites: Record<SiteKey, SiteConfig> = {
 
   residenciaes: {
     key: 'residenciaes',
-    hosts: ['residenciaparaguay.es', 'www.residenciaparaguay.es', 'residenciaes.localhost'],
-    canonicalHost: 'residenciaparaguay.es',
+    hosts: ['residenciaenparaguay.es', 'www.residenciaenparaguay.es', 'residenciaes.localhost'],
+    canonicalHost: 'residenciaenparaguay.es',
     name: 'Residencia Paraguay',
     tagline: 'site.tagline',
     locale: 'es',
@@ -326,7 +326,7 @@ export const sites: Record<SiteKey, SiteConfig> = {
       ],
       legal: legalNav(),
     },
-    crm: { source: 'residenciaparaguay.es' },
+    crm: { source: 'residenciaenparaguay.es' },
     // No Guide upsell: the Guide is English-only (plan §1.11).
     siblings: ['residency', 'investorpass'],
   },
