@@ -163,10 +163,10 @@ Residency Guide, Residencia Paraguay, Vida no Paraguai, Flytta till Paraguay); A
 photography (illustrated maps/diagrams welcome). Name each page.
 ```
 
-## 5 — residenciaparaguay.es (brand "Residencia Paraguay", Spanish)
+## 5 — residenciaenparaguay.es (brand "Residencia Paraguay", Spanish)
 
 ```
-Estás diseñando para Residencia Paraguay (residenciaparaguay.es), la marca en español de un servicio de
+Estás diseñando para Residencia Paraguay (residenciaenparaguay.es), la marca en español de un servicio de
 residencia en Paraguay. Público: España primero (el dominio), después Latinoamérica hispanohablante
 (Argentina sobre todo). Motivos: presión fiscal, coste de vida, sin barrera de idioma, jubilados y
 autónomos. Diferenciadores frente a la marca inglesa: la ruta Mercosur para nacionales de la región y el

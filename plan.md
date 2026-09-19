@@ -437,7 +437,7 @@ Exit: `npm run verify` green; with the O9 fixture users: `none` sees `/insider` 
 
 Load: `nextjs-deploy-hostinger`, `higgsfield-web-imagery`. Starts only when S10–S14 are all merged (§4.12).
 
-1. Attach `paraguayfrontier.com`, `residenciaparaguay.es`, `vidanoparaguai.com`, `flyttatillparaguay.se` (+ www) to the same slot or Caddy config S6 chose; DNS, SSL on all eight new hostnames; `/api/health` per host.
+1. Attach `paraguayfrontier.com`, `residenciaenparaguay.es`, `vidanoparaguai.com`, `flyttatillparaguay.se` (+ www) to the same slot or Caddy config S6 chose; DNS, SSL on all eight new hostnames; `/api/health` per host.
 2. Env: Lemon Squeezy live API key, store id, Insider variant id, webhook secret; register the live LS webhook; `INSIDER_PRICE_CENTS`/`INSIDER_INTERVAL` as Anton set them.
 3. **Verification, not migration (amended F9, §1.13).** pararesi was never deployed, so the expected outcome is an empty source. If Anton provides `PARARESI_DATABASE_URL` (or a dump), run `scripts/import-pararesi.ts --dry-run`: zero rows confirms the finding and the step is done; non-zero rows means real buyers exist after all — set `PARARESI_AMOUNT_UNIT`, review the counts with Anton, then the real run, exactly as O9 specified. If he provides no database, record "no pararesi data, Insider launched new" in §9 and move on. Either way, verify the member platform with a fresh test buyer instead of an imported one: one Lemon Squeezy test-mode Insider purchase and one Stripe entry purchase, each requesting a magic link on paraguayresidencyguide.com and seeing the right tier.
 4. flytta cutover: 301 map from `docs/flytta-redirects.md` into the registry's per-site redirects (a data entry, not middleware logic), point `flyttatillparaguay.se` DNS at the app, confirm the old URLs 301.
@@ -592,7 +592,7 @@ Investor Pass launch and framing: Fragomen — https://www.fragomen.com/insights
 - **Meta title:** "Paraguay Residency for Americans & Expats — Your Plan B, Handled" · **Meta description:** "Second residency in Paraguay: low thresholds, territorial tax, a permanent card. Routes compared, presence rules stated plainly, done-for-you filing in Asunción."
 - **Rule:** every tax sentence renders `<Fact k="tax.foreign_income_treatment">` or `tax.territorial_rate`; the brand never says "tax-free".
 
-### 11.6 residenciaparaguay.es (`residenciaes`, es)
+### 11.6 residenciaenparaguay.es (`residenciaes`, es)
 
 - **Audience and angle:** Spain first (the TLD), Spanish-speaking Latin America second (Argentina above all). Motives: fiscal pressure, cost of living, no language barrier, retirees and autónomos. Distinct from the hub: the Mercosur route for LatAm nationals, and the Spain tax-exit angle, both hedged.
 - **Keyword cluster:** residencia en paraguay, residencia paraguay españoles, vivir en paraguay, residencia permanente paraguay, impuestos paraguay residencia, cédula paraguaya extranjeros, emigrar a paraguay, residencia mercosur paraguay.
@@ -642,7 +642,7 @@ Anton runs seven residency-adjacent domains across three repos. §1.1 already bu
 | paraguayinvestorpass.com | `investorpass` | en | USD | — | §11.2 |
 | paraguayresidencyguide.com | `guide` | en | USD | `guide-entry` ($7, Stripe), `guide-insider` (recurring, Lemon Squeezy) | §11.3 |
 | paraguayfrontier.com | `frontier` | en | USD | — (Guide upsell) | §11.5 |
-| residenciaparaguay.es | `residenciaes` | es | EUR, PYG | — (newsletter exit) | §11.6 |
+| residenciaenparaguay.es | `residenciaes` | es | EUR, PYG | — (newsletter exit) | §11.6 |
 | vidanoparaguai.com | `residenciapt` | pt-BR | BRL, USD, PYG | — (newsletter exit) | §11.7 |
 | flyttatillparaguay.se | `flytta` | sv | SEK, USD | — (Guide upsell) | §11.8 |
 

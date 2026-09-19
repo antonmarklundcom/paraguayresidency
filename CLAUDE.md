@@ -2,7 +2,7 @@
 
 One Next.js app serving seven brands, keyed by `SiteKey`: `residency` (the hub — services, and the only host with `/admin`), `investorpass`, `guide` (the only brand that sells), `frontier`, `residenciaes` (es), `residenciapt` (pt-BR), `flytta` (sv). Read `plan.md` before any work; §1 decisions are locked, §9 is the phase index; read that index and the open items in `KNOWN-ISSUES.md` first, then consult `docs/log/` for per-phase detail and `docs/known-issues-archive.md` for cleared-issues history. §14 is the F10 improvement plan (O17–O19 Opus, then S20–S23 Sonnet); `docs/improvement-report.md` is its evidence.
 
-## Domains — CONFIRMED BY ANTON 2026-09-07. Do not infer a domain from a brand name.
+## Domains — CONFIRMED BY ANTON 2026-09-07, corrected 2026-09-17 (residenciaes). Do not infer a domain from a brand name.
 
 Anton owns exactly these, and nothing else for this project:
 
@@ -11,13 +11,14 @@ Anton owns exactly these, and nothing else for this project:
 | `paraguayresidencyguide.com` | `guide` |
 | `paraguayinvestorpass.com` | `investorpass` — brand name "Paraguay Investor Pass" |
 | `paraguayfrontier.com` | `frontier` |
-| `residenciaparaguay.es` | `residenciaes` |
+| `residenciaenparaguay.es` | `residenciaes` |
 | `vidanoparaguai.com` | `residenciapt` — brand name "Vida no Paraguai" |
 | `flyttatillparaguay.se` | `flytta` |
 | `paraguayresidency.co.uk` | `residency` — **the hub** (decided F9); `/admin`, unknown-host redirect target |
 
 He does **NOT** own `paraguayresidency.com` (and it is not buyable), `paraguayinvestorguide.com`,
-`residencianoparaguay.com` or `paraguayinvestorpass.com.py`. **Decided by F9 (2026-09-07, plan §1.11,
+`residencianoparaguay.com`, `paraguayinvestorpass.com.py`, or `residenciaparaguay.es` (corrected
+2026-09-17 — the real registration is `residenciaenparaguay.es`). **Decided by F9 (2026-09-07, plan §1.11,
 §12.2): the hub `residency` runs on `paraguayresidency.co.uk`**; `guide` is "Paraguay Residency Guide"
 on `paraguayresidencyguide.com`; `residenciapt` is "Vida no Paraguai" on `vidanoparaguai.com`. The
 registry named the wrong ones until **phase S16 (2026-09-09) swept it** to the domains above

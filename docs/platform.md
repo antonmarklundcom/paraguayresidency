@@ -13,7 +13,7 @@ any of them (plan §4.7).**
 | paraguayinvestorpass.com | `investorpass` | en | USD | — |
 | paraguayresidencyguide.com | `guide` | en | USD | `guide-entry`, `guide-insider` |
 | paraguayfrontier.com | `frontier` | en | USD | — |
-| residenciaparaguay.es | `residenciaes` | es | EUR, PYG | — |
+| residenciaenparaguay.es | `residenciaes` | es | EUR, PYG | — |
 | vidanoparaguai.com | `residenciapt` | pt-BR | BRL, USD, PYG | — |
 | flyttatillparaguay.se | `flytta` | sv | SEK, USD | — |
 
