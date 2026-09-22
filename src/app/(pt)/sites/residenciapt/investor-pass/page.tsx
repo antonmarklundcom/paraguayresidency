@@ -32,7 +32,7 @@ export default function Page() {
         <Heading level={1} className="mt-[var(--space-8)]">
           Residência permanente em uma etapa só
         </Heading>
-        <p className="mt-[var(--space-4)] text-[var(--text-lg)] text-[var(--fg-muted)]">
+        <p className="mt-[var(--space-4)] text-(length:--text-lg) text-[var(--fg-muted)]">
           O Investor Pass deixa um investimento qualificado pular a residência temporária e ir
           direto para o cartão permanente —{' '}
           <Fact k="investorpass.min_investment_usd" site="residenciapt" />, em quatro rotas
@@ -52,7 +52,7 @@ export default function Page() {
             Ver a residência permanente padrão
           </Button>
         </div>
-        <p className="mt-[var(--space-8)] text-[var(--text-sm)] text-[var(--fg-muted)]">
+        <p className="mt-[var(--space-8)] text-(length:--text-sm) text-[var(--fg-muted)]">
           Não tem certeza de qual rota serve para o seu capital e prazo?{' '}
           <a href="/route-finder" className="text-[var(--accent)] underline underline-offset-2">
             Faça o teste de rota

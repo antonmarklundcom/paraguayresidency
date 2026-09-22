@@ -38,7 +38,7 @@ export function PlaceholderHome({ site }: { site: SiteKey }) {
         actions={actions}
         aside={
           <div className="text-[var(--fg-muted)]">
-            <p className="text-[var(--text-xs)] tracking-[0.16em] uppercase">
+            <p className="text-(length:--text-xs) tracking-[0.16em] uppercase">
               {t(site, 'placeholder.factsHeading')}
             </p>
             <p className="mt-[var(--space-3)]">

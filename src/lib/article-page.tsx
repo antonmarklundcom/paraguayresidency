@@ -61,7 +61,7 @@ export function ArticlePage({
         />
         <header className="mt-[var(--space-8)]">
           <Heading level={1}>{frontmatter.title}</Heading>
-          <p className="mt-[var(--space-4)] text-[var(--text-lg)] text-[var(--fg-muted)]">
+          <p className="mt-[var(--space-4)] text-(length:--text-lg) text-[var(--fg-muted)]">
             {frontmatter.description}
           </p>
         </header>
@@ -84,7 +84,7 @@ export function ArticlePage({
                 href={link.href}
                 className="block rounded-[var(--radius-brand)] border border-[var(--border)] bg-[var(--surface)] p-[var(--space-5)] transition-colors duration-[var(--duration)] hover:border-[var(--accent)]"
               >
-                <span className="text-[var(--text-xs)] tracking-[0.14em] text-[var(--fg-muted)] uppercase">
+                <span className="text-(length:--text-xs) tracking-[0.14em] text-[var(--fg-muted)] uppercase">
                   {t(site, 'common.readMore')}
                 </span>
                 <span className="mt-[var(--space-1)] block font-[family-name:var(--display-font)]">
@@ -99,7 +99,7 @@ export function ArticlePage({
             {serviceLink && (
               <Link
                 href={serviceLink.href}
-                className="inline-flex items-center gap-2 rounded-[var(--radius-brand)] bg-[var(--accent)] px-5 py-3 text-[var(--text-sm)] font-medium text-[var(--accent-fg)] hover:opacity-90"
+                className="inline-flex items-center gap-2 rounded-[var(--radius-brand)] bg-[var(--accent)] px-5 py-3 text-(length:--text-sm) font-medium text-[var(--accent-fg)] hover:opacity-90"
               >
                 {serviceLink.label}
               </Link>
@@ -107,7 +107,7 @@ export function ArticlePage({
             {routeFinderHref && (
               <Link
                 href={routeFinderHref}
-                className="inline-flex items-center gap-2 rounded-[var(--radius-brand)] border border-[var(--border)] px-5 py-3 text-[var(--text-sm)] font-medium hover:border-[var(--accent)]"
+                className="inline-flex items-center gap-2 rounded-[var(--radius-brand)] border border-[var(--border)] px-5 py-3 text-(length:--text-sm) font-medium hover:border-[var(--accent)]"
               >
                 {t(site, 'nav.routeFinder')}
               </Link>

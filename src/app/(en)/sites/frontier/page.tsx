@@ -215,7 +215,7 @@ export default function Page() {
             {actions}
           </div>
           {whatsapp && (
-            <p className="mt-[var(--space-6)] text-[var(--text-sm)]">
+            <p className="mt-[var(--space-6)] text-(length:--text-sm)">
               <a href={whatsapp} rel="noopener" className="text-[var(--accent)] underline underline-offset-2">
                 Or message us on WhatsApp
               </a>
@@ -237,7 +237,7 @@ export default function Page() {
               <LeadForm site="frontier" variant="whatsapp" pagePath="/" />
             </div>
           </div>
-          <p className="mt-[var(--space-6)] text-[var(--text-sm)] text-[var(--fg-muted)]">
+          <p className="mt-[var(--space-6)] text-(length:--text-sm) text-[var(--fg-muted)]">
             Investing serious capital instead?{' '}
             <a
               href={siteOrigin('investorpass')}

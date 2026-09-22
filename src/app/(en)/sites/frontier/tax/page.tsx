@@ -45,7 +45,7 @@ export default function Page() {
         <Heading level={1} className="mt-[var(--space-8)]">
           Territorial tax, RUC, and what neither one promises
         </Heading>
-        <p className="mt-[var(--space-4)] text-[var(--text-lg)] text-[var(--fg-muted)]">
+        <p className="mt-[var(--space-4)] text-(length:--text-lg) text-[var(--fg-muted)]">
           The single most oversold part of moving to Paraguay online. Here is what the system
           actually does.
         </p>

@@ -21,7 +21,7 @@ export default function Page() {
         <Heading level={1} className="mt-[var(--space-8)]">
           Un equipo en Asunción, haciendo esto cada semana
         </Heading>
-        <p className="mt-[var(--space-4)] text-[var(--text-lg)] text-[var(--fg-muted)]">
+        <p className="mt-[var(--space-4)] text-(length:--text-lg) text-[var(--fg-muted)]">
           La residencia en Paraguay no es complicada en principio. Es complicada en los detalles —
           qué cadena de apostilla necesita un país concreto, qué documento caduca antes de qué
           cita, qué pide de verdad un banco antes de abrir una cuenta. Nos ocupamos de los detalles

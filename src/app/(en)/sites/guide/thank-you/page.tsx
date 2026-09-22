@@ -50,10 +50,10 @@ export default async function Page({ searchParams }: { searchParams: SearchParam
             </p>
           )}
 
-          <p className="mt-[var(--space-6)] text-[var(--text-sm)] text-[var(--fg-muted)]">
+          <p className="mt-[var(--space-6)] text-(length:--text-sm) text-[var(--fg-muted)]">
             {t(SITE, 'thankYou.emailNote')}
           </p>
-          <p className="mt-[var(--space-2)] text-[var(--text-sm)] text-[var(--fg-muted)]">
+          <p className="mt-[var(--space-2)] text-(length:--text-sm) text-[var(--fg-muted)]">
             Your login link is in your inbox too — use it any time to read the guide online,
             track your progress and see everything your account includes.
           </p>
@@ -72,7 +72,7 @@ export default async function Page({ searchParams }: { searchParams: SearchParam
           <div className="mt-[var(--space-6)]">
             <Link
               href="/insider"
-              className="inline-flex items-center rounded-[var(--radius-brand)] border border-[var(--border)] px-5 py-3 text-[var(--text-sm)] font-medium hover:border-[var(--accent)]"
+              className="inline-flex items-center rounded-[var(--radius-brand)] border border-[var(--border)] px-5 py-3 text-(length:--text-sm) font-medium hover:border-[var(--accent)]"
             >
               See what Insider includes
             </Link>
@@ -93,7 +93,7 @@ export default async function Page({ searchParams }: { searchParams: SearchParam
             </Button>
             <Link
               href={`${siteOrigin('investorpass')}/contact`}
-              className="self-center text-[var(--text-sm)] underline underline-offset-4"
+              className="self-center text-(length:--text-sm) underline underline-offset-4"
             >
               {t(SITE, 'thankYou.upsellSecondary')}
             </Link>

@@ -31,13 +31,13 @@ function ModuleBlock({ card }: { card: ModuleCard }) {
         <div className="flex items-center justify-between gap-[var(--space-4)]">
           <div>
             <Heading level={3}>{card.module.title}</Heading>
-            <p className="mt-[var(--space-1)] text-[var(--text-sm)] text-[var(--fg-muted)]">
+            <p className="mt-[var(--space-1)] text-(length:--text-sm) text-[var(--fg-muted)]">
               {t(SITE, 'members.locked')}
             </p>
           </div>
           <Link
             href="/insider"
-            className="shrink-0 rounded-[var(--radius-brand)] bg-[var(--accent)] px-4 py-2 text-[var(--text-sm)] font-medium text-[var(--accent-fg)] hover:opacity-90"
+            className="shrink-0 rounded-[var(--radius-brand)] bg-[var(--accent)] px-4 py-2 text-(length:--text-sm) font-medium text-[var(--accent-fg)] hover:opacity-90"
           >
             {t(SITE, 'members.upgrade')}
           </Link>
@@ -51,19 +51,19 @@ function ModuleBlock({ card }: { card: ModuleCard }) {
       <div className="flex items-center justify-between gap-[var(--space-4)]">
         <Heading level={3}>{card.module.title}</Heading>
         {card.lessonCount > 0 && (
-          <span className="shrink-0 text-[var(--text-xs)] text-[var(--fg-muted)]">
+          <span className="shrink-0 text-(length:--text-xs) text-[var(--fg-muted)]">
             {card.completedCount}/{card.lessonCount}
           </span>
         )}
       </div>
       {card.module.description && (
-        <p className="mt-[var(--space-1)] text-[var(--text-sm)] text-[var(--fg-muted)]">
+        <p className="mt-[var(--space-1)] text-(length:--text-sm) text-[var(--fg-muted)]">
           {card.module.description}
         </p>
       )}
 
       {card.state === 'dripped' ? (
-        <p className="mt-[var(--space-4)] text-[var(--text-sm)] text-[var(--fg-muted)]">
+        <p className="mt-[var(--space-4)] text-(length:--text-sm) text-[var(--fg-muted)]">
           Opens {card.opensAt ? formatDate(card.opensAt) : 'soon'}.
         </p>
       ) : (
@@ -83,12 +83,12 @@ function ModuleBlock({ card }: { card: ModuleCard }) {
               {unlocked ? (
                 <Link
                   href={`/members/${card.module.slug}/${lesson.slug}`}
-                  className="text-[var(--text-sm)] hover:text-[var(--accent)] hover:underline"
+                  className="text-(length:--text-sm) hover:text-[var(--accent)] hover:underline"
                 >
                   {lesson.title}
                 </Link>
               ) : (
-                <span className="text-[var(--text-sm)] text-[var(--fg-muted)]">
+                <span className="text-(length:--text-sm) text-[var(--fg-muted)]">
                   {lesson.title} — opens soon
                 </span>
               )}
@@ -118,7 +118,7 @@ export default async function Page() {
         <Heading level={1}>{t(SITE, 'members.h1')}</Heading>
         <p className="mt-[var(--space-4)] text-[var(--fg-muted)]">{t(SITE, 'members.sub')}</p>
 
-        <dl className="mt-[var(--space-8)] grid gap-[var(--space-2)] text-[var(--text-sm)]">
+        <dl className="mt-[var(--space-8)] grid gap-[var(--space-2)] text-(length:--text-sm)">
           <div className="flex gap-[var(--space-3)]">
             <dt className="text-[var(--fg-muted)]">{t(SITE, 'form.email')}</dt>
             <dd>{member.user.email}</dd>
@@ -131,8 +131,8 @@ export default async function Page() {
 
         {next && (
           <div className="mt-[var(--space-8)] rounded-[var(--radius-brand)] border border-[var(--accent)] bg-[var(--accent-soft)] p-[var(--space-6)]">
-            <p className="text-[var(--text-sm)] text-[var(--fg-muted)]">Continue where you left off</p>
-            <p className="mt-[var(--space-1)] font-[family-name:var(--display-font)] text-[var(--text-lg)]">
+            <p className="text-(length:--text-sm) text-[var(--fg-muted)]">Continue where you left off</p>
+            <p className="mt-[var(--space-1)] font-[family-name:var(--display-font)] text-(length:--text-lg)">
               {next.title}
             </p>
             <div className="mt-[var(--space-4)]">
@@ -143,7 +143,7 @@ export default async function Page() {
 
         {cards.length === 0 ? (
           <div className="mt-[var(--space-8)] rounded-[var(--radius)] border border-[var(--border)] p-[var(--space-6)]">
-            <p className="font-[family-name:var(--display-font)] text-[var(--text-lg)]">
+            <p className="font-[family-name:var(--display-font)] text-(length:--text-lg)">
               {t(SITE, 'members.emptyTitle')}
             </p>
             <p className="mt-[var(--space-2)] text-[var(--fg-muted)]">{t(SITE, 'members.emptyBody')}</p>
@@ -156,7 +156,7 @@ export default async function Page() {
           </div>
         )}
 
-        <nav className="mt-[var(--space-10)] flex flex-wrap gap-[var(--space-6)] text-[var(--text-sm)]">
+        <nav className="mt-[var(--space-10)] flex flex-wrap gap-[var(--space-6)] text-(length:--text-sm)">
           <Link href="/members/updates" className="underline underline-offset-4">
             Updates
           </Link>

@@ -88,7 +88,7 @@ export function ProgressiveForm({ base, success, ...props }: EnhancementProps & 
     <div ref={root} onFocusCapture={activate} onInputCapture={capture} onChangeCapture={capture}
       onSubmitCapture={() => { if (!root.current?.querySelector('[data-enhanced]')) { submitted.current = true; setActive(false); } }}>
       {result === 'ok' ? success : <>
-        {result === 'error' ? <p role="alert" className="mb-3 text-[var(--text-sm)] text-[var(--danger)]">Check the form and try again. If it has expired, reload the page.</p> : null}
+        {result === 'error' ? <p role="alert" className="mb-3 text-(length:--text-sm) text-[var(--danger)]">Check the form and try again. If it has expired, reload the page.</p> : null}
         <BaseContext.Provider value={{ base, capture }}>
           {active ? <Enhancement {...props} snapshot={snapshot} /> : <Base />}
         </BaseContext.Provider>

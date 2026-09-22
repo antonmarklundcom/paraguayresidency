@@ -35,7 +35,7 @@ export default async function Page({ searchParams }: { searchParams: SearchParam
         {errorKey ? (
           <p
             role="alert"
-            className="mt-[var(--space-6)] rounded-[var(--radius)] border border-[var(--border)] bg-[var(--surface)] px-4 py-3 text-[var(--text-sm)]"
+            className="mt-[var(--space-6)] rounded-[var(--radius)] border border-[var(--border)] bg-[var(--surface)] px-4 py-3 text-(length:--text-sm)"
           >
             {t(SITE, errorKey)}
           </p>

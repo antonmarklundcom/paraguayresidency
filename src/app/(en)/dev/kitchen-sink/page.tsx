@@ -34,7 +34,7 @@ function ThemeBlock({ site }: { site: SiteKey }) {
   return (
     <div data-site={site} data-theme={site} className="border-b-4 border-black">
       <Section>
-        <p className="text-[var(--text-xs)] tracking-[0.2em] uppercase">theme: {site}</p>
+        <p className="text-(length:--text-xs) tracking-[0.2em] uppercase">theme: {site}</p>
       </Section>
       <SplitHero
         eyebrow="SplitHero"

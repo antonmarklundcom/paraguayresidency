@@ -86,7 +86,7 @@ export function BookPage({ site }: { site: SiteKey }) {
             />
           ) : (
             <>
-              <p className="mb-[var(--space-6)] text-[var(--text-sm)] text-[var(--fg-muted)]">
+              <p className="mb-[var(--space-6)] text-(length:--text-sm) text-[var(--fg-muted)]">
                 {t(site, 'book.fallback')}
               </p>
               <LeadForm site={site} variant="consultation" pagePath="/book" />
@@ -177,7 +177,7 @@ export async function UnsubscribePage({
       <Container width="narrow">
         <Heading level={1}>{t(site, 'unsubscribe.h1')}</Heading>
         <p className="mt-[var(--space-4)] text-[var(--fg-muted)]">{t(site, bodyKey)}</p>
-        <p className="mt-[var(--space-8)] text-[var(--text-sm)] text-[var(--fg-muted)]">
+        <p className="mt-[var(--space-8)] text-(length:--text-sm) text-[var(--fg-muted)]">
           {t(site, 'unsubscribe.note', { brand: getSite(site).name })}
         </p>
       </Container>
@@ -216,7 +216,7 @@ export async function LoginPage({ site, searchParams }: { site: SiteKey; searchP
         {errorKey ? (
           <p
             role="alert"
-            className="mt-[var(--space-6)] rounded-[var(--radius)] border border-[var(--border)] bg-[var(--surface-alt)] px-4 py-3 text-[var(--text-sm)]"
+            className="mt-[var(--space-6)] rounded-[var(--radius)] border border-[var(--border)] bg-[var(--surface-alt)] px-4 py-3 text-(length:--text-sm)"
           >
             {t(site, errorKey)}
           </p>
@@ -255,7 +255,7 @@ export async function MembersPage({ site }: { site: SiteKey }) {
         <Heading level={1}>{t(site, 'members.h1')}</Heading>
         <p className="mt-[var(--space-4)] text-[var(--fg-muted)]">{t(site, 'members.sub')}</p>
 
-        <dl className="mt-[var(--space-8)] grid gap-[var(--space-2)] text-[var(--text-sm)]">
+        <dl className="mt-[var(--space-8)] grid gap-[var(--space-2)] text-(length:--text-sm)">
           <div className="flex gap-[var(--space-3)]">
             <dt className="text-[var(--fg-muted)]">{t(site, 'form.email')}</dt>
             <dd>{member.user.email}</dd>
@@ -267,7 +267,7 @@ export async function MembersPage({ site }: { site: SiteKey }) {
         </dl>
 
         <div className="mt-[var(--space-8)] rounded-[var(--radius)] border border-[var(--border)] p-[var(--space-6)]">
-          <p className="font-[family-name:var(--display-font)] text-[var(--text-lg)]">
+          <p className="font-[family-name:var(--display-font)] text-(length:--text-lg)">
             {t(site, 'members.emptyTitle')}
           </p>
           <p className="mt-[var(--space-2)] text-[var(--fg-muted)]">
@@ -275,7 +275,7 @@ export async function MembersPage({ site }: { site: SiteKey }) {
           </p>
         </div>
 
-        <p className="mt-[var(--space-8)] text-[var(--text-sm)]">
+        <p className="mt-[var(--space-8)] text-(length:--text-sm)">
           <a href="/api/auth/logout" className="underline underline-offset-4">
             {t(site, 'login.logout')}
           </a>

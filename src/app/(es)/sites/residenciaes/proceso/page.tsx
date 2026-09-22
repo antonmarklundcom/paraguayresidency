@@ -63,7 +63,7 @@ export default function Page() {
         <Heading level={1} className="mt-[var(--space-8)]">
           Qué pasa realmente, paso a paso
         </Heading>
-        <p className="mt-[var(--space-4)] text-[var(--text-lg)] text-[var(--fg-muted)]">
+        <p className="mt-[var(--space-4)] text-(length:--text-lg) text-[var(--fg-muted)]">
           Ningún paso aquí se oculta hasta que ya has pagado por él. Este es el proceso completo,
           en el orden en que ocurre de verdad, para la residencia temporal, la permanente y la
           cédula que las sigue.

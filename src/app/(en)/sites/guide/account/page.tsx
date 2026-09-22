@@ -32,7 +32,7 @@ export default async function Page() {
   return (
     <Section>
       <Container width="narrow">
-        <p className="text-[var(--text-sm)]">
+        <p className="text-(length:--text-sm)">
           <Link href="/members" className="hover:text-[var(--accent)]">
             ← Back to your modules
           </Link>
@@ -41,7 +41,7 @@ export default async function Page() {
           Your account
         </Heading>
 
-        <dl className="mt-[var(--space-8)] space-y-[var(--space-4)] text-[var(--text-sm)]">
+        <dl className="mt-[var(--space-8)] space-y-[var(--space-4)] text-(length:--text-sm)">
           <div className="flex items-center justify-between gap-[var(--space-4)] border-b border-[var(--border)] pb-[var(--space-4)]">
             <dt className="text-[var(--fg-muted)]">{t(SITE, 'form.email')}</dt>
             <dd>{member.user.email}</dd>
@@ -66,26 +66,26 @@ export default async function Page() {
               <a
                 href={portalUrl}
                 rel="noopener"
-                className="inline-flex items-center rounded-[var(--radius-brand)] bg-[var(--accent)] px-5 py-3 text-[var(--text-sm)] font-medium text-[var(--accent-fg)] hover:opacity-90"
+                className="inline-flex items-center rounded-[var(--radius-brand)] bg-[var(--accent)] px-5 py-3 text-(length:--text-sm) font-medium text-[var(--accent-fg)] hover:opacity-90"
               >
                 Manage subscription
               </a>
             ) : (
-              <p className="text-[var(--text-sm)] text-[var(--fg-muted)]">
+              <p className="text-(length:--text-sm) text-[var(--fg-muted)]">
                 To change or cancel your subscription, email us and we&apos;ll help directly.
               </p>
             )
           ) : (
             <Link
               href="/insider"
-              className="inline-flex items-center rounded-[var(--radius-brand)] bg-[var(--accent)] px-5 py-3 text-[var(--text-sm)] font-medium text-[var(--accent-fg)] hover:opacity-90"
+              className="inline-flex items-center rounded-[var(--radius-brand)] bg-[var(--accent)] px-5 py-3 text-(length:--text-sm) font-medium text-[var(--accent-fg)] hover:opacity-90"
             >
               Join Insider
             </Link>
           )}
         </div>
 
-        <p className="mt-[var(--space-10)] text-[var(--text-sm)]">
+        <p className="mt-[var(--space-10)] text-(length:--text-sm)">
           <a href="/api/auth/logout" className="underline underline-offset-4">
             {t(SITE, 'login.logout')}
           </a>

@@ -50,10 +50,10 @@ export function Section({
 }
 
 const headingSizes = {
-  1: 'text-[var(--text-4xl)]',
-  2: 'text-[var(--text-3xl)]',
-  3: 'text-[var(--text-xl)]',
-  4: 'text-[var(--text-lg)]',
+  1: 'text-(length:--text-4xl)',
+  2: 'text-(length:--text-3xl)',
+  3: 'text-(length:--text-xl)',
+  4: 'text-(length:--text-lg)',
 } as const;
 
 export function Heading({
@@ -81,7 +81,7 @@ export function Heading({
 export function Prose({ children, className = '' }: { children: ReactNode; className?: string }) {
   return (
     <div
-      className={`max-w-[var(--measure)] [&_a]:text-[var(--accent)] [&_a]:underline [&_a]:underline-offset-2 [&_h2]:mt-[var(--space-12)] [&_h2]:mb-[var(--space-4)] [&_h2]:font-[family-name:var(--display-font)] [&_h2]:text-[var(--text-2xl)] [&_h2]:leading-[var(--leading-tight)] [&_h3]:mt-[var(--space-8)] [&_h3]:mb-[var(--space-3)] [&_h3]:text-[var(--text-lg)] [&_li]:my-[var(--space-2)] [&_ol]:my-[var(--space-4)] [&_ol]:list-decimal [&_ol]:pl-6 [&_p]:my-[var(--space-4)] [&_ul]:my-[var(--space-4)] [&_ul]:list-disc [&_ul]:pl-6 ${className}`}
+      className={`max-w-[var(--measure)] [&_a]:text-[var(--accent)] [&_a]:underline [&_a]:underline-offset-2 [&_h2]:mt-[var(--space-12)] [&_h2]:mb-[var(--space-4)] [&_h2]:font-[family-name:var(--display-font)] [&_h2]:text-(length:--text-2xl) [&_h2]:leading-[var(--leading-tight)] [&_h3]:mt-[var(--space-8)] [&_h3]:mb-[var(--space-3)] [&_h3]:text-(length:--text-lg) [&_li]:my-[var(--space-2)] [&_ol]:my-[var(--space-4)] [&_ol]:list-decimal [&_ol]:pl-6 [&_p]:my-[var(--space-4)] [&_ul]:my-[var(--space-4)] [&_ul]:list-disc [&_ul]:pl-6 ${className}`}
     >
       {children}
     </div>

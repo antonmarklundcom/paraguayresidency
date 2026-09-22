@@ -30,7 +30,7 @@ export default function Page() {
         <Heading level={1} className="mt-[var(--space-8)]">
           Permanent residency in one step
         </Heading>
-        <p className="mt-[var(--space-4)] text-[var(--text-lg)] text-[var(--fg-muted)]">
+        <p className="mt-[var(--space-4)] text-(length:--text-lg) text-[var(--fg-muted)]">
           The Investor Pass lets a qualifying investment skip temporary residency entirely and go
           straight to the permanent card — <Fact k="investorpass.min_investment_usd" site="residency" />
           , across four routes, filed by the same team that handles everything on this site.
@@ -48,7 +48,7 @@ export default function Page() {
             See standard permanent residency
           </Button>
         </div>
-        <p className="mt-[var(--space-8)] text-[var(--text-sm)] text-[var(--fg-muted)]">
+        <p className="mt-[var(--space-8)] text-(length:--text-sm) text-[var(--fg-muted)]">
           Not sure which route fits your capital and timeline?{' '}
           <a href="/route-finder" className="text-[var(--accent)] underline underline-offset-2">
             Take the Route Finder

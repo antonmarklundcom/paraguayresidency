@@ -17,7 +17,7 @@ export default function Page() {
     <Section>
       <Container width="narrow">
         <Heading level={1}>Refund Policy</Heading>
-        <p className="mt-[var(--space-4)] text-[var(--text-lg)] text-[var(--fg-muted)]">
+        <p className="mt-[var(--space-4)] text-(length:--text-lg) text-[var(--fg-muted)]">
           14 days, no questions.
         </p>
         <Prose className="mt-[var(--space-8)]">

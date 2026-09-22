@@ -66,13 +66,13 @@ export default async function Page({ params }: { params: Promise<Params> }) {
           <Heading level={1}>{view.lesson.title}</Heading>
           {view.reason === 'tier' ? (
             <div className="mt-[var(--space-8)] rounded-[var(--radius-brand)] border border-[var(--accent)] bg-[var(--accent-soft)] p-[var(--space-6)]">
-              <p className="font-[family-name:var(--display-font)] text-[var(--text-lg)]">
+              <p className="font-[family-name:var(--display-font)] text-(length:--text-lg)">
                 {t(SITE, 'members.locked')}
               </p>
               <div className="mt-[var(--space-4)]">
                 <Link
                   href="/insider"
-                  className="inline-flex items-center rounded-[var(--radius-brand)] bg-[var(--accent)] px-5 py-3 text-[var(--text-sm)] font-medium text-[var(--accent-fg)] hover:opacity-90"
+                  className="inline-flex items-center rounded-[var(--radius-brand)] bg-[var(--accent)] px-5 py-3 text-(length:--text-sm) font-medium text-[var(--accent-fg)] hover:opacity-90"
                 >
                   {t(SITE, 'members.upgrade')}
                 </Link>
@@ -96,7 +96,7 @@ export default async function Page({ params }: { params: Promise<Params> }) {
   return (
     <Section>
       <Container width="narrow">
-        <p className="text-[var(--text-sm)] text-[var(--fg-muted)]">
+        <p className="text-(length:--text-sm) text-[var(--fg-muted)]">
           <Link href={backHref} className="hover:text-[var(--accent)]">
             {view.module.title}
           </Link>
@@ -115,13 +115,13 @@ export default async function Page({ params }: { params: Promise<Params> }) {
           <button
             type="submit"
             disabled={view.completed}
-            className="inline-flex items-center rounded-[var(--radius-brand)] bg-[var(--accent)] px-5 py-3 text-[var(--text-sm)] font-medium text-[var(--accent-fg)] hover:opacity-90 disabled:opacity-60"
+            className="inline-flex items-center rounded-[var(--radius-brand)] bg-[var(--accent)] px-5 py-3 text-(length:--text-sm) font-medium text-[var(--accent-fg)] hover:opacity-90 disabled:opacity-60"
           >
             {view.completed ? 'Completed' : 'Mark complete'}
           </button>
         </form>
 
-        <nav className="mt-[var(--space-12)] flex items-center justify-between gap-[var(--space-4)] border-t border-[var(--border)] pt-[var(--space-6)] text-[var(--text-sm)]">
+        <nav className="mt-[var(--space-12)] flex items-center justify-between gap-[var(--space-4)] border-t border-[var(--border)] pt-[var(--space-6)] text-(length:--text-sm)">
           {view.prev ? (
             <Link
               href={`/members/${view.module.slug}/${view.prev.slug}`}

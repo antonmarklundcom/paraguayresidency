@@ -21,8 +21,8 @@ export default async function Page({
 
   return (
     <>
-      <h1 className="font-[family-name:var(--display-font)] text-[var(--text-2xl)]">Members</h1>
-      <p className="mt-2 text-[var(--text-sm)] text-[var(--fg-muted)]">
+      <h1 className="font-[family-name:var(--display-font)] text-(length:--text-2xl)">Members</h1>
+      <p className="mt-2 text-(length:--text-sm) text-[var(--fg-muted)]">
         Everyone who has bought something. The tier column is the cached value on the
         user row; the truth is computed from their purchases and subscriptions on
         every request.
@@ -33,7 +33,7 @@ export default async function Page({
           name="q"
           defaultValue={search}
           placeholder="Search by email"
-          className="rounded-[var(--radius)] border border-[var(--border)] bg-[var(--surface)] px-3 py-2 text-[var(--text-sm)]"
+          className="rounded-[var(--radius)] border border-[var(--border)] bg-[var(--surface)] px-3 py-2 text-(length:--text-sm)"
         />
         <button type="submit" className="underline underline-offset-4">
           Search
@@ -41,7 +41,7 @@ export default async function Page({
       </form>
 
       {unavailable ? (
-        <p className={`${panel} mt-6 p-4 text-[var(--text-sm)] text-[var(--fg-muted)]`}>
+        <p className={`${panel} mt-6 p-4 text-(length:--text-sm) text-[var(--fg-muted)]`}>
           DATABASE_URL is not set on this server, so there is nothing to list.
         </p>
       ) : (
@@ -74,7 +74,7 @@ export default async function Page({
                   <td className={td}>{member.homeSite ?? '—'}</td>
                   <td className={td}>
                     {member.providerIds.length ? (
-                      <span className="text-[var(--text-xs)]">{member.providerIds.join(', ')}</span>
+                      <span className="text-(length:--text-xs)">{member.providerIds.join(', ')}</span>
                     ) : (
                       '—'
                     )}
@@ -92,7 +92,7 @@ export default async function Page({
                         <select
                           name="tier"
                               defaultValue={member.tier}
-                              className="rounded border border-[var(--border)] bg-[var(--surface)] px-2 py-1 text-[var(--text-xs)]"
+                              className="rounded border border-[var(--border)] bg-[var(--surface)] px-2 py-1 text-(length:--text-xs)"
                             >
                               {TIERS.map((tier) => (
                                 <option key={tier} value={tier}>
@@ -104,7 +104,7 @@ export default async function Page({
                               name="until"
                               type="date"
                               defaultValue={member.tierExpiresAt?.toISOString().slice(0, 10) ?? ''}
-                              className="rounded border border-[var(--border)] bg-[var(--surface)] px-2 py-1 text-[var(--text-xs)]"
+                              className="rounded border border-[var(--border)] bg-[var(--surface)] px-2 py-1 text-(length:--text-xs)"
                             />
                       </ActionButton>
                     </div>

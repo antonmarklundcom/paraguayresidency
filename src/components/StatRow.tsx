@@ -18,14 +18,14 @@ export function StatRow({ stats }: { stats: Stat[] }) {
         <div key={stat.label}>
           <dt className="sr-only">{stat.label}</dt>
           <dd>
-            <span className="block font-[family-name:var(--display-font)] text-[var(--text-3xl)] text-[var(--accent)]">
+            <span className="block font-[family-name:var(--display-font)] text-(length:--text-3xl) text-[var(--accent)]">
               {stat.value}
             </span>
-            <span className="mt-[var(--space-1)] block text-[var(--text-sm)] font-medium">
+            <span className="mt-[var(--space-1)] block text-(length:--text-sm) font-medium">
               {stat.label}
             </span>
             {stat.note && (
-              <span className="mt-[var(--space-1)] block text-[var(--text-xs)] text-[var(--fg-muted)]">
+              <span className="mt-[var(--space-1)] block text-(length:--text-xs) text-[var(--fg-muted)]">
                 {stat.note}
               </span>
             )}

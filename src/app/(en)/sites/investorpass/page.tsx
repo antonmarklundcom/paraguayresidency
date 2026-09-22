@@ -211,7 +211,7 @@ export default function Page() {
             cost and the exit options — in writing.
           </p>
           {whatsapp && (
-            <p className="mt-[var(--space-4)] text-[var(--text-sm)]">
+            <p className="mt-[var(--space-4)] text-(length:--text-sm)">
               <a href={whatsapp} rel="noopener" className="text-[var(--accent)] underline underline-offset-2">
                 Or message us on WhatsApp
               </a>
@@ -220,7 +220,7 @@ export default function Page() {
           <div className="mt-[var(--space-8)]">
             <LeadForm site="investorpass" variant="investor_inquiry" pagePath={PATH} />
           </div>
-          <p className="mt-[var(--space-8)] text-[var(--text-sm)] text-[var(--fg-muted)]">
+          <p className="mt-[var(--space-8)] text-(length:--text-sm) text-[var(--fg-muted)]">
             Not investing? See{' '}
             <a href={siteOrigin('residency')} className="text-[var(--accent)] underline underline-offset-2">
               standard residency routes

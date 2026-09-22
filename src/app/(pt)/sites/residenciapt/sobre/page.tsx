@@ -21,7 +21,7 @@ export default function Page() {
         <Heading level={1} className="mt-[var(--space-8)]">
           Um time em Assunção, fazendo isso toda semana
         </Heading>
-        <p className="mt-[var(--space-4)] text-[var(--text-lg)] text-[var(--fg-muted)]">
+        <p className="mt-[var(--space-4)] text-(length:--text-lg) text-[var(--fg-muted)]">
           Vida no Paraguai nasceu de um recado direto: muito brasileiro pensa em morar no Paraguai,
           e quase ninguém explica direito a parte prática — a residência, o custo de vida real, a
           fronteira, o que muda na declaração no Brasil. Residência é o que abre a porta; cuidamos

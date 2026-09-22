@@ -26,18 +26,18 @@ export default async function Page({ searchParams }: { searchParams: SearchParam
   return (
     <>
       <div className="flex flex-wrap items-baseline gap-4">
-        <h1 className="font-[family-name:var(--display-font)] text-[var(--text-2xl)]">Leads</h1>
-        <span className="text-[var(--text-sm)] text-[var(--fg-muted)]">{total} matching</span>
+        <h1 className="font-[family-name:var(--display-font)] text-(length:--text-2xl)">Leads</h1>
+        <span className="text-(length:--text-sm) text-[var(--fg-muted)]">{total} matching</span>
         <a
           href={`/admin/leads/export?${query.toString()}`}
-          className="ml-auto text-[var(--text-sm)] underline underline-offset-4"
+          className="ml-auto text-(length:--text-sm) underline underline-offset-4"
         >
           Download CSV
         </a>
       </div>
 
       <form method="get" className={`${panel} mt-4 flex flex-wrap items-end gap-3 p-4`}>
-        <label className="text-[var(--text-xs)] text-[var(--fg-muted)]">
+        <label className="text-(length:--text-xs) text-[var(--fg-muted)]">
           Site
           <select name="site" defaultValue={filters.site ?? ''} className={select}>
             <option value="">All</option>
@@ -48,7 +48,7 @@ export default async function Page({ searchParams }: { searchParams: SearchParam
             ))}
           </select>
         </label>
-        <label className="text-[var(--text-xs)] text-[var(--fg-muted)]">
+        <label className="text-(length:--text-xs) text-[var(--fg-muted)]">
           Kind
           <select name="kind" defaultValue={filters.kind ?? ''} className={select}>
             <option value="">All</option>
@@ -59,24 +59,24 @@ export default async function Page({ searchParams }: { searchParams: SearchParam
             ))}
           </select>
         </label>
-        <label className="text-[var(--text-xs)] text-[var(--fg-muted)]">
+        <label className="text-(length:--text-xs) text-[var(--fg-muted)]">
           From
           <input type="date" name="from" defaultValue={filters.from ?? ''} className={select} />
         </label>
-        <label className="text-[var(--text-xs)] text-[var(--fg-muted)]">
+        <label className="text-(length:--text-xs) text-[var(--fg-muted)]">
           To
           <input type="date" name="to" defaultValue={filters.to ?? ''} className={select} />
         </label>
         <button
           type="submit"
-          className="rounded-[var(--radius-sm)] bg-[var(--accent)] px-3 py-2 text-[var(--text-xs)] font-medium text-[var(--accent-fg)]"
+          className="rounded-[var(--radius-sm)] bg-[var(--accent)] px-3 py-2 text-(length:--text-xs) font-medium text-[var(--accent-fg)]"
         >
           Filter
         </button>
       </form>
 
       {unavailable ? (
-        <p className={`${panel} mt-6 p-4 text-[var(--text-sm)] text-[var(--fg-muted)]`}>
+        <p className={`${panel} mt-6 p-4 text-(length:--text-sm) text-[var(--fg-muted)]`}>
           DATABASE_URL is not set on this server, so there is nothing to list.
         </p>
       ) : (
@@ -157,7 +157,7 @@ export default async function Page({ searchParams }: { searchParams: SearchParam
       )}
 
       {pages > 1 ? (
-        <nav className="mt-4 flex gap-3 text-[var(--text-sm)]">
+        <nav className="mt-4 flex gap-3 text-(length:--text-sm)">
           {page > 1 ? (
             <Link href={`/admin/leads?${query}&page=${page - 1}`} className="underline">
               Previous
@@ -178,4 +178,4 @@ export default async function Page({ searchParams }: { searchParams: SearchParam
 }
 
 const select =
-  'mt-1 block rounded-[var(--radius-sm)] border border-[var(--border)] bg-[var(--surface)] px-2 py-1.5 text-[var(--text-sm)] text-[var(--fg)]';
+  'mt-1 block rounded-[var(--radius-sm)] border border-[var(--border)] bg-[var(--surface)] px-2 py-1.5 text-(length:--text-sm) text-[var(--fg)]';

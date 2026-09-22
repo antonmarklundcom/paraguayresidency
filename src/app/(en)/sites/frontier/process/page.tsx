@@ -73,7 +73,7 @@ export default function Page() {
         <Heading level={1} className="mt-[var(--space-8)]">
           What actually happens, and how it differs by passport
         </Heading>
-        <p className="mt-[var(--space-4)] text-[var(--text-lg)] text-[var(--fg-muted)]">
+        <p className="mt-[var(--space-4)] text-(length:--text-lg) text-[var(--fg-muted)]">
           No step here is hidden until you have paid for it. This is the whole process, in order,
           plus the specific snag each nationality tends to hit.
         </p>
@@ -93,7 +93,7 @@ export default function Page() {
             The steps above are the same for everyone; the documents and their timing are not.
           </p>
           <div className="mt-[var(--space-6)] overflow-x-auto">
-            <table className="w-full min-w-[28rem] border-collapse text-left text-[var(--text-sm)]">
+            <table className="w-full min-w-[28rem] border-collapse text-left text-(length:--text-sm)">
               <thead>
                 <tr className="border-b border-[var(--border)] text-[var(--fg-muted)]">
                   <th className="py-[var(--space-3)] pr-[var(--space-4)] font-normal">Nationality</th>

@@ -21,7 +21,7 @@ export default function Page() {
         <Heading level={1} className="mt-[var(--space-8)]">
           A team in Asunción, doing this every week
         </Heading>
-        <p className="mt-[var(--space-4)] text-[var(--text-lg)] text-[var(--fg-muted)]">
+        <p className="mt-[var(--space-4)] text-(length:--text-lg) text-[var(--fg-muted)]">
           Paraguay residency is not complicated in principle. It is complicated in the details —
           which apostille chain a specific country needs, which document expires before which
           appointment, what a bank actually wants to see before it opens an account. We handle the

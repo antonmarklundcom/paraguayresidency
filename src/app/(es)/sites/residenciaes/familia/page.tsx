@@ -70,7 +70,7 @@ export default function Page() {
         <a
           href={whatsapp}
           rel="noopener"
-          className="mt-[var(--space-4)] inline-flex items-center gap-2 text-[var(--text-sm)] text-[var(--accent)] underline underline-offset-2"
+          className="mt-[var(--space-4)] inline-flex items-center gap-2 text-(length:--text-sm) text-[var(--accent)] underline underline-offset-2"
         >
           {t('residenciaes', 'form.whatsapp')}
         </a>

@@ -6,7 +6,7 @@ import type { ActionState } from './actions';
 
 /** Small shared bits for the admin screens. Deliberately plain. */
 
-export const table = 'w-full border-collapse text-[var(--text-sm)]';
+export const table = 'w-full border-collapse text-(length:--text-sm)';
 export const th =
   'border-b border-[var(--border)] px-3 py-2 text-left font-medium text-[var(--fg-muted)]';
 export const td = 'border-b border-[var(--border)] px-3 py-2 align-top';
@@ -18,7 +18,7 @@ function Pending({ label, busyLabel }: { label: string; busyLabel: string }) {
     <button
       type="submit"
       disabled={pending}
-      className="rounded-[var(--radius-sm)] border border-[var(--border)] px-2.5 py-1 text-[var(--text-xs)] hover:border-[var(--accent)] disabled:opacity-50"
+      className="rounded-[var(--radius-sm)] border border-[var(--border)] px-2.5 py-1 text-(length:--text-xs) hover:border-[var(--accent)] disabled:opacity-50"
     >
       {pending ? busyLabel : label}
     </button>
@@ -57,10 +57,10 @@ export function ActionButton({
       {children}
       <Pending label={label} busyLabel={busyLabel} />
       {state.message ? (
-        <span className="text-[var(--text-xs)] text-[var(--success)]">{state.message}</span>
+        <span className="text-(length:--text-xs) text-[var(--success)]">{state.message}</span>
       ) : null}
       {state.error ? (
-        <span className="text-[var(--text-xs)] text-[var(--danger)]">{state.error}</span>
+        <span className="text-(length:--text-xs) text-[var(--danger)]">{state.error}</span>
       ) : null}
     </form>
   );

@@ -12,7 +12,7 @@ export function Breadcrumbs({ site, items }: { site: SiteKey; items: Crumb[] }) 
   const all: Crumb[] = [{ label: t(site, 'common.breadcrumbHome'), href: '/' }, ...items];
   const origin = siteOrigin(site);
   return (
-    <nav aria-label="Breadcrumb" className="text-[var(--text-sm)] text-[var(--fg-muted)]">
+    <nav aria-label="Breadcrumb" className="text-(length:--text-sm) text-[var(--fg-muted)]">
       <ol className="flex flex-wrap items-center gap-x-2">
         {all.map((crumb, i) => (
           <li key={crumb.href} className="flex items-center gap-2">

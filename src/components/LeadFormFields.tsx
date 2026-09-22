@@ -34,16 +34,16 @@ export interface LeadFormLabels {
 }
 
 const field =
-  'mt-[var(--space-2)] w-full rounded-[var(--radius)] border border-[var(--border)] bg-[var(--surface)] px-3 py-2.5 text-[var(--text-sm)] text-[var(--fg)] outline-none focus:border-[var(--accent)]';
-const label = 'block text-[var(--text-sm)] font-medium text-[var(--fg)]';
-const hint = 'text-[var(--text-xs)] font-normal text-[var(--fg-muted)]';
+  'mt-[var(--space-2)] w-full rounded-[var(--radius)] border border-[var(--border)] bg-[var(--surface)] px-3 py-2.5 text-(length:--text-sm) text-[var(--fg)] outline-none focus:border-[var(--accent)]';
+const label = 'block text-(length:--text-sm) font-medium text-[var(--fg)]';
+const hint = 'text-(length:--text-xs) font-normal text-[var(--fg-muted)]';
 
 function Submit({ labels, pending }: { labels: LeadFormLabels; pending: boolean }) {
   return (
     <button
       type="submit"
       disabled={pending}
-      className="inline-flex items-center justify-center rounded-[var(--radius-brand)] bg-[var(--accent)] px-5 py-3 text-[var(--text-sm)] font-medium text-[var(--accent-fg)] transition-opacity hover:opacity-90 disabled:opacity-60"
+      className="inline-flex items-center justify-center rounded-[var(--radius-brand)] bg-[var(--accent)] px-5 py-3 text-(length:--text-sm) font-medium text-[var(--accent-fg)] transition-opacity hover:opacity-90 disabled:opacity-60"
     >
       {pending ? labels.sending : labels.submit}
     </button>
@@ -84,7 +84,7 @@ export function LeadFormFields({
         role="status"
         className="rounded-[var(--radius-brand)] border border-[var(--accent)] bg-[var(--accent-soft)] p-[var(--space-6)]"
       >
-        <p className="font-[family-name:var(--display-font)] text-[var(--text-lg)]">
+        <p className="font-[family-name:var(--display-font)] text-(length:--text-lg)">
           {labels.successTitle}
         </p>
         <p className="mt-[var(--space-2)] text-[var(--fg-muted)]">{labels.successBody}</p>
@@ -114,7 +114,7 @@ export function LeadFormFields({
       />
 
       {state.errors?.form ? (
-        <p role="alert" className="text-[var(--text-sm)] text-[var(--danger)]">
+        <p role="alert" className="text-(length:--text-sm) text-[var(--danger)]">
           {state.errors.form}
         </p>
       ) : null}
@@ -140,7 +140,7 @@ export function LeadFormFields({
             className={field}
           />
           {err('email') ? (
-            <p className="mt-1 text-[var(--text-xs)] text-[var(--danger)]">{err('email')}</p>
+            <p className="mt-1 text-(length:--text-xs) text-[var(--danger)]">{err('email')}</p>
           ) : null}
         </div> : null}
       </div>
@@ -160,7 +160,7 @@ export function LeadFormFields({
             className={field}
           />
           {err('phone') ? (
-            <p className="mt-1 text-[var(--text-xs)] text-[var(--danger)]">{err('phone')}</p>
+            <p className="mt-1 text-(length:--text-xs) text-[var(--danger)]">{err('phone')}</p>
           ) : null}
         </div> : null}
         <div>
@@ -168,7 +168,7 @@ export function LeadFormFields({
             {labels.whatsapp} {variant !== 'whatsapp' ? <span className={hint}>{labels.optional}</span> : null}
           </label>
           <input id={`${id}-whatsapp`} name="whatsapp" type="tel" autoComplete="tel" required={variant === 'whatsapp'} aria-invalid={err('whatsapp') ? true : undefined} className={field} />
-          {err('whatsapp') ? <p className="mt-1 text-[var(--text-xs)] text-[var(--danger)]">{err('whatsapp')}</p> : null}
+          {err('whatsapp') ? <p className="mt-1 text-(length:--text-xs) text-[var(--danger)]">{err('whatsapp')}</p> : null}
         </div>
       </div>
 

@@ -8,7 +8,7 @@ import type { ReactNode } from 'react';
  */
 export function Disclaimer({ children }: { children: ReactNode }) {
   return (
-    <p className="not-prose mt-[var(--space-6)] rounded-[var(--radius-brand)] border border-[var(--border)] bg-[var(--surface-alt)] p-[var(--space-4)] text-[var(--text-sm)] text-[var(--fg-muted)]">
+    <p className="not-prose mt-[var(--space-6)] rounded-[var(--radius-brand)] border border-[var(--border)] bg-[var(--surface-alt)] p-[var(--space-4)] text-(length:--text-sm) text-[var(--fg-muted)]">
       {children}
     </p>
   );

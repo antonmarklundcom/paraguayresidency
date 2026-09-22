@@ -26,7 +26,7 @@ export default function Page() {
         <Heading level={1} className="mt-[var(--space-8)]">
           Three routes, for people who may never live here full-time
         </Heading>
-        <p className="mt-[var(--space-4)] text-[var(--text-lg)] text-[var(--fg-muted)]">
+        <p className="mt-[var(--space-4)] text-(length:--text-lg) text-[var(--fg-muted)]">
           None of these require relocating. Each one asks something different of you — here is
           what, honestly.
         </p>

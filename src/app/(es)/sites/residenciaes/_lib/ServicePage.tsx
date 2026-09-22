@@ -37,7 +37,7 @@ export function ServicePage({
         <Breadcrumbs site="residenciaes" items={[{ label: crumbLabel, href: path }]} />
         <header className="mt-[var(--space-8)]">
           <Heading level={1}>{title}</Heading>
-          <p className="mt-[var(--space-4)] text-[var(--text-lg)] text-[var(--fg-muted)]">
+          <p className="mt-[var(--space-4)] text-(length:--text-lg) text-[var(--fg-muted)]">
             {intro}
           </p>
         </header>
