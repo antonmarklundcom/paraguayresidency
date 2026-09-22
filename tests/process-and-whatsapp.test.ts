@@ -1,3 +1,10 @@
+import About0 from '@/app/(en)/sites/residency/about/page';
+import About1 from '@/app/(en)/sites/investorpass/about/page';
+import About2 from '@/app/(en)/sites/frontier/about/page';
+import About3 from '@/app/(en)/sites/guide/about/page';
+import About4 from '@/app/(es)/sites/residenciaes/nosotros/page';
+import About5 from '@/app/(pt)/sites/residenciapt/sobre/page';
+import About6 from '@/app/(sv)/sites/flytta/var-historia/page';
 import { createElement, type ReactNode } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { expect, it, vi } from 'vitest';
@@ -122,7 +129,7 @@ for (const { site, path, route, Page } of services) {
 }
 
 for (const { site, path, Page } of forms) {
-  it(site + path + ' retains the full form beside an attributed WhatsApp short form', () => {
+  it(site + path + ' shows one lead submit outside a closed WhatsApp disclosure', () => {
     const html = renderToStaticMarkup(createElement(Page));
     const rendered = html.match(/<form\b[\s\S]*?<\/form>/g)!;
     const short = rendered.filter(form => form.includes('name="kind" value="whatsapp"'));
@@ -140,7 +147,16 @@ for (const { site, path, Page } of forms) {
     const ids = [...html.matchAll(/\bid="([^"]+)"/g)].map(match => match[1]);
     expect(new Set(ids).size).toBe(ids.length);
     expect(html).toContain(t(site, 'process.whatsappIntro'));
-    expect(html).toContain('lg:grid-cols-2');
+    const disclosures = html.match(/<details\b[\s\S]*?<\/details>/g)!;
+    expect(disclosures).toHaveLength(1);
+    expect(disclosures[0]).not.toMatch(/<details[^>]*\bopen/);
+    expect(disclosures[0]).toContain(short[0]);
+    expect(disclosures[0]).toContain(t(site, 'form.whatsappAlternative'));
+    expect(disclosures[0]).toContain('min-h-[44px]');
+    const outside = html.replace(/<details\b[\s\S]*?<\/details>/g, '');
+    const outsideLeads = outside.match(/<form\b[\s\S]*?<\/form>/g)!.filter(form => form.includes('name="kind"'));
+    expect(outsideLeads).toHaveLength(1);
+    expect(outsideLeads[0].match(/<button[^>]*type="submit"/g)).toHaveLength(1);
   });
 }
 
@@ -160,5 +176,29 @@ for (const key of ['cedula.timeline', 'temporary.duration', 'residency.timeline'
         expect(html).toContain(factText(key as FactKey, localeFor(site)));
       } finally { Object.assign(fact, original); }
     }
+  });
+}
+
+for (const { site, Page } of [{ site: 'residency', Page: About0 }, { site: 'investorpass', Page: About1 }, { site: 'frontier', Page: About2 }, { site: 'guide', Page: About3 }, { site: 'residenciaes', Page: About4 }, { site: 'residenciapt', Page: About5 }, { site: 'flytta', Page: About6 }] as const) {
+  it(site + ' introduces the named team', () => {
+    const html = renderToStaticMarkup(createElement(Page));
+    expect(html).toContain(t(site, 'about.teamTitle'));
+    expect(html).toContain(t(site, 'about.teamBody'));
+    for (const name of ['Anton Marklund', 'Yanina Alvarez', 'Diana Davalos']) {
+      expect(html).toContain('<li>' + name + '</li>');
+      expect(t(site, 'process.trustBody')).toContain(name);
+    }
+  });
+}
+for (const { site, path, Page } of forms) {
+  it(site + path + ' keeps the configured direct chat link inside the disclosure', () => {
+    vi.stubEnv('NEXT_PUBLIC_WHATSAPP_NUMBER', '595981123456');
+    try {
+      const html = renderToStaticMarkup(createElement(Page));
+      const disclosure = html.match(/<details\b[\s\S]*?<\/details>/)![0];
+      expect(disclosure).toContain('https://wa.me/595981123456');
+      expect(disclosure.indexOf('https://wa.me/')).toBeLessThan(disclosure.indexOf('<form'));
+      expect(html.replace(disclosure, '')).not.toContain('https://wa.me/');
+    } finally { vi.unstubAllEnvs(); }
   });
 }

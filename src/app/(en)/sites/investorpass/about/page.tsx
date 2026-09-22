@@ -1,3 +1,4 @@
+import { t } from '@/i18n';
 import type { Metadata } from 'next';
 import { Breadcrumbs, Button, Container, Heading, Section } from '@/components';
 import { siteMetadata } from '@/lib/metadata';
@@ -36,6 +37,17 @@ export default function Page() {
           different questions and need a different depth of detail than someone filing for
           temporary residency for the first time.
         </p>
+
+
+        <section className="mt-[var(--space-12)]">
+          <Heading level={2}>{t('investorpass', 'about.teamTitle')}</Heading>
+          <ul className="mt-[var(--space-4)] list-disc pl-5 text-[var(--fg-muted)]">
+            <li>Anton Marklund</li>
+            <li>Yanina Alvarez</li>
+            <li>Diana Davalos</li>
+          </ul>
+          <p className="mt-[var(--space-4)] text-[var(--fg-muted)]">{t('investorpass', 'about.teamBody')}</p>
+        </section>
 
         <div className="mt-[var(--space-12)] space-y-[var(--space-8)]">
           <div>

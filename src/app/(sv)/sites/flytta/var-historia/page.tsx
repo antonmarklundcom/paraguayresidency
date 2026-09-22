@@ -1,3 +1,4 @@
+import { t } from '@/i18n';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Breadcrumbs, Button, Container, Heading, Prose, Section, StatRow } from '@/components';
@@ -108,6 +109,17 @@ export default function Page() {
             låtsas kunna svara på allt.
           </p>
         </Prose>
+
+        <section className="mt-[var(--space-12)]">
+          <Heading level={2}>{t('flytta', 'about.teamTitle')}</Heading>
+          <ul className="mt-[var(--space-4)] list-disc pl-5 text-[var(--fg-muted)]">
+            <li>Anton Marklund</li>
+            <li>Yanina Alvarez</li>
+            <li>Diana Davalos</li>
+          </ul>
+          <p className="mt-[var(--space-4)] text-[var(--fg-muted)]">{t('flytta', 'about.teamBody')}</p>
+        </section>
+
 
         <div className="mt-[var(--space-12)]">
           <StatRow stats={STATS} />

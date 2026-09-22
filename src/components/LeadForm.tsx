@@ -38,9 +38,9 @@ export function LeadForm({
   const labels: LeadFormLabels = {
     name: t(site, 'form.name'),
     email: t(site, 'form.email'),
-    phone: t(site, 'form.phone'),
+    phoneOrWhatsapp: t(site, 'form.phoneOrWhatsapp'),
+    nextStep: t(site, 'form.nextStep'),
     whatsapp: t(site, 'form.whatsapp'),
-    country: t(site, 'form.country'),
     nationality: t(site, 'form.nationality'),
     message: t(site, 'form.message'),
     investmentRange: t(site, 'form.investmentRange'),
