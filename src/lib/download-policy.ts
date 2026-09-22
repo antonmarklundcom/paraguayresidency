@@ -75,10 +75,11 @@ export function expiryFrom(now: Date = new Date(), ttlMs: number = TOKEN_TTL_MS)
 /**
  * Root of the non-public file store. Never under `public/`.
  *
- * `next.config.ts` sets `output: 'standalone'`, and the standalone server runs
- * with its cwd inside `.next/standalone/` — so `cwd/private` is wrong in
- * exactly the environment that matters, production. Found by running the
- * standalone build during O2 verification.
+ * The app runs under `next start` from the repo root, so `cwd/private` is the
+ * normal answer. Until S6-refresh (2026-09-22) `next.config.ts` set
+ * `output: 'standalone'`, whose server runs with its cwd inside
+ * `.next/standalone/` (found in O2); the second candidate below keeps a host
+ * still configured for that server working.
  *
  * Resolution order: an explicit `PRIVATE_DIR` (what the deploy sets when the
  * files live outside the release directory), then `cwd/private`, then the

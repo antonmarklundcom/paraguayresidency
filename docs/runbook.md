@@ -1,11 +1,92 @@
-# Runbook — health, rate limits, security headers
+# Runbook — deploy, DB password, articles, health, rate limits, security headers
 
-> **Scope note (O18).** S6 (`phase/s6`, PR #13 — deploy, DNS, Stripe live) is
-> still open and its branch carries a fuller `docs/runbook.md`: deploy, adding a
-> domain, adding an article, the DB-password rotation trap. When S6 merges,
-> **S6's sections win** and these three are appended to them — this file was
-> deliberately kept to what O18 built so the merge is a concatenation, not an
-> argument. Design reference is `plan.md`; project law is `CLAUDE.md`.
+One Next.js app, seven brands (`CLAUDE.md`, plan §1–§2). This file is the
+operational reference; `plan.md` is the design reference. The deploy, DB and
+article sections come from S6 (PR #13), brought up to date on 2026-09-22; the
+health, rate-limit and header sections are O18's.
+
+## Deploy
+
+**First choice — Hostinger managed Node.js app (plan §1.7):**
+
+1. hPanel → Websites → Add Website → Node.js Apps → Import Git Repository →
+   authorize GitHub → `antonmarklundcom/paraguayresidency`, branch `main`.
+2. Build command `npm run build`, start command `npm start` (`next start`
+   against the full `.next` output from the repo root). The cwd never moves, so
+   `private/` and `public/` resolve with no extra steps. `next.config.ts` does
+   not set `output: 'standalone'` (removed 2026-09-22); if the app was set up
+   with `.next/standalone/server.js` as its entry, change it to `npm start`.
+3. Add every env var from `.env.example` that has a real value (plan §7) in
+   hPanel's Environment Variables screen. Never commit secrets. Check the
+   result on `/api/health` (below): `email` must not be `console` and `crm`
+   must not be `off` in production.
+4. Attach all seven domains to this one app in hPanel's domain screen:
+   `paraguayresidency.co.uk` (hub), `paraguayinvestorpass.com`,
+   `paraguayresidencyguide.com`, `paraguayfrontier.com`,
+   `residenciaenparaguay.es`, `vidanoparaguai.com`, `flyttatillparaguay.se`.
+   Never a second slot. If hPanel refuses more than one custom domain per Node
+   app, STOP and use the VPS fallback below (plan §1.7).
+5. DNS for each domain: A/AAAA (or CNAME, per hPanel) at apex and `www`. SSL
+   issues automatically once DNS resolves.
+6. Redeploy after any env var change; hPanel does not hot-reload them.
+
+**Shipping a merge.** As of 2026-09-22 a merge to `main` does **not** reach
+the live site by itself: the live guide was still missing #60 and #61 after
+they merged. After each merge, press Redeploy on the Node.js app in hPanel (or
+turn on auto-deploy from `main` there), then confirm on the live host, e.g.
+view source for a string the merge added.
+
+**Fallback — Hostinger KVM VPS + Caddy + PM2 (plan §1.7):**
+
+Only if step 4 fails. One app process, N hostnames, automatic SSL via Caddy.
+
+```
+npm ci
+npm run build
+pm2 start npm --name paraguayresidency -- start
+```
+
+```
+paraguayresidency.co.uk, www.paraguayresidency.co.uk,
+paraguayinvestorpass.com, www.paraguayinvestorpass.com,
+paraguayresidencyguide.com, www.paraguayresidencyguide.com,
+paraguayfrontier.com, www.paraguayfrontier.com,
+residenciaenparaguay.es, www.residenciaenparaguay.es,
+vidanoparaguai.com, www.vidanoparaguai.com,
+flyttatillparaguay.se, www.flyttatillparaguay.se {
+    reverse_proxy localhost:3000
+}
+```
+
+`www` → apex redirects happen in `src/proxy.ts`, not Caddy: every host above
+must reach the app.
+
+**Analytics and Search Console.** `NEXT_PUBLIC_PLAUSIBLE_ENABLED=true` turns
+Plausible on for every brand at once; `SiteShell` mounts the script with each
+brand's own `canonicalHost` as `data-domain`, so add one Plausible site per
+domain. In Search Console, add each domain as a property (DNS TXT is simplest),
+then submit `https://<domain>/sitemap.xml`.
+
+**Adding a domain:** see `docs/platform.md` "Adding the eighth domain".
+
+## Adding an article
+
+MDX lives under `content/<site>/<hub>/<slug>.mdx` with zod-validated
+frontmatter (see `src/lib/content.ts`). Add the file and run `npm run verify`,
+which catches frontmatter errors and dead `<Fact>` keys; the page renders on
+the brand's hub path with no code change. Never hardcode a legal or financial
+number in the MDX body: add it to `content/shared/facts.ts` and render it with
+`<Fact k="…"/>` (plan §1.10, §4.11).
+
+## The DB password rotation trap (plan §1.7, `nextjs-deploy-hostinger` skill §6a)
+
+The live app's `DATABASE_URL` in hPanel holds the password from when the
+database was provisioned. If that MySQL user's password changes later (e.g.
+to enable Remote MySQL for a local script), the live env var is stale and the
+site shows a generic "Application error"; the runtime logs show the failing
+query, not the credential mismatch. Before changing the password: note the
+current `DATABASE_URL`, change the password, update the hPanel env var, then
+**redeploy** (a restart is not enough).
 
 ## Health check
 
