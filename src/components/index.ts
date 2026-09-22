@@ -14,3 +14,4 @@ export { LeadForm, type LeadVariant, INVESTMENT_ROUTE_IDS } from './LeadForm';
 export { NewsletterForm } from './NewsletterForm';
 export { CheckoutButton } from './CheckoutButton';
 export { MagicLinkForm } from './MagicLinkForm';
+export { StickyCta } from './StickyCta';

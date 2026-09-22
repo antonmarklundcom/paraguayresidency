@@ -1,3 +1,4 @@
+import { Button } from '@/components/Button';
 import { ProcessTimeline } from '@/components/ProcessTimeline';
 import type { Metadata } from 'next';
 import { Breadcrumbs, Container, Fact, Heading, JsonLd, Section } from '@/components';
@@ -20,6 +21,7 @@ export default function Page() {
   const investorpassOrigin = siteOrigin('investorpass');
 
   return (
+    <>
     <Section>
       <Container width="narrow">
         <Breadcrumbs site="frontier" items={[{ label: 'Routes', href: PATH }]} />
@@ -120,5 +122,11 @@ export default function Page() {
           <ProcessTimeline site="frontier" route="standard" />
         </Container>
     </Section>
+    <Section><Container width="narrow" className="text-center">
+      <Heading level={2}>Ready to find your route?</Heading>
+      <p className="mt-[var(--space-4)] text-[var(--fg-muted)]">Find out which route fits, and where the catch is. Not ready to file anything yet? <a href="/guide" className="text-[var(--accent)] underline underline-offset-2">Read the guide first</a>.</p>
+      <div className="mt-[var(--space-8)] flex flex-wrap justify-center gap-[var(--space-3)]"><Button href="/route-finder">Find your route</Button><Button href="/contact" variant="secondary">Talk to us</Button></div>
+    </Container></Section>
+    </>
   );
 }

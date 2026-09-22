@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { Breadcrumbs, Container, FAQ, Heading, JsonLd, LeadForm, Prose, Section, type FaqItem } from '@/components';
+import { Button, StickyCta, Breadcrumbs, Container, FAQ, Heading, JsonLd, LeadForm, Prose, Section, type FaqItem } from '@/components';
 import { serviceJsonLd } from '@/lib/metadata';
 import { whatsappHref } from '@/lib/whatsapp';
 import type { LeadVariant } from '@/components/LeadForm';
@@ -32,7 +32,7 @@ export function ServicoPage({
 }) {
   const whatsapp = whatsappHref(`Olá — tenho uma dúvida sobre ${serviceName.toLowerCase()}.`);
   return (
-    <Section>
+    <Section className="pb-[calc(4rem+env(safe-area-inset-bottom))] md:pb-[var(--space-16)]">
       <Container width="narrow">
         <Breadcrumbs site="residenciapt" items={[{ label: crumbLabel, href: path }]} />
         <header className="mt-[var(--space-8)]">
@@ -41,11 +41,12 @@ export function ServicoPage({
             {intro}
           </p>
         </header>
+        <div className="my-[var(--space-6)] flex flex-wrap gap-[var(--space-3)]" data-service-cta><Button href="#inquiry">Fale com a gente</Button><Button href="/route-finder" variant="secondary">Descubra sua rota</Button></div>
         <Prose className="mt-[var(--space-12)]">{children}</Prose>
         <div className="mt-[var(--space-16)]">
           <FAQ title="Perguntas frequentes" items={faq} />
         </div>
-        <div className="mt-[var(--space-16)] rounded-[var(--radius-brand)] border border-[var(--border)] bg-[var(--surface-alt)] p-[var(--space-8)]">
+        <div id="inquiry" className="scroll-mt-6 mt-[var(--space-16)] rounded-[var(--radius-brand)] border border-[var(--border)] bg-[var(--surface-alt)] p-[var(--space-8)]">
           <Heading level={2}>Conte o seu caso</Heading>
           <p className="mt-[var(--space-2)] text-[var(--fg-muted)]">
             Diga sua nacionalidade e seu prazo. A gente diz a rota, os documentos e o honorário
@@ -71,6 +72,7 @@ export function ServicoPage({
             path,
           })}
         />
+      <StickyCta formId="inquiry" label="Fale com a gente" />
       </Container>
     </Section>
   );

@@ -82,7 +82,7 @@ export default async function Page() {
   return (
     <>
       <EditorialHero
-        eyebrow={t(SITE, 'site.tagline')}
+        eyebrow="For anyone planning Paraguay residency"
         title={t(SITE, 'home.h1')}
         sub={t(SITE, 'home.sub')}
         actions={

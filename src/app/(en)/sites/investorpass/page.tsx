@@ -4,6 +4,7 @@ import { ProcessTimeline } from '@/components/ProcessTimeline';
 import type { Metadata } from 'next';
 import {
   Bento,
+  Button,
   Card,
   Container,
   EditorialHero,
@@ -86,6 +87,7 @@ export default function Page() {
   return (
     <>
       <EditorialHero
+        actions={<><Button href="#inquiry">See if you qualify</Button><Button href="/contact" variant="secondary">Book a call</Button></>}
         eyebrow="Paraguay Investor Pass"
         title="Permanent residency in Paraguay, in one step."
         sub="The Investor Pass lets qualifying investors skip temporary residency entirely. We structure the investment, file the application and stay with you until the permanent card is in your hand."
@@ -153,6 +155,7 @@ export default function Page() {
                 </Card>
               ))}
             </Bento>
+            <div className="mt-[var(--space-6)]"><Button href="#inquiry">See if you qualify</Button></div>
           </div>
         </Container>
       </Section>
@@ -227,7 +230,7 @@ export default function Page() {
         </Container>
       </Section>
 
-      <Section tone="accent">
+      <Section id="inquiry" tone="accent">
         <Container width="narrow">
           <Heading level={2}>See if you qualify</Heading>
           <p className="mt-[var(--space-4)] text-[var(--fg-muted)]">

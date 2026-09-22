@@ -7,9 +7,9 @@ const PATH = '/guide';
 
 export function generateMetadata(): Metadata {
   return siteMetadata('frontier', {
-    title: 'Not Ready to File Yet? Read the Paraguay Residency Guide',
+    title: 'Research Your Paraguay Plan B: The Residency Guide',
     description:
-      'Not ready for a done-for-you filing yet? Read the complete Paraguay residency guide first — every step, cost and mistake, written down once.',
+      'Weighing Paraguay as a plan B from the US or abroad? Read through the residency steps, costs and common mistakes before deciding to have your filing handled.',
     path: PATH,
   });
 }

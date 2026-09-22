@@ -56,12 +56,15 @@ for (const { site, locale, path, Page, routes: offered } of pages) {
       const key = `pricing.${offered[index]}` as FactKey;
       expect(section).toContain('data-verified="false"');
       expect(section).toContain(factText(key, locale));
-      // Every route explains coverage, exclusions, quoting and payment split.
-      expect(section.match(/<dt\b/g)).toHaveLength(4);
+      // Coverage and quoting stay route-specific; exclusions and payment terms are shared.
+      expect(section.match(/<dt\b/g)).toHaveLength(2);
       const descriptions = [...section.matchAll(/<dd>(.*?)<\/dd>/g)];
-      expect(descriptions).toHaveLength(4);
+      expect(descriptions).toHaveLength(2);
       for (const [, text] of descriptions) expect(text.length).toBeGreaterThan(80);
     }
+    expect(html.match(/data-fee-terms/g)).toHaveLength(1);
+    expect(html).toContain('href="#inquiry"');
+    expect(html).toContain('id="inquiry"');
     const outsideFacts = html.replace(/<span\b[^>]*data-fact="[^"]+"[^>]*>[\s\S]*?<\/span>/g, '')
       .replace(/<script\b[^>]*>[\s\S]*?<\/script>/g, '')
       .replace(/<[^>]*>/g, '').replace(/&#\d+;/g, '');
