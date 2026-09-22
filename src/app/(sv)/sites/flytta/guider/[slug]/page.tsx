@@ -8,6 +8,10 @@ const HUB = 'guider';
 
 type Params = Promise<{ slug: string }>;
 
+// Content is fixed at build time. Reject unknown params at the router so
+// global-not-found supplies the branded document before SSR can throw.
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return getPages(SITE)
     .filter((page) => page.hub === HUB)

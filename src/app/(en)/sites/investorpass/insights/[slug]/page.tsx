@@ -10,6 +10,10 @@ const SERVICE_LINK: ArticleLink = {
   href: '/investor-pass/investment-routes',
 };
 
+// Content is fixed at build time. Reject unknown params at the router so
+// global-not-found supplies the branded document before SSR can throw.
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return getHub('investorpass', 'insights').map((page) => ({ slug: page.slug }));
 }
