@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { Breadcrumbs, Container, FAQ, Heading, JsonLd, LeadForm, Prose, Section, type FaqItem } from '@/components';
+import { Button, StickyCta, Breadcrumbs, Container, FAQ, Heading, JsonLd, LeadForm, Prose, Section, type FaqItem } from '@/components';
 import { serviceJsonLd } from '@/lib/metadata';
 import { whatsappHref } from '@/lib/whatsapp';
 import { t } from '@/i18n';
@@ -37,7 +37,7 @@ export function TopicPage({
 }) {
   const whatsapp = whatsappHref(`Hej! Jag har en fråga om ${serviceName.toLowerCase()}.`);
   return (
-    <Section>
+    <Section className="pb-[calc(4rem+env(safe-area-inset-bottom))] md:pb-[var(--space-16)]">
       <Container width="narrow">
         <Breadcrumbs site={SITE} items={[{ label: crumbLabel, href: path }]} />
         <header className="mt-[var(--space-8)]">
@@ -46,11 +46,12 @@ export function TopicPage({
             {intro}
           </p>
         </header>
+        <div className="my-[var(--space-6)] flex flex-wrap gap-[var(--space-3)]" data-service-cta><Button href="#inquiry">Hör av dig</Button><Button href="/route-finder" variant="secondary">Hitta din väg</Button></div>
         <Prose className="mt-[var(--space-12)]">{children}</Prose>
         <div className="mt-[var(--space-16)]">
           <FAQ title={t(SITE, 'common.faqTitle')} items={faq} />
         </div>
-        <div className="mt-[var(--space-16)] rounded-[var(--radius-brand)] border border-[var(--border)] bg-[var(--surface-alt)] p-[var(--space-8)]">
+        <div id="inquiry" className="scroll-mt-6 mt-[var(--space-16)] rounded-[var(--radius-brand)] border border-[var(--border)] bg-[var(--surface-alt)] p-[var(--space-8)]">
           <Heading level={2}>Berätta hur du tänker</Heading>
           <p className="mt-[var(--space-2)] text-[var(--fg-muted)]">
             Skriv var du bor och vad du undrar. Vi säger vilken väg som passar och vad den kostar
@@ -76,6 +77,7 @@ export function TopicPage({
             path,
           })}
         />
+      <StickyCta formId="inquiry" label="Hör av dig" />
       </Container>
     </Section>
   );

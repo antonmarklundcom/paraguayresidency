@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { Breadcrumbs, Container, FAQ, Heading, JsonLd, LeadForm, Prose, Section, type FaqItem } from '@/components';
+import { Button, StickyCta, Breadcrumbs, Container, FAQ, Heading, JsonLd, LeadForm, Prose, Section, type FaqItem } from '@/components';
 import { serviceJsonLd, serviceOfferJsonLd } from '@/lib/metadata';
 import { whatsappHref } from '@/lib/whatsapp';
 import type { LeadVariant } from '@/components/LeadForm';
@@ -41,7 +41,7 @@ export function ServicePage({
 }) {
   const whatsapp = whatsappHref(`Hi — I have a question about ${serviceName.toLowerCase()}.`);
   return (
-    <Section>
+    <Section className="pb-[calc(4rem+env(safe-area-inset-bottom))] md:pb-[var(--space-16)]">
       <Container width="narrow">
         <Breadcrumbs site="investorpass" items={[{ label: crumbLabel, href: path }]} />
         <header className="mt-[var(--space-8)]">
@@ -50,13 +50,14 @@ export function ServicePage({
             {intro}
           </p>
         </header>
+        <div className="my-[var(--space-6)] flex flex-wrap gap-[var(--space-3)]" data-service-cta><Button href="#inquiry">See if you qualify</Button><Button href="/route-finder" variant="secondary">Find your route</Button></div>
         <Prose className="mt-[var(--space-12)]">{children}</Prose>
         {faq.length > 0 && (
           <div className="mt-[var(--space-16)]">
             <FAQ title="Frequently asked" items={faq} />
           </div>
         )}
-        <div className="mt-[var(--space-16)] rounded-[var(--radius-brand)] border border-[var(--border)] bg-[var(--surface)] p-[var(--space-8)]">
+        <div id="inquiry" className="scroll-mt-6 mt-[var(--space-16)] rounded-[var(--radius-brand)] border border-[var(--border)] bg-[var(--surface)] p-[var(--space-8)]">
           <Heading level={2}>{formTitle}</Heading>
           <p className="mt-[var(--space-2)] text-[var(--fg-muted)]">{formBody}</p>
           {whatsapp && (
@@ -87,6 +88,7 @@ export function ServicePage({
                 })
           }
         />
+      <StickyCta formId="inquiry" label="See if you qualify" />
       </Container>
     </Section>
   );

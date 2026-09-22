@@ -50,7 +50,7 @@ it('shows the newest published articles above the closing CTA', () => {
     ['frontier', Frontier, 'Ready to find your route?'],
   ] as const) {
     const html = renderToStaticMarkup(createElement(Page));
-    const block = html.slice(html.indexOf('Latest articles'), html.indexOf(cta));
+    const block = html.slice(html.indexOf('Latest articles'), html.indexOf(cta, html.indexOf('Latest articles')));
     const expected = getPages(site).filter(p => !p.frontmatter.draft)
       .sort((a, b) => Date.parse(b.frontmatter.publishedAt) - Date.parse(a.frontmatter.publishedAt)).slice(0, 3);
     let previous = -1;

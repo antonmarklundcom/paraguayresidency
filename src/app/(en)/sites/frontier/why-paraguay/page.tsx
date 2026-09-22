@@ -1,3 +1,4 @@
+import { Button } from '@/components/Button';
 import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 import { Breadcrumbs, Container, Fact, Heading, JsonLd, Section } from '@/components';
@@ -54,6 +55,7 @@ const POINTS: Point[] = [
 
 export default function Page() {
   return (
+    <>
     <Section>
       <Container width="narrow">
         <Breadcrumbs site="frontier" items={[{ label: 'Why Paraguay', href: PATH }]} />
@@ -98,5 +100,11 @@ export default function Page() {
         />
       </Container>
     </Section>
+    <Section><Container width="narrow" className="text-center">
+      <Heading level={2}>Ready to find your route?</Heading>
+      <p className="mt-[var(--space-4)] text-[var(--fg-muted)]">Find out which route fits, and where the catch is. Not ready to file anything yet? <a href="/guide" className="text-[var(--accent)] underline underline-offset-2">Read the guide first</a>.</p>
+      <div className="mt-[var(--space-8)] flex flex-wrap justify-center gap-[var(--space-3)]"><Button href="/route-finder">Find your route</Button><Button href="/contact" variant="secondary">Talk to us</Button></div>
+    </Container></Section>
+    </>
   );
 }

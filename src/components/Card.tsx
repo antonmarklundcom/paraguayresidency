@@ -46,7 +46,7 @@ export function Card({
 export function Bento({ children, className = '' }: { children: ReactNode; className?: string }) {
   return (
     <div
-      className={`grid gap-[var(--space-4)] sm:grid-cols-2 lg:grid-cols-3 [&>*:first-child]:lg:col-span-2 [&>*:first-child]:lg:row-span-2 ${className}`}
+      className={`grid gap-[var(--space-4)] auto-rows-fr sm:grid-cols-2 lg:grid-cols-3 [&:has(>:nth-child(4):last-child)]:lg:grid-cols-2 ${className}`}
     >
       {children}
     </div>
