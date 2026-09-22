@@ -1,4 +1,5 @@
 import { execFileSync } from 'node:child_process';
+import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { renderToStaticMarkup } from 'react-dom/server';
 import type { ReactNode } from 'react';
 import * as jsxRuntime from 'react/jsx-runtime';
@@ -58,9 +59,16 @@ async function baseline(site: string) {
 for (const [site, Page, count] of [['guide', Guide, 5], ['investorpass', Investor, 4], ['frontier', Frontier, 4]] as const) {
   it(`${site} renders Arrival and preserves every origin/main fact occurrence`, async () => {
     const html = renderToStaticMarkup(await Page());
-    const original = await baseline(site);
     const facts = (markup: string) => [...markup.matchAll(/data-fact="([^"]+)"/g)].map(match => match[1]).sort();
-    expect(facts(html)).toEqual(facts(original));
+    // The pre-Arrival fact list is frozen in a fixture (CI checkouts are shallow, so no git show there).
+    // Regenerate with WRITE_ARRIVAL_BASELINE=1 on a full clone only if origin/main pages legitimately change.
+    const fixture = 'tests/fixtures/arrival-baseline-facts.json';
+    if (process.env.WRITE_ARRIVAL_BASELINE) {
+      const all = existsSync(fixture) ? JSON.parse(readFileSync(fixture, 'utf8')) : {};
+      all[site] = facts(await baseline(site));
+      writeFileSync(fixture, JSON.stringify(all, null, 2) + '\n');
+    }
+    expect(facts(html)).toEqual(JSON.parse(readFileSync(fixture, 'utf8'))[site]);
     expect(html.match(/<img\b[^>]*fetchPriority="high"/gi)).toHaveLength(1);
     const block = html.match(/<section data-intent-tiles[\s\S]*?<\/section>/)?.[0];
     expect(block).toBeDefined();

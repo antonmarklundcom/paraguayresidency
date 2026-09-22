@@ -80,7 +80,7 @@ export default async function Page() {
 
   return (
     <>
-      <PhotoHero image="guide-hero-reading-terrace-asuncion"
+      <PhotoHero image="guide-hero-reading-terrace-asuncion" focus="15% center"
         title="The Paraguay residency guide we wish existed."
         sub="Every step, document and cost, written down once and kept current."
         actions={<><Button href="#price">{t(SITE, 'home.ctaPrimary')}</Button><Button href="#inside" variant="secondary">{t(SITE, 'home.ctaSecondary')}</Button></>}
@@ -111,7 +111,7 @@ export default async function Page() {
 
 
       <TeamStrip />
-<Section><Container><Heading level={2}>Latest articles</Heading><ul className="mt-8 grid auto-cols-[82%] grid-flow-col snap-x snap-mandatory gap-4 overflow-x-auto p-2 md:auto-cols-[31%]">{latest.map(post => <li key={post.slugPath} className="min-w-0 snap-start"><a href={contentHref('guide', post.slugPath)} className="flex min-h-44 items-end rounded-[var(--radius-brand)] border border-[var(--border)] bg-[var(--surface-alt)] p-6 font-[family-name:var(--display-font)] text-xl text-[var(--accent)] focus-visible:outline-2 focus-visible:outline-offset-2">{post.frontmatter.title.split(/\s+/).slice(0, 8).join(' ')}</a></li>)}</ul><a href="/blog" className="mt-6 inline-flex min-h-11 items-center text-[var(--accent)] underline">Browse all articles</a></Container></Section>
+<Section><Container><Heading level={2}>Latest articles</Heading><ul className="mt-8 grid auto-cols-[82%] grid-flow-col snap-x snap-mandatory gap-4 overflow-x-auto p-2 md:auto-cols-[31%]">{latest.map(post => <li key={post.slugPath} className="min-w-0 snap-start"><a href={contentHref('guide', post.slugPath)} className="flex min-h-44 items-end rounded-[var(--radius-brand)] border border-[var(--border)] bg-[var(--surface-alt)] p-6 font-[family-name:var(--display-font)] text-xl text-[var(--accent)] focus-visible:outline-2 focus-visible:outline-offset-2"><span className="line-clamp-3">{post.frontmatter.title}</span></a></li>)}</ul><a href="/blog" className="mt-6 inline-flex min-h-11 items-center text-[var(--accent)] underline">Browse all articles</a></Container></Section>
       <Section><Container width="narrow"><details className="border-b border-[var(--border)] py-5"><summary className="flex min-h-11 cursor-pointer items-center text-lg text-[var(--accent)]">Questions before buying</summary><div className="space-y-5 py-6 text-[var(--fg-muted)]"><FAQ items={FAQ_ITEMS} /></div></details></Container></Section>
       <Section tone="alt"><Container width="narrow"><Heading level={2}>Not ready yet?</Heading><p className="mt-4 text-[var(--fg-muted)]">Residency notes, delivered to your inbox.</p><div className="mt-6"><NewsletterForm site={SITE} source="guide-home" /></div></Container></Section>
       <JsonLd

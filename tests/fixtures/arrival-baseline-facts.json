@@ -1,0 +1,21 @@
+{
+  "guide": [],
+  "investorpass": [
+    "cedula.timeline",
+    "cedula.timeline",
+    "investorpass.launch_date",
+    "investorpass.min_investment_usd",
+    "investorpass.route_business_usd",
+    "investorpass.route_financial_usd",
+    "investorpass.route_real_estate_usd",
+    "investorpass.route_tourism_usd",
+    "investorpass.timeline",
+    "investorpass.validity_years"
+  ],
+  "frontier": [
+    "permanent.presence_rule",
+    "tax.foreign_income_treatment",
+    "tax.territorial_rate",
+    "temporary.duration"
+  ]
+}
