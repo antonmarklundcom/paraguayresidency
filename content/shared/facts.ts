@@ -52,10 +52,14 @@ export const facts = {
     display: {
       en: 'from USD 70,000',
       es: 'desde USD 70.000',
+      pt: 'a partir de USD 70.000',
+      sv: 'från USD 70 000',
     },
     hedged: {
       en: 'from a qualifying investment amount we confirm on your call',
       es: 'desde un monto de inversión que confirmamos en tu llamada',
+      pt: 'a partir de um valor de investimento que confirmamos na consulta',
+      sv: 'från ett investeringsbelopp som vi bekräftar under samtalet',
     },
     verified: false,
     sources: [
@@ -69,7 +73,7 @@ export const facts = {
     key: 'investorpass.launch_date',
     label: 'Investor Pass — programme launch',
     display: 'April 2026',
-    hedged: 'launched in 2026 — we confirm the current programme status on your call',
+    hedged: 'programme launch and current status to be confirmed on your call',
     verified: false,
     sources: [
       'https://www.fragomen.com/insights/paraguay-new-investor-pass-expands-permanent-residence-options.html',
@@ -89,10 +93,14 @@ export const facts = {
     display: {
       en: 'at least one entry every three years',
       es: 'al menos una entrada cada tres años',
+      pt: 'pelo menos uma entrada a cada três anos',
+      sv: 'minst en inresa vart tredje år',
     },
     hedged: {
       en: 'a minimum-presence rule applies — we tell you exactly what it means for your travel pattern',
       es: 'existe una regla de presencia mínima — te decimos exactamente qué significa para tu forma de viajar',
+      pt: 'há uma exigência de presença mínima — explicamos o que ela significa para seus planos de viagem',
+      sv: 'ett krav på minsta närvaro gäller — vi förklarar vad det innebär för dina resplaner',
     },
     verified: false,
     sources: [
@@ -142,10 +150,14 @@ export const facts = {
     display: {
       en: '10% on Paraguay-sourced income',
       es: '10% sobre la renta de fuente paraguaya',
+      pt: '10% sobre a renda de fonte paraguaia',
+      sv: '10% på inkomst från paraguayansk källa',
     },
     hedged: {
       en: 'a low flat rate on Paraguay-sourced income under a territorial system — your accountant confirms your case',
       es: 'un tipo fijo bajo sobre la renta de fuente paraguaya bajo un sistema territorial — tu asesor confirma tu caso concreto',
+      pt: 'uma alíquota fixa baixa sobre a renda de fonte paraguaia em um sistema territorial — seu contador avalia o seu caso',
+      sv: 'en låg enhetlig skattesats på inkomst från paraguayansk källa inom ett territoriellt system — din skatterådgivare bedömer ditt fall',
     },
     verified: false,
     sources: [],
@@ -261,12 +273,16 @@ export const facts = {
     key: 'costofliving.overview',
     label: 'Cost of living — general comparison for Brazilians',
     display: {
-      en: 'a monthly budget most people compare to a mid-sized Brazilian capital, not Rio or São Paulo prices',
+      en: 'a monthly budget shaped by your city, lifestyle and household size',
       pt: 'um orçamento mensal que a maioria compara ao de uma capital brasileira de porte médio, não aos preços do Rio ou de São Paulo',
+      es: 'un presupuesto mensual que depende de la ciudad, el estilo de vida y el tamaño de la familia',
+      sv: 'en månadsbudget som beror på stad, livsstil och familjens storlek',
     },
     hedged: {
-      en: 'noticeably lower than Rio or São Paulo for most people, but we walk through your own numbers — city, lifestyle, family size — on a call instead of quoting one average that fits nobody',
+      en: 'your budget depends on city, lifestyle and household size — we walk through your own spending rather than quoting an average that fits nobody',
       pt: 'visivelmente mais baixo do que Rio ou São Paulo para a maioria das pessoas, mas passamos pelos seus números de verdade — cidade, estilo de vida, tamanho da família — numa consulta, em vez de citar uma média que não serve para ninguém',
+      es: 'el presupuesto depende de la ciudad, el estilo de vida y el tamaño de la familia — revisamos tus gastos contigo en vez de dar una media que no se ajuste a tu caso',
+      sv: 'budgeten beror på stad, livsstil och familjens storlek — vi går igenom dina utgifter tillsammans i stället för att ange ett genomsnitt som inte passar dig',
     },
     verified: false,
     sources: [],
@@ -276,12 +292,16 @@ export const facts = {
     key: 'costofliving.rent',
     label: 'Cost of living — typical rent range',
     display: {
-      en: 'rent that runs well below equivalent Brazilian capitals, with Asunción costing more than smaller cities and the border region',
+      en: 'rent that varies by city, neighbourhood and property type',
       pt: 'um aluguel que fica bem abaixo do de capitais brasileiras equivalentes, com Assunção custando mais do que cidades menores e a região de fronteira',
+      es: 'alquileres que varían según la ciudad, el barrio y el tipo de vivienda',
+      sv: 'hyror som varierar med stad, område och bostadstyp',
     },
     hedged: {
-      en: 'rent is one of the categories where Paraguay clearly costs less — the exact range for your city and the kind of place you want is something we confirm together rather than a number that goes stale',
+      en: 'rent depends on your city and the kind of place you want — we review current ranges together rather than quoting a number that goes stale',
       pt: 'aluguel é uma das categorias em que o Paraguai claramente custa menos — a faixa exata para a sua cidade e o tipo de imóvel que você quer é algo que confirmamos juntos, em vez de um número que fica desatualizado',
+      es: 'el alquiler depende de la ciudad y del tipo de vivienda — revisamos contigo un rango actualizado para lo que buscas',
+      sv: 'hyran beror på stad och bostadstyp — vi går igenom aktuella hyresnivåer för det boende du söker',
     },
     verified: false,
     sources: [],
@@ -291,12 +311,16 @@ export const facts = {
     key: 'costofliving.groceries',
     label: 'Cost of living — groceries and eating out',
     display: {
-      en: 'groceries and eating out priced closer to a Brazilian interior city than to Rio or São Paulo',
+      en: 'grocery and restaurant spending shaped by the products and places you choose',
       pt: 'mercado e restaurante com preço mais parecido com o de uma cidade do interior brasileiro do que com o Rio ou São Paulo',
+      es: 'gastos de supermercado y restaurantes que dependen de los productos y establecimientos que elijas',
+      sv: 'utgifter för mat och restaurangbesök som beror på vilka varor och ställen du väljer',
     },
     hedged: {
       en: 'day-to-day spending is one of the categories we can walk through with real receipts from clients already living there, rather than a generic basket-of-goods number',
       pt: 'o gasto do dia a dia é uma das categorias que conseguimos mostrar com recibos reais de clientes que já moram lá, em vez de uma cesta básica genérica',
+      es: 'podemos revisar los gastos cotidianos con recibos reales de clientes que ya viven allí, en vez de usar una cesta de productos genérica',
+      sv: 'vi kan gå igenom vardagsutgifter med riktiga kvitton från kunder som redan bor där, i stället för att utgå från en generell varukorg',
     },
     verified: false,
     sources: [],

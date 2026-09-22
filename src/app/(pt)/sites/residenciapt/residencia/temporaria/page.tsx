@@ -67,7 +67,7 @@ export default function Page() {
       </p>
       <h2>Prazo e o que vem depois</h2>
       <p>
-        A residência temporária dura <Fact k="temporary.duration" site="residenciapt" />. A maioria
+        Prazo da residência temporária: <Fact k="temporary.duration" site="residenciapt" />. A maioria
         dos nossos clientes usa essa janela para decidir entre pedir a{' '}
         <a href="/residencia/permanente">residência permanente</a> ou, depois de conhecer o país,
         olhar para o{' '}

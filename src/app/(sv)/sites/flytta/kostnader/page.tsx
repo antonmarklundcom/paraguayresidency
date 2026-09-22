@@ -17,7 +17,7 @@ export function generateMetadata(): Metadata {
 
 const STATS = [
   { value: '≈ 40 %', label: 'Lägre kostnadsläge', note: 'Jämfört med vår egen budget i Sverige, uppskattning 2026' },
-  { value: '7 dagar', label: 'Ungefärlig tid på plats', note: 'För det första besöket' },
+  { value: 'Personligt besök', label: 'Inlämning på plats', note: 'För det första besöket' },
   { value: '0', label: 'Språkkrav', note: 'Inget spanskprov för uppehållstillstånd' },
 ];
 

@@ -31,7 +31,7 @@ const ROUTES = [
   {
     eyebrow: 'Temporary residency',
     title: 'The standard first step',
-    body: 'Two years, then permanent. The route almost everyone starts on.',
+    body: 'The standard first step, then permanent. The route almost everyone starts on.',
     href: '/routes#temporary',
   },
   {
@@ -153,8 +153,7 @@ export default function Page() {
         <Container width="narrow">
           <Heading level={2}>Territorial tax, explained without the hype</Heading>
           <p className="mt-[var(--space-4)] text-[var(--fg-muted)]">
-            Paraguay applies <Fact k="tax.territorial_rate" site="frontier" />, under a system
-            where <Fact k="tax.foreign_income_treatment" site="frontier" />. That is a genuinely
+            Paraguay applies <Fact k="tax.territorial_rate" site="frontier" />. Foreign-income treatment: <Fact k="tax.foreign_income_treatment" site="frontier" />. That is a genuinely
             useful feature if your income is sourced outside Paraguay. It is not the same claim as
             &ldquo;tax-free,&rdquo; and we will never call it that — what it means for your own
             country&apos;s rules is a question for your own accountant. See the full{' '}
@@ -170,10 +169,7 @@ export default function Page() {
         <Container width="narrow">
           <Heading level={2}>The presence rules, stated plainly</Heading>
           <p className="mt-[var(--space-4)] text-[var(--fg-muted)]">
-            Temporary residency runs <Fact k="temporary.duration" site="frontier" />. Permanent
-            residency carries <Fact k="permanent.presence_rule" site="frontier" /> — the single
-            most-misquoted figure in this whole niche, and the one that decides whether a plan B
-            actually works for your travel pattern. We would rather explain it correctly now than
+            Temporary residency duration: <Fact k="temporary.duration" site="frontier" />. Permanent residency comes with a presence rule: <Fact k="permanent.presence_rule" site="frontier" />. Your travel pattern matters when assessing whether this works as a plan B. We would rather explain it correctly now than
             have you find out the hard way after filing.
           </p>
         </Container>

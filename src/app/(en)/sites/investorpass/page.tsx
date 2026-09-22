@@ -58,7 +58,7 @@ const FAQ_ITEMS = [
   {
     question: 'Is the minimum investment fixed?',
     answer:
-      'Published figures disagree with each other. We quote the current threshold from the resolution text on your call, not from a web page — see the Investment Routes page for what each route needs.',
+      'Do not assume the routes share a single minimum. We review the eligibility of your proposed investment and give you a written breakdown of the capital and documents your chosen route requires.',
   },
   {
     question: 'Does the Investor Pass really skip temporary residency?',
@@ -95,12 +95,19 @@ export default function Page() {
               Four qualifying routes — real estate, productive business, financial instruments,
               tourism — we tell you which one fits your capital and your goals.
             </li>
-            <li>
-              Investment thresholds and program rules are new and still moving; we quote the
-              current figures on your call, not from a stale web page.
-            </li>
+            <li>You get an investment eligibility review and a document checklist for your chosen route.</li>
             <li>Nothing is filed until you have seen the full cost, timeline and exit options in writing.</li>
           </ul>
+        </Container>
+      </Section>
+
+      <Section>
+        <Container width="narrow">
+          <Heading level={2}>Why we do not print thresholds yet</Heading>
+          <p className="mt-[var(--space-4)] text-[var(--fg-muted)]">
+            Published thresholds disagree. Until the resolution text is verified, we use provisional
+            wording and confirm the applicable requirements in writing before you commit.
+          </p>
         </Container>
       </Section>
 
@@ -108,13 +115,11 @@ export default function Page() {
         <Container width="narrow">
           <Heading level={2}>What the Investor Pass is</Heading>
           <p className="mt-[var(--space-4)] text-[var(--fg-muted)]">
-            The Investor Pass is a route to permanent residency, introduced{' '}
-            <Fact k="investorpass.launch_date" site="investorpass" />, for people who bring
-            qualifying capital into Paraguay. It removes the standard temporary-residency stage
-            for applicants who qualify, and the card it grants is issued for{' '}
-            <Fact k="investorpass.validity_years" site="investorpass" />. It starts{' '}
-            <Fact k="investorpass.min_investment_usd" site="investorpass" />, confirmed against the
-            resolution text on your call before anything is filed.
+            The Investor Pass is a route to permanent residency for people who bring qualifying
+            capital into Paraguay. It removes the standard temporary-residency stage for applicants
+            who qualify. Programme launch: <Fact k="investorpass.launch_date" site="investorpass" />.
+            Card validity: <Fact k="investorpass.validity_years" site="investorpass" />.
+            Qualifying investment: <Fact k="investorpass.min_investment_usd" site="investorpass" />.
           </p>
         </Container>
       </Section>

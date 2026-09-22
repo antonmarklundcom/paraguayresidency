@@ -60,7 +60,7 @@ export default function Page() {
       </p>
       <h2>Timeline and what comes after</h2>
       <p>
-        Temporary residency runs for <Fact k="temporary.duration" site="residency" />. Most clients
+        Temporary residency duration: <Fact k="temporary.duration" site="residency" />. Most clients
         use that window to decide whether to apply for{' '}
         <a href="/residency/permanent-residency">permanent residency</a>, and some, after seeing
         the country, look at the{' '}

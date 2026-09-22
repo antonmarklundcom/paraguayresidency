@@ -96,8 +96,7 @@ export default function Page() {
         </div>
 
         <p className="mt-[var(--space-12)] text-[var(--fg-muted)]">
-          La residencia temporal dura <Fact k="temporary.duration" site="residenciaes" />, y la
-          cédula <Fact k="cedula.timeline" site="residenciaes" />. ¿Listo para empezar?{' '}
+          Duración de la residencia temporal: <Fact k="temporary.duration" site="residenciaes" />. La cédula <Fact k="cedula.timeline" site="residenciaes" />. ¿Listo para empezar?{' '}
           <a href="/contact" className="text-[var(--accent)] underline underline-offset-2">
             Cuéntanos tu caso
           </a>{' '}

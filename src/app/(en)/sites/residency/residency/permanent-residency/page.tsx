@@ -8,7 +8,7 @@ const PATH = '/residency/permanent-residency';
 
 export function generateMetadata(): Metadata {
   return siteMetadata('residency', {
-    title: 'Permanent Residency in Paraguay — the 10-Year Card',
+    title: 'Permanent Residency in Paraguay — Requirements and Process',
     description:
       'Paraguay permanent residency after temporary, or direct via the Investor Pass. What the presence rule really means, filed for you in Asunción.',
     path: PATH,
@@ -53,7 +53,7 @@ export default function Page() {
       </p>
       <h2>The presence rule, stated plainly</h2>
       <p>
-        Permanent residency comes with <Fact k="permanent.presence_rule" site="residency" />. This
+        Permanent residency comes with a presence rule: <Fact k="permanent.presence_rule" site="residency" />. This
         is the single most-misquoted figure in this niche, and we would rather you heard it
         straight from us before you file than assumed something from a forum post. What it means
         in practice depends on how you actually plan to split your time — we walk through your

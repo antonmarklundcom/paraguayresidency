@@ -48,7 +48,7 @@ export default function Page() {
     >
       <h2>Tillfälligt uppehållstillstånd — det vanliga första steget</h2>
       <p>
-        Tillfälligt uppehållstillstånd gäller <Fact k="temporary.duration" site={SITE} />. Du
+        Giltighet för tillfälligt uppehållstillstånd: <Fact k="temporary.duration" site={SITE} />. Du
         lämnar in en gång, lever med kortet under den tiden och ansöker sedan om permanent status.
         Det är den väg de allra flesta av dem vi hjälper väljer — enkel att förstå, och tillräckligt
         snabb för de flesta situationer.
@@ -56,7 +56,7 @@ export default function Page() {
 
       <h2>Permanent uppehållstillstånd</h2>
       <p>
-        Det permanenta kortet har lång giltighet, men <Fact k="permanent.presence_rule" site={SITE} />.
+        För det permanenta kortet gäller följande närvarokrav: <Fact k="permanent.presence_rule" site={SITE} />.
         Det är den regel folk oftast får fel, så vi går igenom exakt vad den betyder för ditt eget
         resmönster innan du planerar något efter den.
       </p>
@@ -76,7 +76,7 @@ export default function Page() {
       <h2>Cédulan efter beviljad ansökan</h2>
       <p>
         När uppehållstillståndet är beviljat följer din cédula — det riktiga id-kortet du använder
-        för bankkonto, hyreskontrakt och sjukvård. Den är <Fact k="cedula.timeline" site={SITE} />,
+        för bankkonto, hyreskontrakt och sjukvård. Cédulan <Fact k="cedula.timeline" site={SITE} />,
         och vi håller dig uppdaterad snarare än att lova ett datum vi inte kan hålla.
       </p>
       <ProcessTimeline site="flytta" route="standard" />

@@ -44,7 +44,7 @@ export default function Page() {
     >
       <h2>What the territorial system actually means</h2>
       <p>
-        Paraguay applies <Fact k="tax.territorial_rate" site="residency" /> under a system where{' '}
+        Paraguay applies <Fact k="tax.territorial_rate" site="residency" />. Foreign-income treatment:{' '}
         <Fact k="tax.foreign_income_treatment" site="residency" />. That is a real, useful feature
         for someone with foreign-sourced income. It is also a narrower claim than the &ldquo;tax
         haven&rdquo; framing that circulates online, and we would rather be the site that says so
