@@ -100,6 +100,29 @@ export default function Page() {
         }
       />
 
+      <Section tone="accent">
+        <Container width="narrow">
+          <Heading level={2}>Por que o Paraguai</Heading>
+          <ul className="mt-[var(--space-6)] space-y-[var(--space-4)] text-[var(--fg-muted)]">
+            <li>
+              Prazo da residência temporária: <Fact k="temporary.duration" site={SITE} />.
+            </li>
+            <li>
+              A residência permanente tem uma exigência de presença: <Fact k="permanent.presence_rule" site={SITE} />.
+            </li>
+            <li>
+              Sobre a tributação da renda do exterior:{' '}
+              <Fact k="tax.foreign_income_treatment" site={SITE} />, mas o que muda na sua
+              declaração no Brasil é pergunta para o seu contador.
+            </li>
+            <li>
+              Sobre custo de vida: <Fact k="costofliving.overview" site={SITE} />. Veja o detalhe
+              em <a href="/custo-de-vida">custo de vida</a>.
+            </li>
+          </ul>
+        </Container>
+      </Section>
+
       <Section>
         <Container width="narrow">
           <Heading level={2}>Para quem é</Heading>
@@ -147,32 +170,9 @@ export default function Page() {
         </Container>
       </Section>
 
-      <Section tone="accent">
-        <Container width="narrow">
-          <Heading level={2}>Por que o Paraguai</Heading>
-          <ul className="mt-[var(--space-6)] space-y-[var(--space-4)] text-[var(--fg-muted)]">
-            <li>
-              Prazo da residência temporária: <Fact k="temporary.duration" site={SITE} />.
-            </li>
-            <li>
-              A residência permanente tem uma exigência de presença: <Fact k="permanent.presence_rule" site={SITE} />.
-            </li>
-            <li>
-              Sobre a tributação da renda do exterior:{' '}
-              <Fact k="tax.foreign_income_treatment" site={SITE} />, mas o que muda na sua
-              declaração no Brasil é pergunta para o seu contador.
-            </li>
-            <li>
-              Sobre custo de vida: <Fact k="costofliving.overview" site={SITE} />. Veja o detalhe
-              em <a href="/custo-de-vida">custo de vida</a>.
-            </li>
-          </ul>
-        </Container>
-      </Section>
-
       {/* Depoimentos ficam de fora até existirem depoimentos reais (plano §7, §6.1). */}
 
-      <Section>
+      <Section tone="accent">
         <Container width="narrow">
           <FAQ title="Perguntas frequentes" items={FAQ_ITEMS} />
         </Container>

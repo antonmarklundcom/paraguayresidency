@@ -98,6 +98,28 @@ export default function Page() {
         }
       />
 
+      <Section tone="accent">
+        <Container width="narrow">
+          <Heading level={2}>Por qué Paraguay</Heading>
+          <ul className="mt-[var(--space-6)] space-y-[var(--space-4)] text-[var(--fg-muted)]">
+            <li>
+              Duración de la residencia temporal: <Fact k="temporary.duration" site="residenciaes" />.
+            </li>
+            <li>
+              La permanente tiene una regla de presencia: <Fact k="permanent.presence_rule" site="residenciaes" />.
+            </li>
+            <li>
+              Para nacionales del Mercosur, la vía de residencia es la siguiente:{' '}
+              <Fact k="mercosur.residency_route" site="residenciaes" /> —{' '}
+              <a href="/mercosur" className="text-[var(--accent)] underline underline-offset-2">
+                mira si te aplica
+              </a>
+              .
+            </li>
+          </ul>
+        </Container>
+      </Section>
+
       <Section>
         <Container width="narrow">
           <Heading level={2}>Para quién es esto</Heading>
@@ -145,28 +167,6 @@ export default function Page() {
       </Section>
 
       <Section tone="accent">
-        <Container width="narrow">
-          <Heading level={2}>Por qué Paraguay</Heading>
-          <ul className="mt-[var(--space-6)] space-y-[var(--space-4)] text-[var(--fg-muted)]">
-            <li>
-              Duración de la residencia temporal: <Fact k="temporary.duration" site="residenciaes" />.
-            </li>
-            <li>
-              La permanente tiene una regla de presencia: <Fact k="permanent.presence_rule" site="residenciaes" />.
-            </li>
-            <li>
-              Para nacionales del Mercosur, la vía de residencia es la siguiente:{' '}
-              <Fact k="mercosur.residency_route" site="residenciaes" /> —{' '}
-              <a href="/mercosur" className="text-[var(--accent)] underline underline-offset-2">
-                mira si te aplica
-              </a>
-              .
-            </li>
-          </ul>
-        </Container>
-      </Section>
-
-      <Section>
         <Container width="narrow">
           <FAQ title="Preguntas frecuentes" items={FAQ_ITEMS} />
         </Container>
