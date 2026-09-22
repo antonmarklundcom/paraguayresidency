@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Residency Guide Direction A</title>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--shell-bg:#16181c;--shell-fg:#e9e7e2;--shell-mut:#8b8983;--shell-line:#2b2e34}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--shell-bg);color:var(--shell-fg);font:15px/1.6 Inter,system-ui,sans-serif}
+  .shell{max-width:1180px;margin:0 auto;padding:40px 24px 80px}
+  .shell h1{font:400 30px/1.2 Newsreader,serif;margin:0 0 6px}
+  .shell .sub{color:var(--shell-mut);margin:0;max-width:70ch}
+  .lbl{font:500 11px/1 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--shell-mut);margin:44px 0 12px;display:flex;gap:12px;align-items:center}
+  .lbl::after{content:"";flex:1;height:1px;background:var(--shell-line)}
+  .dwrap{position:relative;overflow:hidden;border:1px solid var(--shell-line);border-radius:6px;background:#fff}
+  .dwrap iframe{border:0;display:block;transform-origin:top left}
+  .phone{width:414px;padding:12px;border:1px solid var(--shell-line);border-radius:38px;background:#0c0d10}
+  .phone iframe{width:390px;height:844px;border:0;border-radius:26px;display:block;background:#fff}
+  .note{margin-top:48px;border-top:1px solid var(--shell-line);padding-top:20px;color:var(--shell-mut);font-size:14px;max-width:80ch}
+  .note b{color:var(--shell-fg);font-weight:600}
+  .note code{font:400 13px 'IBM Plex Mono',monospace;color:#c9c5bc}
+</style>
+</head>
+<body>
+<div class="shell">
+  <h1>Paraguay Residency Guide — Direction A, “The Record”</h1>
+  <p class="sub">Homepage design preview. The page is the artefact it sells: a letterpress contents page you can buy. Desktop 1440 above, mobile 390 below.</p>
+
+  <div class="lbl">Desktop — 1440 × auto</div>
+  <div class="dwrap" id="dwrap"><iframe id="d" title="Desktop homepage preview" scrolling="no"></iframe></div>
+
+  <div class="lbl">Mobile — 390 × 844 (scrolls)</div>
+  <div class="phone"><iframe id="m" title="Mobile homepage preview"></iframe></div>
+
+  <div class="note">
+    <p><b>Designer’s note.</b> Paper ground <code>#F7F1E6</code>, ink <code>#1A1613</code>, hairlines
+    <code>#DDD1BC</code>, one accent — letterpress oxblood <code>#9A3B2C</code> — on the buy button, the
+    chapter numerals and the verified marker only. Type: <b>Newsreader</b> display (a text face, set large, so
+    it reads like a printed book rather than a landing page), <b>Inter</b> body, <b>IBM Plex Mono</b> labels.</p>
+    <p><b>The idea to judge:</b> the twelve chapters are not a feature list, they are a real contents page —
+    numerals hanging in the margin, rules between entries, a leader line to what each chapter settles. It is
+    the product, shown rather than described, and it is the section that has to sell the thing.</p>
+    <p><b>CRO:</b> price is in the nav from the first pixel and never leaves the screen (sticky bar on mobile);
+    risk reversal (14-day refund, 12 months of updates, instant delivery) sits <em>inside</em> the price block,
+    not in the footer; one primary action on the page — “Get the guide” — with the email capture as the only
+    secondary, placed after the price so it catches the people who already said no; the “what this is not”
+    section deliberately disqualifies the wrong buyer before the refund does it for them.</p>
+    <p>Price renders as the literal <code>{{PRICE}}</code> token — it is fetched from the products table at
+    runtime, so no number is hardcoded anywhere.</p>
+  </div>
+</div>
+
+<script type="text/html" id="page">
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Paraguay Residency Guide — every step, written down and kept current</title>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F7F1E6; --paper2:#F1E8D8; --ink:#1A1613; --ink2:#4A423A; --mut:#7C7065;
+  --line:#DDD1BC; --line2:#E9DFCD; --acc:#9A3B2C; --white:#FFFDF9;
+  --mono:'IBM Plex Mono',ui-monospace,monospace; --serif:Newsreader,Georgia,serif;
+  --sans:Inter,system-ui,sans-serif; --max:1120px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.7 var(--sans)}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:99;opacity:.04;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E")}
+a{color:inherit}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 40px}
+.narrow{max-width:720px}
+h1,h2,h3{font-family:var(--serif);font-weight:400;margin:0;letter-spacing:-.012em}
+.eyebrow{font:500 11px/1 var(--mono);letter-spacing:.18em;text-transform:uppercase;color:var(--mut)}
+.num{font:500 11px/1 var(--mono);letter-spacing:.14em;color:var(--acc)}
+hr.rule{height:1px;background:var(--line);border:0;margin:0}
+
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 26px;border:1px solid var(--acc);
+  background:var(--acc);color:#FFF8F2;font:600 15px/1 var(--sans);text-decoration:none;border-radius:2px;
+  transition:transform .15s ease,box-shadow .15s ease}
+.btn:hover{transform:translateY(-1px);box-shadow:0 6px 0 -3px rgba(154,59,44,.35)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn.ghost:hover{border-color:var(--ink);box-shadow:none}
+.btn.sm{padding:11px 18px;font-size:14px}
+.arrow{font-family:var(--mono);opacity:.8}
+
+.bar{position:sticky;top:0;z-index:50;background:rgba(247,241,230,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;gap:30px;height:70px}
+.brand{font:500 12px/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;text-decoration:none;white-space:nowrap}
+.brand b{color:var(--acc);font-weight:500}
+.bar nav{display:flex;gap:24px;margin-left:auto}
+.bar nav a{font-size:14px;color:var(--mut);text-decoration:none}
+.bar nav a:hover{color:var(--ink)}
+
+.hero{padding:88px 0 0;position:relative;overflow:hidden}
+.hero .wrap{position:relative;z-index:2}
+.wm{position:absolute;right:-30px;top:40px;font:400 320px/1 var(--serif);color:var(--acc);opacity:.05;z-index:1;user-select:none}
+h1{font-size:72px;line-height:1.04;max-width:16ch;margin:22px 0 0}
+h1 em{font-style:italic}
+.lede{margin:26px 0 0;max-width:56ch;color:var(--ink2);font-size:19px}
+.cta-row{display:flex;gap:14px;margin:36px 0 0;align-items:center;flex-wrap:wrap}
+.assure{margin:22px 0 0;font:400 13px/1.7 var(--mono);color:var(--mut)}
+.hero-pad{height:84px}
+
+.promise{background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:64px 0}
+.promise p{font-family:var(--serif);font-size:27px;line-height:1.45;max-width:30ch;margin:0}
+.promise .two{display:grid;grid-template-columns:1.25fr .75fr;gap:64px;align-items:start}
+.promise aside{font-size:15px;color:var(--mut);line-height:1.7;border-left:1px solid var(--line);padding-left:24px}
+.promise aside b{display:block;font:500 11px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--acc);margin-bottom:12px;font-weight:500}
+
+section{padding:92px 0}
+.sec-head{display:flex;gap:26px;align-items:baseline;margin:0 0 14px}
+.sec-head h2{font-size:40px;line-height:1.12;max-width:20ch}
+.sec-sub{color:var(--mut);max-width:56ch;margin:0 0 40px;font-size:16px}
+
+/* contents */
+.toc{border-top:1px solid var(--line)}
+.ch{display:grid;grid-template-columns:64px 1fr 1.15fr;gap:24px;align-items:baseline;padding:20px 12px 20px 0;
+  border-bottom:1px solid var(--line);transition:background .16s ease}
+.ch:hover{background:var(--white)}
+.ch .n{font:400 22px/1 var(--serif);color:var(--acc);opacity:.85}
+.ch .t{font:400 23px/1.3 var(--serif)}
+.ch .d{font-size:15px;color:var(--mut);line-height:1.55}
+.tocfoot{display:flex;gap:12px;align-items:center;padding:22px 0 0;font:400 14px var(--mono);color:var(--mut);flex-wrap:wrap}
+
+/* sample */
+.sample{background:var(--white);border:1px solid var(--line);padding:0;position:relative}
+.sample .hd{display:flex;justify-content:space-between;padding:14px 22px;border-bottom:1px solid var(--line);
+  font:500 10.5px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--mut)}
+.sample .bd{padding:38px 44px 42px}
+.sample blockquote{margin:0;font-family:var(--serif);font-size:25px;line-height:1.5;max-width:44ch}
+.sample .cap{margin:22px 0 0;font:400 13px var(--mono);color:var(--mut)}
+
+/* chips */
+.chip{display:inline-flex;align-items:center;gap:7px;font:500 10.5px/1 var(--mono);letter-spacing:.12em;
+  text-transform:uppercase;padding:6px 10px;border-radius:2px;border:1px solid var(--line);color:var(--mut)}
+.chip::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.chip.ok{color:var(--acc);border-color:rgba(154,59,44,.35)}
+.chip.un{border-style:dashed}
+.chiprow{display:flex;gap:12px;flex-wrap:wrap;margin:26px 0 0}
+
+/* list rows */
+.rows{border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:200px 1fr;gap:28px;padding:22px 0;border-bottom:1px solid var(--line)}
+.row b{font:500 11px/1.6 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mut);font-weight:500}
+.row p{margin:0;color:var(--ink2);font-size:16px}
+
+/* price */
+.price-sec{background:var(--ink);color:#F3EADB}
+.price-sec .eyebrow{color:#A79684}
+.price-sec h2{color:#F7F1E6;font-size:42px;max-width:18ch}
+.pricecard{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid #3A322A;margin-top:44px;background:#211C17}
+.pricecard .l{padding:40px;border-right:1px solid #3A322A}
+.pricecard .r{padding:40px}
+.tag{font:400 66px/1 var(--serif);color:#F7F1E6}
+.tag small{font:500 12px var(--mono);letter-spacing:.16em;color:#A79684;display:block;margin-bottom:14px;text-transform:uppercase}
+.incl{list-style:none;margin:26px 0 0;padding:0}
+.incl li{padding:11px 0 11px 26px;border-bottom:1px solid #332C25;position:relative;font-size:15.5px;color:#D8CCBA}
+.incl li:last-child{border-bottom:0}
+.incl li::before{content:"·";position:absolute;left:6px;color:var(--acc);font-size:22px;line-height:1.1}
+.btn.big{padding:19px 32px;font-size:17px;width:100%;justify-content:center}
+.micro{margin:16px 0 0;font-size:14px;color:#A79684;line-height:1.6}
+.upgrade{margin:26px 0 0;padding-top:20px;border-top:1px solid #3A322A;font-size:14.5px;color:#A79684}
+.upgrade a{color:#F7F1E6}
+
+details{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;list-style:none;padding:24px 0;display:flex;gap:18px;align-items:baseline;font-family:var(--serif);font-size:23px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";margin-left:auto;font:400 21px var(--mono);color:var(--mut)}
+details[open] summary::after{content:"–"}
+details p{margin:0 0 24px;max-width:70ch;color:var(--ink2);font-size:16px}
+
+.capture{background:var(--paper2);border-top:1px solid var(--line);padding:64px 0}
+.capform{display:flex;gap:12px;margin:24px 0 0;max-width:520px;flex-wrap:wrap}
+.capform input{flex:1;min-width:220px;background:var(--white);border:1px solid var(--line);padding:15px;
+  font:400 16px var(--sans);color:var(--ink);border-radius:2px}
+.capform input:focus{outline:2px solid var(--acc);outline-offset:1px}
+
+footer{border-top:1px solid var(--line);padding:56px 0 40px;background:var(--white)}
+.fgrid{display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:40px}
+.fgrid h5{font:500 10.5px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--mut);margin:0 0 18px;font-weight:500}
+.fgrid a{display:block;color:var(--ink2);text-decoration:none;font-size:15px;margin-bottom:11px}
+.fgrid a:hover{color:var(--acc)}
+.sibs{margin-top:44px;padding-top:24px;border-top:1px solid var(--line);font-size:14px;color:var(--mut)}
+.stickybar{display:none}
+:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+
+@media (max-width:860px){
+  .wrap{padding:0 20px}
+  .wm{display:none}
+  .hero{padding:48px 0 0}
+  h1{font-size:38px;max-width:none}
+  .lede{font-size:17px}
+  .cta-row{flex-direction:column;align-items:stretch}
+  .btn{justify-content:center}
+  .hero-pad{height:44px}
+  section{padding:52px 0}
+  .promise{padding:44px 0}
+  .promise .two{grid-template-columns:1fr;gap:26px}
+  .promise p{font-size:22px;max-width:none}
+  .sec-head{flex-direction:column;gap:8px}
+  .sec-head h2{font-size:29px}
+  .ch{grid-template-columns:40px 1fr;gap:14px;padding:18px 0}
+  .ch .d{grid-column:2;font-size:14px}
+  .ch .t{font-size:20px}
+  .sample .bd{padding:26px 22px 30px}
+  .sample blockquote{font-size:20px}
+  .row{grid-template-columns:1fr;gap:8px}
+  .pricecard{grid-template-columns:1fr}
+  .pricecard .l{border-right:0;border-bottom:1px solid #3A322A;padding:28px}
+  .pricecard .r{padding:28px}
+  .price-sec h2{font-size:29px}
+  .tag{font-size:52px}
+  summary{font-size:19px;padding:20px 0}
+  .fgrid{grid-template-columns:1fr 1fr;gap:26px}
+  body{padding-bottom:78px}
+  .stickybar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:80;gap:10px;padding:12px 16px;
+    background:rgba(247,241,230,.97);border-top:1px solid var(--line)}
+  .stickybar .btn{flex:1;padding:15px 14px}
+}
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <div class="wrap">
+    <a class="brand" href="#top">Paraguay <b>Residency Guide</b></a>
+    <nav>
+      <a href="#inside">What&rsquo;s inside</a>
+      <a href="#sample">Sample</a>
+      <a href="#current">Updates</a>
+    </nav>
+    <a class="btn sm" href="#price">Get the guide — {{PRICE}}</a>
+  </div>
+</div>
+
+<main id="top">
+<div class="hero">
+  <div class="wm" aria-hidden="true">12</div>
+  <div class="wrap">
+    <span class="eyebrow">A written guide · instant download · 12 months of updates</span>
+    <h1>Everything we know about Paraguay residency, <em>written down</em>.</h1>
+    <p class="lede">Twelve chapters, in the order you actually need them, by the team that files these cases
+      every week in Asunción. Bought once, kept current for a year.</p>
+    <div class="cta-row">
+      <a class="btn" href="#price">Get the guide — {{PRICE}} <span class="arrow">&rarr;</span></a>
+      <a class="btn ghost" href="#inside">See what&rsquo;s inside</a>
+    </div>
+    <p class="assure">14-day refund, no questions · instant delivery · every figure marked confirmed or not</p>
+  </div>
+  <div class="hero-pad"></div>
+</div>
+
+<div class="promise">
+  <div class="wrap">
+    <div class="two">
+      <p>Most residency information online is a blog post written once, half right, and never updated.
+        <em>This is the opposite.</em></p>
+      <aside>
+        <b>Why it stays right</b>
+        Every step, document and cost we actually see, written down once by the team that files these cases
+        every week — and kept current, because a guide that goes stale is worse than no guide. Twelve months
+        of updates are included in the price, not sold back to you later.
+      </aside>
+    </div>
+  </div>
+</div>
+
+<section id="inside">
+  <div class="wrap">
+    <div class="sec-head"><span class="num">01</span><h2>What&rsquo;s inside</h2></div>
+    <p class="sec-sub">Twelve chapters. Each one settles a question that otherwise costs you a week.</p>
+    <div class="toc">
+      <div class="ch"><span class="n">1</span><span class="t">Why Paraguay (and why not)</span><span class="d">The honest case, including the four situations where the answer is don&rsquo;t.</span></div>
+      <div class="ch"><span class="n">2</span><span class="t">The routes compared</span><span class="d">Temporary, permanent, Investor Pass — what each asks of you, side by side.</span></div>
+      <div class="ch"><span class="n">3</span><span class="t">Documents, apostilles, translations</span><span class="d">By nationality. The chapter that prevents the most expensive mistake.</span></div>
+      <div class="ch"><span class="n">4</span><span class="t">Costs, real ones</span><span class="d">Government fees, translations, flights, the things nobody budgets for.</span></div>
+      <div class="ch"><span class="n">5</span><span class="t">Timeline week by week</span><span class="d">What should have happened by week 3, and what to do when it hasn&rsquo;t.</span></div>
+      <div class="ch"><span class="n">6</span><span class="t">Cédula and RUC</span><span class="d">The ID card and the tax number: what each one is actually for.</span></div>
+      <div class="ch"><span class="n">7</span><span class="t">Banking</span><span class="d">Which banks open accounts for new residents, and what they ask for.</span></div>
+      <div class="ch"><span class="n">8</span><span class="t">Taxes for residents</span><span class="d">Territorial tax explained as what it does and does not cover.</span></div>
+      <div class="ch"><span class="n">9</span><span class="t">Family</span><span class="d">Spouse, children, dependants — the order to file them in.</span></div>
+      <div class="ch"><span class="n">10</span><span class="t">Investor Pass overview</span><span class="d">Whether the investment route is worth it for your capital.</span></div>
+      <div class="ch"><span class="n">11</span><span class="t">Mistakes we see monthly</span><span class="d">Including exactly when you still need a lawyer, and when you don&rsquo;t.</span></div>
+      <div class="ch"><span class="n">12</span><span class="t">Checklists</span><span class="d">Printable, per route, per nationality. The part people actually use.</span></div>
+    </div>
+    <div class="tocfoot">
+      <span>12 chapters</span><span>·</span><span>printable checklists</span><span>·</span><span>12 months of updates</span>
+      <a class="btn sm" href="#price" style="margin-left:auto">Get the guide — {{PRICE}}</a>
+    </div>
+  </div>
+</section>
+
+<section id="sample" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head"><span class="num">02</span><h2>A page from chapter 5</h2></div>
+    <p class="sec-sub">This is the register the whole guide is written in.</p>
+    <div class="sample">
+      <div class="hd"><span>Chapter 5 — Timeline week by week</span><span>p. 61</span></div>
+      <div class="bd">
+        <blockquote>&ldquo;Week 3: this is where most applications stall — not because anything is wrong, but
+          because a single stamped translation is sitting in a queue. Start this document in week 1, not week 3,
+          and the rest of the timeline holds.&rdquo;</blockquote>
+        <p class="cap">No hedging about what goes wrong, no reassurance you didn&rsquo;t ask for.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section id="current">
+  <div class="wrap">
+    <div class="sec-head"><span class="num">03</span><h2>How it stays right</h2></div>
+    <p class="sec-sub">Two mechanisms, both of them boring, both of them the reason this is worth paying for.</p>
+    <div class="rows">
+      <div class="row"><b>12 months of updates</b><p>Rules move. When they do, the chapter changes and you get
+        told what changed and when — included, not an upsell.</p></div>
+      <div class="row"><b>Every figure is marked</b><p>Each number in the guide carries its evidence state.
+        Confirmed against the source text, or hedged with the reason it isn&rsquo;t. You always know which
+        kind of sentence you are reading.</p></div>
+    </div>
+    <div class="chiprow">
+      <span class="chip ok">Confirmed — checked against the source</span>
+      <span class="chip un">Unconfirmed — hedged, with the reason</span>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section>
+  <div class="wrap narrow">
+    <div class="sec-head"><span class="num">04</span><h2>What this is not</h2></div>
+    <p style="color:var(--ink2);margin:0 0 20px">It is not us filing your case. If you would rather someone
+      else did the paperwork, that is the service side of what we do, and it is a different site — the guide&rsquo;s
+      thank-you page links straight to it. Buy this if you want to understand the process and do parts of it
+      yourself, paying for help only where it actually matters.</p>
+    <p style="color:var(--ink2);margin:0">It is also not a 400-page brick. It is as short as it can be while
+      still being complete, because you are trying to get something done, not read a book.</p>
+  </div>
+</section>
+
+<section class="price-sec" id="price">
+  <div class="wrap">
+    <span class="eyebrow">05 — The whole thing</span>
+    <h2 style="margin-top:18px">One price, no tiers to decode.</h2>
+    <div class="pricecard">
+      <div class="l">
+        <div class="tag"><small>Paraguay Residency Guide</small>{{PRICE}}</div>
+        <ul class="incl">
+          <li>12 chapters, instant download (PDF + web)</li>
+          <li>Printable checklists per route and nationality</li>
+          <li>12 months of updates as the rules move</li>
+          <li>Every figure marked confirmed or hedged</li>
+        </ul>
+      </div>
+      <div class="r">
+        <a class="btn big" href="#">Get the guide <span class="arrow">&rarr;</span></a>
+        <p class="micro">14-day refund, no questions asked — email us and it is done. Delivered to your inbox
+          the moment payment clears. No subscription, no account to cancel.</p>
+        <p class="upgrade">Want the member area too — templates, the updates feed, the document generator?
+          <a href="#">Insider is the same guide plus that</a>, and you can upgrade later at the difference.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap narrow">
+    <div class="sec-head"><span class="num">06</span><h2>Before you buy</h2></div>
+    <details open>
+      <summary>Is this the same as hiring your team?</summary>
+      <p>No. The guide is what we know, written down, so you can decide and do parts of it yourself. If you
+        would rather someone filed the case for you, that is the service side of what we do — the guide&rsquo;s
+        thank-you page links straight to it.</p>
+    </details>
+    <details>
+      <summary>Is it actually kept current?</summary>
+      <p>Yes — the price includes 12 months of updates. Paraguay residency rules move; a guide that stops
+        updating after launch stops being worth reading.</p>
+    </details>
+    <details>
+      <summary>What if it is not what I expected?</summary>
+      <p>A 14-day refund, no questions. Email us and it is done.</p>
+    </details>
+    <details>
+      <summary>Do I still need a lawyer after reading it?</summary>
+      <p>Sometimes, sometimes not — chapter 11 covers exactly when. The guide tells you honestly, rather than
+        selling you a &ldquo;yes&rdquo; either way.</p>
+    </details>
+  </div>
+</section>
+
+<div class="capture">
+  <div class="wrap narrow">
+    <span class="eyebrow">Not ready yet?</span>
+    <h2 style="font-size:30px;margin:14px 0 0">Get chapter 1 free, and the updates when rules change.</h2>
+    <form class="capform" onsubmit="return false">
+      <label for="em" style="position:absolute;left:-9999px">Email</label>
+      <input id="em" type="email" placeholder="you@example.com" autocomplete="email">
+      <button class="btn" type="submit">Send it</button>
+    </form>
+    <p style="font-size:14px;color:var(--mut);margin:14px 0 0">One email when something actually changes.
+      Unsubscribe in one click.</p>
+  </div>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <a class="brand" href="#top">Paraguay <b>Residency Guide</b></a>
+        <p style="color:var(--mut);font-size:14px;margin-top:16px;max-width:30ch">Written by the team that
+          files these cases every week in Asunción.</p>
+      </div>
+      <div><h5>The guide</h5><a href="#inside">What&rsquo;s inside</a><a href="#sample">Sample page</a><a href="#price">Price</a><a href="#">Insider</a></div>
+      <div><h5>Company</h5><a href="#">About</a><a href="#">Contact</a><a href="#">Members login</a></div>
+      <div><h5>Legal</h5><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Refunds</a></div>
+    </div>
+    <p class="sibs">Same team, different front doors: <a href="#">Paraguay Residency</a> · <a href="#">Paraguay Investor Pass</a> ·
+      <a href="#">Paraguay Frontier</a> · <a href="#">Residencia en Paraguay</a> · <a href="#">Vida no Paraguai</a> · <a href="#">Flytta till Paraguay</a></p>
+  </div>
+</footer>
+
+<div class="stickybar">
+  <a class="btn" href="#price">Get the guide — {{PRICE}}</a>
+</div>
+
+</body>
+</html>
+</script>
+
+<script>
+  var src = document.getElementById('page').textContent;
+  var d = document.getElementById('d'), m = document.getElementById('m'), dwrap = document.getElementById('dwrap');
+  m.srcdoc = src;
+  d.style.width = '1440px'; d.style.height = '3000px'; d.srcdoc = src;
+  function fit(){
+    var scale = Math.min(1, dwrap.clientWidth / 1440);
+    d.style.transform = 'scale(' + scale + ')';
+    try {
+      var h = d.contentDocument.documentElement.scrollHeight;
+      d.style.height = h + 'px';
+      dwrap.style.height = (h * scale) + 'px';
+    } catch (e) {}
+  }
+  d.addEventListener('load', function(){ fit(); setTimeout(fit, 400); setTimeout(fit, 1200); });
+  window.addEventListener('resize', fit);
+</script>
+</body>
+</html>

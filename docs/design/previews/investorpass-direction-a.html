@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Investor Pass Direction A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--shell-bg:#16181c;--shell-fg:#e9e7e2;--shell-mut:#8b8983;--shell-line:#2b2e34}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--shell-bg);color:var(--shell-fg);font:15px/1.6 Inter,system-ui,sans-serif}
+  .shell{max-width:1180px;margin:0 auto;padding:40px 24px 80px}
+  .shell h1{font:400 30px/1.2 'Instrument Serif',serif;margin:0 0 6px}
+  .shell .sub{color:var(--shell-mut);margin:0 0 4px;max-width:70ch}
+  .lbl{font:500 11px/1 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--shell-mut);margin:44px 0 12px;display:flex;gap:12px;align-items:center}
+  .lbl::after{content:"";flex:1;height:1px;background:var(--shell-line)}
+  .dwrap{position:relative;overflow:hidden;border:1px solid var(--shell-line);border-radius:6px;background:#000}
+  .dwrap iframe{border:0;display:block;transform-origin:top left}
+  .phone{width:414px;margin:0;padding:12px;border:1px solid var(--shell-line);border-radius:38px;background:#0c0d10}
+  .phone iframe{width:390px;height:844px;border:0;border-radius:26px;display:block;background:#000}
+  .note{margin-top:48px;border-top:1px solid var(--shell-line);padding-top:20px;color:var(--shell-mut);font-size:14px;max-width:80ch}
+  .note b{color:var(--shell-fg);font-weight:600}
+  .note code{font:400 13px 'IBM Plex Mono',monospace;color:#c9c5bc}
+</style>
+</head>
+<body>
+<div class="shell">
+  <h1>Paraguay Investor Pass — Direction A, “The Record”</h1>
+  <p class="sub">Homepage design preview. Document logic: hairlines, ruled grid, monospaced data, one accent. Desktop 1440 above, mobile 390 below.</p>
+
+  <div class="lbl">Desktop — 1440 × auto</div>
+  <div class="dwrap" id="dwrap"><iframe id="d" title="Desktop homepage preview" scrolling="no"></iframe></div>
+
+  <div class="lbl">Mobile — 390 × 844 (scrolls)</div>
+  <div class="phone"><iframe id="m" title="Mobile homepage preview"></iframe></div>
+
+  <div class="note">
+    <p><b>Designer’s note.</b> Palette is deliberately not gold-on-black. Ground <code>#0B0D11</code> ink,
+    type <code>#ECE7DC</code>, hairlines <code>#23272E</code>, and a single accent — <code>#E8DCC4</code> bone —
+    used only for the primary CTA, the verified marker and row hover. Luxury comes from paper stock and type,
+    not from metallics. One light interruption (<code>#F2EDE3</code>) at “Who files this” so the page has a
+    breath and the team section is impossible to skip.</p>
+    <p>Type: <b>Instrument Serif</b> for display (high contrast, set very large, tight), <b>Inter</b> for body,
+    <b>IBM Plex Mono</b> for every label, numeral and state chip.</p>
+    <p><b>The idea to judge:</b> the status strip directly under the hero. Four figures an investor came to
+    find, each showing its evidence state instead of a number we can’t stand behind. Competitors print
+    confident numbers that contradict each other; this page makes not-knowing the proof of rigour.</p>
+    <p><b>CRO:</b> primary action repeated at four depths (bar, hero, route rows, form) but only one primary
+    per screen; hero answers what/who/what-next above the fold at both widths; the route table gives each row
+    its own CTA so a self-identifying investor can skip the page; the form is four fields with “what happens
+    next” under the button; sticky bottom bar on mobile.</p>
+  </div>
+</div>
+
+<script type="text/html" id="page">
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Paraguay Investor Pass — permanent residency in one step</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0B0D11; --ink2:#0F1217; --line:#23272E; --line2:#171B21;
+  --fg:#ECE7DC; --mut:#8C8A84; --bone:#E8DCC4; --paper:#F2EDE3;
+  --mono:'IBM Plex Mono',ui-monospace,monospace; --serif:'Instrument Serif',Georgia,serif;
+  --sans:Inter,system-ui,sans-serif; --max:1180px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ink);color:var(--fg);font:400 17px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:99;opacity:.035;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E")}
+a{color:inherit}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 40px}
+.narrow{max-width:760px}
+h1,h2,h3{font-family:var(--serif);font-weight:400;letter-spacing:-.01em;margin:0}
+.eyebrow{font:500 11px/1 var(--mono);letter-spacing:.18em;text-transform:uppercase;color:var(--mut)}
+.num{font:500 11px/1 var(--mono);letter-spacing:.14em;color:var(--bone);opacity:.75}
+.mono{font-family:var(--mono)}
+.rule{height:1px;background:var(--line);border:0;margin:0}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 24px;border:1px solid var(--bone);
+  background:var(--bone);color:#0B0D11;font:600 15px/1 var(--sans);text-decoration:none;border-radius:2px;
+  transition:transform .15s ease,background .15s ease}
+.btn:hover{transform:translateY(-1px)}
+.btn.ghost{background:transparent;color:var(--fg);border-color:var(--line)}
+.btn.ghost:hover{border-color:var(--bone)}
+.btn.sm{padding:11px 18px;font-size:14px}
+.arrow{font-family:var(--mono);opacity:.7}
+
+/* topbar */
+.bar{position:sticky;top:0;z-index:50;background:rgba(11,13,17,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;gap:32px;height:68px}
+.brand{font:500 12px/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;text-decoration:none;white-space:nowrap}
+.brand b{font-weight:500;color:var(--bone)}
+.bar nav{display:flex;gap:26px;margin-left:auto}
+.bar nav a{font-size:14px;color:var(--mut);text-decoration:none}
+.bar nav a:hover{color:var(--fg)}
+
+/* hero */
+.hero{position:relative;padding:96px 0 0;overflow:hidden}
+.hero .wrap{position:relative;z-index:2}
+.grid-lines{position:absolute;inset:0;z-index:1;max-width:var(--max);margin:0 auto;padding:0 40px}
+.grid-lines i{position:absolute;top:0;bottom:0;width:1px;background:var(--line2)}
+.seal{position:absolute;right:40px;top:70px;width:132px;height:132px;opacity:.5;z-index:1}
+.seal text{font:400 9.5px var(--mono);letter-spacing:.24em;fill:var(--bone)}
+h1{font-size:76px;line-height:1.02;max-width:15ch;margin:22px 0 0}
+h1 em{font-style:italic;color:var(--bone)}
+.lede{margin:26px 0 0;max-width:56ch;color:#C6C2B8;font-size:19px}
+.cta-row{display:flex;gap:14px;margin:38px 0 0;flex-wrap:wrap}
+.assure{margin:26px 0 0;font:400 13px/1.6 var(--mono);color:var(--mut);letter-spacing:.02em}
+.assure b{color:var(--fg);font-weight:400}
+.hero-pad{height:80px}
+
+/* status strip */
+.strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--ink2)}
+.strip .wrap{display:grid;grid-template-columns:repeat(4,1fr);padding:0 40px}
+.cell{padding:30px 28px 30px 0;border-right:1px solid var(--line)}
+.cell:last-child{border-right:0;padding-right:0}
+.cell + .cell{padding-left:28px}
+.cell h4{font:500 11px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--mut);margin:0 0 14px;font-weight:500}
+.cell p{margin:0 0 14px;font-size:15px;line-height:1.5;color:#CFCAC0}
+.chip{display:inline-flex;align-items:center;gap:7px;font:500 10.5px/1 var(--mono);letter-spacing:.12em;
+  text-transform:uppercase;padding:6px 10px;border-radius:2px;border:1px solid var(--line);color:var(--mut)}
+.chip::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.chip.ok{color:var(--bone);border-color:rgba(232,220,196,.4)}
+.chip.un{border-style:dashed}
+
+/* sections */
+section{padding:100px 0}
+.sec-head{display:flex;gap:28px;align-items:baseline;margin:0 0 40px}
+.sec-head h2{font-size:42px;line-height:1.1;max-width:20ch}
+.two{display:grid;grid-template-columns:1.35fr .65fr;gap:64px}
+.two p{color:#C6C2B8;margin:0 0 20px}
+.sidenote{border-left:1px solid var(--line);padding-left:24px;font-size:15px;color:var(--mut);line-height:1.6}
+.sidenote b{display:block;font:500 11px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--bone);margin-bottom:12px;font-weight:500}
+
+/* route table */
+.tbl{border-top:1px solid var(--line)}
+.tr{display:grid;grid-template-columns:1.1fr 1.5fr 1.3fr auto;gap:28px;align-items:center;padding:26px 16px 26px 0;
+  border-bottom:1px solid var(--line);text-decoration:none;transition:background .18s ease,padding .18s ease}
+.tr:hover{background:#12161C;padding-left:16px}
+.tr:hover .rname{color:var(--bone)}
+.thead{display:grid;grid-template-columns:1.1fr 1.5fr 1.3fr auto;gap:28px;padding:0 16px 14px 0}
+.thead span{font:500 10.5px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--mut)}
+.rname{font-family:var(--serif);font-size:26px;line-height:1.15;transition:color .18s}
+.rsuit{font-size:15px;color:var(--mut);line-height:1.5}
+.rthr{font-size:14px;color:#C6C2B8;line-height:1.5}
+.tr .arrow{font-size:18px}
+
+/* process */
+.steps{display:grid;grid-template-columns:repeat(6,1fr);border-top:1px solid var(--line)}
+.step{padding:26px 20px 0 0;border-right:1px solid var(--line);position:relative}
+.step:last-child{border-right:0}
+.step + .step{padding-left:20px}
+.step b{display:block;font:500 11px/1 var(--mono);color:var(--bone);letter-spacing:.14em;margin-bottom:14px;font-weight:500}
+.step h4{font-family:var(--sans);font-size:16px;font-weight:600;margin:0 0 8px}
+.step p{margin:0;font-size:14px;line-height:1.55;color:var(--mut)}
+
+/* paper panel */
+.paper{background:var(--paper);color:#171412}
+.paper .eyebrow{color:#6B645B}
+.paper h2{font-size:42px;line-height:1.1;max-width:18ch}
+.paper p{color:#443E37}
+.paper .two{grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.imgslot{aspect-ratio:4/3;border:1px solid #D6CDBD;background:
+  repeating-linear-gradient(135deg,#EAE2D4 0 12px,#E4DBCB 12px 24px);display:flex;align-items:flex-end;padding:20px}
+.imgslot span{font:400 12px/1.5 var(--mono);color:#6B645B}
+
+/* agents */
+.panel{border:1px solid var(--line);padding:40px;display:flex;gap:40px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.panel h3{font-size:28px;max-width:22ch}
+.panel p{margin:10px 0 0;color:var(--mut);font-size:15px;max-width:52ch}
+
+/* faq */
+details{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;list-style:none;padding:26px 0;display:flex;gap:20px;align-items:baseline;font-family:var(--serif);font-size:24px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";margin-left:auto;font:400 22px var(--mono);color:var(--mut)}
+details[open] summary::after{content:"–"}
+details p{margin:0 0 26px;max-width:72ch;color:#C6C2B8;font-size:16px}
+
+/* form */
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+label{display:block;font:500 10.5px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--mut);margin:0 0 9px}
+input,select,textarea{width:100%;background:var(--ink2);border:1px solid var(--line);color:var(--fg);
+  padding:14px 15px;font:400 16px var(--sans);border-radius:2px}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--bone);outline-offset:1px;border-color:transparent}
+.full{grid-column:1/-1}
+.micro{margin:16px 0 0;font-size:14px;color:var(--mut)}
+
+/* footer */
+footer{border-top:1px solid var(--line);padding:64px 0 40px;background:var(--ink2)}
+.fgrid{display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:40px}
+.fgrid h5{font:500 10.5px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--mut);margin:0 0 18px;font-weight:500}
+.fgrid a{display:block;color:#C6C2B8;text-decoration:none;font-size:15px;margin-bottom:11px}
+.fgrid a:hover{color:var(--bone)}
+.sibs{margin-top:48px;padding-top:26px;border-top:1px solid var(--line);font-size:14px;color:var(--mut)}
+.sibs a{color:#C6C2B8}
+.stickybar{display:none}
+:focus-visible{outline:2px solid var(--bone);outline-offset:3px}
+
+@media (max-width:860px){
+  .wrap{padding:0 20px}
+  .grid-lines,.seal{display:none}
+  .hero{padding:52px 0 0}
+  h1{font-size:40px;max-width:none}
+  .lede{font-size:17px}
+  .cta-row{flex-direction:column;align-items:stretch}
+  .btn{justify-content:center}
+  .hero-pad{height:44px}
+  section{padding:56px 0}
+  .strip .wrap{grid-template-columns:1fr;padding:0 20px}
+  .cell{border-right:0;border-bottom:1px solid var(--line);padding:24px 0}
+  .cell + .cell{padding-left:0}
+  .cell:last-child{border-bottom:0}
+  .sec-head{flex-direction:column;gap:10px;margin-bottom:28px}
+  .sec-head h2{font-size:30px}
+  .two{grid-template-columns:1fr;gap:32px}
+  .paper .two{grid-template-columns:1fr}
+  .paper h2{font-size:30px}
+  .thead{display:none}
+  .tr{grid-template-columns:1fr;gap:10px;padding:22px 0}
+  .tr:hover{padding-left:0}
+  .steps{grid-template-columns:1fr}
+  .step{border-right:0;border-bottom:1px solid var(--line);padding:20px 0}
+  .step + .step{padding-left:0}
+  .step:last-child{border-bottom:0}
+  .panel{padding:26px;gap:22px}
+  .panel h3{font-size:22px}
+  summary{font-size:19px;padding:20px 0}
+  .form-grid{grid-template-columns:1fr}
+  .fgrid{grid-template-columns:1fr 1fr;gap:28px}
+  body{padding-bottom:76px}
+  .stickybar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:80;gap:10px;padding:12px 16px;
+    background:rgba(11,13,17,.95);backdrop-filter:blur(10px);border-top:1px solid var(--line)}
+  .stickybar .btn{flex:1;padding:14px 16px}
+  .stickybar .btn.ghost{flex:0 0 auto}
+}
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <div class="wrap">
+    <a class="brand" href="#top">Paraguay <b>Investor Pass</b></a>
+    <nav>
+      <a href="#routes">Routes</a>
+      <a href="#process">Process</a>
+      <a href="#team">Who files it</a>
+      <a href="#agents">For agents</a>
+    </nav>
+    <a class="btn sm" href="#enquiry">Find your route <span class="arrow">&rarr;</span></a>
+  </div>
+</div>
+
+<main id="top">
+<div class="hero">
+  <div class="grid-lines"><i style="left:25%"></i><i style="left:50%"></i><i style="left:75%"></i></div>
+  <svg class="seal" viewBox="0 0 132 132" aria-hidden="true">
+    <circle cx="66" cy="66" r="64" fill="none" stroke="#E8DCC4" stroke-width="1" opacity=".55"/>
+    <circle cx="66" cy="66" r="55" fill="none" stroke="#E8DCC4" stroke-width="1" opacity=".3"/>
+    <path id="sealpath" d="M66,17 a49,49 0 1,1 -0.1,0" fill="none"/>
+    <text><textPath href="#sealpath" startOffset="2%">FILED IN ASUNCIÓN · PERMANENT RESIDENCY · SINCE 2019 ·</textPath></text>
+    <text x="66" y="72" text-anchor="middle" style="font-size:13px;letter-spacing:.3em">PY</text>
+  </svg>
+  <div class="wrap">
+    <span class="eyebrow">Paraguay Investor Pass</span>
+    <h1>Permanent residency in Paraguay, in <em>one step</em>.</h1>
+    <p class="lede">The Investor Pass lets qualifying investors skip temporary residency entirely. We structure
+      the investment, file the application and stay with you until the permanent card is in your hand.</p>
+    <div class="cta-row">
+      <a class="btn" href="#enquiry">Find your route <span class="arrow">&rarr;</span></a>
+      <a class="btn ghost" href="#routes">See the four routes</a>
+    </div>
+    <p class="assure"><b>Filed by our own team in Asunción.</b> Four qualifying routes. Nothing filed until you
+      have cost, timeline and exit options in writing.</p>
+  </div>
+  <div class="hero-pad"></div>
+</div>
+
+<div class="strip">
+  <div class="wrap">
+    <div class="cell">
+      <h4>Minimum investment</h4>
+      <p>From a qualifying amount we confirm against the resolution text on your call.</p>
+      <span class="chip un">Unconfirmed</span>
+    </div>
+    <div class="cell">
+      <h4>Programme launch</h4>
+      <p>Introduced recently enough that published guides still disagree with each other.</p>
+      <span class="chip un">Unconfirmed</span>
+    </div>
+    <div class="cell">
+      <h4>Card validity</h4>
+      <p>Issued for a term we confirm in writing before anything is filed.</p>
+      <span class="chip un">Unconfirmed</span>
+    </div>
+    <div class="cell">
+      <h4>Who files it</h4>
+      <p>Our own team, in Asunción, in person — not a referral to a third party.</p>
+      <span class="chip ok">Confirmed</span>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head"><span class="num">01</span><h2>Why there are no numbers above</h2></div>
+    <div class="two">
+      <div>
+        <p>You have probably read three articles quoting three different minimums for this programme. They
+          cannot all be right, and we are not going to add a fourth guess to the pile.</p>
+        <p>Every figure on this site carries its evidence state. When we have checked it against the resolution
+          text, it is marked confirmed and the number is printed. When we have not, you get the hedged sentence
+          and the dashed chip — never a number we could not defend to you later.</p>
+        <p>It is a strange thing to put at the top of a homepage. It is also the only honest thing to put
+          there while the programme is this new, and it is exactly how we will talk to you about your own case.</p>
+      </div>
+      <aside class="sidenote">
+        <b>What this means for you</b>
+        The figures that decide whether this is worth doing get confirmed on your call, from the source text,
+        before you commit anything. If the standard residency route is the better deal for your situation, we
+        will tell you that instead — it is a smaller fee for us and a better outcome for you.
+      </aside>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section id="routes">
+  <div class="wrap">
+    <div class="sec-head"><span class="num">02</span><h2>Four qualifying routes</h2></div>
+    <div class="tbl">
+      <div class="thead"><span>Route</span><span>What qualifies</span><span>Threshold</span><span></span></div>
+      <a class="tr" href="#enquiry">
+        <span class="rname">Real estate</span>
+        <span class="rsuit">Titled property, held in your name or a structure we set up with you.</span>
+        <span class="rthr">Confirmed against the resolution text on your call.</span>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="tr" href="#enquiry">
+        <span class="rname">Productive business</span>
+        <span class="rsuit">An operating business with real activity — the route with the most scrutiny.</span>
+        <span class="rthr">Confirmed against the resolution text on your call.</span>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="tr" href="#enquiry">
+        <span class="rname">Financial instruments</span>
+        <span class="rsuit">Qualifying instruments held through a Paraguayan institution.</span>
+        <span class="rthr">Confirmed against the resolution text on your call.</span>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="tr" href="#enquiry">
+        <span class="rname">Tourism</span>
+        <span class="rsuit">A tourism project, assessed on the plan as much as the capital.</span>
+        <span class="rthr">Confirmed against the resolution text on your call.</span>
+        <span class="arrow">&rarr;</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section id="process">
+  <div class="wrap">
+    <div class="sec-head"><span class="num">03</span><h2>How a case actually runs</h2></div>
+    <div class="steps">
+      <div class="step"><b>01</b><h4>Call</h4><p>Your capital, your timeline, and which route — or none — actually fits.</p></div>
+      <div class="step"><b>02</b><h4>Written scope</h4><p>Cost, timeline and exit options, in writing, before you commit.</p></div>
+      <div class="step"><b>03</b><h4>Documents</h4><p>Apostilles and translations, listed by your nationality, not generically.</p></div>
+      <div class="step"><b>04</b><h4>Structure</h4><p>The investment placed so it qualifies — and so it still makes sense as an investment.</p></div>
+      <div class="step"><b>05</b><h4>Filing</h4><p>Submitted in Asunción by us. You attend the appointments in person.</p></div>
+      <div class="step"><b>06</b><h4>Card</h4><p>Permanent residency card and cédula, then whatever comes after.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="paper" id="team">
+  <div class="wrap">
+    <div class="two">
+      <div>
+        <span class="eyebrow">04 — Who files this</span>
+        <h2 style="margin-top:20px">A small team in Asunción who do this every week.</h2>
+        <p style="margin-top:24px">Not a marketing front that refers you onward. The people who answer your
+          call are the people who walk your file through the office, and they will tell you when a week has
+          gone quiet because a single stamped translation is sitting in a queue.</p>
+        <p>Six sister sites in the group serve different audiences — a written guide, a Spanish-language site,
+          one for people weighing a plan B. Same team, same filing, different front door. We would rather say
+          that plainly than have you discover it.</p>
+      </div>
+      <div class="imgslot"><span>PHOTO SLOT — the actual team at the Asunción office, working, mid-morning daylight. No suits against a skyline, no stock handshakes.</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="agents">
+  <div class="wrap">
+    <div class="panel">
+      <div>
+        <span class="eyebrow">05 — For migration agents</span>
+        <h3 style="margin-top:16px">Placing a client rather than applying yourself?</h3>
+        <p>Referral terms, a per-case scope you can show your client, and a named contact who answers
+          in your timezone.</p>
+      </div>
+      <a class="btn ghost" href="#enquiry">Agent terms <span class="arrow">&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section>
+  <div class="wrap narrow">
+    <div class="sec-head"><span class="num">06</span><h2>Questions we get every week</h2></div>
+    <details open>
+      <summary>Is the minimum investment fixed?</summary>
+      <p>Published figures disagree with each other — we have seen three different numbers in print this year.
+        We quote the current threshold from the resolution text on your call, not from a web page, and you get
+        it in writing before anything is filed.</p>
+    </details>
+    <details>
+      <summary>Does the Investor Pass really skip temporary residency?</summary>
+      <p>Yes — that is its point. A qualifying investment lets you apply directly for permanent residency
+        instead of serving the standard temporary stage first.</p>
+    </details>
+    <details>
+      <summary>What if I am not sure which route fits?</summary>
+      <p>Send your rough capital and timeline. We will tell you which of the four routes fits — or tell you
+        honestly that the standard residency route is the better deal for your case.</p>
+    </details>
+    <details>
+      <summary>Is this the same team as the other Paraguay sites?</summary>
+      <p>Yes. Investor Pass is a dedicated brand because it serves a different applicant, with a different
+        ticket size, filed by the same team in Asunción.</p>
+    </details>
+  </div>
+</section>
+
+<section id="enquiry" style="background:var(--ink2);border-top:1px solid var(--line)">
+  <div class="wrap narrow">
+    <span class="eyebrow">Start here</span>
+    <h2 style="font-size:40px;margin:18px 0 0">Tell us the shape of it.</h2>
+    <p style="color:#C6C2B8;margin:18px 0 36px">Four questions. You get a written read on which route fits —
+      including “none of them, do the standard route instead” when that is the true answer.</p>
+    <form class="form-grid" onsubmit="return false">
+      <div><label for="n">Name</label><input id="n" type="text" autocomplete="name"></div>
+      <div><label for="e">Email</label><input id="e" type="email" autocomplete="email"></div>
+      <div><label for="c">Rough capital</label>
+        <select id="c"><option>Still deciding</option><option>Under the likely threshold</option><option>Around it</option><option>Comfortably above</option></select></div>
+      <div><label for="t">Timeline</label>
+        <select id="t"><option>Exploring</option><option>Within 6 months</option><option>Within 3 months</option><option>Now</option></select></div>
+      <div class="full"><label for="m">Anything we should know</label><textarea id="m" rows="3"></textarea></div>
+      <div class="full">
+        <button class="btn" type="submit">Send the enquiry <span class="arrow">&rarr;</span></button>
+        <p class="micro">A person replies within one business day, from Asunción. No automated sequence, no
+          call centre, and nothing is filed until you have seen the full cost and timeline in writing.</p>
+      </div>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <a class="brand" href="#top">Paraguay <b>Investor Pass</b></a>
+        <p style="color:var(--mut);font-size:14px;margin-top:16px;max-width:30ch">Permanent residency by
+          qualifying investment, filed in Asunción.</p>
+      </div>
+      <div><h5>Programme</h5><a href="#routes">Requirements</a><a href="#routes">Investment routes</a><a href="#process">Process</a><a href="#routes">vs standard residency</a></div>
+      <div><h5>Company</h5><a href="#team">About</a><a href="#enquiry">Contact</a><a href="#agents">For agents</a></div>
+      <div><h5>Legal</h5><a href="#">Privacy</a><a href="#">Terms</a></div>
+    </div>
+    <p class="sibs">Same team, different front doors: <a href="#">Paraguay Residency</a> · <a href="#">Paraguay Residency Guide</a> ·
+      <a href="#">Paraguay Frontier</a> · <a href="#">Residencia en Paraguay</a> · <a href="#">Vida no Paraguai</a> · <a href="#">Flytta till Paraguay</a></p>
+  </div>
+</footer>
+
+<div class="stickybar">
+  <a class="btn" href="#enquiry">Find your route</a>
+  <a class="btn ghost" href="#routes">Routes</a>
+</div>
+
+</body>
+</html>
+</script>
+
+<script>
+  var src = document.getElementById('page').textContent;
+  var d = document.getElementById('d'), m = document.getElementById('m'), dwrap = document.getElementById('dwrap');
+  m.srcdoc = src;
+  d.style.width = '1440px'; d.style.height = '3000px'; d.srcdoc = src;
+  function fit(){
+    var scale = Math.min(1, dwrap.clientWidth / 1440);
+    d.style.transform = 'scale(' + scale + ')';
+    try {
+      var h = d.contentDocument.documentElement.scrollHeight;
+      d.style.height = h + 'px';
+      dwrap.style.height = (h * scale) + 'px';
+    } catch (e) {}
+  }
+  d.addEventListener('load', function(){ fit(); setTimeout(fit, 400); setTimeout(fit, 1200); });
+  window.addEventListener('resize', fit);
+</script>
+</body>
+</html>

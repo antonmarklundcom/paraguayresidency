@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Paraguay Frontier Direction A</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--shell-bg:#16181c;--shell-fg:#e9e7e2;--shell-mut:#8b8983;--shell-line:#2b2e34}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--shell-bg);color:var(--shell-fg);font:15px/1.6 Inter,system-ui,sans-serif}
+  .shell{max-width:1180px;margin:0 auto;padding:40px 24px 80px}
+  .shell h1{font:500 28px/1.2 'Space Grotesk',sans-serif;margin:0 0 6px}
+  .shell .sub{color:var(--shell-mut);margin:0;max-width:70ch}
+  .lbl{font:500 11px/1 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--shell-mut);margin:44px 0 12px;display:flex;gap:12px;align-items:center}
+  .lbl::after{content:"";flex:1;height:1px;background:var(--shell-line)}
+  .dwrap{position:relative;overflow:hidden;border:1px solid var(--shell-line);border-radius:6px;background:#fff}
+  .dwrap iframe{border:0;display:block;transform-origin:top left}
+  .phone{width:414px;padding:12px;border:1px solid var(--shell-line);border-radius:38px;background:#0c0d10}
+  .phone iframe{width:390px;height:844px;border:0;border-radius:26px;display:block;background:#fff}
+  .note{margin-top:48px;border-top:1px solid var(--shell-line);padding-top:20px;color:var(--shell-mut);font-size:14px;max-width:80ch}
+  .note b{color:var(--shell-fg);font-weight:600}
+  .note code{font:400 13px 'IBM Plex Mono',monospace;color:#c9c5bc}
+</style>
+</head>
+<body>
+<div class="shell">
+  <h1>Paraguay Frontier — Direction A, “The Record”</h1>
+  <p class="sub">Homepage design preview. A dossier, not a brochure: the catch is stated above the pitch. Desktop 1440 above, mobile 390 below.</p>
+
+  <div class="lbl">Desktop — 1440 × auto</div>
+  <div class="dwrap" id="dwrap"><iframe id="d" title="Desktop homepage preview" scrolling="no"></iframe></div>
+
+  <div class="lbl">Mobile — 390 × 844 (scrolls)</div>
+  <div class="phone"><iframe id="m" title="Mobile homepage preview"></iframe></div>
+
+  <div class="note">
+    <p><b>Designer’s note.</b> Cool and institutional on purpose: ground <code>#EDF1EF</code>, surface white,
+    ink <code>#131A18</code>, hairlines <code>#D2DAD6</code>, one accent <code>#2F6B57</code> used only for
+    the primary CTA, the section numerals and the verified marker. It should look like it was made by people
+    who are not trying to excite you. Type: <b>Space Grotesk</b> display (technical, slightly odd, not
+    corporate), <b>Inter</b> body, <b>IBM Plex Mono</b> labels.</p>
+    <p><b>The idea to judge:</b> “What the catch is” is the section immediately after the hero — before the
+    routes, before the tax explainer, before any selling. Every competitor buries this in an FAQ. Putting it
+    at position one is the brand, and the dark inversion makes it the visual centre of the page as well as the
+    argument.</p>
+    <p><b>CRO:</b> the catch block is the highest-converting thing on a page like this — a sceptical reader
+    who sees their objection stated first stops looking for the trick; the route table gives each row its own
+    entry point; “presence” is a column in that table because it is the real buying question; the form asks
+    what you are weighing rather than demanding a phone number; sticky bottom bar on mobile carries one action
+    only.</p>
+  </div>
+</div>
+
+<script type="text/html" id="page">
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Paraguay Frontier — a second residency you can actually get</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#EDF1EF; --sur:#FFFFFF; --ink:#131A18; --ink2:#3D4A46; --mut:#6C7C77;
+  --line:#D2DAD6; --acc:#2F6B57; --dark:#111917;
+  --mono:'IBM Plex Mono',ui-monospace,monospace; --disp:'Space Grotesk',system-ui,sans-serif;
+  --sans:Inter,system-ui,sans-serif; --max:1140px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.68 var(--sans)}
+a{color:inherit}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 40px}
+.narrow{max-width:740px}
+h1,h2,h3,h4{font-family:var(--disp);font-weight:500;margin:0;letter-spacing:-.018em}
+.eyebrow{font:500 11px/1 var(--mono);letter-spacing:.18em;text-transform:uppercase;color:var(--mut)}
+.num{font:500 11px/1 var(--mono);letter-spacing:.14em;color:var(--acc)}
+hr.rule{height:1px;background:var(--line);border:0;margin:0}
+
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 24px;border:1px solid var(--acc);
+  background:var(--acc);color:#F2F7F5;font:600 15px/1 var(--sans);text-decoration:none;border-radius:2px;
+  transition:transform .15s ease,background .15s ease}
+.btn:hover{transform:translateY(-1px);background:#255744}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn.ghost:hover{border-color:var(--ink);background:transparent}
+.btn.sm{padding:11px 18px;font-size:14px}
+.btn.onDark{border-color:#F2F7F5;background:#F2F7F5;color:var(--dark)}
+.arrow{font-family:var(--mono);opacity:.8}
+
+.bar{position:sticky;top:0;z-index:50;background:rgba(237,241,239,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;gap:30px;height:68px}
+.brand{font:500 12px/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;text-decoration:none;white-space:nowrap}
+.brand b{color:var(--acc);font-weight:500}
+.bar nav{display:flex;gap:24px;margin-left:auto}
+.bar nav a{font-size:14px;color:var(--mut);text-decoration:none}
+.bar nav a:hover{color:var(--ink)}
+
+.hero{padding:92px 0 78px;background:var(--sur);border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+.hero .wrap{position:relative;z-index:2}
+.contour{position:absolute;right:-80px;bottom:-140px;width:620px;opacity:.5;z-index:1}
+.contour path{fill:none;stroke:var(--line);stroke-width:1.2}
+h1{font-size:66px;line-height:1.05;max-width:15ch;margin:22px 0 0}
+.lede{margin:24px 0 0;max-width:54ch;color:var(--ink2);font-size:19px}
+.cta-row{display:flex;gap:14px;margin:34px 0 0;flex-wrap:wrap}
+.assure{margin:24px 0 0;font:400 13px/1.7 var(--mono);color:var(--mut)}
+
+/* the catch — signature */
+.catch{background:var(--dark);color:#DCE6E2}
+.catch .wrap{padding-top:78px;padding-bottom:78px}
+.stamp{display:inline-flex;align-items:center;gap:10px;border:1px solid #3A4A45;padding:8px 14px;border-radius:2px;
+  font:500 10.5px/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:#8FB3A6}
+.catch h2{color:#F2F7F5;font-size:34px;line-height:1.35;max-width:34ch;margin:26px 0 0;font-weight:400}
+.catch .sub{color:#9BAAA5;max-width:62ch;margin:22px 0 0;font-size:16.5px}
+.catchgrid{display:grid;grid-template-columns:repeat(3,1fr);margin-top:52px;border-top:1px solid #2A3833}
+.cg{padding:28px 26px 28px 0;border-right:1px solid #2A3833}
+.cg:last-child{border-right:0;padding-right:0}
+.cg + .cg{padding-left:26px}
+.cg h4{color:#F2F7F5;font-size:17px;font-family:var(--sans);font-weight:600;margin:0 0 10px}
+.cg p{margin:0 0 16px;font-size:15px;line-height:1.6;color:#9BAAA5}
+.chip{display:inline-flex;align-items:center;gap:7px;font:500 10.5px/1 var(--mono);letter-spacing:.12em;
+  text-transform:uppercase;padding:6px 10px;border-radius:2px;border:1px solid var(--line);color:var(--mut)}
+.chip::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.chip.ok{color:var(--acc);border-color:rgba(47,107,87,.4)}
+.chip.un{border-style:dashed}
+.catch .chip{border-color:#3A4A45;color:#8FB3A6}
+
+section{padding:92px 0}
+.sec-head{display:flex;gap:26px;align-items:baseline;margin:0 0 12px}
+.sec-head h2{font-size:38px;line-height:1.14;max-width:22ch}
+.sec-sub{color:var(--mut);max-width:58ch;margin:0 0 38px;font-size:16px}
+
+/* route table */
+.tbl{border-top:1px solid var(--line)}
+.thead,.tr{display:grid;grid-template-columns:1fr 1.25fr 1.15fr 1fr auto;gap:24px}
+.thead{padding:0 14px 13px 0}
+.thead span{font:500 10.5px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--mut)}
+.tr{align-items:center;padding:24px 14px 24px 0;border-bottom:1px solid var(--line);text-decoration:none;
+  background:var(--sur);transition:background .16s ease,padding .16s ease}
+.tr:hover{background:#E4EBE8;padding-left:14px}
+.tr:hover .rname{color:var(--acc)}
+.rname{font-family:var(--disp);font-size:21px;font-weight:500;transition:color .16s}
+.rc{font-size:14.5px;color:var(--mut);line-height:1.5}
+.rc.b{color:var(--ink2)}
+
+/* tax split */
+.split{display:grid;grid-template-columns:1.2fr .8fr;gap:56px;align-items:start}
+.split p{color:var(--ink2);margin:0 0 18px}
+.ledger{border:1px solid var(--line);background:var(--sur)}
+.ledger h4{font:500 10.5px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--mut);
+  padding:16px 20px;border-bottom:1px solid var(--line);margin:0;font-weight:500}
+.ledger li{list-style:none;padding:14px 20px;border-bottom:1px solid var(--line);font-size:15px;display:flex;gap:12px}
+.ledger li:last-child{border-bottom:0}
+.ledger ul{margin:0;padding:0}
+.ledger .y{color:var(--acc);font-family:var(--mono);font-size:13px;padding-top:3px}
+.ledger .n{color:#9B5F55;font-family:var(--mono);font-size:13px;padding-top:3px}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(6,1fr);border-top:1px solid var(--line)}
+.step{padding:24px 18px 0 0;border-right:1px solid var(--line)}
+.step:last-child{border-right:0}
+.step + .step{padding-left:18px}
+.step b{display:block;font:500 11px/1 var(--mono);color:var(--acc);letter-spacing:.14em;margin-bottom:12px;font-weight:500}
+.step h4{font-family:var(--sans);font-size:15.5px;font-weight:600;margin:0 0 7px}
+.step p{margin:0;font-size:14px;line-height:1.55;color:var(--mut)}
+
+/* team + network */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.imgslot{aspect-ratio:5/3;border:1px solid var(--line);background:
+  repeating-linear-gradient(135deg,#E4EAE7 0 12px,#DDE5E1 12px 24px);display:flex;align-items:flex-end;padding:20px}
+.imgslot span{font:400 12px/1.5 var(--mono);color:var(--mut)}
+.netgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line);background:var(--sur)}
+.net{padding:26px;border-right:1px solid var(--line)}
+.net:last-child{border-right:0}
+.net b{display:block;font-family:var(--disp);font-size:17px;font-weight:500;margin-bottom:8px}
+.net p{margin:0;font-size:14.5px;color:var(--mut);line-height:1.55}
+
+details{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;list-style:none;padding:23px 0;display:flex;gap:18px;align-items:baseline;
+  font-family:var(--disp);font-size:21px;font-weight:500}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";margin-left:auto;font:400 20px var(--mono);color:var(--mut)}
+details[open] summary::after{content:"–"}
+details p{margin:0 0 24px;max-width:70ch;color:var(--ink2);font-size:16px}
+
+.form-sec{background:var(--sur);border-top:1px solid var(--line)}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+label{display:block;font:500 10.5px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--mut);margin:0 0 9px}
+input,select,textarea{width:100%;background:var(--bg);border:1px solid var(--line);color:var(--ink);
+  padding:14px 15px;font:400 16px var(--sans);border-radius:2px}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--acc);outline-offset:1px}
+.full{grid-column:1/-1}
+.micro{margin:15px 0 0;font-size:14px;color:var(--mut)}
+
+footer{border-top:1px solid var(--line);padding:56px 0 40px}
+.fgrid{display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:40px}
+.fgrid h5{font:500 10.5px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--mut);margin:0 0 18px;font-weight:500}
+.fgrid a{display:block;color:var(--ink2);text-decoration:none;font-size:15px;margin-bottom:11px}
+.fgrid a:hover{color:var(--acc)}
+.sibs{margin-top:44px;padding-top:24px;border-top:1px solid var(--line);font-size:14px;color:var(--mut)}
+.stickybar{display:none}
+:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+
+@media (max-width:860px){
+  .wrap{padding:0 20px}
+  .contour{display:none}
+  .hero{padding:48px 0 44px}
+  h1{font-size:37px;max-width:none}
+  .lede{font-size:17px}
+  .cta-row{flex-direction:column;align-items:stretch}
+  .btn{justify-content:center}
+  section{padding:52px 0}
+  .catch .wrap{padding-top:46px;padding-bottom:46px}
+  .catch h2{font-size:24px}
+  .catchgrid{grid-template-columns:1fr;margin-top:34px}
+  .cg{border-right:0;border-bottom:1px solid #2A3833;padding:22px 0}
+  .cg + .cg{padding-left:0}
+  .cg:last-child{border-bottom:0}
+  .sec-head{flex-direction:column;gap:8px}
+  .sec-head h2{font-size:28px}
+  .thead{display:none}
+  .tr{grid-template-columns:1fr;gap:8px;padding:20px 16px}
+  .tr:hover{padding-left:16px}
+  .split{grid-template-columns:1fr;gap:30px}
+  .steps{grid-template-columns:1fr}
+  .step{border-right:0;border-bottom:1px solid var(--line);padding:18px 0}
+  .step + .step{padding-left:0}
+  .step:last-child{border-bottom:0}
+  .two{grid-template-columns:1fr;gap:28px}
+  .netgrid{grid-template-columns:1fr}
+  .net{border-right:0;border-bottom:1px solid var(--line)}
+  .net:last-child{border-bottom:0}
+  summary{font-size:18px;padding:19px 0}
+  .form-grid{grid-template-columns:1fr}
+  .fgrid{grid-template-columns:1fr 1fr;gap:26px}
+  body{padding-bottom:76px}
+  .stickybar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:80;gap:10px;padding:12px 16px;
+    background:rgba(255,255,255,.97);border-top:1px solid var(--line)}
+  .stickybar .btn{flex:1;padding:15px 14px}
+  .stickybar .btn.ghost{flex:0 0 auto}
+}
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <div class="wrap">
+    <a class="brand" href="#top">Paraguay <b>Frontier</b></a>
+    <nav>
+      <a href="#catch">The catch</a>
+      <a href="#routes">Routes</a>
+      <a href="#tax">Tax</a>
+      <a href="#network">Our other sites</a>
+    </nav>
+    <a class="btn sm" href="#talk">Find your route <span class="arrow">&rarr;</span></a>
+  </div>
+</div>
+
+<main id="top">
+<div class="hero">
+  <svg class="contour" viewBox="0 0 620 420" aria-hidden="true">
+    <path d="M-20,300 C120,250 200,330 320,270 C440,210 520,260 640,215"/>
+    <path d="M-20,340 C120,292 205,368 325,310 C445,252 525,300 640,258"/>
+    <path d="M-20,380 C120,334 210,404 330,350 C450,296 530,340 640,300"/>
+    <path d="M-20,260 C120,208 195,292 315,230 C435,168 515,220 640,172"/>
+    <path d="M-20,220 C120,166 190,254 310,190 C430,126 510,180 640,130"/>
+  </svg>
+  <div class="wrap">
+    <span class="eyebrow">Paraguay Frontier · for Americans &amp; expats weighing a plan B</span>
+    <h1>A second residency you can actually get.</h1>
+    <p class="lede">Paraguay grants permanent residency without a million-dollar investment, a points test or
+      a decade of waiting. We handle the paperwork in Asunción. You decide how much of your life to move here.</p>
+    <div class="cta-row">
+      <a class="btn" href="#talk">Find your route <span class="arrow">&rarr;</span></a>
+      <a class="btn ghost" href="#catch">Read the catch first</a>
+    </div>
+    <p class="assure">Most of our clients never move here · you attend the appointments in person · we say what is unconfirmed</p>
+  </div>
+</div>
+
+<div class="catch" id="catch">
+  <div class="wrap">
+    <span class="stamp">The catch — stated first</span>
+    <h2>Paraguay is a real country with real bureaucracy, not a loophole.</h2>
+    <p class="sub">Documents take longer than a blog post suggests, some offices move slowly, and the presence
+      rules matter more than people admit online. We tell you this upfront because a client who knows what to
+      expect is easier to serve well than one who was sold a fantasy.</p>
+    <div class="catchgrid">
+      <div class="cg">
+        <h4>Presence rules are real</h4>
+        <p>Each status asks for some minimum contact with the country. What that means for a plan B rather
+          than a move is the first thing we go through with you — and it is not what most sites imply.</p>
+        <span class="chip un">Unconfirmed — we state it per case</span>
+      </div>
+      <div class="cg">
+        <h4>Timelines slip</h4>
+        <p>Not because anything is wrong, usually because one stamped translation is sitting in a queue. We
+          tell you when a week has gone quiet rather than letting you assume it hasn&rsquo;t.</p>
+        <span class="chip un">Unconfirmed — depends on your file</span>
+      </div>
+      <div class="cg">
+        <h4>&ldquo;Tax-free&rdquo; is not a thing</h4>
+        <p>Paraguay taxes territorially. That is genuinely useful if your income is sourced elsewhere, and it
+          is not the same claim. Your own country&rsquo;s rules are a question for your accountant.</p>
+        <span class="chip un">Unconfirmed — confirm with your accountant</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="routes">
+  <div class="wrap">
+    <div class="sec-head"><span class="num">01</span><h2>Three routes, compared honestly</h2></div>
+    <p class="sec-sub">None of these require you to give up your life elsewhere. Presence is a column because
+      it is the question that actually decides this.</p>
+    <div class="tbl">
+      <div class="thead"><span>Route</span><span>What it gives you</span><span>What it asks of you</span><span>Presence</span><span></span></div>
+      <a class="tr" href="#talk">
+        <span class="rname">Temporary residency</span>
+        <span class="rc b">The standard first step. Two years, then permanent.</span>
+        <span class="rc">Documents apostilled at home, appointments attended here.</span>
+        <span class="rc">Stated per case, not per blog post.</span>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="tr" href="#talk">
+        <span class="rname">Permanent residency</span>
+        <span class="rc b">The long-term card, and the cédula that comes with it.</span>
+        <span class="rc">More scrutiny, and the presence rules start to matter.</span>
+        <span class="rc">Stated per case, before you commit.</span>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="tr" href="#talk">
+        <span class="rname">Investor Pass</span>
+        <span class="rc b">Straight to permanent, with qualifying capital.</span>
+        <span class="rc">A structured investment. A sister brand of ours handles these.</span>
+        <span class="rc">Stated per case.</span>
+        <span class="arrow">&rarr;</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section id="tax">
+  <div class="wrap">
+    <div class="sec-head"><span class="num">02</span><h2>Territorial tax, without the hype</h2></div>
+    <p class="sec-sub">What it does, and the three things people wrongly think it does.</p>
+    <div class="split">
+      <div>
+        <p>Paraguay taxes territorially, which changes how foreign-source income is treated. If your income is
+          sourced outside Paraguay, that is a genuinely useful feature and one of the honest reasons people do
+          this.</p>
+        <p>It is not the same claim as &ldquo;tax-free&rdquo;, and we will never call it that. Becoming a
+          Paraguayan tax resident does not, by itself, end your obligations somewhere else — that depends on
+          your citizenship, your days, and rules we are not qualified to rule on. Confirm your own case with
+          your accountant before you make a decision on tax grounds.</p>
+        <p style="margin-bottom:0"><span class="chip un">Rate and treatment — unconfirmed here, stated with
+          sources on the Tax page</span></p>
+      </div>
+      <div class="ledger">
+        <h4>What it does / does not cover</h4>
+        <ul>
+          <li><span class="y">YES</span><span>Changes how foreign-source income is treated in Paraguay.</span></li>
+          <li><span class="y">YES</span><span>Gives you a tax ID (RUC) you can actually use.</span></li>
+          <li><span class="n">NO</span><span>Does not end your home country&rsquo;s claim on you.</span></li>
+          <li><span class="n">NO</span><span>Does not make you tax-resident anywhere by itself.</span></li>
+          <li><span class="n">NO</span><span>Is not advice — your accountant rules on your case.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section>
+  <div class="wrap">
+    <div class="sec-head"><span class="num">03</span><h2>What a case actually looks like</h2></div>
+    <div class="steps">
+      <div class="step"><b>01</b><h4>Call</h4><p>What you are weighing, and whether Paraguay is even the right answer.</p></div>
+      <div class="step"><b>02</b><h4>Written scope</h4><p>Cost, timeline and presence rules, in writing, before you commit.</p></div>
+      <div class="step"><b>03</b><h4>Documents</h4><p>Apostilles and translations, listed for your nationality.</p></div>
+      <div class="step"><b>04</b><h4>You come here</h4><p>The part nobody can do for you. A few days in Asunción, scheduled together.</p></div>
+      <div class="step"><b>05</b><h4>Filing</h4><p>Submitted and walked through the office by us, with status you can see.</p></div>
+      <div class="step"><b>06</b><h4>Card &amp; RUC</h4><p>Residency card and tax ID. Then you go back to your life.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--sur);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="two">
+      <div>
+        <span class="eyebrow">04 — Who files this</span>
+        <h2 style="margin-top:18px;font-size:34px">A small team in Asunción, not a network of referrals.</h2>
+        <p style="color:var(--ink2);margin-top:22px">The people who answer your first email are the people who
+          walk your file through the office. That is the whole reason the timelines above are stated the way
+          they are: we are the ones standing in the queue.</p>
+        <p style="color:var(--ink2)">No headshots against a skyline here until we have real ones of the real
+          team.</p>
+      </div>
+      <div class="imgslot"><span>PHOTO SLOT — the team at the Asunción office, ordinary working daylight. Not a boardroom, not a skyline, not a handshake.</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="network">
+  <div class="wrap">
+    <div class="sec-head"><span class="num">05</span><h2>We run other sites. Here is which is which.</h2></div>
+    <p class="sec-sub">Same team, same filing, different front door. Owning that is more credible than having
+      you discover it.</p>
+    <div class="netgrid">
+      <div class="net"><b>Paraguay Residency</b><p>The hub. For people already committed to Paraguay as a
+        primary base, with the full service list and pricing.</p></div>
+      <div class="net"><b>Paraguay Residency Guide</b><p>A written guide, if you would rather understand the
+        process and do parts of it yourself.</p></div>
+      <div class="net"><b>Paraguay Investor Pass</b><p>Permanent residency by qualifying investment, for a
+        different ticket size entirely.</p></div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section>
+  <div class="wrap narrow">
+    <div class="sec-head"><span class="num">06</span><h2>The four questions we always get</h2></div>
+    <details open>
+      <summary>Do I have to actually move to Paraguay?</summary>
+      <p>No. You need to show up for the appointments in person — we schedule them together — but keeping the
+        rest of your life where it is now is exactly what &ldquo;plan B&rdquo; means here. The presence rules
+        for each status are what decide the rest, and we state them for your case rather than in general.</p>
+    </details>
+    <details>
+      <summary>Is Paraguay really &ldquo;tax-free&rdquo;?</summary>
+      <p>No, and we will not tell you it is. Paraguay taxes territorially, which changes how foreign-source
+        income is treated — see above for what that does and does not cover, and confirm your own case with
+        an accountant.</p>
+    </details>
+    <details>
+      <summary>What is the catch?</summary>
+      <p>It is the second section of this page, not the last. Real bureaucracy, real timelines, real presence
+        rules. We would rather lose the client who wanted a fantasy than serve them badly.</p>
+    </details>
+    <details>
+      <summary>How is this different from your other sites?</summary>
+      <p>Same team, same filing, different framing. This site is built for people weighing optionality — a
+        reserve residency and tax ID, maybe land, maybe a business, full relocation maybe never. If you are
+        already committed to Paraguay as a primary base, the hub site speaks more directly to that.</p>
+    </details>
+  </div>
+</section>
+
+<section class="form-sec" id="talk">
+  <div class="wrap narrow">
+    <span class="eyebrow">Start here</span>
+    <h2 style="font-size:36px;margin:16px 0 0">Tell us what you are weighing.</h2>
+    <p style="color:var(--ink2);margin:16px 0 34px">Not &ldquo;book a call&rdquo; — just tell us the
+      situation. You get a written read on which route fits, including &ldquo;none of them yet&rdquo; when
+      that is the honest answer.</p>
+    <form class="form-grid" onsubmit="return false">
+      <div><label for="n">Name</label><input id="n" type="text" autocomplete="name"></div>
+      <div><label for="e">Email</label><input id="e" type="email" autocomplete="email"></div>
+      <div><label for="c">Where you are now</label><input id="c" type="text" autocomplete="country-name" placeholder="Country"></div>
+      <div><label for="w">What you are weighing</label>
+        <select id="w"><option>A reserve residency, nothing more</option><option>Residency plus a tax ID</option><option>Land or a business here</option><option>An actual move</option><option>Still working that out</option></select></div>
+      <div class="full"><label for="m">Anything we should know</label><textarea id="m" rows="3"></textarea></div>
+      <div class="full">
+        <button class="btn" type="submit">Send it <span class="arrow">&rarr;</span></button>
+        <p class="micro">A person replies within one business day, from Asunción. No sequence, no sales call
+          you have to escape from. Prefer WhatsApp? <a href="#" style="color:var(--acc)">Message us there instead</a>.</p>
+      </div>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <a class="brand" href="#top">Paraguay <b>Frontier</b></a>
+        <p style="color:var(--mut);font-size:14px;margin-top:16px;max-width:32ch">A second residency and a tax
+          ID you can hold in reserve. Filed in Asunción.</p>
+      </div>
+      <div><h5>Routes</h5><a href="#routes">Temporary</a><a href="#routes">Permanent</a><a href="#routes">Investor Pass</a><a href="#talk">Route finder</a></div>
+      <div><h5>Reading</h5><a href="#catch">The catch</a><a href="#tax">Tax</a><a href="#">Why Paraguay</a><a href="#">Stories</a></div>
+      <div><h5>Legal</h5><a href="#">Privacy</a><a href="#">Terms</a></div>
+    </div>
+    <p class="sibs">Same team, different front doors: <a href="#">Paraguay Residency</a> · <a href="#">Paraguay Residency Guide</a> ·
+      <a href="#">Paraguay Investor Pass</a> · <a href="#">Residencia en Paraguay</a> · <a href="#">Vida no Paraguai</a> · <a href="#">Flytta till Paraguay</a></p>
+  </div>
+</footer>
+
+<div class="stickybar">
+  <a class="btn" href="#talk">Find your route</a>
+  <a class="btn ghost" href="#catch">The catch</a>
+</div>
+
+</body>
+</html>
+</script>
+
+<script>
+  var src = document.getElementById('page').textContent;
+  var d = document.getElementById('d'), m = document.getElementById('m'), dwrap = document.getElementById('dwrap');
+  m.srcdoc = src;
+  d.style.width = '1440px'; d.style.height = '3000px'; d.srcdoc = src;
+  function fit(){
+    var scale = Math.min(1, dwrap.clientWidth / 1440);
+    d.style.transform = 'scale(' + scale + ')';
+    try {
+      var h = d.contentDocument.documentElement.scrollHeight;
+      d.style.height = h + 'px';
+      dwrap.style.height = (h * scale) + 'px';
+    } catch (e) {}
+  }
+  d.addEventListener('load', function(){ fit(); setTimeout(fit, 400); setTimeout(fit, 1200); });
+  window.addEventListener('resize', fit);
+</script>
+</body>
+</html>
