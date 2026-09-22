@@ -81,7 +81,7 @@ export default function Page() {
         <ol className="mt-[var(--space-12)] space-y-[var(--space-8)]">
           {STEPS.map((step) => (
             <li key={step.title} className="border-l-2 border-[var(--accent)] pl-[var(--space-6)]">
-              <Heading level={3}>{step.title}</Heading>
+              <h2 className="font-[family-name:var(--display-font)] leading-[var(--leading-tight)] tracking-[-0.01em] text-balance hyphens-auto [overflow-wrap:anywhere] text-(length:--text-xl)">{step.title}</h2>
               <p className="mt-[var(--space-2)] text-[var(--fg-muted)]">{step.body}</p>
             </li>
           ))}
@@ -92,7 +92,7 @@ export default function Page() {
           <p className="mt-[var(--space-2)] text-[var(--fg-muted)]">
             The steps above are the same for everyone; the documents and their timing are not.
           </p>
-          <div className="mt-[var(--space-6)] overflow-x-auto">
+          <div tabIndex={0} role="region" aria-label="By nationality" className="mt-[var(--space-6)] overflow-x-auto">
             <table className="w-full min-w-[28rem] border-collapse text-left text-(length:--text-sm)">
               <thead>
                 <tr className="border-b border-[var(--border)] text-[var(--fg-muted)]">

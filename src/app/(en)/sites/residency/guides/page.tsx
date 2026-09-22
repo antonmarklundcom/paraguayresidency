@@ -28,7 +28,7 @@ export default function Page() {
         <p className="mt-[var(--space-2)] max-w-[var(--measure)] text-[var(--fg-muted)]">{description}</p>
         <div className="mt-[var(--space-10)] grid gap-[var(--space-6)] sm:grid-cols-2 lg:grid-cols-3">
           {hubs.map((hub) => (
-            <Card key={hub} title={labels[hub] ?? hub} href={path + '/' + hub}>
+            <Card headingLevel={2} key={hub} title={labels[hub] ?? hub} href={path + '/' + hub}>
               {"Articles about " + (labels[hub] ?? hub).toLocaleLowerCase('en-US') + '.'}
             </Card>
           ))}

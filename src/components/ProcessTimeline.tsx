@@ -5,7 +5,8 @@ import type { SiteKey } from '@/sites/registry';
 export type ProcessRoute = 'temporary' | 'permanent' | 'cedula' | 'tax' | 'family' | 'standard' | 'investor';
 
 /** Presentational only: processing estimates and card validity are separate facts. */
-export function ProcessTimeline({ site, route }: { site: SiteKey; route: ProcessRoute }) {
+export function ProcessTimeline({ site, route, headingLevel = 3 }: { site: SiteKey; route: ProcessRoute; headingLevel?: 2 | 3 | 4 }) {
+  const StepHeading = `h${headingLevel}` as const;
   const timeline = route === 'cedula' ? 'cedula.timeline'
     : route === 'tax' ? 'tax.timeline'
     : route === 'investor' ? 'investorpass.timeline' : 'residency.timeline';
@@ -23,7 +24,7 @@ export function ProcessTimeline({ site, route }: { site: SiteKey; route: Process
       <ol className="grid list-decimal gap-[var(--space-6)] pl-[var(--space-6)]">
         {steps.map(step => (
           <li key={step.title} className="pl-[var(--space-2)]">
-            <h3 className="font-semibold">{t(site, `process.${step.title}`)}</h3>
+            <StepHeading className="font-semibold">{t(site, `process.${step.title}`)}</StepHeading>
             <p className="mt-[var(--space-2)] text-[var(--fg-muted)]">{t(site, `process.${step.body}`)}</p>
             <p className="mt-[var(--space-2)] text-(length:--text-sm)"><strong>{t(site, 'process.duration')}: </strong>{step.duration}</p>
           </li>
