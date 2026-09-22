@@ -107,7 +107,7 @@ export function resolvePrivateFile(fileKey: string | null | undefined): string |
   if (isAbsolute(fileKey) || /^[a-zA-Z]:[\\/]/.test(fileKey)) return null;
 
   const root = privateRoot();
-  const candidate = resolve(join(root, normalize(fileKey)));
+  const candidate = resolve(join(/* turbopackIgnore: true */ root, normalize(fileKey)));
   if (candidate !== root && !candidate.startsWith(root + sep)) return null;
   return candidate;
 }

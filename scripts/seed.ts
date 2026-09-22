@@ -21,6 +21,7 @@ import {
 } from '../src/db/schema';
 import { getFact, factKeys } from '../content/shared/facts';
 import { GUIDE_ENTRY_SLUG, GUIDE_INSIDER_SLUG } from '../src/sites/registry';
+import { DEFAULT_GUIDE_PRICE_CENTS } from '../src/lib/pricing-defaults';
 
 function positiveInt(name: string, fallback: number): number {
   const raw = process.env[name];
@@ -102,7 +103,7 @@ async function main() {
   //    Missing Lemon Squeezy keys never block (plan §4.5): the Insider row is
   //    seeded INACTIVE, and the checkout answers "coming soon" until the
   //    variant id is set.
-  const entryPrice = positiveInt('GUIDE_PRICE_CENTS', 700);
+  const entryPrice = positiveInt('GUIDE_PRICE_CENTS', DEFAULT_GUIDE_PRICE_CENTS);
   const insiderPrice = positiveInt('INSIDER_PRICE_CENTS', 900);
   const insiderVariant = (process.env.LEMONSQUEEZY_INSIDER_VARIANT_ID ?? '').trim() || null;
   const insiderInterval = process.env.INSIDER_INTERVAL === 'year' ? 'year' : 'month';
