@@ -13,6 +13,10 @@ const labels: Record<string, string> = {
   "vivir-en-paraguay": "Vivir en Paraguay"
 };
 
+// Content is fixed at build time. Reject unknown params at the router so
+// global-not-found supplies the branded document before SSR can throw.
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return getHubs('residenciaes').filter((hub) => getHub('residenciaes', hub).some((post) => !post.frontmatter.draft)).map((hub) => ({ hub }));
 }

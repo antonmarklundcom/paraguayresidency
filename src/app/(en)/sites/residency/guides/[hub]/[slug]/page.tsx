@@ -18,6 +18,10 @@ const HUB_SERVICE: Record<string, ArticleLink> = {
   comparisons: { label: 'Permanent residency', href: '/residency/permanent-residency' },
 };
 
+// Content is fixed at build time. Reject unknown params at the router so
+// global-not-found supplies the branded document before SSR can throw.
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return getPages('residency').map((page) => ({ hub: page.hub, slug: page.slug }));
 }

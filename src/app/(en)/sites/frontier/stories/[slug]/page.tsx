@@ -7,6 +7,10 @@ type Params = Promise<{ slug: string }>;
 
 const SERVICE_LINK: ArticleLink = { label: 'Compare the three routes', href: '/routes' };
 
+// Content is fixed at build time. Reject unknown params at the router so
+// global-not-found supplies the branded document before SSR can throw.
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return getHub('frontier', 'stories').map((page) => ({ slug: page.slug }));
 }
