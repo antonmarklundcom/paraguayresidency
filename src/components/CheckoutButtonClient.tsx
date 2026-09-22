@@ -44,7 +44,7 @@ export function CheckoutButtonClient({
 
   if (!enabled) {
     return (
-      <span className="inline-flex items-center rounded-[var(--radius-brand)] border border-[var(--border)] px-5 py-3 text-[var(--text-sm)] text-[var(--fg-muted)]">
+      <span className="inline-flex items-center rounded-[var(--radius-brand)] border border-[var(--border)] px-5 py-3 text-(length:--text-sm) text-[var(--fg-muted)]">
         {labels.unavailable}
       </span>
     );
@@ -98,18 +98,18 @@ export function CheckoutButtonClient({
             value={email}
             onChange={(event) => setEmail(event.target.value)}
             placeholder={labels.emailPlaceholder ?? 'you@example.com'}
-            className="rounded-[var(--radius-brand)] border border-[var(--border)] px-4 py-3 text-[var(--text-sm)]"
+            className="rounded-[var(--radius-brand)] border border-[var(--border)] px-4 py-3 text-(length:--text-sm)"
           />
           <button
             type="submit"
             disabled={busy}
-            className="inline-flex items-center justify-center rounded-[var(--radius-brand)] bg-[var(--accent)] px-6 py-3.5 text-[var(--text-sm)] font-medium text-[var(--accent-fg)] transition-opacity hover:opacity-90 disabled:opacity-60"
+            className="inline-flex items-center justify-center rounded-[var(--radius-brand)] bg-[var(--accent)] px-6 py-3.5 text-(length:--text-sm) font-medium text-[var(--accent-fg)] transition-opacity hover:opacity-90 disabled:opacity-60"
           >
             {busy ? labels.starting : (labels.emailSubmit ?? labels.buy)}
           </button>
         </span>
         {error ? (
-          <span role="alert" className="text-[var(--text-xs)] text-[var(--danger)]">
+          <span role="alert" className="text-(length:--text-xs) text-[var(--danger)]">
             {error}
           </span>
         ) : null}
@@ -123,12 +123,12 @@ export function CheckoutButtonClient({
         type="button"
         onClick={() => start()}
         disabled={busy}
-        className="inline-flex items-center justify-center rounded-[var(--radius-brand)] bg-[var(--accent)] px-6 py-3.5 text-[var(--text-sm)] font-medium text-[var(--accent-fg)] transition-opacity hover:opacity-90 disabled:opacity-60"
+        className="inline-flex items-center justify-center rounded-[var(--radius-brand)] bg-[var(--accent)] px-6 py-3.5 text-(length:--text-sm) font-medium text-[var(--accent-fg)] transition-opacity hover:opacity-90 disabled:opacity-60"
       >
         {busy ? labels.starting : labels.buy}
       </button>
       {error ? (
-        <span role="alert" className="text-[var(--text-xs)] text-[var(--danger)]">
+        <span role="alert" className="text-(length:--text-xs) text-[var(--danger)]">
           {error}
         </span>
       ) : null}

@@ -15,14 +15,14 @@ export default async function Page() {
 
   return (
     <>
-      <h1 className="font-[family-name:var(--display-font)] text-[var(--text-2xl)]">Purchases</h1>
-      <p className="mt-2 text-[var(--text-sm)] text-[var(--fg-muted)]">
+      <h1 className="font-[family-name:var(--display-font)] text-(length:--text-2xl)">Purchases</h1>
+      <p className="mt-2 text-(length:--text-sm) text-[var(--fg-muted)]">
         One-time checkouts from either provider. Recurring memberships are in the
         subscriptions table below.
       </p>
 
       {unavailable ? (
-        <p className={`${panel} mt-6 p-4 text-[var(--text-sm)] text-[var(--fg-muted)]`}>
+        <p className={`${panel} mt-6 p-4 text-(length:--text-sm) text-[var(--fg-muted)]`}>
           DATABASE_URL is not set on this server, so there is nothing to list.
         </p>
       ) : (
@@ -58,7 +58,7 @@ export default async function Page() {
                   <td className={td}>
                     {order.provider}
                     <br />
-                    <span className="text-[var(--text-xs)] text-[var(--fg-muted)]">
+                    <span className="text-(length:--text-xs) text-[var(--fg-muted)]">
                       {order.providerOrderId ?? order.providerCheckoutId}
                     </span>
                   </td>
@@ -103,7 +103,7 @@ export default async function Page() {
         </div>
       )}
 
-      <h2 className="mt-10 font-[family-name:var(--display-font)] text-[var(--text-xl)]">
+      <h2 className="mt-10 font-[family-name:var(--display-font)] text-(length:--text-xl)">
         Subscriptions
       </h2>
       {subs.unavailable ? null : (

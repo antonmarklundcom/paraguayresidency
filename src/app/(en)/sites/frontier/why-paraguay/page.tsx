@@ -60,7 +60,7 @@ export default function Page() {
         <Heading level={1} className="mt-[var(--space-8)]">
           The case for Paraguay as a plan B — and the catch on each point
         </Heading>
-        <p className="mt-[var(--space-4)] text-[var(--text-lg)] text-[var(--fg-muted)]">
+        <p className="mt-[var(--space-4)] text-(length:--text-lg) text-[var(--fg-muted)]">
           You have seen the pitch. Here is the same argument, with the part usually left out.
         </p>
 
@@ -69,7 +69,7 @@ export default function Page() {
             <div key={point.title} className="border-l-2 border-[var(--accent)] pl-[var(--space-6)]">
               <Heading level={2}>{point.title}</Heading>
               <p className="mt-[var(--space-2)] text-[var(--fg-muted)]">{point.body}</p>
-              <p className="mt-[var(--space-3)] text-[var(--text-sm)] text-[var(--fg-muted)]">
+              <p className="mt-[var(--space-3)] text-(length:--text-sm) text-[var(--fg-muted)]">
                 <strong className="text-[var(--fg)]">The catch: </strong>
                 {point.counter}
               </p>

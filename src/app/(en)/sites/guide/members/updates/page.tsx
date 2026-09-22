@@ -31,7 +31,7 @@ export default async function Page() {
   return (
     <Section>
       <Container width="narrow">
-        <p className="text-[var(--text-sm)]">
+        <p className="text-(length:--text-sm)">
           <Link href="/members" className="hover:text-[var(--accent)]">
             ← Back to your modules
           </Link>
@@ -54,7 +54,7 @@ export default async function Page() {
                   key={post.slug}
                   className="border-b border-[var(--border)] pb-[var(--space-8)] last:border-none"
                 >
-                  <p className="text-[var(--text-xs)] tracking-[0.14em] text-[var(--fg-muted)] uppercase">
+                  <p className="text-(length:--text-xs) tracking-[0.14em] text-[var(--fg-muted)] uppercase">
                     {formatDate(post.publishedAt)}
                   </p>
                   <Heading level={2} className="mt-[var(--space-2)]">
@@ -70,7 +70,7 @@ export default async function Page() {
                       <div className="mt-[var(--space-4)]">
                         <Link
                           href="/insider"
-                          className="inline-flex items-center rounded-[var(--radius-brand)] bg-[var(--accent)] px-5 py-3 text-[var(--text-sm)] font-medium text-[var(--accent-fg)] hover:opacity-90"
+                          className="inline-flex items-center rounded-[var(--radius-brand)] bg-[var(--accent)] px-5 py-3 text-(length:--text-sm) font-medium text-[var(--accent-fg)] hover:opacity-90"
                         >
                           See what Insider includes
                         </Link>

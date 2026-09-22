@@ -19,18 +19,18 @@ export function ProcessTimeline({ site, route }: { site: SiteKey; route: Process
 
   return (
     <section aria-label={t(site, 'process.title')} className="not-prose my-[var(--space-12)] space-y-[var(--space-8)]">
-      <h2 className="font-[family-name:var(--display-font)] text-[var(--text-2xl)]">{t(site, 'process.title')}</h2>
+      <h2 className="font-[family-name:var(--display-font)] text-(length:--text-2xl)">{t(site, 'process.title')}</h2>
       <ol className="grid list-decimal gap-[var(--space-6)] pl-[var(--space-6)]">
         {steps.map(step => (
           <li key={step.title} className="pl-[var(--space-2)]">
             <h3 className="font-semibold">{t(site, `process.${step.title}`)}</h3>
             <p className="mt-[var(--space-2)] text-[var(--fg-muted)]">{t(site, `process.${step.body}`)}</p>
-            <p className="mt-[var(--space-2)] text-[var(--text-sm)]"><strong>{t(site, 'process.duration')}: </strong>{step.duration}</p>
+            <p className="mt-[var(--space-2)] text-(length:--text-sm)"><strong>{t(site, 'process.duration')}: </strong>{step.duration}</p>
           </li>
         ))}
       </ol>
       <aside className="rounded-[var(--radius-brand)] border border-[var(--border)] bg-[var(--surface-alt)] p-[var(--space-6)]">
-        <h2 className="font-[family-name:var(--display-font)] text-[var(--text-xl)]">{t(site, 'process.trustTitle')}</h2>
+        <h2 className="font-[family-name:var(--display-font)] text-(length:--text-xl)">{t(site, 'process.trustTitle')}</h2>
         <p className="mt-[var(--space-3)] text-[var(--fg-muted)]">{t(site, 'process.trustBody')}</p>
       </aside>
     </section>

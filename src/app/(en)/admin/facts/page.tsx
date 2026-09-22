@@ -23,8 +23,8 @@ export default async function Page() {
 
   return (
     <>
-      <h1 className="font-[family-name:var(--display-font)] text-[var(--text-2xl)]">Facts</h1>
-      <p className="mt-2 max-w-[46rem] text-[var(--text-sm)] text-[var(--fg-muted)]">
+      <h1 className="font-[family-name:var(--display-font)] text-(length:--text-2xl)">Facts</h1>
+      <p className="mt-2 max-w-[46rem] text-(length:--text-sm) text-[var(--fg-muted)]">
         Every figure on the three sites renders through <code>&lt;Fact&gt;</code>. While a fact is
         unverified the pages show hedged wording instead of the number. Recording verification here
         is the signal that the hedged wording may be replaced — the copy itself still changes in a
@@ -32,7 +32,7 @@ export default async function Page() {
       </p>
 
       {unavailable ? (
-        <p className={`${panel} mt-6 p-4 text-[var(--text-sm)] text-[var(--fg-muted)]`}>
+        <p className={`${panel} mt-6 p-4 text-(length:--text-sm) text-[var(--fg-muted)]`}>
           DATABASE_URL is not set on this server, so verification cannot be recorded.
         </p>
       ) : null}
@@ -70,7 +70,7 @@ export default async function Page() {
                       <span className="text-[var(--fg-muted)]">not verified</span>
                     )}
                     {record?.note ? (
-                      <div className="mt-1 text-[var(--text-xs)] text-[var(--fg-muted)]">
+                      <div className="mt-1 text-(length:--text-xs) text-[var(--fg-muted)]">
                         {record.note}
                       </div>
                     ) : null}

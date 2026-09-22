@@ -14,7 +14,7 @@ function Submit({ labels, pending }: { labels: NewsletterLabels; pending: boolea
     <button
       type="submit"
       disabled={pending}
-      className="rounded-[var(--radius-brand)] bg-[var(--accent)] px-5 py-3 text-[var(--text-sm)] font-medium text-[var(--accent-fg)] transition-opacity hover:opacity-90 disabled:opacity-60"
+      className="rounded-[var(--radius-brand)] bg-[var(--accent)] px-5 py-3 text-(length:--text-sm) font-medium text-[var(--accent-fg)] transition-opacity hover:opacity-90 disabled:opacity-60"
     >
       {pending ? labels.sending : labels.submit}
     </button>
@@ -42,7 +42,7 @@ export function NewsletterFormFields({
 }) {
   if (state.status === 'ok') {
     return (
-      <p role="status" className="text-[var(--text-sm)] text-[var(--fg)]">
+      <p role="status" className="text-(length:--text-sm) text-[var(--fg)]">
         {state.message}
       </p>
     );
@@ -72,16 +72,16 @@ export function NewsletterFormFields({
           required
           autoComplete="email"
           placeholder={labels.email}
-          className="min-w-[16rem] flex-1 rounded-[var(--radius)] border border-[var(--border)] bg-[var(--surface)] px-3 py-2.5 text-[var(--text-sm)] text-[var(--fg)] outline-none focus:border-[var(--accent)]"
+          className="min-w-[16rem] flex-1 rounded-[var(--radius)] border border-[var(--border)] bg-[var(--surface)] px-3 py-2.5 text-(length:--text-sm) text-[var(--fg)] outline-none focus:border-[var(--accent)]"
         />
         <Submit labels={labels} pending={pending} />
       </div>
       {state.status === 'error' ? (
-        <p role="alert" className="text-[var(--text-xs)] text-[var(--danger)]">
+        <p role="alert" className="text-(length:--text-xs) text-[var(--danger)]">
           {state.message}
         </p>
       ) : (
-        <p className="text-[var(--text-xs)] text-[var(--fg-muted)]">{labels.note}</p>
+        <p className="text-(length:--text-xs) text-[var(--fg-muted)]">{labels.note}</p>
       )}
     </form>
   );

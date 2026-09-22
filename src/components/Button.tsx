@@ -4,7 +4,7 @@ import type { ReactNode } from 'react';
 type Variant = 'primary' | 'secondary' | 'ghost';
 
 const base =
-  'inline-flex items-center justify-center gap-2 rounded-[var(--radius-brand)] px-5 py-3 text-[var(--text-sm)] font-medium transition-[background-color,color,border-color] duration-[var(--duration)] ease-[var(--ease)]';
+  'inline-flex items-center justify-center gap-2 rounded-[var(--radius-brand)] px-5 py-3 text-(length:--text-sm) font-medium transition-[background-color,color,border-color] duration-[var(--duration)] ease-[var(--ease)]';
 
 const variants: Record<Variant, string> = {
   primary: 'bg-[var(--accent)] text-[var(--accent-fg)] hover:opacity-90',

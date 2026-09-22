@@ -31,7 +31,7 @@ export default function Page() {
         <Heading level={1} className="mt-[var(--space-8)]">
           Residencia permanente en un solo paso
         </Heading>
-        <p className="mt-[var(--space-4)] text-[var(--text-lg)] text-[var(--fg-muted)]">
+        <p className="mt-[var(--space-4)] text-(length:--text-lg) text-[var(--fg-muted)]">
           El Pase de Inversor permite que una inversión que califique se salte por completo la
           residencia temporal y vaya directa a la tarjeta permanente —{' '}
           <Fact k="investorpass.min_investment_usd" site="residenciaes" />, en cuatro rutas
@@ -50,7 +50,7 @@ export default function Page() {
             Ver la residencia permanente estándar
           </Button>
         </div>
-        <p className="mt-[var(--space-8)] text-[var(--text-sm)] text-[var(--fg-muted)]">
+        <p className="mt-[var(--space-8)] text-(length:--text-sm) text-[var(--fg-muted)]">
           ¿No sabes qué ruta encaja con tu capital y tu plazo?{' '}
           <a href="/route-finder" className="text-[var(--accent)] underline underline-offset-2">
             Haz el test de ruta

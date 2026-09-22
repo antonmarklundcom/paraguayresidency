@@ -42,7 +42,7 @@ export default function Page() {
         <Breadcrumbs site="investorpass" items={[{ label: 'Vs. standard residency', href: PATH }]} />
         <header className="mt-[var(--space-8)]">
           <Heading level={1}>The Pass buys time, not a different outcome</Heading>
-          <p className="mt-[var(--space-4)] text-[var(--text-lg)] text-[var(--fg-muted)]">
+          <p className="mt-[var(--space-4)] text-(length:--text-lg) text-[var(--fg-muted)]">
             Both paths end at the same permanent residency card. Here is when the qualifying
             investment is worth the money — and when it is not.
           </p>

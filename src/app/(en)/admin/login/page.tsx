@@ -10,8 +10,8 @@ export default async function Page() {
   if (await currentAdmin()) redirect('/admin/leads');
   return (
     <div className="mx-auto max-w-[26rem] rounded-[var(--radius)] border border-[var(--border)] bg-[var(--surface)] p-6">
-      <h1 className="font-[family-name:var(--display-font)] text-[var(--text-2xl)]">Sign in</h1>
-      <p className="mt-2 text-[var(--text-sm)] text-[var(--fg-muted)]">
+      <h1 className="font-[family-name:var(--display-font)] text-(length:--text-2xl)">Sign in</h1>
+      <p className="mt-2 text-(length:--text-sm) text-[var(--fg-muted)]">
         Admin accounts are created by <code>npm run db:seed</code>. There is no public signup.
       </p>
       <LoginForm />

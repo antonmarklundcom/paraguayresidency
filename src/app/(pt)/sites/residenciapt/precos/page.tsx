@@ -19,7 +19,7 @@ export default function Page() {
       <Container width="narrow">
         <Breadcrumbs site="residenciapt" items={[{ label: 'Preços', href: PATH }]} />
         <Heading level={1} className="mt-[var(--space-8)]">Honorário fixo, com os custos separados explicados antes de decidir</Heading>
-        <p className="mt-[var(--space-4)] text-[var(--text-lg)] text-[var(--fg-muted)]">A cotação começa numa consulta sobre sua nacionalidade, documentos, rota e planos de viagem. Combinamos o trabalho e o honorário fixo antes de você contratar. Não há calculadora automática: os documentos e as pessoas que vão solicitar definem o escopo.</p>
+        <p className="mt-[var(--space-4)] text-(length:--text-lg) text-[var(--fg-muted)]">A cotação começa numa consulta sobre sua nacionalidade, documentos, rota e planos de viagem. Combinamos o trabalho e o honorário fixo antes de você contratar. Não há calculadora automática: os documentos e as pessoas que vão solicitar definem o escopo.</p>
         <section className="mt-[var(--space-12)] border-t border-[var(--border)] pt-[var(--space-6)]" aria-labelledby="temporary">
           <Heading level={2} id="temporary"><a href="/residencia/temporaria" className="text-[var(--accent)] underline">Residência temporária</a></Heading>
           <p className="mt-[var(--space-4)] font-medium">Honorário do serviço: <Fact k="pricing.temporary" site="residenciapt" /></p>

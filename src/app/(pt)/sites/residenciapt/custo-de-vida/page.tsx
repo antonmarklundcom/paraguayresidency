@@ -20,7 +20,7 @@ export default function Page() {
         <Breadcrumbs site="residenciapt" items={[{ label: 'Custo de vida', href: PATH }]} />
         <header className="mt-[var(--space-8)]">
           <Heading level={1}>O custo de vida que o nome da marca promete</Heading>
-          <p className="mt-[var(--space-4)] text-[var(--text-lg)] text-[var(--fg-muted)]">
+          <p className="mt-[var(--space-4)] text-(length:--text-lg) text-[var(--fg-muted)]">
             Vida no Paraguai não é só o documento — é o orçamento do mês, e é sobre isso que
             ninguém no Brasil explica direito. Aqui vai o que sabemos por experiência real de
             clientes, sem inventar um número que parece preciso e não é.

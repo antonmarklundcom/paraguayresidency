@@ -53,12 +53,12 @@ export function QuizForm({ copy }: { copy: QuizCopy }) {
 
   return (
     <div className="max-w-[var(--container-narrow)]">
-      <p className="text-[var(--text-xs)] tracking-[0.14em] text-[var(--fg-muted)] uppercase">
+      <p className="text-(length:--text-xs) tracking-[0.14em] text-[var(--fg-muted)] uppercase">
         {copy.progress.replace('{step}', String(step + 1)).replace('{total}', String(total))}
       </p>
 
       <fieldset className="mt-[var(--space-6)] border-0 p-0">
-        <legend className="font-[family-name:var(--display-font)] text-[var(--text-2xl)] leading-[var(--leading-tight)]">
+        <legend className="font-[family-name:var(--display-font)] text-(length:--text-2xl) leading-[var(--leading-tight)]">
           {question.label}
         </legend>
         <p className="mt-[var(--space-2)] text-[var(--fg-muted)]">{question.help}</p>
@@ -69,7 +69,7 @@ export function QuizForm({ copy }: { copy: QuizCopy }) {
             return (
               <label
                 key={option.id}
-                className={`flex cursor-pointer items-center gap-3 rounded-[var(--radius-brand)] border px-4 py-3 text-[var(--text-sm)] transition-colors ${
+                className={`flex cursor-pointer items-center gap-3 rounded-[var(--radius-brand)] border px-4 py-3 text-(length:--text-sm) transition-colors ${
                   selected
                     ? 'border-[var(--accent)] bg-[var(--accent-soft)]'
                     : 'border-[var(--border)] bg-[var(--surface)] hover:border-[var(--accent)]'
@@ -95,7 +95,7 @@ export function QuizForm({ copy }: { copy: QuizCopy }) {
           <button
             type="button"
             onClick={() => setStep((s) => s - 1)}
-            className="text-[var(--text-sm)] underline underline-offset-4"
+            className="text-(length:--text-sm) underline underline-offset-4"
           >
             {copy.back}
           </button>
@@ -104,7 +104,7 @@ export function QuizForm({ copy }: { copy: QuizCopy }) {
           type="button"
           onClick={advance}
           disabled={!chosen}
-          className="ml-auto rounded-[var(--radius-brand)] bg-[var(--accent)] px-5 py-3 text-[var(--text-sm)] font-medium text-[var(--accent-fg)] transition-opacity hover:opacity-90 disabled:opacity-40"
+          className="ml-auto rounded-[var(--radius-brand)] bg-[var(--accent)] px-5 py-3 text-(length:--text-sm) font-medium text-[var(--accent-fg)] transition-opacity hover:opacity-90 disabled:opacity-40"
         >
           {isLast ? copy.see : copy.next}
         </button>

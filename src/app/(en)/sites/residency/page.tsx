@@ -179,7 +179,7 @@ export default function Page() {
             {actions}
           </div>
           {whatsapp && (
-            <p className="mt-[var(--space-6)] text-[var(--text-sm)]">
+            <p className="mt-[var(--space-6)] text-(length:--text-sm)">
               <a href={whatsapp} rel="noopener" className="text-[var(--accent)] underline underline-offset-2">
                 Or message us on WhatsApp
               </a>

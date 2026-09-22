@@ -98,7 +98,7 @@ export default async function Page() {
       {/* Promise */}
       <Section>
         <Container width="narrow">
-          <p className="text-[var(--text-lg)] text-[var(--fg-muted)]">
+          <p className="text-(length:--text-lg) text-[var(--fg-muted)]">
             Most residency information online is a blog post written once, half right, and never
             updated. This is the opposite: every step, document and cost we actually see, written
             down once by the team that files these cases every week — and kept current, because a
@@ -153,12 +153,12 @@ export default async function Page() {
       <Section tone="accent">
         <Container width="narrow">
           <Heading level={2}>A sample page</Heading>
-          <blockquote className="mt-[var(--space-6)] border-l-4 border-[var(--accent)] pl-[var(--space-6)] text-[var(--text-lg)] text-[var(--fg)] italic">
+          <blockquote className="mt-[var(--space-6)] border-l-4 border-[var(--accent)] pl-[var(--space-6)] text-(length:--text-lg) text-[var(--fg)] italic">
             &ldquo;Chapter 5, week 3: this is where most applications stall — not because
             anything is wrong, but because a single stamped translation is sitting in a queue.
             Start this document in week 1, not week 3, and the rest of the timeline holds.&rdquo;
           </blockquote>
-          <p className="mt-[var(--space-4)] text-[var(--text-sm)] text-[var(--fg-muted)]">
+          <p className="mt-[var(--space-4)] text-(length:--text-sm) text-[var(--fg-muted)]">
             That is the level of detail throughout — what actually happens, not a generic
             checklist.
           </p>

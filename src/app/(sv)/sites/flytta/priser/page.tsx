@@ -20,7 +20,7 @@ export default function Page() {
       <Container width="narrow">
         <Breadcrumbs site="flytta" items={[{ label: 'Priser', href: PATH }]} />
         <Heading level={1} className="mt-[var(--space-8)]">Ett fast arvode, med separata kostnader förklarade innan du bestämmer dig</Heading>
-        <p className="mt-[var(--space-4)] text-[var(--text-lg)] text-[var(--fg-muted)]">Offerten börjar med ett samtal om ditt medborgarskap, dina dokument, din väg och dina resplaner. Vi kommer överens om arbetet och det fasta arvodet innan du bestämmer dig. Det finns ingen automatisk kalkylator: dokumenten och vilka som ansöker avgör omfattningen.</p>
+        <p className="mt-[var(--space-4)] text-(length:--text-lg) text-[var(--fg-muted)]">Offerten börjar med ett samtal om ditt medborgarskap, dina dokument, din väg och dina resplaner. Vi kommer överens om arbetet och det fasta arvodet innan du bestämmer dig. Det finns ingen automatisk kalkylator: dokumenten och vilka som ansöker avgör omfattningen.</p>
         <section className="mt-[var(--space-12)] border-t border-[var(--border)] pt-[var(--space-6)]" aria-labelledby="temporary">
           <Heading level={2} id="temporary"><a href="/uppehallstillstand" className="text-[var(--accent)] underline">Tillfälligt uppehållstillstånd</a></Heading>
           <p className="mt-[var(--space-4)] font-medium">Arvode för tjänsten: <Fact k="pricing.temporary" site="flytta" /></p>

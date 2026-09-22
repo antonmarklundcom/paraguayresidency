@@ -25,7 +25,7 @@ export default async function Page() {
   return (
     <Section>
       <Container width="narrow">
-        <p className="text-[var(--text-sm)]">
+        <p className="text-(length:--text-sm)">
           <Link href="/members" className="hover:text-[var(--accent)]">
             ← Back to your modules
           </Link>
@@ -50,11 +50,11 @@ export default async function Page() {
                 >
                   <div className="flex items-center justify-between gap-[var(--space-4)]">
                     <div>
-                      <p className="font-[family-name:var(--display-font)] text-[var(--text-lg)]">
+                      <p className="font-[family-name:var(--display-font)] text-(length:--text-lg)">
                         {resource.title}
                       </p>
                       {resource.description && (
-                        <p className="mt-[var(--space-1)] text-[var(--text-sm)] text-[var(--fg-muted)]">
+                        <p className="mt-[var(--space-1)] text-(length:--text-sm) text-[var(--fg-muted)]">
                           {resource.description}
                         </p>
                       )}
@@ -62,14 +62,14 @@ export default async function Page() {
                     {unlocked ? (
                       <a
                         href={`/members/resources/${resource.slug}/download`}
-                        className="shrink-0 rounded-[var(--radius-brand)] bg-[var(--accent)] px-4 py-2 text-[var(--text-sm)] font-medium text-[var(--accent-fg)] hover:opacity-90"
+                        className="shrink-0 rounded-[var(--radius-brand)] bg-[var(--accent)] px-4 py-2 text-(length:--text-sm) font-medium text-[var(--accent-fg)] hover:opacity-90"
                       >
                         Download
                       </a>
                     ) : (
                       <Link
                         href="/insider"
-                        className="shrink-0 rounded-[var(--radius-brand)] border border-[var(--border)] px-4 py-2 text-[var(--text-sm)] hover:border-[var(--accent)]"
+                        className="shrink-0 rounded-[var(--radius-brand)] border border-[var(--border)] px-4 py-2 text-(length:--text-sm) hover:border-[var(--accent)]"
                       >
                         Insider only
                       </Link>

@@ -7,11 +7,11 @@ export function Footer({ site }: { site: SiteKey }) {
   const year = new Date().getUTCFullYear();
 
   return (
-    <footer className="mt-auto border-t border-[var(--border)] bg-[var(--surface)] py-[var(--space-12)] text-[var(--text-sm)]">
+    <footer className="mt-auto border-t border-[var(--border)] bg-[var(--surface)] py-[var(--space-12)] text-(length:--text-sm)">
       <div className="mx-auto w-full max-w-[var(--container)] px-5 sm:px-8">
         <div className="grid gap-[var(--space-8)] sm:grid-cols-2 lg:grid-cols-4">
           <div>
-            <p className="font-[family-name:var(--display-font)] text-[var(--text-lg)]">
+            <p className="font-[family-name:var(--display-font)] text-(length:--text-lg)">
               {config.name}
             </p>
             <p className="mt-[var(--space-2)] max-w-[36ch] text-[var(--fg-muted)]">
@@ -21,7 +21,7 @@ export function Footer({ site }: { site: SiteKey }) {
 
           {config.footer.columns.map((column) => (
             <div key={column.titleKey}>
-              <p className="text-[var(--text-xs)] tracking-[0.14em] text-[var(--fg-muted)] uppercase">
+              <p className="text-(length:--text-xs) tracking-[0.14em] text-[var(--fg-muted)] uppercase">
                 {t(site, column.titleKey)}
               </p>
               <ul className="mt-[var(--space-3)] space-y-[var(--space-2)]">
@@ -39,7 +39,7 @@ export function Footer({ site }: { site: SiteKey }) {
           {/* Cross-brand links — the funnel only works if every brand points
               at the other two (plan §1.2). */}
           <div>
-            <p className="text-[var(--text-xs)] tracking-[0.14em] text-[var(--fg-muted)] uppercase">
+            <p className="text-(length:--text-xs) tracking-[0.14em] text-[var(--fg-muted)] uppercase">
               {t(site, 'footer.siblings')}
             </p>
             <ul className="mt-[var(--space-3)] space-y-[var(--space-2)]">
@@ -68,7 +68,7 @@ export function Footer({ site }: { site: SiteKey }) {
             ))}
           </ul>
         </div>
-        <p className="mt-[var(--space-4)] max-w-[var(--measure)] text-[var(--text-xs)] text-[var(--fg-muted)]">
+        <p className="mt-[var(--space-4)] max-w-[var(--measure)] text-(length:--text-xs) text-[var(--fg-muted)]">
           {t(site, 'footer.disclaimer')}
         </p>
       </div>

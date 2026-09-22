@@ -18,7 +18,7 @@ export function Card({
   const body = (
     <>
       {eyebrow && (
-        <p className="mb-[var(--space-2)] text-[var(--text-xs)] tracking-[0.14em] text-[var(--fg-muted)] uppercase">
+        <p className="mb-[var(--space-2)] text-(length:--text-xs) tracking-[0.14em] text-[var(--fg-muted)] uppercase">
           {eyebrow}
         </p>
       )}

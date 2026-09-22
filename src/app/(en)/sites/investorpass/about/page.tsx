@@ -22,7 +22,7 @@ export default function Page() {
         <Heading level={1} className="mt-[var(--space-8)]">
           One team, a dedicated brand for a different kind of case
         </Heading>
-        <p className="mt-[var(--space-4)] text-[var(--text-lg)] text-[var(--fg-muted)]">
+        <p className="mt-[var(--space-4)] text-(length:--text-lg) text-[var(--fg-muted)]">
           Paraguay Investor Pass is run by the same team that files standard residency, cédula and
           tax cases every week in Asunción — on{' '}
           <a

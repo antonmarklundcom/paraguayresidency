@@ -15,7 +15,7 @@ export function FAQ({ items, title }: { items: FaqItem[]; title?: string }) {
       <dl className="mt-[var(--space-8)] divide-y divide-[var(--border)] border-y border-[var(--border)]">
         {items.map((item) => (
           <div key={item.question} className="py-[var(--space-6)]">
-            <dt className="font-[family-name:var(--display-font)] text-[var(--text-lg)]">
+            <dt className="font-[family-name:var(--display-font)] text-(length:--text-lg)">
               {item.question}
             </dt>
             <dd className="mt-[var(--space-2)] max-w-[var(--measure)] text-[var(--fg-muted)]">

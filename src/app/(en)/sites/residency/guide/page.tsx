@@ -23,7 +23,7 @@ export default function Page() {
         <Heading level={1} className="mt-[var(--space-8)]">
           Not ready for us to file it yet? Read it yourself first.
         </Heading>
-        <p className="mt-[var(--space-4)] text-[var(--text-lg)] text-[var(--fg-muted)]">
+        <p className="mt-[var(--space-4)] text-(length:--text-lg) text-[var(--fg-muted)]">
           Everything on this site describes the done-for-you service. If you would rather
           understand the whole process before booking anyone — the routes, the documents, the real
           costs, the mistakes people make — we wrote it down once, in one evening&apos;s worth of
@@ -37,7 +37,7 @@ export default function Page() {
             Or just book a call
           </Button>
         </div>
-        <p className="mt-[var(--space-8)] text-[var(--text-sm)] text-[var(--fg-muted)]">
+        <p className="mt-[var(--space-8)] text-(length:--text-sm) text-[var(--fg-muted)]">
           Buyers of the guide who decide they would rather have it handled are welcomed straight
           back here — the guide&apos;s thank-you page links to this team directly.
         </p>

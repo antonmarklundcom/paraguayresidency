@@ -37,7 +37,7 @@ export function ServicoPage({
         <Breadcrumbs site="residenciapt" items={[{ label: crumbLabel, href: path }]} />
         <header className="mt-[var(--space-8)]">
           <Heading level={1}>{title}</Heading>
-          <p className="mt-[var(--space-4)] text-[var(--text-lg)] text-[var(--fg-muted)]">
+          <p className="mt-[var(--space-4)] text-(length:--text-lg) text-[var(--fg-muted)]">
             {intro}
           </p>
         </header>
@@ -55,7 +55,7 @@ export function ServicoPage({
             <a
               href={whatsapp}
               rel="noopener"
-              className="mt-[var(--space-4)] inline-flex items-center gap-2 text-[var(--text-sm)] text-[var(--accent)] underline underline-offset-2"
+              className="mt-[var(--space-4)] inline-flex items-center gap-2 text-(length:--text-sm) text-[var(--accent)] underline underline-offset-2"
             >
               Ou mande uma mensagem no WhatsApp
             </a>

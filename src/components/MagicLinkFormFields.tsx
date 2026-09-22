@@ -31,7 +31,7 @@ export function MagicLinkFormFields({
   if (state.status === 'ok') {
     return (
       <div role="status">
-        <p className="font-[family-name:var(--display-font)] text-[var(--text-lg)]">
+        <p className="font-[family-name:var(--display-font)] text-(length:--text-lg)">
           {labels.sentTitle}
         </p>
         <p className="mt-[var(--space-2)] text-[var(--fg-muted)]">{labels.sentBody}</p>
@@ -45,7 +45,7 @@ export function MagicLinkFormFields({
       action={action}
     >
       <input type="hidden" name="site" value={site} />
-      {state.status === 'error' ? <p role="alert" className="text-[var(--text-sm)] text-[var(--danger)]">{state.message}</p> : null}
+      {state.status === 'error' ? <p role="alert" className="text-(length:--text-sm) text-[var(--danger)]">{state.message}</p> : null}
       <input type="hidden" name={TIMESTAMP_FIELD} value={timestamp} />
       <input
         type="text"
@@ -55,7 +55,7 @@ export function MagicLinkFormFields({
         aria-hidden="true"
         className="absolute h-px w-px overflow-hidden opacity-0"
       />
-      <label htmlFor={`${id}-email`} className="text-[var(--text-sm)]">
+      <label htmlFor={`${id}-email`} className="text-(length:--text-sm)">
         {labels.email}
       </label>
       <input
@@ -69,7 +69,7 @@ export function MagicLinkFormFields({
       <button
         type="submit"
         disabled={pending}
-        className="justify-self-start rounded-[var(--radius-brand)] bg-[var(--accent)] px-5 py-3 text-[var(--text-sm)] font-medium text-[var(--accent-fg)] transition-opacity hover:opacity-90 disabled:opacity-60"
+        className="justify-self-start rounded-[var(--radius-brand)] bg-[var(--accent)] px-5 py-3 text-(length:--text-sm) font-medium text-[var(--accent-fg)] transition-opacity hover:opacity-90 disabled:opacity-60"
       >
         {pending ? labels.sending : labels.submit}
       </button>

@@ -44,7 +44,7 @@ export default function Page() {
         <Breadcrumbs site="residenciaes" items={[{ label: 'Mercosur', href: PATH }]} />
         <header className="mt-[var(--space-8)]">
           <Heading level={1}>La vía Mercosur: quién califica y qué simplifica</Heading>
-          <p className="mt-[var(--space-4)] text-[var(--text-lg)] text-[var(--fg-muted)]">
+          <p className="mt-[var(--space-4)] text-(length:--text-lg) text-[var(--fg-muted)]">
             Si eres nacional de un país del Mercosur, hay{' '}
             <Fact k="mercosur.residency_route" site="residenciaes" />.
             No es una entrada automática ni un trámite distinto de cero — es el mismo proceso, con

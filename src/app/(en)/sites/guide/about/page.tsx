@@ -22,7 +22,7 @@ export default function Page() {
         <Heading level={1} className="mt-[var(--space-8)]">
           The guide we wish existed before we did this ourselves
         </Heading>
-        <p className="mt-[var(--space-4)] text-[var(--text-lg)] text-[var(--fg-muted)]">
+        <p className="mt-[var(--space-4)] text-(length:--text-lg) text-[var(--fg-muted)]">
           We run{' '}
           <a
             href={siteOrigin('residency')}

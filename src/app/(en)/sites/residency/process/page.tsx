@@ -63,7 +63,7 @@ export default function Page() {
         <Heading level={1} className="mt-[var(--space-8)]">
           What actually happens, step by step
         </Heading>
-        <p className="mt-[var(--space-4)] text-[var(--text-lg)] text-[var(--fg-muted)]">
+        <p className="mt-[var(--space-4)] text-(length:--text-lg) text-[var(--fg-muted)]">
           No step here is hidden until you have paid for it. This is the whole process, in the
           order it actually runs, for temporary residency, permanent residency and the cédula that
           follows.

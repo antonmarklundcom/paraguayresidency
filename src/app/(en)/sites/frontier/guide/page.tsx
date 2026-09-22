@@ -23,7 +23,7 @@ export default function Page() {
         <Heading level={1} className="mt-[var(--space-8)]">
           Not ready to commit? Read it yourself first.
         </Heading>
-        <p className="mt-[var(--space-4)] text-[var(--text-lg)] text-[var(--fg-muted)]">
+        <p className="mt-[var(--space-4)] text-(length:--text-lg) text-[var(--fg-muted)]">
           Everything on this site describes the done-for-you service, for people who already know
           they want a Paraguay residency in reserve. If you are still weighing whether Paraguay is
           the right plan B at all — the routes, the real costs, the presence rules, the mistakes
@@ -38,7 +38,7 @@ export default function Page() {
             Or just ask us
           </Button>
         </div>
-        <p className="mt-[var(--space-8)] text-[var(--text-sm)] text-[var(--fg-muted)]">
+        <p className="mt-[var(--space-8)] text-(length:--text-sm) text-[var(--fg-muted)]">
           Guide readers who decide they want it handled are welcomed straight back here — its
           thank-you page links to this team directly.
         </p>

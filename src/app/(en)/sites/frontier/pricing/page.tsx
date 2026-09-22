@@ -19,7 +19,7 @@ export default function Page() {
       <Container width="narrow">
         <Breadcrumbs site="frontier" items={[{ label: 'Pricing', href: PATH }]} />
         <Heading level={1} className="mt-[var(--space-8)]">A fixed service fee, with separate costs explained before you commit</Heading>
-        <p className="mt-[var(--space-4)] text-[var(--text-lg)] text-[var(--fg-muted)]">Your quote starts with a call about your nationality, documents, route and travel plans. We agree the work and fixed service fee before you commit. There is no self-service calculator: the document checklist and the people applying determine the scope.</p>
+        <p className="mt-[var(--space-4)] text-(length:--text-lg) text-[var(--fg-muted)]">Your quote starts with a call about your nationality, documents, route and travel plans. We agree the work and fixed service fee before you commit. There is no self-service calculator: the document checklist and the people applying determine the scope.</p>
         <section className="mt-[var(--space-12)] border-t border-[var(--border)] pt-[var(--space-6)]" aria-labelledby="temporary">
           <Heading level={2} id="temporary"><a href="/routes#temporary" className="text-[var(--accent)] underline">Temporary residency</a></Heading>
           <p className="mt-[var(--space-4)] font-medium">Service fee: <Fact k="pricing.temporary" site="frontier" /></p>

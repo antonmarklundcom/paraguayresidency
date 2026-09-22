@@ -19,7 +19,7 @@ export default async function AdminLayout({ children }: { children: ReactNode })
   return (
     <div data-theme="residency" className="min-h-screen bg-[var(--surface-alt)] text-[var(--fg)]">
       <header className="border-b border-[var(--border)] bg-[var(--surface)]">
-        <div className="mx-auto flex max-w-[76rem] flex-wrap items-center gap-4 px-5 py-3 text-[var(--text-sm)]">
+        <div className="mx-auto flex max-w-[76rem] flex-wrap items-center gap-4 px-5 py-3 text-(length:--text-sm)">
           <Link href="/admin/leads" className="font-medium">
             Admin
           </Link>

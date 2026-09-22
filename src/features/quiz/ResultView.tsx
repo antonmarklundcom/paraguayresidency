@@ -67,7 +67,7 @@ export function QuizResultView({
     <>
       <Section>
         <Container width="narrow">
-          <p className="text-[var(--text-xs)] tracking-[0.14em] text-[var(--fg-muted)] uppercase">
+          <p className="text-(length:--text-xs) tracking-[0.14em] text-[var(--fg-muted)] uppercase">
             {t(site, 'quiz.result.eyebrow')}
           </p>
           <Heading level={1} className="mt-[var(--space-4)]">
@@ -77,7 +77,7 @@ export function QuizResultView({
             {t(site, destination.bodyKey)}
           </p>
 
-          <ul className="mt-[var(--space-6)] grid gap-[var(--space-2)] text-[var(--text-sm)] text-[var(--fg-muted)]">
+          <ul className="mt-[var(--space-6)] grid gap-[var(--space-2)] text-(length:--text-sm) text-[var(--fg-muted)]">
             {ROUTE_FACTS[route].map((key) => (
               <li key={key}>
                 <Fact k={key} site={site} />
@@ -91,20 +91,20 @@ export function QuizResultView({
             </Button>
             <Link
               href="/route-finder"
-              className="text-[var(--text-sm)] underline underline-offset-4"
+              className="text-(length:--text-sm) underline underline-offset-4"
             >
               {t(site, 'quiz.result.retake')}
             </Link>
           </div>
 
           {!ownsRoute ? (
-            <p className="mt-[var(--space-4)] text-[var(--text-xs)] text-[var(--fg-muted)]">
+            <p className="mt-[var(--space-4)] text-(length:--text-xs) text-[var(--fg-muted)]">
               {t(site, 'quiz.result.sibling', { brand: destinationSite.name })}
             </p>
           ) : null}
 
           {empty ? (
-            <p className="mt-[var(--space-4)] text-[var(--text-xs)] text-[var(--fg-muted)]">
+            <p className="mt-[var(--space-4)] text-(length:--text-xs) text-[var(--fg-muted)]">
               {t(site, 'quiz.result.noAnswers')}
             </p>
           ) : null}

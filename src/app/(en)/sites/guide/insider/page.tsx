@@ -103,7 +103,7 @@ export default async function Page() {
       {comingSoon && (
         <Section tone="accent">
           <Container width="narrow">
-            <p className="text-center text-[var(--text-sm)] text-[var(--fg-muted)]">
+            <p className="text-center text-(length:--text-sm) text-[var(--fg-muted)]">
               Insider is opening shortly — the checkout below will activate as soon as it does.
             </p>
           </Container>

@@ -122,7 +122,7 @@ export default function Page() {
             <a
               href={whatsapp}
               rel="noopener"
-              className="text-[var(--text-sm)] text-[var(--accent)] underline underline-offset-2"
+              className="text-(length:--text-sm) text-[var(--accent)] underline underline-offset-2"
             >
               Eller skriv till oss på WhatsApp
             </a>

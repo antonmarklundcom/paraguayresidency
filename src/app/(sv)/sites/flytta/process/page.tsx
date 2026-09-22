@@ -64,7 +64,7 @@ export default function Page() {
         <Heading level={1} className="mt-[var(--space-8)]">
           Vad som faktiskt händer, steg för steg
         </Heading>
-        <p className="mt-[var(--space-4)] text-[var(--text-lg)] text-[var(--fg-muted)]">
+        <p className="mt-[var(--space-4)] text-(length:--text-lg) text-[var(--fg-muted)]">
           Inget steg här är dolt tills du betalat för det. Så här går hela processen till, i den
           ordning den faktiskt körs.
         </p>

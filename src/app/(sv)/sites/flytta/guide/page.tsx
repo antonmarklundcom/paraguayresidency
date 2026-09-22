@@ -30,7 +30,7 @@ export default function Page() {
         <Heading level={1} className="mt-[var(--space-8)]">
           Inte redo att boka ännu? Läs på själv först.
         </Heading>
-        <p className="mt-[var(--space-4)] text-[var(--text-lg)] text-[var(--fg-muted)]">
+        <p className="mt-[var(--space-4)] text-(length:--text-lg) text-[var(--fg-muted)]">
           Allt på den här sajten beskriver vår historia och vad vägen kräver. Vill du hellre läsa
           hela processen i detalj innan du pratar med någon — vägarna, dokumenten, de verkliga
           kostnaderna, misstagen folk gör — finns den samlad i Paraguay Residency Guide (på
