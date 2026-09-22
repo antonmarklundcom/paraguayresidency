@@ -30,12 +30,15 @@ export function Section({
   tone = 'default',
   className = '',
   width,
+  spacing = 'default',
 }: {
   children: ReactNode;
   id?: string;
   tone?: 'default' | 'alt' | 'accent';
   className?: string;
   width?: Width;
+  /** `tight` is for a section that holds a single short row, such as one collapsed disclosure. */
+  spacing?: 'default' | 'tight';
 }) {
   const tones = {
     default: 'bg-[var(--bg)]',
@@ -43,7 +46,7 @@ export function Section({
     accent: 'bg-[var(--accent-soft)]',
   } as const;
   return (
-    <section id={id} className={`py-[var(--space-16)] ${tones[tone]} ${className}`}>
+    <section id={id} className={`${spacing === 'tight' ? 'py-[var(--space-8)]' : 'py-[var(--space-16)]'} ${tones[tone]} ${className}`}>
       <Container width={width}>{children}</Container>
     </section>
   );

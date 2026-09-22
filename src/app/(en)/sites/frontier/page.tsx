@@ -6,11 +6,11 @@ import {
   Bento,
   Button,
   Card,
-  Container,
   Fact,
   FAQ,
   Heading,
   LeadForm,
+  Disclosure,
   Section,
   PhotoHero,
   IntentTiles,
@@ -101,17 +101,17 @@ export default function Page() {
         { label: 'Tax, plainly', href: '/tax', image: 'frontier-tile-home-office' },
         { label: 'Do I have to move?', href: '/stories/the-presence-rules-nobody-explains', image: 'frontier-tile-airport-window' },
       ]} />
-      <Section tone="alt"><Container><Heading level={2}>Three routes, compared honestly</Heading><div className="mt-8"><Bento>{ROUTES.map(route => <Card key={route.href} title={route.eyebrow} href={route.href}>{route.body}</Card>)}</Bento></div></Container></Section>
+      <Section tone="alt"><Heading level={2}>Three routes, compared honestly</Heading><div className="mt-8"><Bento>{ROUTES.map(route => <Card key={route.href} title={route.eyebrow} href={route.href}>{route.body}</Card>)}</Bento></div></Section>
       <TeamStrip />
-      <Section><Container width="narrow"><Heading level={2}>The details</Heading><details className="border-b border-[var(--border)] py-5"><summary className="flex min-h-11 cursor-pointer items-center text-lg text-[var(--accent)]">Plan B, honestly</summary><div className="space-y-5 py-6 text-[var(--fg-muted)]"><p className="mt-[var(--space-4)] text-[var(--fg-muted)]">
+      <Section width="narrow"><Heading level={2} className="mb-[var(--space-6)]">The details</Heading><Disclosure title="Plan B, honestly"><p className="mt-[var(--space-4)] text-[var(--fg-muted)]">
             You have probably read the &ldquo;Paraguay golden visa&rdquo; posts. Most skip the
             part where a real government office processes real paperwork on its own schedule. We
             are not here to sell you a fantasy — we are here to get you a genuine residency card
             and a tax ID you can hold in reserve, filed correctly the first time, so it is there
             if and when you need it. Some clients move here fully. Most do not, and that is fine —
             the card does not expire because you kept living somewhere else.
-          </p></div></details>
-<details className="border-b border-[var(--border)] py-5"><summary className="flex min-h-11 cursor-pointer items-center text-lg text-[var(--accent)]">Territorial tax, explained without the hype</summary><div className="space-y-5 py-6 text-[var(--fg-muted)]"><p className="mt-[var(--space-4)] text-[var(--fg-muted)]">
+          </p></Disclosure>
+<Disclosure title="Territorial tax, explained without the hype"><p className="mt-[var(--space-4)] text-[var(--fg-muted)]">
             Paraguay applies <Fact k="tax.territorial_rate" site="frontier" />. Foreign-income treatment: <Fact k="tax.foreign_income_treatment" site="frontier" />. That is a genuinely
             useful feature if your income is sourced outside Paraguay. It is not the same claim as
             &ldquo;tax-free,&rdquo; and we will never call it that — what it means for your own
@@ -120,56 +120,52 @@ export default function Page() {
               tax page
             </a>{' '}
             for the detail.
-          </p></div></details>
-<details className="border-b border-[var(--border)] py-5"><summary className="flex min-h-11 cursor-pointer items-center text-lg text-[var(--accent)]">The presence rules, stated plainly</summary><div className="space-y-5 py-6 text-[var(--fg-muted)]"><p className="mt-[var(--space-4)] text-[var(--fg-muted)]">
+          </p></Disclosure>
+<Disclosure title="The presence rules, stated plainly"><p className="mt-[var(--space-4)] text-[var(--fg-muted)]">
             Temporary residency duration: <Fact k="temporary.duration" site="frontier" />. Permanent residency comes with a presence rule: <Fact k="permanent.presence_rule" site="frontier" />. Your travel pattern matters when assessing whether this works as a plan B. We would rather explain it correctly now than
             have you find out the hard way after filing.
-          </p></div></details><a href="/process" className="mt-6 inline-flex min-h-11 items-center text-[var(--accent)] underline">How the process works</a></Container></Section>
-      <Section><Container width="narrow"><details className="border-b border-[var(--border)] py-5"><summary className="flex min-h-11 cursor-pointer items-center text-lg text-[var(--accent)]">Frequently asked</summary><div className="space-y-5 py-6 text-[var(--fg-muted)]"><FAQ items={FAQ_ITEMS} /></div></details></Container></Section>
-      <Section><Container><Heading level={2}>Latest articles</Heading>
+          </p></Disclosure>
+<Disclosure title="Frequently asked"><FAQ items={FAQ_ITEMS} /></Disclosure><a href="/process" className="mt-6 inline-flex min-h-11 items-center text-[var(--accent)] underline">How the process works</a></Section>
+      <Section><Heading level={2}>Latest articles</Heading>
         <ul className="mt-8 grid auto-cols-[82%] grid-flow-col snap-x snap-mandatory gap-4 overflow-x-auto p-2 md:auto-cols-[31%]">
           {latest.map(post => <li key={post.slugPath} className="min-w-0 snap-start"><a href={contentHref('frontier', post.slugPath)} className="flex min-h-44 items-end rounded-[var(--radius-brand)] border border-[var(--border)] bg-[var(--surface-alt)] p-6 font-[family-name:var(--display-font)] text-xl text-[var(--accent)] focus-visible:outline-2 focus-visible:outline-offset-2">{post.frontmatter.title.split(/\s+/).slice(0, 8).join(' ')}</a></li>)}
         </ul><a href="/stories" className="mt-6 inline-flex min-h-11 items-center text-[var(--accent)] underline">Browse all stories</a>
-      </Container></Section>
-      <Section>
-        <Container width="narrow" className="text-center">
-          <Heading level={2}>Ready to find your route?</Heading>
-          <p className="mt-[var(--space-4)] text-[var(--fg-muted)]">
-            Two minutes tells you which route fits, and where the catch is. Not ready to file
-            anything yet?{' '}
-            <a href="/guide" className="text-[var(--accent)] underline underline-offset-2">
-              Read the guide first
-            </a>
-            .
-          </p>
-        </Container>
+      </Section>
+      <Section width="narrow" className="text-center">
+        <Heading level={2}>Ready to find your route?</Heading>
+        <p className="mt-[var(--space-4)] text-[var(--fg-muted)]">
+          Two minutes tells you which route fits, and where the catch is. Not ready to file
+          anything yet?{' '}
+          <a href="/guide" className="text-[var(--accent)] underline underline-offset-2">
+            Read the guide first
+          </a>
+          .
+        </p>
       </Section>
 
       <Section tone="accent">
-        <Container>
-          <div className="mt-[var(--space-10)] grid gap-[var(--space-8)] text-left">
-            <div>
-              <Heading level={2}>{t('frontier', 'process.fullForm')}</Heading>
-              <div className="mt-[var(--space-4)]"><LeadForm site="frontier" variant="consultation" pagePath="/" /></div>
-            </div>
-            <details>
-              <summary className="flex min-h-[44px] cursor-pointer items-center text-[var(--accent)] underline underline-offset-2">{t('frontier', 'form.whatsappAlternative')}</summary>
-              {whatsapp && <a href={whatsapp} rel="noopener" className="inline-flex min-h-[44px] items-center text-[var(--accent)] underline underline-offset-2">{t('frontier', 'form.whatsapp')}</a>}
-              <p className="my-[var(--space-4)] text-[var(--fg-muted)]">{t('frontier', 'process.whatsappIntro')}</p>
-              <LeadForm site="frontier" variant="whatsapp" pagePath="/" />
-            </details>
+        <div className="mt-[var(--space-10)] grid gap-[var(--space-8)] text-left">
+          <div>
+            <Heading level={2}>{t('frontier', 'process.fullForm')}</Heading>
+            <div className="mt-[var(--space-4)]"><LeadForm site="frontier" variant="consultation" pagePath="/" /></div>
           </div>
-          <p className="mt-[var(--space-6)] text-(length:--text-sm) text-[var(--fg-muted)]">
-            Investing serious capital instead?{' '}
-            <a
-              href={siteOrigin('investorpass')}
-              className="text-[var(--accent)] underline underline-offset-2"
-            >
-              See the Investor Pass
-            </a>
-            .
-          </p>
-        </Container>
+          <details>
+            <summary className="flex min-h-[44px] cursor-pointer items-center text-[var(--accent)] underline underline-offset-2">{t('frontier', 'form.whatsappAlternative')}</summary>
+            {whatsapp && <a href={whatsapp} rel="noopener" className="inline-flex min-h-[44px] items-center text-[var(--accent)] underline underline-offset-2">{t('frontier', 'form.whatsapp')}</a>}
+            <p className="my-[var(--space-4)] text-[var(--fg-muted)]">{t('frontier', 'process.whatsappIntro')}</p>
+            <LeadForm site="frontier" variant="whatsapp" pagePath="/" />
+          </details>
+        </div>
+        <p className="mt-[var(--space-6)] text-(length:--text-sm) text-[var(--fg-muted)]">
+          Investing serious capital instead?{' '}
+          <a
+            href={siteOrigin('investorpass')}
+            className="text-[var(--accent)] underline underline-offset-2"
+          >
+            See the Investor Pass
+          </a>
+          .
+        </p>
       </Section>
     </>
   );

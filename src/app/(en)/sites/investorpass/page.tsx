@@ -2,7 +2,6 @@ import { ProcessTimeline } from '@/components/ProcessTimeline';
 import type { Metadata } from 'next';
 import {
   Button,
-  Container,
   PhotoHero,
   IntentTiles,
   TeamStrip,
@@ -11,6 +10,7 @@ import {
   Heading,
   JsonLd,
   LeadForm,
+  Disclosure,
   Section,
 } from '@/components';
 import { siteMetadata, serviceOfferJsonLd } from '@/lib/metadata';
@@ -94,35 +94,33 @@ export default function Page() {
         { label: 'Explore financial instruments', href: '/investor-pass/investment-routes#financial_instruments', image: 'investorpass-tile-financial-instruments' },
         { label: 'Back a tourism project', href: '/investor-pass/investment-routes#tourism', image: 'investorpass-tile-tourism-lodge' },
       ]} />
-      <Section><Container width="narrow"><details className="border-b border-[var(--border)] py-5"><summary className="flex min-h-11 cursor-pointer items-center text-lg text-[var(--accent)]">Investment requirements</summary><div className="space-y-5 py-6 text-[var(--fg-muted)]"><p>Programme launch: <Fact k="investorpass.launch_date" site="investorpass" />.</p><p>Card validity: <Fact k="investorpass.validity_years" site="investorpass" />.</p><p>Qualifying investment: <Fact k="investorpass.min_investment_usd" site="investorpass" />.</p><ul className="space-y-6">{ROUTES.map(route => <li key={route.id}><h3>{route.eyebrow}</h3><Fact k={route.factKey} site="investorpass" /></li>)}</ul><p>Cédula: <Fact k="cedula.timeline" site="investorpass" />.</p><a className="inline-flex min-h-11 items-center text-[var(--accent)] underline" href="/investor-pass/requirements">Full requirements</a></div></details></Container></Section>
-      <Section tone="alt"><Container><Heading level={2}>From first call to card</Heading><ol className="my-10 grid gap-8 sm:grid-cols-3">{['Confirm your route and investment', 'File for permanent residency', 'Collect your cédula after approval'].map((step, index) => <li key={step} className="flex items-center gap-4"><span aria-hidden="true" className="flex size-12 shrink-0 items-center justify-center rounded-full border border-[var(--border)] text-2xl text-[var(--accent)]">{['◇', '↗', '✓'][index]}</span><h3>{step}</h3></li>)}</ol><Button href="/investor-pass/process" variant="secondary">See the process</Button></Container></Section>
+      <Section width="narrow" spacing="tight"><Disclosure title="Investment requirements"><p>Programme launch: <Fact k="investorpass.launch_date" site="investorpass" />.</p><p>Card validity: <Fact k="investorpass.validity_years" site="investorpass" />.</p><p>Qualifying investment: <Fact k="investorpass.min_investment_usd" site="investorpass" />.</p><ul className="space-y-6">{ROUTES.map(route => <li key={route.id}><h3>{route.eyebrow}</h3><Fact k={route.factKey} site="investorpass" /></li>)}</ul><p>Cédula: <Fact k="cedula.timeline" site="investorpass" />.</p><a className="inline-flex min-h-11 items-center text-[var(--accent)] underline" href="/investor-pass/requirements">Full requirements</a></Disclosure></Section>
+      <Section tone="alt"><Heading level={2}>From first call to card</Heading><ol className="my-10 grid gap-8 sm:grid-cols-3">{['Confirm your route and investment', 'File for permanent residency', 'Collect your cédula after approval'].map((step, index) => <li key={step} className="flex items-center gap-4"><span aria-hidden="true" className="flex size-12 shrink-0 items-center justify-center rounded-full border border-[var(--border)] text-2xl text-[var(--accent)]">{['◇', '↗', '✓'][index]}</span><h3>{step}</h3></li>)}</ol><Button href="/investor-pass/process" variant="secondary">See the process</Button></Section>
       <TeamStrip />
-      <Section><Container width="narrow"><details className="border-b border-[var(--border)] py-5"><summary className="flex min-h-11 cursor-pointer items-center text-lg text-[var(--accent)]">Frequently asked</summary><div className="space-y-5 py-6 text-[var(--fg-muted)]"><FAQ items={FAQ_ITEMS} /></div></details></Container></Section>
-      <Section id="inquiry" tone="accent">
-        <Container width="narrow">
-          <Heading level={2}>See if you qualify</Heading>
-          <p className="mt-[var(--space-4)] text-[var(--fg-muted)]">
-            Tell us your capital and goal. We send the route, cost and exit options in writing.
+      <Section width="narrow" spacing="tight"><Disclosure title="Frequently asked"><FAQ items={FAQ_ITEMS} /></Disclosure></Section>
+      <Section id="inquiry" tone="accent" width="narrow">
+        <Heading level={2}>See if you qualify</Heading>
+        <p className="mt-[var(--space-4)] text-[var(--fg-muted)]">
+          Tell us your capital and goal. We send the route, cost and exit options in writing.
+        </p>
+        {whatsapp && (
+          <p className="mt-[var(--space-4)] text-(length:--text-sm)">
+            <a href={whatsapp} rel="noopener" className="text-[var(--accent)] underline underline-offset-2">
+              Or message us on WhatsApp
+            </a>
           </p>
-          {whatsapp && (
-            <p className="mt-[var(--space-4)] text-(length:--text-sm)">
-              <a href={whatsapp} rel="noopener" className="text-[var(--accent)] underline underline-offset-2">
-                Or message us on WhatsApp
-              </a>
-            </p>
-          )}
-          <div className="mt-[var(--space-8)]">
-            <LeadForm site="investorpass" variant="investor_inquiry" pagePath={PATH} />
-          </div>
-          <p className="mt-[var(--space-8)] text-(length:--text-sm) text-[var(--fg-muted)]">
-            Not investing? See{' '}
-            <a href={siteOrigin('residency')} className="text-[var(--accent)] underline underline-offset-2">
-              standard residency routes
-            </a>{' '}
-            on paraguayresidency.co.uk instead.
-          </p>
-          <details className="border-b border-[var(--border)] py-5"><summary className="flex min-h-11 cursor-pointer items-center text-lg text-[var(--accent)]">The full process</summary><div className="space-y-5 py-6 text-[var(--fg-muted)]"><ProcessTimeline site="investorpass" route="investor" /></div></details>
-        </Container>
+        )}
+        <div className="mt-[var(--space-8)]">
+          <LeadForm site="investorpass" variant="investor_inquiry" pagePath={PATH} />
+        </div>
+        <p className="mt-[var(--space-8)] text-(length:--text-sm) text-[var(--fg-muted)]">
+          Not investing? See{' '}
+          <a href={siteOrigin('residency')} className="text-[var(--accent)] underline underline-offset-2">
+            standard residency routes
+          </a>{' '}
+          on paraguayresidency.co.uk instead.
+        </p>
+        <Disclosure title="The full process"><ProcessTimeline site="investorpass" route="investor" /></Disclosure>
       </Section>
 
       <JsonLd

@@ -18,3 +18,4 @@ export { StickyCta } from './StickyCta';
 export { PhotoHero } from './PhotoHero';
 export { IntentTiles } from './IntentTiles';
 export { TeamStrip } from './TeamStrip';
+export { Disclosure } from './Disclosure';
