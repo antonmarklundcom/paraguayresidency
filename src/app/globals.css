@@ -1,4 +1,11 @@
-@import 'tailwindcss';
+/*
+ * Scan only app code and MDX for class names. Tailwind's automatic detection
+ * also read docs/ and prompts/, so a wildcard text-size class quoted in an
+ * audit report became invalid CSS and broke `next dev`.
+ */
+@import 'tailwindcss' source(none);
+@source '..';
+@source '../../content';
 @import '../styles/tokens.css';
 @import '../styles/themes/residency.css';
 @import '../styles/themes/investorpass.css';
