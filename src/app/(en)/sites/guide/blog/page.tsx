@@ -27,7 +27,7 @@ export default function Page() {
         </p>
         <div className="mt-[var(--space-10)] grid gap-[var(--space-6)] sm:grid-cols-2 lg:grid-cols-3">
           {posts.map((post) => (
-            <Card
+            <Card headingLevel={2}
               key={post.slugPath}
               eyebrow={new Date(post.frontmatter.publishedAt).toLocaleDateString('en-US', {
                 year: 'numeric',

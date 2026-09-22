@@ -163,11 +163,9 @@ const staticPaths: Record<SiteKey, string[]> = {
 
 export function buildSitemap(site: SiteKey): MetadataRoute.Sitemap {
   const origin = siteOrigin(site);
-  const now = new Date();
 
   const staticEntries = staticPaths[site].map((path) => ({
     url: `${origin}${path === '/' ? '' : path}`,
-    lastModified: now,
     changeFrequency: 'monthly' as const,
     priority: path === '/' ? 1 : 0.3,
   }));

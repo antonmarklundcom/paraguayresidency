@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import type { ReactNode } from 'react';
-import { Heading } from './primitives';
 
 export function Card({
   title,
@@ -8,13 +7,16 @@ export function Card({
   href,
   children,
   className = '',
+  headingLevel = 3,
 }: {
+  headingLevel?: 2 | 3 | 4;
   title?: string;
   eyebrow?: string;
   href?: string;
   children?: ReactNode;
   className?: string;
 }) {
+  const Title = `h${headingLevel}` as const;
   const body = (
     <>
       {eyebrow && (
@@ -22,7 +24,7 @@ export function Card({
           {eyebrow}
         </p>
       )}
-      {title && <Heading level={3}>{title}</Heading>}
+      {title && <Title className="font-[family-name:var(--display-font)] leading-[var(--leading-tight)] tracking-[-0.01em] text-balance hyphens-auto [overflow-wrap:anywhere] text-(length:--text-xl)">{title}</Title>}
       {children && <div className="mt-[var(--space-3)] text-[var(--fg-muted)]">{children}</div>}
     </>
   );

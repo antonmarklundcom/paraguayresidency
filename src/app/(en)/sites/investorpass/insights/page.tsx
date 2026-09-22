@@ -23,7 +23,7 @@ export default function Page() {
         <p className="mt-[var(--space-2)] max-w-[var(--measure)] text-[var(--fg-muted)]">{description}</p>
         <div className="mt-[var(--space-10)] grid gap-[var(--space-6)] sm:grid-cols-2 lg:grid-cols-3">
           {posts.map((post) => (
-            <Card key={post.slugPath} title={post.frontmatter.title} href={contentHref('investorpass', post.slugPath)}
+            <Card headingLevel={2} key={post.slugPath} title={post.frontmatter.title} href={contentHref('investorpass', post.slugPath)}
               eyebrow={title + ' · ' + new Date(post.frontmatter.publishedAt).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}>
               {post.frontmatter.description}
             </Card>
