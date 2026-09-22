@@ -356,10 +356,10 @@
     "category": "bug",
     "brand": "all",
     "url": "n/a (dev server log)",
-    "file": "src/middleware.ts",
+    "file": "src/proxy.ts",
     "what": "Next 16 logs that the middleware file convention is deprecated in favour of proxy.",
     "evidence": "Dev server start: \"⚠ The \\\"middleware\\\" file convention is deprecated. Please use \\\"proxy\\\" instead.\"",
-    "fix": "Rename to src/proxy.ts with the codemod (`npx @next/codemod@canary middleware-to-proxy .`) in a dedicated PR; update CLAUDE.md’s pointer to src/middleware.ts.",
+    "fix": "Migrated to src/proxy.ts with the named proxy export; function body and config.matcher are unchanged. Proxy runs on Node.js; no explicit runtime setting existed to remove. File-location documentation now points to src/proxy.ts.",
     "effort": "S",
     "risk": "Middleware is a protected boundary (host resolution, x-site sanitising, rate limit). Must go through Opus review with the spoof and resolve tests."
   },

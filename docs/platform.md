@@ -18,7 +18,7 @@ any of them (plan §4.7).**
 | flyttatillparaguay.se | `flytta` | sv | SEK, USD | — |
 
 A brand is a row in `src/sites/registry.ts` plus a folder under
-`src/app/sites/<key>/`. The host decides the brand; `src/middleware.ts` rewrites
+`src/app/sites/<key>/`. The host decides the brand; `src/proxy.ts` rewrites
 into the folder and 404s any direct `/sites/...` request, so every page has
 exactly one public URL.
 

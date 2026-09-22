@@ -204,7 +204,7 @@ Direct requests to `/_sites/...` are 404'd by middleware so every page has exact
 4. Stop and ask ONLY for: a missing credential with no graceful fallback, or a bad-foundation decision (schema shape, routing model, money math) where guessing wrong forces a rewrite. Everything else: choose reasonably, record it in §9, continue.
 5. Missing env values never block: document in `.env.example`, degrade gracefully (CRM off → local store only; Stripe off → "coming soon" button; email off → log to console).
 6. Every prompt is re-runnable: check what exists on the branch first, continue from the first unmet exit criterion.
-7. Model-B (Sonnet) hard limits: no schema, auth, middleware/routing, payment, entitlement or CRM logic changes (`src/db`, `src/lib/leads.ts`, `src/lib/email.ts`, `src/lib/entitlements.ts`, `src/lib/member-auth.ts`, `src/lib/stripe.ts`, `src/lib/lemonsqueezy.ts`, `src/app/api`, `src/middleware.ts`, the shape of `src/sites/registry.ts`, `scoring.ts`). Page data access only through the query/action layer O1, O2 and O9 built. Need something? Workaround + Backlog note.
+7. Model-B (Sonnet) hard limits: no schema, auth, middleware/routing, payment, entitlement or CRM logic changes (`src/db`, `src/lib/leads.ts`, `src/lib/email.ts`, `src/lib/entitlements.ts`, `src/lib/member-auth.ts`, `src/lib/stripe.ts`, `src/lib/lemonsqueezy.ts`, `src/app/api`, `src/proxy.ts`, the shape of `src/sites/registry.ts`, `scoring.ts`). Page data access only through the query/action layer O1, O2 and O9 built. Need something? Workaround + Backlog note.
 8. **Model cost guardrail (v2, Fable 5.1):** build phases, subagents, spawned sessions, workflows and triggers run on Opus or Sonnet only. Fable runs only in windows Anton opens himself. The Fable phases in this plan (F7, F8, F9) are approved in §1.9 and are never spawned: F8 and F9 were opened by Anton and each ended with a report telling him which Sonnet/Opus line to paste next; the S15 handoff ends with a report telling Anton to open F7. Any session that thinks it needs Fable elsewhere stops and asks Anton with the reason.
 9. **Phase handoff** — hand off only when four gates pass: PR merged green; exit checklist passed; pre-handoff audit done (re-run `npm run build` + `npm run verify`, adversarially re-read your own merged diff, fix findings); §9 build-log entry committed. Then spawn the next phase as a NEW session via claude-code-remote `create_session`: inherit environment and permission mode (never `plan`), `model` per the phase table (Opus or Sonnet only), `prompt` exactly `Read prompts/<next-file>.md in this repo and execute it.` Then end with the phase report. Fallback when `create_session` is unavailable: continue in the same window if the next phase uses the same model; stop and report at a model switch.
 10. **Build log:** before merging, append a dated 5–10 line entry to §9 — phase id + PR link, what now exists, decisions/deviations, where the next phase should look first. Fresh sessions first read `plan.md`, its §9 phase index, and the open items in `KNOWN-ISSUES.md`; consult `docs/log/` for per-phase detail and `docs/known-issues-archive.md` for cleared-issues history.
@@ -274,7 +274,7 @@ Exit: `npm run verify` green with the new tests (resolver ×8 hosts, `siteEnum`=
 
 ## 6. Model-B phases (Sonnet)
 
-Hard limits for all Sonnet phases: the §4.7 list — no changes under `src/db`, `src/lib/leads.ts`, `src/lib/email.ts`, `src/lib/entitlements.ts`, `src/lib/member-auth.ts`, `src/lib/stripe.ts`, `src/lib/lemonsqueezy.ts`, `src/app/api`, `src/middleware.ts`, `src/sites/registry.ts` shape (adding nav items/copy inside the registry is fine), `src/features/quiz/scoring.ts`. Page data access through `getPages/getPage/getHub`, the O2 server actions and the O9 member queries. Skills to load in every Sonnet phase: `nextjs-national-lead-gen` (§3 checklist, §4 restraint baseline), `web-design-system` if present in the skill list, otherwise the tokens in `src/styles`.
+Hard limits for all Sonnet phases: the §4.7 list — no changes under `src/db`, `src/lib/leads.ts`, `src/lib/email.ts`, `src/lib/entitlements.ts`, `src/lib/member-auth.ts`, `src/lib/stripe.ts`, `src/lib/lemonsqueezy.ts`, `src/app/api`, `src/proxy.ts`, `src/sites/registry.ts` shape (adding nav items/copy inside the registry is fine), `src/features/quiz/scoring.ts`. Page data access through `getPages/getPage/getHub`, the O2 server actions and the O9 member queries. Skills to load in every Sonnet phase: `nextjs-national-lead-gen` (§3 checklist, §4 restraint baseline), `web-design-system` if present in the skill list, otherwise the tokens in `src/styles`.
 
 ### 6.1 Phase S3 — the hub (`residency`; domain `paraguayresidency.co.uk` since F9)
 
@@ -689,7 +689,7 @@ run after O19 merges.
 
 **Path note (O19 onward):** brand folders move from `src/app/sites/<key>/` to
 `src/app/(<locale>)/sites/<key>/` — `(en)` for residency, investorpass, guide, frontier; `(es)` residenciaes;
-`(pt)` residenciapt; `(sv)` flytta. Route groups do not appear in URLs, so `src/middleware.ts` rewrites,
+`(pt)` residenciapt; `(sv)` flytta. Route groups do not appear in URLs, so `src/proxy.ts` rewrites,
 sitemaps, tests and every public path are unchanged. Wherever an older section says `src/app/sites/<key>/`,
 read the new location after O19 has merged.
 
@@ -731,7 +731,7 @@ rules updated in ≤ 15 lines; PR merged; §9 entry. Handoff: spawn O18 (Opus).
 ### 14.2 Phase O18 — Abuse & ops hardening (Opus)
 
 Owns: `src/lib/{rate-limit,leads,email,form-guard}.ts`, `src/app/actions/**`, `src/app/admin/actions.ts`,
-`src/app/api/{subscribe,auth,checkout}/**`, `src/middleware.ts`, `src/sites/resolve.ts`, `next.config.ts`,
+`src/app/api/{subscribe,auth,checkout}/**`, `src/proxy.ts`, `src/sites/resolve.ts`, `next.config.ts`,
 `src/app/api/health/**`, `tests/**`, `docs/runbook.md` (create if S6 has not merged; S6 keeps its own text on merge).
 
 1. **Rate limits through O17's `take()`**: admin `loginAction` 5 per 15 min per IP+email with a fixed ~250 ms

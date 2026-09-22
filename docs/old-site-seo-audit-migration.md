@@ -151,7 +151,7 @@ pages, out of scope per §3a)," or "no redirect needed (theme-demo cruft, never 
 content)." That file is the authoritative redirect map — this audit does not duplicate it,
 only confirms its completeness (47/47 crawled URLs accounted for) and flags that, per this
 repo's established pattern (`docs/flytta-redirects.md`), the map still needs to be wired
-into `src/middleware.ts` / `src/sites/registry.ts` as real 301s before the domain cutover —
+into `src/proxy.ts` / `src/sites/registry.ts` as real 301s before the domain cutover —
 that wiring is not yet implemented for the `guide` brand (or for `flytta`), and is a
 separate, later phase in both cases.
 

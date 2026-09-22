@@ -330,9 +330,9 @@ appendix).
 
 - **Category / brand / effort:** bug · all · S
 - **Where:** n/a (dev server log)
-- **File:** `src/middleware.ts`
+- **File:** `src/proxy.ts`
 - **Evidence:** Dev server start: "⚠ The \"middleware\" file convention is deprecated. Please use \"proxy\" instead."
-- **Fix:** Rename to src/proxy.ts with the codemod (`npx @next/codemod@canary middleware-to-proxy .`) in a dedicated PR; update CLAUDE.md’s pointer to src/middleware.ts.
+- **Fix:** Migrated to src/proxy.ts with the named proxy export; function body and config.matcher are unchanged. Proxy runs on Node.js; no explicit runtime setting existed to remove. File-location documentation now points to src/proxy.ts.
 - **Risk:** Middleware is a protected boundary (host resolution, x-site sanitising, rate limit). Must go through Opus review with the spoof and resolve tests.
 
 #### F-029 — A handful of in-body cross-brand links lack rel="noopener" while the footer versions carry it; conversely rel="noopener" is set on same-tab links where it has no effect.

@@ -19,7 +19,7 @@ opened side by side in a browser at real widths.
 Yes — and not by accident, that is already how the platform is built. Nothing about "separate design" costs an
 install, a deploy, or a second app.
 
-- One Next.js app serves all seven brands. `src/middleware.ts` resolves the request host to a `SiteKey` via
+- One Next.js app serves all seven brands. `src/proxy.ts` resolves the request host to a `SiteKey` via
   `src/sites/registry.ts`; each brand's pages live in `src/app/(<locale>)/sites/<key>/`.
 - Theming is `data-theme="<siteKey>"` on the site layout wrapper. The shared scale (spacing, type, radius,
   motion, container widths) is `src/styles/tokens.css`; each brand overrides colour, fonts, radius and hero

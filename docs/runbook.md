@@ -65,7 +65,7 @@ see the `rate_limits` table in the plan's Backlog.
 | Free-access mode (temporary) | 5 / hour | IP | `429`. |
 | Lead forms (`submitLeadAction`) | 10 / hour | IP | The limit message inside the form. |
 | `POST /api/auth/magic` | 5 / 15 min | email **and** IP, both counted | **`200`, always** — a `429` here would tell a prober which addresses exist. The refusal is in the server log (`[member-auth] magic link rate limited`); what is stopped is the mail, not the answer. |
-| Every `POST /api/*` | 120 / min | IP | `429` from `src/middleware.ts`, under every per-route limit above. |
+| Every `POST /api/*` | 120 / min | IP | `429` from `src/proxy.ts`, under every per-route limit above. |
 
 **Checking them on a live deploy:** `node tests/abuse.mjs https://<host>` drives
 each surface 30× and prints what it got. It needs no database and no
@@ -114,7 +114,7 @@ and inline flight data on every page. Tightening it means a per-request nonce,
 which makes every page dynamic, which is exactly what O19 is undoing. Revisit it
 with O19's rendering work, not before.
 
-**`x-site` is ours.** `src/middleware.ts` deletes any client-supplied `x-site`
+**`x-site` is ours.** `src/proxy.ts` deletes any client-supplied `x-site`
 before setting its own, on every branch. `src/lib/current-site.ts` trusts that
 header to name the brand, so without the strip a request to a shared `/api/*`
 route on an unrecognised host could choose its own brand.

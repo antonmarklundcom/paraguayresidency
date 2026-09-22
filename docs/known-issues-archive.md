@@ -144,7 +144,7 @@ in one table, `LIMITS`, with `docs/runbook.md` describing each: admin login
 5/15 min per IP **and** email with a fixed ~250 ms failure delay, `/api/subscribe`
 3/hour per address and 20/hour per IP, `/api/checkout` 10/hour per IP, the lead
 actions 10/hour per IP, `/api/auth/magic` 5/15 min per email **and** IP, and a
-coarse 120/min per IP over every `POST /api/*` in `src/middleware.ts`. A pending
+coarse 120/min per IP over every `POST /api/*` in `src/proxy.ts`. A pending
 newsletter address is mailed at most once an hour, which is the actual
 inbox-bombing fix.
 

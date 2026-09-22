@@ -197,13 +197,13 @@ describe('regressions', () => {
   });
 });
 
-describe('middleware placement', () => {
+describe('proxy placement', () => {
   it('lives in src/, next to the app directory', async () => {
-    // With a `src/` directory Next ignores a root-level middleware.ts in dev:
+    // With a `src/` directory Next ignores a root-level proxy.ts in dev:
     // every host silently fell through to the shared 404.
     const { existsSync } = await import('node:fs');
-    expect(existsSync('src/middleware.ts')).toBe(true);
-    expect(existsSync('middleware.ts')).toBe(false);
+    expect(existsSync('src/proxy.ts')).toBe(true);
+    expect(existsSync('proxy.ts')).toBe(false);
   });
 });
 

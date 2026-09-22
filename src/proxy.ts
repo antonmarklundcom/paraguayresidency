@@ -40,7 +40,7 @@ function tooManyRequests(retryAfterSeconds: number): NextResponse {
   });
 }
 
-export function middleware(req: NextRequest) {
+export function proxy(req: NextRequest) {
   const isDev = process.env.NODE_ENV !== 'production';
   const host = req.headers.get('x-forwarded-host') ?? req.headers.get('host');
   const headers = sanitizedHeaders(req.headers);

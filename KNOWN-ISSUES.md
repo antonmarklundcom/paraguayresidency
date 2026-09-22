@@ -422,5 +422,5 @@ So the worst case is a delayed fulfilment, not a lost one.
 
 What would make it worth fixing: real volume, or a processor that does not
 retry. The fix is a `startsWith('/api/stripe/') || startsWith('/api/lemonsqueezy/')`
-skip in `src/middleware.ts` — safe only because those two routes verify a
+skip in `src/proxy.ts` — safe only because those two routes verify a
 signature before doing anything, which is what makes them not worth flooding.
