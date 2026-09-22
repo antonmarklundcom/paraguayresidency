@@ -18,6 +18,7 @@ import { absoluteUrl, sendEmail, unsubscribeUrl } from './email';
 import { magicLinkEmail, purchaseEmail } from './email-templates';
 import { issueMagicToken, magicLinkUrl, findOrCreateUser } from './member-auth';
 import { refreshUserTier } from './entitlements';
+import { DEFAULT_GUIDE_PRICE_CENTS } from './pricing-defaults';
 
 /**
  * Purchase lifecycle for one-time products, from EITHER provider (plan §1.13).
@@ -53,8 +54,8 @@ export async function getProductBySlug(slug: string): Promise<Product | null> {
 }
 
 export function fallbackPriceCents(): number {
-  const parsed = Number.parseInt(process.env.GUIDE_PRICE_CENTS ?? '4900', 10);
-  return Number.isInteger(parsed) && parsed > 0 ? parsed : 4900;
+  const parsed = Number.parseInt(process.env.GUIDE_PRICE_CENTS ?? String(DEFAULT_GUIDE_PRICE_CENTS), 10);
+  return Number.isInteger(parsed) && parsed > 0 ? parsed : DEFAULT_GUIDE_PRICE_CENTS;
 }
 
 export function fallbackCurrency(): string {
