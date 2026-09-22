@@ -68,7 +68,7 @@ export default function Page() {
       <h2>4. Approval and the cédula</h2>
       <p>
         Once residency is approved, your cédula follows — <Fact k="cedula.timeline" site="investorpass" />.
-        The card is issued for <Fact k="investorpass.validity_years" site="investorpass" />.
+        Residency card validity: <Fact k="investorpass.validity_years" site="investorpass" />.
       </p>
 
       <h2>5. After the card is in your hand</h2>

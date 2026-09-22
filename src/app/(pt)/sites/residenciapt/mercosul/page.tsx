@@ -45,7 +45,7 @@ export default function Page() {
     >
       <h2>O que o acordo realmente diz</h2>
       <p>
-        O Mercosul tem <Fact k="mercosur.residency_route" site="residenciapt" />. Isso não é a
+        Sobre a via de residência do Mercosul: <Fact k="mercosur.residency_route" site="residenciapt" />. Isso não é a
         mesma coisa que uma residência automática ou sem análise — é um caminho com regras
         próprias, implementado nacionalmente, e que muda com o tempo. Tratamos essa rota com o
         mesmo cuidado que qualquer outra: dizemos o que ela cobre para o seu caso antes de você

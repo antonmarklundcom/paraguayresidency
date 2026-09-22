@@ -34,8 +34,8 @@ export default function Page() {
         <div id="temporary" className="mt-[var(--space-12)] scroll-mt-24">
           <Heading level={2}>Temporary residency</Heading>
           <p className="mt-[var(--space-3)] text-[var(--fg-muted)]">
-            The standard first step for almost everyone. It runs{' '}
-            <Fact k="temporary.duration" site="frontier" />, and the paperwork itself is filed in
+            The standard first step for almost everyone. Duration:{' '}
+            <Fact k="temporary.duration" site="frontier" />. The paperwork itself is filed in
             person in Asunción — a handful of appointments, not a permanent presence. The filing
             work and requirements are identical whether you plan to stay or hold the card in
             reserve.
@@ -58,7 +58,7 @@ export default function Page() {
           <Heading level={2}>Permanent residency</Heading>
           <p className="mt-[var(--space-3)] text-[var(--fg-muted)]">
             Filed after temporary residency, or in some cases directly. This is the one where the
-            presence rule actually matters for a plan-B case: it carries{' '}
+            presence rule matters for a plan-B case:{' '}
             <Fact k="permanent.presence_rule" site="frontier" />. Read that carefully before you
             assume a card you never use stays valid on its own — we walk through what it means for
             your specific travel pattern before you file.

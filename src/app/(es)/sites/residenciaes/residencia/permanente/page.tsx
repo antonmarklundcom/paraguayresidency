@@ -55,7 +55,7 @@ export default function Page() {
       </p>
       <h2>La regla de presencia, dicha con claridad</h2>
       <p>
-        La residencia permanente viene con{' '}
+        La residencia permanente tiene una regla de presencia:{' '}
         <Fact k="permanent.presence_rule" site="residenciaes" />. Es la cifra que más se cita mal
         en este sector, y preferimos que la escuches de nosotros antes de presentar el expediente
         a que asumas algo leído en un foro. Lo que significa en la práctica depende de cómo

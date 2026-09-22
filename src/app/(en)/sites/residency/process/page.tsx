@@ -96,8 +96,7 @@ export default function Page() {
         </div>
 
         <p className="mt-[var(--space-12)] text-[var(--fg-muted)]">
-          Temporary residency runs for <Fact k="temporary.duration" site="residency" />, and the
-          cédula is <Fact k="cedula.timeline" site="residency" />. Ready to start?{' '}
+          Temporary residency duration: <Fact k="temporary.duration" site="residency" />. The cédula is <Fact k="cedula.timeline" site="residency" />. Ready to start?{' '}
           <a href="/book" className="text-[var(--accent)] underline underline-offset-2">
             Book a call
           </a>{' '}

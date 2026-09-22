@@ -26,12 +26,12 @@ const ROUTES = [
   {
     eyebrow: 'Temporary residency',
     title: 'The standard first step',
-    body: 'Two years, then permanent.',
+    body: 'The standard first step, then permanent.',
     href: '/residency/temporary-residency',
   },
   {
     eyebrow: 'Permanent residency',
-    title: 'Ten-year card',
+    title: 'Long-term card',
     body: 'Presence rules apply — ask us.',
     href: '/residency/permanent-residency',
   },
@@ -147,15 +147,13 @@ export default function Page() {
           <Heading level={2}>Why Paraguay</Heading>
           <ul className="mt-[var(--space-6)] space-y-[var(--space-4)] text-[var(--fg-muted)]">
             <li>
-              Temporary residency runs <Fact k="temporary.duration" site="residency" />, one of the
-              more accessible standard routes available anywhere.
+              Temporary residency duration: <Fact k="temporary.duration" site="residency" />.
             </li>
             <li>
-              Permanent residency carries <Fact k="permanent.presence_rule" site="residency" /> —
-              we explain exactly what that means for your travel pattern.
+              Permanent residency comes with a presence rule: <Fact k="permanent.presence_rule" site="residency" />.
             </li>
             <li>
-              A territorial tax system means <Fact k="tax.foreign_income_treatment" site="residency" />.
+              Foreign-income treatment under the territorial system: <Fact k="tax.foreign_income_treatment" site="residency" />.
             </li>
           </ul>
         </Container>

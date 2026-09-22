@@ -85,14 +85,14 @@ export default function Page() {
               title="Temporary residency"
               href={`${HUB}/residency/temporary-residency`}
             >
-              The first step on the standard path — two years, then permanent.
+              The standard first step before applying for permanent residency.
             </Card>
             <Card
               eyebrow="Standard route"
               title="Permanent residency"
               href={`${HUB}/residency/permanent-residency`}
             >
-              The ten-year card, reached without a qualifying investment.
+              The long-term card, reached without a qualifying investment.
             </Card>
             <Card eyebrow="Standard route" title="Cédula" href={`${HUB}/residency/cedula`}>
               The identity card process once residency is approved — same for both paths.

@@ -55,7 +55,7 @@ function routes() {
 
 const STATS = [
   { value: '≈ 40 %', label: 'Lägre kostnadsläge', note: 'Vår egen budget, uppskattning 2026' },
-  { value: '7 dagar', label: 'Ungefärlig tid på plats' },
+  { value: 'Personligt besök', label: 'Inlämning på plats' },
   { value: '0', label: 'Krav på spanska' },
 ];
 
@@ -170,10 +170,10 @@ export default function Page() {
           <Heading level={2}>Vad det faktiskt kostar</Heading>
           <ul className="mt-[var(--space-6)] space-y-[var(--space-4)] text-[var(--fg-muted)]">
             <li>
-              Tillfälligt uppehållstillstånd gäller <Fact k="temporary.duration" site={SITE} />.
+              Giltighet för tillfälligt uppehållstillstånd: <Fact k="temporary.duration" site={SITE} />.
             </li>
             <li>
-              Permanent uppehållstillstånd har <Fact k="permanent.presence_rule" site={SITE} />.
+              För permanent uppehållstillstånd gäller följande närvarokrav: <Fact k="permanent.presence_rule" site={SITE} />.
             </li>
             <li>
               <Fact k="tax.foreign_income_treatment" site={SITE} />.

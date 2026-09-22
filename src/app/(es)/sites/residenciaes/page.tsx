@@ -28,7 +28,7 @@ const ROUTES = [
   {
     eyebrow: 'Residencia temporal',
     title: 'El primer paso habitual',
-    body: 'Dos años, y después permanente.',
+    body: 'El primer paso habitual, y después la permanente.',
     href: '/residencia/temporal',
   },
   {
@@ -149,15 +149,13 @@ export default function Page() {
           <Heading level={2}>Por qué Paraguay</Heading>
           <ul className="mt-[var(--space-6)] space-y-[var(--space-4)] text-[var(--fg-muted)]">
             <li>
-              La residencia temporal dura <Fact k="temporary.duration" site="residenciaes" />, una
-              de las vías estándar más accesibles que existen.
+              Duración de la residencia temporal: <Fact k="temporary.duration" site="residenciaes" />.
             </li>
             <li>
-              La permanente lleva <Fact k="permanent.presence_rule" site="residenciaes" /> — te
-              explicamos exactamente qué significa para tu forma de viajar.
+              La permanente tiene una regla de presencia: <Fact k="permanent.presence_rule" site="residenciaes" />.
             </li>
             <li>
-              Si eres nacional del Mercosur, hay{' '}
+              Para nacionales del Mercosur, la vía de residencia es la siguiente:{' '}
               <Fact k="mercosur.residency_route" site="residenciaes" /> —{' '}
               <a href="/mercosur" className="text-[var(--accent)] underline underline-offset-2">
                 mira si te aplica

@@ -65,7 +65,7 @@ export default function Page() {
       </p>
       <h2>Plazos y qué viene después</h2>
       <p>
-        La residencia temporal dura <Fact k="temporary.duration" site="residenciaes" />. La
+        Duración de la residencia temporal: <Fact k="temporary.duration" site="residenciaes" />. La
         mayoría de nuestros clientes usa ese margen para decidir si solicita la{' '}
         <a href="/residencia/permanente">residencia permanente</a>, y algunos, tras conocer el
         país, miran el <a href="/pase-inversor">Pase de Inversor</a> si una inversión que califique

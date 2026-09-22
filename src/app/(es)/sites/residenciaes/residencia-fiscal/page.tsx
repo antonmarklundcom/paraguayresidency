@@ -47,8 +47,7 @@ export default function Page() {
     >
       <h2>Qué significa de verdad el sistema territorial</h2>
       <p>
-        Paraguay aplica <Fact k="tax.territorial_rate" site="residenciaes" /> bajo un sistema en el
-        que <Fact k="tax.foreign_income_treatment" site="residenciaes" />. Es una ventaja real y
+        Paraguay aplica <Fact k="tax.territorial_rate" site="residenciaes" />. Tratamiento de las rentas del exterior: <Fact k="tax.foreign_income_treatment" site="residenciaes" />. Es una ventaja real y
         útil para quien tiene renta de fuente extranjera. También es una afirmación más acotada que
         el marco de &ldquo;paraíso fiscal&rdquo; que circula por internet, y preferimos ser el
         sitio que lo dice así antes que el que lo vende de más.

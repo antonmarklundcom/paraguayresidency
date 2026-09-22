@@ -152,15 +152,13 @@ export default function Page() {
           <Heading level={2}>Por que o Paraguai</Heading>
           <ul className="mt-[var(--space-6)] space-y-[var(--space-4)] text-[var(--fg-muted)]">
             <li>
-              A residência temporária dura <Fact k="temporary.duration" site={SITE} />, uma das
-              rotas padrão mais acessíveis que existem.
+              Prazo da residência temporária: <Fact k="temporary.duration" site={SITE} />.
             </li>
             <li>
-              A residência permanente traz <Fact k="permanent.presence_rule" site={SITE} /> — a
-              gente explica exatamente o que isso significa para o seu jeito de viajar.
+              A residência permanente tem uma exigência de presença: <Fact k="permanent.presence_rule" site={SITE} />.
             </li>
             <li>
-              O sistema territorial de impostos faz com que{' '}
+              Sobre a tributação da renda do exterior:{' '}
               <Fact k="tax.foreign_income_treatment" site={SITE} />, mas o que muda na sua
               declaração no Brasil é pergunta para o seu contador.
             </li>

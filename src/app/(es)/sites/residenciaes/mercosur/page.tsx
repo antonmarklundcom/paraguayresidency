@@ -45,7 +45,7 @@ export default function Page() {
         <header className="mt-[var(--space-8)]">
           <Heading level={1}>La vía Mercosur: quién califica y qué simplifica</Heading>
           <p className="mt-[var(--space-4)] text-(length:--text-lg) text-[var(--fg-muted)]">
-            Si eres nacional de un país del Mercosur, hay{' '}
+            Para nacionales de países del Mercosur, la vía de residencia es la siguiente:{' '}
             <Fact k="mercosur.residency_route" site="residenciaes" />.
             No es una entrada automática ni un trámite distinto de cero — es el mismo proceso, con
             algunas piezas más sencillas para ciertas nacionalidades. Te decimos exactamente cuáles

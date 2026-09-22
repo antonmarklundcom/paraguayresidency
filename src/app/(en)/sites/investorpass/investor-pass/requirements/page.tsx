@@ -46,7 +46,7 @@ export default function Page() {
     >
       <h2>The qualifying investment</h2>
       <p>
-        Every route needs a qualifying investment that starts{' '}
+        Minimum qualifying investment:{' '}
         <Fact k="investorpass.min_investment_usd" site="investorpass" />. The exact threshold for
         your chosen route is confirmed against the resolution text before you file — see{' '}
         <a href="/investor-pass/investment-routes">investment routes</a> for what each one covers.
@@ -72,8 +72,7 @@ export default function Page() {
       <p>
         A spouse and dependent children can generally be included on the same application. Each
         dependent adds their own identity documentation; the qualifying investment itself is not
-        multiplied per family member. <Fact k="cedula.timeline" site="investorpass" /> once the
-        residency itself is approved, for every family member included.
+        multiplied per family member. Cédula timing for each family member: <Fact k="cedula.timeline" site="investorpass" />.
       </p>
 
       <h2>What we screen before you invest anything</h2>
