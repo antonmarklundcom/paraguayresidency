@@ -111,20 +111,6 @@ export default function Page() {
         }
       />
 
-      <Section>
-        <Container width="narrow">
-          <Heading level={2}>Plan B, honestly</Heading>
-          <p className="mt-[var(--space-4)] text-[var(--fg-muted)]">
-            You have probably read the &ldquo;Paraguay golden visa&rdquo; posts. Most skip the
-            part where a real government office processes real paperwork on its own schedule. We
-            are not here to sell you a fantasy — we are here to get you a genuine residency card
-            and a tax ID you can hold in reserve, filed correctly the first time, so it is there
-            if and when you need it. Some clients move here fully. Most do not, and that is fine —
-            the card does not expire because you kept living somewhere else.
-          </p>
-        </Container>
-      </Section>
-
       <Section tone="alt">
         <Container>
           <Heading level={2}>Three routes, compared honestly</Heading>
@@ -153,6 +139,20 @@ export default function Page() {
       </Section>
 
       <Section>
+        <Container width="narrow">
+          <Heading level={2}>Plan B, honestly</Heading>
+          <p className="mt-[var(--space-4)] text-[var(--fg-muted)]">
+            You have probably read the &ldquo;Paraguay golden visa&rdquo; posts. Most skip the
+            part where a real government office processes real paperwork on its own schedule. We
+            are not here to sell you a fantasy — we are here to get you a genuine residency card
+            and a tax ID you can hold in reserve, filed correctly the first time, so it is there
+            if and when you need it. Some clients move here fully. Most do not, and that is fine —
+            the card does not expire because you kept living somewhere else.
+          </p>
+        </Container>
+      </Section>
+
+      <Section tone="alt">
         <Container width="narrow">
           <Heading level={2}>Territorial tax, explained without the hype</Heading>
           <p className="mt-[var(--space-4)] text-[var(--fg-muted)]">
@@ -199,7 +199,7 @@ export default function Page() {
         </Container>
       </Section>
 
-      <Section>
+      <Section tone="accent">
         <Container width="narrow">
           <Heading level={2}>Latest articles</Heading>
           <ul className="mt-[var(--space-4)] space-y-2">
