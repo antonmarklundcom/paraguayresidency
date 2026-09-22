@@ -1,3 +1,4 @@
+import { t } from '@/i18n';
 import type { ReactNode } from 'react';
 import { Button, StickyCta, Breadcrumbs, Container, FAQ, Heading, JsonLd, LeadForm, Prose, Section, type FaqItem } from '@/components';
 import { serviceJsonLd } from '@/lib/metadata';
@@ -63,6 +64,7 @@ export function ServicePage({
             </a>
           )}
           <div className="mt-[var(--space-8)]">
+            <p className="mb-[var(--space-4)] text-(length:--text-sm) text-[var(--fg-muted)]">{t('residency', 'process.trustBody')}</p>
             <LeadForm site="residency" variant={formVariant} pagePath={path} />
           </div>
         </div>

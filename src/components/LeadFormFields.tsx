@@ -16,9 +16,9 @@ const KIND_BY_VARIANT: Record<LeadVariant, LeadKind | 'whatsapp'> = {
 export interface LeadFormLabels {
   name: string;
   email: string;
-  phone: string;
+  phoneOrWhatsapp: string;
+  nextStep: string;
   whatsapp: string;
-  country: string;
   nationality: string;
   message: string;
   investmentRange: string;
@@ -148,7 +148,7 @@ export function LeadFormFields({
       <div className="grid gap-[var(--space-4)] sm:grid-cols-2">
         {variant !== 'whatsapp' ? <div>
           <label className={label} htmlFor={`${id}-phone`}>
-            {labels.phone}
+            {labels.phoneOrWhatsapp} <span className={hint}>{labels.optional}</span>
           </label>
           <input
             id={`${id}-phone`}
@@ -163,13 +163,13 @@ export function LeadFormFields({
             <p className="mt-1 text-(length:--text-xs) text-[var(--danger)]">{err('phone')}</p>
           ) : null}
         </div> : null}
-        <div>
+        {variant === 'whatsapp' ? <div>
           <label className={label} htmlFor={`${id}-whatsapp`}>
-            {labels.whatsapp} {variant !== 'whatsapp' ? <span className={hint}>{labels.optional}</span> : null}
+            {labels.whatsapp}
           </label>
           <input id={`${id}-whatsapp`} name="whatsapp" type="tel" autoComplete="tel" required={variant === 'whatsapp'} aria-invalid={err('whatsapp') ? true : undefined} className={field} />
           {err('whatsapp') ? <p className="mt-1 text-(length:--text-xs) text-[var(--danger)]">{err('whatsapp')}</p> : null}
-        </div>
+        </div> : null}
       </div>
 
       {variant !== 'contact' && variant !== 'whatsapp' ? (
@@ -179,15 +179,6 @@ export function LeadFormFields({
               {labels.nationality}
             </label>
             <select id={`${id}-nationality`} name="nationality" defaultValue="" className={field}>
-              <option value="">{labels.choose}</option>
-              {countryOptions}
-            </select>
-          </div>
-          <div>
-            <label className={label} htmlFor={`${id}-country`}>
-              {labels.country}
-            </label>
-            <select id={`${id}-country`} name="country" defaultValue="" className={field}>
               <option value="">{labels.choose}</option>
               {countryOptions}
             </select>
@@ -235,6 +226,7 @@ export function LeadFormFields({
 
       <div>
         <Submit labels={labels} pending={pending} />
+        <p className="mt-[var(--space-2)] text-(length:--text-sm) text-[var(--fg-muted)]">{labels.nextStep}</p>
       </div>
     </form>
   );

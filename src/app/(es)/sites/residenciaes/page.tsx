@@ -178,28 +178,17 @@ export default function Page() {
           <p className="mt-[var(--space-4)] text-[var(--fg-muted)]">
             Dos minutos te dicen qué ruta encaja. O salta directo a una llamada.
           </p>
-          <div className="mt-[var(--space-8)] flex flex-wrap justify-center gap-[var(--space-3)]">
-            {actions}
-          </div>
-          {whatsapp && (
-            <a
-              href={whatsapp}
-              rel="noopener"
-              className="mt-[var(--space-4)] inline-flex items-center gap-2 text-(length:--text-sm) text-[var(--accent)] underline underline-offset-2"
-            >
-              {t('residenciaes', 'form.whatsapp')}
-            </a>
-          )}
-        <div className="mt-[var(--space-10)] grid gap-[var(--space-8)] text-left lg:grid-cols-2">
+        <div className="mt-[var(--space-10)] grid gap-[var(--space-8)] text-left">
             <div>
               <Heading level={2}>{t('residenciaes', 'process.fullForm')}</Heading>
               <div className="mt-[var(--space-4)]"><LeadForm site="residenciaes" variant="contact" pagePath="/" /></div>
             </div>
-            <div>
-              <Heading level={2}>{t('residenciaes', 'form.whatsapp')}</Heading>
+            <details>
+              <summary className="flex min-h-[44px] cursor-pointer items-center text-[var(--accent)] underline underline-offset-2">{t('residenciaes', 'form.whatsappAlternative')}</summary>
+              {whatsapp && <a href={whatsapp} rel="noopener" className="inline-flex min-h-[44px] items-center text-[var(--accent)] underline underline-offset-2">{t('residenciaes', 'form.whatsapp')}</a>}
               <p className="my-[var(--space-4)] text-[var(--fg-muted)]">{t('residenciaes', 'process.whatsappIntro')}</p>
               <LeadForm site="residenciaes" variant="whatsapp" pagePath="/" />
-            </div>
+            </details>
           </div>
         </Container>
       </Section>

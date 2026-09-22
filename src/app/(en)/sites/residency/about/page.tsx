@@ -1,3 +1,4 @@
+import { t } from '@/i18n';
 import type { Metadata } from 'next';
 import { Breadcrumbs, Button, Container, Heading, Section } from '@/components';
 import { siteMetadata } from '@/lib/metadata';
@@ -27,6 +28,17 @@ export default function Page() {
           appointment, what a bank actually wants to see before it opens an account. We handle the
           details because we handle them constantly, not because they are secret.
         </p>
+
+
+        <section className="mt-[var(--space-12)]">
+          <Heading level={2}>{t('residency', 'about.teamTitle')}</Heading>
+          <ul className="mt-[var(--space-4)] list-disc pl-5 text-[var(--fg-muted)]">
+            <li>Anton Marklund</li>
+            <li>Yanina Alvarez</li>
+            <li>Diana Davalos</li>
+          </ul>
+          <p className="mt-[var(--space-4)] text-[var(--fg-muted)]">{t('residency', 'about.teamBody')}</p>
+        </section>
 
         <div className="mt-[var(--space-12)] space-y-[var(--space-8)]">
           <div>

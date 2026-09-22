@@ -1,3 +1,4 @@
+import { t } from '@/i18n';
 import type { Metadata } from 'next';
 import { Breadcrumbs, Button, Container, Heading, Section } from '@/components';
 import { siteMetadata } from '@/lib/metadata';
@@ -36,6 +37,17 @@ export default function Page() {
           guide is those answers, written down once instead of repeated on every call.
         </p>
 
+
+        <section className="mt-[var(--space-12)]">
+          <Heading level={2}>{t('guide', 'about.teamTitle')}</Heading>
+          <ul className="mt-[var(--space-4)] list-disc pl-5 text-[var(--fg-muted)]">
+            <li>Anton Marklund</li>
+            <li>Yanina Alvarez</li>
+            <li>Diana Davalos</li>
+          </ul>
+          <p className="mt-[var(--space-4)] text-[var(--fg-muted)]">{t('guide', 'about.teamBody')}</p>
+        </section>
+
         <div className="mt-[var(--space-12)] space-y-[var(--space-8)]">
           <div>
             <Heading level={2}>Why it costs money</Heading>
@@ -49,7 +61,7 @@ export default function Page() {
             <Heading level={2}>Why the numbers are hedged</Heading>
             <p className="mt-[var(--space-2)] text-[var(--fg-muted)]">
               Every legal or financial figure in the guide follows the same rule as this site:
-              nothing is published as a bare number until our legal partner has verified it.
+              nothing is published as a bare number until it has been checked against the current official source.
               Where a figure is not yet verified, the guide says so and tells you how to confirm
               it, rather than guessing.
             </p>

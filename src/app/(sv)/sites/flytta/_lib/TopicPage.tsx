@@ -67,6 +67,7 @@ export function TopicPage({
             </a>
           )}
           <div className="mt-[var(--space-8)]">
+            <p className="mb-[var(--space-4)] text-(length:--text-sm) text-[var(--fg-muted)]">{t('flytta', 'process.trustBody')}</p>
             <LeadForm site={SITE} variant={formVariant} pagePath={path} />
           </div>
         </div>

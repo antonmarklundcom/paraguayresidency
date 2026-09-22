@@ -184,26 +184,17 @@ export default function Page() {
           <p className="mt-[var(--space-4)] text-[var(--fg-muted)]">
             Dois minutos dizem qual rota serve. Ou vá direto para uma conversa.
           </p>
-          <div className="mt-[var(--space-8)] flex flex-wrap justify-center gap-[var(--space-3)]">
-            {actions}
-          </div>
-          {whatsapp && (
-            <p className="mt-[var(--space-6)] text-(length:--text-sm)">
-              <a href={whatsapp} rel="noopener" className="text-[var(--accent)] underline underline-offset-2">
-                Ou mande uma mensagem no WhatsApp
-              </a>
-            </p>
-          )}
-        <div className="mt-[var(--space-10)] grid gap-[var(--space-8)] text-left lg:grid-cols-2">
+        <div className="mt-[var(--space-10)] grid gap-[var(--space-8)] text-left">
             <div>
               <Heading level={2}>{t('residenciapt', 'process.fullForm')}</Heading>
               <div className="mt-[var(--space-4)]"><LeadForm site="residenciapt" variant="contact" pagePath="/" /></div>
             </div>
-            <div>
-              <Heading level={2}>{t('residenciapt', 'form.whatsapp')}</Heading>
+            <details>
+              <summary className="flex min-h-[44px] cursor-pointer items-center text-[var(--accent)] underline underline-offset-2">{t('residenciapt', 'form.whatsappAlternative')}</summary>
+              {whatsapp && <a href={whatsapp} rel="noopener" className="inline-flex min-h-[44px] items-center text-[var(--accent)] underline underline-offset-2">{t('residenciapt', 'form.whatsapp')}</a>}
               <p className="my-[var(--space-4)] text-[var(--fg-muted)]">{t('residenciapt', 'process.whatsappIntro')}</p>
               <LeadForm site="residenciapt" variant="whatsapp" pagePath="/" />
-            </div>
+            </details>
           </div>
         </Container>
       </Section>
