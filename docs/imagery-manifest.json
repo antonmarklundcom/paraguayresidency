@@ -4,10 +4,10 @@
     "purpose": "Direction 1 Arrival homepage comparison for guide, investorpass, frontier",
     "resolution_rule": "2k for full-bleed heroes, 1k for tiles",
     "cost_preflight": "1.5 per 2k, 1 per 1k",
-    "actual_spend_credits": 17.5,
-    "ledger_checked": "16 lines GPT Image 2.5 Sunburst, 2026-09-22",
+    "actual_spend_credits": 18.5,
+    "ledger_checked": "16 lines GPT Image 2.5 Sunburst, 2026-09-22; +2 lines 0.5 each for the regenerated tiles, 2026-09-22",
     "download_status": "localized",
-    "review": "hammock and home-office tiles show hills/sea in background; regenerate if Arrival is chosen"
+    "review": "hammock and home-office tiles regenerated 2026-09-22 (the first versions showed sea and hills; Paraguay is landlocked and flat): Asunción veranda and street, lapacho, terracotta roofs"
   },
   "images": [
     {
@@ -100,11 +100,12 @@
         "public/images/arrival/guide-tile-hammock-reading-800.webp",
         "public/images/arrival/guide-tile-hammock-reading-480.webp"
       ],
-      "alt_en": "Man reading on his phone in a hammock on a veranda",
+      "alt_en": "Man reading on his phone in a hammock on a shaded veranda in Asunción, with a mango tree and a flowering lapacho behind",
       "ratio": "4:5",
       "px": "896x1120",
       "model": "gpt_image_2_5 sunburst medium 1k",
-      "job_id": "306e5294-b5b5-49c9-aa27-39e5fbf0d70b"
+      "job_id": "d844ab17-bbc3-49c6-908d-8585d7695db7",
+      "regenerated": "2026-09-22"
     },
     {
       "id": "investorpass-tile-real-estate",
@@ -184,11 +185,12 @@
         "public/images/arrival/frontier-tile-home-office-800.webp",
         "public/images/arrival/frontier-tile-home-office-480.webp"
       ],
-      "alt_en": "Calm home office by a window with plants",
+      "alt_en": "Home office desk by a window overlooking a leafy Asunción street with a flowering pink lapacho",
       "ratio": "4:5",
       "px": "896x1120",
       "model": "gpt_image_2_5 sunburst medium 1k",
-      "job_id": "7272c43d-8fd4-4bc7-aafc-46d0d7f31590"
+      "job_id": "ced08536-8883-4def-bd8f-3c877d358b67",
+      "regenerated": "2026-09-22"
     },
     {
       "id": "frontier-tile-airport-window",
