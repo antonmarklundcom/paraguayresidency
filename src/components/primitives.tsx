@@ -50,8 +50,8 @@ export function Section({
 }
 
 const headingSizes = {
-  1: 'text-(length:--text-4xl)',
-  2: 'text-(length:--text-3xl)',
+  1: 'text-(length:--text-3xl) sm:text-(length:--text-4xl)',
+  2: 'text-(length:--text-2xl) sm:text-(length:--text-3xl)',
   3: 'text-(length:--text-xl)',
   4: 'text-(length:--text-lg)',
 } as const;
@@ -71,7 +71,7 @@ export function Heading({
   return (
     <Tag
       id={id}
-      className={`font-[family-name:var(--display-font)] leading-[var(--leading-tight)] tracking-[-0.01em] text-balance ${headingSizes[level]} ${className}`}
+      className={`font-[family-name:var(--display-font)] leading-[var(--leading-tight)] tracking-[-0.01em] text-balance hyphens-auto [overflow-wrap:anywhere] ${headingSizes[level]} ${className}`}
     >
       {children}
     </Tag>
