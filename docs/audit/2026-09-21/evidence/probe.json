@@ -1,0 +1,2797 @@
+[
+ {
+  "brand": "residency",
+  "path": "/",
+  "vp": 390,
+  "h1": "Paraguay residency, handled end to end.",
+  "h1Size": "17px",
+  "h1Weight": "400",
+  "h1Font": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "h1Top": 273,
+  "h1Bottom": 292,
+  "bodySize": "17px",
+  "headerH": 133,
+  "eyebrow": {
+   "text": "Paraguay Residency",
+   "size": "17px"
+  },
+  "firstCta": {
+   "text": "Find your route",
+   "y": 460,
+   "href": "/route-finder"
+  },
+  "foldCtas": [
+   "Find your route",
+   "Book a call"
+  ],
+  "totalCtas": 7,
+  "distinctCtaTargets": 5,
+  "bandsWithoutCta": 3,
+  "nBands": 7,
+  "fixed": [],
+  "forms": [],
+  "docH": 5416,
+  "bg": "rgba(0, 0, 0, 0)",
+  "accent": "#1d6b4f",
+  "displayFont": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "bodyFont": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI",
+  "trustMentions": [],
+  "objections": {
+   "cost": true,
+   "timeline": false,
+   "presence": true,
+   "scam": false
+  }
+ },
+ {
+  "brand": "residency",
+  "path": "/",
+  "vp": 1440,
+  "h1": "Paraguay residency, handled end to end.",
+  "h1Size": "17px",
+  "h1Weight": "400",
+  "h1Font": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "h1Top": 201,
+  "h1Bottom": 220,
+  "bodySize": "17px",
+  "headerH": 61,
+  "eyebrow": {
+   "text": "Paraguay Residency",
+   "size": "17px"
+  },
+  "firstCta": {
+   "text": "Find your route",
+   "y": 360,
+   "href": "/route-finder"
+  },
+  "foldCtas": [
+   "Find your route",
+   "Book a call"
+  ],
+  "totalCtas": 7,
+  "distinctCtaTargets": 5,
+  "bandsWithoutCta": 1,
+  "nBands": 4,
+  "fixed": [],
+  "forms": [],
+  "docH": 3503,
+  "bg": "rgba(0, 0, 0, 0)",
+  "accent": "#1d6b4f",
+  "displayFont": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "bodyFont": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI",
+  "trustMentions": [],
+  "objections": {
+   "cost": true,
+   "timeline": false,
+   "presence": true,
+   "scam": false
+  }
+ },
+ {
+  "brand": "residency",
+  "path": "/residency/temporary-residency",
+  "vp": 390,
+  "h1": "Temporary residency, the standard first step",
+  "h1Size": "17px",
+  "h1Weight": "400",
+  "h1Font": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "h1Top": 257,
+  "h1Bottom": 295,
+  "bodySize": "17px",
+  "headerH": 133,
+  "eyebrow": null,
+  "firstCta": {
+   "text": "Request a consultation",
+   "y": 6143,
+   "href": null
+  },
+  "foldCtas": [],
+  "totalCtas": 1,
+  "distinctCtaTargets": 1,
+  "bandsWithoutCta": 8,
+  "nBands": 9,
+  "fixed": [],
+  "forms": [
+   {
+    "n": 7,
+    "req": 1,
+    "names": "name,email*,phone,whatsapp,nationality,country,message",
+    "submit": "Request a consultation",
+    "nearSubmit": "",
+    "y": 5345
+   }
+  ],
+  "docH": 7271,
+  "bg": "rgba(0, 0, 0, 0)",
+  "accent": "#1d6b4f",
+  "displayFont": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "bodyFont": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI",
+  "trustMentions": [],
+  "objections": {
+   "cost": true,
+   "timeline": true,
+   "presence": true,
+   "scam": false
+  }
+ },
+ {
+  "brand": "residency",
+  "path": "/residency/temporary-residency",
+  "vp": 1440,
+  "h1": "Temporary residency, the standard first step",
+  "h1Size": "17px",
+  "h1Weight": "400",
+  "h1Font": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "h1Top": 185,
+  "h1Bottom": 204,
+  "bodySize": "17px",
+  "headerH": 61,
+  "eyebrow": null,
+  "firstCta": {
+   "text": "Request a consultation",
+   "y": 4207,
+   "href": null
+  },
+  "foldCtas": [],
+  "totalCtas": 1,
+  "distinctCtaTargets": 1,
+  "bandsWithoutCta": 5,
+  "nBands": 6,
+  "fixed": [],
+  "forms": [
+   {
+    "n": 7,
+    "req": 1,
+    "names": "name,email*,phone,whatsapp,nationality,country,message",
+    "submit": "Request a consultation",
+    "nearSubmit": "",
+    "y": 3711
+   }
+  ],
+  "docH": 4838,
+  "bg": "rgba(0, 0, 0, 0)",
+  "accent": "#1d6b4f",
+  "displayFont": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "bodyFont": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI",
+  "trustMentions": [],
+  "objections": {
+   "cost": true,
+   "timeline": true,
+   "presence": true,
+   "scam": false
+  }
+ },
+ {
+  "brand": "residency",
+  "path": "/pricing",
+  "vp": 390,
+  "h1": "A fixed service fee, with separate costs explained before you commit",
+  "h1Size": "17px",
+  "h1Weight": "400",
+  "h1Font": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "h1Top": 257,
+  "h1Bottom": 295,
+  "bodySize": "17px",
+  "headerH": 133,
+  "eyebrow": {
+   "text": "Home/Pricing{\"@context\":\"https://schema.",
+   "size": "17px"
+  },
+  "firstCta": {
+   "text": "Book a call",
+   "y": 5940,
+   "href": "/book"
+  },
+  "foldCtas": [],
+  "totalCtas": 2,
+  "distinctCtaTargets": 2,
+  "bandsWithoutCta": 8,
+  "nBands": 10,
+  "fixed": [],
+  "forms": [
+   {
+    "n": 7,
+    "req": 1,
+    "names": "name,email*,phone,whatsapp,nationality,country,message",
+    "submit": "Request a consultation",
+    "nearSubmit": "",
+    "y": 6024
+   }
+  ],
+  "docH": 7950,
+  "bg": "rgba(0, 0, 0, 0)",
+  "accent": "#1d6b4f",
+  "displayFont": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "bodyFont": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI",
+  "trustMentions": [],
+  "objections": {
+   "cost": true,
+   "timeline": true,
+   "presence": true,
+   "scam": false
+  }
+ },
+ {
+  "brand": "residency",
+  "path": "/pricing",
+  "vp": 1440,
+  "h1": "A fixed service fee, with separate costs explained before you commit",
+  "h1Size": "17px",
+  "h1Weight": "400",
+  "h1Font": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "h1Top": 185,
+  "h1Bottom": 204,
+  "bodySize": "17px",
+  "headerH": 61,
+  "eyebrow": {
+   "text": "Home/Pricing{\"@context\":\"https://schema.",
+   "size": "17px"
+  },
+  "firstCta": {
+   "text": "Book a call",
+   "y": 3718,
+   "href": "/book"
+  },
+  "foldCtas": [],
+  "totalCtas": 2,
+  "distinctCtaTargets": 2,
+  "bandsWithoutCta": 5,
+  "nBands": 6,
+  "fixed": [],
+  "forms": [
+   {
+    "n": 7,
+    "req": 1,
+    "names": "name,email*,phone,whatsapp,nationality,country,message",
+    "submit": "Request a consultation",
+    "nearSubmit": "",
+    "y": 3802
+   }
+  ],
+  "docH": 4929,
+  "bg": "rgba(0, 0, 0, 0)",
+  "accent": "#1d6b4f",
+  "displayFont": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "bodyFont": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI",
+  "trustMentions": [],
+  "objections": {
+   "cost": true,
+   "timeline": true,
+   "presence": true,
+   "scam": false
+  }
+ },
+ {
+  "brand": "residency",
+  "path": "/book",
+  "vp": 390,
+  "h1": "Book a call",
+  "h1Size": "17px",
+  "h1Weight": "400",
+  "h1Font": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "h1Top": 197,
+  "h1Bottom": 216,
+  "bodySize": "17px",
+  "headerH": 133,
+  "eyebrow": null,
+  "firstCta": {
+   "text": "Request a consultation",
+   "y": 1222,
+   "href": null
+  },
+  "foldCtas": [],
+  "totalCtas": 1,
+  "distinctCtaTargets": 1,
+  "bandsWithoutCta": 2,
+  "nBands": 3,
+  "fixed": [],
+  "forms": [
+   {
+    "n": 7,
+    "req": 1,
+    "names": "name,email*,phone,whatsapp,nationality,country,message",
+    "submit": "Request a consultation",
+    "nearSubmit": "",
+    "y": 424
+   }
+  ],
+  "docH": 2317,
+  "bg": "rgba(0, 0, 0, 0)",
+  "accent": "#1d6b4f",
+  "displayFont": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "bodyFont": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI",
+  "trustMentions": [],
+  "objections": {
+   "cost": true,
+   "timeline": false,
+   "presence": false,
+   "scam": false
+  }
+ },
+ {
+  "brand": "residency",
+  "path": "/book",
+  "vp": 1440,
+  "h1": "Book a call",
+  "h1Size": "17px",
+  "h1Weight": "400",
+  "h1Font": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "h1Top": 125,
+  "h1Bottom": 144,
+  "bodySize": "17px",
+  "headerH": 61,
+  "eyebrow": null,
+  "firstCta": {
+   "text": "Request a consultation",
+   "y": 763,
+   "href": null
+  },
+  "foldCtas": [
+   "Request a consultation"
+  ],
+  "totalCtas": 1,
+  "distinctCtaTargets": 1,
+  "bandsWithoutCta": 1,
+  "nBands": 2,
+  "fixed": [],
+  "forms": [
+   {
+    "n": 7,
+    "req": 1,
+    "names": "name,email*,phone,whatsapp,nationality,country,message",
+    "submit": "Request a consultation",
+    "nearSubmit": "",
+    "y": 268
+   }
+  ],
+  "docH": 1362,
+  "bg": "rgba(0, 0, 0, 0)",
+  "accent": "#1d6b4f",
+  "displayFont": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "bodyFont": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI",
+  "trustMentions": [],
+  "objections": {
+   "cost": true,
+   "timeline": false,
+   "presence": false,
+   "scam": false
+  }
+ },
+ {
+  "brand": "investorpass",
+  "path": "/",
+  "vp": 390,
+  "h1": "Permanent residency in Paraguay, in one step.",
+  "h1Size": "17px",
+  "h1Weight": "400",
+  "h1Font": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto,",
+  "h1Top": 281,
+  "h1Bottom": 300,
+  "bodySize": "17px",
+  "headerH": 133,
+  "eyebrow": {
+   "text": "Paraguay Investor Pass",
+   "size": "17px"
+  },
+  "firstCta": {
+   "text": "Real estateProperty that qualifiesa qual",
+   "y": 1791,
+   "href": "/investor-pass/investment-routes#real_estate"
+  },
+  "foldCtas": [],
+  "totalCtas": 5,
+  "distinctCtaTargets": 5,
+  "bandsWithoutCta": 9,
+  "nBands": 11,
+  "fixed": [],
+  "forms": [
+   {
+    "n": 9,
+    "req": 1,
+    "names": "name,email*,phone,whatsapp,nationality,country,investmentRange,investmentRoute,message",
+    "submit": "Send the inquiry",
+    "nearSubmit": "",
+    "y": 5219
+   }
+  ],
+  "docH": 9072,
+  "bg": "rgba(0, 0, 0, 0)",
+  "accent": "#1d6b4f",
+  "displayFont": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "bodyFont": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI",
+  "trustMentions": [
+   "team in Asunción"
+  ],
+  "objections": {
+   "cost": true,
+   "timeline": true,
+   "presence": false,
+   "scam": false
+  }
+ },
+ {
+  "brand": "investorpass",
+  "path": "/",
+  "vp": 1440,
+  "h1": "Permanent residency in Paraguay, in one step.",
+  "h1Size": "17px",
+  "h1Weight": "400",
+  "h1Font": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto,",
+  "h1Top": 209,
+  "h1Bottom": 228,
+  "bodySize": "17px",
+  "headerH": 61,
+  "eyebrow": {
+   "text": "Paraguay Investor Pass",
+   "size": "17px"
+  },
+  "firstCta": {
+   "text": "Real estateProperty that qualifiesa qual",
+   "y": 1298,
+   "href": "/investor-pass/investment-routes#real_estate"
+  },
+  "foldCtas": [],
+  "totalCtas": 5,
+  "distinctCtaTargets": 5,
+  "bandsWithoutCta": 5,
+  "nBands": 7,
+  "fixed": [],
+  "forms": [
+   {
+    "n": 9,
+    "req": 1,
+    "names": "name,email*,phone,whatsapp,nationality,country,investmentRange,investmentRoute,message",
+    "submit": "Send the inquiry",
+    "nearSubmit": "",
+    "y": 3808
+   }
+  ],
+  "docH": 6084,
+  "bg": "rgba(0, 0, 0, 0)",
+  "accent": "#1d6b4f",
+  "displayFont": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "bodyFont": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI",
+  "trustMentions": [
+   "team in Asunción"
+  ],
+  "objections": {
+   "cost": true,
+   "timeline": true,
+   "presence": false,
+   "scam": false
+  }
+ },
+ {
+  "brand": "investorpass",
+  "path": "/investor-pass/requirements",
+  "vp": 390,
+  "h1": "What the Investor Pass actually requires",
+  "h1Size": "17px",
+  "h1Weight": "400",
+  "h1Font": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto,",
+  "h1Top": 257,
+  "h1Bottom": 276,
+  "bodySize": "17px",
+  "headerH": 133,
+  "eyebrow": null,
+  "firstCta": {
+   "text": "Send the inquiry",
+   "y": 6117,
+   "href": null
+  },
+  "foldCtas": [],
+  "totalCtas": 1,
+  "distinctCtaTargets": 1,
+  "bandsWithoutCta": 8,
+  "nBands": 9,
+  "fixed": [],
+  "forms": [
+   {
+    "n": 9,
+    "req": 1,
+    "names": "name,email*,phone,whatsapp,nationality,country,investmentRange,investmentRoute,message",
+    "submit": "Send the inquiry",
+    "nearSubmit": "",
+    "y": 5123
+   }
+  ],
+  "docH": 7273,
+  "bg": "rgba(0, 0, 0, 0)",
+  "accent": "#1d6b4f",
+  "displayFont": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "bodyFont": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI",
+  "trustMentions": [],
+  "objections": {
+   "cost": true,
+   "timeline": true,
+   "presence": false,
+   "scam": true
+  }
+ },
+ {
+  "brand": "investorpass",
+  "path": "/investor-pass/requirements",
+  "vp": 1440,
+  "h1": "What the Investor Pass actually requires",
+  "h1Size": "17px",
+  "h1Weight": "400",
+  "h1Font": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto,",
+  "h1Top": 185,
+  "h1Bottom": 204,
+  "bodySize": "17px",
+  "headerH": 61,
+  "eyebrow": null,
+  "firstCta": {
+   "text": "Send the inquiry",
+   "y": 4083,
+   "href": null
+  },
+  "foldCtas": [],
+  "totalCtas": 1,
+  "distinctCtaTargets": 1,
+  "bandsWithoutCta": 5,
+  "nBands": 6,
+  "fixed": [],
+  "forms": [
+   {
+    "n": 9,
+    "req": 1,
+    "names": "name,email*,phone,whatsapp,nationality,country,investmentRange,investmentRoute,message",
+    "submit": "Send the inquiry",
+    "nearSubmit": "",
+    "y": 3490
+   }
+  ],
+  "docH": 4679,
+  "bg": "rgba(0, 0, 0, 0)",
+  "accent": "#1d6b4f",
+  "displayFont": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "bodyFont": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI",
+  "trustMentions": [],
+  "objections": {
+   "cost": true,
+   "timeline": true,
+   "presence": false,
+   "scam": true
+  }
+ },
+ {
+  "brand": "investorpass",
+  "path": "/investor-pass/investment-routes",
+  "vp": 390,
+  "h1": "Four routes. One outcome: permanent residency.",
+  "h1Size": "17px",
+  "h1Weight": "400",
+  "h1Font": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto,",
+  "h1Top": 257,
+  "h1Bottom": 295,
+  "bodySize": "17px",
+  "headerH": 133,
+  "eyebrow": null,
+  "firstCta": {
+   "text": "Send the inquiry",
+   "y": 6426,
+   "href": null
+  },
+  "foldCtas": [],
+  "totalCtas": 1,
+  "distinctCtaTargets": 1,
+  "bandsWithoutCta": 8,
+  "nBands": 9,
+  "fixed": [],
+  "forms": [
+   {
+    "n": 9,
+    "req": 1,
+    "names": "name,email*,phone,whatsapp,nationality,country,investmentRange,investmentRoute,message",
+    "submit": "Send the inquiry",
+    "nearSubmit": "",
+    "y": 5432
+   }
+  ],
+  "docH": 7582,
+  "bg": "rgba(0, 0, 0, 0)",
+  "accent": "#1d6b4f",
+  "displayFont": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "bodyFont": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI",
+  "trustMentions": [],
+  "objections": {
+   "cost": true,
+   "timeline": true,
+   "presence": false,
+   "scam": false
+  }
+ },
+ {
+  "brand": "investorpass",
+  "path": "/investor-pass/investment-routes",
+  "vp": 1440,
+  "h1": "Four routes. One outcome: permanent residency.",
+  "h1Size": "17px",
+  "h1Weight": "400",
+  "h1Font": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto,",
+  "h1Top": 185,
+  "h1Bottom": 204,
+  "bodySize": "17px",
+  "headerH": 61,
+  "eyebrow": null,
+  "firstCta": {
+   "text": "Send the inquiry",
+   "y": 4252,
+   "href": null
+  },
+  "foldCtas": [],
+  "totalCtas": 1,
+  "distinctCtaTargets": 1,
+  "bandsWithoutCta": 5,
+  "nBands": 6,
+  "fixed": [],
+  "forms": [
+   {
+    "n": 9,
+    "req": 1,
+    "names": "name,email*,phone,whatsapp,nationality,country,investmentRange,investmentRoute,message",
+    "submit": "Send the inquiry",
+    "nearSubmit": "",
+    "y": 3658
+   }
+  ],
+  "docH": 4847,
+  "bg": "rgba(0, 0, 0, 0)",
+  "accent": "#1d6b4f",
+  "displayFont": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "bodyFont": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI",
+  "trustMentions": [],
+  "objections": {
+   "cost": true,
+   "timeline": true,
+   "presence": false,
+   "scam": false
+  }
+ },
+ {
+  "brand": "investorpass",
+  "path": "/contact",
+  "vp": 390,
+  "h1": "Tell us what you are working with",
+  "h1Size": "17px",
+  "h1Weight": "400",
+  "h1Font": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto,",
+  "h1Top": 197,
+  "h1Bottom": 216,
+  "bodySize": "17px",
+  "headerH": 133,
+  "eyebrow": null,
+  "firstCta": {
+   "text": "Send the inquiry",
+   "y": 1338,
+   "href": null
+  },
+  "foldCtas": [],
+  "totalCtas": 1,
+  "distinctCtaTargets": 1,
+  "bandsWithoutCta": 2,
+  "nBands": 3,
+  "fixed": [],
+  "forms": [
+   {
+    "n": 9,
+    "req": 1,
+    "names": "name,email*,phone,whatsapp,nationality,country,investmentRange,investmentRoute,message",
+    "submit": "Send the inquiry",
+    "nearSubmit": "",
+    "y": 344
+   }
+  ],
+  "docH": 2461,
+  "bg": "rgba(0, 0, 0, 0)",
+  "accent": "#1d6b4f",
+  "displayFont": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "bodyFont": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI",
+  "trustMentions": [],
+  "objections": {
+   "cost": true,
+   "timeline": true,
+   "presence": false,
+   "scam": false
+  }
+ },
+ {
+  "brand": "investorpass",
+  "path": "/contact",
+  "vp": 1440,
+  "h1": "Tell us what you are working with",
+  "h1Size": "17px",
+  "h1Weight": "400",
+  "h1Font": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto,",
+  "h1Top": 125,
+  "h1Bottom": 144,
+  "bodySize": "17px",
+  "headerH": 61,
+  "eyebrow": null,
+  "firstCta": {
+   "text": "Send the inquiry",
+   "y": 809,
+   "href": null
+  },
+  "foldCtas": [
+   "Send the inquiry"
+  ],
+  "totalCtas": 1,
+  "distinctCtaTargets": 1,
+  "bandsWithoutCta": 1,
+  "nBands": 2,
+  "fixed": [],
+  "forms": [
+   {
+    "n": 9,
+    "req": 1,
+    "names": "name,email*,phone,whatsapp,nationality,country,investmentRange,investmentRoute,message",
+    "submit": "Send the inquiry",
+    "nearSubmit": "",
+    "y": 216
+   }
+  ],
+  "docH": 1372,
+  "bg": "rgba(0, 0, 0, 0)",
+  "accent": "#1d6b4f",
+  "displayFont": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "bodyFont": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI",
+  "trustMentions": [],
+  "objections": {
+   "cost": true,
+   "timeline": true,
+   "presence": false,
+   "scam": false
+  }
+ },
+ {
+  "brand": "guide",
+  "path": "/",
+  "vp": 390,
+  "h1": "The Paraguay residency guide we wish existed before we did it ourselves.",
+  "h1Size": "17px",
+  "h1Weight": "400",
+  "h1Font": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "h1Top": 273,
+  "h1Bottom": 311,
+  "bodySize": "17px",
+  "headerH": 97,
+  "eyebrow": {
+   "text": "The Paraguay residency guide we wish exi",
+   "size": "17px"
+  },
+  "firstCta": {
+   "text": "Get the guide",
+   "y": 451,
+   "href": "#price"
+  },
+  "foldCtas": [
+   "Get the guide",
+   "See what's inside"
+  ],
+  "totalCtas": 3,
+  "distinctCtaTargets": 3,
+  "bandsWithoutCta": 6,
+  "nBands": 8,
+  "fixed": [],
+  "forms": [
+   {
+    "n": 1,
+    "req": 1,
+    "names": "email*",
+    "submit": "Send it to me",
+    "nearSubmit": "Your email",
+    "y": 5481
+   }
+  ],
+  "docH": 6726,
+  "bg": "rgba(0, 0, 0, 0)",
+  "accent": "#1d6b4f",
+  "displayFont": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "bodyFont": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI",
+  "trustMentions": [
+   "lawyer"
+  ],
+  "objections": {
+   "cost": true,
+   "timeline": true,
+   "presence": false,
+   "scam": true
+  }
+ },
+ {
+  "brand": "guide",
+  "path": "/",
+  "vp": 1440,
+  "h1": "The Paraguay residency guide we wish existed before we did it ourselves.",
+  "h1Size": "17px",
+  "h1Weight": "400",
+  "h1Font": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "h1Top": 209,
+  "h1Bottom": 228,
+  "bodySize": "17px",
+  "headerH": 61,
+  "eyebrow": {
+   "text": "The Paraguay residency guide we wish exi",
+   "size": "17px"
+  },
+  "firstCta": {
+   "text": "Get the guide",
+   "y": 368,
+   "href": "#price"
+  },
+  "foldCtas": [
+   "Get the guide",
+   "See what's inside"
+  ],
+  "totalCtas": 3,
+  "distinctCtaTargets": 3,
+  "bandsWithoutCta": 3,
+  "nBands": 5,
+  "fixed": [],
+  "forms": [
+   {
+    "n": 1,
+    "req": 1,
+    "names": "email*",
+    "submit": "Send it to me",
+    "nearSubmit": "Your email",
+    "y": 3740
+   }
+  ],
+  "docH": 4370,
+  "bg": "rgba(0, 0, 0, 0)",
+  "accent": "#1d6b4f",
+  "displayFont": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "bodyFont": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI",
+  "trustMentions": [
+   "lawyer"
+  ],
+  "objections": {
+   "cost": true,
+   "timeline": true,
+   "presence": false,
+   "scam": true
+  }
+ },
+ {
+  "brand": "guide",
+  "path": "/blog",
+  "vp": 390,
+  "h1": "Articles",
+  "h1Size": "17px",
+  "h1Weight": "400",
+  "h1Font": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "h1Top": 161,
+  "h1Bottom": 180,
+  "bodySize": "17px",
+  "headerH": 97,
+  "eyebrow": null,
+  "firstCta": {
+   "text": "September 11, 2026Do you still need a ba",
+   "y": 244,
+   "href": "/blog/5000-deposit"
+  },
+  "foldCtas": [
+   "September 11, 2026Do you still need a ba",
+   "September 11, 2026Cédula collection and ",
+   "September 11, 2026Health insurance in Pa"
+  ],
+  "totalCtas": 18,
+  "distinctCtaTargets": 18,
+  "bandsWithoutCta": 1,
+  "nBands": 8,
+  "fixed": [],
+  "forms": [],
+  "docH": 6471,
+  "bg": "rgba(0, 0, 0, 0)",
+  "accent": "#1d6b4f",
+  "displayFont": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "bodyFont": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI",
+  "trustMentions": [
+   "attorney",
+   "attorney",
+   "lawyer"
+  ],
+  "objections": {
+   "cost": true,
+   "timeline": true,
+   "presence": true,
+   "scam": true
+  }
+ },
+ {
+  "brand": "guide",
+  "path": "/blog",
+  "vp": 1440,
+  "h1": "Articles",
+  "h1Size": "17px",
+  "h1Weight": "400",
+  "h1Font": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "h1Top": 125,
+  "h1Bottom": 144,
+  "bodySize": "17px",
+  "headerH": 61,
+  "eyebrow": null,
+  "firstCta": {
+   "text": "September 11, 2026Do you still need a ba",
+   "y": 180,
+   "href": "/blog/5000-deposit"
+  },
+  "foldCtas": [
+   "September 11, 2026Do you still need a ba",
+   "September 11, 2026Cédula collection and ",
+   "September 11, 2026Health insurance in Pa",
+   "September 11, 2026Is Paraguay safe? An h",
+   "September 11, 2026Getting a Paraguayan S",
+   "September 11, 2026Do you need a Paraguay",
+   "September 11, 2026Paraguayan naturalizat",
+   "September 11, 2026Paraguay residency req",
+   "September 11, 2026Retiring in Paraguay —"
+  ],
+  "totalCtas": 18,
+  "distinctCtaTargets": 18,
+  "bandsWithoutCta": 1,
+  "nBands": 3,
+  "fixed": [],
+  "forms": [],
+  "docH": 2361,
+  "bg": "rgba(0, 0, 0, 0)",
+  "accent": "#1d6b4f",
+  "displayFont": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "bodyFont": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI",
+  "trustMentions": [
+   "attorney",
+   "attorney",
+   "lawyer"
+  ],
+  "objections": {
+   "cost": true,
+   "timeline": true,
+   "presence": true,
+   "scam": true
+  }
+ },
+ {
+  "brand": "guide",
+  "path": "/about",
+  "vp": 390,
+  "h1": "The guide we wish existed before we did this ourselves",
+  "h1Size": "17px",
+  "h1Weight": "400",
+  "h1Font": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "h1Top": 221,
+  "h1Bottom": 259,
+  "bodySize": "17px",
+  "headerH": 97,
+  "eyebrow": {
+   "text": "Home/About{\"@context\":\"https://schema.or",
+   "size": "17px"
+  },
+  "firstCta": {
+   "text": "Get the guide",
+   "y": 1316,
+   "href": "/#price"
+  },
+  "foldCtas": [],
+  "totalCtas": 2,
+  "distinctCtaTargets": 2,
+  "bandsWithoutCta": 2,
+  "nBands": 3,
+  "fixed": [],
+  "forms": [],
+  "docH": 2405,
+  "bg": "rgba(0, 0, 0, 0)",
+  "accent": "#1d6b4f",
+  "displayFont": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "bodyFont": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI",
+  "trustMentions": [],
+  "objections": {
+   "cost": true,
+   "timeline": false,
+   "presence": false,
+   "scam": true
+  }
+ },
+ {
+  "brand": "guide",
+  "path": "/about",
+  "vp": 1440,
+  "h1": "The guide we wish existed before we did this ourselves",
+  "h1Size": "17px",
+  "h1Weight": "400",
+  "h1Font": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "h1Top": 185,
+  "h1Bottom": 204,
+  "bodySize": "17px",
+  "headerH": 61,
+  "eyebrow": {
+   "text": "Home/About{\"@context\":\"https://schema.or",
+   "size": "17px"
+  },
+  "firstCta": {
+   "text": "Get the guide",
+   "y": 840,
+   "href": "/#price"
+  },
+  "foldCtas": [
+   "Get the guide",
+   "Read the blog"
+  ],
+  "totalCtas": 2,
+  "distinctCtaTargets": 2,
+  "bandsWithoutCta": 1,
+  "nBands": 2,
+  "fixed": [],
+  "forms": [],
+  "docH": 1405,
+  "bg": "rgba(0, 0, 0, 0)",
+  "accent": "#1d6b4f",
+  "displayFont": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "bodyFont": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI",
+  "trustMentions": [],
+  "objections": {
+   "cost": true,
+   "timeline": false,
+   "presence": false,
+   "scam": true
+  }
+ },
+ {
+  "brand": "guide",
+  "path": "/insider",
+  "vp": 390,
+  "h1": "The guide, kept current — plus everything a static PDF can't cover.",
+  "h1Size": "17px",
+  "h1Weight": "400",
+  "h1Font": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "h1Top": 245,
+  "h1Bottom": 283,
+  "bodySize": "17px",
+  "headerH": 97,
+  "eyebrow": {
+   "text": "Paraguay Residency Insider",
+   "size": "17px"
+  },
+  "firstCta": {
+   "text": "Join Insider",
+   "y": 451,
+   "href": "#price"
+  },
+  "foldCtas": [
+   "Join Insider",
+   "See what's inside"
+  ],
+  "totalCtas": 2,
+  "distinctCtaTargets": 2,
+  "bandsWithoutCta": 5,
+  "nBands": 6,
+  "fixed": [],
+  "forms": [],
+  "docH": 4304,
+  "bg": "rgba(0, 0, 0, 0)",
+  "accent": "#1d6b4f",
+  "displayFont": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "bodyFont": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI",
+  "trustMentions": [],
+  "objections": {
+   "cost": true,
+   "timeline": false,
+   "presence": false,
+   "scam": true
+  }
+ },
+ {
+  "brand": "guide",
+  "path": "/insider",
+  "vp": 1440,
+  "h1": "The guide, kept current — plus everything a static PDF can't cover.",
+  "h1Size": "17px",
+  "h1Weight": "400",
+  "h1Font": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "h1Top": 209,
+  "h1Bottom": 228,
+  "bodySize": "17px",
+  "headerH": 61,
+  "eyebrow": {
+   "text": "Paraguay Residency Insider",
+   "size": "17px"
+  },
+  "firstCta": {
+   "text": "Join Insider",
+   "y": 368,
+   "href": "#price"
+  },
+  "foldCtas": [
+   "Join Insider",
+   "See what's inside"
+  ],
+  "totalCtas": 2,
+  "distinctCtaTargets": 2,
+  "bandsWithoutCta": 3,
+  "nBands": 4,
+  "fixed": [],
+  "forms": [],
+  "docH": 2968,
+  "bg": "rgba(0, 0, 0, 0)",
+  "accent": "#1d6b4f",
+  "displayFont": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "bodyFont": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI",
+  "trustMentions": [],
+  "objections": {
+   "cost": true,
+   "timeline": false,
+   "presence": false,
+   "scam": true
+  }
+ },
+ {
+  "brand": "frontier",
+  "path": "/",
+  "vp": 390,
+  "h1": "A second residency you can actually get.",
+  "h1Size": "17px",
+  "h1Weight": "400",
+  "h1Font": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto,",
+  "h1Top": 273,
+  "h1Bottom": 292,
+  "bodySize": "17px",
+  "headerH": 133,
+  "eyebrow": {
+   "text": "Paraguay Frontier",
+   "size": "17px"
+  },
+  "firstCta": {
+   "text": "Find your route",
+   "y": 488,
+   "href": "/route-finder"
+  },
+  "foldCtas": [
+   "Find your route",
+   "Talk to us"
+  ],
+  "totalCtas": 9,
+  "distinctCtaTargets": 6,
+  "bandsWithoutCta": 5,
+  "nBands": 10,
+  "fixed": [],
+  "forms": [
+   {
+    "n": 7,
+    "req": 1,
+    "names": "name,email*,phone,whatsapp,nationality,country,message",
+    "submit": "Request a consultation",
+    "nearSubmit": "",
+    "y": 5872
+   },
+   {
+    "n": 3,
+    "req": 1,
+    "names": "name,whatsapp*,message",
+    "submit": "Send",
+    "nearSubmit": "",
+    "y": 6889
+   }
+  ],
+  "docH": 8378,
+  "bg": "rgba(0, 0, 0, 0)",
+  "accent": "#1d6b4f",
+  "displayFont": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "bodyFont": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI",
+  "trustMentions": [],
+  "objections": {
+   "cost": true,
+   "timeline": false,
+   "presence": true,
+   "scam": false
+  }
+ },
+ {
+  "brand": "frontier",
+  "path": "/",
+  "vp": 1440,
+  "h1": "A second residency you can actually get.",
+  "h1Size": "17px",
+  "h1Weight": "400",
+  "h1Font": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto,",
+  "h1Top": 206,
+  "h1Bottom": 224,
+  "bodySize": "17px",
+  "headerH": 61,
+  "eyebrow": {
+   "text": "Paraguay Frontier",
+   "size": "17px"
+  },
+  "firstCta": {
+   "text": "Find your route",
+   "y": 393,
+   "href": "/route-finder"
+  },
+  "foldCtas": [
+   "Find your route",
+   "Talk to us"
+  ],
+  "totalCtas": 9,
+  "distinctCtaTargets": 6,
+  "bandsWithoutCta": 3,
+  "nBands": 6,
+  "fixed": [],
+  "forms": [
+   {
+    "n": 7,
+    "req": 1,
+    "names": "name,email*,phone,whatsapp,nationality,country,message",
+    "submit": "Request a consultation",
+    "nearSubmit": "",
+    "y": 3876
+   },
+   {
+    "n": 3,
+    "req": 1,
+    "names": "name,whatsapp*,message",
+    "submit": "Send",
+    "nearSubmit": "",
+    "y": 3948
+   }
+  ],
+  "docH": 5022,
+  "bg": "rgba(0, 0, 0, 0)",
+  "accent": "#1d6b4f",
+  "displayFont": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "bodyFont": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI",
+  "trustMentions": [],
+  "objections": {
+   "cost": true,
+   "timeline": false,
+   "presence": true,
+   "scam": false
+  }
+ },
+ {
+  "brand": "frontier",
+  "path": "/routes",
+  "vp": 390,
+  "h1": "Three routes, for people who may never live here full-time",
+  "h1Size": "17px",
+  "h1Weight": "400",
+  "h1Font": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto,",
+  "h1Top": 257,
+  "h1Bottom": 295,
+  "bodySize": "17px",
+  "headerH": 133,
+  "eyebrow": {
+   "text": "Home/Routes{\"@context\":\"https://schema.o",
+   "size": "17px"
+  },
+  "firstCta": null,
+  "foldCtas": [],
+  "totalCtas": 0,
+  "distinctCtaTargets": 0,
+  "bandsWithoutCta": 6,
+  "nBands": 6,
+  "fixed": [],
+  "forms": [],
+  "docH": 5053,
+  "bg": "rgba(0, 0, 0, 0)",
+  "accent": "#1d6b4f",
+  "displayFont": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "bodyFont": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI",
+  "trustMentions": [],
+  "objections": {
+   "cost": false,
+   "timeline": true,
+   "presence": true,
+   "scam": false
+  }
+ },
+ {
+  "brand": "frontier",
+  "path": "/routes",
+  "vp": 1440,
+  "h1": "Three routes, for people who may never live here full-time",
+  "h1Size": "17px",
+  "h1Weight": "400",
+  "h1Font": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto,",
+  "h1Top": 185,
+  "h1Bottom": 204,
+  "bodySize": "17px",
+  "headerH": 61,
+  "eyebrow": {
+   "text": "Home/Routes{\"@context\":\"https://schema.o",
+   "size": "17px"
+  },
+  "firstCta": null,
+  "foldCtas": [],
+  "totalCtas": 0,
+  "distinctCtaTargets": 0,
+  "bandsWithoutCta": 4,
+  "nBands": 4,
+  "fixed": [],
+  "forms": [],
+  "docH": 3055,
+  "bg": "rgba(0, 0, 0, 0)",
+  "accent": "#1d6b4f",
+  "displayFont": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "bodyFont": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI",
+  "trustMentions": [],
+  "objections": {
+   "cost": false,
+   "timeline": true,
+   "presence": true,
+   "scam": false
+  }
+ },
+ {
+  "brand": "frontier",
+  "path": "/why-paraguay",
+  "vp": 390,
+  "h1": "The case for Paraguay as a plan B — and the catch on each point",
+  "h1Size": "17px",
+  "h1Weight": "400",
+  "h1Font": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto,",
+  "h1Top": 257,
+  "h1Bottom": 295,
+  "bodySize": "17px",
+  "headerH": 133,
+  "eyebrow": {
+   "text": "Home/Why Paraguay{\"@context\":\"https://sc",
+   "size": "17px"
+  },
+  "firstCta": null,
+  "foldCtas": [],
+  "totalCtas": 0,
+  "distinctCtaTargets": 0,
+  "bandsWithoutCta": 5,
+  "nBands": 5,
+  "fixed": [],
+  "forms": [],
+  "docH": 3519,
+  "bg": "rgba(0, 0, 0, 0)",
+  "accent": "#1d6b4f",
+  "displayFont": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "bodyFont": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI",
+  "trustMentions": [
+   "lawyer"
+  ],
+  "objections": {
+   "cost": true,
+   "timeline": false,
+   "presence": false,
+   "scam": false
+  }
+ },
+ {
+  "brand": "frontier",
+  "path": "/why-paraguay",
+  "vp": 1440,
+  "h1": "The case for Paraguay as a plan B — and the catch on each point",
+  "h1Size": "17px",
+  "h1Weight": "400",
+  "h1Font": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto,",
+  "h1Top": 185,
+  "h1Bottom": 204,
+  "bodySize": "17px",
+  "headerH": 61,
+  "eyebrow": {
+   "text": "Home/Why Paraguay{\"@context\":\"https://sc",
+   "size": "17px"
+  },
+  "firstCta": null,
+  "foldCtas": [],
+  "totalCtas": 0,
+  "distinctCtaTargets": 0,
+  "bandsWithoutCta": 3,
+  "nBands": 3,
+  "fixed": [],
+  "forms": [],
+  "docH": 1914,
+  "bg": "rgba(0, 0, 0, 0)",
+  "accent": "#1d6b4f",
+  "displayFont": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "bodyFont": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI",
+  "trustMentions": [
+   "lawyer"
+  ],
+  "objections": {
+   "cost": true,
+   "timeline": false,
+   "presence": false,
+   "scam": false
+  }
+ },
+ {
+  "brand": "frontier",
+  "path": "/pricing",
+  "vp": 390,
+  "h1": "A fixed service fee, with separate costs explained before you commit",
+  "h1Size": "17px",
+  "h1Weight": "400",
+  "h1Font": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto,",
+  "h1Top": 257,
+  "h1Bottom": 295,
+  "bodySize": "17px",
+  "headerH": 133,
+  "eyebrow": {
+   "text": "Home/Pricing{\"@context\":\"https://schema.",
+   "size": "17px"
+  },
+  "firstCta": {
+   "text": "Book a call",
+   "y": 4947,
+   "href": "/contact"
+  },
+  "foldCtas": [],
+  "totalCtas": 2,
+  "distinctCtaTargets": 2,
+  "bandsWithoutCta": 7,
+  "nBands": 9,
+  "fixed": [],
+  "forms": [
+   {
+    "n": 7,
+    "req": 1,
+    "names": "name,email*,phone,whatsapp,nationality,country,message",
+    "submit": "Request a consultation",
+    "nearSubmit": "",
+    "y": 5031
+   }
+  ],
+  "docH": 6965,
+  "bg": "rgba(0, 0, 0, 0)",
+  "accent": "#1d6b4f",
+  "displayFont": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "bodyFont": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI",
+  "trustMentions": [],
+  "objections": {
+   "cost": true,
+   "timeline": true,
+   "presence": true,
+   "scam": false
+  }
+ },
+ {
+  "brand": "frontier",
+  "path": "/pricing",
+  "vp": 1440,
+  "h1": "A fixed service fee, with separate costs explained before you commit",
+  "h1Size": "17px",
+  "h1Weight": "400",
+  "h1Font": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto,",
+  "h1Top": 185,
+  "h1Bottom": 204,
+  "bodySize": "17px",
+  "headerH": 61,
+  "eyebrow": {
+   "text": "Home/Pricing{\"@context\":\"https://schema.",
+   "size": "17px"
+  },
+  "firstCta": {
+   "text": "Book a call",
+   "y": 3118,
+   "href": "/contact"
+  },
+  "foldCtas": [],
+  "totalCtas": 2,
+  "distinctCtaTargets": 2,
+  "bandsWithoutCta": 3,
+  "nBands": 5,
+  "fixed": [],
+  "forms": [
+   {
+    "n": 7,
+    "req": 1,
+    "names": "name,email*,phone,whatsapp,nationality,country,message",
+    "submit": "Request a consultation",
+    "nearSubmit": "",
+    "y": 3202
+   }
+  ],
+  "docH": 4329,
+  "bg": "rgba(0, 0, 0, 0)",
+  "accent": "#1d6b4f",
+  "displayFont": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "bodyFont": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI",
+  "trustMentions": [],
+  "objections": {
+   "cost": true,
+   "timeline": true,
+   "presence": true,
+   "scam": false
+  }
+ },
+ {
+  "brand": "residenciaes",
+  "path": "/",
+  "vp": 390,
+  "h1": "Residencia en Paraguay, sin vueltas.",
+  "h1Size": "17px",
+  "h1Weight": "400",
+  "h1Font": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "h1Top": 273,
+  "h1Bottom": 292,
+  "bodySize": "17px",
+  "headerH": 133,
+  "eyebrow": {
+   "text": "Residencia Paraguay",
+   "size": "17px"
+  },
+  "firstCta": {
+   "text": "Descubre tu ruta",
+   "y": 460,
+   "href": "/route-finder"
+  },
+  "foldCtas": [
+   "Descubre tu ruta",
+   "Habla con nosotros"
+  ],
+  "totalCtas": 9,
+  "distinctCtaTargets": 6,
+  "bandsWithoutCta": 4,
+  "nBands": 9,
+  "fixed": [],
+  "forms": [
+   {
+    "n": 5,
+    "req": 1,
+    "names": "name,email*,phone,whatsapp,message",
+    "submit": "Enviar",
+    "nearSubmit": "",
+    "y": 4620
+   },
+   {
+    "n": 3,
+    "req": 1,
+    "names": "name,whatsapp*,message",
+    "submit": "Enviar",
+    "nearSubmit": "",
+    "y": 5440
+   }
+  ],
+  "docH": 6978,
+  "bg": "rgba(0, 0, 0, 0)",
+  "accent": "#1d6b4f",
+  "displayFont": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "bodyFont": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI",
+  "trustMentions": [],
+  "objections": {
+   "cost": true,
+   "timeline": true,
+   "presence": true,
+   "scam": false
+  }
+ },
+ {
+  "brand": "residenciaes",
+  "path": "/",
+  "vp": 1440,
+  "h1": "Residencia en Paraguay, sin vueltas.",
+  "h1Size": "17px",
+  "h1Weight": "400",
+  "h1Font": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "h1Top": 206,
+  "h1Bottom": 224,
+  "bodySize": "17px",
+  "headerH": 61,
+  "eyebrow": {
+   "text": "Residencia Paraguay",
+   "size": "17px"
+  },
+  "firstCta": {
+   "text": "Descubre tu ruta",
+   "y": 365,
+   "href": "/route-finder"
+  },
+  "foldCtas": [
+   "Descubre tu ruta",
+   "Habla con nosotros"
+  ],
+  "totalCtas": 9,
+  "distinctCtaTargets": 6,
+  "bandsWithoutCta": 2,
+  "nBands": 5,
+  "fixed": [],
+  "forms": [
+   {
+    "n": 5,
+    "req": 1,
+    "names": "name,email*,phone,whatsapp,message",
+    "submit": "Enviar",
+    "nearSubmit": "",
+    "y": 3084
+   },
+   {
+    "n": 3,
+    "req": 1,
+    "names": "name,whatsapp*,message",
+    "submit": "Enviar",
+    "nearSubmit": "",
+    "y": 3156
+   }
+  ],
+  "docH": 4152,
+  "bg": "rgba(0, 0, 0, 0)",
+  "accent": "#1d6b4f",
+  "displayFont": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "bodyFont": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI",
+  "trustMentions": [],
+  "objections": {
+   "cost": true,
+   "timeline": true,
+   "presence": true,
+   "scam": false
+  }
+ },
+ {
+  "brand": "residenciaes",
+  "path": "/residencia/temporal",
+  "vp": 390,
+  "h1": "Residencia temporal, el primer paso habitual",
+  "h1Size": "17px",
+  "h1Weight": "400",
+  "h1Font": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "h1Top": 257,
+  "h1Bottom": 295,
+  "bodySize": "17px",
+  "headerH": 133,
+  "eyebrow": null,
+  "firstCta": {
+   "text": "Solicitar una consulta",
+   "y": 6367,
+   "href": null
+  },
+  "foldCtas": [],
+  "totalCtas": 1,
+  "distinctCtaTargets": 1,
+  "bandsWithoutCta": 9,
+  "nBands": 10,
+  "fixed": [],
+  "forms": [
+   {
+    "n": 7,
+    "req": 1,
+    "names": "name,email*,phone,whatsapp,nationality,country,message",
+    "submit": "Solicitar una consulta",
+    "nearSubmit": "",
+    "y": 5569
+   }
+  ],
+  "docH": 7631,
+  "bg": "rgba(0, 0, 0, 0)",
+  "accent": "#1d6b4f",
+  "displayFont": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "bodyFont": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI",
+  "trustMentions": [],
+  "objections": {
+   "cost": true,
+   "timeline": true,
+   "presence": true,
+   "scam": false
+  }
+ },
+ {
+  "brand": "residenciaes",
+  "path": "/residencia/temporal",
+  "vp": 1440,
+  "h1": "Residencia temporal, el primer paso habitual",
+  "h1Size": "17px",
+  "h1Weight": "400",
+  "h1Font": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "h1Top": 185,
+  "h1Bottom": 204,
+  "bodySize": "17px",
+  "headerH": 61,
+  "eyebrow": null,
+  "firstCta": {
+   "text": "Solicitar una consulta",
+   "y": 4263,
+   "href": null
+  },
+  "foldCtas": [],
+  "totalCtas": 1,
+  "distinctCtaTargets": 1,
+  "bandsWithoutCta": 5,
+  "nBands": 6,
+  "fixed": [],
+  "forms": [
+   {
+    "n": 7,
+    "req": 1,
+    "names": "name,email*,phone,whatsapp,nationality,country,message",
+    "submit": "Solicitar una consulta",
+    "nearSubmit": "",
+    "y": 3768
+   }
+  ],
+  "docH": 4967,
+  "bg": "rgba(0, 0, 0, 0)",
+  "accent": "#1d6b4f",
+  "displayFont": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "bodyFont": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI",
+  "trustMentions": [],
+  "objections": {
+   "cost": true,
+   "timeline": true,
+   "presence": true,
+   "scam": false
+  }
+ },
+ {
+  "brand": "residenciaes",
+  "path": "/precios",
+  "vp": 390,
+  "h1": "Un honorario fijo, con los gastos separados claros antes de decidir",
+  "h1Size": "17px",
+  "h1Weight": "400",
+  "h1Font": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "h1Top": 257,
+  "h1Bottom": 295,
+  "bodySize": "17px",
+  "headerH": 133,
+  "eyebrow": {
+   "text": "Inicio/Precios{\"@context\":\"https://schem",
+   "size": "17px"
+  },
+  "firstCta": {
+   "text": "Solicitar una llamada",
+   "y": 6273,
+   "href": "/contact"
+  },
+  "foldCtas": [],
+  "totalCtas": 2,
+  "distinctCtaTargets": 2,
+  "bandsWithoutCta": 8,
+  "nBands": 10,
+  "fixed": [],
+  "forms": [
+   {
+    "n": 7,
+    "req": 1,
+    "names": "name,email*,phone,whatsapp,nationality,country,message",
+    "submit": "Solicitar una consulta",
+    "nearSubmit": "",
+    "y": 6357
+   }
+  ],
+  "docH": 8419,
+  "bg": "rgba(0, 0, 0, 0)",
+  "accent": "#1d6b4f",
+  "displayFont": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "bodyFont": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI",
+  "trustMentions": [],
+  "objections": {
+   "cost": true,
+   "timeline": true,
+   "presence": true,
+   "scam": false
+  }
+ },
+ {
+  "brand": "residenciaes",
+  "path": "/precios",
+  "vp": 1440,
+  "h1": "Un honorario fijo, con los gastos separados claros antes de decidir",
+  "h1Size": "17px",
+  "h1Weight": "400",
+  "h1Font": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "h1Top": 185,
+  "h1Bottom": 204,
+  "bodySize": "17px",
+  "headerH": 61,
+  "eyebrow": {
+   "text": "Inicio/Precios{\"@context\":\"https://schem",
+   "size": "17px"
+  },
+  "firstCta": {
+   "text": "Solicitar una llamada",
+   "y": 3938,
+   "href": "/contact"
+  },
+  "foldCtas": [],
+  "totalCtas": 2,
+  "distinctCtaTargets": 2,
+  "bandsWithoutCta": 4,
+  "nBands": 6,
+  "fixed": [],
+  "forms": [
+   {
+    "n": 7,
+    "req": 1,
+    "names": "name,email*,phone,whatsapp,nationality,country,message",
+    "submit": "Solicitar una consulta",
+    "nearSubmit": "",
+    "y": 4022
+   }
+  ],
+  "docH": 5221,
+  "bg": "rgba(0, 0, 0, 0)",
+  "accent": "#1d6b4f",
+  "displayFont": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "bodyFont": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI",
+  "trustMentions": [],
+  "objections": {
+   "cost": true,
+   "timeline": true,
+   "presence": true,
+   "scam": false
+  }
+ },
+ {
+  "brand": "residenciaes",
+  "path": "/contact",
+  "vp": 390,
+  "h1": "Cuéntanos tu caso",
+  "h1Size": "17px",
+  "h1Weight": "400",
+  "h1Font": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "h1Top": 197,
+  "h1Bottom": 216,
+  "bodySize": "17px",
+  "headerH": 133,
+  "eyebrow": null,
+  "firstCta": {
+   "text": "Enviar",
+   "y": 980,
+   "href": null
+  },
+  "foldCtas": [],
+  "totalCtas": 2,
+  "distinctCtaTargets": 1,
+  "bandsWithoutCta": 3,
+  "nBands": 4,
+  "fixed": [],
+  "forms": [
+   {
+    "n": 5,
+    "req": 1,
+    "names": "name,email*,phone,whatsapp,message",
+    "submit": "Enviar",
+    "nearSubmit": "",
+    "y": 379
+   },
+   {
+    "n": 3,
+    "req": 1,
+    "names": "name,whatsapp*,message",
+    "submit": "Enviar",
+    "nearSubmit": "",
+    "y": 1199
+   }
+  ],
+  "docH": 2737,
+  "bg": "rgba(0, 0, 0, 0)",
+  "accent": "#1d6b4f",
+  "displayFont": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "bodyFont": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI",
+  "trustMentions": [],
+  "objections": {
+   "cost": false,
+   "timeline": false,
+   "presence": false,
+   "scam": false
+  }
+ },
+ {
+  "brand": "residenciaes",
+  "path": "/contact",
+  "vp": 1440,
+  "h1": "Cuéntanos tu caso",
+  "h1Size": "17px",
+  "h1Weight": "400",
+  "h1Font": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "h1Top": 125,
+  "h1Bottom": 144,
+  "bodySize": "17px",
+  "headerH": 61,
+  "eyebrow": null,
+  "firstCta": {
+   "text": "Enviar",
+   "y": 620,
+   "href": null
+  },
+  "foldCtas": [
+   "Enviar",
+   "Enviar"
+  ],
+  "totalCtas": 2,
+  "distinctCtaTargets": 1,
+  "bandsWithoutCta": 1,
+  "nBands": 2,
+  "fixed": [],
+  "forms": [
+   {
+    "n": 5,
+    "req": 1,
+    "names": "name,email*,phone,whatsapp,message",
+    "submit": "Enviar",
+    "nearSubmit": "",
+    "y": 222
+   },
+   {
+    "n": 3,
+    "req": 1,
+    "names": "name,whatsapp*,message",
+    "submit": "Enviar",
+    "nearSubmit": "",
+    "y": 295
+   }
+  ],
+  "docH": 1291,
+  "bg": "rgba(0, 0, 0, 0)",
+  "accent": "#1d6b4f",
+  "displayFont": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "bodyFont": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI",
+  "trustMentions": [],
+  "objections": {
+   "cost": false,
+   "timeline": false,
+   "presence": false,
+   "scam": false
+  }
+ },
+ {
+  "brand": "residenciapt",
+  "path": "/",
+  "vp": 390,
+  "h1": "Morar no Paraguai começa pela residência. Nós cuidamos dela.",
+  "h1Size": "17px",
+  "h1Weight": "400",
+  "h1Font": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto,",
+  "h1Top": 309,
+  "h1Bottom": 347,
+  "bodySize": "17px",
+  "headerH": 169,
+  "eyebrow": {
+   "text": "Vida no Paraguai",
+   "size": "17px"
+  },
+  "firstCta": {
+   "text": "Descubra sua rota",
+   "y": 599,
+   "href": "/route-finder"
+  },
+  "foldCtas": [
+   "Descubra sua rota",
+   "Fale com a gente"
+  ],
+  "totalCtas": 9,
+  "distinctCtaTargets": 6,
+  "bandsWithoutCta": 6,
+  "nBands": 10,
+  "fixed": [],
+  "forms": [
+   {
+    "n": 5,
+    "req": 1,
+    "names": "name,email*,phone,whatsapp,message",
+    "submit": "Enviar",
+    "nearSubmit": "",
+    "y": 5251
+   },
+   {
+    "n": 3,
+    "req": 1,
+    "names": "name,whatsapp*,message",
+    "submit": "Enviar",
+    "nearSubmit": "",
+    "y": 6072
+   }
+  ],
+  "docH": 7609,
+  "bg": "rgba(0, 0, 0, 0)",
+  "accent": "#1d6b4f",
+  "displayFont": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "bodyFont": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI",
+  "trustMentions": [],
+  "objections": {
+   "cost": true,
+   "timeline": true,
+   "presence": true,
+   "scam": false
+  }
+ },
+ {
+  "brand": "residenciapt",
+  "path": "/",
+  "vp": 1440,
+  "h1": "Morar no Paraguai começa pela residência. Nós cuidamos dela.",
+  "h1Size": "17px",
+  "h1Weight": "400",
+  "h1Font": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto,",
+  "h1Top": 201,
+  "h1Bottom": 220,
+  "bodySize": "17px",
+  "headerH": 61,
+  "eyebrow": {
+   "text": "Vida no Paraguai",
+   "size": "17px"
+  },
+  "firstCta": {
+   "text": "Descubra sua rota",
+   "y": 416,
+   "href": "/route-finder"
+  },
+  "foldCtas": [
+   "Descubra sua rota",
+   "Fale com a gente"
+  ],
+  "totalCtas": 9,
+  "distinctCtaTargets": 6,
+  "bandsWithoutCta": 1,
+  "nBands": 5,
+  "fixed": [],
+  "forms": [
+   {
+    "n": 5,
+    "req": 1,
+    "names": "name,email*,phone,whatsapp,message",
+    "submit": "Enviar",
+    "nearSubmit": "",
+    "y": 3371
+   },
+   {
+    "n": 3,
+    "req": 1,
+    "names": "name,whatsapp*,message",
+    "submit": "Enviar",
+    "nearSubmit": "",
+    "y": 3444
+   }
+  ],
+  "docH": 4439,
+  "bg": "rgba(0, 0, 0, 0)",
+  "accent": "#1d6b4f",
+  "displayFont": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "bodyFont": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI",
+  "trustMentions": [],
+  "objections": {
+   "cost": true,
+   "timeline": true,
+   "presence": true,
+   "scam": false
+  }
+ },
+ {
+  "brand": "residenciapt",
+  "path": "/residencia/temporaria",
+  "vp": 390,
+  "h1": "Residência temporária, o primeiro passo padrão",
+  "h1Size": "17px",
+  "h1Weight": "400",
+  "h1Font": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto,",
+  "h1Top": 293,
+  "h1Bottom": 331,
+  "bodySize": "17px",
+  "headerH": 169,
+  "eyebrow": null,
+  "firstCta": {
+   "text": "Solicitar uma consultoria",
+   "y": 6738,
+   "href": null
+  },
+  "foldCtas": [],
+  "totalCtas": 1,
+  "distinctCtaTargets": 1,
+  "bandsWithoutCta": 9,
+  "nBands": 10,
+  "fixed": [],
+  "forms": [
+   {
+    "n": 7,
+    "req": 1,
+    "names": "name,email*,phone,whatsapp,nationality,country,message",
+    "submit": "Solicitar uma consultoria",
+    "nearSubmit": "",
+    "y": 5940
+   }
+  ],
+  "docH": 8002,
+  "bg": "rgba(0, 0, 0, 0)",
+  "accent": "#1d6b4f",
+  "displayFont": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "bodyFont": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI",
+  "trustMentions": [],
+  "objections": {
+   "cost": true,
+   "timeline": true,
+   "presence": true,
+   "scam": false
+  }
+ },
+ {
+  "brand": "residenciapt",
+  "path": "/residencia/temporaria",
+  "vp": 1440,
+  "h1": "Residência temporária, o primeiro passo padrão",
+  "h1Size": "17px",
+  "h1Weight": "400",
+  "h1Font": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto,",
+  "h1Top": 185,
+  "h1Bottom": 204,
+  "bodySize": "17px",
+  "headerH": 61,
+  "eyebrow": null,
+  "firstCta": {
+   "text": "Solicitar uma consultoria",
+   "y": 4430,
+   "href": null
+  },
+  "foldCtas": [],
+  "totalCtas": 1,
+  "distinctCtaTargets": 1,
+  "bandsWithoutCta": 5,
+  "nBands": 6,
+  "fixed": [],
+  "forms": [
+   {
+    "n": 7,
+    "req": 1,
+    "names": "name,email*,phone,whatsapp,nationality,country,message",
+    "submit": "Solicitar uma consultoria",
+    "nearSubmit": "",
+    "y": 3934
+   }
+  ],
+  "docH": 5133,
+  "bg": "rgba(0, 0, 0, 0)",
+  "accent": "#1d6b4f",
+  "displayFont": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "bodyFont": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI",
+  "trustMentions": [],
+  "objections": {
+   "cost": true,
+   "timeline": true,
+   "presence": true,
+   "scam": false
+  }
+ },
+ {
+  "brand": "residenciapt",
+  "path": "/precos",
+  "vp": 390,
+  "h1": "Honorário fixo, com os custos separados explicados antes de decidir",
+  "h1Size": "17px",
+  "h1Weight": "400",
+  "h1Font": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto,",
+  "h1Top": 293,
+  "h1Bottom": 331,
+  "bodySize": "17px",
+  "headerH": 169,
+  "eyebrow": {
+   "text": "Início/Preços{\"@context\":\"https://schema",
+   "size": "17px"
+  },
+  "firstCta": {
+   "text": "Solicitar uma consulta",
+   "y": 6253,
+   "href": "/contact"
+  },
+  "foldCtas": [],
+  "totalCtas": 2,
+  "distinctCtaTargets": 2,
+  "bandsWithoutCta": 8,
+  "nBands": 10,
+  "fixed": [],
+  "forms": [
+   {
+    "n": 7,
+    "req": 1,
+    "names": "name,email*,phone,whatsapp,nationality,country,message",
+    "submit": "Solicitar uma consultoria",
+    "nearSubmit": "",
+    "y": 6337
+   }
+  ],
+  "docH": 8399,
+  "bg": "rgba(0, 0, 0, 0)",
+  "accent": "#1d6b4f",
+  "displayFont": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "bodyFont": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI",
+  "trustMentions": [],
+  "objections": {
+   "cost": true,
+   "timeline": true,
+   "presence": true,
+   "scam": false
+  }
+ },
+ {
+  "brand": "residenciapt",
+  "path": "/precos",
+  "vp": 1440,
+  "h1": "Honorário fixo, com os custos separados explicados antes de decidir",
+  "h1Size": "17px",
+  "h1Weight": "400",
+  "h1Font": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto,",
+  "h1Top": 185,
+  "h1Bottom": 204,
+  "bodySize": "17px",
+  "headerH": 61,
+  "eyebrow": {
+   "text": "Início/Preços{\"@context\":\"https://schema",
+   "size": "17px"
+  },
+  "firstCta": {
+   "text": "Solicitar uma consulta",
+   "y": 3938,
+   "href": "/contact"
+  },
+  "foldCtas": [],
+  "totalCtas": 2,
+  "distinctCtaTargets": 2,
+  "bandsWithoutCta": 4,
+  "nBands": 6,
+  "fixed": [],
+  "forms": [
+   {
+    "n": 7,
+    "req": 1,
+    "names": "name,email*,phone,whatsapp,nationality,country,message",
+    "submit": "Solicitar uma consultoria",
+    "nearSubmit": "",
+    "y": 4022
+   }
+  ],
+  "docH": 5221,
+  "bg": "rgba(0, 0, 0, 0)",
+  "accent": "#1d6b4f",
+  "displayFont": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "bodyFont": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI",
+  "trustMentions": [],
+  "objections": {
+   "cost": true,
+   "timeline": true,
+   "presence": true,
+   "scam": false
+  }
+ },
+ {
+  "brand": "residenciapt",
+  "path": "/contact",
+  "vp": 390,
+  "h1": "Conte o seu caso",
+  "h1Size": "17px",
+  "h1Weight": "400",
+  "h1Font": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto,",
+  "h1Top": 233,
+  "h1Bottom": 252,
+  "bodySize": "17px",
+  "headerH": 169,
+  "eyebrow": null,
+  "firstCta": {
+   "text": "Enviar",
+   "y": 1016,
+   "href": null
+  },
+  "foldCtas": [],
+  "totalCtas": 2,
+  "distinctCtaTargets": 1,
+  "bandsWithoutCta": 3,
+  "nBands": 4,
+  "fixed": [],
+  "forms": [
+   {
+    "n": 5,
+    "req": 1,
+    "names": "name,email*,phone,whatsapp,message",
+    "submit": "Enviar",
+    "nearSubmit": "",
+    "y": 415
+   },
+   {
+    "n": 3,
+    "req": 1,
+    "names": "name,whatsapp*,message",
+    "submit": "Enviar",
+    "nearSubmit": "",
+    "y": 1235
+   }
+  ],
+  "docH": 2773,
+  "bg": "rgba(0, 0, 0, 0)",
+  "accent": "#1d6b4f",
+  "displayFont": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "bodyFont": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI",
+  "trustMentions": [],
+  "objections": {
+   "cost": true,
+   "timeline": false,
+   "presence": false,
+   "scam": false
+  }
+ },
+ {
+  "brand": "residenciapt",
+  "path": "/contact",
+  "vp": 1440,
+  "h1": "Conte o seu caso",
+  "h1Size": "17px",
+  "h1Weight": "400",
+  "h1Font": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto,",
+  "h1Top": 125,
+  "h1Bottom": 144,
+  "bodySize": "17px",
+  "headerH": 61,
+  "eyebrow": null,
+  "firstCta": {
+   "text": "Enviar",
+   "y": 620,
+   "href": null
+  },
+  "foldCtas": [
+   "Enviar",
+   "Enviar"
+  ],
+  "totalCtas": 2,
+  "distinctCtaTargets": 1,
+  "bandsWithoutCta": 1,
+  "nBands": 2,
+  "fixed": [],
+  "forms": [
+   {
+    "n": 5,
+    "req": 1,
+    "names": "name,email*,phone,whatsapp,message",
+    "submit": "Enviar",
+    "nearSubmit": "",
+    "y": 222
+   },
+   {
+    "n": 3,
+    "req": 1,
+    "names": "name,whatsapp*,message",
+    "submit": "Enviar",
+    "nearSubmit": "",
+    "y": 295
+   }
+  ],
+  "docH": 1291,
+  "bg": "rgba(0, 0, 0, 0)",
+  "accent": "#1d6b4f",
+  "displayFont": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "bodyFont": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI",
+  "trustMentions": [],
+  "objections": {
+   "cost": true,
+   "timeline": false,
+   "presence": false,
+   "scam": false
+  }
+ },
+ {
+  "brand": "flytta",
+  "path": "/",
+  "vp": 390,
+  "h1": "Vi flyttade till Paraguay. Så här gör du.",
+  "h1Size": "17px",
+  "h1Weight": "400",
+  "h1Font": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto,",
+  "h1Top": 273,
+  "h1Bottom": 292,
+  "bodySize": "17px",
+  "headerH": 133,
+  "eyebrow": {
+   "text": "Flytta till Paraguay",
+   "size": "17px"
+  },
+  "firstCta": {
+   "text": "Hitta din väg",
+   "y": 432,
+   "href": "/route-finder"
+  },
+  "foldCtas": [
+   "Hitta din väg",
+   "Hör av dig"
+  ],
+  "totalCtas": 15,
+  "distinctCtaTargets": 11,
+  "bandsWithoutCta": 3,
+  "nBands": 11,
+  "fixed": [],
+  "forms": [
+   {
+    "n": 5,
+    "req": 1,
+    "names": "name,email*,phone,whatsapp,message",
+    "submit": "Skicka",
+    "nearSubmit": "",
+    "y": 6826
+   },
+   {
+    "n": 3,
+    "req": 1,
+    "names": "name,whatsapp*,message",
+    "submit": "Skicka",
+    "nearSubmit": "",
+    "y": 7647
+   }
+  ],
+  "docH": 9076,
+  "bg": "rgba(0, 0, 0, 0)",
+  "accent": "#1d6b4f",
+  "displayFont": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "bodyFont": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI",
+  "trustMentions": [
+   "team i Asunción",
+   "team i Asunción"
+  ],
+  "objections": {
+   "cost": true,
+   "timeline": true,
+   "presence": true,
+   "scam": false
+  }
+ },
+ {
+  "brand": "flytta",
+  "path": "/",
+  "vp": 1440,
+  "h1": "Vi flyttade till Paraguay. Så här gör du.",
+  "h1Size": "17px",
+  "h1Weight": "400",
+  "h1Font": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto,",
+  "h1Top": 201,
+  "h1Bottom": 220,
+  "bodySize": "17px",
+  "headerH": 61,
+  "eyebrow": {
+   "text": "Flytta till Paraguay",
+   "size": "17px"
+  },
+  "firstCta": {
+   "text": "Hitta din väg",
+   "y": 360,
+   "href": "/route-finder"
+  },
+  "foldCtas": [
+   "Hitta din väg",
+   "Hör av dig"
+  ],
+  "totalCtas": 15,
+  "distinctCtaTargets": 11,
+  "bandsWithoutCta": 2,
+  "nBands": 7,
+  "fixed": [],
+  "forms": [
+   {
+    "n": 5,
+    "req": 1,
+    "names": "name,email*,phone,whatsapp,message",
+    "submit": "Skicka",
+    "nearSubmit": "",
+    "y": 4789
+   },
+   {
+    "n": 3,
+    "req": 1,
+    "names": "name,whatsapp*,message",
+    "submit": "Skicka",
+    "nearSubmit": "",
+    "y": 4861
+   }
+  ],
+  "docH": 5785,
+  "bg": "rgba(0, 0, 0, 0)",
+  "accent": "#1d6b4f",
+  "displayFont": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "bodyFont": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI",
+  "trustMentions": [
+   "team i Asunción",
+   "team i Asunción"
+  ],
+  "objections": {
+   "cost": true,
+   "timeline": true,
+   "presence": true,
+   "scam": false
+  }
+ },
+ {
+  "brand": "flytta",
+  "path": "/uppehallstillstand",
+  "vp": 390,
+  "h1": "Tre vägar till uppehållstillstånd — vilken passar dig?",
+  "h1Size": "17px",
+  "h1Weight": "400",
+  "h1Font": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto,",
+  "h1Top": 257,
+  "h1Bottom": 295,
+  "bodySize": "17px",
+  "headerH": 133,
+  "eyebrow": null,
+  "firstCta": {
+   "text": "Boka en genomgång",
+   "y": 6080,
+   "href": null
+  },
+  "foldCtas": [],
+  "totalCtas": 1,
+  "distinctCtaTargets": 1,
+  "bandsWithoutCta": 8,
+  "nBands": 9,
+  "fixed": [],
+  "forms": [
+   {
+    "n": 7,
+    "req": 1,
+    "names": "name,email*,phone,whatsapp,nationality,country,message",
+    "submit": "Boka en genomgång",
+    "nearSubmit": "",
+    "y": 5282
+   }
+  ],
+  "docH": 7236,
+  "bg": "rgba(0, 0, 0, 0)",
+  "accent": "#1d6b4f",
+  "displayFont": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "bodyFont": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI",
+  "trustMentions": [],
+  "objections": {
+   "cost": true,
+   "timeline": true,
+   "presence": true,
+   "scam": false
+  }
+ },
+ {
+  "brand": "flytta",
+  "path": "/uppehallstillstand",
+  "vp": 1440,
+  "h1": "Tre vägar till uppehållstillstånd — vilken passar dig?",
+  "h1Size": "17px",
+  "h1Weight": "400",
+  "h1Font": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto,",
+  "h1Top": 185,
+  "h1Bottom": 204,
+  "bodySize": "17px",
+  "headerH": 61,
+  "eyebrow": null,
+  "firstCta": {
+   "text": "Boka en genomgång",
+   "y": 4135,
+   "href": null
+  },
+  "foldCtas": [],
+  "totalCtas": 1,
+  "distinctCtaTargets": 1,
+  "bandsWithoutCta": 5,
+  "nBands": 6,
+  "fixed": [],
+  "forms": [
+   {
+    "n": 7,
+    "req": 1,
+    "names": "name,email*,phone,whatsapp,nationality,country,message",
+    "submit": "Boka en genomgång",
+    "nearSubmit": "",
+    "y": 3639
+   }
+  ],
+  "docH": 4766,
+  "bg": "rgba(0, 0, 0, 0)",
+  "accent": "#1d6b4f",
+  "displayFont": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "bodyFont": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI",
+  "trustMentions": [],
+  "objections": {
+   "cost": true,
+   "timeline": true,
+   "presence": true,
+   "scam": false
+  }
+ },
+ {
+  "brand": "flytta",
+  "path": "/priser",
+  "vp": 390,
+  "h1": "Ett fast arvode, med separata kostnader förklarade innan du bestämmer dig",
+  "h1Size": "17px",
+  "h1Weight": "400",
+  "h1Font": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto,",
+  "h1Top": 257,
+  "h1Bottom": 295,
+  "bodySize": "17px",
+  "headerH": 133,
+  "eyebrow": {
+   "text": "Start/Priser{\"@context\":\"https://schema.",
+   "size": "17px"
+  },
+  "firstCta": {
+   "text": "Boka ett samtal",
+   "y": 6081,
+   "href": "/contact"
+  },
+  "foldCtas": [],
+  "totalCtas": 2,
+  "distinctCtaTargets": 2,
+  "bandsWithoutCta": 8,
+  "nBands": 10,
+  "fixed": [],
+  "forms": [
+   {
+    "n": 7,
+    "req": 1,
+    "names": "name,email*,phone,whatsapp,nationality,country,message",
+    "submit": "Boka en genomgång",
+    "nearSubmit": "",
+    "y": 6165
+   }
+  ],
+  "docH": 8118,
+  "bg": "rgba(0, 0, 0, 0)",
+  "accent": "#1d6b4f",
+  "displayFont": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "bodyFont": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI",
+  "trustMentions": [],
+  "objections": {
+   "cost": true,
+   "timeline": true,
+   "presence": true,
+   "scam": false
+  }
+ },
+ {
+  "brand": "flytta",
+  "path": "/priser",
+  "vp": 1440,
+  "h1": "Ett fast arvode, med separata kostnader förklarade innan du bestämmer dig",
+  "h1Size": "17px",
+  "h1Weight": "400",
+  "h1Font": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto,",
+  "h1Top": 185,
+  "h1Bottom": 204,
+  "bodySize": "17px",
+  "headerH": 61,
+  "eyebrow": {
+   "text": "Start/Priser{\"@context\":\"https://schema.",
+   "size": "17px"
+  },
+  "firstCta": {
+   "text": "Boka ett samtal",
+   "y": 3830,
+   "href": "/contact"
+  },
+  "foldCtas": [],
+  "totalCtas": 2,
+  "distinctCtaTargets": 2,
+  "bandsWithoutCta": 5,
+  "nBands": 6,
+  "fixed": [],
+  "forms": [
+   {
+    "n": 7,
+    "req": 1,
+    "names": "name,email*,phone,whatsapp,nationality,country,message",
+    "submit": "Boka en genomgång",
+    "nearSubmit": "",
+    "y": 3914
+   }
+  ],
+  "docH": 5041,
+  "bg": "rgba(0, 0, 0, 0)",
+  "accent": "#1d6b4f",
+  "displayFont": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "bodyFont": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI",
+  "trustMentions": [],
+  "objections": {
+   "cost": true,
+   "timeline": true,
+   "presence": true,
+   "scam": false
+  }
+ },
+ {
+  "brand": "flytta",
+  "path": "/kostnader",
+  "vp": 390,
+  "h1": "Vad det faktiskt kostar",
+  "h1Size": "17px",
+  "h1Weight": "400",
+  "h1Font": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto,",
+  "h1Top": 257,
+  "h1Bottom": 276,
+  "bodySize": "17px",
+  "headerH": 133,
+  "eyebrow": null,
+  "firstCta": {
+   "text": "Boka en genomgång",
+   "y": 4236,
+   "href": null
+  },
+  "foldCtas": [],
+  "totalCtas": 1,
+  "distinctCtaTargets": 1,
+  "bandsWithoutCta": 6,
+  "nBands": 7,
+  "fixed": [],
+  "forms": [
+   {
+    "n": 7,
+    "req": 1,
+    "names": "name,email*,phone,whatsapp,nationality,country,message",
+    "submit": "Boka en genomgång",
+    "nearSubmit": "",
+    "y": 3439
+   }
+  ],
+  "docH": 5392,
+  "bg": "rgba(0, 0, 0, 0)",
+  "accent": "#1d6b4f",
+  "displayFont": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "bodyFont": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI",
+  "trustMentions": [],
+  "objections": {
+   "cost": true,
+   "timeline": true,
+   "presence": false,
+   "scam": false
+  }
+ },
+ {
+  "brand": "flytta",
+  "path": "/kostnader",
+  "vp": 1440,
+  "h1": "Vad det faktiskt kostar",
+  "h1Size": "17px",
+  "h1Weight": "400",
+  "h1Font": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto,",
+  "h1Top": 185,
+  "h1Bottom": 204,
+  "bodySize": "17px",
+  "headerH": 61,
+  "eyebrow": null,
+  "firstCta": {
+   "text": "Boka en genomgång",
+   "y": 2873,
+   "href": null
+  },
+  "foldCtas": [],
+  "totalCtas": 1,
+  "distinctCtaTargets": 1,
+  "bandsWithoutCta": 3,
+  "nBands": 4,
+  "fixed": [],
+  "forms": [
+   {
+    "n": 7,
+    "req": 1,
+    "names": "name,email*,phone,whatsapp,nationality,country,message",
+    "submit": "Boka en genomgång",
+    "nearSubmit": "",
+    "y": 2377
+   }
+  ],
+  "docH": 3504,
+  "bg": "rgba(0, 0, 0, 0)",
+  "accent": "#1d6b4f",
+  "displayFont": "ui-serif, Georgia, \"Times New Roman\", serif",
+  "bodyFont": "ui-sans-serif, system-ui, -apple-system, \"Segoe UI",
+  "trustMentions": [],
+  "objections": {
+   "cost": true,
+   "timeline": true,
+   "presence": false,
+   "scam": false
+  }
+ }
+]
