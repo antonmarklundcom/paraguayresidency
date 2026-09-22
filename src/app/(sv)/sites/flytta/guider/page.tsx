@@ -9,7 +9,7 @@ const title = "Guider";
 const description = "Praktiska guider om flytten till Paraguay, uppehållstillstånd och vardagen.";
 
 export function generateMetadata(): Metadata {
-  return siteMetadata('flytta', { title, description, path });
+  return siteMetadata('flytta', { title: "Guider till Paraguay: flytt, tillstånd och vardag", description: "Läs praktiska guider om att flytta till Paraguay, förbereda dokument och förstå uppehållstillstånd, med råd för en tryggare start i vardagen.", path });
 }
 
 export default function Page() {

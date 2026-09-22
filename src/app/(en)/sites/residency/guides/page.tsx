@@ -14,7 +14,7 @@ const labels: Record<string, string> = {
 };
 
 export function generateMetadata(): Metadata {
-  return siteMetadata('residency', { title, description, path });
+  return siteMetadata('residency', { title: "Paraguay Residency Guides: Documents, Tax and Life", description: "Explore practical guides to Paraguay residency, document preparation, tax questions and daily life, with comparisons to help plan your next step.", path });
 }
 
 export default function Page() {

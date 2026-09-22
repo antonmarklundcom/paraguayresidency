@@ -29,8 +29,8 @@ function collection(hub: string) {
 }
 
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
-  const { title, description, path } = collection((await params).hub);
-  return siteMetadata('residenciaes', { title, description, path });
+  const { title, path } = collection((await params).hub);
+  return siteMetadata('residenciaes', { title: title + " — Guías de residencia en Paraguay", description: "Consulta nuestras guías sobre " + title.toLocaleLowerCase("es") + " en Paraguay, con orientación para preparar tu mudanza, entender el proceso y plantear tus dudas al equipo.", path });
 }
 
 export default async function Page({ params }: { params: Params }) {

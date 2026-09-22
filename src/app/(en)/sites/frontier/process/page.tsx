@@ -81,7 +81,7 @@ export default function Page() {
         <ol className="mt-[var(--space-12)] space-y-[var(--space-8)]">
           {STEPS.map((step) => (
             <li key={step.title} className="border-l-2 border-[var(--accent)] pl-[var(--space-6)]">
-              <h2 className="font-[family-name:var(--display-font)] leading-[var(--leading-tight)] tracking-[-0.01em] text-balance hyphens-auto [overflow-wrap:anywhere] text-(length:--text-xl)">{step.title}</h2>
+              <h2 className="font-[family-name:var(--display-font)] leading-[var(--leading-tight)] tracking-[-0.01em] text-balance [overflow-wrap:anywhere] text-(length:--text-xl)">{step.title}</h2>
               <p className="mt-[var(--space-2)] text-[var(--fg-muted)]">{step.body}</p>
             </li>
           ))}

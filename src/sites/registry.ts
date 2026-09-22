@@ -109,6 +109,7 @@ export const sites: Record<SiteKey, SiteConfig> = {
     currencies: ['USD'],
     theme: 'residency',
     nav: [
+      { labelKey: 'nav.guides', href: '/guides' },
       { labelKey: 'nav.routes', href: '/process' },
       { labelKey: 'nav.pricing', href: '/pricing' },
       { labelKey: 'nav.routeFinder', href: '/route-finder' },
@@ -155,6 +156,7 @@ export const sites: Record<SiteKey, SiteConfig> = {
     currencies: ['USD'],
     theme: 'investorpass',
     nav: [
+      { labelKey: 'nav.insights', href: '/insights' },
       { labelKey: 'nav.requirements', href: '/investor-pass/requirements' },
       { labelKey: 'nav.investmentRoutes', href: '/investor-pass/investment-routes' },
       { labelKey: 'nav.process', href: '/investor-pass/process' },
@@ -251,6 +253,7 @@ export const sites: Record<SiteKey, SiteConfig> = {
     currencies: ['USD'],
     theme: 'frontier',
     nav: [
+      { labelKey: 'nav.stories', href: '/stories' },
       { labelKey: 'nav.whyParaguay', href: '/why-paraguay' },
       { labelKey: 'nav.routes', href: '/routes' },
       { labelKey: 'nav.taxResidency', href: '/tax' },
@@ -392,6 +395,7 @@ export const sites: Record<SiteKey, SiteConfig> = {
     // itself is the shared NEXT_PUBLIC_WHATSAPP_NUMBER env var (plan §3b); author
     // (Anton Marklund) informs the personal-story copy rather than a registry field.
     nav: [
+      { labelKey: 'nav.guides', href: '/guider' },
       { labelKey: 'nav.permits', href: '/uppehallstillstand' },
       { labelKey: 'nav.costs', href: '/kostnader' },
       { labelKey: 'nav.ourStory', href: '/var-historia' },
@@ -403,6 +407,7 @@ export const sites: Record<SiteKey, SiteConfig> = {
         {
           titleKey: 'footer.services',
           items: [
+            { labelKey: 'nav.cities', href: '/stader' },
             { labelKey: 'nav.permits', href: '/uppehallstillstand' },
             { labelKey: 'nav.tax', href: '/skatt' },
             { labelKey: 'nav.costs', href: '/kostnader' },

@@ -9,7 +9,7 @@ const title = "Stories";
 const description = "Practical stories about moving to Paraguay, residency and life on the ground.";
 
 export function generateMetadata(): Metadata {
-  return siteMetadata('frontier', { title, description, path });
+  return siteMetadata('frontier', { title: "Paraguay Stories: Residency and Expat Life", description: "Explore stories about residency and everyday life in Paraguay, with practical perspectives for Americans and expats considering a move.", path });
 }
 
 export default function Page() {
