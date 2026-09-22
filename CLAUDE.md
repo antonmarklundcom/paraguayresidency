@@ -26,7 +26,7 @@ registry named the wrong ones until **phase S16 (2026-09-09) swept it** to the d
 `src/sites/registry.ts` and costs nothing; a `SiteKey` is a MySQL enum on nine tables and costs a
 migration.
 
-- Host → site resolution lives in `src/middleware.ts` (NOT the repo root — Next ignores it there when `src/` exists) + `src/sites/registry.ts` + `src/sites/resolve.ts`. Adding a domain = registry entry + `src/app/(<locale>)/sites/<key>/`. Never a second app.
+- Host → site resolution lives in `src/proxy.ts` (NOT the repo root — Next ignores it there when `src/` exists) + `src/sites/registry.ts` + `src/sites/resolve.ts`. Adding a domain = registry entry + `src/app/(<locale>)/sites/<key>/`. Never a second app.
 - One locale per brand, set in the registry. No silent English fallback: `npm run verify:i18n` fails on a key missing from any locale or any brand file.
 - No legal or financial number in JSX/MDX. Use `<Fact k>` backed by `content/shared/facts.ts` with verification state (per-locale, `en` required).
 - Tiers are `none | entry | insider`. `users.tier` is a CACHE — the truth is `effectiveTier()` in `src/lib/entitlements.ts`, computed from `purchases` + `subscriptions`. Never gate on the column. See `docs/platform.md`.

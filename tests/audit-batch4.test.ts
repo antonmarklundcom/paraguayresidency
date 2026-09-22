@@ -3,7 +3,7 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import { expect, it } from 'vitest';
 import { Nav } from '@/components/Nav';
 import { Footer } from '@/components/Footer';
-import { SITE_KEYS, getSite } from '@/sites/registry';
+import { SITE_KEYS, getSite, siteOrigin } from '@/sites/registry';
 import { t } from '@/i18n';
 import { getPages } from '@/content';
 import { contentHref } from '@/lib/site-pages';
@@ -21,6 +21,18 @@ import * as stories from '@/app/(en)/sites/frontier/stories/page';
 import * as guider from '@/app/(sv)/sites/flytta/guider/page';
 import * as stader from '@/app/(sv)/sites/flytta/stader/page';
 import type { Metadata } from 'next';
+
+it('renders the hub and guide sibling lists with each destination language', () => {
+  expect(getSite('residency').siblings).toEqual(['investorpass', 'guide', 'frontier', 'residenciaes', 'residenciapt', 'flytta']);
+  expect(getSite('guide').siblings).toEqual(['residency', 'investorpass', 'frontier']);
+  for (const site of ['residency', 'guide'] as const) {
+    const html = renderToStaticMarkup(createElement(Footer, { site }));
+    for (const sibling of getSite(site).siblings) {
+      expect(html).toContain(`href="${siteOrigin(sibling)}" lang="${getSite(sibling).locale}"`);
+      expect(html).toContain(getSite(sibling).name);
+    }
+  }
+});
 
 it('renders every navigation item in a native, initially closed disclosure', () => {
   for (const site of SITE_KEYS) {

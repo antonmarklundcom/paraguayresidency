@@ -36,8 +36,7 @@ export function Footer({ site }: { site: SiteKey }) {
             </div>
           ))}
 
-          {/* Cross-brand links — the funnel only works if every brand points
-              at the other two (plan §1.2). */}
+          {/* Cross-brand links from the site registry. */}
           <div>
             <p className="text-(length:--text-xs) tracking-[0.14em] text-[var(--fg-muted)] uppercase">
               {t(site, 'footer.siblings')}
@@ -45,7 +44,7 @@ export function Footer({ site }: { site: SiteKey }) {
             <ul className="mt-[var(--space-3)] space-y-1 sm:space-y-[var(--space-2)]">
               {config.siblings.map((key) => (
                 <li key={key}>
-                  <a href={siteOrigin(key)} className="inline-flex min-h-11 items-center hover:text-[var(--accent)] sm:min-h-0">
+                  <a href={siteOrigin(key)} lang={getSite(key).locale} className="inline-flex min-h-11 items-center hover:text-[var(--accent)] sm:min-h-0">
                     {getSite(key).name}
                   </a>
                 </li>

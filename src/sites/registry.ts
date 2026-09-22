@@ -139,7 +139,7 @@ export const sites: Record<SiteKey, SiteConfig> = {
       legal: legalNav(),
     },
     crm: { source: 'paraguayresidency.co.uk' },
-    siblings: ['investorpass', 'guide'],
+    siblings: ['investorpass', 'guide', 'frontier', 'residenciaes', 'residenciapt', 'flytta'],
   },
 
   investorpass: {
@@ -234,7 +234,7 @@ export const sites: Record<SiteKey, SiteConfig> = {
       legal: legalNav(),
     },
     crm: { source: 'paraguayresidencyguide.com' },
-    siblings: ['residency', 'investorpass'],
+    siblings: ['residency', 'investorpass', 'frontier'],
   },
 
   /**

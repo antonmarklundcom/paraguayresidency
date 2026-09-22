@@ -1,6 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { __resetAllForTests } from '@/lib/rate-limit';
-import { middleware, sanitizedHeaders } from '@/middleware';
+import { proxy as middleware, sanitizedHeaders } from '@/proxy';
 import nextConfig, { BASELINE, HSTS, PRIVATE_CSP, PUBLIC_CSP } from '../next.config';
 
 /**

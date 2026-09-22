@@ -27,7 +27,7 @@ const GUIDE = 'paraguayresidencyguide.com';
 /**
  * The brand is chosen by `x-forwarded-host`, not `host`, and that is not a
  * workaround: `fetch` refuses to set `Host` (it is a forbidden header name), and
- * `src/middleware.ts` reads `x-forwarded-host` FIRST precisely because behind
+ * `src/proxy.ts` reads `x-forwarded-host` FIRST precisely because behind
  * Hostinger's proxy that is the header carrying the real hostname. So this is
  * the shape a production request actually has.
  */

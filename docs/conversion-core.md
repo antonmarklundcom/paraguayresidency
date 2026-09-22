@@ -99,7 +99,7 @@ Every template carries one.
 ## Admin
 
 `/admin/*` exists on the hub host only. That is enforced in
-`src/middleware.ts` (via `resolveRequest`), not in the pages — a valid session
+`src/proxy.ts` (via `resolveRequest`), not in the pages — a valid session
 cookie still 404s on the other six brands, and
 `tests/admin-guard.test.ts` asserts it for every host in the registry.
 

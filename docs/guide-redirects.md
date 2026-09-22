@@ -4,7 +4,7 @@ Source: full crawl of the live `paraguayresidencyguide.com` on 2026-09-12 (47 UR
 its `wp-sitemap.xml`; raw data in `site-scan-report.json`, generated locally, not
 committed here). Every URL the old site's sitemap listed is accounted for below —
 complete, not sampled. Follows the same pattern as `docs/flytta-redirects.md`: this file
-is the data, not the redirect logic — wiring it into `src/middleware.ts` /
+is the data, not the redirect logic — wiring it into `src/proxy.ts` /
 `src/sites/registry.ts` as real 301s is a separate later phase, same as flytta's.
 
 **Scope decision (Anton, 2026-09-12):** the old site sold a 3-tier concierge filing
