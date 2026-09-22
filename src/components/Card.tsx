@@ -24,7 +24,7 @@ export function Card({
           {eyebrow}
         </p>
       )}
-      {title && <Title className="font-[family-name:var(--display-font)] leading-[var(--leading-tight)] tracking-[-0.01em] text-balance hyphens-auto [overflow-wrap:anywhere] text-(length:--text-xl)">{title}</Title>}
+      {title && <Title className="font-[family-name:var(--display-font)] leading-[var(--leading-tight)] tracking-[-0.01em] text-balance [overflow-wrap:anywhere] text-(length:--text-xl)">{title}</Title>}
       {children && <div className="mt-[var(--space-3)] text-[var(--fg-muted)]">{children}</div>}
     </>
   );

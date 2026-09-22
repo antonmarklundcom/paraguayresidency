@@ -1,3 +1,5 @@
+import { getPages } from '@/content';
+import { contentHref } from '@/lib/site-pages';
 import { ProcessTimeline } from '@/components/ProcessTimeline';
 import type { Metadata } from 'next';
 import {
@@ -78,6 +80,7 @@ const FAQ_ITEMS = [
 ];
 
 export default function Page() {
+  const latest = getPages('investorpass').filter((post) => !post.frontmatter.draft).slice(0, 3);
   const whatsapp = whatsappHref('Hi — I have a question about the Investor Pass.');
 
   return (
@@ -205,6 +208,22 @@ export default function Page() {
       <Section>
         <Container width="narrow">
           <FAQ title="Frequently asked" items={FAQ_ITEMS} />
+        </Container>
+      </Section>
+
+      <Section>
+        <Container width="narrow">
+          <Heading level={2}>Latest articles</Heading>
+          <ul className="mt-[var(--space-4)] space-y-2">
+            {latest.map((post) => (
+              <li key={post.slugPath}>
+                <a href={contentHref('investorpass', post.slugPath)} className="inline-flex min-h-11 items-center text-[var(--accent)] underline underline-offset-2">
+                  {post.frontmatter.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <a href="/insights" className="mt-[var(--space-4)] inline-flex min-h-11 items-center text-[var(--accent)] underline underline-offset-2">Browse all insights</a>
         </Container>
       </Section>
 

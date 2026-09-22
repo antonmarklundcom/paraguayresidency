@@ -14,7 +14,7 @@ const labels: Record<string, string> = {
 };
 
 export function generateMetadata(): Metadata {
-  return siteMetadata('residenciaes', { title, description, path });
+  return siteMetadata('residenciaes', { title: "Guías de residencia en Paraguay para tu mudanza", description: "Consulta guías sobre residencia en Paraguay, preparación de documentos, impuestos y vida cotidiana para organizar tu mudanza con más claridad.", path });
 }
 
 export default function Page() {

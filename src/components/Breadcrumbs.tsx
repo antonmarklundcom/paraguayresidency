@@ -20,7 +20,7 @@ export function Breadcrumbs({ site, items }: { site: SiteKey; items: Crumb[] }) 
             {i === all.length - 1 ? (
               <span aria-current="page">{crumb.label}</span>
             ) : (
-              <Link href={crumb.href} className="hover:text-[var(--accent)]">
+              <Link href={crumb.href} className="inline-flex min-h-11 items-center hover:text-[var(--accent)] sm:min-h-0">
                 {crumb.label}
               </Link>
             )}

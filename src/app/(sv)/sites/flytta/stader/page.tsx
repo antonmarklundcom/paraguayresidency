@@ -9,7 +9,7 @@ const title = "Städer";
 const description = "Lär känna städer i Paraguay och hitta en plats som passar din vardag.";
 
 export function generateMetadata(): Metadata {
-  return siteMetadata('flytta', { title, description, path });
+  return siteMetadata('flytta', { title: "Städer i Paraguay: hitta rätt plats att bo", description: "Lär känna städer i Paraguay och jämför vardag, bostadsområden och lokala förutsättningar för att hitta en plats som passar dig inför flytten.", path });
 }
 
 export default function Page() {

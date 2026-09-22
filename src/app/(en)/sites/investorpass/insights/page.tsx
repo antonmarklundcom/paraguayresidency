@@ -9,7 +9,7 @@ const title = "Insights";
 const description = "Articles on the Paraguay Investor Pass, investment routes and residency planning.";
 
 export function generateMetadata(): Metadata {
-  return siteMetadata('investorpass', { title, description, path });
+  return siteMetadata('investorpass', { title: "Paraguay Investor Pass: Insights and Planning", description: "Read practical insights on Paraguay investor residency, qualifying investment routes and document preparation before discussing your plans.", path });
 }
 
 export default function Page() {

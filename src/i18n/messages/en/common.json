@@ -1,4 +1,9 @@
 {
+  "nav.menu": "Menu",
+  "nav.guides": "Guides",
+  "nav.insights": "Insights",
+  "nav.stories": "Stories",
+  "nav.cities": "Cities",
   "nav.investorPass": "Investor Pass",
   "nav.about": "About",
   "nav.blog": "Articles",

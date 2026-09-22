@@ -24,10 +24,10 @@ export function Footer({ site }: { site: SiteKey }) {
               <p className="text-(length:--text-xs) tracking-[0.14em] text-[var(--fg-muted)] uppercase">
                 {t(site, column.titleKey)}
               </p>
-              <ul className="mt-[var(--space-3)] space-y-[var(--space-2)]">
+              <ul className="mt-[var(--space-3)] space-y-1 sm:space-y-[var(--space-2)]">
                 {column.items.map((item) => (
                   <li key={item.href}>
-                    <Link href={item.href} className="hover:text-[var(--accent)]">
+                    <Link href={item.href} className="inline-flex min-h-11 items-center hover:text-[var(--accent)] sm:min-h-0">
                       {t(site, item.labelKey)}
                     </Link>
                   </li>
@@ -42,10 +42,10 @@ export function Footer({ site }: { site: SiteKey }) {
             <p className="text-(length:--text-xs) tracking-[0.14em] text-[var(--fg-muted)] uppercase">
               {t(site, 'footer.siblings')}
             </p>
-            <ul className="mt-[var(--space-3)] space-y-[var(--space-2)]">
+            <ul className="mt-[var(--space-3)] space-y-1 sm:space-y-[var(--space-2)]">
               {config.siblings.map((key) => (
                 <li key={key}>
-                  <a href={siteOrigin(key)} rel="noopener" className="hover:text-[var(--accent)]">
+                  <a href={siteOrigin(key)} className="inline-flex min-h-11 items-center hover:text-[var(--accent)] sm:min-h-0">
                     {getSite(key).name}
                   </a>
                 </li>
@@ -61,7 +61,7 @@ export function Footer({ site }: { site: SiteKey }) {
           <ul className="flex gap-[var(--space-4)]">
             {config.footer.legal.map((item) => (
               <li key={item.href}>
-                <Link href={item.href} className="hover:text-[var(--accent)]">
+                <Link href={item.href} className="inline-flex min-h-11 items-center hover:text-[var(--accent)] sm:min-h-0">
                   {t(site, item.labelKey)}
                 </Link>
               </li>

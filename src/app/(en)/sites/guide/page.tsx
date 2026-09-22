@@ -174,7 +174,6 @@ export default async function Page() {
             every week in Asunción, on{' '}
             <a
               href={siteOrigin('residency')}
-              rel="noopener"
               className="text-[var(--accent)] underline underline-offset-2"
             >
               paraguayresidency.co.uk

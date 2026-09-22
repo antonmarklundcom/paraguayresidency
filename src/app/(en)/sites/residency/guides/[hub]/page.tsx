@@ -29,8 +29,8 @@ function collection(hub: string) {
 }
 
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
-  const { title, description, path } = collection((await params).hub);
-  return siteMetadata('residency', { title, description, path });
+  const { title, path } = collection((await params).hub);
+  return siteMetadata('residency', { title: title + " — Practical Paraguay Residency Guides", description: "Explore our guides to " + title.toLocaleLowerCase("en") + " in Paraguay, with practical context for residency planning, preparing your move and discussing your next steps.", path });
 }
 
 export default async function Page({ params }: { params: Params }) {

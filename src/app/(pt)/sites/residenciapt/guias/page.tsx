@@ -14,7 +14,7 @@ const labels: Record<string, string> = {
 };
 
 export function generateMetadata(): Metadata {
-  return siteMetadata('residenciapt', { title, description, path });
+  return siteMetadata('residenciapt', { title: "Guias de residência no Paraguai para brasileiros", description: "Explore guias sobre residência no Paraguai, documentos, impostos e vida cotidiana para preparar sua mudança e comparar caminhos com clareza.", path });
 }
 
 export default function Page() {
