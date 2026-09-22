@@ -1,4 +1,4 @@
-import { createElement } from 'react';
+import { createElement, type ComponentProps } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { describe, expect, it, vi } from 'vitest';
 
@@ -15,7 +15,7 @@ const { getSite, SITE_KEYS } = await import('@/sites/registry');
 
 describe('SiteShell mounts Plausible for every brand', () => {
   it.each(SITE_KEYS)('%s reports under its own domain', (site) => {
-    const html = renderToStaticMarkup(createElement(SiteShell, { site, children: 'body' }));
+    const html = renderToStaticMarkup(createElement(SiteShell, { site } as ComponentProps<typeof SiteShell>, 'body'));
     const expected = getSite(site).analytics?.plausibleDomain ?? getSite(site).canonicalHost;
     expect(html).toContain(`data-analytics="${expected}"`);
   });
