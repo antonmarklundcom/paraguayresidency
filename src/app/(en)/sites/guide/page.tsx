@@ -1,11 +1,13 @@
+import { getPages } from '@/content';
+import { contentHref } from '@/lib/site-pages';
 import type { Metadata } from 'next';
 import {
-  Bento,
   Button,
-  Card,
   CheckoutButton,
   Container,
-  EditorialHero,
+  PhotoHero,
+  IntentTiles,
+  TeamStrip,
   FAQ,
   Heading,
   JsonLd,
@@ -19,7 +21,7 @@ import {
   formatPrice,
   getProductBySlug,
 } from '@/lib/purchases';
-import { GUIDE_ENTRY_SLUG, siteOrigin } from '@/sites/registry';
+import { GUIDE_ENTRY_SLUG } from '@/sites/registry';
 import { t } from '@/i18n';
 
 const SITE = 'guide' as const;
@@ -66,14 +68,11 @@ const FAQ_ITEMS = [
     question: 'What if it is not what I expected?',
     answer: 'A 14-day refund, no questions. Email us and it is done.',
   },
-  {
-    question: 'Do I still need a lawyer after reading it?',
-    answer:
-      'Sometimes, sometimes not — chapter 11 covers exactly when. The guide tells you honestly, rather than selling you a "yes" either way.',
-  },
+
 ];
 
 export default async function Page() {
+  const latest = getPages('guide').filter(post => !post.frontmatter.draft && !/lawyer/i.test(post.frontmatter.title)).slice(0, 3);
   const product = await getProductBySlug(GUIDE_ENTRY_SLUG);
   const priceCents = product?.priceCents ?? fallbackPriceCents();
   const currency = product?.currency ?? fallbackCurrency();
@@ -81,110 +80,21 @@ export default async function Page() {
 
   return (
     <>
-      <EditorialHero
-        eyebrow="For anyone planning Paraguay residency"
-        title={t(SITE, 'home.h1')}
-        sub={t(SITE, 'home.sub')}
-        actions={
-          <>
-            <Button href="#price">{t(SITE, 'home.ctaPrimary')}</Button>
-            <Button href="#inside" variant="secondary">
-              {t(SITE, 'home.ctaSecondary')}
-            </Button>
-          </>
-        }
+      <PhotoHero image="guide-hero-reading-terrace-asuncion"
+        title="The Paraguay residency guide we wish existed."
+        sub="Every step, document and cost, written down once and kept current."
+        actions={<><Button href="#price">{t(SITE, 'home.ctaPrimary')}</Button><Button href="#inside" variant="secondary">{t(SITE, 'home.ctaSecondary')}</Button></>}
       />
-
-      {/* Promise */}
-      <Section>
-        <Container width="narrow">
-          <p className="text-(length:--text-lg) text-[var(--fg-muted)]">
-            Most residency information online is a blog post written once, half right, and never
-            updated. This is the opposite: every step, document and cost we actually see, written
-            down once by the team that files these cases every week — and kept current, because a
-            guide that goes stale is worse than no guide.
-          </p>
-        </Container>
-      </Section>
-
-      {/* Who it's for */}
-      <Section tone="alt">
-        <Container width="narrow">
-          <Heading level={2}>Who this is for</Heading>
-          <ul className="mt-[var(--space-6)] space-y-[var(--space-4)] text-[var(--fg-muted)]">
-            <li>
-              You are seriously considering Paraguay residency and want the real steps and real
-              costs before you talk to anyone — us included.
-            </li>
-            <li>
-              You want to handle parts of the process yourself and only pay for help where it
-              actually matters.
-            </li>
-            <li>
-              You have read conflicting numbers on forums and want one source that says plainly
-              what is confirmed and what is not.
-            </li>
-          </ul>
-        </Container>
-      </Section>
-
-      {/* What's inside */}
-      <Section id="inside">
-        <Container>
-          <Heading level={2}>{t(SITE, 'nav.whatsInside')}</Heading>
-          <p className="mt-[var(--space-2)] max-w-[var(--measure)] text-[var(--fg-muted)]">
-            Twelve chapters, in the order you actually need them.
-          </p>
-          <div className="mt-[var(--space-8)]">
-            <Bento>
-              {CHAPTERS.map((chapter) => (
-                <Card
-                  key={chapter.n}
-                  eyebrow={`Chapter ${chapter.n}`}
-                  title={chapter.title}
-                />
-              ))}
-            </Bento>
-          </div>
-        </Container>
-      </Section>
-
-      {/* Sample pages */}
-      <Section tone="accent">
-        <Container width="narrow">
-          <Heading level={2}>A sample page</Heading>
-          <blockquote className="mt-[var(--space-6)] border-l-4 border-[var(--accent)] pl-[var(--space-6)] text-(length:--text-lg) text-[var(--fg)] italic">
-            &ldquo;Chapter 5, week 3: this is where most applications stall — not because
-            anything is wrong, but because a single stamped translation is sitting in a queue.
-            Start this document in week 1, not week 3, and the rest of the timeline holds.&rdquo;
-          </blockquote>
-          <p className="mt-[var(--space-4)] text-(length:--text-sm) text-[var(--fg-muted)]">
-            That is the level of detail throughout — what actually happens, not a generic
-            checklist.
-          </p>
-        </Container>
-      </Section>
-
-      {/* Author / credibility */}
-      <Section tone="alt">
-        <Container width="narrow">
-          <Heading level={2}>Who wrote it</Heading>
-          <p className="mt-[var(--space-4)] text-[var(--fg-muted)]">
-            The same team that files temporary residency, permanent residency and cédula cases
-            every week in Asunción, on{' '}
-            <a
-              href={siteOrigin('residency')}
-              className="text-[var(--accent)] underline underline-offset-2"
-            >
-              paraguayresidency.co.uk
-            </a>
-            . The guide is the written-down version of what we tell clients on the first call —
-            without the sales conversation attached.
-          </p>
-        </Container>
-      </Section>
-
-      {/* Price + guarantee */}
+      <IntentTiles title="What are you looking for?" tiles={[
+        { label: 'Which route fits me?', href: '/route-finder', image: 'guide-tile-route-fork' },
+        { label: 'Documents I need', href: '/blog/documents-you-need-for-paraguay-residency', image: 'guide-tile-documents-desk' },
+        { label: 'What it really costs', href: '/blog/real-cost-of-living-in-paraguay', image: 'guide-tile-market-asuncion' },
+        { label: 'Life in Paraguay', href: '/blog/is-paraguay-residency-worth-it', image: 'guide-tile-terere-cafe' },
+        { label: 'Free articles', href: '/blog', image: 'guide-tile-hammock-reading' },
+      ]} />
+      <Section id="inside"><Container><Heading level={2}>What&apos;s inside</Heading>
+        <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">{CHAPTERS.map(chapter => <div key={chapter.n} className="rounded-[var(--radius-brand)] border border-[var(--border)] bg-[var(--surface-alt)] p-5"><h3 className="font-[family-name:var(--display-font)] text-lg">{chapter.title}</h3></div>)}</div>
+      </Container></Section>
       <Section id="price" tone="accent">
         <Container width="narrow">
           <Heading level={2}>{price}, once</Heading>
@@ -199,26 +109,11 @@ export default async function Page() {
         </Container>
       </Section>
 
-      {/* FAQ */}
-      <Section>
-        <Container width="narrow">
-          <FAQ title={t(SITE, 'common.faqTitle')} items={FAQ_ITEMS} />
-        </Container>
-      </Section>
 
-      {/* Newsletter fallback */}
-      <Section tone="alt">
-        <Container width="narrow">
-          <Heading level={2}>Not ready yet?</Heading>
-          <p className="mt-[var(--space-4)] text-[var(--fg-muted)]">
-            {t(SITE, 'guideOffer.newsletter')}
-          </p>
-          <div className="mt-[var(--space-6)]">
-            <NewsletterForm site={SITE} source="guide-home" />
-          </div>
-        </Container>
-      </Section>
-
+      <TeamStrip />
+<Section><Container><Heading level={2}>Latest articles</Heading><ul className="mt-8 grid auto-cols-[82%] grid-flow-col snap-x snap-mandatory gap-4 overflow-x-auto p-2 md:auto-cols-[31%]">{latest.map(post => <li key={post.slugPath} className="min-w-0 snap-start"><a href={contentHref('guide', post.slugPath)} className="flex min-h-44 items-end rounded-[var(--radius-brand)] border border-[var(--border)] bg-[var(--surface-alt)] p-6 font-[family-name:var(--display-font)] text-xl text-[var(--accent)] focus-visible:outline-2 focus-visible:outline-offset-2">{post.frontmatter.title.split(/\s+/).slice(0, 8).join(' ')}</a></li>)}</ul><a href="/blog" className="mt-6 inline-flex min-h-11 items-center text-[var(--accent)] underline">Browse all articles</a></Container></Section>
+      <Section><Container width="narrow"><details className="border-b border-[var(--border)] py-5"><summary className="flex min-h-11 cursor-pointer items-center text-lg text-[var(--accent)]">Questions before buying</summary><div className="space-y-5 py-6 text-[var(--fg-muted)]"><FAQ items={FAQ_ITEMS} /></div></details></Container></Section>
+      <Section tone="alt"><Container width="narrow"><Heading level={2}>Not ready yet?</Heading><p className="mt-4 text-[var(--fg-muted)]">Residency notes, delivered to your inbox.</p><div className="mt-6"><NewsletterForm site={SITE} source="guide-home" /></div></Container></Section>
       <JsonLd
         data={productOfferJsonLd(SITE, {
           name: 'Paraguay Residency Guide',

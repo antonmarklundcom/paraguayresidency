@@ -1,13 +1,11 @@
-import { getPages } from '@/content';
-import { contentHref } from '@/lib/site-pages';
 import { ProcessTimeline } from '@/components/ProcessTimeline';
 import type { Metadata } from 'next';
 import {
-  Bento,
   Button,
-  Card,
   Container,
-  EditorialHero,
+  PhotoHero,
+  IntentTiles,
+  TeamStrip,
   Fact,
   FAQ,
   Heading,
@@ -81,161 +79,30 @@ const FAQ_ITEMS = [
 ];
 
 export default function Page() {
-  const latest = getPages('investorpass').filter((post) => !post.frontmatter.draft).slice(0, 3);
   const whatsapp = whatsappHref('Hi — I have a question about the Investor Pass.');
 
   return (
     <>
-      <EditorialHero
-        actions={<><Button href="#inquiry">See if you qualify</Button><Button href="/contact" variant="secondary">Book a call</Button></>}
-        eyebrow="Paraguay Investor Pass"
+      <PhotoHero image="investorpass-hero-asuncion-river-dusk"
         title="Permanent residency in Paraguay, in one step."
-        sub="The Investor Pass lets qualifying investors skip temporary residency entirely. We structure the investment, file the application and stay with you until the permanent card is in your hand."
+        sub="Qualifying investors skip temporary residency. We structure, file and stay until your card arrives."
+        actions={<><Button href="#inquiry">See if you qualify</Button><Button href="/contact" variant="secondary">Book a call</Button></>}
       />
-
-      <Section>
-        <Container width="narrow">
-          <ul className="space-y-[var(--space-4)] text-[var(--fg-muted)]">
-            <li>
-              Four qualifying routes — real estate, productive business, financial instruments,
-              tourism — we tell you which one fits your capital and your goals.
-            </li>
-            <li>You get an investment eligibility review and a document checklist for your chosen route.</li>
-            <li>Nothing is filed until you have seen the full cost, timeline and exit options in writing.</li>
-          </ul>
-        </Container>
-      </Section>
-
-      <Section>
-        <Container width="narrow">
-          <Heading level={2}>Why we do not print thresholds yet</Heading>
-          <p className="mt-[var(--space-4)] text-[var(--fg-muted)]">
-            Published thresholds disagree. Until the resolution text is verified, we use provisional
-            wording and confirm the applicable requirements in writing before you commit.
-          </p>
-        </Container>
-      </Section>
-
-      <Section tone="alt">
-        <Container width="narrow">
-          <Heading level={2}>What the Investor Pass is</Heading>
-          <p className="mt-[var(--space-4)] text-[var(--fg-muted)]">
-            The Investor Pass is a route to permanent residency for people who bring qualifying
-            capital into Paraguay. It removes the standard temporary-residency stage for applicants
-            who qualify. Programme launch: <Fact k="investorpass.launch_date" site="investorpass" />.
-            Card validity: <Fact k="investorpass.validity_years" site="investorpass" />.
-            Qualifying investment: <Fact k="investorpass.min_investment_usd" site="investorpass" />.
-          </p>
-        </Container>
-      </Section>
-
-      <Section>
-        <Container>
-          <Heading level={2}>Four qualifying routes</Heading>
-          <p className="mt-[var(--space-2)] text-[var(--fg-muted)] max-w-[var(--measure)]">
-            Each route suits a different kind of capital and a different goal. The{' '}
-            <a
-              href="/investor-pass/investment-routes"
-              className="text-[var(--accent)] underline underline-offset-2"
-            >
-              full breakdown
-            </a>{' '}
-            covers what qualifies, in detail.
-          </p>
-          <div className="mt-[var(--space-8)]">
-            <Bento>
-              {ROUTES.map((route) => (
-                <Card
-                  key={route.id}
-                  eyebrow={route.eyebrow}
-                  title={route.title}
-                  href={`/investor-pass/investment-routes#${route.id}`}
-                >
-                  <Fact k={route.factKey} site="investorpass" />
-                </Card>
-              ))}
-            </Bento>
-            <div className="mt-[var(--space-6)]"><Button href="#inquiry">See if you qualify</Button></div>
-          </div>
-        </Container>
-      </Section>
-
-      <Section tone="accent">
-        <Container width="narrow">
-          <Heading level={2}>Who qualifies</Heading>
-          <p className="mt-[var(--space-4)] text-[var(--fg-muted)]">
-            Anyone bringing qualifying capital into one of the four routes above, regardless of
-            nationality. There is no separate points test or language requirement layered on top —
-            the investment itself is the qualifying event. See the full{' '}
-            <a href="/investor-pass/requirements" className="text-[var(--accent)] underline underline-offset-2">
-              requirements
-            </a>{' '}
-            for documentation and due-diligence detail.
-          </p>
-        </Container>
-      </Section>
-
-      <Section>
-        <Container width="narrow">
-          <Heading level={2}>Timeline</Heading>
-          <p className="mt-[var(--space-4)] text-[var(--fg-muted)]">
-            A call to confirm your route and structure the investment, filing directly for
-            permanent residency, then the cédula once it is approved —{' '}
-            <Fact k="cedula.timeline" site="investorpass" />. See the full{' '}
-            <a href="/investor-pass/process" className="text-[var(--accent)] underline underline-offset-2">
-              step-by-step process
-            </a>
-            .
-          </p>
-        </Container>
-      </Section>
-
-      <Section tone="alt">
-        <Container width="narrow">
-          <Heading level={2}>Why go direct to permanent</Heading>
-          <p className="mt-[var(--space-4)] text-[var(--fg-muted)]">
-            The Pass buys time, not a different outcome — the standard route reaches the same
-            permanent card without a qualifying investment, just on a longer clock. Whether the
-            time is worth the money depends on your capital and your timeline; see the{' '}
-            <a
-              href="/investor-pass/vs-standard-residency"
-              className="text-[var(--accent)] underline underline-offset-2"
-            >
-              full comparison
-            </a>
-            .
-          </p>
-        </Container>
-      </Section>
-
-      <Section>
-        <Container width="narrow">
-          <FAQ title="Frequently asked" items={FAQ_ITEMS} />
-        </Container>
-      </Section>
-
-      <Section>
-        <Container width="narrow">
-          <Heading level={2}>Latest articles</Heading>
-          <ul className="mt-[var(--space-4)] space-y-2">
-            {latest.map((post) => (
-              <li key={post.slugPath}>
-                <a href={contentHref('investorpass', post.slugPath)} className="inline-flex min-h-11 items-center text-[var(--accent)] underline underline-offset-2">
-                  {post.frontmatter.title}
-                </a>
-              </li>
-            ))}
-          </ul>
-          <a href="/insights" className="mt-[var(--space-4)] inline-flex min-h-11 items-center text-[var(--accent)] underline underline-offset-2">Browse all insights</a>
-        </Container>
-      </Section>
-
+      <IntentTiles title="Four ways to qualify" tiles={[
+        { label: 'Invest in real estate', href: '/investor-pass/investment-routes#real_estate', image: 'investorpass-tile-real-estate' },
+        { label: 'Build a productive business', href: '/investor-pass/investment-routes#productive_business', image: 'investorpass-tile-productive-business' },
+        { label: 'Explore financial instruments', href: '/investor-pass/investment-routes#financial_instruments', image: 'investorpass-tile-financial-instruments' },
+        { label: 'Back a tourism project', href: '/investor-pass/investment-routes#tourism', image: 'investorpass-tile-tourism-lodge' },
+      ]} />
+      <Section><Container width="narrow"><details className="border-b border-[var(--border)] py-5"><summary className="flex min-h-11 cursor-pointer items-center text-lg text-[var(--accent)]">Investment requirements</summary><div className="space-y-5 py-6 text-[var(--fg-muted)]"><p>Programme launch: <Fact k="investorpass.launch_date" site="investorpass" />.</p><p>Card validity: <Fact k="investorpass.validity_years" site="investorpass" />.</p><p>Qualifying investment: <Fact k="investorpass.min_investment_usd" site="investorpass" />.</p><ul className="space-y-6">{ROUTES.map(route => <li key={route.id}><h3>{route.eyebrow}</h3><Fact k={route.factKey} site="investorpass" /></li>)}</ul><p>Cédula: <Fact k="cedula.timeline" site="investorpass" />.</p><a className="inline-flex min-h-11 items-center text-[var(--accent)] underline" href="/investor-pass/requirements">Full requirements</a></div></details></Container></Section>
+      <Section tone="alt"><Container><Heading level={2}>From first call to card</Heading><ol className="my-10 grid gap-8 sm:grid-cols-3">{['Confirm your route and investment', 'File for permanent residency', 'Collect your cédula after approval'].map((step, index) => <li key={step} className="flex items-center gap-4"><span aria-hidden="true" className="flex size-12 shrink-0 items-center justify-center rounded-full border border-[var(--border)] text-2xl text-[var(--accent)]">{['◇', '↗', '✓'][index]}</span><h3>{step}</h3></li>)}</ol><Button href="/investor-pass/process" variant="secondary">See the process</Button></Container></Section>
+      <TeamStrip />
+      <Section><Container width="narrow"><details className="border-b border-[var(--border)] py-5"><summary className="flex min-h-11 cursor-pointer items-center text-lg text-[var(--accent)]">Frequently asked</summary><div className="space-y-5 py-6 text-[var(--fg-muted)]"><FAQ items={FAQ_ITEMS} /></div></details></Container></Section>
       <Section id="inquiry" tone="accent">
         <Container width="narrow">
           <Heading level={2}>See if you qualify</Heading>
           <p className="mt-[var(--space-4)] text-[var(--fg-muted)]">
-            Tell us your capital and your goal. We come back with the route that fits, the full
-            cost and the exit options — in writing.
+            Tell us your capital and goal. We send the route, cost and exit options in writing.
           </p>
           {whatsapp && (
             <p className="mt-[var(--space-4)] text-(length:--text-sm)">
@@ -254,7 +121,7 @@ export default function Page() {
             </a>{' '}
             on paraguayresidency.co.uk instead.
           </p>
-          <ProcessTimeline site="investorpass" route="investor" />
+          <details className="border-b border-[var(--border)] py-5"><summary className="flex min-h-11 cursor-pointer items-center text-lg text-[var(--accent)]">The full process</summary><div className="space-y-5 py-6 text-[var(--fg-muted)]"><ProcessTimeline site="investorpass" route="investor" /></div></details>
         </Container>
       </Section>
 

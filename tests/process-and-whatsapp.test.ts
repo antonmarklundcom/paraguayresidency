@@ -147,7 +147,7 @@ for (const { site, path, Page } of forms) {
     const ids = [...html.matchAll(/\bid="([^"]+)"/g)].map(match => match[1]);
     expect(new Set(ids).size).toBe(ids.length);
     expect(html).toContain(t(site, 'process.whatsappIntro'));
-    const disclosures = html.match(/<details\b[\s\S]*?<\/details>/g)!;
+    const disclosures = html.match(/<details\b[\s\S]*?<\/details>/g)!.filter(block => block.includes(t(site, 'form.whatsappAlternative')));
     expect(disclosures).toHaveLength(1);
     expect(disclosures[0]).not.toMatch(/<details[^>]*\bopen/);
     expect(disclosures[0]).toContain(short[0]);
@@ -195,7 +195,7 @@ for (const { site, path, Page } of forms) {
     vi.stubEnv('NEXT_PUBLIC_WHATSAPP_NUMBER', '595981123456');
     try {
       const html = renderToStaticMarkup(createElement(Page));
-      const disclosure = html.match(/<details\b[\s\S]*?<\/details>/)![0];
+      const disclosure = html.match(/<details\b[\s\S]*?<\/details>/g)!.find(block => block.includes(t(site, 'form.whatsappAlternative')))!;
       expect(disclosure).toContain('https://wa.me/595981123456');
       expect(disclosure.indexOf('https://wa.me/')).toBeLessThan(disclosure.indexOf('<form'));
       expect(html.replace(disclosure, '')).not.toContain('https://wa.me/');
