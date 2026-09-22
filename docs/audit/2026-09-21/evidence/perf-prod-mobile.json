@@ -1,0 +1,4315 @@
+[
+ {
+  "brand": "flytta",
+  "path": "/confirm",
+  "status": 200,
+  "lcp": 332,
+  "lcpEl": "P.mt-[var(--space-4)].text-[var(--fg-muted)]",
+  "cls": 0,
+  "transferBytes": 406093,
+  "decodedBytes": 1450378,
+  "requests": 35,
+  "renderBlocking": [
+   "http://flytta.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 231,
+  "domContentLoaded": 265,
+  "pageErrors": []
+ },
+ {
+  "brand": "flytta",
+  "path": "/contact",
+  "status": 200,
+  "lcp": 104,
+  "lcpEl": "P.mt-[var(--space-4)].text-[var(--fg-muted)]",
+  "cls": 0,
+  "transferBytes": 413434,
+  "decodedBytes": 1507652,
+  "requests": 35,
+  "renderBlocking": [
+   "http://flytta.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 14,
+  "domContentLoaded": 48,
+  "pageErrors": []
+ },
+ {
+  "brand": "flytta",
+  "path": "/familj",
+  "status": 200,
+  "lcp": 64,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 418865,
+  "decodedBytes": 1520998,
+  "requests": 35,
+  "renderBlocking": [
+   "http://flytta.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 6,
+  "domContentLoaded": 61,
+  "pageErrors": []
+ },
+ {
+  "brand": "flytta",
+  "path": "/guider/apostille-och-dokument-fran-sverige",
+  "status": 200,
+  "lcp": 60,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 309087,
+  "decodedBytes": 1150990,
+  "requests": 41,
+  "renderBlocking": [
+   "http://flytta.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 7,
+  "domContentLoaded": 57,
+  "pageErrors": []
+ },
+ {
+  "brand": "flytta",
+  "path": "/guider/arrende-och-avkastning",
+  "status": 200,
+  "lcp": 112,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 309195,
+  "decodedBytes": 1150875,
+  "requests": 41,
+  "renderBlocking": [
+   "http://flytta.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 12,
+  "domContentLoaded": 50,
+  "pageErrors": []
+ },
+ {
+  "brand": "flytta",
+  "path": "/guider/bygga-hus-kostnad-och-process",
+  "status": 200,
+  "lcp": 100,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 315126,
+  "decodedBytes": 1176552,
+  "requests": 43,
+  "renderBlocking": [
+   "http://flytta.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 8,
+  "domContentLoaded": 40,
+  "pageErrors": []
+ },
+ {
+  "brand": "flytta",
+  "path": "/guider/cedula-processen",
+  "status": 200,
+  "lcp": 76,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 309335,
+  "decodedBytes": 1148519,
+  "requests": 41,
+  "renderBlocking": [
+   "http://flytta.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 9,
+  "domContentLoaded": 35,
+  "pageErrors": []
+ },
+ {
+  "brand": "flytta",
+  "path": "/guider/darfor-behover-du-en-plan-b",
+  "status": 200,
+  "lcp": 60,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 308988,
+  "decodedBytes": 1149076,
+  "requests": 41,
+  "renderBlocking": [
+   "http://flytta.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 5,
+  "domContentLoaded": 25,
+  "pageErrors": []
+ },
+ {
+  "brand": "flytta",
+  "path": "/guider/dejting-och-relationer-som-svensk",
+  "status": 200,
+  "lcp": 60,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 308545,
+  "decodedBytes": 1145849,
+  "requests": 41,
+  "renderBlocking": [
+   "http://flytta.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 5,
+  "domContentLoaded": 55,
+  "pageErrors": []
+ },
+ {
+  "brand": "flytta",
+  "path": "/guider/driva-bolag-fran-paraguay",
+  "status": 200,
+  "lcp": 132,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 310189,
+  "decodedBytes": 1152758,
+  "requests": 41,
+  "renderBlocking": [
+   "http://flytta.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 6,
+  "domContentLoaded": 47,
+  "pageErrors": [
+   "Error: Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full e"
+  ]
+ },
+ {
+  "brand": "flytta",
+  "path": "/guider/dubbelt-boende-sverige-paraguay",
+  "status": 200,
+  "lcp": 52,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 308300,
+  "decodedBytes": 1147881,
+  "requests": 41,
+  "renderBlocking": [
+   "http://flytta.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 5,
+  "domContentLoaded": 48,
+  "pageErrors": []
+ },
+ {
+  "brand": "flytta",
+  "path": "/guider/efter-beviljad-residency-nasta-steg",
+  "status": 200,
+  "lcp": 44,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 309250,
+  "decodedBytes": 1150349,
+  "requests": 41,
+  "renderBlocking": [
+   "http://flytta.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 5,
+  "domContentLoaded": 42,
+  "pageErrors": []
+ },
+ {
+  "brand": "flytta",
+  "path": "/guider/en-vanlig-dag-i-paraguay",
+  "status": 200,
+  "lcp": 60,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 308432,
+  "decodedBytes": 1146691,
+  "requests": 41,
+  "renderBlocking": [
+   "http://flytta.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 6,
+  "domContentLoaded": 24,
+  "pageErrors": []
+ },
+ {
+  "brand": "flytta",
+  "path": "/guider/fallgropar-vid-markkop",
+  "status": 200,
+  "lcp": 40,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 308939,
+  "decodedBytes": 1149168,
+  "requests": 41,
+  "renderBlocking": [
+   "http://flytta.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 4,
+  "domContentLoaded": 36,
+  "pageErrors": []
+ },
+ {
+  "brand": "flytta",
+  "path": "/guider/flytta-till-paraguay-med-familj",
+  "status": 200,
+  "lcp": 80,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 308554,
+  "decodedBytes": 1147962,
+  "requests": 41,
+  "renderBlocking": [
+   "http://flytta.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 5,
+  "domContentLoaded": 21,
+  "pageErrors": []
+ },
+ {
+  "brand": "flytta",
+  "path": "/guider/klimat-och-arstider",
+  "status": 200,
+  "lcp": 64,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 308748,
+  "decodedBytes": 1149293,
+  "requests": 41,
+  "renderBlocking": [
+   "http://flytta.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 5,
+  "domContentLoaded": 17,
+  "pageErrors": []
+ },
+ {
+  "brand": "flytta",
+  "path": "/guider/kopa-tomt-som-utlanning",
+  "status": 200,
+  "lcp": 44,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 308987,
+  "decodedBytes": 1151453,
+  "requests": 41,
+  "renderBlocking": [
+   "http://flytta.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 4,
+  "domContentLoaded": 40,
+  "pageErrors": []
+ },
+ {
+  "brand": "flytta",
+  "path": "/guider/kottkultur-och-asado",
+  "status": 200,
+  "lcp": 80,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 308223,
+  "decodedBytes": 1144647,
+  "requests": 41,
+  "renderBlocking": [
+   "http://flytta.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 5,
+  "domContentLoaded": 18,
+  "pageErrors": []
+ },
+ {
+  "brand": "flytta",
+  "path": "/guider/lara-sig-spanska-och-guarani",
+  "status": 200,
+  "lcp": 36,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 308523,
+  "decodedBytes": 1145826,
+  "requests": 41,
+  "renderBlocking": [
+   "http://flytta.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 5,
+  "domContentLoaded": 34,
+  "pageErrors": []
+ },
+ {
+  "brand": "flytta",
+  "path": "/guider/levnadskostnader-paraguay",
+  "status": 200,
+  "lcp": 40,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 301012,
+  "decodedBytes": 1122850,
+  "requests": 39,
+  "renderBlocking": [
+   "http://flytta.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 4,
+  "domContentLoaded": 37,
+  "pageErrors": []
+ },
+ {
+  "brand": "flytta",
+  "path": "/guider/markpriser-per-region",
+  "status": 200,
+  "lcp": 56,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 301204,
+  "decodedBytes": 1122474,
+  "requests": 39,
+  "renderBlocking": [
+   "http://flytta.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 6,
+  "domContentLoaded": 89,
+  "pageErrors": []
+ },
+ {
+  "brand": "flytta",
+  "path": "/guider",
+  "status": 200,
+  "lcp": 108,
+  "lcpEl": "DIV.mt-[var(--space-3)].text-[var(--fg-muted)]",
+  "cls": 0,
+  "transferBytes": 531072,
+  "decodedBytes": 2019622,
+  "requests": 98,
+  "renderBlocking": [
+   "http://flytta.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 12,
+  "domContentLoaded": 28,
+  "pageErrors": []
+ },
+ {
+  "brand": "flytta",
+  "path": "/guider/narproducerat-och-matkvalitet",
+  "status": 200,
+  "lcp": 48,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 300302,
+  "decodedBytes": 1116636,
+  "requests": 39,
+  "renderBlocking": [
+   "http://flytta.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 5,
+  "domContentLoaded": 45,
+  "pageErrors": []
+ },
+ {
+  "brand": "flytta",
+  "path": "/guider/oppna-bankkonto-i-paraguay",
+  "status": 200,
+  "lcp": 60,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 300908,
+  "decodedBytes": 1118449,
+  "requests": 39,
+  "renderBlocking": [
+   "http://flytta.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 6,
+  "domContentLoaded": 58,
+  "pageErrors": []
+ },
+ {
+  "brand": "flytta",
+  "path": "/guider/paraguay-vs-alternativen",
+  "status": 200,
+  "lcp": 68,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 301034,
+  "decodedBytes": 1126268,
+  "requests": 39,
+  "renderBlocking": [
+   "http://flytta.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 8,
+  "domContentLoaded": 63,
+  "pageErrors": [
+   "Error: Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full e"
+  ]
+ },
+ {
+  "brand": "flytta",
+  "path": "/guider/permanent-vs-temporar-residency",
+  "status": 200,
+  "lcp": 68,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 301268,
+  "decodedBytes": 1123273,
+  "requests": 39,
+  "renderBlocking": [
+   "http://flytta.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 7,
+  "domContentLoaded": 61,
+  "pageErrors": [
+   "Error: Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full e"
+  ]
+ },
+ {
+  "brand": "flytta",
+  "path": "/guider/residency-i-paraguay-komplett-guide",
+  "status": 200,
+  "lcp": 56,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 301570,
+  "decodedBytes": 1126650,
+  "requests": 39,
+  "renderBlocking": [
+   "http://flytta.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 7,
+  "domContentLoaded": 53,
+  "pageErrors": []
+ },
+ {
+  "brand": "flytta",
+  "path": "/guider/residency-krav-och-dokument",
+  "status": 200,
+  "lcp": 52,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 300407,
+  "decodedBytes": 1120940,
+  "requests": 39,
+  "renderBlocking": [
+   "http://flytta.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 7,
+  "domContentLoaded": 51,
+  "pageErrors": [
+   "Error: Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full e"
+  ]
+ },
+ {
+  "brand": "flytta",
+  "path": "/guider/residency-tidslinje-och-kostnad",
+  "status": 200,
+  "lcp": 60,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 301306,
+  "decodedBytes": 1126387,
+  "requests": 39,
+  "renderBlocking": [
+   "http://flytta.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 7,
+  "domContentLoaded": 59,
+  "pageErrors": []
+ },
+ {
+  "brand": "flytta",
+  "path": "/guider/sa-gar-flytten-till",
+  "status": 200,
+  "lcp": 48,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 293616,
+  "decodedBytes": 1089606,
+  "requests": 37,
+  "renderBlocking": [
+   "http://flytta.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 6,
+  "domContentLoaded": 45,
+  "pageErrors": []
+ },
+ {
+  "brand": "flytta",
+  "path": "/guider/sakerhet-i-paraguay-arligt",
+  "status": 200,
+  "lcp": 80,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 300128,
+  "decodedBytes": 1115907,
+  "requests": 39,
+  "renderBlocking": [
+   "http://flytta.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 6,
+  "domContentLoaded": 21,
+  "pageErrors": []
+ },
+ {
+  "brand": "flytta",
+  "path": "/guider/sjukvard-och-forsakring",
+  "status": 200,
+  "lcp": 132,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 300443,
+  "decodedBytes": 1118357,
+  "requests": 39,
+  "renderBlocking": [
+   "http://flytta.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 5,
+  "domContentLoaded": 22,
+  "pageErrors": [
+   "Error: Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full e"
+  ]
+ },
+ {
+  "brand": "flytta",
+  "path": "/guider/skattehemvist-och-183-dagarsregeln",
+  "status": 200,
+  "lcp": 56,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 257941,
+  "decodedBytes": 946661,
+  "requests": 34,
+  "renderBlocking": [
+   "http://flytta.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 6,
+  "domContentLoaded": 54,
+  "pageErrors": [
+   "Error: Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full e"
+  ]
+ },
+ {
+  "brand": "flytta",
+  "path": "/guider/skattesystemet-i-paraguay-10-10-10",
+  "status": 200,
+  "lcp": 112,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 293885,
+  "decodedBytes": 1093079,
+  "requests": 38,
+  "renderBlocking": [
+   "http://flytta.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 20,
+  "domContentLoaded": 54,
+  "pageErrors": [
+   "Error: Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full e"
+  ]
+ },
+ {
+  "brand": "flytta",
+  "path": "/guider/ta-med-pengar-och-vaxla",
+  "status": 200,
+  "lcp": 76,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 308576,
+  "decodedBytes": 1149116,
+  "requests": 41,
+  "renderBlocking": [
+   "http://flytta.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 11,
+  "domContentLoaded": 35,
+  "pageErrors": [
+   "Error: Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full e"
+  ]
+ },
+ {
+  "brand": "flytta",
+  "path": "/guider/vad-du-inte-flyr-ifran",
+  "status": 200,
+  "lcp": 104,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 299980,
+  "decodedBytes": 1115445,
+  "requests": 39,
+  "renderBlocking": [
+   "http://flytta.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 9,
+  "domContentLoaded": 39,
+  "pageErrors": []
+ },
+ {
+  "brand": "flytta",
+  "path": "/guider/vanliga-misstag-residency",
+  "status": 200,
+  "lcp": 64,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 310439,
+  "decodedBytes": 1162971,
+  "requests": 42,
+  "renderBlocking": [
+   "http://flytta.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 10,
+  "domContentLoaded": 58,
+  "pageErrors": []
+ },
+ {
+  "brand": "flytta",
+  "path": "/guide",
+  "status": 200,
+  "lcp": 52,
+  "lcpEl": "P.mt-[var(--space-4)].text-[var(--text-lg)]",
+  "cls": 0,
+  "transferBytes": 269804,
+  "decodedBytes": 1002092,
+  "requests": 33,
+  "renderBlocking": [
+   "http://flytta.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 8,
+  "domContentLoaded": 24,
+  "pageErrors": []
+ },
+ {
+  "brand": "flytta",
+  "path": "/",
+  "status": 200,
+  "lcp": 96,
+  "lcpEl": "P.mt-[var(--space-6)].max-w-[52ch]",
+  "cls": 0,
+  "transferBytes": 472188,
+  "decodedBytes": 1753732,
+  "requests": 49,
+  "renderBlocking": [
+   "http://flytta.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 22,
+  "domContentLoaded": 51,
+  "pageErrors": []
+ },
+ {
+  "brand": "flytta",
+  "path": "/kostnader",
+  "status": 200,
+  "lcp": 92,
+  "lcpEl": "P.mt-[var(--space-4)].text-[var(--text-lg)]",
+  "cls": 0,
+  "transferBytes": 418382,
+  "decodedBytes": 1519294,
+  "requests": 35,
+  "renderBlocking": [
+   "http://flytta.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 11,
+  "domContentLoaded": 74,
+  "pageErrors": []
+ },
+ {
+  "brand": "flytta",
+  "path": "/priser",
+  "status": 200,
+  "lcp": 104,
+  "lcpEl": "P.mt-[var(--space-4)].text-[var(--text-lg)]",
+  "cls": 0,
+  "transferBytes": 418141,
+  "decodedBytes": 1526366,
+  "requests": 35,
+  "renderBlocking": [
+   "http://flytta.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 10,
+  "domContentLoaded": 100,
+  "pageErrors": []
+ },
+ {
+  "brand": "flytta",
+  "path": "/privacy",
+  "status": 200,
+  "lcp": 64,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 270454,
+  "decodedBytes": 1002911,
+  "requests": 33,
+  "renderBlocking": [
+   "http://flytta.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 5,
+  "domContentLoaded": 32,
+  "pageErrors": []
+ },
+ {
+  "brand": "flytta",
+  "path": "/process",
+  "status": 200,
+  "lcp": 120,
+  "lcpEl": "P.mt-[var(--space-2)].text-[var(--fg-muted)]",
+  "cls": 0,
+  "transferBytes": 273237,
+  "decodedBytes": 1020308,
+  "requests": 33,
+  "renderBlocking": [
+   "http://flytta.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 5,
+  "domContentLoaded": 24,
+  "pageErrors": []
+ },
+ {
+  "brand": "flytta",
+  "path": "/route-finder",
+  "status": 200,
+  "lcp": 88,
+  "lcpEl": "P.mt-[var(--space-4)].max-w-[var(--measure)]",
+  "cls": 0,
+  "transferBytes": 270695,
+  "decodedBytes": 1003471,
+  "requests": 33,
+  "renderBlocking": [
+   "http://flytta.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 46,
+  "domContentLoaded": 65,
+  "pageErrors": []
+ },
+ {
+  "brand": "flytta",
+  "path": "/route-finder/result",
+  "status": 200,
+  "lcp": 108,
+  "lcpEl": "P.mt-[var(--space-4)].max-w-[var(--measure)]",
+  "cls": 0,
+  "transferBytes": 416634,
+  "decodedBytes": 1506044,
+  "requests": 36,
+  "renderBlocking": [
+   "http://flytta.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 50,
+  "domContentLoaded": 105,
+  "pageErrors": []
+ },
+ {
+  "brand": "flytta",
+  "path": "/skatt",
+  "status": 200,
+  "lcp": 96,
+  "lcpEl": "P.mt-[var(--space-4)].text-[var(--text-lg)]",
+  "cls": 0,
+  "transferBytes": 419461,
+  "decodedBytes": 1522565,
+  "requests": 35,
+  "renderBlocking": [
+   "http://flytta.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 29,
+  "domContentLoaded": 60,
+  "pageErrors": []
+ },
+ {
+  "brand": "flytta",
+  "path": "/stader/aregua",
+  "status": 200,
+  "lcp": 44,
+  "lcpEl": "P.mt-[var(--space-4)].text-[var(--text-lg)]",
+  "cls": 0,
+  "transferBytes": 307156,
+  "decodedBytes": 1148290,
+  "requests": 41,
+  "renderBlocking": [
+   "http://flytta.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 4,
+  "domContentLoaded": 39,
+  "pageErrors": []
+ },
+ {
+  "brand": "flytta",
+  "path": "/stader/asuncion",
+  "status": 200,
+  "lcp": 40,
+  "lcpEl": "P.mt-[var(--space-4)].text-[var(--text-lg)]",
+  "cls": 0,
+  "transferBytes": 307291,
+  "decodedBytes": 1148182,
+  "requests": 41,
+  "renderBlocking": [
+   "http://flytta.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 5,
+  "domContentLoaded": 38,
+  "pageErrors": []
+ },
+ {
+  "brand": "flytta",
+  "path": "/stader/ciudad-del-este",
+  "status": 200,
+  "lcp": 40,
+  "lcpEl": "P.mt-[var(--space-4)].text-[var(--text-lg)]",
+  "cls": 0,
+  "transferBytes": 306804,
+  "decodedBytes": 1148997,
+  "requests": 41,
+  "renderBlocking": [
+   "http://flytta.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 6,
+  "domContentLoaded": 38,
+  "pageErrors": []
+ },
+ {
+  "brand": "flytta",
+  "path": "/stader/encarnacion",
+  "status": 200,
+  "lcp": 40,
+  "lcpEl": "P.mt-[var(--space-4)].text-[var(--text-lg)]",
+  "cls": 0,
+  "transferBytes": 307146,
+  "decodedBytes": 1149140,
+  "requests": 41,
+  "renderBlocking": [
+   "http://flytta.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 4,
+  "domContentLoaded": 35,
+  "pageErrors": []
+ },
+ {
+  "brand": "flytta",
+  "path": "/stader/luque",
+  "status": 200,
+  "lcp": 40,
+  "lcpEl": "P.mt-[var(--space-4)].text-[var(--text-lg)]",
+  "cls": 0,
+  "transferBytes": 306761,
+  "decodedBytes": 1147765,
+  "requests": 41,
+  "renderBlocking": [
+   "http://flytta.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 4,
+  "domContentLoaded": 36,
+  "pageErrors": []
+ },
+ {
+  "brand": "flytta",
+  "path": "/stader",
+  "status": 200,
+  "lcp": 44,
+  "lcpEl": "DIV.mt-[var(--space-3)].text-[var(--fg-muted)]",
+  "cls": 0,
+  "transferBytes": 322944,
+  "decodedBytes": 1219009,
+  "requests": 47,
+  "renderBlocking": [
+   "http://flytta.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 11,
+  "domContentLoaded": 39,
+  "pageErrors": []
+ },
+ {
+  "brand": "flytta",
+  "path": "/stader/san-bernardino",
+  "status": 200,
+  "lcp": 36,
+  "lcpEl": "P.mt-[var(--space-4)].text-[var(--text-lg)]",
+  "cls": 0,
+  "transferBytes": 307190,
+  "decodedBytes": 1150209,
+  "requests": 41,
+  "renderBlocking": [
+   "http://flytta.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 4,
+  "domContentLoaded": 33,
+  "pageErrors": []
+ },
+ {
+  "brand": "flytta",
+  "path": "/stader/villarrica",
+  "status": 200,
+  "lcp": 44,
+  "lcpEl": "P.mt-[var(--space-4)].text-[var(--text-lg)]",
+  "cls": 0,
+  "transferBytes": 306585,
+  "decodedBytes": 1147671,
+  "requests": 41,
+  "renderBlocking": [
+   "http://flytta.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 5,
+  "domContentLoaded": 39,
+  "pageErrors": []
+ },
+ {
+  "brand": "flytta",
+  "path": "/terms",
+  "status": 200,
+  "lcp": 32,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 270223,
+  "decodedBytes": 1002212,
+  "requests": 33,
+  "renderBlocking": [
+   "http://flytta.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 4,
+  "domContentLoaded": 28,
+  "pageErrors": []
+ },
+ {
+  "brand": "flytta",
+  "path": "/unsubscribe",
+  "status": 200,
+  "lcp": 36,
+  "lcpEl": "P.mt-[var(--space-4)].text-[var(--fg-muted)]",
+  "cls": 0,
+  "transferBytes": 270317,
+  "decodedBytes": 997808,
+  "requests": 33,
+  "renderBlocking": [
+   "http://flytta.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 10,
+  "domContentLoaded": 34,
+  "pageErrors": []
+ },
+ {
+  "brand": "flytta",
+  "path": "/uppehallstillstand",
+  "status": 200,
+  "lcp": 64,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 419391,
+  "decodedBytes": 1525291,
+  "requests": 35,
+  "renderBlocking": [
+   "http://flytta.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 6,
+  "domContentLoaded": 23,
+  "pageErrors": []
+ },
+ {
+  "brand": "flytta",
+  "path": "/var-historia",
+  "status": 200,
+  "lcp": 72,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 271928,
+  "decodedBytes": 1012375,
+  "requests": 33,
+  "renderBlocking": [
+   "http://flytta.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 6,
+  "domContentLoaded": 23,
+  "pageErrors": []
+ },
+ {
+  "brand": "frontier",
+  "path": "/about",
+  "status": 200,
+  "lcp": 40,
+  "lcpEl": "P.mt-[var(--space-4)].text-[var(--text-lg)]",
+  "cls": 0,
+  "transferBytes": 258203,
+  "decodedBytes": 1006678,
+  "requests": 32,
+  "renderBlocking": [
+   "http://frontier.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 6,
+  "domContentLoaded": 36,
+  "pageErrors": []
+ },
+ {
+  "brand": "frontier",
+  "path": "/confirm",
+  "status": 200,
+  "lcp": 40,
+  "lcpEl": "P.mt-[var(--space-4)].text-[var(--fg-muted)]",
+  "cls": 0,
+  "transferBytes": 393602,
+  "decodedBytes": 1450119,
+  "requests": 34,
+  "renderBlocking": [
+   "http://frontier.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 11,
+  "domContentLoaded": 38,
+  "pageErrors": []
+ },
+ {
+  "brand": "frontier",
+  "path": "/contact",
+  "status": 200,
+  "lcp": 36,
+  "lcpEl": "P.mt-[var(--space-4)].text-[var(--fg-muted)]",
+  "cls": 0,
+  "transferBytes": 401096,
+  "decodedBytes": 1507567,
+  "requests": 34,
+  "renderBlocking": [
+   "http://frontier.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 4,
+  "domContentLoaded": 34,
+  "pageErrors": []
+ },
+ {
+  "brand": "frontier",
+  "path": "/guide",
+  "status": 200,
+  "lcp": 56,
+  "lcpEl": "P.mt-[var(--space-4)].text-[var(--text-lg)]",
+  "cls": 0,
+  "transferBytes": 257639,
+  "decodedBytes": 1002441,
+  "requests": 32,
+  "renderBlocking": [
+   "http://frontier.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 18,
+  "domContentLoaded": 51,
+  "pageErrors": []
+ },
+ {
+  "brand": "frontier",
+  "path": "/",
+  "status": 200,
+  "lcp": 44,
+  "lcpEl": "P.mt-[var(--space-6)].max-w-[52ch]",
+  "cls": 0,
+  "transferBytes": 410583,
+  "decodedBytes": 1562544,
+  "requests": 34,
+  "renderBlocking": [
+   "http://frontier.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 5,
+  "domContentLoaded": 43,
+  "pageErrors": []
+ },
+ {
+  "brand": "frontier",
+  "path": "/pricing",
+  "status": 200,
+  "lcp": 44,
+  "lcpEl": "P.mt-[var(--space-4)].text-[var(--text-lg)]",
+  "cls": 0,
+  "transferBytes": 405261,
+  "decodedBytes": 1520625,
+  "requests": 34,
+  "renderBlocking": [
+   "http://frontier.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 4,
+  "domContentLoaded": 42,
+  "pageErrors": []
+ },
+ {
+  "brand": "frontier",
+  "path": "/privacy",
+  "status": 200,
+  "lcp": 64,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 258078,
+  "decodedBytes": 1002236,
+  "requests": 32,
+  "renderBlocking": [
+   "http://frontier.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 4,
+  "domContentLoaded": 17,
+  "pageErrors": []
+ },
+ {
+  "brand": "frontier",
+  "path": "/process",
+  "status": 200,
+  "lcp": 92,
+  "lcpEl": "P.mt-[var(--space-2)].text-[var(--fg-muted)]",
+  "cls": 0,
+  "transferBytes": 261256,
+  "decodedBytes": 1021561,
+  "requests": 32,
+  "renderBlocking": [
+   "http://frontier.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 10,
+  "domContentLoaded": 38,
+  "pageErrors": []
+ },
+ {
+  "brand": "frontier",
+  "path": "/route-finder",
+  "status": 200,
+  "lcp": 32,
+  "lcpEl": "P.mt-[var(--space-4)].max-w-[var(--measure)]",
+  "cls": 0,
+  "transferBytes": 258332,
+  "decodedBytes": 1002996,
+  "requests": 32,
+  "renderBlocking": [
+   "http://frontier.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 4,
+  "domContentLoaded": 30,
+  "pageErrors": []
+ },
+ {
+  "brand": "frontier",
+  "path": "/route-finder/result",
+  "status": 200,
+  "lcp": 52,
+  "lcpEl": "P.mt-[var(--space-4)].max-w-[var(--measure)]",
+  "cls": 0,
+  "transferBytes": 404033,
+  "decodedBytes": 1505502,
+  "requests": 35,
+  "renderBlocking": [
+   "http://frontier.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 16,
+  "domContentLoaded": 49,
+  "pageErrors": []
+ },
+ {
+  "brand": "frontier",
+  "path": "/routes",
+  "status": 200,
+  "lcp": 40,
+  "lcpEl": "P.mt-[var(--space-3)].text-[var(--fg-muted)]",
+  "cls": 0,
+  "transferBytes": 260479,
+  "decodedBytes": 1017797,
+  "requests": 32,
+  "renderBlocking": [
+   "http://frontier.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 4,
+  "domContentLoaded": 37,
+  "pageErrors": []
+ },
+ {
+  "brand": "frontier",
+  "path": "/stories/american-first-90-days",
+  "status": 200,
+  "lcp": 108,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 280972,
+  "decodedBytes": 1098157,
+  "requests": 36,
+  "renderBlocking": [
+   "http://frontier.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 7,
+  "domContentLoaded": 27,
+  "pageErrors": []
+ },
+ {
+  "brand": "frontier",
+  "path": "/stories/banking-as-a-new-resident",
+  "status": 200,
+  "lcp": 56,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 280866,
+  "decodedBytes": 1097620,
+  "requests": 36,
+  "renderBlocking": [
+   "http://frontier.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 6,
+  "domContentLoaded": 51,
+  "pageErrors": []
+ },
+ {
+  "brand": "frontier",
+  "path": "/stories/canadian-document-chain-for-paraguay",
+  "status": 200,
+  "lcp": 84,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 281974,
+  "decodedBytes": 1103062,
+  "requests": 36,
+  "renderBlocking": [
+   "http://frontier.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 8,
+  "domContentLoaded": 46,
+  "pageErrors": []
+ },
+ {
+  "brand": "frontier",
+  "path": "/stories/cedula-and-ruc-after-approval",
+  "status": 200,
+  "lcp": 88,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 280040,
+  "decodedBytes": 1095831,
+  "requests": 36,
+  "renderBlocking": [
+   "http://frontier.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 6,
+  "domContentLoaded": 29,
+  "pageErrors": []
+ },
+ {
+  "brand": "frontier",
+  "path": "/stories/cost-of-living-reality-check",
+  "status": 200,
+  "lcp": 76,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 280818,
+  "decodedBytes": 1097722,
+  "requests": 36,
+  "renderBlocking": [
+   "http://frontier.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 6,
+  "domContentLoaded": 21,
+  "pageErrors": []
+ },
+ {
+  "brand": "frontier",
+  "path": "/stories/healthcare-and-insurance-in-paraguay",
+  "status": 200,
+  "lcp": 40,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 281068,
+  "decodedBytes": 1098075,
+  "requests": 36,
+  "renderBlocking": [
+   "http://frontier.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 4,
+  "domContentLoaded": 37,
+  "pageErrors": []
+ },
+ {
+  "brand": "frontier",
+  "path": "/stories/land-and-farms-as-a-foreigner",
+  "status": 200,
+  "lcp": 36,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 281016,
+  "decodedBytes": 1097916,
+  "requests": 36,
+  "renderBlocking": [
+   "http://frontier.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 4,
+  "domContentLoaded": 31,
+  "pageErrors": []
+ },
+ {
+  "brand": "frontier",
+  "path": "/stories",
+  "status": 200,
+  "lcp": 40,
+  "lcpEl": "DIV.mt-[var(--space-3)].text-[var(--fg-muted)]",
+  "cls": 0,
+  "transferBytes": 344406,
+  "decodedBytes": 1385226,
+  "requests": 52,
+  "renderBlocking": [
+   "http://frontier.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 7,
+  "domContentLoaded": 34,
+  "pageErrors": []
+ },
+ {
+  "brand": "frontier",
+  "path": "/stories/paraguay-vs-panama-uruguay-mexico-for-a-plan-b",
+  "status": 200,
+  "lcp": 36,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 281392,
+  "decodedBytes": 1099610,
+  "requests": 36,
+  "renderBlocking": [
+   "http://frontier.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 4,
+  "domContentLoaded": 33,
+  "pageErrors": []
+ },
+ {
+  "brand": "frontier",
+  "path": "/stories/the-presence-rules-nobody-explains",
+  "status": 200,
+  "lcp": 40,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 280964,
+  "decodedBytes": 1098190,
+  "requests": 36,
+  "renderBlocking": [
+   "http://frontier.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 4,
+  "domContentLoaded": 35,
+  "pageErrors": []
+ },
+ {
+  "brand": "frontier",
+  "path": "/stories/us-document-chain-before-paraguay",
+  "status": 200,
+  "lcp": 40,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 281847,
+  "decodedBytes": 1100902,
+  "requests": 36,
+  "renderBlocking": [
+   "http://frontier.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 5,
+  "domContentLoaded": 38,
+  "pageErrors": []
+ },
+ {
+  "brand": "frontier",
+  "path": "/tax",
+  "status": 200,
+  "lcp": 52,
+  "lcpEl": "P.mt-[var(--space-2)].text-[var(--fg-muted)]",
+  "cls": 0,
+  "transferBytes": 406748,
+  "decodedBytes": 1522908,
+  "requests": 34,
+  "renderBlocking": [
+   "http://frontier.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 5,
+  "domContentLoaded": 47,
+  "pageErrors": []
+ },
+ {
+  "brand": "frontier",
+  "path": "/terms",
+  "status": 200,
+  "lcp": 36,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 257809,
+  "decodedBytes": 1001494,
+  "requests": 32,
+  "renderBlocking": [
+   "http://frontier.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 4,
+  "domContentLoaded": 32,
+  "pageErrors": []
+ },
+ {
+  "brand": "frontier",
+  "path": "/unsubscribe",
+  "status": 200,
+  "lcp": 40,
+  "lcpEl": "P.mt-[var(--space-4)].text-[var(--fg-muted)]",
+  "cls": 0,
+  "transferBytes": 257842,
+  "decodedBytes": 997421,
+  "requests": 32,
+  "renderBlocking": [
+   "http://frontier.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 12,
+  "domContentLoaded": 36,
+  "pageErrors": []
+ },
+ {
+  "brand": "frontier",
+  "path": "/why-paraguay",
+  "status": 200,
+  "lcp": 40,
+  "lcpEl": "P.mt-[var(--space-2)].text-[var(--fg-muted)]",
+  "cls": 0,
+  "transferBytes": 259159,
+  "decodedBytes": 1010722,
+  "requests": 32,
+  "renderBlocking": [
+   "http://frontier.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 4,
+  "domContentLoaded": 36,
+  "pageErrors": []
+ },
+ {
+  "brand": "guide",
+  "path": "/about",
+  "status": 200,
+  "lcp": 40,
+  "lcpEl": "P.mt-[var(--space-4)].text-[var(--text-lg)]",
+  "cls": 0,
+  "transferBytes": 208694,
+  "decodedBytes": 792598,
+  "requests": 25,
+  "renderBlocking": [
+   "http://guide.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 4,
+  "domContentLoaded": 36,
+  "pageErrors": []
+ },
+ {
+  "brand": "guide",
+  "path": "/account",
+  "status": 200,
+  "lcp": 56,
+  "lcpEl": "P.mt-[var(--space-2)].text-[var(--fg-muted)]",
+  "cls": 0,
+  "transferBytes": 344014,
+  "decodedBytes": 1236811,
+  "requests": 27,
+  "renderBlocking": [
+   "http://guide.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 24,
+  "domContentLoaded": 52,
+  "pageErrors": []
+ },
+ {
+  "brand": "guide",
+  "path": "/blog/5000-deposit",
+  "status": 200,
+  "lcp": 64,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 233362,
+  "decodedBytes": 897129,
+  "requests": 32,
+  "renderBlocking": [
+   "http://guide.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 3,
+  "domContentLoaded": 17,
+  "pageErrors": []
+ },
+ {
+  "brand": "guide",
+  "path": "/blog/cedula-power-of-attorney",
+  "status": 200,
+  "lcp": 40,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 233373,
+  "decodedBytes": 897859,
+  "requests": 32,
+  "renderBlocking": [
+   "http://guide.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 4,
+  "domContentLoaded": 36,
+  "pageErrors": []
+ },
+ {
+  "brand": "guide",
+  "path": "/blog/do-you-need-a-lawyer-for-paraguay-residency",
+  "status": 200,
+  "lcp": 52,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 244741,
+  "decodedBytes": 940753,
+  "requests": 34,
+  "renderBlocking": [
+   "http://guide.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 5,
+  "domContentLoaded": 48,
+  "pageErrors": []
+ },
+ {
+  "brand": "guide",
+  "path": "/blog/documents-you-need-for-paraguay-residency",
+  "status": 200,
+  "lcp": 72,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 235648,
+  "decodedBytes": 903928,
+  "requests": 32,
+  "renderBlocking": [
+   "http://guide.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 4,
+  "domContentLoaded": 18,
+  "pageErrors": []
+ },
+ {
+  "brand": "guide",
+  "path": "/blog/health-insurance-paraguay",
+  "status": 200,
+  "lcp": 52,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 233530,
+  "decodedBytes": 896802,
+  "requests": 32,
+  "renderBlocking": [
+   "http://guide.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 5,
+  "domContentLoaded": 50,
+  "pageErrors": []
+ },
+ {
+  "brand": "guide",
+  "path": "/blog/how-long-paraguay-residency-actually-takes",
+  "status": 200,
+  "lcp": 44,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 235825,
+  "decodedBytes": 904121,
+  "requests": 32,
+  "renderBlocking": [
+   "http://guide.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 4,
+  "domContentLoaded": 42,
+  "pageErrors": []
+ },
+ {
+  "brand": "guide",
+  "path": "/blog/is-paraguay-residency-worth-it",
+  "status": 200,
+  "lcp": 40,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 238466,
+  "decodedBytes": 910424,
+  "requests": 32,
+  "renderBlocking": [
+   "http://guide.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 5,
+  "domContentLoaded": 39,
+  "pageErrors": []
+ },
+ {
+  "brand": "guide",
+  "path": "/blog/is-paraguay-safe",
+  "status": 200,
+  "lcp": 52,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 236154,
+  "decodedBytes": 903299,
+  "requests": 32,
+  "renderBlocking": [
+   "http://guide.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 4,
+  "domContentLoaded": 49,
+  "pageErrors": []
+ },
+ {
+  "brand": "guide",
+  "path": "/blog/mistakes-we-see-every-month",
+  "status": 200,
+  "lcp": 48,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 244712,
+  "decodedBytes": 939367,
+  "requests": 34,
+  "renderBlocking": [
+   "http://guide.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 5,
+  "domContentLoaded": 42,
+  "pageErrors": []
+ },
+ {
+  "brand": "guide",
+  "path": "/blog",
+  "status": 200,
+  "lcp": 72,
+  "lcpEl": "DIV.mt-[var(--space-3)].text-[var(--fg-muted)]",
+  "cls": 0,
+  "transferBytes": 339408,
+  "decodedBytes": 1397303,
+  "requests": 61,
+  "renderBlocking": [
+   "http://guide.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 4,
+  "domContentLoaded": 18,
+  "pageErrors": []
+ },
+ {
+  "brand": "guide",
+  "path": "/blog/opening-a-bank-account-in-paraguay",
+  "status": 200,
+  "lcp": 48,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 235510,
+  "decodedBytes": 902457,
+  "requests": 32,
+  "renderBlocking": [
+   "http://guide.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 5,
+  "domContentLoaded": 46,
+  "pageErrors": []
+ },
+ {
+  "brand": "guide",
+  "path": "/blog/paraguay-sim-card",
+  "status": 200,
+  "lcp": 56,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 233687,
+  "decodedBytes": 897156,
+  "requests": 32,
+  "renderBlocking": [
+   "http://guide.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 6,
+  "domContentLoaded": 53,
+  "pageErrors": []
+ },
+ {
+  "brand": "guide",
+  "path": "/blog/paraguay-visa-guide",
+  "status": 200,
+  "lcp": 104,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 234207,
+  "decodedBytes": 900525,
+  "requests": 32,
+  "renderBlocking": [
+   "http://guide.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 5,
+  "domContentLoaded": 21,
+  "pageErrors": []
+ },
+ {
+  "brand": "guide",
+  "path": "/blog/paraguayan-citizenship",
+  "status": 200,
+  "lcp": 40,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 235362,
+  "decodedBytes": 902469,
+  "requests": 32,
+  "renderBlocking": [
+   "http://guide.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 6,
+  "domContentLoaded": 37,
+  "pageErrors": []
+ },
+ {
+  "brand": "guide",
+  "path": "/blog/real-cost-of-living-in-paraguay",
+  "status": 200,
+  "lcp": 44,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 236143,
+  "decodedBytes": 902908,
+  "requests": 32,
+  "renderBlocking": [
+   "http://guide.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 5,
+  "domContentLoaded": 41,
+  "pageErrors": []
+ },
+ {
+  "brand": "guide",
+  "path": "/blog/requirements-residency-paraguay",
+  "status": 200,
+  "lcp": 40,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 234706,
+  "decodedBytes": 902456,
+  "requests": 32,
+  "renderBlocking": [
+   "http://guide.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 4,
+  "domContentLoaded": 36,
+  "pageErrors": []
+ },
+ {
+  "brand": "guide",
+  "path": "/blog/retire-in-paraguay",
+  "status": 200,
+  "lcp": 64,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 242568,
+  "decodedBytes": 934134,
+  "requests": 34,
+  "renderBlocking": [
+   "http://guide.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 7,
+  "domContentLoaded": 59,
+  "pageErrors": []
+ },
+ {
+  "brand": "guide",
+  "path": "/blog/schools-paraguay",
+  "status": 200,
+  "lcp": 108,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 235862,
+  "decodedBytes": 902243,
+  "requests": 32,
+  "renderBlocking": [
+   "http://guide.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 5,
+  "domContentLoaded": 22,
+  "pageErrors": []
+ },
+ {
+  "brand": "guide",
+  "path": "/blog/step-by-step",
+  "status": 200,
+  "lcp": 88,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 255488,
+  "decodedBytes": 997345,
+  "requests": 38,
+  "renderBlocking": [
+   "http://guide.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 5,
+  "domContentLoaded": 25,
+  "pageErrors": []
+ },
+ {
+  "brand": "guide",
+  "path": "/confirm",
+  "status": 200,
+  "lcp": 48,
+  "lcpEl": "P.mt-[var(--space-4)].text-[var(--fg-muted)]",
+  "cls": 0,
+  "transferBytes": 344229,
+  "decodedBytes": 1237071,
+  "requests": 27,
+  "renderBlocking": [
+   "http://guide.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 13,
+  "domContentLoaded": 45,
+  "pageErrors": []
+ },
+ {
+  "brand": "guide",
+  "path": "/contact",
+  "status": 200,
+  "lcp": 44,
+  "lcpEl": "P.mt-[var(--space-4)].text-[var(--fg-muted)]",
+  "cls": 0,
+  "transferBytes": 348854,
+  "decodedBytes": 1263904,
+  "requests": 27,
+  "renderBlocking": [
+   "http://guide.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 5,
+  "domContentLoaded": 41,
+  "pageErrors": []
+ },
+ {
+  "brand": "guide",
+  "path": "/",
+  "status": 200,
+  "lcp": 108,
+  "lcpEl": "P.text-[var(--text-lg)].text-[var(--fg-muted)]",
+  "cls": 0,
+  "transferBytes": 347924,
+  "decodedBytes": 1272648,
+  "requests": 27,
+  "renderBlocking": [
+   "http://guide.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 9,
+  "domContentLoaded": 24,
+  "pageErrors": []
+ },
+ {
+  "brand": "guide",
+  "path": "/insider",
+  "status": 200,
+  "lcp": 80,
+  "lcpEl": "P.mx-auto.mt-[var(--space-6)]",
+  "cls": 0,
+  "transferBytes": 210594,
+  "decodedBytes": 804161,
+  "requests": 25,
+  "renderBlocking": [
+   "http://guide.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 5,
+  "domContentLoaded": 19,
+  "pageErrors": []
+ },
+ {
+  "brand": "guide",
+  "path": "/login",
+  "status": 200,
+  "lcp": 44,
+  "lcpEl": "P.mt-[var(--space-2)].text-[var(--fg-muted)]",
+  "cls": 0,
+  "transferBytes": 344012,
+  "decodedBytes": 1236811,
+  "requests": 27,
+  "renderBlocking": [
+   "http://guide.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 10,
+  "domContentLoaded": 41,
+  "pageErrors": []
+ },
+ {
+  "brand": "guide",
+  "path": "/members",
+  "status": 200,
+  "lcp": 56,
+  "lcpEl": "P.mt-[var(--space-2)].text-[var(--fg-muted)]",
+  "cls": 0,
+  "transferBytes": 344011,
+  "decodedBytes": 1236811,
+  "requests": 27,
+  "renderBlocking": [
+   "http://guide.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 21,
+  "domContentLoaded": 54,
+  "pageErrors": []
+ },
+ {
+  "brand": "guide",
+  "path": "/members/resources",
+  "status": 200,
+  "lcp": 92,
+  "lcpEl": "P.mt-[var(--space-2)].text-[var(--fg-muted)]",
+  "cls": 0,
+  "transferBytes": 344009,
+  "decodedBytes": 1236811,
+  "requests": 27,
+  "renderBlocking": [
+   "http://guide.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 19,
+  "domContentLoaded": 33,
+  "pageErrors": []
+ },
+ {
+  "brand": "guide",
+  "path": "/members/updates",
+  "status": 200,
+  "lcp": 56,
+  "lcpEl": "P.mt-[var(--space-2)].text-[var(--fg-muted)]",
+  "cls": 0,
+  "transferBytes": 344015,
+  "decodedBytes": 1236811,
+  "requests": 27,
+  "renderBlocking": [
+   "http://guide.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 20,
+  "domContentLoaded": 53,
+  "pageErrors": []
+ },
+ {
+  "brand": "guide",
+  "path": "/privacy",
+  "status": 200,
+  "lcp": 48,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 208684,
+  "decodedBytes": 789292,
+  "requests": 25,
+  "renderBlocking": [
+   "http://guide.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 7,
+  "domContentLoaded": 45,
+  "pageErrors": []
+ },
+ {
+  "brand": "guide",
+  "path": "/refunds",
+  "status": 200,
+  "lcp": 36,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 208134,
+  "decodedBytes": 787326,
+  "requests": 25,
+  "renderBlocking": [
+   "http://guide.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 4,
+  "domContentLoaded": 34,
+  "pageErrors": []
+ },
+ {
+  "brand": "guide",
+  "path": "/route-finder",
+  "status": 200,
+  "lcp": 104,
+  "lcpEl": "P.mt-[var(--space-4)].max-w-[var(--measure)]",
+  "cls": 0,
+  "transferBytes": 210975,
+  "decodedBytes": 794167,
+  "requests": 26,
+  "renderBlocking": [
+   "http://guide.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 6,
+  "domContentLoaded": 23,
+  "pageErrors": []
+ },
+ {
+  "brand": "guide",
+  "path": "/route-finder/result",
+  "status": 200,
+  "lcp": 84,
+  "lcpEl": "P.mt-[var(--space-4)].max-w-[var(--measure)]",
+  "cls": 0,
+  "transferBytes": 362354,
+  "decodedBytes": 1320824,
+  "requests": 31,
+  "renderBlocking": [
+   "http://guide.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 18,
+  "domContentLoaded": 81,
+  "pageErrors": []
+ },
+ {
+  "brand": "guide",
+  "path": "/terms",
+  "status": 200,
+  "lcp": 52,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 208523,
+  "decodedBytes": 788593,
+  "requests": 25,
+  "renderBlocking": [
+   "http://guide.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 7,
+  "domContentLoaded": 47,
+  "pageErrors": []
+ },
+ {
+  "brand": "guide",
+  "path": "/thank-you",
+  "status": 200,
+  "lcp": 80,
+  "lcpEl": "P.mt-[var(--space-4)].text-[var(--fg-muted)]",
+  "cls": 0,
+  "transferBytes": 209603,
+  "decodedBytes": 790311,
+  "requests": 25,
+  "renderBlocking": [
+   "http://guide.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 17,
+  "domContentLoaded": 73,
+  "pageErrors": []
+ },
+ {
+  "brand": "guide",
+  "path": "/unsubscribe",
+  "status": 200,
+  "lcp": 76,
+  "lcpEl": "P.mt-[var(--space-4)].text-[var(--fg-muted)]",
+  "cls": 0,
+  "transferBytes": 208455,
+  "decodedBytes": 784396,
+  "requests": 25,
+  "renderBlocking": [
+   "http://guide.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 13,
+  "domContentLoaded": 44,
+  "pageErrors": []
+ },
+ {
+  "brand": "investorpass",
+  "path": "/about",
+  "status": 200,
+  "lcp": 56,
+  "lcpEl": "P.mt-[var(--space-4)].text-[var(--text-lg)]",
+  "cls": 0,
+  "transferBytes": 267342,
+  "decodedBytes": 1040162,
+  "requests": 32,
+  "renderBlocking": [
+   "http://investorpass.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 9,
+  "domContentLoaded": 51,
+  "pageErrors": []
+ },
+ {
+  "brand": "investorpass",
+  "path": "/confirm",
+  "status": 200,
+  "lcp": 60,
+  "lcpEl": "P.mt-[var(--space-4)].text-[var(--fg-muted)]",
+  "cls": 0,
+  "transferBytes": 402838,
+  "decodedBytes": 1484105,
+  "requests": 34,
+  "renderBlocking": [
+   "http://investorpass.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 16,
+  "domContentLoaded": 55,
+  "pageErrors": []
+ },
+ {
+  "brand": "investorpass",
+  "path": "/contact",
+  "status": 200,
+  "lcp": 76,
+  "lcpEl": "P.mt-[var(--space-4)].text-[var(--fg-muted)]",
+  "cls": 0,
+  "transferBytes": 411238,
+  "decodedBytes": 1537236,
+  "requests": 34,
+  "renderBlocking": [
+   "http://investorpass.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 8,
+  "domContentLoaded": 72,
+  "pageErrors": []
+ },
+ {
+  "brand": "investorpass",
+  "path": "/",
+  "status": 200,
+  "lcp": 88,
+  "lcpEl": "P.mx-auto.mt-[var(--space-6)]",
+  "cls": 0,
+  "transferBytes": 417640,
+  "decodedBytes": 1576606,
+  "requests": 34,
+  "renderBlocking": [
+   "http://investorpass.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 13,
+  "domContentLoaded": 85,
+  "pageErrors": []
+ },
+ {
+  "brand": "investorpass",
+  "path": "/insights/bringing-your-family",
+  "status": 200,
+  "lcp": 64,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 290860,
+  "decodedBytes": 1138063,
+  "requests": 36,
+  "renderBlocking": [
+   "http://investorpass.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 6,
+  "domContentLoaded": 28,
+  "pageErrors": []
+ },
+ {
+  "brand": "investorpass",
+  "path": "/insights/common-delays-and-mistakes",
+  "status": 200,
+  "lcp": 104,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 299497,
+  "decodedBytes": 1173058,
+  "requests": 38,
+  "renderBlocking": [
+   "http://investorpass.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 13,
+  "domContentLoaded": 50,
+  "pageErrors": []
+ },
+ {
+  "brand": "investorpass",
+  "path": "/insights/how-long-it-actually-takes",
+  "status": 200,
+  "lcp": 72,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 291620,
+  "decodedBytes": 1139071,
+  "requests": 36,
+  "renderBlocking": [
+   "http://investorpass.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 7,
+  "domContentLoaded": 67,
+  "pageErrors": []
+ },
+ {
+  "brand": "investorpass",
+  "path": "/insights/investor-pass-and-your-taxes",
+  "status": 200,
+  "lcp": 68,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 290939,
+  "decodedBytes": 1136897,
+  "requests": 36,
+  "renderBlocking": [
+   "http://investorpass.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 6,
+  "domContentLoaded": 25,
+  "pageErrors": []
+ },
+ {
+  "brand": "investorpass",
+  "path": "/insights/investor-pass-vs-uruguay-panama",
+  "status": 200,
+  "lcp": 44,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 291659,
+  "decodedBytes": 1138673,
+  "requests": 36,
+  "renderBlocking": [
+   "http://investorpass.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 5,
+  "domContentLoaded": 39,
+  "pageErrors": []
+ },
+ {
+  "brand": "investorpass",
+  "path": "/insights",
+  "status": 200,
+  "lcp": 72,
+  "lcpEl": "DIV.mt-[var(--space-3)].text-[var(--fg-muted)]",
+  "cls": 0,
+  "transferBytes": 337478,
+  "decodedBytes": 1350247,
+  "requests": 48,
+  "renderBlocking": [
+   "http://investorpass.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 14,
+  "domContentLoaded": 66,
+  "pageErrors": []
+ },
+ {
+  "brand": "investorpass",
+  "path": "/insights/real-estate-route-deep-dive",
+  "status": 200,
+  "lcp": 52,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 292413,
+  "decodedBytes": 1140448,
+  "requests": 36,
+  "renderBlocking": [
+   "http://investorpass.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 5,
+  "domContentLoaded": 49,
+  "pageErrors": []
+ },
+ {
+  "brand": "investorpass",
+  "path": "/insights/renewing-and-converting-to-permanent",
+  "status": 200,
+  "lcp": 48,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 299179,
+  "decodedBytes": 1174788,
+  "requests": 38,
+  "renderBlocking": [
+   "http://investorpass.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 5,
+  "domContentLoaded": 44,
+  "pageErrors": []
+ },
+ {
+  "brand": "investorpass",
+  "path": "/insights/what-the-investor-pass-is",
+  "status": 200,
+  "lcp": 100,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 292117,
+  "decodedBytes": 1140876,
+  "requests": 36,
+  "renderBlocking": [
+   "http://investorpass.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 9,
+  "domContentLoaded": 39,
+  "pageErrors": []
+ },
+ {
+  "brand": "investorpass",
+  "path": "/investor-pass/for-agents",
+  "status": 200,
+  "lcp": 76,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 412440,
+  "decodedBytes": 1534631,
+  "requests": 34,
+  "renderBlocking": [
+   "http://investorpass.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 7,
+  "domContentLoaded": 73,
+  "pageErrors": []
+ },
+ {
+  "brand": "investorpass",
+  "path": "/investor-pass/investment-routes",
+  "status": 200,
+  "lcp": 96,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 416731,
+  "decodedBytes": 1563089,
+  "requests": 34,
+  "renderBlocking": [
+   "http://investorpass.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 9,
+  "domContentLoaded": 35,
+  "pageErrors": []
+ },
+ {
+  "brand": "investorpass",
+  "path": "/investor-pass/process",
+  "status": 200,
+  "lcp": 84,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 416317,
+  "decodedBytes": 1561016,
+  "requests": 34,
+  "renderBlocking": [
+   "http://investorpass.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 7,
+  "domContentLoaded": 41,
+  "pageErrors": []
+ },
+ {
+  "brand": "investorpass",
+  "path": "/investor-pass/requirements",
+  "status": 200,
+  "lcp": 76,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 416443,
+  "decodedBytes": 1561115,
+  "requests": 34,
+  "renderBlocking": [
+   "http://investorpass.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 8,
+  "domContentLoaded": 28,
+  "pageErrors": []
+ },
+ {
+  "brand": "investorpass",
+  "path": "/investor-pass/vs-standard-residency",
+  "status": 200,
+  "lcp": 56,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 271457,
+  "decodedBytes": 1063080,
+  "requests": 32,
+  "renderBlocking": [
+   "http://investorpass.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 5,
+  "domContentLoaded": 51,
+  "pageErrors": []
+ },
+ {
+  "brand": "investorpass",
+  "path": "/privacy",
+  "status": 200,
+  "lcp": 32,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 267310,
+  "decodedBytes": 1036297,
+  "requests": 32,
+  "renderBlocking": [
+   "http://investorpass.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 4,
+  "domContentLoaded": 29,
+  "pageErrors": []
+ },
+ {
+  "brand": "investorpass",
+  "path": "/route-finder",
+  "status": 200,
+  "lcp": 68,
+  "lcpEl": "P.mt-[var(--space-4)].max-w-[var(--measure)]",
+  "cls": 0,
+  "transferBytes": 267514,
+  "decodedBytes": 1037086,
+  "requests": 32,
+  "renderBlocking": [
+   "http://investorpass.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 4,
+  "domContentLoaded": 17,
+  "pageErrors": []
+ },
+ {
+  "brand": "investorpass",
+  "path": "/route-finder/result",
+  "status": 200,
+  "lcp": 72,
+  "lcpEl": "P.mt-[var(--space-4)].max-w-[var(--measure)]",
+  "cls": 0,
+  "transferBytes": 413346,
+  "decodedBytes": 1539983,
+  "requests": 35,
+  "renderBlocking": [
+   "http://investorpass.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 15,
+  "domContentLoaded": 40,
+  "pageErrors": []
+ },
+ {
+  "brand": "investorpass",
+  "path": "/terms",
+  "status": 200,
+  "lcp": 72,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 267040,
+  "decodedBytes": 1035555,
+  "requests": 32,
+  "renderBlocking": [
+   "http://investorpass.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 6,
+  "domContentLoaded": 23,
+  "pageErrors": []
+ },
+ {
+  "brand": "investorpass",
+  "path": "/unsubscribe",
+  "status": 200,
+  "lcp": 44,
+  "lcpEl": "P.mt-[var(--space-4)].text-[var(--fg-muted)]",
+  "cls": 0,
+  "transferBytes": 267069,
+  "decodedBytes": 1031405,
+  "requests": 32,
+  "renderBlocking": [
+   "http://investorpass.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 11,
+  "domContentLoaded": 39,
+  "pageErrors": []
+ },
+ {
+  "brand": "residenciaes",
+  "path": "/confirm",
+  "status": 200,
+  "lcp": 44,
+  "lcpEl": "P.mt-[var(--space-4)].text-[var(--fg-muted)]",
+  "cls": 0,
+  "transferBytes": 426129,
+  "decodedBytes": 1490816,
+  "requests": 46,
+  "renderBlocking": [
+   "http://residenciaes.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 11,
+  "domContentLoaded": 42,
+  "pageErrors": []
+ },
+ {
+  "brand": "residenciaes",
+  "path": "/contact",
+  "status": 200,
+  "lcp": 48,
+  "lcpEl": "P.mt-[var(--space-4)].text-[var(--fg-muted)]",
+  "cls": 0,
+  "transferBytes": 434404,
+  "decodedBytes": 1548278,
+  "requests": 46,
+  "renderBlocking": [
+   "http://residenciaes.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 8,
+  "domContentLoaded": 44,
+  "pageErrors": []
+ },
+ {
+  "brand": "residenciaes",
+  "path": "/familia",
+  "status": 200,
+  "lcp": 60,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 438802,
+  "decodedBytes": 1561790,
+  "requests": 46,
+  "renderBlocking": [
+   "http://residenciaes.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 7,
+  "domContentLoaded": 55,
+  "pageErrors": []
+ },
+ {
+  "brand": "residenciaes",
+  "path": "/guias/comparativas",
+  "status": 200,
+  "lcp": 40,
+  "lcpEl": "DIV.mt-[var(--space-3)].text-[var(--fg-muted)]",
+  "cls": 0,
+  "transferBytes": 308628,
+  "decodedBytes": 1108122,
+  "requests": 50,
+  "renderBlocking": [
+   "http://residenciaes.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 5,
+  "domContentLoaded": 37,
+  "pageErrors": []
+ },
+ {
+  "brand": "residenciaes",
+  "path": "/guias/comparativas/paraguay-vs-espana",
+  "status": 200,
+  "lcp": 52,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 319563,
+  "decodedBytes": 1142759,
+  "requests": 52,
+  "renderBlocking": [
+   "http://residenciaes.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 4,
+  "domContentLoaded": 50,
+  "pageErrors": []
+ },
+ {
+  "brand": "residenciaes",
+  "path": "/guias/comparativas/paraguay-vs-portugal",
+  "status": 200,
+  "lcp": 48,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 313930,
+  "decodedBytes": 1124797,
+  "requests": 50,
+  "renderBlocking": [
+   "http://residenciaes.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 6,
+  "domContentLoaded": 45,
+  "pageErrors": []
+ },
+ {
+  "brand": "residenciaes",
+  "path": "/guias/comparativas/paraguay-vs-uruguay",
+  "status": 200,
+  "lcp": 84,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 318516,
+  "decodedBytes": 1140127,
+  "requests": 52,
+  "renderBlocking": [
+   "http://residenciaes.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 5,
+  "domContentLoaded": 21,
+  "pageErrors": []
+ },
+ {
+  "brand": "residenciaes",
+  "path": "/guias/documentos",
+  "status": 200,
+  "lcp": 68,
+  "lcpEl": "DIV.mt-[var(--space-3)].text-[var(--fg-muted)]",
+  "cls": 0,
+  "transferBytes": 302718,
+  "decodedBytes": 1086042,
+  "requests": 48,
+  "renderBlocking": [
+   "http://residenciaes.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 4,
+  "domContentLoaded": 17,
+  "pageErrors": []
+ },
+ {
+  "brand": "residenciaes",
+  "path": "/guias/documentos/que-necesitas-para-solicitar",
+  "status": 200,
+  "lcp": 48,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 307725,
+  "decodedBytes": 1104149,
+  "requests": 48,
+  "renderBlocking": [
+   "http://residenciaes.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 5,
+  "domContentLoaded": 44,
+  "pageErrors": []
+ },
+ {
+  "brand": "residenciaes",
+  "path": "/guias/documentos/rutas-de-residencia",
+  "status": 200,
+  "lcp": 52,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 310192,
+  "decodedBytes": 1111462,
+  "requests": 48,
+  "renderBlocking": [
+   "http://residenciaes.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 5,
+  "domContentLoaded": 50,
+  "pageErrors": []
+ },
+ {
+  "brand": "residenciaes",
+  "path": "/guias/impuestos",
+  "status": 200,
+  "lcp": 76,
+  "lcpEl": "DIV.mt-[var(--space-3)].text-[var(--fg-muted)]",
+  "cls": 0,
+  "transferBytes": 303118,
+  "decodedBytes": 1088045,
+  "requests": 48,
+  "renderBlocking": [
+   "http://residenciaes.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 5,
+  "domContentLoaded": 21,
+  "pageErrors": []
+ },
+ {
+  "brand": "residenciaes",
+  "path": "/guias/impuestos/ruc-para-extranjeros",
+  "status": 200,
+  "lcp": 60,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 308315,
+  "decodedBytes": 1106432,
+  "requests": 48,
+  "renderBlocking": [
+   "http://residenciaes.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 5,
+  "domContentLoaded": 23,
+  "pageErrors": []
+ },
+ {
+  "brand": "residenciaes",
+  "path": "/guias/impuestos/sistema-tributario-territorial",
+  "status": 200,
+  "lcp": 52,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 310755,
+  "decodedBytes": 1113772,
+  "requests": 48,
+  "renderBlocking": [
+   "http://residenciaes.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 5,
+  "domContentLoaded": 48,
+  "pageErrors": []
+ },
+ {
+  "brand": "residenciaes",
+  "path": "/guias",
+  "status": 200,
+  "lcp": 72,
+  "lcpEl": "P.mt-[var(--space-2)].max-w-[var(--measure)]",
+  "cls": 0,
+  "transferBytes": 302515,
+  "decodedBytes": 1084764,
+  "requests": 52,
+  "renderBlocking": [
+   "http://residenciaes.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 4,
+  "domContentLoaded": 18,
+  "pageErrors": []
+ },
+ {
+  "brand": "residenciaes",
+  "path": "/guias/vivir-en-paraguay/abrir-cuenta-bancaria",
+  "status": 200,
+  "lcp": 92,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 305918,
+  "decodedBytes": 1098001,
+  "requests": 48,
+  "renderBlocking": [
+   "http://residenciaes.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 6,
+  "domContentLoaded": 24,
+  "pageErrors": []
+ },
+ {
+  "brand": "residenciaes",
+  "path": "/guias/vivir-en-paraguay/costo-de-vida-en-paraguay",
+  "status": 200,
+  "lcp": 104,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 312109,
+  "decodedBytes": 1118235,
+  "requests": 50,
+  "renderBlocking": [
+   "http://residenciaes.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 5,
+  "domContentLoaded": 22,
+  "pageErrors": []
+ },
+ {
+  "brand": "residenciaes",
+  "path": "/guias/vivir-en-paraguay",
+  "status": 200,
+  "lcp": 44,
+  "lcpEl": "DIV.mt-[var(--space-3)].text-[var(--fg-muted)]",
+  "cls": 0,
+  "transferBytes": 306730,
+  "decodedBytes": 1100605,
+  "requests": 50,
+  "renderBlocking": [
+   "http://residenciaes.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 5,
+  "domContentLoaded": 39,
+  "pageErrors": []
+ },
+ {
+  "brand": "residenciaes",
+  "path": "/guias/vivir-en-paraguay/salud-y-seguro-medico",
+  "status": 200,
+  "lcp": 84,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 305853,
+  "decodedBytes": 1097875,
+  "requests": 48,
+  "renderBlocking": [
+   "http://residenciaes.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 6,
+  "domContentLoaded": 23,
+  "pageErrors": []
+ },
+ {
+  "brand": "residenciaes",
+  "path": "/",
+  "status": 200,
+  "lcp": 108,
+  "lcpEl": "P.mt-[var(--space-6)].max-w-[52ch]",
+  "cls": 0,
+  "transferBytes": 437971,
+  "decodedBytes": 1575121,
+  "requests": 46,
+  "renderBlocking": [
+   "http://residenciaes.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 9,
+  "domContentLoaded": 26,
+  "pageErrors": []
+ },
+ {
+  "brand": "residenciaes",
+  "path": "/mercosur",
+  "status": 200,
+  "lcp": 64,
+  "lcpEl": "P.mt-[var(--space-4)].text-[var(--text-lg)]",
+  "cls": 0,
+  "transferBytes": 439104,
+  "decodedBytes": 1564512,
+  "requests": 46,
+  "renderBlocking": [
+   "http://residenciaes.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 5,
+  "domContentLoaded": 59,
+  "pageErrors": []
+ },
+ {
+  "brand": "residenciaes",
+  "path": "/nosotros",
+  "status": 200,
+  "lcp": 48,
+  "lcpEl": "P.mt-[var(--space-4)].text-[var(--text-lg)]",
+  "cls": 0,
+  "transferBytes": 290509,
+  "decodedBytes": 1046248,
+  "requests": 44,
+  "renderBlocking": [
+   "http://residenciaes.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 4,
+  "domContentLoaded": 42,
+  "pageErrors": []
+ },
+ {
+  "brand": "residenciaes",
+  "path": "/pase-inversor",
+  "status": 200,
+  "lcp": 52,
+  "lcpEl": "P.mt-[var(--space-4)].text-[var(--text-lg)]",
+  "cls": 0,
+  "transferBytes": 291699,
+  "decodedBytes": 1051630,
+  "requests": 44,
+  "renderBlocking": [
+   "http://residenciaes.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 4,
+  "domContentLoaded": 50,
+  "pageErrors": []
+ },
+ {
+  "brand": "residenciaes",
+  "path": "/precios",
+  "status": 200,
+  "lcp": 52,
+  "lcpEl": "P.mt-[var(--space-4)].text-[var(--text-lg)]",
+  "cls": 0,
+  "transferBytes": 438274,
+  "decodedBytes": 1567239,
+  "requests": 46,
+  "renderBlocking": [
+   "http://residenciaes.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 5,
+  "domContentLoaded": 50,
+  "pageErrors": []
+ },
+ {
+  "brand": "residenciaes",
+  "path": "/privacy",
+  "status": 200,
+  "lcp": 84,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 290504,
+  "decodedBytes": 1043339,
+  "requests": 44,
+  "renderBlocking": [
+   "http://residenciaes.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 5,
+  "domContentLoaded": 20,
+  "pageErrors": []
+ },
+ {
+  "brand": "residenciaes",
+  "path": "/proceso",
+  "status": 200,
+  "lcp": 52,
+  "lcpEl": "P.mt-[var(--space-2)].text-[var(--fg-muted)]",
+  "cls": 0,
+  "transferBytes": 293433,
+  "decodedBytes": 1060975,
+  "requests": 44,
+  "renderBlocking": [
+   "http://residenciaes.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 5,
+  "domContentLoaded": 49,
+  "pageErrors": []
+ },
+ {
+  "brand": "residenciaes",
+  "path": "/residencia-fiscal",
+  "status": 200,
+  "lcp": 116,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 439655,
+  "decodedBytes": 1563536,
+  "requests": 46,
+  "renderBlocking": [
+   "http://residenciaes.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 17,
+  "domContentLoaded": 98,
+  "pageErrors": []
+ },
+ {
+  "brand": "residenciaes",
+  "path": "/residencia/cedula",
+  "status": 200,
+  "lcp": 108,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 386015,
+  "decodedBytes": 1365258,
+  "requests": 38,
+  "renderBlocking": [
+   "http://residenciaes.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 9,
+  "domContentLoaded": 89,
+  "pageErrors": []
+ },
+ {
+  "brand": "residenciaes",
+  "path": "/residencia/permanente",
+  "status": 200,
+  "lcp": 76,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 439416,
+  "decodedBytes": 1565293,
+  "requests": 46,
+  "renderBlocking": [
+   "http://residenciaes.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 6,
+  "domContentLoaded": 72,
+  "pageErrors": []
+ },
+ {
+  "brand": "residenciaes",
+  "path": "/residencia/temporal",
+  "status": 200,
+  "lcp": 164,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 439675,
+  "decodedBytes": 1566148,
+  "requests": 46,
+  "renderBlocking": [
+   "http://residenciaes.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 16,
+  "domContentLoaded": 139,
+  "pageErrors": []
+ },
+ {
+  "brand": "residenciaes",
+  "path": "/route-finder",
+  "status": 200,
+  "lcp": 92,
+  "lcpEl": "P.mt-[var(--space-4)].max-w-[var(--measure)]",
+  "cls": 0,
+  "transferBytes": 290744,
+  "decodedBytes": 1043721,
+  "requests": 44,
+  "renderBlocking": [
+   "http://residenciaes.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 12,
+  "domContentLoaded": 44,
+  "pageErrors": []
+ },
+ {
+  "brand": "residenciaes",
+  "path": "/route-finder/result",
+  "status": 200,
+  "lcp": 120,
+  "lcpEl": "P.mt-[var(--space-4)].max-w-[var(--measure)]",
+  "cls": 0,
+  "transferBytes": 436623,
+  "decodedBytes": 1546300,
+  "requests": 47,
+  "renderBlocking": [
+   "http://residenciaes.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 27,
+  "domContentLoaded": 58,
+  "pageErrors": []
+ },
+ {
+  "brand": "residenciaes",
+  "path": "/terms",
+  "status": 200,
+  "lcp": 56,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 290289,
+  "decodedBytes": 1042614,
+  "requests": 44,
+  "renderBlocking": [
+   "http://residenciaes.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 7,
+  "domContentLoaded": 27,
+  "pageErrors": []
+ },
+ {
+  "brand": "residenciaes",
+  "path": "/unsubscribe",
+  "status": 200,
+  "lcp": 60,
+  "lcpEl": "P.mt-[var(--space-4)].text-[var(--fg-muted)]",
+  "cls": 0,
+  "transferBytes": 290311,
+  "decodedBytes": 1038079,
+  "requests": 44,
+  "renderBlocking": [
+   "http://residenciaes.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 16,
+  "domContentLoaded": 34,
+  "pageErrors": []
+ },
+ {
+  "brand": "residenciapt",
+  "path": "/confirm",
+  "status": 200,
+  "lcp": 44,
+  "lcpEl": "P.mt-[var(--space-4)].text-[var(--fg-muted)]",
+  "cls": 0,
+  "transferBytes": 431270,
+  "decodedBytes": 1503438,
+  "requests": 46,
+  "renderBlocking": [
+   "http://residenciapt.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 11,
+  "domContentLoaded": 40,
+  "pageErrors": []
+ },
+ {
+  "brand": "residenciapt",
+  "path": "/contact",
+  "status": 200,
+  "lcp": 48,
+  "lcpEl": "P.mt-[var(--space-4)].text-[var(--fg-muted)]",
+  "cls": 0,
+  "transferBytes": 439572,
+  "decodedBytes": 1560770,
+  "requests": 46,
+  "renderBlocking": [
+   "http://residenciapt.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 6,
+  "domContentLoaded": 44,
+  "pageErrors": []
+ },
+ {
+  "brand": "residenciapt",
+  "path": "/custo-de-vida",
+  "status": 200,
+  "lcp": 84,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 433881,
+  "decodedBytes": 1526269,
+  "requests": 44,
+  "renderBlocking": [
+   "http://residenciapt.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 5,
+  "domContentLoaded": 22,
+  "pageErrors": []
+ },
+ {
+  "brand": "residenciapt",
+  "path": "/familia",
+  "status": 200,
+  "lcp": 60,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 444122,
+  "decodedBytes": 1574398,
+  "requests": 46,
+  "renderBlocking": [
+   "http://residenciapt.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 5,
+  "domContentLoaded": 57,
+  "pageErrors": []
+ },
+ {
+  "brand": "residenciapt",
+  "path": "/guias/comparativos",
+  "status": 200,
+  "lcp": 44,
+  "lcpEl": "DIV.mt-[var(--space-3)].text-[var(--fg-muted)]",
+  "cls": 0,
+  "transferBytes": 309301,
+  "decodedBytes": 1103145,
+  "requests": 48,
+  "renderBlocking": [
+   "http://residenciapt.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 7,
+  "domContentLoaded": 40,
+  "pageErrors": []
+ },
+ {
+  "brand": "residenciapt",
+  "path": "/guias/comparativos/paraguai-vs-portugal-residencia-para-brasileiros",
+  "status": 200,
+  "lcp": 76,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 324101,
+  "decodedBytes": 1152045,
+  "requests": 50,
+  "renderBlocking": [
+   "http://residenciapt.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 6,
+  "domContentLoaded": 19,
+  "pageErrors": []
+ },
+ {
+  "brand": "residenciapt",
+  "path": "/guias/comparativos/paraguai-vs-uruguai-residencia-para-brasileiros",
+  "status": 200,
+  "lcp": 88,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 317306,
+  "decodedBytes": 1129656,
+  "requests": 48,
+  "renderBlocking": [
+   "http://residenciapt.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 5,
+  "domContentLoaded": 29,
+  "pageErrors": []
+ },
+ {
+  "brand": "residenciapt",
+  "path": "/guias/documentos/apostilamento-e-traducao-de-documentos-brasileiros",
+  "status": 200,
+  "lcp": 44,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 316792,
+  "decodedBytes": 1128741,
+  "requests": 48,
+  "renderBlocking": [
+   "http://residenciapt.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 5,
+  "domContentLoaded": 40,
+  "pageErrors": []
+ },
+ {
+  "brand": "residenciapt",
+  "path": "/guias/documentos",
+  "status": 200,
+  "lcp": 60,
+  "lcpEl": "DIV.mt-[var(--space-3)].text-[var(--fg-muted)]",
+  "cls": 0,
+  "transferBytes": 309678,
+  "decodedBytes": 1104524,
+  "requests": 48,
+  "renderBlocking": [
+   "http://residenciapt.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 7,
+  "domContentLoaded": 31,
+  "pageErrors": []
+ },
+ {
+  "brand": "residenciapt",
+  "path": "/guias/documentos/rotas-de-residencia-temporaria-permanente-mercosul",
+  "status": 200,
+  "lcp": 52,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 317051,
+  "decodedBytes": 1129626,
+  "requests": 48,
+  "renderBlocking": [
+   "http://residenciapt.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 5,
+  "domContentLoaded": 49,
+  "pageErrors": []
+ },
+ {
+  "brand": "residenciapt",
+  "path": "/guias/impostos/impostos-no-paraguai-e-a-sua-declaracao-no-brasil",
+  "status": 200,
+  "lcp": 72,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 315961,
+  "decodedBytes": 1125852,
+  "requests": 48,
+  "renderBlocking": [
+   "http://residenciapt.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 9,
+  "domContentLoaded": 69,
+  "pageErrors": []
+ },
+ {
+  "brand": "residenciapt",
+  "path": "/guias/impostos",
+  "status": 200,
+  "lcp": 44,
+  "lcpEl": "DIV.mt-[var(--space-3)].text-[var(--fg-muted)]",
+  "cls": 0,
+  "transferBytes": 301699,
+  "decodedBytes": 1077310,
+  "requests": 46,
+  "renderBlocking": [
+   "http://residenciapt.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 5,
+  "domContentLoaded": 38,
+  "pageErrors": []
+ },
+ {
+  "brand": "residenciapt",
+  "path": "/guias",
+  "status": 200,
+  "lcp": 60,
+  "lcpEl": "P.mt-[var(--space-2)].max-w-[var(--measure)]",
+  "cls": 0,
+  "transferBytes": 307540,
+  "decodedBytes": 1096279,
+  "requests": 52,
+  "renderBlocking": [
+   "http://residenciapt.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 6,
+  "domContentLoaded": 32,
+  "pageErrors": []
+ },
+ {
+  "brand": "residenciapt",
+  "path": "/guias/morar-no-paraguai/custo-de-vida-para-brasileiro-no-paraguai",
+  "status": 200,
+  "lcp": 68,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 315562,
+  "decodedBytes": 1126317,
+  "requests": 48,
+  "renderBlocking": [
+   "http://residenciapt.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 10,
+  "domContentLoaded": 64,
+  "pageErrors": []
+ },
+ {
+  "brand": "residenciapt",
+  "path": "/guias/morar-no-paraguai/fronteira-ciudad-del-este-e-foz-do-iguacu",
+  "status": 200,
+  "lcp": 56,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 315285,
+  "decodedBytes": 1124551,
+  "requests": 48,
+  "renderBlocking": [
+   "http://residenciapt.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 7,
+  "domContentLoaded": 53,
+  "pageErrors": []
+ },
+ {
+  "brand": "residenciapt",
+  "path": "/guias/morar-no-paraguai",
+  "status": 200,
+  "lcp": 56,
+  "lcpEl": "DIV.mt-[var(--space-3)].text-[var(--fg-muted)]",
+  "cls": 0,
+  "transferBytes": 322730,
+  "decodedBytes": 1148648,
+  "requests": 52,
+  "renderBlocking": [
+   "http://residenciapt.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 7,
+  "domContentLoaded": 51,
+  "pageErrors": []
+ },
+ {
+  "brand": "residenciapt",
+  "path": "/guias/morar-no-paraguai/saude-e-escola-para-brasileiros-no-paraguai",
+  "status": 200,
+  "lcp": 68,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 315764,
+  "decodedBytes": 1123370,
+  "requests": 48,
+  "renderBlocking": [
+   "http://residenciapt.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 8,
+  "domContentLoaded": 28,
+  "pageErrors": []
+ },
+ {
+  "brand": "residenciapt",
+  "path": "/guias/morar-no-paraguai/seguranca-no-paraguai-para-brasileiros",
+  "status": 200,
+  "lcp": 60,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 315773,
+  "decodedBytes": 1125444,
+  "requests": 48,
+  "renderBlocking": [
+   "http://residenciapt.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 6,
+  "domContentLoaded": 55,
+  "pageErrors": []
+ },
+ {
+  "brand": "residenciapt",
+  "path": "/",
+  "status": 200,
+  "lcp": 60,
+  "lcpEl": "P.mt-[var(--space-6)].max-w-[52ch]",
+  "cls": 0,
+  "transferBytes": 429556,
+  "decodedBytes": 1547148,
+  "requests": 41,
+  "renderBlocking": [
+   "http://residenciapt.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 10,
+  "domContentLoaded": 98,
+  "pageErrors": []
+ },
+ {
+  "brand": "residenciapt",
+  "path": "/investor-pass",
+  "status": 200,
+  "lcp": 44,
+  "lcpEl": "P.mt-[var(--space-6)].text-[var(--fg-muted)]",
+  "cls": 0,
+  "transferBytes": 296841,
+  "decodedBytes": 1064331,
+  "requests": 44,
+  "renderBlocking": [
+   "http://residenciapt.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 5,
+  "domContentLoaded": 40,
+  "pageErrors": []
+ },
+ {
+  "brand": "residenciapt",
+  "path": "/mercosul",
+  "status": 200,
+  "lcp": 52,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 441014,
+  "decodedBytes": 1555181,
+  "requests": 46,
+  "renderBlocking": [
+   "http://residenciapt.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 5,
+  "domContentLoaded": 50,
+  "pageErrors": []
+ },
+ {
+  "brand": "residenciapt",
+  "path": "/precos",
+  "status": 200,
+  "lcp": 60,
+  "lcpEl": "P.mt-[var(--space-4)].text-[var(--text-lg)]",
+  "cls": 0,
+  "transferBytes": 443285,
+  "decodedBytes": 1579366,
+  "requests": 46,
+  "renderBlocking": [
+   "http://residenciapt.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 6,
+  "domContentLoaded": 55,
+  "pageErrors": []
+ },
+ {
+  "brand": "residenciapt",
+  "path": "/privacy",
+  "status": 200,
+  "lcp": 48,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 295633,
+  "decodedBytes": 1056031,
+  "requests": 44,
+  "renderBlocking": [
+   "http://residenciapt.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 4,
+  "domContentLoaded": 45,
+  "pageErrors": []
+ },
+ {
+  "brand": "residenciapt",
+  "path": "/processo",
+  "status": 200,
+  "lcp": 68,
+  "lcpEl": "P.mt-[var(--space-4)].text-[var(--text-lg)]",
+  "cls": 0,
+  "transferBytes": 298542,
+  "decodedBytes": 1073910,
+  "requests": 44,
+  "renderBlocking": [
+   "http://residenciapt.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 10,
+  "domContentLoaded": 29,
+  "pageErrors": []
+ },
+ {
+  "brand": "residenciapt",
+  "path": "/residencia-fiscal",
+  "status": 200,
+  "lcp": 68,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 440737,
+  "decodedBytes": 1552514,
+  "requests": 46,
+  "renderBlocking": [
+   "http://residenciapt.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 7,
+  "domContentLoaded": 65,
+  "pageErrors": []
+ },
+ {
+  "brand": "residenciapt",
+  "path": "/residencia/cedula",
+  "status": 200,
+  "lcp": 104,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 438268,
+  "decodedBytes": 1555857,
+  "requests": 44,
+  "renderBlocking": [
+   "http://residenciapt.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 11,
+  "domContentLoaded": 43,
+  "pageErrors": []
+ },
+ {
+  "brand": "residenciapt",
+  "path": "/residencia/permanente",
+  "status": 200,
+  "lcp": 96,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 405472,
+  "decodedBytes": 1428741,
+  "requests": 40,
+  "renderBlocking": [
+   "http://residenciapt.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 7,
+  "domContentLoaded": 33,
+  "pageErrors": []
+ },
+ {
+  "brand": "residenciapt",
+  "path": "/residencia/temporaria",
+  "status": 200,
+  "lcp": 104,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 445007,
+  "decodedBytes": 1579794,
+  "requests": 46,
+  "renderBlocking": [
+   "http://residenciapt.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 9,
+  "domContentLoaded": 99,
+  "pageErrors": []
+ },
+ {
+  "brand": "residenciapt",
+  "path": "/route-finder",
+  "status": 200,
+  "lcp": 104,
+  "lcpEl": "P.mt-[var(--space-4)].max-w-[var(--measure)]",
+  "cls": 0,
+  "transferBytes": 295852,
+  "decodedBytes": 1056342,
+  "requests": 44,
+  "renderBlocking": [
+   "http://residenciapt.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 14,
+  "domContentLoaded": 49,
+  "pageErrors": []
+ },
+ {
+  "brand": "residenciapt",
+  "path": "/route-finder/result",
+  "status": 200,
+  "lcp": 120,
+  "lcpEl": "P.mt-[var(--space-4)].max-w-[var(--measure)]",
+  "cls": 0,
+  "transferBytes": 441692,
+  "decodedBytes": 1558947,
+  "requests": 47,
+  "renderBlocking": [
+   "http://residenciapt.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 25,
+  "domContentLoaded": 54,
+  "pageErrors": []
+ },
+ {
+  "brand": "residenciapt",
+  "path": "/sobre",
+  "status": 200,
+  "lcp": 68,
+  "lcpEl": "P.mt-[var(--space-4)].text-[var(--text-lg)]",
+  "cls": 0,
+  "transferBytes": 295758,
+  "decodedBytes": 1059237,
+  "requests": 44,
+  "renderBlocking": [
+   "http://residenciapt.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 6,
+  "domContentLoaded": 64,
+  "pageErrors": []
+ },
+ {
+  "brand": "residenciapt",
+  "path": "/terms",
+  "status": 200,
+  "lcp": 56,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 295389,
+  "decodedBytes": 1055311,
+  "requests": 44,
+  "renderBlocking": [
+   "http://residenciapt.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 6,
+  "domContentLoaded": 27,
+  "pageErrors": []
+ },
+ {
+  "brand": "residenciapt",
+  "path": "/unsubscribe",
+  "status": 200,
+  "lcp": 64,
+  "lcpEl": "P.mt-[var(--space-4)].text-[var(--fg-muted)]",
+  "cls": 0,
+  "transferBytes": 295507,
+  "decodedBytes": 1050770,
+  "requests": 44,
+  "renderBlocking": [
+   "http://residenciapt.localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 14,
+  "domContentLoaded": 59,
+  "pageErrors": []
+ },
+ {
+  "brand": "residency",
+  "path": "/about",
+  "status": 200,
+  "lcp": 68,
+  "lcpEl": "P.mt-[var(--space-4)].text-[var(--text-lg)]",
+  "cls": 0,
+  "transferBytes": 291256,
+  "decodedBytes": 1149223,
+  "requests": 38,
+  "renderBlocking": [
+   "http://localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 7,
+  "domContentLoaded": 27,
+  "pageErrors": []
+ },
+ {
+  "brand": "residency",
+  "path": "/admin/facts",
+  "status": 500,
+  "lcp": 184,
+  "lcpEl": "H1",
+  "cls": 0,
+  "transferBytes": 150391,
+  "decodedBytes": 505225,
+  "requests": 9,
+  "renderBlocking": [],
+  "ttfb": 17,
+  "domContentLoaded": 27,
+  "pageErrors": [
+   "Error: Minified React error #441; visit https://react.dev/errors/441 for the full message or use the non-minified dev environment for full errors and additional"
+  ]
+ },
+ {
+  "brand": "residency",
+  "path": "/admin/leads",
+  "status": 500,
+  "lcp": 168,
+  "lcpEl": "H1",
+  "cls": 0,
+  "transferBytes": 151375,
+  "decodedBytes": 506670,
+  "requests": 10,
+  "renderBlocking": [],
+  "ttfb": 17,
+  "domContentLoaded": 28,
+  "pageErrors": [
+   "Error: Minified React error #441; visit https://react.dev/errors/441 for the full message or use the non-minified dev environment for full errors and additional"
+  ]
+ },
+ {
+  "brand": "residency",
+  "path": "/admin/login",
+  "status": 500,
+  "lcp": 148,
+  "lcpEl": "H1",
+  "cls": 0,
+  "transferBytes": 150405,
+  "decodedBytes": 505241,
+  "requests": 9,
+  "renderBlocking": [],
+  "ttfb": 13,
+  "domContentLoaded": 22,
+  "pageErrors": [
+   "Error: Minified React error #441; visit https://react.dev/errors/441 for the full message or use the non-minified dev environment for full errors and additional"
+  ]
+ },
+ {
+  "brand": "residency",
+  "path": "/admin/members",
+  "status": 500,
+  "lcp": 160,
+  "lcpEl": "H1",
+  "cls": 0,
+  "transferBytes": 150395,
+  "decodedBytes": 505233,
+  "requests": 9,
+  "renderBlocking": [],
+  "ttfb": 14,
+  "domContentLoaded": 23,
+  "pageErrors": [
+   "Error: Minified React error #441; visit https://react.dev/errors/441 for the full message or use the non-minified dev environment for full errors and additional"
+  ]
+ },
+ {
+  "brand": "residency",
+  "path": "/admin",
+  "status": 500,
+  "lcp": 208,
+  "lcpEl": "H1",
+  "cls": 0,
+  "transferBytes": 150315,
+  "decodedBytes": 504431,
+  "requests": 9,
+  "renderBlocking": [],
+  "ttfb": 52,
+  "domContentLoaded": 66,
+  "pageErrors": [
+   "Error: Minified React error #441; visit https://react.dev/errors/441 for the full message or use the non-minified dev environment for full errors and additional"
+  ]
+ },
+ {
+  "brand": "residency",
+  "path": "/admin/purchases",
+  "status": 500,
+  "lcp": 128,
+  "lcpEl": "H1",
+  "cls": 0,
+  "transferBytes": 150395,
+  "decodedBytes": 505241,
+  "requests": 9,
+  "renderBlocking": [],
+  "ttfb": 13,
+  "domContentLoaded": 24,
+  "pageErrors": [
+   "Error: Minified React error #441; visit https://react.dev/errors/441 for the full message or use the non-minified dev environment for full errors and additional"
+  ]
+ },
+ {
+  "brand": "residency",
+  "path": "/blocked",
+  "status": 404,
+  "lcp": 108,
+  "lcpEl": "P.mt-[var(--space-6)].text-[var(--fg-muted)]",
+  "cls": 0,
+  "transferBytes": 277993,
+  "decodedBytes": 1076853,
+  "requests": 36,
+  "renderBlocking": [],
+  "ttfb": 5,
+  "domContentLoaded": 11,
+  "pageErrors": []
+ },
+ {
+  "brand": "residency",
+  "path": "/book",
+  "status": 200,
+  "lcp": 52,
+  "lcpEl": "P.mt-[var(--space-4)].text-[var(--fg-muted)]",
+  "cls": 0,
+  "transferBytes": 424075,
+  "decodedBytes": 1597119,
+  "requests": 38,
+  "renderBlocking": [
+   "http://localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 5,
+  "domContentLoaded": 50,
+  "pageErrors": []
+ },
+ {
+  "brand": "residency",
+  "path": "/confirm",
+  "status": 200,
+  "lcp": 48,
+  "lcpEl": "P.mt-[var(--space-4)].text-[var(--fg-muted)]",
+  "cls": 0,
+  "transferBytes": 416223,
+  "decodedBytes": 1547820,
+  "requests": 38,
+  "renderBlocking": [
+   "http://localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 11,
+  "domContentLoaded": 44,
+  "pageErrors": []
+ },
+ {
+  "brand": "residency",
+  "path": "/contact",
+  "status": 200,
+  "lcp": 40,
+  "lcpEl": "P.mt-[var(--space-4)].text-[var(--fg-muted)]",
+  "cls": 0,
+  "transferBytes": 420859,
+  "decodedBytes": 1574980,
+  "requests": 38,
+  "renderBlocking": [
+   "http://localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 4,
+  "domContentLoaded": 39,
+  "pageErrors": []
+ },
+ {
+  "brand": "residency",
+  "path": "/dev/kitchen-sink",
+  "status": 404,
+  "lcp": 108,
+  "lcpEl": "P.mt-[var(--space-6)].text-[var(--fg-muted)]",
+  "cls": 0,
+  "transferBytes": 277993,
+  "decodedBytes": 1076853,
+  "requests": 36,
+  "renderBlocking": [],
+  "ttfb": 3,
+  "domContentLoaded": 10,
+  "pageErrors": []
+ },
+ {
+  "brand": "residency",
+  "path": "/guides/comparisons",
+  "status": 200,
+  "lcp": 40,
+  "lcpEl": "DIV.mt-[var(--space-3)].text-[var(--fg-muted)]",
+  "cls": 0,
+  "transferBytes": 303354,
+  "decodedBytes": 1206915,
+  "requests": 42,
+  "renderBlocking": [
+   "http://localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 5,
+  "domContentLoaded": 35,
+  "pageErrors": []
+ },
+ {
+  "brand": "residency",
+  "path": "/guides/comparisons/paraguay-vs-panama-residency",
+  "status": 200,
+  "lcp": 40,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 314978,
+  "decodedBytes": 1244319,
+  "requests": 42,
+  "renderBlocking": [
+   "http://localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 5,
+  "domContentLoaded": 37,
+  "pageErrors": []
+ },
+ {
+  "brand": "residency",
+  "path": "/guides/comparisons/paraguay-vs-uruguay-residency",
+  "status": 200,
+  "lcp": 44,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 314988,
+  "decodedBytes": 1244412,
+  "requests": 42,
+  "renderBlocking": [
+   "http://localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 4,
+  "domContentLoaded": 43,
+  "pageErrors": []
+ },
+ {
+  "brand": "residency",
+  "path": "/guides/documents/apostille-and-documents-for-american-applicants",
+  "status": 200,
+  "lcp": 44,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 304473,
+  "decodedBytes": 1201957,
+  "requests": 40,
+  "renderBlocking": [
+   "http://localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 5,
+  "domContentLoaded": 40,
+  "pageErrors": []
+ },
+ {
+  "brand": "residency",
+  "path": "/guides/documents/apostille-and-documents-for-british-applicants",
+  "status": 200,
+  "lcp": 44,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 304247,
+  "decodedBytes": 1201175,
+  "requests": 40,
+  "renderBlocking": [
+   "http://localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 5,
+  "domContentLoaded": 39,
+  "pageErrors": []
+ },
+ {
+  "brand": "residency",
+  "path": "/guides/documents/apostille-and-documents-for-german-applicants",
+  "status": 200,
+  "lcp": 48,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 304362,
+  "decodedBytes": 1201575,
+  "requests": 40,
+  "renderBlocking": [
+   "http://localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 4,
+  "domContentLoaded": 44,
+  "pageErrors": []
+ },
+ {
+  "brand": "residency",
+  "path": "/guides/documents/apostille-and-documents-for-south-african-applicants",
+  "status": 200,
+  "lcp": 40,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 304396,
+  "decodedBytes": 1201844,
+  "requests": 40,
+  "renderBlocking": [
+   "http://localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 5,
+  "domContentLoaded": 38,
+  "pageErrors": []
+ },
+ {
+  "brand": "residency",
+  "path": "/guides/documents/apostilles-and-translations",
+  "status": 200,
+  "lcp": 68,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 304512,
+  "decodedBytes": 1201056,
+  "requests": 40,
+  "renderBlocking": [
+   "http://localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 5,
+  "domContentLoaded": 18,
+  "pageErrors": []
+ },
+ {
+  "brand": "residency",
+  "path": "/guides/documents",
+  "status": 200,
+  "lcp": 36,
+  "lcpEl": "DIV.mt-[var(--space-3)].text-[var(--fg-muted)]",
+  "cls": 0,
+  "transferBytes": 337569,
+  "decodedBytes": 1362719,
+  "requests": 50,
+  "renderBlocking": [
+   "http://localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 4,
+  "domContentLoaded": 33,
+  "pageErrors": []
+ },
+ {
+  "brand": "residency",
+  "path": "/guides/documents/what-you-need-to-apply",
+  "status": 200,
+  "lcp": 48,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 314797,
+  "decodedBytes": 1247978,
+  "requests": 42,
+  "renderBlocking": [
+   "http://localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 4,
+  "domContentLoaded": 45,
+  "pageErrors": []
+ },
+ {
+  "brand": "residency",
+  "path": "/guides/living-in-paraguay/cost-of-living-in-asuncion",
+  "status": 200,
+  "lcp": 72,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 315533,
+  "decodedBytes": 1247084,
+  "requests": 42,
+  "renderBlocking": [
+   "http://localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 4,
+  "domContentLoaded": 18,
+  "pageErrors": []
+ },
+ {
+  "brand": "residency",
+  "path": "/guides/living-in-paraguay",
+  "status": 200,
+  "lcp": 68,
+  "lcpEl": "DIV.mt-[var(--space-3)].text-[var(--fg-muted)]",
+  "cls": 0,
+  "transferBytes": 302645,
+  "decodedBytes": 1203067,
+  "requests": 42,
+  "renderBlocking": [
+   "http://localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 4,
+  "domContentLoaded": 16,
+  "pageErrors": []
+ },
+ {
+  "brand": "residency",
+  "path": "/guides/living-in-paraguay/opening-a-bank-account",
+  "status": 200,
+  "lcp": 48,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 304642,
+  "decodedBytes": 1200743,
+  "requests": 40,
+  "renderBlocking": [
+   "http://localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 4,
+  "domContentLoaded": 44,
+  "pageErrors": []
+ },
+ {
+  "brand": "residency",
+  "path": "/guides",
+  "status": 200,
+  "lcp": 44,
+  "lcpEl": "P.mt-[var(--space-2)].max-w-[var(--measure)]",
+  "cls": 0,
+  "transferBytes": 300372,
+  "decodedBytes": 1208809,
+  "requests": 44,
+  "renderBlocking": [
+   "http://localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 6,
+  "domContentLoaded": 38,
+  "pageErrors": []
+ },
+ {
+  "brand": "residency",
+  "path": "/guides/taxes",
+  "status": 200,
+  "lcp": 68,
+  "lcpEl": "DIV.mt-[var(--space-3)].text-[var(--fg-muted)]",
+  "cls": 0,
+  "transferBytes": 243147,
+  "decodedBytes": 931391,
+  "requests": 36,
+  "renderBlocking": [
+   "http://localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 4,
+  "domContentLoaded": 18,
+  "pageErrors": []
+ },
+ {
+  "brand": "residency",
+  "path": "/guides/taxes/ruc-and-tax-residency",
+  "status": 200,
+  "lcp": 132,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 304240,
+  "decodedBytes": 1202662,
+  "requests": 40,
+  "renderBlocking": [
+   "http://localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 12,
+  "domContentLoaded": 47,
+  "pageErrors": []
+ },
+ {
+  "brand": "residency",
+  "path": "/guides/taxes/territorial-tax-explained",
+  "status": 200,
+  "lcp": 156,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 304607,
+  "decodedBytes": 1203483,
+  "requests": 40,
+  "renderBlocking": [
+   "http://localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 44,
+  "domContentLoaded": 88,
+  "pageErrors": []
+ },
+ {
+  "brand": "residency",
+  "path": "/guide",
+  "status": 200,
+  "lcp": 40,
+  "lcpEl": "P.mt-[var(--space-4)].text-[var(--text-lg)]",
+  "cls": 0,
+  "transferBytes": 290630,
+  "decodedBytes": 1145714,
+  "requests": 38,
+  "renderBlocking": [
+   "http://localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 6,
+  "domContentLoaded": 37,
+  "pageErrors": []
+ },
+ {
+  "brand": "residency",
+  "path": "/",
+  "status": 200,
+  "lcp": 72,
+  "lcpEl": "P.mt-[var(--space-6)].max-w-[52ch]",
+  "cls": 0,
+  "transferBytes": 290036,
+  "decodedBytes": 1148956,
+  "requests": 38,
+  "renderBlocking": [
+   "http://localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 9,
+  "domContentLoaded": 32,
+  "pageErrors": []
+ },
+ {
+  "brand": "residency",
+  "path": "/investor-pass",
+  "status": 200,
+  "lcp": 124,
+  "lcpEl": "P.mt-[var(--space-4)].text-[var(--text-lg)]",
+  "cls": 0,
+  "transferBytes": 281460,
+  "decodedBytes": 1108201,
+  "requests": 36,
+  "renderBlocking": [
+   "http://localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 7,
+  "domContentLoaded": 38,
+  "pageErrors": []
+ },
+ {
+  "brand": "residency",
+  "path": "/pricing",
+  "status": 200,
+  "lcp": 188,
+  "lcpEl": "P.mt-[var(--space-4)].text-[var(--text-lg)]",
+  "cls": 0,
+  "transferBytes": 438550,
+  "decodedBytes": 1668369,
+  "requests": 40,
+  "renderBlocking": [
+   "http://localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 15,
+  "domContentLoaded": 64,
+  "pageErrors": []
+ },
+ {
+  "brand": "residency",
+  "path": "/privacy",
+  "status": 200,
+  "lcp": 124,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 280656,
+  "decodedBytes": 1099949,
+  "requests": 36,
+  "renderBlocking": [
+   "http://localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 12,
+  "domContentLoaded": 56,
+  "pageErrors": []
+ },
+ {
+  "brand": "residency",
+  "path": "/process",
+  "status": 200,
+  "lcp": 164,
+  "lcpEl": "P.mt-[var(--space-2)].text-[var(--fg-muted)]",
+  "cls": 0,
+  "transferBytes": 283434,
+  "decodedBytes": 1117266,
+  "requests": 36,
+  "renderBlocking": [
+   "http://localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 30,
+  "domContentLoaded": 71,
+  "pageErrors": []
+ },
+ {
+  "brand": "residency",
+  "path": "/residency/cedula",
+  "status": 200,
+  "lcp": 84,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 428606,
+  "decodedBytes": 1617518,
+  "requests": 38,
+  "renderBlocking": [
+   "http://localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 8,
+  "domContentLoaded": 80,
+  "pageErrors": []
+ },
+ {
+  "brand": "residency",
+  "path": "/residency/family",
+  "status": 200,
+  "lcp": 104,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 428829,
+  "decodedBytes": 1618758,
+  "requests": 38,
+  "renderBlocking": [
+   "http://localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 10,
+  "domContentLoaded": 36,
+  "pageErrors": []
+ },
+ {
+  "brand": "residency",
+  "path": "/residency/permanent-residency",
+  "status": 200,
+  "lcp": 92,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 429299,
+  "decodedBytes": 1621443,
+  "requests": 38,
+  "renderBlocking": [
+   "http://localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 7,
+  "domContentLoaded": 30,
+  "pageErrors": []
+ },
+ {
+  "brand": "residency",
+  "path": "/residency/tax-residency",
+  "status": 200,
+  "lcp": 128,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 429254,
+  "decodedBytes": 1619335,
+  "requests": 38,
+  "renderBlocking": [
+   "http://localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 9,
+  "domContentLoaded": 122,
+  "pageErrors": []
+ },
+ {
+  "brand": "residency",
+  "path": "/residency/temporary-residency",
+  "status": 200,
+  "lcp": 144,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 429628,
+  "decodedBytes": 1622384,
+  "requests": 38,
+  "renderBlocking": [
+   "http://localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 11,
+  "domContentLoaded": 50,
+  "pageErrors": []
+ },
+ {
+  "brand": "residency",
+  "path": "/route-finder",
+  "status": 200,
+  "lcp": 56,
+  "lcpEl": "P.mt-[var(--space-4)].max-w-[var(--measure)]",
+  "cls": 0,
+  "transferBytes": 280944,
+  "decodedBytes": 1100833,
+  "requests": 36,
+  "renderBlocking": [
+   "http://localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 5,
+  "domContentLoaded": 54,
+  "pageErrors": []
+ },
+ {
+  "brand": "residency",
+  "path": "/route-finder/result",
+  "status": 200,
+  "lcp": 64,
+  "lcpEl": "P.mt-[var(--space-4)].max-w-[var(--measure)]",
+  "cls": 0,
+  "transferBytes": 426643,
+  "decodedBytes": 1603229,
+  "requests": 39,
+  "renderBlocking": [
+   "http://localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 15,
+  "domContentLoaded": 63,
+  "pageErrors": []
+ },
+ {
+  "brand": "residency",
+  "path": "/terms",
+  "status": 200,
+  "lcp": 52,
+  "lcpEl": "P",
+  "cls": 0,
+  "transferBytes": 280406,
+  "decodedBytes": 1099207,
+  "requests": 36,
+  "renderBlocking": [
+   "http://localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 5,
+  "domContentLoaded": 24,
+  "pageErrors": []
+ },
+ {
+  "brand": "residency",
+  "path": "/unsubscribe",
+  "status": 200,
+  "lcp": 64,
+  "lcpEl": "P.mt-[var(--space-4)].text-[var(--fg-muted)]",
+  "cls": 0,
+  "transferBytes": 280453,
+  "decodedBytes": 1095121,
+  "requests": 36,
+  "renderBlocking": [
+   "http://localhost:3001/_next/static/chunks/1yq25cpns9ud0.css"
+  ],
+  "ttfb": 17,
+  "domContentLoaded": 59,
+  "pageErrors": []
+ }
+]

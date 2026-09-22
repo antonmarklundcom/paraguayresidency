@@ -148,3 +148,6 @@ private/*
 !private/guide-placeholder.pdf
 !private/document-checklist-placeholder.pdf
 !private/insider-case-studies-placeholder.pdf
+
+# Audit screenshots stay local (181 MB per run); report.md references them by path.
+docs/audit/*/shots/

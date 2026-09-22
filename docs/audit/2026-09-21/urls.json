@@ -1,0 +1,2455 @@
+[
+  {
+    "brand": "flytta",
+    "path": "/",
+    "url": "http://flytta.localhost:3000/",
+    "canonicalUrl": "https://flyttatillparaguay.se",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "flytta",
+    "path": "/confirm",
+    "url": "http://flytta.localhost:3000/confirm",
+    "canonicalUrl": "https://flyttatillparaguay.se/confirm",
+    "sources": [
+      "filesystem-only"
+    ]
+  },
+  {
+    "brand": "flytta",
+    "path": "/contact",
+    "url": "http://flytta.localhost:3000/contact",
+    "canonicalUrl": "https://flyttatillparaguay.se/contact",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "flytta",
+    "path": "/familj",
+    "url": "http://flytta.localhost:3000/familj",
+    "canonicalUrl": "https://flyttatillparaguay.se/familj",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "flytta",
+    "path": "/guide",
+    "url": "http://flytta.localhost:3000/guide",
+    "canonicalUrl": "https://flyttatillparaguay.se/guide",
+    "sources": [
+      "sitemap"
+    ]
+  },
+  {
+    "brand": "flytta",
+    "path": "/guider",
+    "url": "http://flytta.localhost:3000/guider",
+    "canonicalUrl": "https://flyttatillparaguay.se/guider",
+    "sources": [
+      "sitemap"
+    ]
+  },
+  {
+    "brand": "flytta",
+    "path": "/guider/apostille-och-dokument-fran-sverige",
+    "url": "http://flytta.localhost:3000/guider/apostille-och-dokument-fran-sverige",
+    "canonicalUrl": "https://flyttatillparaguay.se/guider/apostille-och-dokument-fran-sverige",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "flytta",
+    "path": "/guider/arrende-och-avkastning",
+    "url": "http://flytta.localhost:3000/guider/arrende-och-avkastning",
+    "canonicalUrl": "https://flyttatillparaguay.se/guider/arrende-och-avkastning",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "flytta",
+    "path": "/guider/bygga-hus-kostnad-och-process",
+    "url": "http://flytta.localhost:3000/guider/bygga-hus-kostnad-och-process",
+    "canonicalUrl": "https://flyttatillparaguay.se/guider/bygga-hus-kostnad-och-process",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "flytta",
+    "path": "/guider/cedula-processen",
+    "url": "http://flytta.localhost:3000/guider/cedula-processen",
+    "canonicalUrl": "https://flyttatillparaguay.se/guider/cedula-processen",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "flytta",
+    "path": "/guider/darfor-behover-du-en-plan-b",
+    "url": "http://flytta.localhost:3000/guider/darfor-behover-du-en-plan-b",
+    "canonicalUrl": "https://flyttatillparaguay.se/guider/darfor-behover-du-en-plan-b",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "flytta",
+    "path": "/guider/dejting-och-relationer-som-svensk",
+    "url": "http://flytta.localhost:3000/guider/dejting-och-relationer-som-svensk",
+    "canonicalUrl": "https://flyttatillparaguay.se/guider/dejting-och-relationer-som-svensk",
+    "sources": [
+      "sitemap"
+    ]
+  },
+  {
+    "brand": "flytta",
+    "path": "/guider/driva-bolag-fran-paraguay",
+    "url": "http://flytta.localhost:3000/guider/driva-bolag-fran-paraguay",
+    "canonicalUrl": "https://flyttatillparaguay.se/guider/driva-bolag-fran-paraguay",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "flytta",
+    "path": "/guider/dubbelt-boende-sverige-paraguay",
+    "url": "http://flytta.localhost:3000/guider/dubbelt-boende-sverige-paraguay",
+    "canonicalUrl": "https://flyttatillparaguay.se/guider/dubbelt-boende-sverige-paraguay",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "flytta",
+    "path": "/guider/efter-beviljad-residency-nasta-steg",
+    "url": "http://flytta.localhost:3000/guider/efter-beviljad-residency-nasta-steg",
+    "canonicalUrl": "https://flyttatillparaguay.se/guider/efter-beviljad-residency-nasta-steg",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "flytta",
+    "path": "/guider/en-vanlig-dag-i-paraguay",
+    "url": "http://flytta.localhost:3000/guider/en-vanlig-dag-i-paraguay",
+    "canonicalUrl": "https://flyttatillparaguay.se/guider/en-vanlig-dag-i-paraguay",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "flytta",
+    "path": "/guider/fallgropar-vid-markkop",
+    "url": "http://flytta.localhost:3000/guider/fallgropar-vid-markkop",
+    "canonicalUrl": "https://flyttatillparaguay.se/guider/fallgropar-vid-markkop",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "flytta",
+    "path": "/guider/flytta-till-paraguay-med-familj",
+    "url": "http://flytta.localhost:3000/guider/flytta-till-paraguay-med-familj",
+    "canonicalUrl": "https://flyttatillparaguay.se/guider/flytta-till-paraguay-med-familj",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "flytta",
+    "path": "/guider/klimat-och-arstider",
+    "url": "http://flytta.localhost:3000/guider/klimat-och-arstider",
+    "canonicalUrl": "https://flyttatillparaguay.se/guider/klimat-och-arstider",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "flytta",
+    "path": "/guider/kopa-tomt-som-utlanning",
+    "url": "http://flytta.localhost:3000/guider/kopa-tomt-som-utlanning",
+    "canonicalUrl": "https://flyttatillparaguay.se/guider/kopa-tomt-som-utlanning",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "flytta",
+    "path": "/guider/kottkultur-och-asado",
+    "url": "http://flytta.localhost:3000/guider/kottkultur-och-asado",
+    "canonicalUrl": "https://flyttatillparaguay.se/guider/kottkultur-och-asado",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "flytta",
+    "path": "/guider/lara-sig-spanska-och-guarani",
+    "url": "http://flytta.localhost:3000/guider/lara-sig-spanska-och-guarani",
+    "canonicalUrl": "https://flyttatillparaguay.se/guider/lara-sig-spanska-och-guarani",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "flytta",
+    "path": "/guider/levnadskostnader-paraguay",
+    "url": "http://flytta.localhost:3000/guider/levnadskostnader-paraguay",
+    "canonicalUrl": "https://flyttatillparaguay.se/guider/levnadskostnader-paraguay",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "flytta",
+    "path": "/guider/markpriser-per-region",
+    "url": "http://flytta.localhost:3000/guider/markpriser-per-region",
+    "canonicalUrl": "https://flyttatillparaguay.se/guider/markpriser-per-region",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "flytta",
+    "path": "/guider/narproducerat-och-matkvalitet",
+    "url": "http://flytta.localhost:3000/guider/narproducerat-och-matkvalitet",
+    "canonicalUrl": "https://flyttatillparaguay.se/guider/narproducerat-och-matkvalitet",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "flytta",
+    "path": "/guider/oppna-bankkonto-i-paraguay",
+    "url": "http://flytta.localhost:3000/guider/oppna-bankkonto-i-paraguay",
+    "canonicalUrl": "https://flyttatillparaguay.se/guider/oppna-bankkonto-i-paraguay",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "flytta",
+    "path": "/guider/paraguay-vs-alternativen",
+    "url": "http://flytta.localhost:3000/guider/paraguay-vs-alternativen",
+    "canonicalUrl": "https://flyttatillparaguay.se/guider/paraguay-vs-alternativen",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "flytta",
+    "path": "/guider/permanent-vs-temporar-residency",
+    "url": "http://flytta.localhost:3000/guider/permanent-vs-temporar-residency",
+    "canonicalUrl": "https://flyttatillparaguay.se/guider/permanent-vs-temporar-residency",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "flytta",
+    "path": "/guider/residency-i-paraguay-komplett-guide",
+    "url": "http://flytta.localhost:3000/guider/residency-i-paraguay-komplett-guide",
+    "canonicalUrl": "https://flyttatillparaguay.se/guider/residency-i-paraguay-komplett-guide",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "flytta",
+    "path": "/guider/residency-krav-och-dokument",
+    "url": "http://flytta.localhost:3000/guider/residency-krav-och-dokument",
+    "canonicalUrl": "https://flyttatillparaguay.se/guider/residency-krav-och-dokument",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "flytta",
+    "path": "/guider/residency-tidslinje-och-kostnad",
+    "url": "http://flytta.localhost:3000/guider/residency-tidslinje-och-kostnad",
+    "canonicalUrl": "https://flyttatillparaguay.se/guider/residency-tidslinje-och-kostnad",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "flytta",
+    "path": "/guider/sa-gar-flytten-till",
+    "url": "http://flytta.localhost:3000/guider/sa-gar-flytten-till",
+    "canonicalUrl": "https://flyttatillparaguay.se/guider/sa-gar-flytten-till",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "flytta",
+    "path": "/guider/sakerhet-i-paraguay-arligt",
+    "url": "http://flytta.localhost:3000/guider/sakerhet-i-paraguay-arligt",
+    "canonicalUrl": "https://flyttatillparaguay.se/guider/sakerhet-i-paraguay-arligt",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "flytta",
+    "path": "/guider/sjukvard-och-forsakring",
+    "url": "http://flytta.localhost:3000/guider/sjukvard-och-forsakring",
+    "canonicalUrl": "https://flyttatillparaguay.se/guider/sjukvard-och-forsakring",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "flytta",
+    "path": "/guider/skattehemvist-och-183-dagarsregeln",
+    "url": "http://flytta.localhost:3000/guider/skattehemvist-och-183-dagarsregeln",
+    "canonicalUrl": "https://flyttatillparaguay.se/guider/skattehemvist-och-183-dagarsregeln",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "flytta",
+    "path": "/guider/skattesystemet-i-paraguay-10-10-10",
+    "url": "http://flytta.localhost:3000/guider/skattesystemet-i-paraguay-10-10-10",
+    "canonicalUrl": "https://flyttatillparaguay.se/guider/skattesystemet-i-paraguay-10-10-10",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "flytta",
+    "path": "/guider/ta-med-pengar-och-vaxla",
+    "url": "http://flytta.localhost:3000/guider/ta-med-pengar-och-vaxla",
+    "canonicalUrl": "https://flyttatillparaguay.se/guider/ta-med-pengar-och-vaxla",
+    "sources": [
+      "sitemap"
+    ]
+  },
+  {
+    "brand": "flytta",
+    "path": "/guider/vad-du-inte-flyr-ifran",
+    "url": "http://flytta.localhost:3000/guider/vad-du-inte-flyr-ifran",
+    "canonicalUrl": "https://flyttatillparaguay.se/guider/vad-du-inte-flyr-ifran",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "flytta",
+    "path": "/guider/vanliga-misstag-residency",
+    "url": "http://flytta.localhost:3000/guider/vanliga-misstag-residency",
+    "canonicalUrl": "https://flyttatillparaguay.se/guider/vanliga-misstag-residency",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "flytta",
+    "path": "/kostnader",
+    "url": "http://flytta.localhost:3000/kostnader",
+    "canonicalUrl": "https://flyttatillparaguay.se/kostnader",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "flytta",
+    "path": "/priser",
+    "url": "http://flytta.localhost:3000/priser",
+    "canonicalUrl": "https://flyttatillparaguay.se/priser",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "flytta",
+    "path": "/privacy",
+    "url": "http://flytta.localhost:3000/privacy",
+    "canonicalUrl": "https://flyttatillparaguay.se/privacy",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "flytta",
+    "path": "/process",
+    "url": "http://flytta.localhost:3000/process",
+    "canonicalUrl": "https://flyttatillparaguay.se/process",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "flytta",
+    "path": "/route-finder",
+    "url": "http://flytta.localhost:3000/route-finder",
+    "canonicalUrl": "https://flyttatillparaguay.se/route-finder",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "flytta",
+    "path": "/route-finder/result",
+    "url": "http://flytta.localhost:3000/route-finder/result",
+    "canonicalUrl": "https://flyttatillparaguay.se/route-finder/result",
+    "sources": [
+      "filesystem-only"
+    ]
+  },
+  {
+    "brand": "flytta",
+    "path": "/skatt",
+    "url": "http://flytta.localhost:3000/skatt",
+    "canonicalUrl": "https://flyttatillparaguay.se/skatt",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "flytta",
+    "path": "/stader",
+    "url": "http://flytta.localhost:3000/stader",
+    "canonicalUrl": "https://flyttatillparaguay.se/stader",
+    "sources": [
+      "sitemap"
+    ]
+  },
+  {
+    "brand": "flytta",
+    "path": "/stader/aregua",
+    "url": "http://flytta.localhost:3000/stader/aregua",
+    "canonicalUrl": "https://flyttatillparaguay.se/stader/aregua",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "flytta",
+    "path": "/stader/asuncion",
+    "url": "http://flytta.localhost:3000/stader/asuncion",
+    "canonicalUrl": "https://flyttatillparaguay.se/stader/asuncion",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "flytta",
+    "path": "/stader/ciudad-del-este",
+    "url": "http://flytta.localhost:3000/stader/ciudad-del-este",
+    "canonicalUrl": "https://flyttatillparaguay.se/stader/ciudad-del-este",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "flytta",
+    "path": "/stader/encarnacion",
+    "url": "http://flytta.localhost:3000/stader/encarnacion",
+    "canonicalUrl": "https://flyttatillparaguay.se/stader/encarnacion",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "flytta",
+    "path": "/stader/luque",
+    "url": "http://flytta.localhost:3000/stader/luque",
+    "canonicalUrl": "https://flyttatillparaguay.se/stader/luque",
+    "sources": [
+      "sitemap"
+    ]
+  },
+  {
+    "brand": "flytta",
+    "path": "/stader/san-bernardino",
+    "url": "http://flytta.localhost:3000/stader/san-bernardino",
+    "canonicalUrl": "https://flyttatillparaguay.se/stader/san-bernardino",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "flytta",
+    "path": "/stader/villarrica",
+    "url": "http://flytta.localhost:3000/stader/villarrica",
+    "canonicalUrl": "https://flyttatillparaguay.se/stader/villarrica",
+    "sources": [
+      "sitemap"
+    ]
+  },
+  {
+    "brand": "flytta",
+    "path": "/terms",
+    "url": "http://flytta.localhost:3000/terms",
+    "canonicalUrl": "https://flyttatillparaguay.se/terms",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "flytta",
+    "path": "/unsubscribe",
+    "url": "http://flytta.localhost:3000/unsubscribe",
+    "canonicalUrl": "https://flyttatillparaguay.se/unsubscribe",
+    "sources": [
+      "filesystem-only"
+    ]
+  },
+  {
+    "brand": "flytta",
+    "path": "/uppehallstillstand",
+    "url": "http://flytta.localhost:3000/uppehallstillstand",
+    "canonicalUrl": "https://flyttatillparaguay.se/uppehallstillstand",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "flytta",
+    "path": "/var-historia",
+    "url": "http://flytta.localhost:3000/var-historia",
+    "canonicalUrl": "https://flyttatillparaguay.se/var-historia",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "frontier",
+    "path": "/",
+    "url": "http://frontier.localhost:3000/",
+    "canonicalUrl": "https://paraguayfrontier.com",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "frontier",
+    "path": "/about",
+    "url": "http://frontier.localhost:3000/about",
+    "canonicalUrl": "https://paraguayfrontier.com/about",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "frontier",
+    "path": "/confirm",
+    "url": "http://frontier.localhost:3000/confirm",
+    "canonicalUrl": "https://paraguayfrontier.com/confirm",
+    "sources": [
+      "filesystem-only"
+    ]
+  },
+  {
+    "brand": "frontier",
+    "path": "/contact",
+    "url": "http://frontier.localhost:3000/contact",
+    "canonicalUrl": "https://paraguayfrontier.com/contact",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "frontier",
+    "path": "/guide",
+    "url": "http://frontier.localhost:3000/guide",
+    "canonicalUrl": "https://paraguayfrontier.com/guide",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "frontier",
+    "path": "/pricing",
+    "url": "http://frontier.localhost:3000/pricing",
+    "canonicalUrl": "https://paraguayfrontier.com/pricing",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "frontier",
+    "path": "/privacy",
+    "url": "http://frontier.localhost:3000/privacy",
+    "canonicalUrl": "https://paraguayfrontier.com/privacy",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "frontier",
+    "path": "/process",
+    "url": "http://frontier.localhost:3000/process",
+    "canonicalUrl": "https://paraguayfrontier.com/process",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "frontier",
+    "path": "/route-finder",
+    "url": "http://frontier.localhost:3000/route-finder",
+    "canonicalUrl": "https://paraguayfrontier.com/route-finder",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "frontier",
+    "path": "/route-finder/result",
+    "url": "http://frontier.localhost:3000/route-finder/result",
+    "canonicalUrl": "https://paraguayfrontier.com/route-finder/result",
+    "sources": [
+      "filesystem-only"
+    ]
+  },
+  {
+    "brand": "frontier",
+    "path": "/routes",
+    "url": "http://frontier.localhost:3000/routes",
+    "canonicalUrl": "https://paraguayfrontier.com/routes",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "frontier",
+    "path": "/stories",
+    "url": "http://frontier.localhost:3000/stories",
+    "canonicalUrl": "https://paraguayfrontier.com/stories",
+    "sources": [
+      "sitemap"
+    ]
+  },
+  {
+    "brand": "frontier",
+    "path": "/stories/american-first-90-days",
+    "url": "http://frontier.localhost:3000/stories/american-first-90-days",
+    "canonicalUrl": "https://paraguayfrontier.com/stories/american-first-90-days",
+    "sources": [
+      "sitemap"
+    ]
+  },
+  {
+    "brand": "frontier",
+    "path": "/stories/banking-as-a-new-resident",
+    "url": "http://frontier.localhost:3000/stories/banking-as-a-new-resident",
+    "canonicalUrl": "https://paraguayfrontier.com/stories/banking-as-a-new-resident",
+    "sources": [
+      "sitemap"
+    ]
+  },
+  {
+    "brand": "frontier",
+    "path": "/stories/canadian-document-chain-for-paraguay",
+    "url": "http://frontier.localhost:3000/stories/canadian-document-chain-for-paraguay",
+    "canonicalUrl": "https://paraguayfrontier.com/stories/canadian-document-chain-for-paraguay",
+    "sources": [
+      "sitemap"
+    ]
+  },
+  {
+    "brand": "frontier",
+    "path": "/stories/cedula-and-ruc-after-approval",
+    "url": "http://frontier.localhost:3000/stories/cedula-and-ruc-after-approval",
+    "canonicalUrl": "https://paraguayfrontier.com/stories/cedula-and-ruc-after-approval",
+    "sources": [
+      "sitemap"
+    ]
+  },
+  {
+    "brand": "frontier",
+    "path": "/stories/cost-of-living-reality-check",
+    "url": "http://frontier.localhost:3000/stories/cost-of-living-reality-check",
+    "canonicalUrl": "https://paraguayfrontier.com/stories/cost-of-living-reality-check",
+    "sources": [
+      "sitemap"
+    ]
+  },
+  {
+    "brand": "frontier",
+    "path": "/stories/healthcare-and-insurance-in-paraguay",
+    "url": "http://frontier.localhost:3000/stories/healthcare-and-insurance-in-paraguay",
+    "canonicalUrl": "https://paraguayfrontier.com/stories/healthcare-and-insurance-in-paraguay",
+    "sources": [
+      "sitemap"
+    ]
+  },
+  {
+    "brand": "frontier",
+    "path": "/stories/land-and-farms-as-a-foreigner",
+    "url": "http://frontier.localhost:3000/stories/land-and-farms-as-a-foreigner",
+    "canonicalUrl": "https://paraguayfrontier.com/stories/land-and-farms-as-a-foreigner",
+    "sources": [
+      "sitemap"
+    ]
+  },
+  {
+    "brand": "frontier",
+    "path": "/stories/paraguay-vs-panama-uruguay-mexico-for-a-plan-b",
+    "url": "http://frontier.localhost:3000/stories/paraguay-vs-panama-uruguay-mexico-for-a-plan-b",
+    "canonicalUrl": "https://paraguayfrontier.com/stories/paraguay-vs-panama-uruguay-mexico-for-a-plan-b",
+    "sources": [
+      "sitemap"
+    ]
+  },
+  {
+    "brand": "frontier",
+    "path": "/stories/the-presence-rules-nobody-explains",
+    "url": "http://frontier.localhost:3000/stories/the-presence-rules-nobody-explains",
+    "canonicalUrl": "https://paraguayfrontier.com/stories/the-presence-rules-nobody-explains",
+    "sources": [
+      "sitemap"
+    ]
+  },
+  {
+    "brand": "frontier",
+    "path": "/stories/us-document-chain-before-paraguay",
+    "url": "http://frontier.localhost:3000/stories/us-document-chain-before-paraguay",
+    "canonicalUrl": "https://paraguayfrontier.com/stories/us-document-chain-before-paraguay",
+    "sources": [
+      "sitemap"
+    ]
+  },
+  {
+    "brand": "frontier",
+    "path": "/tax",
+    "url": "http://frontier.localhost:3000/tax",
+    "canonicalUrl": "https://paraguayfrontier.com/tax",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "frontier",
+    "path": "/terms",
+    "url": "http://frontier.localhost:3000/terms",
+    "canonicalUrl": "https://paraguayfrontier.com/terms",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "frontier",
+    "path": "/unsubscribe",
+    "url": "http://frontier.localhost:3000/unsubscribe",
+    "canonicalUrl": "https://paraguayfrontier.com/unsubscribe",
+    "sources": [
+      "filesystem-only"
+    ]
+  },
+  {
+    "brand": "frontier",
+    "path": "/why-paraguay",
+    "url": "http://frontier.localhost:3000/why-paraguay",
+    "canonicalUrl": "https://paraguayfrontier.com/why-paraguay",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "guide",
+    "path": "/",
+    "url": "http://guide.localhost:3000/",
+    "canonicalUrl": "https://paraguayresidencyguide.com",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "guide",
+    "path": "/about",
+    "url": "http://guide.localhost:3000/about",
+    "canonicalUrl": "https://paraguayresidencyguide.com/about",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "guide",
+    "path": "/account",
+    "url": "http://guide.localhost:3000/account",
+    "canonicalUrl": "https://paraguayresidencyguide.com/account",
+    "sources": [
+      "filesystem-only"
+    ]
+  },
+  {
+    "brand": "guide",
+    "path": "/blog",
+    "url": "http://guide.localhost:3000/blog",
+    "canonicalUrl": "https://paraguayresidencyguide.com/blog",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "guide",
+    "path": "/blog/5000-deposit",
+    "url": "http://guide.localhost:3000/blog/5000-deposit",
+    "canonicalUrl": "https://paraguayresidencyguide.com/blog/5000-deposit",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "guide",
+    "path": "/blog/cedula-power-of-attorney",
+    "url": "http://guide.localhost:3000/blog/cedula-power-of-attorney",
+    "canonicalUrl": "https://paraguayresidencyguide.com/blog/cedula-power-of-attorney",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "guide",
+    "path": "/blog/do-you-need-a-lawyer-for-paraguay-residency",
+    "url": "http://guide.localhost:3000/blog/do-you-need-a-lawyer-for-paraguay-residency",
+    "canonicalUrl": "https://paraguayresidencyguide.com/blog/do-you-need-a-lawyer-for-paraguay-residency",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "guide",
+    "path": "/blog/documents-you-need-for-paraguay-residency",
+    "url": "http://guide.localhost:3000/blog/documents-you-need-for-paraguay-residency",
+    "canonicalUrl": "https://paraguayresidencyguide.com/blog/documents-you-need-for-paraguay-residency",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "guide",
+    "path": "/blog/health-insurance-paraguay",
+    "url": "http://guide.localhost:3000/blog/health-insurance-paraguay",
+    "canonicalUrl": "https://paraguayresidencyguide.com/blog/health-insurance-paraguay",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "guide",
+    "path": "/blog/how-long-paraguay-residency-actually-takes",
+    "url": "http://guide.localhost:3000/blog/how-long-paraguay-residency-actually-takes",
+    "canonicalUrl": "https://paraguayresidencyguide.com/blog/how-long-paraguay-residency-actually-takes",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "guide",
+    "path": "/blog/is-paraguay-residency-worth-it",
+    "url": "http://guide.localhost:3000/blog/is-paraguay-residency-worth-it",
+    "canonicalUrl": "https://paraguayresidencyguide.com/blog/is-paraguay-residency-worth-it",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "guide",
+    "path": "/blog/is-paraguay-safe",
+    "url": "http://guide.localhost:3000/blog/is-paraguay-safe",
+    "canonicalUrl": "https://paraguayresidencyguide.com/blog/is-paraguay-safe",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "guide",
+    "path": "/blog/mistakes-we-see-every-month",
+    "url": "http://guide.localhost:3000/blog/mistakes-we-see-every-month",
+    "canonicalUrl": "https://paraguayresidencyguide.com/blog/mistakes-we-see-every-month",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "guide",
+    "path": "/blog/opening-a-bank-account-in-paraguay",
+    "url": "http://guide.localhost:3000/blog/opening-a-bank-account-in-paraguay",
+    "canonicalUrl": "https://paraguayresidencyguide.com/blog/opening-a-bank-account-in-paraguay",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "guide",
+    "path": "/blog/paraguay-sim-card",
+    "url": "http://guide.localhost:3000/blog/paraguay-sim-card",
+    "canonicalUrl": "https://paraguayresidencyguide.com/blog/paraguay-sim-card",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "guide",
+    "path": "/blog/paraguay-visa-guide",
+    "url": "http://guide.localhost:3000/blog/paraguay-visa-guide",
+    "canonicalUrl": "https://paraguayresidencyguide.com/blog/paraguay-visa-guide",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "guide",
+    "path": "/blog/paraguayan-citizenship",
+    "url": "http://guide.localhost:3000/blog/paraguayan-citizenship",
+    "canonicalUrl": "https://paraguayresidencyguide.com/blog/paraguayan-citizenship",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "guide",
+    "path": "/blog/real-cost-of-living-in-paraguay",
+    "url": "http://guide.localhost:3000/blog/real-cost-of-living-in-paraguay",
+    "canonicalUrl": "https://paraguayresidencyguide.com/blog/real-cost-of-living-in-paraguay",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "guide",
+    "path": "/blog/requirements-residency-paraguay",
+    "url": "http://guide.localhost:3000/blog/requirements-residency-paraguay",
+    "canonicalUrl": "https://paraguayresidencyguide.com/blog/requirements-residency-paraguay",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "guide",
+    "path": "/blog/retire-in-paraguay",
+    "url": "http://guide.localhost:3000/blog/retire-in-paraguay",
+    "canonicalUrl": "https://paraguayresidencyguide.com/blog/retire-in-paraguay",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "guide",
+    "path": "/blog/schools-paraguay",
+    "url": "http://guide.localhost:3000/blog/schools-paraguay",
+    "canonicalUrl": "https://paraguayresidencyguide.com/blog/schools-paraguay",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "guide",
+    "path": "/blog/step-by-step",
+    "url": "http://guide.localhost:3000/blog/step-by-step",
+    "canonicalUrl": "https://paraguayresidencyguide.com/blog/step-by-step",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "guide",
+    "path": "/confirm",
+    "url": "http://guide.localhost:3000/confirm",
+    "canonicalUrl": "https://paraguayresidencyguide.com/confirm",
+    "sources": [
+      "filesystem-only"
+    ]
+  },
+  {
+    "brand": "guide",
+    "path": "/contact",
+    "url": "http://guide.localhost:3000/contact",
+    "canonicalUrl": "https://paraguayresidencyguide.com/contact",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "guide",
+    "path": "/insider",
+    "url": "http://guide.localhost:3000/insider",
+    "canonicalUrl": "https://paraguayresidencyguide.com/insider",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "guide",
+    "path": "/login",
+    "url": "http://guide.localhost:3000/login",
+    "canonicalUrl": "https://paraguayresidencyguide.com/login",
+    "sources": [
+      "filesystem-only"
+    ]
+  },
+  {
+    "brand": "guide",
+    "path": "/members",
+    "url": "http://guide.localhost:3000/members",
+    "canonicalUrl": "https://paraguayresidencyguide.com/members",
+    "sources": [
+      "filesystem-only"
+    ]
+  },
+  {
+    "brand": "guide",
+    "path": "/members/resources",
+    "url": "http://guide.localhost:3000/members/resources",
+    "canonicalUrl": "https://paraguayresidencyguide.com/members/resources",
+    "sources": [
+      "filesystem-only"
+    ]
+  },
+  {
+    "brand": "guide",
+    "path": "/members/updates",
+    "url": "http://guide.localhost:3000/members/updates",
+    "canonicalUrl": "https://paraguayresidencyguide.com/members/updates",
+    "sources": [
+      "filesystem-only"
+    ]
+  },
+  {
+    "brand": "guide",
+    "path": "/privacy",
+    "url": "http://guide.localhost:3000/privacy",
+    "canonicalUrl": "https://paraguayresidencyguide.com/privacy",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "guide",
+    "path": "/refunds",
+    "url": "http://guide.localhost:3000/refunds",
+    "canonicalUrl": "https://paraguayresidencyguide.com/refunds",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "guide",
+    "path": "/route-finder",
+    "url": "http://guide.localhost:3000/route-finder",
+    "canonicalUrl": "https://paraguayresidencyguide.com/route-finder",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "guide",
+    "path": "/route-finder/result",
+    "url": "http://guide.localhost:3000/route-finder/result",
+    "canonicalUrl": "https://paraguayresidencyguide.com/route-finder/result",
+    "sources": [
+      "filesystem-only"
+    ]
+  },
+  {
+    "brand": "guide",
+    "path": "/terms",
+    "url": "http://guide.localhost:3000/terms",
+    "canonicalUrl": "https://paraguayresidencyguide.com/terms",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "guide",
+    "path": "/thank-you",
+    "url": "http://guide.localhost:3000/thank-you",
+    "canonicalUrl": "https://paraguayresidencyguide.com/thank-you",
+    "sources": [
+      "filesystem-only"
+    ]
+  },
+  {
+    "brand": "guide",
+    "path": "/unsubscribe",
+    "url": "http://guide.localhost:3000/unsubscribe",
+    "canonicalUrl": "https://paraguayresidencyguide.com/unsubscribe",
+    "sources": [
+      "filesystem-only"
+    ]
+  },
+  {
+    "brand": "investorpass",
+    "path": "/",
+    "url": "http://investorpass.localhost:3000/",
+    "canonicalUrl": "https://paraguayinvestorpass.com",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "investorpass",
+    "path": "/about",
+    "url": "http://investorpass.localhost:3000/about",
+    "canonicalUrl": "https://paraguayinvestorpass.com/about",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "investorpass",
+    "path": "/confirm",
+    "url": "http://investorpass.localhost:3000/confirm",
+    "canonicalUrl": "https://paraguayinvestorpass.com/confirm",
+    "sources": [
+      "filesystem-only"
+    ]
+  },
+  {
+    "brand": "investorpass",
+    "path": "/contact",
+    "url": "http://investorpass.localhost:3000/contact",
+    "canonicalUrl": "https://paraguayinvestorpass.com/contact",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "investorpass",
+    "path": "/insights",
+    "url": "http://investorpass.localhost:3000/insights",
+    "canonicalUrl": "https://paraguayinvestorpass.com/insights",
+    "sources": [
+      "sitemap"
+    ]
+  },
+  {
+    "brand": "investorpass",
+    "path": "/insights/bringing-your-family",
+    "url": "http://investorpass.localhost:3000/insights/bringing-your-family",
+    "canonicalUrl": "https://paraguayinvestorpass.com/insights/bringing-your-family",
+    "sources": [
+      "sitemap"
+    ]
+  },
+  {
+    "brand": "investorpass",
+    "path": "/insights/common-delays-and-mistakes",
+    "url": "http://investorpass.localhost:3000/insights/common-delays-and-mistakes",
+    "canonicalUrl": "https://paraguayinvestorpass.com/insights/common-delays-and-mistakes",
+    "sources": [
+      "sitemap"
+    ]
+  },
+  {
+    "brand": "investorpass",
+    "path": "/insights/how-long-it-actually-takes",
+    "url": "http://investorpass.localhost:3000/insights/how-long-it-actually-takes",
+    "canonicalUrl": "https://paraguayinvestorpass.com/insights/how-long-it-actually-takes",
+    "sources": [
+      "sitemap"
+    ]
+  },
+  {
+    "brand": "investorpass",
+    "path": "/insights/investor-pass-and-your-taxes",
+    "url": "http://investorpass.localhost:3000/insights/investor-pass-and-your-taxes",
+    "canonicalUrl": "https://paraguayinvestorpass.com/insights/investor-pass-and-your-taxes",
+    "sources": [
+      "sitemap"
+    ]
+  },
+  {
+    "brand": "investorpass",
+    "path": "/insights/investor-pass-vs-uruguay-panama",
+    "url": "http://investorpass.localhost:3000/insights/investor-pass-vs-uruguay-panama",
+    "canonicalUrl": "https://paraguayinvestorpass.com/insights/investor-pass-vs-uruguay-panama",
+    "sources": [
+      "sitemap"
+    ]
+  },
+  {
+    "brand": "investorpass",
+    "path": "/insights/real-estate-route-deep-dive",
+    "url": "http://investorpass.localhost:3000/insights/real-estate-route-deep-dive",
+    "canonicalUrl": "https://paraguayinvestorpass.com/insights/real-estate-route-deep-dive",
+    "sources": [
+      "sitemap"
+    ]
+  },
+  {
+    "brand": "investorpass",
+    "path": "/insights/renewing-and-converting-to-permanent",
+    "url": "http://investorpass.localhost:3000/insights/renewing-and-converting-to-permanent",
+    "canonicalUrl": "https://paraguayinvestorpass.com/insights/renewing-and-converting-to-permanent",
+    "sources": [
+      "sitemap"
+    ]
+  },
+  {
+    "brand": "investorpass",
+    "path": "/insights/what-the-investor-pass-is",
+    "url": "http://investorpass.localhost:3000/insights/what-the-investor-pass-is",
+    "canonicalUrl": "https://paraguayinvestorpass.com/insights/what-the-investor-pass-is",
+    "sources": [
+      "sitemap"
+    ]
+  },
+  {
+    "brand": "investorpass",
+    "path": "/investor-pass/for-agents",
+    "url": "http://investorpass.localhost:3000/investor-pass/for-agents",
+    "canonicalUrl": "https://paraguayinvestorpass.com/investor-pass/for-agents",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "investorpass",
+    "path": "/investor-pass/investment-routes",
+    "url": "http://investorpass.localhost:3000/investor-pass/investment-routes",
+    "canonicalUrl": "https://paraguayinvestorpass.com/investor-pass/investment-routes",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "investorpass",
+    "path": "/investor-pass/process",
+    "url": "http://investorpass.localhost:3000/investor-pass/process",
+    "canonicalUrl": "https://paraguayinvestorpass.com/investor-pass/process",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "investorpass",
+    "path": "/investor-pass/requirements",
+    "url": "http://investorpass.localhost:3000/investor-pass/requirements",
+    "canonicalUrl": "https://paraguayinvestorpass.com/investor-pass/requirements",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "investorpass",
+    "path": "/investor-pass/vs-standard-residency",
+    "url": "http://investorpass.localhost:3000/investor-pass/vs-standard-residency",
+    "canonicalUrl": "https://paraguayinvestorpass.com/investor-pass/vs-standard-residency",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "investorpass",
+    "path": "/privacy",
+    "url": "http://investorpass.localhost:3000/privacy",
+    "canonicalUrl": "https://paraguayinvestorpass.com/privacy",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "investorpass",
+    "path": "/route-finder",
+    "url": "http://investorpass.localhost:3000/route-finder",
+    "canonicalUrl": "https://paraguayinvestorpass.com/route-finder",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "investorpass",
+    "path": "/route-finder/result",
+    "url": "http://investorpass.localhost:3000/route-finder/result",
+    "canonicalUrl": "https://paraguayinvestorpass.com/route-finder/result",
+    "sources": [
+      "filesystem-only"
+    ]
+  },
+  {
+    "brand": "investorpass",
+    "path": "/terms",
+    "url": "http://investorpass.localhost:3000/terms",
+    "canonicalUrl": "https://paraguayinvestorpass.com/terms",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "investorpass",
+    "path": "/unsubscribe",
+    "url": "http://investorpass.localhost:3000/unsubscribe",
+    "canonicalUrl": "https://paraguayinvestorpass.com/unsubscribe",
+    "sources": [
+      "filesystem-only"
+    ]
+  },
+  {
+    "brand": "residenciaes",
+    "path": "/",
+    "url": "http://residenciaes.localhost:3000/",
+    "canonicalUrl": "https://residenciaenparaguay.es",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residenciaes",
+    "path": "/confirm",
+    "url": "http://residenciaes.localhost:3000/confirm",
+    "canonicalUrl": "https://residenciaenparaguay.es/confirm",
+    "sources": [
+      "filesystem-only"
+    ]
+  },
+  {
+    "brand": "residenciaes",
+    "path": "/contact",
+    "url": "http://residenciaes.localhost:3000/contact",
+    "canonicalUrl": "https://residenciaenparaguay.es/contact",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residenciaes",
+    "path": "/familia",
+    "url": "http://residenciaes.localhost:3000/familia",
+    "canonicalUrl": "https://residenciaenparaguay.es/familia",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residenciaes",
+    "path": "/guias",
+    "url": "http://residenciaes.localhost:3000/guias",
+    "canonicalUrl": "https://residenciaenparaguay.es/guias",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residenciaes",
+    "path": "/guias/comparativas",
+    "url": "http://residenciaes.localhost:3000/guias/comparativas",
+    "canonicalUrl": "https://residenciaenparaguay.es/guias/comparativas",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residenciaes",
+    "path": "/guias/comparativas/paraguay-vs-espana",
+    "url": "http://residenciaes.localhost:3000/guias/comparativas/paraguay-vs-espana",
+    "canonicalUrl": "https://residenciaenparaguay.es/guias/comparativas/paraguay-vs-espana",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residenciaes",
+    "path": "/guias/comparativas/paraguay-vs-portugal",
+    "url": "http://residenciaes.localhost:3000/guias/comparativas/paraguay-vs-portugal",
+    "canonicalUrl": "https://residenciaenparaguay.es/guias/comparativas/paraguay-vs-portugal",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residenciaes",
+    "path": "/guias/comparativas/paraguay-vs-uruguay",
+    "url": "http://residenciaes.localhost:3000/guias/comparativas/paraguay-vs-uruguay",
+    "canonicalUrl": "https://residenciaenparaguay.es/guias/comparativas/paraguay-vs-uruguay",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residenciaes",
+    "path": "/guias/documentos",
+    "url": "http://residenciaes.localhost:3000/guias/documentos",
+    "canonicalUrl": "https://residenciaenparaguay.es/guias/documentos",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residenciaes",
+    "path": "/guias/documentos/que-necesitas-para-solicitar",
+    "url": "http://residenciaes.localhost:3000/guias/documentos/que-necesitas-para-solicitar",
+    "canonicalUrl": "https://residenciaenparaguay.es/guias/documentos/que-necesitas-para-solicitar",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residenciaes",
+    "path": "/guias/documentos/rutas-de-residencia",
+    "url": "http://residenciaes.localhost:3000/guias/documentos/rutas-de-residencia",
+    "canonicalUrl": "https://residenciaenparaguay.es/guias/documentos/rutas-de-residencia",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residenciaes",
+    "path": "/guias/impuestos",
+    "url": "http://residenciaes.localhost:3000/guias/impuestos",
+    "canonicalUrl": "https://residenciaenparaguay.es/guias/impuestos",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residenciaes",
+    "path": "/guias/impuestos/ruc-para-extranjeros",
+    "url": "http://residenciaes.localhost:3000/guias/impuestos/ruc-para-extranjeros",
+    "canonicalUrl": "https://residenciaenparaguay.es/guias/impuestos/ruc-para-extranjeros",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residenciaes",
+    "path": "/guias/impuestos/sistema-tributario-territorial",
+    "url": "http://residenciaes.localhost:3000/guias/impuestos/sistema-tributario-territorial",
+    "canonicalUrl": "https://residenciaenparaguay.es/guias/impuestos/sistema-tributario-territorial",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residenciaes",
+    "path": "/guias/vivir-en-paraguay",
+    "url": "http://residenciaes.localhost:3000/guias/vivir-en-paraguay",
+    "canonicalUrl": "https://residenciaenparaguay.es/guias/vivir-en-paraguay",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residenciaes",
+    "path": "/guias/vivir-en-paraguay/abrir-cuenta-bancaria",
+    "url": "http://residenciaes.localhost:3000/guias/vivir-en-paraguay/abrir-cuenta-bancaria",
+    "canonicalUrl": "https://residenciaenparaguay.es/guias/vivir-en-paraguay/abrir-cuenta-bancaria",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residenciaes",
+    "path": "/guias/vivir-en-paraguay/costo-de-vida-en-paraguay",
+    "url": "http://residenciaes.localhost:3000/guias/vivir-en-paraguay/costo-de-vida-en-paraguay",
+    "canonicalUrl": "https://residenciaenparaguay.es/guias/vivir-en-paraguay/costo-de-vida-en-paraguay",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residenciaes",
+    "path": "/guias/vivir-en-paraguay/salud-y-seguro-medico",
+    "url": "http://residenciaes.localhost:3000/guias/vivir-en-paraguay/salud-y-seguro-medico",
+    "canonicalUrl": "https://residenciaenparaguay.es/guias/vivir-en-paraguay/salud-y-seguro-medico",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residenciaes",
+    "path": "/mercosur",
+    "url": "http://residenciaes.localhost:3000/mercosur",
+    "canonicalUrl": "https://residenciaenparaguay.es/mercosur",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residenciaes",
+    "path": "/nosotros",
+    "url": "http://residenciaes.localhost:3000/nosotros",
+    "canonicalUrl": "https://residenciaenparaguay.es/nosotros",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residenciaes",
+    "path": "/pase-inversor",
+    "url": "http://residenciaes.localhost:3000/pase-inversor",
+    "canonicalUrl": "https://residenciaenparaguay.es/pase-inversor",
+    "sources": [
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residenciaes",
+    "path": "/precios",
+    "url": "http://residenciaes.localhost:3000/precios",
+    "canonicalUrl": "https://residenciaenparaguay.es/precios",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residenciaes",
+    "path": "/privacy",
+    "url": "http://residenciaes.localhost:3000/privacy",
+    "canonicalUrl": "https://residenciaenparaguay.es/privacy",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residenciaes",
+    "path": "/proceso",
+    "url": "http://residenciaes.localhost:3000/proceso",
+    "canonicalUrl": "https://residenciaenparaguay.es/proceso",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residenciaes",
+    "path": "/residencia-fiscal",
+    "url": "http://residenciaes.localhost:3000/residencia-fiscal",
+    "canonicalUrl": "https://residenciaenparaguay.es/residencia-fiscal",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residenciaes",
+    "path": "/residencia/cedula",
+    "url": "http://residenciaes.localhost:3000/residencia/cedula",
+    "canonicalUrl": "https://residenciaenparaguay.es/residencia/cedula",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residenciaes",
+    "path": "/residencia/permanente",
+    "url": "http://residenciaes.localhost:3000/residencia/permanente",
+    "canonicalUrl": "https://residenciaenparaguay.es/residencia/permanente",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residenciaes",
+    "path": "/residencia/temporal",
+    "url": "http://residenciaes.localhost:3000/residencia/temporal",
+    "canonicalUrl": "https://residenciaenparaguay.es/residencia/temporal",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residenciaes",
+    "path": "/route-finder",
+    "url": "http://residenciaes.localhost:3000/route-finder",
+    "canonicalUrl": "https://residenciaenparaguay.es/route-finder",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residenciaes",
+    "path": "/route-finder/result",
+    "url": "http://residenciaes.localhost:3000/route-finder/result",
+    "canonicalUrl": "https://residenciaenparaguay.es/route-finder/result",
+    "sources": [
+      "filesystem-only"
+    ]
+  },
+  {
+    "brand": "residenciaes",
+    "path": "/terms",
+    "url": "http://residenciaes.localhost:3000/terms",
+    "canonicalUrl": "https://residenciaenparaguay.es/terms",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residenciaes",
+    "path": "/unsubscribe",
+    "url": "http://residenciaes.localhost:3000/unsubscribe",
+    "canonicalUrl": "https://residenciaenparaguay.es/unsubscribe",
+    "sources": [
+      "filesystem-only"
+    ]
+  },
+  {
+    "brand": "residenciapt",
+    "path": "/",
+    "url": "http://residenciapt.localhost:3000/",
+    "canonicalUrl": "https://vidanoparaguai.com",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residenciapt",
+    "path": "/confirm",
+    "url": "http://residenciapt.localhost:3000/confirm",
+    "canonicalUrl": "https://vidanoparaguai.com/confirm",
+    "sources": [
+      "filesystem-only"
+    ]
+  },
+  {
+    "brand": "residenciapt",
+    "path": "/contact",
+    "url": "http://residenciapt.localhost:3000/contact",
+    "canonicalUrl": "https://vidanoparaguai.com/contact",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residenciapt",
+    "path": "/custo-de-vida",
+    "url": "http://residenciapt.localhost:3000/custo-de-vida",
+    "canonicalUrl": "https://vidanoparaguai.com/custo-de-vida",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residenciapt",
+    "path": "/familia",
+    "url": "http://residenciapt.localhost:3000/familia",
+    "canonicalUrl": "https://vidanoparaguai.com/familia",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residenciapt",
+    "path": "/guias",
+    "url": "http://residenciapt.localhost:3000/guias",
+    "canonicalUrl": "https://vidanoparaguai.com/guias",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residenciapt",
+    "path": "/guias/comparativos",
+    "url": "http://residenciapt.localhost:3000/guias/comparativos",
+    "canonicalUrl": "https://vidanoparaguai.com/guias/comparativos",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residenciapt",
+    "path": "/guias/comparativos/paraguai-vs-portugal-residencia-para-brasileiros",
+    "url": "http://residenciapt.localhost:3000/guias/comparativos/paraguai-vs-portugal-residencia-para-brasileiros",
+    "canonicalUrl": "https://vidanoparaguai.com/guias/comparativos/paraguai-vs-portugal-residencia-para-brasileiros",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residenciapt",
+    "path": "/guias/comparativos/paraguai-vs-uruguai-residencia-para-brasileiros",
+    "url": "http://residenciapt.localhost:3000/guias/comparativos/paraguai-vs-uruguai-residencia-para-brasileiros",
+    "canonicalUrl": "https://vidanoparaguai.com/guias/comparativos/paraguai-vs-uruguai-residencia-para-brasileiros",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residenciapt",
+    "path": "/guias/documentos",
+    "url": "http://residenciapt.localhost:3000/guias/documentos",
+    "canonicalUrl": "https://vidanoparaguai.com/guias/documentos",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residenciapt",
+    "path": "/guias/documentos/apostilamento-e-traducao-de-documentos-brasileiros",
+    "url": "http://residenciapt.localhost:3000/guias/documentos/apostilamento-e-traducao-de-documentos-brasileiros",
+    "canonicalUrl": "https://vidanoparaguai.com/guias/documentos/apostilamento-e-traducao-de-documentos-brasileiros",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residenciapt",
+    "path": "/guias/documentos/rotas-de-residencia-temporaria-permanente-mercosul",
+    "url": "http://residenciapt.localhost:3000/guias/documentos/rotas-de-residencia-temporaria-permanente-mercosul",
+    "canonicalUrl": "https://vidanoparaguai.com/guias/documentos/rotas-de-residencia-temporaria-permanente-mercosul",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residenciapt",
+    "path": "/guias/impostos",
+    "url": "http://residenciapt.localhost:3000/guias/impostos",
+    "canonicalUrl": "https://vidanoparaguai.com/guias/impostos",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residenciapt",
+    "path": "/guias/impostos/impostos-no-paraguai-e-a-sua-declaracao-no-brasil",
+    "url": "http://residenciapt.localhost:3000/guias/impostos/impostos-no-paraguai-e-a-sua-declaracao-no-brasil",
+    "canonicalUrl": "https://vidanoparaguai.com/guias/impostos/impostos-no-paraguai-e-a-sua-declaracao-no-brasil",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residenciapt",
+    "path": "/guias/morar-no-paraguai",
+    "url": "http://residenciapt.localhost:3000/guias/morar-no-paraguai",
+    "canonicalUrl": "https://vidanoparaguai.com/guias/morar-no-paraguai",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residenciapt",
+    "path": "/guias/morar-no-paraguai/custo-de-vida-para-brasileiro-no-paraguai",
+    "url": "http://residenciapt.localhost:3000/guias/morar-no-paraguai/custo-de-vida-para-brasileiro-no-paraguai",
+    "canonicalUrl": "https://vidanoparaguai.com/guias/morar-no-paraguai/custo-de-vida-para-brasileiro-no-paraguai",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residenciapt",
+    "path": "/guias/morar-no-paraguai/fronteira-ciudad-del-este-e-foz-do-iguacu",
+    "url": "http://residenciapt.localhost:3000/guias/morar-no-paraguai/fronteira-ciudad-del-este-e-foz-do-iguacu",
+    "canonicalUrl": "https://vidanoparaguai.com/guias/morar-no-paraguai/fronteira-ciudad-del-este-e-foz-do-iguacu",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residenciapt",
+    "path": "/guias/morar-no-paraguai/saude-e-escola-para-brasileiros-no-paraguai",
+    "url": "http://residenciapt.localhost:3000/guias/morar-no-paraguai/saude-e-escola-para-brasileiros-no-paraguai",
+    "canonicalUrl": "https://vidanoparaguai.com/guias/morar-no-paraguai/saude-e-escola-para-brasileiros-no-paraguai",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residenciapt",
+    "path": "/guias/morar-no-paraguai/seguranca-no-paraguai-para-brasileiros",
+    "url": "http://residenciapt.localhost:3000/guias/morar-no-paraguai/seguranca-no-paraguai-para-brasileiros",
+    "canonicalUrl": "https://vidanoparaguai.com/guias/morar-no-paraguai/seguranca-no-paraguai-para-brasileiros",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residenciapt",
+    "path": "/investor-pass",
+    "url": "http://residenciapt.localhost:3000/investor-pass",
+    "canonicalUrl": "https://vidanoparaguai.com/investor-pass",
+    "sources": [
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residenciapt",
+    "path": "/mercosul",
+    "url": "http://residenciapt.localhost:3000/mercosul",
+    "canonicalUrl": "https://vidanoparaguai.com/mercosul",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residenciapt",
+    "path": "/precos",
+    "url": "http://residenciapt.localhost:3000/precos",
+    "canonicalUrl": "https://vidanoparaguai.com/precos",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residenciapt",
+    "path": "/privacy",
+    "url": "http://residenciapt.localhost:3000/privacy",
+    "canonicalUrl": "https://vidanoparaguai.com/privacy",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residenciapt",
+    "path": "/processo",
+    "url": "http://residenciapt.localhost:3000/processo",
+    "canonicalUrl": "https://vidanoparaguai.com/processo",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residenciapt",
+    "path": "/residencia-fiscal",
+    "url": "http://residenciapt.localhost:3000/residencia-fiscal",
+    "canonicalUrl": "https://vidanoparaguai.com/residencia-fiscal",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residenciapt",
+    "path": "/residencia/cedula",
+    "url": "http://residenciapt.localhost:3000/residencia/cedula",
+    "canonicalUrl": "https://vidanoparaguai.com/residencia/cedula",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residenciapt",
+    "path": "/residencia/permanente",
+    "url": "http://residenciapt.localhost:3000/residencia/permanente",
+    "canonicalUrl": "https://vidanoparaguai.com/residencia/permanente",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residenciapt",
+    "path": "/residencia/temporaria",
+    "url": "http://residenciapt.localhost:3000/residencia/temporaria",
+    "canonicalUrl": "https://vidanoparaguai.com/residencia/temporaria",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residenciapt",
+    "path": "/route-finder",
+    "url": "http://residenciapt.localhost:3000/route-finder",
+    "canonicalUrl": "https://vidanoparaguai.com/route-finder",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residenciapt",
+    "path": "/route-finder/result",
+    "url": "http://residenciapt.localhost:3000/route-finder/result",
+    "canonicalUrl": "https://vidanoparaguai.com/route-finder/result",
+    "sources": [
+      "filesystem-only"
+    ]
+  },
+  {
+    "brand": "residenciapt",
+    "path": "/sobre",
+    "url": "http://residenciapt.localhost:3000/sobre",
+    "canonicalUrl": "https://vidanoparaguai.com/sobre",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residenciapt",
+    "path": "/terms",
+    "url": "http://residenciapt.localhost:3000/terms",
+    "canonicalUrl": "https://vidanoparaguai.com/terms",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residenciapt",
+    "path": "/unsubscribe",
+    "url": "http://residenciapt.localhost:3000/unsubscribe",
+    "canonicalUrl": "https://vidanoparaguai.com/unsubscribe",
+    "sources": [
+      "filesystem-only"
+    ]
+  },
+  {
+    "brand": "residency",
+    "path": "/",
+    "url": "http://localhost:3000/",
+    "canonicalUrl": "https://paraguayresidency.co.uk",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residency",
+    "path": "/about",
+    "url": "http://localhost:3000/about",
+    "canonicalUrl": "https://paraguayresidency.co.uk/about",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residency",
+    "path": "/admin",
+    "url": "http://localhost:3000/admin",
+    "canonicalUrl": "https://paraguayresidency.co.uk/admin",
+    "sources": [
+      "filesystem-only"
+    ]
+  },
+  {
+    "brand": "residency",
+    "path": "/admin/facts",
+    "url": "http://localhost:3000/admin/facts",
+    "canonicalUrl": "https://paraguayresidency.co.uk/admin/facts",
+    "sources": [
+      "filesystem-only"
+    ]
+  },
+  {
+    "brand": "residency",
+    "path": "/admin/leads",
+    "url": "http://localhost:3000/admin/leads",
+    "canonicalUrl": "https://paraguayresidency.co.uk/admin/leads",
+    "sources": [
+      "filesystem-only"
+    ]
+  },
+  {
+    "brand": "residency",
+    "path": "/admin/login",
+    "url": "http://localhost:3000/admin/login",
+    "canonicalUrl": "https://paraguayresidency.co.uk/admin/login",
+    "sources": [
+      "filesystem-only"
+    ]
+  },
+  {
+    "brand": "residency",
+    "path": "/admin/members",
+    "url": "http://localhost:3000/admin/members",
+    "canonicalUrl": "https://paraguayresidency.co.uk/admin/members",
+    "sources": [
+      "filesystem-only"
+    ]
+  },
+  {
+    "brand": "residency",
+    "path": "/admin/purchases",
+    "url": "http://localhost:3000/admin/purchases",
+    "canonicalUrl": "https://paraguayresidency.co.uk/admin/purchases",
+    "sources": [
+      "filesystem-only"
+    ]
+  },
+  {
+    "brand": "residency",
+    "path": "/blocked",
+    "url": "http://localhost:3000/blocked",
+    "canonicalUrl": "https://paraguayresidency.co.uk/blocked",
+    "sources": [
+      "filesystem-only"
+    ]
+  },
+  {
+    "brand": "residency",
+    "path": "/book",
+    "url": "http://localhost:3000/book",
+    "canonicalUrl": "https://paraguayresidency.co.uk/book",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residency",
+    "path": "/confirm",
+    "url": "http://localhost:3000/confirm",
+    "canonicalUrl": "https://paraguayresidency.co.uk/confirm",
+    "sources": [
+      "filesystem-only"
+    ]
+  },
+  {
+    "brand": "residency",
+    "path": "/contact",
+    "url": "http://localhost:3000/contact",
+    "canonicalUrl": "https://paraguayresidency.co.uk/contact",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residency",
+    "path": "/dev/kitchen-sink",
+    "url": "http://localhost:3000/dev/kitchen-sink",
+    "canonicalUrl": "https://paraguayresidency.co.uk/dev/kitchen-sink",
+    "sources": [
+      "filesystem-only"
+    ]
+  },
+  {
+    "brand": "residency",
+    "path": "/guide",
+    "url": "http://localhost:3000/guide",
+    "canonicalUrl": "https://paraguayresidency.co.uk/guide",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residency",
+    "path": "/guides",
+    "url": "http://localhost:3000/guides",
+    "canonicalUrl": "https://paraguayresidency.co.uk/guides",
+    "sources": [
+      "sitemap"
+    ]
+  },
+  {
+    "brand": "residency",
+    "path": "/guides/comparisons",
+    "url": "http://localhost:3000/guides/comparisons",
+    "canonicalUrl": "https://paraguayresidency.co.uk/guides/comparisons",
+    "sources": [
+      "sitemap"
+    ]
+  },
+  {
+    "brand": "residency",
+    "path": "/guides/comparisons/paraguay-vs-panama-residency",
+    "url": "http://localhost:3000/guides/comparisons/paraguay-vs-panama-residency",
+    "canonicalUrl": "https://paraguayresidency.co.uk/guides/comparisons/paraguay-vs-panama-residency",
+    "sources": [
+      "sitemap"
+    ]
+  },
+  {
+    "brand": "residency",
+    "path": "/guides/comparisons/paraguay-vs-uruguay-residency",
+    "url": "http://localhost:3000/guides/comparisons/paraguay-vs-uruguay-residency",
+    "canonicalUrl": "https://paraguayresidency.co.uk/guides/comparisons/paraguay-vs-uruguay-residency",
+    "sources": [
+      "sitemap"
+    ]
+  },
+  {
+    "brand": "residency",
+    "path": "/guides/documents",
+    "url": "http://localhost:3000/guides/documents",
+    "canonicalUrl": "https://paraguayresidency.co.uk/guides/documents",
+    "sources": [
+      "sitemap"
+    ]
+  },
+  {
+    "brand": "residency",
+    "path": "/guides/documents/apostille-and-documents-for-american-applicants",
+    "url": "http://localhost:3000/guides/documents/apostille-and-documents-for-american-applicants",
+    "canonicalUrl": "https://paraguayresidency.co.uk/guides/documents/apostille-and-documents-for-american-applicants",
+    "sources": [
+      "sitemap"
+    ]
+  },
+  {
+    "brand": "residency",
+    "path": "/guides/documents/apostille-and-documents-for-british-applicants",
+    "url": "http://localhost:3000/guides/documents/apostille-and-documents-for-british-applicants",
+    "canonicalUrl": "https://paraguayresidency.co.uk/guides/documents/apostille-and-documents-for-british-applicants",
+    "sources": [
+      "sitemap"
+    ]
+  },
+  {
+    "brand": "residency",
+    "path": "/guides/documents/apostille-and-documents-for-german-applicants",
+    "url": "http://localhost:3000/guides/documents/apostille-and-documents-for-german-applicants",
+    "canonicalUrl": "https://paraguayresidency.co.uk/guides/documents/apostille-and-documents-for-german-applicants",
+    "sources": [
+      "sitemap"
+    ]
+  },
+  {
+    "brand": "residency",
+    "path": "/guides/documents/apostille-and-documents-for-south-african-applicants",
+    "url": "http://localhost:3000/guides/documents/apostille-and-documents-for-south-african-applicants",
+    "canonicalUrl": "https://paraguayresidency.co.uk/guides/documents/apostille-and-documents-for-south-african-applicants",
+    "sources": [
+      "sitemap"
+    ]
+  },
+  {
+    "brand": "residency",
+    "path": "/guides/documents/apostilles-and-translations",
+    "url": "http://localhost:3000/guides/documents/apostilles-and-translations",
+    "canonicalUrl": "https://paraguayresidency.co.uk/guides/documents/apostilles-and-translations",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residency",
+    "path": "/guides/documents/what-you-need-to-apply",
+    "url": "http://localhost:3000/guides/documents/what-you-need-to-apply",
+    "canonicalUrl": "https://paraguayresidency.co.uk/guides/documents/what-you-need-to-apply",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residency",
+    "path": "/guides/living-in-paraguay",
+    "url": "http://localhost:3000/guides/living-in-paraguay",
+    "canonicalUrl": "https://paraguayresidency.co.uk/guides/living-in-paraguay",
+    "sources": [
+      "sitemap"
+    ]
+  },
+  {
+    "brand": "residency",
+    "path": "/guides/living-in-paraguay/cost-of-living-in-asuncion",
+    "url": "http://localhost:3000/guides/living-in-paraguay/cost-of-living-in-asuncion",
+    "canonicalUrl": "https://paraguayresidency.co.uk/guides/living-in-paraguay/cost-of-living-in-asuncion",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residency",
+    "path": "/guides/living-in-paraguay/opening-a-bank-account",
+    "url": "http://localhost:3000/guides/living-in-paraguay/opening-a-bank-account",
+    "canonicalUrl": "https://paraguayresidency.co.uk/guides/living-in-paraguay/opening-a-bank-account",
+    "sources": [
+      "sitemap"
+    ]
+  },
+  {
+    "brand": "residency",
+    "path": "/guides/taxes",
+    "url": "http://localhost:3000/guides/taxes",
+    "canonicalUrl": "https://paraguayresidency.co.uk/guides/taxes",
+    "sources": [
+      "sitemap"
+    ]
+  },
+  {
+    "brand": "residency",
+    "path": "/guides/taxes/ruc-and-tax-residency",
+    "url": "http://localhost:3000/guides/taxes/ruc-and-tax-residency",
+    "canonicalUrl": "https://paraguayresidency.co.uk/guides/taxes/ruc-and-tax-residency",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residency",
+    "path": "/guides/taxes/territorial-tax-explained",
+    "url": "http://localhost:3000/guides/taxes/territorial-tax-explained",
+    "canonicalUrl": "https://paraguayresidency.co.uk/guides/taxes/territorial-tax-explained",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residency",
+    "path": "/investor-pass",
+    "url": "http://localhost:3000/investor-pass",
+    "canonicalUrl": "https://paraguayresidency.co.uk/investor-pass",
+    "sources": [
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residency",
+    "path": "/pricing",
+    "url": "http://localhost:3000/pricing",
+    "canonicalUrl": "https://paraguayresidency.co.uk/pricing",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residency",
+    "path": "/privacy",
+    "url": "http://localhost:3000/privacy",
+    "canonicalUrl": "https://paraguayresidency.co.uk/privacy",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residency",
+    "path": "/process",
+    "url": "http://localhost:3000/process",
+    "canonicalUrl": "https://paraguayresidency.co.uk/process",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residency",
+    "path": "/residency/cedula",
+    "url": "http://localhost:3000/residency/cedula",
+    "canonicalUrl": "https://paraguayresidency.co.uk/residency/cedula",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residency",
+    "path": "/residency/family",
+    "url": "http://localhost:3000/residency/family",
+    "canonicalUrl": "https://paraguayresidency.co.uk/residency/family",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residency",
+    "path": "/residency/permanent-residency",
+    "url": "http://localhost:3000/residency/permanent-residency",
+    "canonicalUrl": "https://paraguayresidency.co.uk/residency/permanent-residency",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residency",
+    "path": "/residency/tax-residency",
+    "url": "http://localhost:3000/residency/tax-residency",
+    "canonicalUrl": "https://paraguayresidency.co.uk/residency/tax-residency",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residency",
+    "path": "/residency/temporary-residency",
+    "url": "http://localhost:3000/residency/temporary-residency",
+    "canonicalUrl": "https://paraguayresidency.co.uk/residency/temporary-residency",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residency",
+    "path": "/route-finder",
+    "url": "http://localhost:3000/route-finder",
+    "canonicalUrl": "https://paraguayresidency.co.uk/route-finder",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residency",
+    "path": "/route-finder/result",
+    "url": "http://localhost:3000/route-finder/result",
+    "canonicalUrl": "https://paraguayresidency.co.uk/route-finder/result",
+    "sources": [
+      "filesystem-only"
+    ]
+  },
+  {
+    "brand": "residency",
+    "path": "/terms",
+    "url": "http://localhost:3000/terms",
+    "canonicalUrl": "https://paraguayresidency.co.uk/terms",
+    "sources": [
+      "sitemap",
+      "crawl"
+    ]
+  },
+  {
+    "brand": "residency",
+    "path": "/unsubscribe",
+    "url": "http://localhost:3000/unsubscribe",
+    "canonicalUrl": "https://paraguayresidency.co.uk/unsubscribe",
+    "sources": [
+      "filesystem-only"
+    ]
+  }
+]
