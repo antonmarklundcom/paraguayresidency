@@ -1,0 +1,208 @@
+{
+  "_notes": {
+    "generated": "2026-09-22",
+    "purpose": "Direction 1 Arrival homepage comparison for guide, investorpass, frontier",
+    "resolution_rule": "2k for full-bleed heroes, 1k for tiles",
+    "cost_preflight": "1.5 per 2k, 1 per 1k",
+    "actual_spend_credits": 18.5,
+    "ledger_checked": "16 lines GPT Image 2.5 Sunburst, 2026-09-22; +2 lines 0.5 each for the regenerated tiles, 2026-09-22",
+    "download_status": "localized",
+    "review": "hammock and home-office tiles regenerated 2026-09-22 (the first versions showed sea and hills; Paraguay is landlocked and flat): Asunción veranda and street, lapacho, terracotta roofs"
+  },
+  "images": [
+    {
+      "id": "guide-hero-reading-terrace-asuncion",
+      "files": [
+        "public/images/arrival/guide-hero-reading-terrace-asuncion-2400.webp",
+        "public/images/arrival/guide-hero-reading-terrace-asuncion-1200.webp"
+      ],
+      "alt_en": "Woman reading a printed guide on a terrace under jacaranda trees in Asunción",
+      "ratio": "16:9",
+      "px": "2688x1520",
+      "model": "gpt_image_2_5 sunburst medium 2k",
+      "job_id": "1c9496e4-4020-4c46-aae6-7e0966858271"
+    },
+    {
+      "id": "investorpass-hero-asuncion-river-dusk",
+      "files": [
+        "public/images/arrival/investorpass-hero-asuncion-river-dusk-2400.webp",
+        "public/images/arrival/investorpass-hero-asuncion-river-dusk-1200.webp"
+      ],
+      "alt_en": "Terrace overlooking Asunción and the Paraguay River at dusk",
+      "ratio": "16:9",
+      "px": "2688x1520",
+      "model": "gpt_image_2_5 sunburst medium 2k",
+      "job_id": "e392641c-6db2-494b-9bac-3436559d9fe4"
+    },
+    {
+      "id": "frontier-hero-red-earth-road",
+      "files": [
+        "public/images/arrival/frontier-hero-red-earth-road-2400.webp",
+        "public/images/arrival/frontier-hero-red-earth-road-1200.webp"
+      ],
+      "alt_en": "Red-earth road through green countryside in rural Paraguay at golden hour",
+      "ratio": "16:9",
+      "px": "2688x1520",
+      "model": "gpt_image_2_5 sunburst medium 2k",
+      "job_id": "23da13f8-89b5-41ad-9514-a5b772ab55f5"
+    },
+    {
+      "id": "guide-tile-route-fork",
+      "files": [
+        "public/images/arrival/guide-tile-route-fork-800.webp",
+        "public/images/arrival/guide-tile-route-fork-480.webp"
+      ],
+      "alt_en": "Footpath splitting in two through green fields",
+      "ratio": "4:5",
+      "px": "896x1120",
+      "model": "gpt_image_2_5 sunburst medium 1k",
+      "job_id": "19c3c8d1-af7b-4e8f-9086-f9844da8dd72"
+    },
+    {
+      "id": "guide-tile-documents-desk",
+      "files": [
+        "public/images/arrival/guide-tile-documents-desk-800.webp",
+        "public/images/arrival/guide-tile-documents-desk-480.webp"
+      ],
+      "alt_en": "Passport and a folder of documents on a wooden desk",
+      "ratio": "4:5",
+      "px": "896x1120",
+      "model": "gpt_image_2_5 sunburst medium 1k",
+      "job_id": "af9531e4-4f90-46a7-9fa2-a8cf1b621a3c"
+    },
+    {
+      "id": "guide-tile-market-asuncion",
+      "files": [
+        "public/images/arrival/guide-tile-market-asuncion-800.webp",
+        "public/images/arrival/guide-tile-market-asuncion-480.webp"
+      ],
+      "alt_en": "Fruit stall with mangoes, papaya and chipa at a market in Asunción",
+      "ratio": "4:5",
+      "px": "896x1120",
+      "model": "gpt_image_2_5 sunburst medium 1k",
+      "job_id": "9f2fc61f-b611-4598-ad1d-2f5d804bdff6"
+    },
+    {
+      "id": "guide-tile-terere-cafe",
+      "files": [
+        "public/images/arrival/guide-tile-terere-cafe-800.webp",
+        "public/images/arrival/guide-tile-terere-cafe-480.webp"
+      ],
+      "alt_en": "Two friends sharing tereré on a café terrace in Asunción",
+      "ratio": "4:5",
+      "px": "896x1120",
+      "model": "gpt_image_2_5 sunburst medium 1k",
+      "job_id": "5ea49f9b-e5c8-4b79-9e2a-500f907e15e3"
+    },
+    {
+      "id": "guide-tile-hammock-reading",
+      "files": [
+        "public/images/arrival/guide-tile-hammock-reading-800.webp",
+        "public/images/arrival/guide-tile-hammock-reading-480.webp"
+      ],
+      "alt_en": "Man reading on his phone in a hammock on a shaded veranda in Asunción, with a mango tree and a flowering lapacho behind",
+      "ratio": "4:5",
+      "px": "896x1120",
+      "model": "gpt_image_2_5 sunburst medium 1k",
+      "job_id": "d844ab17-bbc3-49c6-908d-8585d7695db7",
+      "regenerated": "2026-09-22"
+    },
+    {
+      "id": "investorpass-tile-real-estate",
+      "files": [
+        "public/images/arrival/investorpass-tile-real-estate-800.webp",
+        "public/images/arrival/investorpass-tile-real-estate-480.webp"
+      ],
+      "alt_en": "Modern residential building in Asunción at blue hour",
+      "ratio": "4:5",
+      "px": "896x1120",
+      "model": "gpt_image_2_5 sunburst medium 1k",
+      "job_id": "2661125a-8b9f-46fe-a6f1-21f8ee201c15"
+    },
+    {
+      "id": "investorpass-tile-productive-business",
+      "files": [
+        "public/images/arrival/investorpass-tile-productive-business-800.webp",
+        "public/images/arrival/investorpass-tile-productive-business-480.webp"
+      ],
+      "alt_en": "Agricultural processing workshop with grain sacks",
+      "ratio": "4:5",
+      "px": "896x1120",
+      "model": "gpt_image_2_5 sunburst medium 1k",
+      "job_id": "6197a893-7f7c-4774-b121-a21cfa3096e9"
+    },
+    {
+      "id": "investorpass-tile-financial-instruments",
+      "files": [
+        "public/images/arrival/investorpass-tile-financial-instruments-800.webp",
+        "public/images/arrival/investorpass-tile-financial-instruments-480.webp"
+      ],
+      "alt_en": "Private office desk at dusk with city lights beyond",
+      "ratio": "4:5",
+      "px": "896x1120",
+      "model": "gpt_image_2_5 sunburst medium 1k",
+      "job_id": "84209c1c-d54e-41ff-8f35-0423d777aa19"
+    },
+    {
+      "id": "investorpass-tile-tourism-lodge",
+      "files": [
+        "public/images/arrival/investorpass-tile-tourism-lodge-800.webp",
+        "public/images/arrival/investorpass-tile-tourism-lodge-480.webp"
+      ],
+      "alt_en": "Riverside eco-lodge in Paraguayan nature at dusk",
+      "ratio": "4:5",
+      "px": "896x1120",
+      "model": "gpt_image_2_5 sunburst medium 1k",
+      "job_id": "bf22ebcf-7c71-4c66-bdba-1cba833f5e44"
+    },
+    {
+      "id": "frontier-tile-open-door-patio",
+      "files": [
+        "public/images/arrival/frontier-tile-open-door-patio-800.webp",
+        "public/images/arrival/frontier-tile-open-door-patio-480.webp"
+      ],
+      "alt_en": "Open door onto a sunny patio with a lemon tree",
+      "ratio": "4:5",
+      "px": "896x1120",
+      "model": "gpt_image_2_5 sunburst medium 1k",
+      "job_id": "9b6913af-c606-4e34-baed-215327864147"
+    },
+    {
+      "id": "frontier-tile-three-roads",
+      "files": [
+        "public/images/arrival/frontier-tile-three-roads-800.webp",
+        "public/images/arrival/frontier-tile-three-roads-480.webp"
+      ],
+      "alt_en": "Aerial view of red-earth roads diverging through farmland",
+      "ratio": "4:5",
+      "px": "896x1120",
+      "model": "gpt_image_2_5 sunburst medium 1k",
+      "job_id": "22144962-761d-41ed-ae84-24466cfc75b4"
+    },
+    {
+      "id": "frontier-tile-home-office",
+      "files": [
+        "public/images/arrival/frontier-tile-home-office-800.webp",
+        "public/images/arrival/frontier-tile-home-office-480.webp"
+      ],
+      "alt_en": "Home office desk by a window overlooking a leafy Asunción street with a flowering pink lapacho",
+      "ratio": "4:5",
+      "px": "896x1120",
+      "model": "gpt_image_2_5 sunburst medium 1k",
+      "job_id": "ced08536-8883-4def-bd8f-3c877d358b67",
+      "regenerated": "2026-09-22"
+    },
+    {
+      "id": "frontier-tile-airport-window",
+      "files": [
+        "public/images/arrival/frontier-tile-airport-window-800.webp",
+        "public/images/arrival/frontier-tile-airport-window-480.webp"
+      ],
+      "alt_en": "Traveller with a carry-on watching a plane at sunset",
+      "ratio": "4:5",
+      "px": "896x1120",
+      "model": "gpt_image_2_5 sunburst medium 1k",
+      "job_id": "18788497-d979-42e0-915d-cb4289bc6998"
+    }
+  ]
+}

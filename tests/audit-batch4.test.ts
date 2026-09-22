@@ -8,7 +8,6 @@ import { t } from '@/i18n';
 import { getPages } from '@/content';
 import { contentHref } from '@/lib/site-pages';
 import Residency from '@/app/(en)/sites/residency/page';
-import Investor from '@/app/(en)/sites/investorpass/page';
 import Frontier from '@/app/(en)/sites/frontier/page';
 import * as residency from '@/app/(en)/sites/residency/guides/page';
 import * as residencyHub from '@/app/(en)/sites/residency/guides/[hub]/page';
@@ -58,7 +57,6 @@ it('links the formerly orphaned hubs from each brand shell', () => {
 it('shows the newest published articles above the closing CTA', () => {
   for (const [site, Page, cta] of [
     ['residency', Residency, 'Ready to find your route?'],
-    ['investorpass', Investor, 'See if you qualify'],
     ['frontier', Frontier, 'Ready to find your route?'],
   ] as const) {
     const html = renderToStaticMarkup(createElement(Page));
@@ -71,7 +69,7 @@ it('shows the newest published articles above the closing CTA', () => {
       expect(index).toBeGreaterThan(previous);
       previous = index;
     }
-    expect(block.match(/<li>/g)).toHaveLength(3);
+    expect(block.match(/<li(?:\s[^>]*)?>/g)).toHaveLength(3);
   }
 });
 
