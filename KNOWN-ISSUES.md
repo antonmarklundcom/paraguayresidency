@@ -103,7 +103,12 @@ without committing to a typeface the design phases have not chosen yet. S3–S5
 swap in `next/font` faces by redefining those two variables per theme — no
 component changes needed.
 
-## O2 — `output: 'standalone'` moves the working directory
+## CLEARED 2026-09-22 — `output: 'standalone'` moved the working directory
+
+`output: 'standalone'` is gone from `next.config.ts` (S6-refresh). The app runs under
+`npm start` from the repo root, so `private/` and `public/` resolve without copying; a
+production build under `next start` served `/images/arrival/*.webp` 200. The
+`.next/standalone` fallback in `privateRoot()` stays as a safety net. History below.
 
 `next.config.ts` sets `output: 'standalone'`, and the standalone server runs
 with its cwd inside `.next/standalone/`. Anything resolved from

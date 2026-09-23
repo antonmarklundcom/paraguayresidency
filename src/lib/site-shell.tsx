@@ -1,8 +1,9 @@
 import type { ReactNode } from 'react';
 import { Footer, JsonLd, Nav } from '@/components';
 import { t } from '@/i18n';
+import { Analytics } from '@/lib/analytics';
 import { organizationJsonLd } from '@/lib/metadata';
-import type { SiteKey } from '@/sites/registry';
+import { getSite, type SiteKey } from '@/sites/registry';
 
 /**
  * One shell for all three brands: theme attribute + nav + footer + the
@@ -24,6 +25,8 @@ export function SiteShell({ site, children }: { site: SiteKey; children: ReactNo
       </main>
       <Footer site={site} />
       <JsonLd data={organizationJsonLd(site)} />
+      {/* Env-gated: renders nothing unless NEXT_PUBLIC_PLAUSIBLE_ENABLED=true. track() calls need it mounted. */}
+      <Analytics domain={getSite(site).analytics?.plausibleDomain ?? getSite(site).canonicalHost} />
     </div>
   );
 }
