@@ -2,15 +2,16 @@ import { getPages } from '@/content';
 import { contentHref } from '@/lib/site-pages';
 import type { Metadata } from 'next';
 import {
-  Bento,
   Button,
-  Card,
   Container,
+  Disclosure,
+  IntentTiles,
+  PhotoHero,
+  TeamStrip,
   Fact,
   FAQ,
   Heading,
   Section,
-  SplitHero,
 } from '@/components';
 import { siteMetadata } from '@/lib/metadata';
 import { whatsappHref } from '@/lib/whatsapp';
@@ -23,27 +24,6 @@ export function generateMetadata(): Metadata {
     path: '/',
   });
 }
-
-const ROUTES = [
-  {
-    eyebrow: 'Temporary residency',
-    title: 'The standard first step',
-    body: 'The standard first step, then permanent.',
-    href: '/residency/temporary-residency',
-  },
-  {
-    eyebrow: 'Permanent residency',
-    title: 'Long-term card',
-    body: 'Presence rules apply — ask us.',
-    href: '/residency/permanent-residency',
-  },
-  {
-    eyebrow: 'Investor Pass',
-    title: 'Straight to permanent',
-    body: 'With a qualifying investment. Separate brand, same team.',
-    href: '/investor-pass',
-  },
-];
 
 const FAQ_ITEMS = [
   {
@@ -83,52 +63,19 @@ export default function Page() {
 
   return (
     <>
-      <SplitHero
+      <PhotoHero image="investorpass-hero-asuncion-river-dusk" focus="30% center"
         eyebrow="Paraguay Residency"
         title="Paraguay residency, handled end to end."
         sub="Temporary residency, permanent residency and your cédula, prepared by people who do this every week in Asunción. You show up for the appointments. We do the rest."
         actions={actions}
-        aside={
-          <ul className="space-y-[var(--space-4)] text-[var(--fg-muted)]">
-            <li>One fixed fee per route, quoted before you commit.</li>
-            <li>Document checklist tailored to your nationality, not a generic PDF.</li>
-            <li>
-              We tell you when the standard route is wrong for you and point you to the Investor
-              Pass or to waiting.
-            </li>
-          </ul>
-        }
       />
 
-      <Section>
-        <Container width="narrow">
-          <Heading level={2}>Who this is for</Heading>
-          <p className="mt-[var(--space-4)] text-[var(--fg-muted)]">
-            People relocating for work, retirement or family; digital workers who want a legal
-            base and a tax ID they can actually use; and investors who would rather skip straight
-            to permanent status. If you are not sure which of those describes you, the{' '}
-            <a href="/route-finder" className="text-[var(--accent)] underline underline-offset-2">
-              Route Finder
-            </a>{' '}
-            tells you in two minutes.
-          </p>
-        </Container>
-      </Section>
-
-      <Section tone="alt">
-        <Container>
-          <Heading level={2}>Three routes, one team</Heading>
-          <div className="mt-[var(--space-8)]">
-            <Bento>
-              {ROUTES.map((route) => (
-                <Card key={route.href} eyebrow={route.eyebrow} title={route.title} href={route.href}>
-                  {route.body}
-                </Card>
-              ))}
-            </Bento>
-          </div>
-        </Container>
-      </Section>
+      <IntentTiles title="Where are you starting?" tiles={[
+        { label: 'Which route fits me?', href: '/route-finder', image: 'guide-tile-route-fork' },
+        { label: 'Temporary residency', href: '/residency/temporary-residency', image: 'guide-tile-documents-desk' },
+        { label: 'Permanent residency', href: '/residency/permanent-residency', image: 'frontier-tile-open-door-patio' },
+        { label: 'Investor Pass', href: '/investor-pass', image: 'investorpass-tile-real-estate' },
+      ]} />
 
       <Section>
         <Container width="narrow">
@@ -162,11 +109,13 @@ export default function Page() {
         </Container>
       </Section>
 
+      <TeamStrip />
+
       {/* Testimonials section stays hidden until real ones exist (plan §7, §6.1). */}
 
       <Section>
         <Container width="narrow">
-          <FAQ title="Frequently asked" items={FAQ_ITEMS} />
+          <Disclosure title="Frequently asked"><FAQ items={FAQ_ITEMS} /></Disclosure>
         </Container>
       </Section>
 
