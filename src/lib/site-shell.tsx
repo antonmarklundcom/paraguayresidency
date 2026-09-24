@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { Footer, JsonLd, Nav } from '@/components';
+import { Footer, JsonLd, Nav, WhatsAppFab } from '@/components';
 import { t } from '@/i18n';
 import { Analytics } from '@/lib/analytics';
 import { organizationJsonLd } from '@/lib/metadata';
@@ -24,6 +24,7 @@ export function SiteShell({ site, children }: { site: SiteKey; children: ReactNo
         {children}
       </main>
       <Footer site={site} />
+      <WhatsAppFab site={site} />
       <JsonLd data={organizationJsonLd(site)} />
       {/* Env-gated: renders nothing unless NEXT_PUBLIC_PLAUSIBLE_ENABLED=true. track() calls need it mounted. */}
       <Analytics domain={getSite(site).analytics?.plausibleDomain ?? getSite(site).canonicalHost} />

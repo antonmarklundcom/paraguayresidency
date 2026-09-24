@@ -19,7 +19,7 @@ const FAQ = [
   {
     question: 'Can I combine two routes to reach the threshold?',
     answer:
-      'Generally no — each route is evaluated as its own qualifying investment. If your capital sits across two categories, we tell you on the call which single route is the cleaner filing.',
+      'Generally no — each route is evaluated as its own qualifying investment. If your capital sits across two categories, we tell you in writing which single route is the cleaner filing.',
   },
   {
     question: 'Which route is fastest to structure?',
@@ -38,7 +38,7 @@ export default function Page() {
     <ServicePage
       crumbLabel="Investment routes"
       title="Four routes. One outcome: permanent residency."
-      intro="Each route suits a different kind of capital. We tell you which one fits your case on the first call — here is what each actually covers."
+      intro="Each route suits a different kind of capital. We tell you which one fits your case once you message us — here is what each actually covers."
       faq={FAQ}
       serviceName="Investor Pass — Investment Routes"
       serviceDescription="The four qualifying investment routes for the Paraguay Investor Pass: real estate, productive business, financial instruments and tourism."
@@ -74,8 +74,8 @@ export default function Page() {
       <p>
         A qualifying investment in a tourism-sector project — <Fact k="investorpass.route_tourism_usd" site="investorpass" />.
         This is the least publicly documented of the four routes; qualification criteria for what
-        counts as a tourism project are exactly the kind of detail we confirm on your call rather
-        than guess at from a web page.
+        counts as a tourism project are exactly the kind of detail we confirm in writing for your
+        case rather than guess at from a web page.
       </p>
 
       <h2>Choosing between them</h2>

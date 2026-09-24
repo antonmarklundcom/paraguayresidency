@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import {
+  HeroContact,
   ArticleCards,
   Button,
   Disclosure,
@@ -58,7 +59,7 @@ const FAQ_ITEMS = [
 ];
 
 const STEPS = [
-  { title: 'Ett samtal', body: 'Vi bekräftar din väg och ditt fasta pris i kronor innan du bestämmer dig.' },
+  { title: 'Ett meddelande', body: 'Skriv till oss på WhatsApp eller i formuläret. Vi bekräftar din väg och ditt fasta pris i kronor skriftligt innan du bestämmer dig.' },
   { title: 'Dokumenten', body: 'Apostille och översättning i Sverige, i rätt ordning, efter en lista gjord för dig.' },
   { title: 'Veckan i Asunción', body: 'Vi lämnar in ärendet och följer med dig på besöken. Du kommer hit; vi sköter resten.' },
   { title: 'Cédulan', body: 'När uppehållstillståndet är beviljat ordnar vi din cédula och säger vad som kommer sedan.' },
@@ -73,9 +74,7 @@ export default function Page() {
   const actions = (
     <>
       <Button href="/route-finder">{t(SITE, 'home.ctaPrimary')}</Button>
-      <Button href="#contact" variant="secondary">
-        {t(SITE, 'home.ctaSecondary')}
-      </Button>
+      <HeroContact site={SITE} fallbackHref="#contact" />
     </>
   );
 

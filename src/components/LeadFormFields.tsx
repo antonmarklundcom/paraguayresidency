@@ -36,7 +36,6 @@ export interface LeadFormLabels {
 const field =
   'mt-[var(--space-2)] w-full rounded-[var(--radius)] border border-[var(--border)] bg-[var(--surface)] px-3 py-2.5 text-(length:--text-sm) text-[var(--fg)] outline-none focus:border-[var(--accent)]';
 const label = 'block text-(length:--text-sm) font-medium text-[var(--fg)]';
-const hint = 'text-(length:--text-xs) font-normal text-[var(--fg-muted)]';
 
 function Submit({ labels, pending }: { labels: LeadFormLabels; pending: boolean }) {
   return (
@@ -148,13 +147,14 @@ export function LeadFormFields({
       <div className="grid gap-[var(--space-4)] sm:grid-cols-2">
         {variant !== 'whatsapp' ? <div>
           <label className={label} htmlFor={`${id}-phone`}>
-            {labels.phoneOrWhatsapp} <span className={hint}>{labels.optional}</span>
+            {labels.phoneOrWhatsapp}
           </label>
           <input
             id={`${id}-phone`}
             name="phone"
             type="tel"
             autoComplete="tel"
+            required
             placeholder="+595 981 123 456"
             aria-invalid={err('phone') ? true : undefined}
             className={field}

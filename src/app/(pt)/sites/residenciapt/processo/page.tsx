@@ -9,7 +9,7 @@ export function generateMetadata(): Metadata {
   return siteMetadata('residenciapt', {
     title: 'O Processo de Residência no Paraguai, Passo a Passo',
     description:
-      'Da primeira conversa até a cédula na mão: o processo de residência no Paraguai passo a passo, com o checklist de documentos e o que acontece em cada etapa.',
+      'Da sua primeira mensagem até a cédula na mão: o processo de residência no Paraguai passo a passo, com o checklist de documentos e o que acontece em cada etapa.',
     path: PATH,
   });
 }
@@ -21,8 +21,8 @@ interface Step {
 
 const STEPS: Step[] = [
   {
-    title: '1. A conversa inicial',
-    body: 'Perguntamos sua nacionalidade, seu objetivo e seu prazo, dizemos qual rota serve — inclusive se é o Mercosul — e cotamos seu honorário fixo antes de qualquer protocolo.',
+    title: '1. Sua primeira mensagem',
+    body: 'Escreva para a gente pelo WhatsApp ou pelo formulário com sua nacionalidade, seu objetivo e seu prazo. Dizemos por escrito qual rota serve — inclusive se é o Mercosul — e cotamos seu honorário fixo antes de qualquer protocolo.',
   },
   {
     title: '2. Seu checklist de documentos',
@@ -101,7 +101,7 @@ export default function Page() {
         <p className="mt-[var(--space-12)] text-[var(--fg-muted)]">
           Prazo da residência temporária: <Fact k="temporary.duration" site="residenciapt" />. A cédula é <Fact k="cedula.timeline" site="residenciapt" />. Pronto para começar?{' '}
           <a href="/contact" className="text-[var(--accent)] underline underline-offset-2">
-            Fale com a gente
+            Escreva para nós
           </a>{' '}
           ou faça o{' '}
           <a href="/route-finder" className="text-[var(--accent)] underline underline-offset-2">

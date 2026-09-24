@@ -9,7 +9,7 @@ export function generateMetadata(): Metadata {
   return siteMetadata('residency', {
     title: 'The Paraguay Residency Process, Step by Step',
     description:
-      'From first call to cédula in hand: the Paraguay residency process step by step, with the documents checklist and what happens at each stage.',
+      'From your first message to cédula in hand: the Paraguay residency process step by step, with the documents checklist and what happens at each stage.',
     path: PATH,
   });
 }
@@ -21,8 +21,8 @@ interface Step {
 
 const STEPS: Step[] = [
   {
-    title: '1. The call',
-    body: 'We ask about your nationality, goal and timeline, tell you which route fits, and quote your fixed fee — before anything is filed.',
+    title: '1. Your first message',
+    body: 'Message us your nationality, goal and timeline. We tell you which route fits and quote your fixed fee in writing — before anything is filed.',
   },
   {
     title: '2. Your document checklist',
@@ -97,8 +97,8 @@ export default function Page() {
 
         <p className="mt-[var(--space-12)] text-[var(--fg-muted)]">
           Temporary residency duration: <Fact k="temporary.duration" site="residency" />. The cédula is <Fact k="cedula.timeline" site="residency" />. Ready to start?{' '}
-          <a href="/book" className="text-[var(--accent)] underline underline-offset-2">
-            Book a call
+          <a href="/contact" className="text-[var(--accent)] underline underline-offset-2">
+            Message us
           </a>{' '}
           or take the <a href="/route-finder" className="text-[var(--accent)] underline underline-offset-2">Route Finder</a> first.
         </p>

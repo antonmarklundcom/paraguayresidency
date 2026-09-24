@@ -21,8 +21,8 @@ interface Step {
 
 const STEPS: Step[] = [
   {
-    title: '1. The call',
-    body: 'We ask what you actually want out of this — reserve card, real move, land, a business — and quote your fixed fee before anything is filed.',
+    title: '1. Your first message',
+    body: 'Message us what you actually want out of this — reserve card, real move, land, a business — and we quote your fixed fee in writing before anything is filed.',
   },
   {
     title: '2. Your document checklist',

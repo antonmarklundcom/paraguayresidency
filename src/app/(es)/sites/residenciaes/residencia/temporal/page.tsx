@@ -28,7 +28,7 @@ export default function Page() {
         {
           question: '¿Cuánto dura la residencia temporal?',
           answer:
-            'Tiene un plazo inicial fijo, tras el cual solicitas la permanente — te confirmamos el plazo vigente y qué pasa si lo dejas vencer en tu llamada.',
+            'Tiene un plazo inicial fijo, tras el cual solicitas la permanente — te confirmamos el plazo vigente y qué pasa si lo dejas vencer por escrito, para tu caso.',
         },
         {
           question: '¿Tengo que vivir en Paraguay a tiempo completo para mantenerla?',

@@ -50,7 +50,7 @@ export default function Page() {
             uma condição que exige acompanhamento constante. A burocracia tem seu próprio ritmo — às
             vezes mais lento, às vezes mais simples do que a brasileira, dependendo do órgão. E a
             malha rodoviária fora dos eixos principais é mais simples do que a de uma capital
-            brasileira grande. Falamos disso na consulta porque quem decide com informação
+            brasileira grande. Falamos disso por escrito, no seu primeiro contato, porque quem decide com informação
             completa tem menos chance de se arrepender depois.
           </p>
           <h2>Negócio, terra e a região de fronteira</h2>

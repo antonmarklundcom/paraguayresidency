@@ -31,7 +31,7 @@ export default function Page() {
         {
           question: 'O Paraguai é "imposto zero"?',
           answer:
-            'Não, e não vendemos essa ideia. O Paraguai tributa por sistema territorial, o que é diferente de isenção total — explicamos exatamente o que isso significa na consulta.',
+            'Não, e não vendemos essa ideia. O Paraguai tributa por sistema territorial, o que é diferente de isenção total — explicamos exatamente o que isso significa por escrito, para o seu caso.',
         },
         {
           question: 'Preciso de RUC para tudo?',

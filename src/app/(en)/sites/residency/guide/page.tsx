@@ -33,8 +33,8 @@ export default function Page() {
           <Button href={guideOrigin} external>
             Read the residency guide
           </Button>
-          <Button href="/book" variant="secondary">
-            Or just book a call
+          <Button href="/contact" variant="secondary">
+            Or just message us
           </Button>
         </div>
         <p className="mt-[var(--space-8)] text-(length:--text-sm) text-[var(--fg-muted)]">

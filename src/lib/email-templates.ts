@@ -144,7 +144,7 @@ export function purchaseEmail(input: {
         `The link works for ${esc(input.maxDownloads)} downloads and expires on ${esc(expiry)} UTC. Save the file once you have it; if the link stops working, reply to this email and we will send a new one.`,
       ),
       p(
-        `Want it done for you instead? <a href="${esc(input.consultationUrl)}">Book a 20-minute call</a> with the team that wrote it.`,
+        `Want it done for you instead? <a href="${esc(input.consultationUrl)}">Message the team that wrote it</a> on WhatsApp or through the form. A person answers in writing within one working day.`,
       ),
     ],
     input.unsubscribeUrl,
@@ -157,7 +157,7 @@ Download: ${input.downloadUrl}
 
 The link works for ${input.maxDownloads} downloads and expires on ${expiry} UTC. Save the file once you have it; if the link stops working, reply to this email and we will send a new one.
 
-Want it done for you instead? Book a 20-minute call: ${input.consultationUrl}`;
+Want it done for you instead? Message the team that wrote it (WhatsApp or the form, answered in writing within one working day): ${input.consultationUrl}`;
   return { subject, html, text };
 }
 

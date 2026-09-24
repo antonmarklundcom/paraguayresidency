@@ -25,7 +25,7 @@ export default function Page() {
         {
           question: 'Quanto tempo dura a residência temporária?',
           answer:
-            'Ela roda por um prazo inicial fixo, e depois você pede a permanente. Confirmamos o prazo atual e o que acontece se ele vencer antes na sua consulta.',
+            'Ela roda por um prazo inicial fixo, e depois você pede a permanente. Confirmamos o prazo atual e o que acontece se ele vencer antes, por escrito, para o seu caso.',
         },
         {
           question: 'Preciso morar no Paraguai o ano todo para não perder o status?',
@@ -53,7 +53,7 @@ export default function Page() {
       <p>
         Se você tem nacionalidade de um país do Mercosul, parte do caminho muda:{' '}
         <Fact k="mercosur.residency_route" site="residenciapt" />. Explicamos exatamente o que
-        simplifica no seu caso na consulta — veja também nossa página sobre a{' '}
+        simplifica no seu caso por escrito, no seu primeiro contato — veja também nossa página sobre a{' '}
         <a href="/mercosul">rota Mercosul</a>.
       </p>
       <h2>O que o processo envolve de verdade</h2>

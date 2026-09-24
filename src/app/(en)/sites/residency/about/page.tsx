@@ -46,7 +46,7 @@ export default function Page() {
             <p className="mt-[var(--space-2)] text-[var(--fg-muted)]">
               One fixed fee per route, quoted before you commit. A document checklist built for
               your nationality, not a generic PDF. And when the standard route is wrong for your
-              case, we tell you that on the first call — and point you to the Investor Pass, or to
+              case, we tell you that in your first message — and point you to the Investor Pass, or to
               waiting, rather than filing something that will not serve you.
             </p>
           </div>
@@ -54,8 +54,8 @@ export default function Page() {
             <Heading level={2}>What we do not do</Heading>
             <p className="mt-[var(--space-2)] text-[var(--fg-muted)]">
               We do not quote figures we cannot stand behind — every legal or financial number on
-              this site is either confirmed or clearly marked as an estimate we will confirm on
-              your call. We do not advise on your home country&apos;s own tax rules; that is a
+              this site is either confirmed or clearly marked as an estimate we will confirm in
+              writing for your case. We do not advise on your home country&apos;s own tax rules; that is a
               question for your own accountant, and we say so rather than guessing.
             </p>
           </div>
@@ -77,7 +77,7 @@ export default function Page() {
         </div>
 
         <div className="mt-[var(--space-16)] flex flex-wrap gap-[var(--space-3)]">
-          <Button href="/book">Book a call</Button>
+          <Button href="/contact">Message us</Button>
           <Button href="/route-finder" variant="secondary">
             Find your route
           </Button>

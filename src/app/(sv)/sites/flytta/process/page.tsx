@@ -10,7 +10,7 @@ export function generateMetadata(): Metadata {
   return siteMetadata(SITE, {
     title: 'Så går processen till — uppehållstillstånd i Paraguay steg för steg',
     description:
-      'Från första samtalet till cédulan i handen: processen för uppehållstillstånd i Paraguay, steg för steg, med dokumentchecklistan.',
+      'Från första meddelandet till cédulan i handen: processen för uppehållstillstånd i Paraguay, steg för steg, med dokumentchecklistan.',
     path: PATH,
   });
 }
@@ -22,8 +22,8 @@ interface Step {
 
 const STEPS: Step[] = [
   {
-    title: '1. Samtalet',
-    body: 'Vi går igenom din faktiska situation — medborgarskap, familj, tidsram — och säger vilken väg som passar innan något bokas.',
+    title: '1. Meddelandet',
+    body: 'Du skriver till oss på WhatsApp eller i formuläret. Vi går igenom din faktiska situation — medborgarskap, familj, tidsram — och svarar skriftligt med vilken väg som passar innan något bokas.',
   },
   {
     title: '2. Din dokumentlista',

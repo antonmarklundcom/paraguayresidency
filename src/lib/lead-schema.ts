@@ -33,17 +33,17 @@ const countryCode = z
   .optional();
 
 /**
- * A phone is optional for the visitor but required by VenderCRM, which uses it
- * as the contact identity. A lead without one is still stored locally and is
- * simply never pushed (see `createLead`) — the local row is the source of
- * truth (plan §1.6).
+ * VenderCRM uses the phone as the contact identity and WhatsApp replies thread
+ * onto it, so every lead form requires one (Anton, 2026-09-24: leads come in by
+ * WhatsApp or the form, never a booked call). `00` becomes `+`, the
+ * international form the CRM expects.
  */
 const phone = z
   .string()
   .trim()
   .max(40)
   .refine((v) => v === '' || /^[+()\d][\d\s()+.-]{5,}$/.test(v), { message: 'Enter a valid phone number' })
-  .transform((v) => (v === '' ? undefined : v))
+  .transform((v) => (v === '' ? undefined : v.replace(/^00/, '+')))
   .optional();
 
 export const leadInputSchema = z.object({
@@ -74,6 +74,9 @@ export const leadInputSchema = z.object({
   }
   if (input.kind === 'whatsapp' && !input.phone && !input.whatsapp) {
     ctx.addIssue({ code: 'custom', path: ['whatsapp'], message: 'Enter a valid WhatsApp number' });
+  }
+  if (input.kind !== 'whatsapp' && !input.phone && !input.whatsapp) {
+    ctx.addIssue({ code: 'custom', path: ['phone'], message: 'Enter your WhatsApp or phone number' });
   }
 }).transform((input) => ({
   ...input,

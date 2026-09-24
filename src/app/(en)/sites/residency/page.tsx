@@ -2,6 +2,7 @@ import { getPages } from '@/content';
 import { contentHref } from '@/lib/site-pages';
 import type { Metadata } from 'next';
 import {
+  HeroContact,
   ArticleCards,
   Button,
   Disclosure,
@@ -32,7 +33,7 @@ const FAQ_ITEMS = [
   {
     question: 'How do I know which route is right for me?',
     answer:
-      'Take the Route Finder — six questions, two minutes — or book a call and we will tell you directly, including when the standard route is wrong for your case.',
+      'Take the Route Finder — six questions, two minutes — or message us and we will tell you directly, including when the standard route is wrong for your case.',
   },
   {
     question: 'How much does this cost?',
@@ -47,12 +48,12 @@ const FAQ_ITEMS = [
   {
     question: 'What if my case is unusual?',
     answer:
-      'Tell us on the first call. We would rather point you to the Investor Pass, or tell you to wait, than file something that will not serve your case.',
+      'Tell us in your first message. We would rather point you to the Investor Pass, or tell you to wait, than file something that will not serve your case.',
   },
 ];
 
 const STEPS = [
-  { title: 'A call', body: 'We confirm your route and your fixed fee before you commit to anything.' },
+  { title: 'A message', body: 'We confirm your route and your fixed fee in writing before you commit to anything.' },
   { title: 'Your documents', body: 'A checklist built for your nationality, with legalisation done in the right order.' },
   { title: 'Asunción', body: 'We file and go to the appointments with you. You show up; we handle the rest.' },
   { title: 'Your cédula', body: 'Once residency is approved we get your cédula and tell you what comes next.' },
@@ -64,9 +65,7 @@ export default function Page() {
   const actions = (
     <>
       <Button href="/route-finder">Find your route</Button>
-      <Button href="/book" variant="secondary">
-        Book a call
-      </Button>
+      <HeroContact site="residency" message="Hi — I have a question about Paraguay residency." fallbackHref="#contact" />
     </>
   );
 

@@ -23,7 +23,7 @@ const FAQ_ITEMS = [
   {
     question: '¿Qué países entran en esta vía?',
     answer:
-      'Los Estados parte y asociados del Mercosur — Argentina, Uruguay, Brasil, Chile y otros según el acuerdo vigente. Confirmamos si tu nacionalidad concreta califica en la primera llamada.',
+      'Los Estados parte y asociados del Mercosur — Argentina, Uruguay, Brasil, Chile y otros según el acuerdo vigente. Confirmamos si tu nacionalidad concreta califica en tu primer mensaje.',
   },
   {
     question: '¿Sigo necesitando apostillar y traducir documentos?',
@@ -61,7 +61,7 @@ export default function Page() {
               cambian con el tiempo, así que nunca lo publicamos como un derecho fijo. Lo que sí
               podemos decirte es qué partes del trámite —qué documentos, qué plazos, qué
               antecedentes se piden— tiende a simplificarse para nacionales del bloque frente a
-              otros solicitantes, y lo confirmamos para tu nacionalidad concreta en la llamada.
+              otros solicitantes, y te lo confirmamos por escrito para tu nacionalidad concreta.
             </p>
           </div>
           <div>

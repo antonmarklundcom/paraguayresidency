@@ -25,7 +25,7 @@ const FAQ = [
   {
     question: 'Är siffrorna på den här sidan officiella?',
     answer:
-      'Nej. De är vår egen budget och vad vi hör från andra svenskar här, avrundade och märkta som uppskattningar för 2026. Din egen kostnadsbild beror på var du bor, vilken standard du väljer och hur du lever — vi jämför gärna mot din faktiska budget på ett samtal.',
+      'Nej. De är vår egen budget och vad vi hör från andra svenskar här, avrundade och märkta som uppskattningar för 2026. Din egen kostnadsbild beror på var du bor, vilken standard du väljer och hur du lever — skriv till oss så jämför vi gärna mot din faktiska budget.',
   },
   {
     question: 'Vad kostar själva ansökan om uppehållstillstånd?',
@@ -56,7 +56,7 @@ export default function Page() {
       <p>
         Hyra är det som skiljer sig mest mellan städer och områden. Ett normalt tvårumslägenhet i
         centrala Asunción kostar mer än motsvarande i Areguá eller San Bernardino — uppskattning
-        2026, och vi jämför gärna mot din faktiska budget på ett samtal snarare än en generell
+        2026, och skriv gärna till oss så jämför vi mot din faktiska budget snarare än en generell
         siffra här.
       </p>
 

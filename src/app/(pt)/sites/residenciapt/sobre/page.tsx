@@ -47,15 +47,15 @@ export default function Page() {
               Um honorário fixo por rota, cotado em reais ou dólares antes de você decidir. Um
               checklist de documentos montado para a sua nacionalidade brasileira, não um PDF
               genérico. E quando a rota Mercosul ou uma rota diferente serve melhor para o seu
-              caso, dizemos isso na primeira conversa em vez de empurrar o caminho mais caro.
+              caso, dizemos isso na sua primeira mensagem em vez de empurrar o caminho mais caro.
             </p>
           </div>
           <div>
             <Heading level={2}>O que não fazemos</Heading>
             <p className="mt-[var(--space-2)] text-[var(--fg-muted)]">
               Não citamos números que não podemos sustentar — todo valor legal ou financeiro neste
-              site está confirmado ou claramente marcado como estimativa que confirmamos na sua
-              consulta. Não vendemos o Paraguai como imposto zero ou paraíso sem contrapartida, e
+              site está confirmado ou claramente marcado como estimativa que confirmamos por
+              escrito para o seu caso. Não vendemos o Paraguai como imposto zero ou paraíso sem contrapartida, e
               não damos parecer sobre a sua declaração de imposto de renda no Brasil — isso é
               pergunta para o seu contador, e dizemos isso em vez de arriscar um palpite.
             </p>
@@ -74,7 +74,7 @@ export default function Page() {
         </div>
 
         <div className="mt-[var(--space-16)] flex flex-wrap gap-[var(--space-3)]">
-          <Button href="/contact">Fale com a gente</Button>
+          <Button href="/contact">Escreva para nós</Button>
           <Button href="/route-finder" variant="secondary">
             Descobrir minha rota
           </Button>

@@ -34,7 +34,7 @@ export default function Page() {
           </a>
           , filing temporary residency, permanent residency and cédula cases every week in
           Asunción. Every client asks roughly the same questions in roughly the same order. This
-          guide is those answers, written down once instead of repeated on every call.
+          guide is those answers, written down once instead of answered fresh every time.
         </p>
 
 

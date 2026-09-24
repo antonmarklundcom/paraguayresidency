@@ -125,6 +125,16 @@ export function randomToken(bytes = 48): string {
  * hour is the same submission, so a double-click or a retry after a timeout
  * collapses instead of creating a duplicate contact.
  */
+/**
+ * Idempotency key for one stored lead: unique per submission (so a second,
+ * genuine enquiry is never dropped as a duplicate) and identical on every
+ * retry of that submission (so a retry after a timeout cannot create a second
+ * deal). The CRM accepts any string; this stays 64 hex chars like the fallback.
+ */
+export function leadIdempotencyKey(site: string, leadId: number): string {
+  return createHash('sha256').update(`lead|${site}|${leadId}`).digest('hex');
+}
+
 export function idempotencyKey(phone: string, now = new Date()): string {
   return createHash('sha256')
     .update(`${phone}|${now.toISOString().slice(0, 13)}`)

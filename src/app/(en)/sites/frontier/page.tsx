@@ -3,6 +3,7 @@ import { contentHref } from '@/lib/site-pages';
 import { t } from '@/i18n';
 import type { Metadata } from 'next';
 import {
+  HeroContact,
   Bento,
   Button,
   Card,
@@ -16,6 +17,7 @@ import {
   heroTrust,
   IntentTiles,
   TeamStrip,
+  WhatsAppButton,
 } from '@/components';
 import { siteMetadata } from '@/lib/metadata';
 import { whatsappHref } from '@/lib/whatsapp';
@@ -83,9 +85,7 @@ export default function Page() {
   const actions = (
     <>
       <Button href="/route-finder">Find your route</Button>
-      <Button href="/contact" variant="secondary">
-        Talk to us
-      </Button>
+      <HeroContact site="frontier" message="Hi — I have a question about a second residency in Paraguay." />
     </>
   );
 
@@ -146,6 +146,9 @@ export default function Page() {
       </Section>
 
       <Section tone="accent">
+        <div className="mb-[var(--space-6)]">
+          <WhatsAppButton site="frontier" message="Hi — I have a question about a second residency in Paraguay." />
+        </div>
         <div className="mt-[var(--space-10)] grid gap-[var(--space-8)] text-left">
           <div>
             <Heading level={2}>{t('frontier', 'process.fullForm')}</Heading>

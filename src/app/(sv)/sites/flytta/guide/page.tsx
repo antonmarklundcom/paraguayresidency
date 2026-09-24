@@ -8,9 +8,9 @@ const PATH = '/guide';
 
 export function generateMetadata(): Metadata {
   return siteMetadata(SITE, {
-    title: 'Inte redo att boka än? Läs Paraguay Residency Guide först',
+    title: 'Inte redo att höra av dig än? Läs Paraguay Residency Guide först',
     description:
-      'Vill du förstå hela processen själv innan du bokar oss? Paraguay Residency Guide går igenom varje steg, kostnad och misstag på engelska.',
+      'Vill du förstå hela processen själv innan du hör av dig? Paraguay Residency Guide går igenom varje steg, kostnad och misstag på engelska.',
     path: PATH,
   });
 }
@@ -28,11 +28,11 @@ export default function Page() {
       <Container width="narrow">
         <Breadcrumbs site={SITE} items={[{ label: 'Guide', href: PATH }]} />
         <Heading level={1} className="mt-[var(--space-8)]">
-          Inte redo att boka ännu? Läs på själv först.
+          Inte redo att höra av dig ännu? Läs på själv först.
         </Heading>
         <p className="mt-[var(--space-4)] text-(length:--text-lg) text-[var(--fg-muted)]">
           Allt på den här sajten beskriver vår historia och vad vägen kräver. Vill du hellre läsa
-          hela processen i detalj innan du pratar med någon — vägarna, dokumenten, de verkliga
+          hela processen i detalj innan du skriver till oss — vägarna, dokumenten, de verkliga
           kostnaderna, misstagen folk gör — finns den samlad i Paraguay Residency Guide (på
           engelska).
         </p>

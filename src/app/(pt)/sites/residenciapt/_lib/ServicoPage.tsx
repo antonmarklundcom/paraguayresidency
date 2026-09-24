@@ -42,7 +42,7 @@ export function ServicoPage({
             {intro}
           </p>
         </header>
-        <div className="my-[var(--space-6)] flex flex-wrap gap-[var(--space-3)]" data-service-cta><Button href="#inquiry">Fale com a gente</Button><Button href="/route-finder" variant="secondary">Descubra sua rota</Button></div>
+        <div className="my-[var(--space-6)] flex flex-wrap gap-[var(--space-3)]" data-service-cta><Button href="#inquiry">Escreva para nós</Button><Button href="/route-finder" variant="secondary">Descubra sua rota</Button></div>
         <Prose className="mt-[var(--space-12)]">{children}</Prose>
         <div className="mt-[var(--space-16)]">
           <FAQ title="Perguntas frequentes" items={faq} />
@@ -74,7 +74,7 @@ export function ServicoPage({
             path,
           })}
         />
-      <StickyCta formId="inquiry" label="Fale com a gente" />
+      <StickyCta formId="inquiry" label="Escreva para nós" />
       </Container>
     </Section>
   );

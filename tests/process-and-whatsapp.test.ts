@@ -191,14 +191,17 @@ for (const { site, Page } of [{ site: 'residency', Page: About0 }, { site: 'inve
   });
 }
 for (const { site, path, Page } of forms) {
-  it(site + path + ' keeps the configured direct chat link inside the disclosure', () => {
+  // WhatsApp-first since 2026-09-24 (no booked calls): the direct chat link is
+  // offered openly next to the form, and the disclosure still pairs it with
+  // the short leave-your-number form.
+  it(site + path + ' offers the direct chat link openly and inside the disclosure', () => {
     vi.stubEnv('NEXT_PUBLIC_WHATSAPP_NUMBER', '595981123456');
     try {
       const html = renderToStaticMarkup(createElement(Page));
       const disclosure = html.match(/<details\b[\s\S]*?<\/details>/g)!.find(block => block.includes(t(site, 'form.whatsappAlternative')))!;
       expect(disclosure).toContain('https://wa.me/595981123456');
       expect(disclosure.indexOf('https://wa.me/')).toBeLessThan(disclosure.indexOf('<form'));
-      expect(html.replace(disclosure, '')).not.toContain('https://wa.me/');
+      expect(html.replace(disclosure, '')).toContain('https://wa.me/595981123456');
     } finally { vi.unstubAllEnvs(); }
   });
 }

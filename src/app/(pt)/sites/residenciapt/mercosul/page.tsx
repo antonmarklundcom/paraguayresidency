@@ -30,7 +30,7 @@ export default function Page() {
         {
           question: 'Isso é mais rápido do que a rota comum?',
           answer:
-            'Em algumas partes, sim. Dizemos exatamente onde na sua consulta, porque a implementação muda com o tempo e não queremos prometer um prazo que a regra atual não sustenta.',
+            'Em algumas partes, sim. Dizemos exatamente onde no seu primeiro contato, porque a implementação muda com o tempo e não queremos prometer um prazo que a regra atual não sustenta.',
         },
         {
           question: 'Vale a pena entrar pelo Mercosul mesmo se eu já me qualifico pela rota comum?',

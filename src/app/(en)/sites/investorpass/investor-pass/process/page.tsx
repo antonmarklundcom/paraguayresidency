@@ -8,7 +8,7 @@ const PATH = '/investor-pass/process';
 
 export function generateMetadata(): Metadata {
   return siteMetadata('investorpass', {
-    title: 'Investor Pass Process — From Call to Permanent Card',
+    title: 'Investor Pass Process — From First Message to Permanent Card',
     description:
       'How the Paraguay Investor Pass process runs, step by step: structuring the investment, filing, and the cédula once residency is approved.',
     path: PATH,
@@ -19,7 +19,7 @@ const FAQ = [
   {
     question: 'How long does the whole process take?',
     answer:
-      'It depends on which route you choose and how quickly your documentation and funds transfer come together — we give you a realistic window for your specific case on the first call, not a marketing number.',
+      'It depends on which route you choose and how quickly your documentation and funds transfer come together — we give you a realistic window for your specific case once you message us, not a marketing number.',
   },
   {
     question: 'Do I need to be in Paraguay for the whole process?',
@@ -37,14 +37,14 @@ export default function Page() {
   return (
     <ServicePage
       crumbLabel="Process"
-      title="From first call to permanent card"
+      title="From first message to permanent card"
       intro="Five stages, most of them able to run in parallel with your own schedule. Here is what actually happens, in order."
       faq={FAQ}
       serviceName="Investor Pass — Process"
       serviceDescription="The end-to-end filing process for the Paraguay Investor Pass, from investment structuring to the cédula."
       path={PATH}
     >
-      <h2>1. The call</h2>
+      <h2>1. Your first message</h2>
       <p>
         We confirm which of the four routes fits your capital and goal, and quote the current
         qualifying threshold against the resolution text — not a web page that may already be out

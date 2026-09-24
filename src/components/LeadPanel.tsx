@@ -3,11 +3,13 @@ import { t } from '@/i18n';
 import { whatsappHref } from '@/lib/whatsapp';
 import type { SiteKey } from '@/sites/registry';
 import { LeadForm } from './LeadForm';
+import { WhatsAppButton } from './WhatsApp';
 import type { LeadVariant } from './LeadFormFields';
 
 /**
- * The homepage close: the pitch and three promises on the left, the form in a
- * card on the right, WhatsApp behind a disclosure (F-014). Presentation only —
+ * The homepage close: the pitch, three promises and a WhatsApp button on the
+ * left, the form in a card on the right, and the short WhatsApp-number form
+ * behind a disclosure (F-014). No booked calls: WhatsApp or the form. Presentation only —
  * the form, its action and the lead pipeline are untouched.
  */
 export function LeadPanel({ site, variant, title, intro, whatsappMessage, id = 'contact', pagePath = '/', footnote }: {
@@ -37,6 +39,9 @@ export function LeadPanel({ site, variant, title, intro, whatsappMessage, id = '
               </li>
             ))}
           </ul>
+          <div className="mt-8">
+            <WhatsAppButton site={site} message={whatsappMessage} />
+          </div>
           {footnote && <div className="mt-8 text-(length:--text-sm) text-[var(--fg-muted)]">{footnote}</div>}
         </div>
         <div className="rounded-[var(--radius-lg)] border border-[var(--border)] bg-[var(--surface)] p-6 shadow-[var(--shadow-lg)] sm:p-10">

@@ -4,7 +4,7 @@
  *
  * Until Anton's legal partner verifies an entry (`verified: true` plus
  * `verifiedBy`/`verifiedOn`), pages render `hedged` — wording that points the
- * reader at a call instead of quoting a figure we cannot stand behind.
+ * reader at a written answer instead of quoting a figure we cannot stand behind.
  * Public sources disagree on the Investor Pass minimum (USD 70k / 150k / 200k
  * all appear), which is exactly why this file exists.
  */
@@ -56,10 +56,10 @@ export const facts = {
       sv: 'från USD 70 000',
     },
     hedged: {
-      en: 'from a qualifying investment amount we confirm on your call',
-      es: 'desde un monto de inversión que confirmamos en tu llamada',
-      pt: 'a partir de um valor de investimento que confirmamos na consulta',
-      sv: 'från ett investeringsbelopp som vi bekräftar under samtalet',
+      en: 'from a qualifying investment amount we confirm in writing for your case',
+      es: 'desde un monto de inversión que confirmamos por escrito para tu caso',
+      pt: 'a partir de um valor de investimento que confirmamos por escrito para o seu caso',
+      sv: 'från ett investeringsbelopp som vi bekräftar skriftligt för ditt fall',
     },
     verified: false,
     sources: [
@@ -73,7 +73,7 @@ export const facts = {
     key: 'investorpass.launch_date',
     label: 'Investor Pass — programme launch',
     display: 'April 2026',
-    hedged: 'programme launch and current status to be confirmed on your call',
+    hedged: 'programme launch and current status confirmed in writing for your case',
     verified: false,
     sources: [
       'https://www.fragomen.com/insights/paraguay-new-investor-pass-expands-permanent-residence-options.html',
@@ -118,10 +118,10 @@ export const facts = {
       sv: "två år, sedan permanent",
     },
     hedged: {
-      en: 'a fixed initial term, after which you apply for permanent residency — current term confirmed on your call',
-      es: 'un plazo inicial fijo, tras el cual solicitas la residencia permanente — el plazo vigente te lo confirmamos en tu llamada',
-      pt: "um prazo inicial fixo, após o qual você solicita a residência permanente — confirmamos o prazo vigente na consulta",
-      sv: "en fast inledande period, varefter du ansöker om permanent uppehållstillstånd — aktuell giltighet bekräftas på samtalet",
+      en: 'a fixed initial term, after which you apply for permanent residency — current term confirmed in writing for your case',
+      es: 'un plazo inicial fijo, tras el cual solicitas la residencia permanente — el plazo vigente te lo confirmamos por escrito para tu caso',
+      pt: "um prazo inicial fixo, após o qual você solicita a residência permanente — confirmamos o prazo vigente por escrito para o seu caso",
+      sv: "en fast inledande period, varefter du ansöker om permanent uppehållstillstånd — aktuell giltighet bekräftas skriftligt för ditt fall",
     },
     verified: false,
     sources: ['https://immigrantinvest.com/insider/paraguay-investor-pass/'],
@@ -173,7 +173,7 @@ export const facts = {
     key: 'investorpass.route_real_estate_usd',
     label: 'Investor Pass — real estate route minimum',
     display: 'from USD 70,000 in qualifying real estate',
-    hedged: 'a qualifying real-estate purchase, with the current minimum confirmed on your call',
+    hedged: 'a qualifying real-estate purchase, with the current minimum confirmed in writing for your case',
     verified: false,
     sources: [
       'https://www.fragomen.com/insights/paraguay-new-investor-pass-expands-permanent-residence-options.html',
@@ -185,7 +185,7 @@ export const facts = {
     key: 'investorpass.route_business_usd',
     label: 'Investor Pass — productive business route minimum',
     display: 'from USD 70,000 invested in a productive business',
-    hedged: 'a qualifying investment in a productive business, with the current minimum confirmed on your call',
+    hedged: 'a qualifying investment in a productive business, with the current minimum confirmed in writing for your case',
     verified: false,
     sources: [
       'https://www.fragomen.com/insights/paraguay-new-investor-pass-expands-permanent-residence-options.html',
@@ -196,7 +196,7 @@ export const facts = {
     key: 'investorpass.route_financial_usd',
     label: 'Investor Pass — financial instruments route minimum',
     display: 'from USD 70,000 in qualifying financial instruments',
-    hedged: 'a qualifying financial-instrument investment, with the current minimum confirmed on your call',
+    hedged: 'a qualifying financial-instrument investment, with the current minimum confirmed in writing for your case',
     verified: false,
     sources: [
       'https://immigrantinvest.com/insider/paraguay-investor-pass/',
@@ -207,7 +207,7 @@ export const facts = {
     key: 'investorpass.route_tourism_usd',
     label: 'Investor Pass — tourism-sector route minimum',
     display: 'from USD 70,000 invested in a qualifying tourism project',
-    hedged: 'a qualifying tourism-sector investment, with the current minimum confirmed on your call',
+    hedged: 'a qualifying tourism-sector investment, with the current minimum confirmed in writing for your case',
     verified: false,
     sources: [
       'https://finance.yahoo.com/economy/policy/articles/paraguay-offers-direct-permanent-residency-152937040.html',
@@ -280,7 +280,7 @@ export const facts = {
     },
     hedged: {
       en: 'your budget depends on city, lifestyle and household size — we walk through your own spending rather than quoting an average that fits nobody',
-      pt: 'visivelmente mais baixo do que Rio ou São Paulo para a maioria das pessoas, mas passamos pelos seus números de verdade — cidade, estilo de vida, tamanho da família — numa consulta, em vez de citar uma média que não serve para ninguém',
+      pt: 'visivelmente mais baixo do que Rio ou São Paulo para a maioria das pessoas, mas passamos pelos seus números de verdade — cidade, estilo de vida, tamanho da família — por escrito, em vez de citar uma média que não serve para ninguém',
       es: 'el presupuesto depende de la ciudad, el estilo de vida y el tamaño de la familia — revisamos tus gastos contigo en vez de dar una media que no se ajuste a tu caso',
       sv: 'budgeten beror på stad, livsstil och familjens storlek — vi går igenom dina utgifter tillsammans i stället för att ange ett genomsnitt som inte passar dig',
     },
@@ -330,16 +330,16 @@ export const facts = {
     key: 'pricing.temporary',
     label: 'Temporary residency — service fee',
     display: {
-      en: 'fixed service fee confirmed on your call',
-      es: 'honorario fijo confirmado en tu llamada',
-      pt: 'honorário fixo confirmado na sua consulta',
-      sv: 'fast arvode som bekräftas på ditt samtal',
+      en: 'fixed service fee confirmed in writing',
+      es: 'honorario fijo confirmado por escrito',
+      pt: 'honorário fixo confirmado por escrito',
+      sv: 'fast arvode som bekräftas skriftligt',
     },
     hedged: {
-      en: 'a fixed service fee quoted on your call — we confirm the scope and separate costs before you commit',
-      es: 'un honorario fijo cotizado en tu llamada — confirmamos el alcance y los gastos separados antes de que te comprometas',
-      pt: 'um honorário fixo cotado na sua consulta — confirmamos o escopo e os custos separados antes de você decidir',
-      sv: 'ett fast arvode som vi offererar på ditt samtal — vi bekräftar omfattningen och de separata kostnaderna innan du bestämmer dig',
+      en: 'a fixed service fee quoted in writing — we confirm the scope and separate costs before you commit',
+      es: 'un honorario fijo cotizado por escrito — confirmamos el alcance y los gastos separados antes de que te comprometas',
+      pt: 'um honorário fixo cotado por escrito — confirmamos o escopo e os custos separados antes de você decidir',
+      sv: 'ett fast arvode som vi offererar skriftligt — vi bekräftar omfattningen och de separata kostnaderna innan du bestämmer dig',
     },
     verified: false,
     sources: [],
@@ -349,16 +349,16 @@ export const facts = {
     key: 'pricing.permanent',
     label: 'Permanent residency — service fee',
     display: {
-      en: 'fixed service fee confirmed on your call',
-      es: 'honorario fijo confirmado en tu llamada',
-      pt: 'honorário fixo confirmado na sua consulta',
-      sv: 'fast arvode som bekräftas på ditt samtal',
+      en: 'fixed service fee confirmed in writing',
+      es: 'honorario fijo confirmado por escrito',
+      pt: 'honorário fixo confirmado por escrito',
+      sv: 'fast arvode som bekräftas skriftligt',
     },
     hedged: {
-      en: 'a fixed service fee quoted on your call — we confirm the scope and separate costs before you commit',
-      es: 'un honorario fijo cotizado en tu llamada — confirmamos el alcance y los gastos separados antes de que te comprometas',
-      pt: 'um honorário fixo cotado na sua consulta — confirmamos o escopo e os custos separados antes de você decidir',
-      sv: 'ett fast arvode som vi offererar på ditt samtal — vi bekräftar omfattningen och de separata kostnaderna innan du bestämmer dig',
+      en: 'a fixed service fee quoted in writing — we confirm the scope and separate costs before you commit',
+      es: 'un honorario fijo cotizado por escrito — confirmamos el alcance y los gastos separados antes de que te comprometas',
+      pt: 'um honorário fixo cotado por escrito — confirmamos o escopo e os custos separados antes de você decidir',
+      sv: 'ett fast arvode som vi offererar skriftligt — vi bekräftar omfattningen och de separata kostnaderna innan du bestämmer dig',
     },
     verified: false,
     sources: [],
@@ -368,16 +368,16 @@ export const facts = {
     key: 'pricing.cedula',
     label: 'Cédula de identidad — service fee',
     display: {
-      en: 'fixed service fee confirmed on your call',
-      es: 'honorario fijo confirmado en tu llamada',
-      pt: 'honorário fixo confirmado na sua consulta',
-      sv: 'fast arvode som bekräftas på ditt samtal',
+      en: 'fixed service fee confirmed in writing',
+      es: 'honorario fijo confirmado por escrito',
+      pt: 'honorário fixo confirmado por escrito',
+      sv: 'fast arvode som bekräftas skriftligt',
     },
     hedged: {
-      en: 'a fixed service fee quoted on your call — we confirm the scope and separate costs before you commit',
-      es: 'un honorario fijo cotizado en tu llamada — confirmamos el alcance y los gastos separados antes de que te comprometas',
-      pt: 'um honorário fixo cotado na sua consulta — confirmamos o escopo e os custos separados antes de você decidir',
-      sv: 'ett fast arvode som vi offererar på ditt samtal — vi bekräftar omfattningen och de separata kostnaderna innan du bestämmer dig',
+      en: 'a fixed service fee quoted in writing — we confirm the scope and separate costs before you commit',
+      es: 'un honorario fijo cotizado por escrito — confirmamos el alcance y los gastos separados antes de que te comprometas',
+      pt: 'um honorário fixo cotado por escrito — confirmamos o escopo e os custos separados antes de você decidir',
+      sv: 'ett fast arvode som vi offererar skriftligt — vi bekräftar omfattningen och de separata kostnaderna innan du bestämmer dig',
     },
     verified: false,
     sources: [],
@@ -387,16 +387,16 @@ export const facts = {
     key: 'pricing.tax_residency',
     label: 'Tax residency and RUC — service fee',
     display: {
-      en: 'fixed service fee confirmed on your call',
-      es: 'honorario fijo confirmado en tu llamada',
-      pt: 'honorário fixo confirmado na sua consulta',
-      sv: 'fast arvode som bekräftas på ditt samtal',
+      en: 'fixed service fee confirmed in writing',
+      es: 'honorario fijo confirmado por escrito',
+      pt: 'honorário fixo confirmado por escrito',
+      sv: 'fast arvode som bekräftas skriftligt',
     },
     hedged: {
-      en: 'a fixed service fee quoted on your call — we confirm the scope and separate costs before you commit',
-      es: 'un honorario fijo cotizado en tu llamada — confirmamos el alcance y los gastos separados antes de que te comprometas',
-      pt: 'um honorário fixo cotado na sua consulta — confirmamos o escopo e os custos separados antes de você decidir',
-      sv: 'ett fast arvode som vi offererar på ditt samtal — vi bekräftar omfattningen och de separata kostnaderna innan du bestämmer dig',
+      en: 'a fixed service fee quoted in writing — we confirm the scope and separate costs before you commit',
+      es: 'un honorario fijo cotizado por escrito — confirmamos el alcance y los gastos separados antes de que te comprometas',
+      pt: 'um honorário fixo cotado por escrito — confirmamos o escopo e os custos separados antes de você decidir',
+      sv: 'ett fast arvode som vi offererar skriftligt — vi bekräftar omfattningen och de separata kostnaderna innan du bestämmer dig',
     },
     verified: false,
     sources: [],
@@ -406,16 +406,16 @@ export const facts = {
     key: 'pricing.family',
     label: 'Family filing — service fee',
     display: {
-      en: 'fixed service fee confirmed on your call',
-      es: 'honorario fijo confirmado en tu llamada',
-      pt: 'honorário fixo confirmado na sua consulta',
-      sv: 'fast arvode som bekräftas på ditt samtal',
+      en: 'fixed service fee confirmed in writing',
+      es: 'honorario fijo confirmado por escrito',
+      pt: 'honorário fixo confirmado por escrito',
+      sv: 'fast arvode som bekräftas skriftligt',
     },
     hedged: {
-      en: 'a fixed service fee quoted on your call — we confirm the scope and separate costs before you commit',
-      es: 'un honorario fijo cotizado en tu llamada — confirmamos el alcance y los gastos separados antes de que te comprometas',
-      pt: 'um honorário fixo cotado na sua consulta — confirmamos o escopo e os custos separados antes de você decidir',
-      sv: 'ett fast arvode som vi offererar på ditt samtal — vi bekräftar omfattningen och de separata kostnaderna innan du bestämmer dig',
+      en: 'a fixed service fee quoted in writing — we confirm the scope and separate costs before you commit',
+      es: 'un honorario fijo cotizado por escrito — confirmamos el alcance y los gastos separados antes de que te comprometas',
+      pt: 'um honorário fixo cotado por escrito — confirmamos o escopo e os custos separados antes de você decidir',
+      sv: 'ett fast arvode som vi offererar skriftligt — vi bekräftar omfattningen och de separata kostnaderna innan du bestämmer dig',
     },
     verified: false,
     sources: [],
@@ -425,16 +425,16 @@ export const facts = {
     "key": "residency.timeline",
     "label": "Residency application — processing window",
     "display": {
-      "en": "a case-specific processing window confirmed on your call; document readiness and authority review affect the timing",
-      "es": "un plazo de tramitación para tu caso confirmado en la llamada; depende de los documentos y de la revisión de la autoridad",
-      "pt": "um prazo de tramitação para seu caso confirmado na consulta; depende dos documentos e da análise da autoridade",
-      "sv": "en handläggningstid för ditt ärende som bekräftas på samtalet; dokument och myndighetens prövning påverkar tiden"
+      "en": "a case-specific processing window confirmed in writing for your case; document readiness and authority review affect the timing",
+      "es": "un plazo de tramitación para tu caso confirmado por escrito; depende de los documentos y de la revisión de la autoridad",
+      "pt": "um prazo de tramitação para seu caso confirmado por escrito; depende dos documentos e da análise da autoridade",
+      "sv": "en handläggningstid för ditt ärende som bekräftas skriftligt; dokument och myndighetens prövning påverkar tiden"
     },
     "hedged": {
-      "en": "a case-specific processing window confirmed on your call; document readiness and authority review affect the timing",
-      "es": "un plazo de tramitación para tu caso confirmado en la llamada; depende de los documentos y de la revisión de la autoridad",
-      "pt": "um prazo de tramitação para seu caso confirmado na consulta; depende dos documentos e da análise da autoridade",
-      "sv": "en handläggningstid för ditt ärende som bekräftas på samtalet; dokument och myndighetens prövning påverkar tiden"
+      "en": "a case-specific processing window confirmed in writing for your case; document readiness and authority review affect the timing",
+      "es": "un plazo de tramitación para tu caso confirmado por escrito; depende de los documentos y de la revisión de la autoridad",
+      "pt": "um prazo de tramitação para seu caso confirmado por escrito; depende dos documentos e da análise da autoridade",
+      "sv": "en handläggningstid för ditt ärende som bekräftas skriftligt; dokument och myndighetens prövning påverkar tiden"
     },
     "verified": false,
     "sources": [],

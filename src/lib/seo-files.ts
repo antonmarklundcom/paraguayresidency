@@ -54,7 +54,6 @@ const staticPaths: Record<SiteKey, string[]> = {
     '/',
     '/route-finder',
     '/contact',
-    '/book',
     '/privacy',
     '/terms',
     '/residency/temporary-residency',

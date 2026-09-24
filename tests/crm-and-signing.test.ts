@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
-import { buildCrmPayload, crmConfigured } from '@/lib/vendercrm';
-import { idempotencyKey, pack, randomToken, sign, unpack, verify } from '@/lib/signing';
+import { afterEach, vi } from 'vitest';
+import { buildCrmPayload, crmApiKey, crmConfigured } from '@/lib/vendercrm';
+import { idempotencyKey, leadIdempotencyKey, pack, randomToken, sign, unpack, verify } from '@/lib/signing';
 import { leadNotification, purchaseEmail, subscribeConfirmEmail } from '@/lib/email-templates';
 
 const SECRET = 'a-test-secret-that-is-long-enough-32ch';
@@ -18,6 +19,18 @@ describe('buildCrmPayload', () => {
     expect(at('2026-09-07T12:00:00Z')).toBe(at('2026-09-07T12:59:59Z'));
     expect(at('2026-09-07T12:00:00Z')).not.toBe(at('2026-09-07T13:00:00Z'));
     expect(at('2026-09-07T12:00:00Z')).not.toBe(idempotencyKey('0981 999 999', new Date()));
+  });
+
+  it('uses the lead row key when given: stable across retries, unique per submission', () => {
+    const key = leadIdempotencyKey('residenciaes', 12);
+    const first = buildCrmPayload({ ...lead, idempotencyKey: key }, new Date('2026-09-07T12:00:00Z'));
+    const retry = buildCrmPayload({ ...lead, idempotencyKey: key }, new Date('2026-09-08T09:00:00Z'));
+    expect(first.idempotency_key).toBe(key);
+    expect(retry.idempotency_key).toBe(key);
+    expect('idempotencyKey' in first).toBe(false);
+    expect(leadIdempotencyKey('residenciaes', 13)).not.toBe(key);
+    expect(leadIdempotencyKey('flytta', 12)).not.toBe(key);
+    expect(key).toHaveLength(64);
   });
 
   it('omits empty fields rather than sending them — an empty email is a 422', () => {
@@ -142,5 +155,27 @@ describe('email templates', () => {
       unsubscribeUrl: 'https://paraguayresidencyguide.com/unsubscribe?u=t',
     });
     expect(body.html).toContain('https://paraguayresidency.co.uk/book');
+  });
+});
+
+describe('VenderCRM key per brand', () => {
+  afterEach(() => vi.unstubAllEnvs());
+
+  it('prefers VENDERCRM_API_KEY_<SITE> and falls back to the shared key', () => {
+    vi.stubEnv('VENDERCRM_API_URL', 'https://crm.example.com');
+    vi.stubEnv('VENDERCRM_API_KEY', 'shared');
+    vi.stubEnv('VENDERCRM_API_KEY_RESIDENCIAES', 'es-only');
+    expect(crmApiKey('residenciaes')).toBe('es-only');
+    expect(crmApiKey('flytta')).toBe('shared');
+    expect(crmApiKey()).toBe('shared');
+    expect(crmConfigured('flytta')).toBe(true);
+  });
+
+  it('is configured for a brand with only its own key', () => {
+    vi.stubEnv('VENDERCRM_API_URL', 'https://crm.example.com');
+    vi.stubEnv('VENDERCRM_API_KEY', '');
+    vi.stubEnv('VENDERCRM_API_KEY_FLYTTA', 'sv-only');
+    expect(crmConfigured('flytta')).toBe(true);
+    expect(crmConfigured('guide')).toBe(false);
   });
 });

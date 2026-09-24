@@ -1,11 +1,13 @@
 import Link from 'next/link';
+import { permanentRedirect } from 'next/navigation';
 import type { Metadata } from 'next';
-import { Container, Heading, Section } from '@/components';
+import { Container, Heading, Section, WhatsAppButton } from '@/components';
 import { LeadForm } from '@/components/LeadForm';
 import { MagicLinkForm } from '@/components/MagicLinkForm';
 import { NewsletterForm } from '@/components/NewsletterForm';
 import { t } from '@/i18n';
 import { siteMetadata } from '@/lib/metadata';
+import { whatsappHref } from '@/lib/whatsapp';
 import { confirmSubscription, unsubscribe } from '@/lib/subscribers';
 import { requireTier } from '@/lib/entitlements';
 import { getSite, type SiteKey } from '@/sites/registry';
@@ -36,17 +38,38 @@ export function contactMetadata(site: SiteKey): Metadata {
   });
 }
 
-export function ContactPage({ site }: { site: SiteKey }) {
+/**
+ * One contact page for every brand. No booked calls (Anton, 2026-09-24): the
+ * visitor writes on WhatsApp, or sends the form; the short leave-your-number
+ * form sits behind a disclosure (F-014) for people who want us to write first.
+ * Every form lead reaches VenderCRM, keyed on the phone.
+ */
+export function ContactPage({ site, whatsappMessage }: { site: SiteKey; whatsappMessage?: string }) {
   // The Investor Pass brand qualifies people by capital and route, so it gets
-  // the richer inquiry form; the other two ask the shortest set that works.
+  // the richer inquiry form; the others ask the shortest set that works.
   const variant = site === 'investorpass' ? 'investor_inquiry' : 'contact';
+  const message = whatsappMessage ?? t(site, 'whatsapp.prefill');
+  const whatsapp = whatsappHref(message);
   return (
     <Section>
       <Container width="narrow">
         <Heading level={1}>{t(site, 'contact.h1')}</Heading>
         <p className="mt-[var(--space-4)] text-[var(--fg-muted)]">{t(site, 'contact.sub')}</p>
-        <div className="mt-[var(--space-10)]">
-          <LeadForm site={site} variant={variant} pagePath="/contact" />
+        <div className="mt-[var(--space-8)] flex flex-wrap items-center gap-x-4 gap-y-3">
+          <WhatsAppButton site={site} message={message} />
+          <span className="text-(length:--text-sm) text-[var(--fg-muted)]">{t(site, 'contact.orForm')}</span>
+        </div>
+        <div className="mt-[var(--space-8)] rounded-[var(--radius-lg)] border border-[var(--border)] bg-[var(--surface)] p-6 shadow-[var(--shadow-sm)] sm:p-8">
+          <Heading level={2} className="!text-(length:--text-xl)">{t(site, 'process.fullForm')}</Heading>
+          <div className="mt-[var(--space-4)]">
+            <LeadForm site={site} variant={variant} pagePath="/contact" />
+          </div>
+          <details className="mt-[var(--space-8)] border-t border-[var(--border)] pt-[var(--space-4)]">
+            <summary className="flex min-h-[44px] cursor-pointer items-center text-[var(--accent)] underline underline-offset-2">{t(site, 'form.whatsappAlternative')}</summary>
+            {whatsapp && <a href={whatsapp} rel="noopener" className="inline-flex min-h-[44px] items-center text-[var(--accent)] underline underline-offset-2">{t(site, 'form.whatsapp')}</a>}
+            <p className="my-[var(--space-4)] text-[var(--fg-muted)]">{t(site, 'process.whatsappIntro')}</p>
+            <LeadForm site={site} variant="whatsapp" pagePath="/contact" />
+          </details>
         </div>
       </Container>
     </Section>
@@ -55,47 +78,22 @@ export function ContactPage({ site }: { site: SiteKey }) {
 
 /* ------------------------------------------------------------------ booking */
 
-/** Approved extra (plan §3b): Cal.com/Calendly embed when set, form otherwise. */
-export function bookingUrl(): string | null {
-  const url = (process.env.NEXT_PUBLIC_BOOKING_URL ?? '').trim();
-  return url.startsWith('https://') ? url : null;
-}
-
 export function bookMetadata(site: SiteKey): Metadata {
   return siteMetadata(site, {
     title: t(site, 'book.metaTitle'),
     description: t(site, 'book.metaDescription'),
     path: '/book',
+    noindex: true,
   });
 }
 
-export function BookPage({ site }: { site: SiteKey }) {
-  const url = bookingUrl();
-  return (
-    <Section>
-      <Container width="narrow">
-        <Heading level={1}>{t(site, 'book.h1')}</Heading>
-        <p className="mt-[var(--space-4)] text-[var(--fg-muted)]">{t(site, 'book.sub')}</p>
-        <div className="mt-[var(--space-10)]">
-          {url ? (
-            <iframe
-              src={url}
-              title={t(site, 'book.h1')}
-              className="h-[46rem] w-full rounded-[var(--radius-brand)] border border-[var(--border)]"
-              loading="lazy"
-            />
-          ) : (
-            <>
-              <p className="mb-[var(--space-6)] text-(length:--text-sm) text-[var(--fg-muted)]">
-                {t(site, 'book.fallback')}
-              </p>
-              <LeadForm site={site} variant="consultation" pagePath="/book" />
-            </>
-          )}
-        </div>
-      </Container>
-    </Section>
-  );
+/**
+ * No booked calls (Anton, 2026-09-24): people write on WhatsApp or send the
+ * form and get a written answer. `/book` stays as a permanent redirect so old
+ * links and bookmarks land on the contact page instead of a 404.
+ */
+export function BookPage(): never {
+  permanentRedirect('/contact');
 }
 
 /* ------------------------------------------------------- newsletter confirm */

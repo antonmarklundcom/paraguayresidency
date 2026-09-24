@@ -47,13 +47,15 @@ it('all success views replace their form rather than duplicate it', () => {
 });
 
 for (const variant of ['consultation', 'investor_inquiry', 'contact', 'quiz'] as const) {
-  it(variant + ' renders one optional phone identity and the next step', () => {
+  // Required since 2026-09-24: VenderCRM keys the contact on the phone, and
+  // leads arrive by WhatsApp or the form only (no booked calls).
+  it(variant + ' renders one required phone identity and the next step', () => {
     const html = renderToStaticMarkup(createElement(LeadFormFields, { ...common, variant }));
     const phones = html.match(/<input[^>]*name="phone"[^>]*>/g)!;
     expect(phones).toHaveLength(1);
     expect(phones[0]).toContain('type="tel"');
     expect(phones[0]).toContain('autoComplete="tel"');
-    expect(phones[0]).not.toContain('required');
+    expect(phones[0]).toContain('required=""');
     expect(html).toContain(labels.phoneOrWhatsapp);
     expect(html).not.toMatch(/<(?:input|select)[^>]*name="(?:whatsapp|country)"/);
     expect(html.includes('name="nationality"')).toBe(variant !== 'contact');

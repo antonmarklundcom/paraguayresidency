@@ -59,7 +59,7 @@ export default function Page() {
       <p>
         Crianças pequenas, adolescentes e dependentes adultos têm exigências diferentes — desde
         autorização de viagem de menores até comprovação de dependência econômica para adultos.
-        Levantamos isso caso a caso na consulta, em vez de aplicar uma régua única para todo mundo.
+        Levantamos isso caso a caso no seu primeiro contato, em vez de aplicar uma régua única para todo mundo.
       </p>
       <h2>O que está incluído</h2>
       <ul>

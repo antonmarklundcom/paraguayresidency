@@ -88,3 +88,9 @@ body {
   from { opacity: 0; transform: translateY(18px); }
   to { opacity: 1; transform: none; }
 }
+
+/* On mobile the sticky form bar (StickyCta) carries its own WhatsApp button;
+   the floating one would sit on top of it. */
+@media (max-width: 767px) {
+  body:has([data-sticky-cta]) [data-wa-fab] { display: none; }
+}

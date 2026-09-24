@@ -35,7 +35,7 @@ export default function Page() {
         {
           question: 'What income is actually taxed here?',
           answer:
-            'The territorial system taxes what is sourced in Paraguay, not your worldwide income. We explain what that means for your specific income streams on the call rather than in generic terms here.',
+            'The territorial system taxes what is sourced in Paraguay, not your worldwide income. We explain what that means for your specific income streams in writing for your case rather than in generic terms here.',
         },
       ]}
       serviceName="Paraguay Tax Residency & RUC Setup"

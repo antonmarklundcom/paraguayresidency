@@ -33,12 +33,12 @@ export default function Page() {
         {
           question: '¿Qué pasa si no visito Paraguay con suficiente frecuencia?',
           answer:
-            'La tarjeta permanente lleva una regla de presencia mínima. Qué significa exactamente para tu forma concreta de viajar merece una llamada antes de presentar el expediente, no después — preferimos decírtelo ahora que dejarte descubrirlo por las malas.',
+            'La tarjeta permanente lleva una regla de presencia mínima. Qué significa exactamente para tu forma concreta de viajar merece una respuesta por escrito antes de presentar el expediente, no después — preferimos decírtelo ahora que dejarte descubrirlo por las malas.',
         },
         {
           question: '¿La residencia permanente caduca?',
           answer:
-            'Tiene un plazo de validez largo. Te confirmamos la cifra exacta y cómo funciona la renovación en tu llamada, en vez de dar aquí un número que no podamos respaldar.',
+            'Tiene un plazo de validez largo. Te confirmamos la cifra exacta y cómo funciona la renovación por escrito para tu caso, en vez de dar aquí un número que no podamos respaldar.',
         },
       ]}
       serviceName="Trámite de residencia permanente en Paraguay"
@@ -59,7 +59,7 @@ export default function Page() {
         <Fact k="permanent.presence_rule" site="residenciaes" />. Es la cifra que más se cita mal
         en este sector, y preferimos que la escuches de nosotros antes de presentar el expediente
         a que asumas algo leído en un foro. Lo que significa en la práctica depende de cómo
-        planeas repartir tu tiempo — lo revisamos según tu patrón concreto en la llamada.
+        planeas repartir tu tiempo — te lo confirmamos por escrito según tu patrón concreto en cuanto nos escribas.
       </p>
       <h2>Qué tramitamos por ti</h2>
       <ul>
