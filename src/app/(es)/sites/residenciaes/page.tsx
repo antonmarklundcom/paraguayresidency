@@ -1,6 +1,5 @@
 import { getPages } from '@/content';
 import { contentHref } from '@/lib/site-pages';
-import { t } from '@/i18n';
 import type { Metadata } from 'next';
 import {
   ArticleCards,
@@ -12,6 +11,7 @@ import {
   IntentTiles,
   LeadPanel,
   PhotoHero,
+  heroTrust,
   Reasons,
   Section,
   Steps,
@@ -81,7 +81,7 @@ export default function Page() {
         title="Residencia en Paraguay, sin vueltas."
         sub="Residencia temporal, permanente y cédula, tramitadas por un equipo que lo hace cada semana en Asunción. Tú vienes a las citas. Nosotros hacemos el resto."
         actions={actions}
-        proof={[t(SITE, 'proof.fixedFee'), t(SITE, 'proof.asuncion'), t(SITE, 'proof.reply')]}
+        trust={heroTrust(SITE)}
       />
 
       <IntentTiles

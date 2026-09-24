@@ -8,6 +8,7 @@ import {
   IntentTiles,
   LeadPanel,
   PhotoHero,
+  heroTrust,
   Reasons,
   Steps,
   TeamStrip,
@@ -16,7 +17,6 @@ import {
   Heading,
   Section,
 } from '@/components';
-import { t } from '@/i18n';
 import { siteMetadata } from '@/lib/metadata';
 
 export function generateMetadata(): Metadata {
@@ -77,7 +77,7 @@ export default function Page() {
         title="Paraguay residency, handled end to end."
         sub="Temporary residency, permanent residency and your cédula, prepared by people who do this every week in Asunción. You show up for the appointments. We do the rest."
         actions={actions}
-        proof={[t('residency', 'proof.fixedFee'), t('residency', 'proof.asuncion'), t('residency', 'proof.reply')]}
+        trust={heroTrust('residency')}
       />
 
       <IntentTiles title="Where are you starting?" intro="Pick the closest match. Not sure? The Route Finder tells you in two minutes." tiles={[

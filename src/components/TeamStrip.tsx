@@ -1,7 +1,7 @@
 import { t } from '@/i18n';
 import type { SiteKey } from '@/sites/registry';
 
-const TEAM = ['Anton Marklund', 'Yanina Alvarez', 'Diana Davalos'];
+export const TEAM = ['Anton Marklund', 'Yanina Alvarez', 'Diana Davalos'];
 
 export function TeamStrip({ site }: { site: SiteKey }) {
   return (
@@ -15,7 +15,7 @@ export function TeamStrip({ site }: { site: SiteKey }) {
         <ul className="flex gap-5 sm:gap-10">
           {TEAM.map(name => (
             <li key={name} className="min-w-0 flex-1 text-center">
-              <span aria-hidden="true" className="mx-auto mb-3 flex size-16 items-center justify-center rounded-full bg-[var(--accent)] font-[family-name:var(--display-font)] text-xl text-[var(--accent-fg)] ring-4 ring-[var(--surface)] sm:size-20 sm:text-2xl">{name.split(' ').map(part => part[0]).join('')}</span>
+              <span aria-hidden="true" className="mx-auto mb-3 flex size-16 items-center justify-center rounded-full border border-[var(--border)] bg-[var(--surface)] font-[family-name:var(--display-font)] text-xl text-[var(--fg)] shadow-[var(--shadow-sm)] sm:size-20 sm:text-2xl">{name.split(' ').map(part => part[0]).join('')}</span>
               <p className="text-sm font-medium">{name}</p>
             </li>
           ))}

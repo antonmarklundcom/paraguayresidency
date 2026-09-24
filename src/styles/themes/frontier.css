@@ -11,9 +11,9 @@
   --accent-fg: #ffffff;
   --accent-soft: #f3e2d6;
   --display-font: var(--font-inter-tight);
-  --display-weight: 650;
+  --display-weight: 600;
   --display-tracking: -0.025em;
-  --body-font: var(--font-inter);
+  --body-font: var(--font-system);
   --radius-brand: var(--radius-sm);
   --hero-pattern: linear-gradient(180deg, #f8f5f2 0%, #eee6df 100%);
 }

@@ -6,15 +6,7 @@
 @import 'tailwindcss' source(none);
 @source '..';
 @source '../../content';
-/* Self-hosted variable fonts (no build-time network). Every face is declared
-   for every brand, but a browser only downloads the ones its theme uses. */
-@import '@fontsource-variable/inter/wght.css';
-@import '@fontsource-variable/inter-tight/wght.css';
-@import '@fontsource-variable/newsreader/wght.css';
-@import '@fontsource-variable/fraunces/wght.css';
-@import '@fontsource-variable/bricolage-grotesque/wght.css';
-@import '@fontsource/instrument-serif/latin.css';
-@import '@fontsource/instrument-serif/latin-ext.css';
+@import '../styles/fonts.css';
 @import '../styles/tokens.css';
 @import '../styles/themes/residency.css';
 @import '../styles/themes/investorpass.css';
@@ -51,6 +43,9 @@ body {
 }
 
 [data-site] {
+  /* Re-declared here: --body-font is set per theme on this element, so the
+     value computed on <body> would only ever be the :root default. */
+  font-family: var(--body-font);
   background: var(--bg);
   color: var(--fg);
   min-height: 100dvh;
@@ -69,10 +64,12 @@ body {
  * itself still wins.
  */
 @layer base {
-  [class*='family-name:var(--display-font)'] {
+  /* Whole-token match: `[&_h2]:font-[…]` on a prose wrapper must not match. */
+  [class~='font-[family-name:var(--display-font)]'] {
     font-weight: var(--display-weight);
     letter-spacing: var(--display-tracking);
-    font-optical-sizing: auto;
+    /* One static weight per face: render it, never a synthesised faux bold. */
+    font-synthesis-weight: none;
   }
 
   body {
@@ -80,4 +77,14 @@ body {
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
   }
+}
+
+@keyframes hero-zoom {
+  from { transform: scale(1.07); }
+  to { transform: scale(1); }
+}
+
+@keyframes hero-rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: none; }
 }

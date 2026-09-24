@@ -13,6 +13,7 @@ import {
   Disclosure,
   Section,
   PhotoHero,
+  heroTrust,
   IntentTiles,
   TeamStrip,
 } from '@/components';
@@ -94,7 +95,7 @@ export default function Page() {
         title="A second residency you can actually get."
         sub="Permanent residency without a million-dollar investment. We handle the paperwork in Asunción."
         actions={actions}
-        proof={[t('frontier', 'proof.fixedFee'), t('frontier', 'proof.asuncion'), t('frontier', 'proof.reply')]}
+        trust={heroTrust('frontier')}
       />
       <IntentTiles title="Start with your question" tiles={[
         { label: 'Why a plan B', href: '/why-paraguay', image: 'frontier-tile-open-door-patio' },

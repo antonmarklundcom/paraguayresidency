@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import {
   Button,
   PhotoHero,
+  heroTrust,
   IntentTiles,
   TeamStrip,
   Fact,
@@ -16,7 +17,6 @@ import {
 import { siteMetadata, serviceOfferJsonLd } from '@/lib/metadata';
 import { whatsappHref } from '@/lib/whatsapp';
 import { siteOrigin } from '@/sites/registry';
-import { t } from '@/i18n';
 
 const PATH = '/';
 
@@ -88,7 +88,7 @@ export default function Page() {
         title="Permanent residency in Paraguay, in one step."
         sub="Qualifying investors skip temporary residency. We structure, file and stay until your card arrives."
         actions={<><Button href="#inquiry">See if you qualify</Button><Button href="/contact" variant="secondary">Book a call</Button></>}
-        proof={[t('investorpass', 'proof.fixedFee'), t('investorpass', 'proof.asuncion'), t('investorpass', 'proof.reply')]}
+        trust={heroTrust('investorpass')}
       />
       <IntentTiles title="Four ways to qualify" tiles={[
         { label: 'Invest in real estate', href: '/investor-pass/investment-routes#real_estate', image: 'investorpass-tile-real-estate' },

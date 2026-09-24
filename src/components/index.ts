@@ -15,7 +15,7 @@ export { NewsletterForm } from './NewsletterForm';
 export { CheckoutButton } from './CheckoutButton';
 export { MagicLinkForm } from './MagicLinkForm';
 export { StickyCta } from './StickyCta';
-export { PhotoHero } from './PhotoHero';
+export { PhotoHero, heroTrust, type HeroTrust } from './PhotoHero';
 export { IntentTiles } from './IntentTiles';
 export { TeamStrip } from './TeamStrip';
 export { Disclosure } from './Disclosure';

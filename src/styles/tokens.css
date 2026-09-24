@@ -44,16 +44,15 @@
   --container: 76rem;
   --container-narrow: 46rem;
 
-  /* Font stacks. The brand faces are self-hosted from @fontsource packages
-     (imported in globals.css); each theme picks one display and one body face. */
+  /* Font stacks. Brand faces are declared in fonts.css; each theme picks one
+     display and one body face. */
   --font-system: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
   --font-serif: ui-serif, Georgia, 'Times New Roman', serif;
-  --font-inter: 'Inter Variable', var(--font-system);
-  --font-inter-tight: 'Inter Tight Variable', var(--font-system);
-  --font-bricolage: 'Bricolage Grotesque Variable', var(--font-system);
-  --font-newsreader: 'Newsreader Variable', var(--font-serif);
-  --font-fraunces: 'Fraunces Variable', var(--font-serif);
-  --font-instrument: 'Instrument Serif', var(--font-serif);
+  --font-inter-tight: 'Inter Tight', 'Inter Tight Fallback', var(--font-system);
+  --font-bricolage: 'Bricolage Grotesque', 'Bricolage Grotesque Fallback', var(--font-system);
+  --font-newsreader: 'Newsreader', 'Newsreader Fallback', var(--font-serif);
+  --font-fraunces: 'Fraunces', 'Fraunces Fallback', var(--font-serif);
+  --font-instrument: 'Instrument Serif', 'Instrument Serif Fallback', var(--font-serif);
   --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
 
   /* Neutral defaults so anything rendered outside a themed wrapper still

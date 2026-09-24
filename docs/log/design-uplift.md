@@ -2,11 +2,22 @@
 
 "The design looks a bit semi done." What changed:
 
-- **Typography**: self-hosted variable fonts from `@fontsource*` packages (no
-  build-time network). Per brand: residency Newsreader, investorpass Instrument
-  Serif, guide and residenciaes Fraunces, frontier and flytta Inter Tight,
-  residenciapt Bricolage Grotesque; Inter body everywhere. Weight and tracking
-  are theme tokens (`--display-weight`, `--display-tracking`).
+- **Typography**: one self-hosted display face per brand, a single static
+  weight, Latin subset, about 20 KB (`public/fonts`, `src/styles/fonts.css`):
+  residency Newsreader 500, investorpass Instrument Serif 400, guide and
+  residenciaes Fraunces 500, frontier and flytta Inter Tight 600, residenciapt
+  Bricolage Grotesque 600. Body text is the system stack. Each brand layout
+  preloads only its own file (`src/lib/fonts.ts`; not from SiteShell, because
+  the root not-found renders a hub shell inside every page). Measured with the
+  Lighthouse gate: variable files plus an Inter body font dropped mobile
+  performance below 0.90, because every font byte fetched before the hero
+  photo paints counts against LCP. `next/font` was tried and rejected: its
+  preloads are app-wide, so every brand fetched all six files.
+- **Hero v2**: taller, larger type, an entrance animation (motion-safe), and a
+  glass trust card with the team initials and three reassurance lines
+  (`heroTrust(site)`).
+- **Tiles v2**: an editorial bento on desktop (a feature tile two rows tall),
+  numbered, with a round arrow button; still a swipe row on mobile.
 - **Header**: sticky, translucent, one CTA button per brand (`SiteConfig.cta`
   in the registry, label `home.ctaPrimary`).
 - **Arrival homepages for es / pt / sv** (they were still text-in-boxes), plus
@@ -16,8 +27,10 @@
   the disclosure). Every fact key the old pages rendered is still rendered.
 - **Localised alt text**: `alt_es`, `alt_pt`, `alt_sv` in
   `docs/imagery-manifest.json`; `arrivalImage(id, locale)` throws on a missing one.
-- **residenciaes palette**: red accent (read as an error state, pink tints) moved
-  to wine `#8a1e32`.
+- **No pink anywhere**: the residenciaes accent moved from red to Mediterranean
+  teal `#0e5563`. Team avatars and the "why Paraguay" cards no longer use tinted
+  circles. The base rule applying display weight and tracking now matches
+  the class token exactly, where before it also hit prose wrappers.
 - **flytta**: the broken `StatRow` on the homepage is gone.
 
 Open: see KNOWN-ISSUES "hero photos are shared across brands".

@@ -12,7 +12,7 @@
   --display-font: var(--font-inter-tight);
   --display-weight: 600;
   --display-tracking: -0.025em;
-  --body-font: var(--font-inter);
+  --body-font: var(--font-system);
   --radius-brand: var(--radius);
   --hero-pattern: linear-gradient(180deg, #f7f8fa 0%, #e8ecf2 100%);
 }

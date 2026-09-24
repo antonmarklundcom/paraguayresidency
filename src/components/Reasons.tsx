@@ -13,9 +13,12 @@ export function Reasons({ title, intro, reasons, footer }: { title: string; intr
         <h2 className="max-w-xl font-[family-name:var(--display-font)] text-(length:--text-2xl) leading-[var(--leading-tight)] text-balance sm:text-(length:--text-3xl)">{title}</h2>
         {intro && <p className="mt-4 max-w-xl text-[var(--fg-muted)]">{intro}</p>}
         <ul className={`mt-10 grid gap-4 sm:grid-cols-2 ${reasons.length === 4 ? 'lg:grid-cols-4' : 'lg:grid-cols-3'}`}>
-          {reasons.map((reason) => (
-            <li key={reason.title} className="flex flex-col rounded-[var(--radius-brand)] border border-[var(--border)] bg-[var(--surface)] p-6 shadow-[var(--shadow-sm)]">
-              <span aria-hidden="true" className="mb-5 flex size-10 items-center justify-center rounded-full bg-[var(--accent-soft)] text-[var(--accent)]">✦</span>
+          {reasons.map((reason, index) => (
+            <li key={reason.title} className="flex flex-col rounded-[var(--radius-brand)] border border-[var(--border)] bg-[var(--surface)] p-7 shadow-[var(--shadow-sm)] transition-shadow duration-300 hover:shadow-[var(--shadow)]">
+              <span aria-hidden="true" className="mb-8 flex items-center gap-3 text-xs font-medium tracking-[.2em] text-[var(--fg-muted)]">
+                {String(index + 1).padStart(2, '0')}
+                <span className="h-px flex-1 bg-[var(--border)]" />
+              </span>
               <h3 className="font-[family-name:var(--display-font)] text-(length:--text-xl) leading-[var(--leading-tight)]">{reason.title}</h3>
               <div className="mt-3 text-(length:--text-sm) leading-relaxed text-[var(--fg-muted)]">{reason.body}</div>
             </li>

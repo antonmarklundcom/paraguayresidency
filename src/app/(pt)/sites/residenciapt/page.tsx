@@ -11,6 +11,7 @@ import {
   IntentTiles,
   LeadPanel,
   PhotoHero,
+  heroTrust,
   Reasons,
   Section,
   Steps,
@@ -80,7 +81,7 @@ export default function Page() {
         title={t(SITE, 'home.h1')}
         sub={t(SITE, 'home.sub')}
         actions={actions}
-        proof={[t(SITE, 'proof.fixedFee'), t(SITE, 'proof.asuncion'), t(SITE, 'proof.reply')]}
+        trust={heroTrust(SITE)}
       />
 
       <IntentTiles
