@@ -38,10 +38,10 @@ for (const route of routes) {
       expect(factText(key, locale)).toBe(fact.hedged[locale]);
       expect(fact.display[locale] + fact.hedged[locale]).not.toMatch(/[\d$€£?]/);
     }
-    expect(fact.hedged.en).toContain('quoted on your call');
-    expect(fact.hedged.es).toContain('tu llamada');
-    expect(fact.hedged.pt).toContain('sua consulta');
-    expect(fact.hedged.sv).toContain('ditt samtal');
+    expect(fact.hedged.en).toContain('quoted in writing');
+    expect(fact.hedged.es).toContain('por escrito');
+    expect(fact.hedged.pt).toContain('por escrito');
+    expect(fact.hedged.sv).toContain('skriftligt');
   });
 }
 
