@@ -1,18 +1,23 @@
-import { LeadForm } from '@/components/LeadForm';
+import { getPages } from '@/content';
+import { contentHref } from '@/lib/site-pages';
 import type { Metadata } from 'next';
 import {
-  Bento,
+  ArticleCards,
   Button,
-  Card,
-  Container,
+  Disclosure,
   Fact,
   FAQ,
   Heading,
+  IntentTiles,
+  LeadPanel,
+  PhotoHero,
+  heroTrust,
+  Reasons,
   Section,
-  SplitHero,
+  Steps,
+  TeamStrip,
 } from '@/components';
 import { siteMetadata } from '@/lib/metadata';
-import { whatsappHref } from '@/lib/whatsapp';
 import { t } from '@/i18n';
 
 const SITE = 'residenciapt' as const;
@@ -24,27 +29,6 @@ export function generateMetadata(): Metadata {
     path: '/',
   });
 }
-
-const ROUTES = [
-  {
-    eyebrow: 'Residência temporária',
-    title: 'O primeiro passo padrão',
-    body: 'Prazo fixo, depois a permanente.',
-    href: '/residencia/temporaria',
-  },
-  {
-    eyebrow: 'Residência permanente',
-    title: 'O cartão que fica',
-    body: 'Regra de presença — a gente explica.',
-    href: '/residencia/permanente',
-  },
-  {
-    eyebrow: 'Rota Mercosul',
-    title: 'Vantagem para brasileiros',
-    body: 'O que simplifica de verdade, sem exagero.',
-    href: '/mercosul',
-  },
-];
 
 const FAQ_ITEMS = [
   {
@@ -69,13 +53,19 @@ const FAQ_ITEMS = [
   },
 ];
 
-export default function Page() {
-  const whatsapp = whatsappHref('Olá — tenho uma dúvida sobre residência no Paraguai.');
+const STEPS = [
+  { title: 'Uma conversa', body: 'Confirmamos sua rota e seu honorário fixo antes de você decidir qualquer coisa.' },
+  { title: 'Seus documentos', body: 'Checklist pela sua nacionalidade, com a legalização na ordem certa.' },
+  { title: 'Assunção', body: 'Protocolamos o processo e acompanhamos você nas consultas. Você vem; nós fazemos o resto.' },
+  { title: 'Sua cédula', body: 'Com a residência aprovada, cuidamos da cédula paraguaia e dizemos o que vem depois.' },
+];
 
+export default function Page() {
+  const latest = getPages(SITE).slice(0, 3);
   const actions = (
     <>
       <Button href="/route-finder">{t(SITE, 'home.ctaPrimary')}</Button>
-      <Button href="/contact" variant="secondary">
+      <Button href="#contact" variant="secondary">
         {t(SITE, 'home.ctaSecondary')}
       </Button>
     </>
@@ -83,50 +73,70 @@ export default function Page() {
 
   return (
     <>
-      <SplitHero
+      <PhotoHero
+        image="frontier-hero-red-earth-road"
+        locale="pt"
+        position="upper-left"
         eyebrow="Vida no Paraguai"
         title={t(SITE, 'home.h1')}
         sub={t(SITE, 'home.sub')}
         actions={actions}
-        aside={
-          <ul className="space-y-[var(--space-4)] text-[var(--fg-muted)]">
-            <li>Honorário fixo por rota, cotado em reais ou dólares antes de você decidir.</li>
-            <li>Checklist de documentos pela sua nacionalidade, não um PDF genérico.</li>
-            <li>
-              Dizemos quando a rota padrão não serve para você e mostramos o Mercosul ou o
-              Investor Pass em vez disso.
-            </li>
-          </ul>
-        }
+        trust={heroTrust(SITE)}
       />
 
-      <Section tone="accent">
-        <Container width="narrow">
-          <Heading level={2}>Por que o Paraguai</Heading>
-          <ul className="mt-[var(--space-6)] space-y-[var(--space-4)] text-[var(--fg-muted)]">
-            <li>
-              Prazo da residência temporária: <Fact k="temporary.duration" site={SITE} />.
-            </li>
-            <li>
-              A residência permanente tem uma exigência de presença: <Fact k="permanent.presence_rule" site={SITE} />.
-            </li>
-            <li>
-              Sobre a tributação da renda do exterior:{' '}
-              <Fact k="tax.foreign_income_treatment" site={SITE} />, mas o que muda na sua
-              declaração no Brasil é pergunta para o seu contador.
-            </li>
-            <li>
-              Sobre custo de vida: <Fact k="costofliving.overview" site={SITE} />. Veja o detalhe
-              em <a href="/custo-de-vida">custo de vida</a>.
-            </li>
-          </ul>
-        </Container>
-      </Section>
+      <IntentTiles
+        locale="pt"
+        title="Por onde você começa?"
+        intro="Escolha seu ponto de partida. Na dúvida, o teste de rota responde em dois minutos."
+        tiles={[
+          { label: 'Qual rota é a minha?', note: 'Seis perguntas, dois minutos', href: '/route-finder', image: 'guide-tile-route-fork' },
+          { label: 'Rota Mercosul', note: 'O que simplifica para brasileiros', href: '/mercosul', image: 'frontier-tile-three-roads' },
+          { label: 'Residência temporária', note: 'O primeiro passo padrão', href: '/residencia/temporaria', image: 'guide-tile-documents-desk' },
+          { label: 'Custo de vida', note: 'O que custa morar aqui', href: '/custo-de-vida', image: 'guide-tile-market-asuncion' },
+        ]}
+      />
 
-      <Section>
-        <Container width="narrow">
-          <Heading level={2}>Para quem é</Heading>
-          <p className="mt-[var(--space-4)] text-[var(--fg-muted)]">
+      <Reasons
+        title="Por que o Paraguai"
+        intro="Sem promessa vazia: o que a regra diz hoje, confirmado com você antes de protocolar qualquer coisa."
+        reasons={[
+          { title: 'Um primeiro passo claro', body: <>Prazo da residência temporária: <Fact k="temporary.duration" site={SITE} />.</> },
+          { title: 'O cartão que fica', body: <>A residência permanente tem uma exigência de presença: <Fact k="permanent.presence_rule" site={SITE} />.</> },
+          {
+            title: 'Tributação territorial',
+            body: (
+              <>
+                Sobre a renda do exterior: <Fact k="tax.foreign_income_treatment" site={SITE} />, mas o que
+                muda na sua declaração no Brasil é pergunta para o seu contador.
+              </>
+            ),
+          },
+          {
+            title: 'Custo de vida',
+            body: (
+              <>
+                <Fact k="costofliving.overview" site={SITE} />. Veja o detalhe em{' '}
+                <a href="/custo-de-vida" className="text-[var(--accent)] underline underline-offset-2">custo de vida</a>.
+              </>
+            ),
+          },
+        ]}
+      />
+
+      <Steps
+        tone="alt"
+        title="Como funciona"
+        intro="Quatro passos, na ordem em que acontecem de verdade."
+        steps={STEPS}
+        link={{ href: '/processo', label: 'O processo completo, passo a passo' }}
+      />
+
+      <TeamStrip site={SITE} />
+
+      <Section width="narrow">
+        <Heading level={2} className="mb-[var(--space-6)]">Os detalhes</Heading>
+        <Disclosure title="Para quem é">
+          <p>
             Brasileiro pensando em uma vida no Paraguai — custo de vida, negócio, terra, proximidade
             da fronteira ou um ritmo mais calmo. Quem já tem nacionalidade de um país do Mercosul e
             quer saber se isso simplifica o processo. E quem só quer entender, sem promessa vazia,
@@ -137,67 +147,46 @@ export default function Page() {
             </a>{' '}
             diz em dois minutos.
           </p>
-        </Container>
-      </Section>
-
-      <Section tone="alt">
-        <Container>
-          <Heading level={2}>Três rotas, um time</Heading>
-          <div className="mt-[var(--space-8)]">
-            <Bento>
-              {ROUTES.map((route) => (
-                <Card key={route.href} eyebrow={route.eyebrow} title={route.title} href={route.href}>
-                  {route.body}
-                </Card>
-              ))}
-            </Bento>
-          </div>
-        </Container>
-      </Section>
-
-      <Section>
-        <Container width="narrow">
-          <Heading level={2}>Como funciona</Heading>
-          <p className="mt-[var(--space-4)] text-[var(--fg-muted)]">
-            Uma conversa para confirmar sua rota e seu honorário, um checklist de documentos pela
-            sua nacionalidade, legalização na ordem certa, protocolo e consultas em Assunção, e
-            depois a cédula assim que a residência é aprovada. Veja{' '}
-            <a href="/processo" className="text-[var(--accent)] underline underline-offset-2">
-              o processo completo, passo a passo
+        </Disclosure>
+        <Disclosure title="Residência permanente e Investor Pass">
+          <p>
+            A{' '}
+            <a href="/residencia/permanente" className="text-[var(--accent)] underline underline-offset-2">
+              residência permanente
+            </a>{' '}
+            vem depois da temporária, com regra de presença — a gente explica. Quem investe capital
+            pode ir direto à permanente pelo{' '}
+            <a href="/investor-pass" className="text-[var(--accent)] underline underline-offset-2">
+              Investor Pass
             </a>
-            .
+            , com o mesmo time.
           </p>
-        </Container>
+        </Disclosure>
+        <Disclosure title="Perguntas frequentes">
+          <FAQ items={FAQ_ITEMS} />
+        </Disclosure>
       </Section>
 
       {/* Depoimentos ficam de fora até existirem depoimentos reais (plano §7, §6.1). */}
 
-      <Section tone="accent">
-        <Container width="narrow">
-          <FAQ title="Perguntas frequentes" items={FAQ_ITEMS} />
-        </Container>
-      </Section>
+      <ArticleCards
+        site={SITE}
+        title="Leia antes de decidir"
+        articles={latest.map((post) => ({
+          title: post.frontmatter.title,
+          description: post.frontmatter.description,
+          href: contentHref(SITE, post.slugPath),
+        }))}
+        more={{ href: '/guias', label: 'Todos os guias' }}
+      />
 
-      <Section tone="alt">
-        <Container className="text-center">
-          <Heading level={2}>Pronto para descobrir sua rota?</Heading>
-          <p className="mt-[var(--space-4)] text-[var(--fg-muted)]">
-            Dois minutos dizem qual rota serve. Ou vá direto para uma conversa.
-          </p>
-        <div className="mt-[var(--space-10)] grid gap-[var(--space-8)] text-left">
-            <div>
-              <Heading level={2}>{t('residenciapt', 'process.fullForm')}</Heading>
-              <div className="mt-[var(--space-4)]"><LeadForm site="residenciapt" variant="contact" pagePath="/" /></div>
-            </div>
-            <details>
-              <summary className="flex min-h-[44px] cursor-pointer items-center text-[var(--accent)] underline underline-offset-2">{t('residenciapt', 'form.whatsappAlternative')}</summary>
-              {whatsapp && <a href={whatsapp} rel="noopener" className="inline-flex min-h-[44px] items-center text-[var(--accent)] underline underline-offset-2">{t('residenciapt', 'form.whatsapp')}</a>}
-              <p className="my-[var(--space-4)] text-[var(--fg-muted)]">{t('residenciapt', 'process.whatsappIntro')}</p>
-              <LeadForm site="residenciapt" variant="whatsapp" pagePath="/" />
-            </details>
-          </div>
-        </Container>
-      </Section>
+      <LeadPanel
+        site={SITE}
+        variant="contact"
+        title="Pronto para descobrir sua rota?"
+        intro="Conte seu caso em duas linhas. Dizemos qual rota serve, quais documentos você precisa e quanto custa — ou que é melhor esperar, se for o caso."
+        whatsappMessage="Olá — tenho uma dúvida sobre residência no Paraguai."
+      />
     </>
   );
 }

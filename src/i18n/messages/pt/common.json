@@ -197,5 +197,17 @@
   "process.trustTitle": "Quem protocola seu processo",
   "process.trustBody": "Seu caso é atendido por Anton Marklund, Yanina Alvarez e Diana Davalos, a equipe que protocola processos de residência, cédula e questões fiscais em Assunção. Você comparece aos agendamentos; nós cuidamos dos trâmites.",
   "process.whatsappIntro": "Prefere WhatsApp? Deixe seu nome, número de WhatsApp e uma linha sobre seu caso. Não precisa de e-mail.",
-  "process.fullForm": "Conte seu caso"
+  "process.fullForm": "Conte seu caso",
+  "team.label": "Sua equipe",
+  "team.promise": "Lemos e respondemos cada mensagem nós mesmos.",
+  "team.place": "Assunção, Paraguai",
+  "proof.fixedFee": "Honorário fixo, cotado antes",
+  "proof.asuncion": "Equipe em Assunção",
+  "proof.reply": "Resposta em um dia útil",
+  "lead.eyebrow": "Comece aqui",
+  "lead.point.reply": "Uma pessoa de verdade responde, em um dia útil",
+  "lead.point.fee": "Sua rota e o honorário fixo, por escrito, antes de você decidir",
+  "lead.point.honest": "Uma resposta direta, mesmo quando é “ainda não”",
+  "lead.or": "ou",
+  "articles.read": "Ler o artigo"
 }

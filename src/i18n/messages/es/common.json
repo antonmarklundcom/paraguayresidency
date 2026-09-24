@@ -197,5 +197,17 @@
   "process.trustTitle": "Quién presenta tu expediente",
   "process.trustBody": "Tu caso lo llevan Anton Marklund, Yanina Alvarez y Diana Davalos, el equipo que tramita residencia, cédula y asuntos fiscales en Asunción. Tú asistes a las citas; nosotros nos encargamos de los trámites.",
   "process.whatsappIntro": "¿Prefieres WhatsApp? Deja tu nombre, número de WhatsApp y una línea sobre tu caso. No necesitas correo electrónico.",
-  "process.fullForm": "Cuéntanos tu caso"
+  "process.fullForm": "Cuéntanos tu caso",
+  "team.label": "Tu equipo",
+  "team.promise": "Leemos y respondemos cada mensaje nosotros mismos.",
+  "team.place": "Asunción, Paraguay",
+  "proof.fixedFee": "Honorario fijo, cotizado antes",
+  "proof.asuncion": "Equipo en Asunción",
+  "proof.reply": "Respuesta en un día hábil",
+  "lead.eyebrow": "Empieza aquí",
+  "lead.point.reply": "Te responde una persona con nombre, en un día hábil",
+  "lead.point.fee": "Tu ruta y tu honorario fijo, por escrito, antes de comprometerte",
+  "lead.point.honest": "Una respuesta clara, aunque sea “todavía no”",
+  "lead.or": "o",
+  "articles.read": "Leer el artículo"
 }

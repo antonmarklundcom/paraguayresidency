@@ -1,49 +1,34 @@
-import { LeadForm } from '@/components/LeadForm';
-import { whatsappHref } from '@/lib/whatsapp';
-import { t } from '@/i18n';
+import { getPages } from '@/content';
+import { contentHref } from '@/lib/site-pages';
 import type { Metadata } from 'next';
 import {
-  Bento,
+  ArticleCards,
   Button,
-  Card,
-  Container,
+  Disclosure,
   Fact,
   FAQ,
   Heading,
+  IntentTiles,
+  LeadPanel,
+  PhotoHero,
+  heroTrust,
+  Reasons,
   Section,
-  SplitHero,
+  Steps,
+  TeamStrip,
 } from '@/components';
 import { siteMetadata } from '@/lib/metadata';
 
+const SITE = 'residenciaes' as const;
+
 export function generateMetadata(): Metadata {
-  return siteMetadata('residenciaes', {
+  return siteMetadata(SITE, {
     title: 'Residencia en Paraguay para Españoles — Temporal, Permanente y Cédula',
     description:
       'Trámite de residencia en Paraguay llave en mano. Honorarios fijos en euros, documentos según tu nacionalidad, citas en Asunción. Descubre tu ruta en 2 minutos.',
     path: '/',
   });
 }
-
-const ROUTES = [
-  {
-    eyebrow: 'Residencia temporal',
-    title: 'El primer paso habitual',
-    body: 'El primer paso habitual, y después la permanente.',
-    href: '/residencia/temporal',
-  },
-  {
-    eyebrow: 'Residencia permanente',
-    title: 'Cédula de larga duración',
-    body: 'Con reglas de presencia — te las explicamos.',
-    href: '/residencia/permanente',
-  },
-  {
-    eyebrow: 'Pase de Inversor',
-    title: 'Directo a la permanente',
-    body: 'Con una inversión que califique. Marca aparte, mismo equipo.',
-    href: '/pase-inversor',
-  },
-];
 
 const FAQ_ITEMS = [
   {
@@ -68,12 +53,19 @@ const FAQ_ITEMS = [
   },
 ];
 
+const STEPS = [
+  { title: 'Una llamada', body: 'Confirmamos tu ruta y tu honorario fijo, en euros, antes de que te comprometas.' },
+  { title: 'Tus documentos', body: 'Una lista hecha para tu nacionalidad: apostillas y traducciones en el orden correcto.' },
+  { title: 'Asunción', body: 'Presentamos el expediente y te acompañamos a las citas. Tú vienes; nosotros hacemos el resto.' },
+  { title: 'Tu cédula', body: 'Aprobada la residencia, tramitamos tu cédula paraguaya y te decimos qué sigue.' },
+];
+
 export default function Page() {
-  const whatsapp = whatsappHref('Hola, me gustaría saber más sobre la residencia en Paraguay.');
+  const latest = getPages(SITE).slice(0, 3);
   const actions = (
     <>
       <Button href="/route-finder">Descubre tu ruta</Button>
-      <Button href="/contact" variant="secondary">
+      <Button href="#contact" variant="secondary">
         Habla con nosotros
       </Button>
     </>
@@ -81,49 +73,62 @@ export default function Page() {
 
   return (
     <>
-      <SplitHero
+      <PhotoHero
+        image="guide-hero-reading-terrace-asuncion"
+        locale="es"
+        focus="65% center"
         eyebrow="Residencia Paraguay"
         title="Residencia en Paraguay, sin vueltas."
         sub="Residencia temporal, permanente y cédula, tramitadas por un equipo que lo hace cada semana en Asunción. Tú vienes a las citas. Nosotros hacemos el resto."
         actions={actions}
-        aside={
-          <ul className="space-y-[var(--space-4)] text-[var(--fg-muted)]">
-            <li>Un honorario fijo por trámite, cotizado en euros antes de que te comprometas.</li>
-            <li>
-              Lista de documentos según tu nacionalidad: apostillas, traducciones y plazos reales,
-              no un PDF genérico.
-            </li>
-            <li>Si Paraguay no te conviene, fiscalmente o de otra forma, te lo decimos en la primera llamada.</li>
-          </ul>
-        }
+        trust={heroTrust(SITE)}
       />
 
-      <Section tone="accent">
-        <Container width="narrow">
-          <Heading level={2}>Por qué Paraguay</Heading>
-          <ul className="mt-[var(--space-6)] space-y-[var(--space-4)] text-[var(--fg-muted)]">
-            <li>
-              Duración de la residencia temporal: <Fact k="temporary.duration" site="residenciaes" />.
-            </li>
-            <li>
-              La permanente tiene una regla de presencia: <Fact k="permanent.presence_rule" site="residenciaes" />.
-            </li>
-            <li>
-              Para nacionales del Mercosur, la vía de residencia es la siguiente:{' '}
-              <Fact k="mercosur.residency_route" site="residenciaes" /> —{' '}
-              <a href="/mercosur" className="text-[var(--accent)] underline underline-offset-2">
-                mira si te aplica
-              </a>
-              .
-            </li>
-          </ul>
-        </Container>
-      </Section>
+      <IntentTiles
+        locale="es"
+        title="¿Por dónde empiezas?"
+        intro="Elige tu punto de partida. Si no lo tienes claro, el test de ruta te lo dice en dos minutos."
+        tiles={[
+          { label: '¿Qué ruta me conviene?', note: 'Seis preguntas, dos minutos', href: '/route-finder', image: 'guide-tile-route-fork' },
+          { label: 'Residencia temporal', note: 'El primer paso habitual', href: '/residencia/temporal', image: 'guide-tile-documents-desk' },
+          { label: 'Residencia permanente', note: 'Con reglas de presencia claras', href: '/residencia/permanente', image: 'frontier-tile-open-door-patio' },
+          { label: 'Vía Mercosur', note: 'Si tienes nacionalidad del Mercosur', href: '/mercosur', image: 'frontier-tile-three-roads' },
+        ]}
+      />
 
-      <Section>
-        <Container width="narrow">
-          <Heading level={2}>Para quién es esto</Heading>
-          <p className="mt-[var(--space-4)] text-[var(--fg-muted)]">
+      <Reasons
+        title="Por qué Paraguay"
+        intro="Sin promesas de folleto: esto es lo que la ley ofrece hoy, y lo confirmamos contigo antes de presentar nada."
+        reasons={[
+          { title: 'Un primer paso claro', body: <>Duración de la residencia temporal: <Fact k="temporary.duration" site={SITE} />.</> },
+          { title: 'Una permanente que dura', body: <>La permanente tiene una regla de presencia: <Fact k="permanent.presence_rule" site={SITE} />.</> },
+          {
+            title: 'Vía propia para el Mercosur',
+            body: (
+              <>
+                Para nacionales del Mercosur, la vía de residencia es la siguiente:{' '}
+                <Fact k="mercosur.residency_route" site={SITE} /> —{' '}
+                <a href="/mercosur" className="text-[var(--accent)] underline underline-offset-2">mira si te aplica</a>.
+              </>
+            ),
+          },
+        ]}
+      />
+
+      <Steps
+        tone="alt"
+        title="Cómo funciona"
+        intro="Cuatro pasos, en el orden en que de verdad ocurren."
+        steps={STEPS}
+        link={{ href: '/proceso', label: 'El proceso completo, paso a paso' }}
+      />
+
+      <TeamStrip site={SITE} />
+
+      <Section width="narrow">
+        <Heading level={2} className="mb-[var(--space-6)]">Los detalles</Heading>
+        <Disclosure title="Para quién es esto">
+          <p>
             Personas que se trasladan por trabajo, jubilación o familia; nómadas y autónomos que
             quieren una base legal y un RUC que puedan usar de verdad; nacionales del Mercosur con
             una vía propia; e inversores que prefieren ir directos a la permanente. Si no sabes
@@ -133,65 +138,40 @@ export default function Page() {
             </a>{' '}
             te lo dice en dos minutos.
           </p>
-        </Container>
-      </Section>
-
-      <Section tone="alt">
-        <Container>
-          <Heading level={2}>Tres rutas, un equipo</Heading>
-          <div className="mt-[var(--space-8)]">
-            <Bento>
-              {ROUTES.map((route) => (
-                <Card key={route.href} eyebrow={route.eyebrow} title={route.title} href={route.href}>
-                  {route.body}
-                </Card>
-              ))}
-            </Bento>
-          </div>
-        </Container>
-      </Section>
-
-      <Section>
-        <Container width="narrow">
-          <Heading level={2}>Cómo funciona</Heading>
-          <p className="mt-[var(--space-4)] text-[var(--fg-muted)]">
-            Una llamada para confirmar tu ruta y tu honorario, un listado de documentos hecho para
-            tu nacionalidad, legalización en el orden correcto, presentación y citas en Asunción, y
-            por último la cédula una vez aprobada la residencia. Consulta el{' '}
-            <a href="/proceso" className="text-[var(--accent)] underline underline-offset-2">
-              proceso completo, paso a paso
+        </Disclosure>
+        <Disclosure title="¿Inviertes capital? El Pase de Inversor">
+          <p>
+            Con una inversión que califique puedes ir directo a la residencia permanente. Es una
+            marca aparte con el mismo equipo:{' '}
+            <a href="/pase-inversor" className="text-[var(--accent)] underline underline-offset-2">
+              mira cómo funciona
             </a>
             .
           </p>
-        </Container>
+        </Disclosure>
+        <Disclosure title="Preguntas frecuentes">
+          <FAQ items={FAQ_ITEMS} />
+        </Disclosure>
       </Section>
 
-      <Section tone="accent">
-        <Container width="narrow">
-          <FAQ title="Preguntas frecuentes" items={FAQ_ITEMS} />
-        </Container>
-      </Section>
+      <ArticleCards
+        site={SITE}
+        title="Lee antes de decidir"
+        articles={latest.map((post) => ({
+          title: post.frontmatter.title,
+          description: post.frontmatter.description,
+          href: contentHref(SITE, post.slugPath),
+        }))}
+        more={{ href: '/guias', label: 'Todas las guías' }}
+      />
 
-      <Section tone="alt">
-        <Container className="text-center">
-          <Heading level={2}>¿Listo para descubrir tu ruta?</Heading>
-          <p className="mt-[var(--space-4)] text-[var(--fg-muted)]">
-            Dos minutos te dicen qué ruta encaja. O salta directo a una llamada.
-          </p>
-        <div className="mt-[var(--space-10)] grid gap-[var(--space-8)] text-left">
-            <div>
-              <Heading level={2}>{t('residenciaes', 'process.fullForm')}</Heading>
-              <div className="mt-[var(--space-4)]"><LeadForm site="residenciaes" variant="contact" pagePath="/" /></div>
-            </div>
-            <details>
-              <summary className="flex min-h-[44px] cursor-pointer items-center text-[var(--accent)] underline underline-offset-2">{t('residenciaes', 'form.whatsappAlternative')}</summary>
-              {whatsapp && <a href={whatsapp} rel="noopener" className="inline-flex min-h-[44px] items-center text-[var(--accent)] underline underline-offset-2">{t('residenciaes', 'form.whatsapp')}</a>}
-              <p className="my-[var(--space-4)] text-[var(--fg-muted)]">{t('residenciaes', 'process.whatsappIntro')}</p>
-              <LeadForm site="residenciaes" variant="whatsapp" pagePath="/" />
-            </details>
-          </div>
-        </Container>
-      </Section>
+      <LeadPanel
+        site={SITE}
+        variant="contact"
+        title="¿Listo para descubrir tu ruta?"
+        intro="Cuéntanos tu caso en dos líneas. Te decimos qué ruta encaja, qué documentos necesitas y cuánto cuesta — o que esperes, si es lo mejor para ti."
+        whatsappMessage="Hola, me gustaría saber más sobre la residencia en Paraguay."
+      />
     </>
   );
 }

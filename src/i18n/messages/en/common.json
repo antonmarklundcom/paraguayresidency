@@ -197,5 +197,17 @@
   "process.trustTitle": "Who files your case",
   "process.trustBody": "Your case is handled by Anton Marklund, Yanina Alvarez and Diana Davalos, the team that files residency, cédula and tax cases in Asunción. You attend the appointments; we handle the filing.",
   "process.whatsappIntro": "Prefer WhatsApp? Leave your name, WhatsApp number and one line about your case. No email needed.",
-  "process.fullForm": "Tell us about your case"
+  "process.fullForm": "Tell us about your case",
+  "team.label": "Your team",
+  "team.promise": "We read and answer every message ourselves.",
+  "team.place": "Asunción, Paraguay",
+  "proof.fixedFee": "One fixed fee, quoted first",
+  "proof.asuncion": "Team on the ground in Asunción",
+  "proof.reply": "Reply within one working day",
+  "lead.eyebrow": "Start here",
+  "lead.point.reply": "A named person answers, within one working day",
+  "lead.point.fee": "Your route and fixed fee, in writing, before you commit",
+  "lead.point.honest": "A straight answer, even when it is “not yet”",
+  "lead.or": "or",
+  "articles.read": "Read the article"
 }

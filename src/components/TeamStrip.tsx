@@ -1,15 +1,26 @@
-export function TeamStrip() {
+import { t } from '@/i18n';
+import type { SiteKey } from '@/sites/registry';
+
+export const TEAM = ['Anton Marklund', 'Yanina Alvarez', 'Diana Davalos'];
+
+export function TeamStrip({ site }: { site: SiteKey }) {
   return (
-    <section aria-label="Your team" className="border-y border-[var(--border)] bg-[var(--surface-alt)] px-5 py-16 text-center md:py-24">
-      <ul className="mx-auto flex max-w-xl justify-center gap-5 sm:gap-12">
-        {['Anton Marklund', 'Yanina Alvarez', 'Diana Davalos'].map(name => (
-          <li key={name} className="min-w-0 flex-1">
-            <span aria-hidden="true" className="mx-auto mb-4 flex size-16 items-center justify-center rounded-full border border-[var(--border)] bg-[var(--accent-soft)] font-[family-name:var(--display-font)] text-xl text-[var(--accent)] sm:size-20">{name.split(' ').map(part => part[0]).join('')}</span>
-            <p className="text-sm font-medium">{name}</p>
-          </li>
-        ))}
-      </ul>
-      <p className="mx-auto mt-8 max-w-sm text-[var(--fg-muted)]">We read and answer every message ourselves.</p>
+    <section aria-label={t(site, 'team.label')} className="border-y border-[var(--border)] bg-[var(--surface-alt)] py-16 md:py-20">
+      <div className="mx-auto grid max-w-[var(--container)] items-center gap-10 px-5 sm:px-8 md:grid-cols-[1fr_auto]">
+        <div className="max-w-md">
+          <p className="text-(length:--text-xs) font-medium uppercase tracking-[.18em] text-[var(--accent)]">{t(site, 'team.label')}</p>
+          <p className="mt-3 font-[family-name:var(--display-font)] text-(length:--text-2xl) leading-[var(--leading-tight)] text-balance">{t(site, 'team.promise')}</p>
+          <p className="mt-3 text-(length:--text-sm) text-[var(--fg-muted)]">{t(site, 'team.place')}</p>
+        </div>
+        <ul className="flex gap-5 sm:gap-10">
+          {TEAM.map(name => (
+            <li key={name} className="min-w-0 flex-1 text-center">
+              <span aria-hidden="true" className="mx-auto mb-3 flex size-16 items-center justify-center rounded-full border border-[var(--border)] bg-[var(--surface)] font-[family-name:var(--display-font)] text-xl text-[var(--fg)] shadow-[var(--shadow-sm)] sm:size-20 sm:text-2xl">{name.split(' ').map(part => part[0]).join('')}</span>
+              <p className="text-sm font-medium">{name}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
     </section>
   );
 }

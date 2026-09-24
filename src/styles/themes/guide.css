@@ -9,7 +9,9 @@
   --accent: #b4471f;
   --accent-fg: #ffffff;
   --accent-soft: #fbe7dc;
-  --display-font: var(--font-serif);
+  --display-font: var(--font-fraunces);
+  --display-weight: 500;
+  --display-tracking: -0.025em;
   --body-font: var(--font-system);
   --radius-brand: var(--radius-lg);
   --hero-pattern: linear-gradient(180deg, #fdf8f1 0%, #f6ead8 100%);

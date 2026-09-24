@@ -74,7 +74,7 @@ export function Heading({
   return (
     <Tag
       id={id}
-      className={`font-[family-name:var(--display-font)] leading-[var(--leading-tight)] tracking-[-0.01em] text-balance [overflow-wrap:anywhere] ${headingSizes[level]} ${className}`}
+      className={`font-[family-name:var(--display-font)] leading-[var(--leading-tight)] text-balance [overflow-wrap:anywhere] ${headingSizes[level]} ${className}`}
     >
       {children}
     </Tag>

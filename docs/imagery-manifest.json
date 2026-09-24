@@ -17,6 +17,9 @@
         "public/images/arrival/guide-hero-reading-terrace-asuncion-1200.webp"
       ],
       "alt_en": "Woman reading a printed guide on a terrace under jacaranda trees in Asunción",
+      "alt_es": "Mujer leyendo una guía impresa en una terraza bajo jacarandás en Asunción",
+      "alt_pt": "Mulher lendo um guia impresso em um terraço sob jacarandás em Assunção",
+      "alt_sv": "Kvinna läser en tryckt guide på en terrass under jakarandaträd i Asunción",
       "ratio": "16:9",
       "px": "2688x1520",
       "model": "gpt_image_2_5 sunburst medium 2k",
@@ -29,6 +32,9 @@
         "public/images/arrival/investorpass-hero-asuncion-river-dusk-1200.webp"
       ],
       "alt_en": "Terrace overlooking Asunción and the Paraguay River at dusk",
+      "alt_es": "Terraza con vistas a Asunción y al río Paraguay al atardecer",
+      "alt_pt": "Terraço com vista para Assunção e o rio Paraguai ao entardecer",
+      "alt_sv": "Terrass med utsikt över Asunción och Paraguayfloden i skymningen",
       "ratio": "16:9",
       "px": "2688x1520",
       "model": "gpt_image_2_5 sunburst medium 2k",
@@ -41,6 +47,9 @@
         "public/images/arrival/frontier-hero-red-earth-road-1200.webp"
       ],
       "alt_en": "Red-earth road through green countryside in rural Paraguay at golden hour",
+      "alt_es": "Camino de tierra roja entre campos verdes del Paraguay rural a la hora dorada",
+      "alt_pt": "Estrada de terra vermelha entre campos verdes no interior do Paraguai ao fim da tarde",
+      "alt_sv": "Röd grusväg genom grön landsbygd i Paraguay i kvällssol",
       "ratio": "16:9",
       "px": "2688x1520",
       "model": "gpt_image_2_5 sunburst medium 2k",
@@ -53,6 +62,9 @@
         "public/images/arrival/guide-tile-route-fork-480.webp"
       ],
       "alt_en": "Footpath splitting in two through green fields",
+      "alt_es": "Sendero que se bifurca entre campos verdes",
+      "alt_pt": "Trilha que se divide em duas entre campos verdes",
+      "alt_sv": "Stig som delar sig i två genom gröna fält",
       "ratio": "4:5",
       "px": "896x1120",
       "model": "gpt_image_2_5 sunburst medium 1k",
@@ -65,6 +77,9 @@
         "public/images/arrival/guide-tile-documents-desk-480.webp"
       ],
       "alt_en": "Passport and a folder of documents on a wooden desk",
+      "alt_es": "Pasaporte y una carpeta de documentos sobre un escritorio de madera",
+      "alt_pt": "Passaporte e uma pasta de documentos sobre uma mesa de madeira",
+      "alt_sv": "Pass och en mapp med dokument på ett skrivbord i trä",
       "ratio": "4:5",
       "px": "896x1120",
       "model": "gpt_image_2_5 sunburst medium 1k",
@@ -77,6 +92,9 @@
         "public/images/arrival/guide-tile-market-asuncion-480.webp"
       ],
       "alt_en": "Fruit stall with mangoes, papaya and chipa at a market in Asunción",
+      "alt_es": "Puesto de fruta con mangos, papaya y chipa en un mercado de Asunción",
+      "alt_pt": "Banca de frutas com mangas, mamão e chipa em um mercado de Assunção",
+      "alt_sv": "Fruktstånd med mango, papaya och chipa på en marknad i Asunción",
       "ratio": "4:5",
       "px": "896x1120",
       "model": "gpt_image_2_5 sunburst medium 1k",
@@ -89,6 +107,9 @@
         "public/images/arrival/guide-tile-terere-cafe-480.webp"
       ],
       "alt_en": "Two friends sharing tereré on a café terrace in Asunción",
+      "alt_es": "Dos amigos compartiendo tereré en la terraza de un café en Asunción",
+      "alt_pt": "Dois amigos tomando tereré na varanda de um café em Assunção",
+      "alt_sv": "Två vänner delar tereré på en kafeterrass i Asunción",
       "ratio": "4:5",
       "px": "896x1120",
       "model": "gpt_image_2_5 sunburst medium 1k",
@@ -101,6 +122,9 @@
         "public/images/arrival/guide-tile-hammock-reading-480.webp"
       ],
       "alt_en": "Man reading on his phone in a hammock on a shaded veranda in Asunción, with a mango tree and a flowering lapacho behind",
+      "alt_es": "Hombre leyendo en el móvil en una hamaca en una galería sombreada de Asunción, con un mango y un lapacho en flor detrás",
+      "alt_pt": "Homem lendo no celular em uma rede numa varanda sombreada em Assunção, com uma mangueira e um ipê florido atrás",
+      "alt_sv": "Man läser på mobilen i en hängmatta på en skuggig veranda i Asunción, med ett mangoträd och en blommande lapacho bakom",
       "ratio": "4:5",
       "px": "896x1120",
       "model": "gpt_image_2_5 sunburst medium 1k",
@@ -114,6 +138,9 @@
         "public/images/arrival/investorpass-tile-real-estate-480.webp"
       ],
       "alt_en": "Modern residential building in Asunción at blue hour",
+      "alt_es": "Edificio residencial moderno en Asunción a la hora azul",
+      "alt_pt": "Edifício residencial moderno em Assunção na hora azul",
+      "alt_sv": "Modernt bostadshus i Asunción i blå timmen",
       "ratio": "4:5",
       "px": "896x1120",
       "model": "gpt_image_2_5 sunburst medium 1k",
@@ -126,6 +153,9 @@
         "public/images/arrival/investorpass-tile-productive-business-480.webp"
       ],
       "alt_en": "Agricultural processing workshop with grain sacks",
+      "alt_es": "Taller de procesamiento agrícola con sacos de grano",
+      "alt_pt": "Oficina de processamento agrícola com sacas de grãos",
+      "alt_sv": "Jordbruksverkstad med spannmålssäckar",
       "ratio": "4:5",
       "px": "896x1120",
       "model": "gpt_image_2_5 sunburst medium 1k",
@@ -138,6 +168,9 @@
         "public/images/arrival/investorpass-tile-financial-instruments-480.webp"
       ],
       "alt_en": "Private office desk at dusk with city lights beyond",
+      "alt_es": "Escritorio de una oficina privada al anochecer con las luces de la ciudad al fondo",
+      "alt_pt": "Mesa de um escritório privado ao anoitecer com as luzes da cidade ao fundo",
+      "alt_sv": "Skrivbord på ett privat kontor i skymningen med stadens ljus utanför",
       "ratio": "4:5",
       "px": "896x1120",
       "model": "gpt_image_2_5 sunburst medium 1k",
@@ -150,6 +183,9 @@
         "public/images/arrival/investorpass-tile-tourism-lodge-480.webp"
       ],
       "alt_en": "Riverside eco-lodge in Paraguayan nature at dusk",
+      "alt_es": "Ecolodge junto al río en la naturaleza paraguaya al atardecer",
+      "alt_pt": "Ecolodge à beira do rio na natureza paraguaia ao entardecer",
+      "alt_sv": "Ekolodge vid floden i paraguayansk natur i skymningen",
       "ratio": "4:5",
       "px": "896x1120",
       "model": "gpt_image_2_5 sunburst medium 1k",
@@ -162,6 +198,9 @@
         "public/images/arrival/frontier-tile-open-door-patio-480.webp"
       ],
       "alt_en": "Open door onto a sunny patio with a lemon tree",
+      "alt_es": "Puerta abierta a un patio soleado con un limonero",
+      "alt_pt": "Porta aberta para um pátio ensolarado com um limoeiro",
+      "alt_sv": "Öppen dörr ut mot en solig innergård med ett citronträd",
       "ratio": "4:5",
       "px": "896x1120",
       "model": "gpt_image_2_5 sunburst medium 1k",
@@ -174,6 +213,9 @@
         "public/images/arrival/frontier-tile-three-roads-480.webp"
       ],
       "alt_en": "Aerial view of red-earth roads diverging through farmland",
+      "alt_es": "Vista aérea de caminos de tierra roja que se separan entre campos de cultivo",
+      "alt_pt": "Vista aérea de estradas de terra vermelha que se separam entre lavouras",
+      "alt_sv": "Flygbild av röda grusvägar som skiljs åt genom jordbruksmark",
       "ratio": "4:5",
       "px": "896x1120",
       "model": "gpt_image_2_5 sunburst medium 1k",
@@ -186,6 +228,9 @@
         "public/images/arrival/frontier-tile-home-office-480.webp"
       ],
       "alt_en": "Home office desk by a window overlooking a leafy Asunción street with a flowering pink lapacho",
+      "alt_es": "Escritorio junto a una ventana con vista a una calle arbolada de Asunción y un lapacho rosado en flor",
+      "alt_pt": "Mesa de trabalho junto a uma janela com vista para uma rua arborizada de Assunção e um ipê-rosa florido",
+      "alt_sv": "Hemmakontor vid ett fönster mot en lummig gata i Asunción med en blommande rosa lapacho",
       "ratio": "4:5",
       "px": "896x1120",
       "model": "gpt_image_2_5 sunburst medium 1k",
@@ -199,6 +244,9 @@
         "public/images/arrival/frontier-tile-airport-window-480.webp"
       ],
       "alt_en": "Traveller with a carry-on watching a plane at sunset",
+      "alt_es": "Viajero con equipaje de mano mirando un avión al atardecer",
+      "alt_pt": "Viajante com bagagem de mão observando um avião ao pôr do sol",
+      "alt_sv": "Resenär med handbagage tittar på ett flygplan i solnedgången",
       "ratio": "4:5",
       "px": "896x1120",
       "model": "gpt_image_2_5 sunburst medium 1k",
