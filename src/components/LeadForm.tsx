@@ -5,7 +5,8 @@ import { COUNTRIES } from '@/lib/countries';
 import { t } from '@/i18n';
 import { issueFormTimestamp } from '@/lib/form-guard';
 import { INVESTMENT_RANGES } from '@/lib/lead-schema';
-import type { SiteKey } from '@/sites/registry';
+import { getSite, type SiteKey } from '@/sites/registry';
+import { whatsappHref } from '@/lib/whatsapp';
 import { LeadFormFields, type LeadFormLabels, type LeadVariant } from './LeadFormFields';
 
 /**
@@ -49,6 +50,11 @@ export function LeadForm({
     sending: t(site, 'form.sending'),
     successTitle: t(site, 'form.successTitle'),
     successBody: t(site, 'form.successBody'),
+    // After the form, the fastest next step is a WhatsApp from the same phone:
+    // VenderCRM threads it onto the contact the form just created.
+    whatsappContinueHref: whatsappHref(t(site, 'whatsapp.afterForm', { domain: getSite(site).canonicalHost })),
+    whatsappContinue: t(site, 'whatsapp.continue'),
+    whatsappContinueHint: t(site, 'whatsapp.continueHint'),
     optional: t(site, 'form.optional'),
     choose: t(site, 'form.choose'),
     investmentRanges: Object.fromEntries(

@@ -40,7 +40,7 @@ export function LeadPanel({ site, variant, title, intro, whatsappMessage, id = '
             ))}
           </ul>
           <div className="mt-8">
-            <WhatsAppButton site={site} message={whatsappMessage} />
+            <WhatsAppButton site={site} message={whatsappMessage} placement="lead-panel" />
           </div>
           {footnote && <div className="mt-8 text-(length:--text-sm) text-[var(--fg-muted)]">{footnote}</div>}
         </div>

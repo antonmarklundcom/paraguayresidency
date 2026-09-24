@@ -214,5 +214,11 @@
   "whatsapp.cta": "Message us on WhatsApp",
   "whatsapp.short": "WhatsApp",
   "contact.orForm": "or send the form below. Either way, a person answers in writing within one working day.",
-  "contact.cta": "Message us"
+  "contact.cta": "Message us",
+  "whatsapp.continue": "Continue on WhatsApp now",
+  "whatsapp.continueHint": "Want an answer sooner? Send us a WhatsApp from the number you entered, and it lands on the same case.",
+  "whatsapp.afterForm": "Hi! I just sent the form on {domain}. My case in short:",
+  "article.ctaTitle": "Questions about your own case?",
+  "article.ctaBody": "Message us on WhatsApp or send the form. A named person answers in writing within one working day, including when the honest answer is “not yet”.",
+  "article.orForm": "or send the form"
 }

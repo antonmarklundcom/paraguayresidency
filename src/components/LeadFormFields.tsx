@@ -1,3 +1,4 @@
+import { WhatsAppIcon } from './WhatsAppIcon';
 import { initialLeadState, type LeadFormState } from '@/app/actions/lead-state';
 import { HONEYPOT_FIELD, TIMESTAMP_FIELD } from '@/lib/form-guard';
 import type { INVESTMENT_RANGES, LeadKind } from '@/lib/lead-schema';
@@ -27,6 +28,10 @@ export interface LeadFormLabels {
   sending: string;
   successTitle: string;
   successBody: string;
+  /** wa.me link with a pre-typed follow-up, or null when no number is configured. */
+  whatsappContinueHref?: string | null;
+  whatsappContinue?: string;
+  whatsappContinueHint?: string;
   optional: string;
   choose: string;
   investmentRanges: Record<(typeof INVESTMENT_RANGES)[number], string>;
@@ -87,6 +92,22 @@ export function LeadFormFields({
           {labels.successTitle}
         </p>
         <p className="mt-[var(--space-2)] text-[var(--fg-muted)]">{labels.successBody}</p>
+        {labels.whatsappContinueHref ? (
+          <div className="mt-[var(--space-4)]">
+            <p className="text-(length:--text-sm) text-[var(--fg-muted)]">{labels.whatsappContinueHint}</p>
+            <a
+              href={labels.whatsappContinueHref}
+              rel="noopener"
+              target="_blank"
+              data-whatsapp
+              data-placement="form-success"
+              className="mt-[var(--space-3)] inline-flex min-h-11 items-center justify-center gap-2 rounded-[var(--radius-brand)] bg-[#1f8f4e] px-5 py-3 text-(length:--text-sm) font-medium text-white hover:bg-[#197a42]"
+            >
+              <WhatsAppIcon className="size-5" />
+              {labels.whatsappContinue}
+            </a>
+          </div>
+        ) : null}
       </div>
     );
   }

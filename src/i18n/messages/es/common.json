@@ -214,5 +214,11 @@
   "whatsapp.cta": "Escríbenos por WhatsApp",
   "whatsapp.short": "WhatsApp",
   "contact.orForm": "o envía el formulario. En ambos casos te responde una persona, por escrito, en un día hábil.",
-  "contact.cta": "Escríbenos"
+  "contact.cta": "Escríbenos",
+  "whatsapp.continue": "Seguir ahora por WhatsApp",
+  "whatsapp.continueHint": "¿Quieres respuesta antes? Escríbenos por WhatsApp desde el número que pusiste y queda en el mismo caso.",
+  "whatsapp.afterForm": "¡Hola! Acabo de enviar el formulario en {domain}. Mi caso en pocas palabras:",
+  "article.ctaTitle": "¿Dudas sobre tu caso?",
+  "article.ctaBody": "Escríbenos por WhatsApp o envía el formulario. Te responde una persona con nombre, por escrito, en un día hábil, también cuando la respuesta honesta es “todavía no”.",
+  "article.orForm": "o envía el formulario"
 }
