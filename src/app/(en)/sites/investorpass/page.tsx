@@ -16,6 +16,7 @@ import {
 import { siteMetadata, serviceOfferJsonLd } from '@/lib/metadata';
 import { whatsappHref } from '@/lib/whatsapp';
 import { siteOrigin } from '@/sites/registry';
+import { t } from '@/i18n';
 
 const PATH = '/';
 
@@ -87,6 +88,7 @@ export default function Page() {
         title="Permanent residency in Paraguay, in one step."
         sub="Qualifying investors skip temporary residency. We structure, file and stay until your card arrives."
         actions={<><Button href="#inquiry">See if you qualify</Button><Button href="/contact" variant="secondary">Book a call</Button></>}
+        proof={[t('investorpass', 'proof.fixedFee'), t('investorpass', 'proof.asuncion'), t('investorpass', 'proof.reply')]}
       />
       <IntentTiles title="Four ways to qualify" tiles={[
         { label: 'Invest in real estate', href: '/investor-pass/investment-routes#real_estate', image: 'investorpass-tile-real-estate' },
@@ -96,7 +98,7 @@ export default function Page() {
       ]} />
       <Section width="narrow" spacing="tight"><Disclosure title="Investment requirements"><p>Programme launch: <Fact k="investorpass.launch_date" site="investorpass" />.</p><p>Card validity: <Fact k="investorpass.validity_years" site="investorpass" />.</p><p>Qualifying investment: <Fact k="investorpass.min_investment_usd" site="investorpass" />.</p><ul className="space-y-6">{ROUTES.map(route => <li key={route.id}><h3>{route.eyebrow}</h3><Fact k={route.factKey} site="investorpass" /></li>)}</ul><p>Cédula: <Fact k="cedula.timeline" site="investorpass" />.</p><a className="inline-flex min-h-11 items-center text-[var(--accent)] underline" href="/investor-pass/requirements">Full requirements</a></Disclosure></Section>
       <Section tone="alt"><Heading level={2}>From first call to card</Heading><ol className="my-10 grid gap-8 sm:grid-cols-3">{['Confirm your route and investment', 'File for permanent residency', 'Collect your cédula after approval'].map((step, index) => <li key={step} className="flex items-center gap-4"><span aria-hidden="true" className="flex size-12 shrink-0 items-center justify-center rounded-full border border-[var(--border)] text-2xl text-[var(--accent)]">{['◇', '↗', '✓'][index]}</span><h3>{step}</h3></li>)}</ol><Button href="/investor-pass/process" variant="secondary">See the process</Button></Section>
-      <TeamStrip />
+      <TeamStrip site="investorpass" />
       <Section width="narrow" spacing="tight"><Disclosure title="Frequently asked"><FAQ items={FAQ_ITEMS} /></Disclosure></Section>
       <Section id="inquiry" tone="accent" width="narrow">
         <Heading level={2}>See if you qualify</Heading>

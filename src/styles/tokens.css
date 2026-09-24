@@ -34,6 +34,7 @@
   --radius-lg: 20px;
   --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.06);
   --shadow: 0 10px 30px -12px rgb(0 0 0 / 0.18);
+  --shadow-lg: 0 30px 60px -30px rgb(0 0 0 / 0.35);
 
   /* Motion */
   --ease: cubic-bezier(0.2, 0.6, 0.2, 1);
@@ -43,10 +44,16 @@
   --container: 76rem;
   --container-narrow: 46rem;
 
-  /* Font stacks. next/font is deliberately not used yet — the display faces
-     are chosen per brand in the design phases (S3–S5); see KNOWN-ISSUES. */
+  /* Font stacks. The brand faces are self-hosted from @fontsource packages
+     (imported in globals.css); each theme picks one display and one body face. */
   --font-system: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
   --font-serif: ui-serif, Georgia, 'Times New Roman', serif;
+  --font-inter: 'Inter Variable', var(--font-system);
+  --font-inter-tight: 'Inter Tight Variable', var(--font-system);
+  --font-bricolage: 'Bricolage Grotesque Variable', var(--font-system);
+  --font-newsreader: 'Newsreader Variable', var(--font-serif);
+  --font-fraunces: 'Fraunces Variable', var(--font-serif);
+  --font-instrument: 'Instrument Serif', var(--font-serif);
   --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
 
   /* Neutral defaults so anything rendered outside a themed wrapper still
@@ -67,6 +74,9 @@
   --success: #1d6b4f;
   --body-font: var(--font-system);
   --display-font: var(--font-serif);
+  /* Display faces differ in built-in spacing and weight; each theme tunes them. */
+  --display-weight: 400;
+  --display-tracking: -0.02em;
   --radius-brand: var(--radius);
 }
 

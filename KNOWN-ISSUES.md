@@ -42,6 +42,16 @@ link to any address it is handed.
 client changes — they're inert once the server never returns
 `email-required`).
 
+## OPEN — hero photos are shared across brands (design uplift, 2026-09-24)
+
+Only three hero photos exist (guide, investorpass, frontier). The hub reuses
+the investorpass river-at-dusk hero; residenciaes and flytta both use the guide
+terrace; residenciapt uses the frontier red-earth road. Tiles are reused the
+same way. It reads fine per language, but each brand should get its own hero
+and tile set. Images are only generated when Anton asks for it explicitly
+("Generate image"); then add them to `docs/imagery-manifest.json` with
+`alt_en/es/pt/sv` and swap the `image` ids on the homepages.
+
 ## CLEARED in O20 — the webhook and fulfilment paths now have a live-MySQL test
 
 Raised by O17. `tests/webhook-live-db.test.ts` replays a signed

@@ -2,19 +2,22 @@ import { getPages } from '@/content';
 import { contentHref } from '@/lib/site-pages';
 import type { Metadata } from 'next';
 import {
+  ArticleCards,
   Button,
-  Container,
   Disclosure,
   IntentTiles,
+  LeadPanel,
   PhotoHero,
+  Reasons,
+  Steps,
   TeamStrip,
   Fact,
   FAQ,
   Heading,
   Section,
 } from '@/components';
+import { t } from '@/i18n';
 import { siteMetadata } from '@/lib/metadata';
-import { whatsappHref } from '@/lib/whatsapp';
 
 export function generateMetadata(): Metadata {
   return siteMetadata('residency', {
@@ -48,9 +51,15 @@ const FAQ_ITEMS = [
   },
 ];
 
+const STEPS = [
+  { title: 'A call', body: 'We confirm your route and your fixed fee before you commit to anything.' },
+  { title: 'Your documents', body: 'A checklist built for your nationality, with legalisation done in the right order.' },
+  { title: 'Asunción', body: 'We file and go to the appointments with you. You show up; we handle the rest.' },
+  { title: 'Your cédula', body: 'Once residency is approved we get your cédula and tell you what comes next.' },
+];
+
 export default function Page() {
   const latest = getPages('residency').filter((post) => !post.frontmatter.draft).slice(0, 3);
-  const whatsapp = whatsappHref('Hi — I have a question about Paraguay residency.');
 
   const actions = (
     <>
@@ -68,91 +77,61 @@ export default function Page() {
         title="Paraguay residency, handled end to end."
         sub="Temporary residency, permanent residency and your cédula, prepared by people who do this every week in Asunción. You show up for the appointments. We do the rest."
         actions={actions}
+        proof={[t('residency', 'proof.fixedFee'), t('residency', 'proof.asuncion'), t('residency', 'proof.reply')]}
       />
 
-      <IntentTiles title="Where are you starting?" tiles={[
-        { label: 'Which route fits me?', href: '/route-finder', image: 'guide-tile-route-fork' },
-        { label: 'Temporary residency', href: '/residency/temporary-residency', image: 'guide-tile-documents-desk' },
-        { label: 'Permanent residency', href: '/residency/permanent-residency', image: 'frontier-tile-open-door-patio' },
-        { label: 'Investor Pass', href: '/investor-pass', image: 'investorpass-tile-real-estate' },
+      <IntentTiles title="Where are you starting?" intro="Pick the closest match. Not sure? The Route Finder tells you in two minutes." tiles={[
+        { label: 'Which route fits me?', note: 'Six questions, two minutes', href: '/route-finder', image: 'guide-tile-route-fork' },
+        { label: 'Temporary residency', note: 'The usual first step', href: '/residency/temporary-residency', image: 'guide-tile-documents-desk' },
+        { label: 'Permanent residency', note: 'The card that stays', href: '/residency/permanent-residency', image: 'frontier-tile-open-door-patio' },
+        { label: 'Investor Pass', note: 'Straight to permanent', href: '/investor-pass', image: 'investorpass-tile-real-estate' },
       ]} />
 
-      <Section>
-        <Container width="narrow">
-          <Heading level={2}>How it runs</Heading>
-          <p className="mt-[var(--space-4)] text-[var(--fg-muted)]">
-            A call to confirm your route and fee, a document checklist built for your nationality,
-            legalisation handled in the right order, filing and appointments in Asunción, then the
-            cédula once residency is approved. See the{' '}
-            <a href="/process" className="text-[var(--accent)] underline underline-offset-2">
-              full process, step by step
-            </a>
-            .
-          </p>
-        </Container>
-      </Section>
+      <Steps
+        tone="alt"
+        title="How it runs"
+        intro="Four steps, in the order they actually happen."
+        steps={STEPS}
+        link={{ href: '/process', label: 'The full process, step by step' }}
+      />
 
-      <Section tone="accent">
-        <Container width="narrow">
-          <Heading level={2}>Why Paraguay</Heading>
-          <ul className="mt-[var(--space-6)] space-y-[var(--space-4)] text-[var(--fg-muted)]">
-            <li>
-              Temporary residency duration: <Fact k="temporary.duration" site="residency" />.
-            </li>
-            <li>
-              Permanent residency comes with a presence rule: <Fact k="permanent.presence_rule" site="residency" />.
-            </li>
-            <li>
-              Foreign-income treatment under the territorial system: <Fact k="tax.foreign_income_treatment" site="residency" />.
-            </li>
-          </ul>
-        </Container>
-      </Section>
+      <Reasons
+        title="Why Paraguay"
+        intro="No brochure promises: this is what the rules say today, confirmed with you before anything is filed."
+        reasons={[
+          { title: 'A clear first step', body: <>Temporary residency duration: <Fact k="temporary.duration" site="residency" />.</> },
+          { title: 'A card that stays', body: <>Permanent residency comes with a presence rule: <Fact k="permanent.presence_rule" site="residency" />.</> },
+          { title: 'Territorial tax', body: <>Foreign-income treatment under the territorial system: <Fact k="tax.foreign_income_treatment" site="residency" />.</> },
+        ]}
+      />
 
-      <TeamStrip />
+      <TeamStrip site="residency" />
 
       {/* Testimonials section stays hidden until real ones exist (plan §7, §6.1). */}
 
-      <Section>
-        <Container width="narrow">
-          <Disclosure title="Frequently asked"><FAQ items={FAQ_ITEMS} /></Disclosure>
-        </Container>
+      <Section width="narrow">
+        <Heading level={2} className="mb-[var(--space-6)]">The details</Heading>
+        <Disclosure title="Frequently asked"><FAQ items={FAQ_ITEMS} /></Disclosure>
       </Section>
 
-      <Section>
-        <Container width="narrow">
-          <Heading level={2}>Latest articles</Heading>
-          <ul className="mt-[var(--space-4)] space-y-2">
-            {latest.map((post) => (
-              <li key={post.slugPath}>
-                <a href={contentHref('residency', post.slugPath)} className="inline-flex min-h-11 items-center text-[var(--accent)] underline underline-offset-2">
-                  {post.frontmatter.title}
-                </a>
-              </li>
-            ))}
-          </ul>
-          <a href="/guides" className="mt-[var(--space-4)] inline-flex min-h-11 items-center text-[var(--accent)] underline underline-offset-2">Browse all guides</a>
-        </Container>
-      </Section>
+      <ArticleCards
+        site="residency"
+        title="Latest articles"
+        articles={latest.map((post) => ({
+          title: post.frontmatter.title,
+          description: post.frontmatter.description,
+          href: contentHref('residency', post.slugPath),
+        }))}
+        more={{ href: '/guides', label: 'Browse all guides' }}
+      />
 
-      <Section tone="alt">
-        <Container width="narrow" className="text-center">
-          <Heading level={2}>Ready to find your route?</Heading>
-          <p className="mt-[var(--space-4)] text-[var(--fg-muted)]">
-            Two minutes tells you which route fits. Or skip straight to a call.
-          </p>
-          <div className="mt-[var(--space-8)] flex flex-wrap justify-center gap-[var(--space-3)]">
-            {actions}
-          </div>
-          {whatsapp && (
-            <p className="mt-[var(--space-6)] text-(length:--text-sm)">
-              <a href={whatsapp} rel="noopener" className="text-[var(--accent)] underline underline-offset-2">
-                Or message us on WhatsApp
-              </a>
-            </p>
-          )}
-        </Container>
-      </Section>
+      <LeadPanel
+        site="residency"
+        variant="consultation"
+        title="Ready to find your route?"
+        intro="Tell us about your case in two lines. We come back with the route that fits, the documents you need and the fee, or tell you to wait if that serves you better."
+        whatsappMessage="Hi — I have a question about Paraguay residency."
+      />
     </>
   );
 }

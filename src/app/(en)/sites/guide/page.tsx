@@ -108,7 +108,7 @@ export default async function Page() {
       </Section>
 
 
-      <TeamStrip />
+      <TeamStrip site="guide" />
 <Section><Heading level={2}>Latest articles</Heading><ul className="mt-8 grid auto-cols-[82%] grid-flow-col snap-x snap-mandatory gap-4 overflow-x-auto p-2 md:auto-cols-[31%]">{latest.map(post => <li key={post.slugPath} className="min-w-0 snap-start"><a href={contentHref('guide', post.slugPath)} className="flex min-h-44 items-end rounded-[var(--radius-brand)] border border-[var(--border)] bg-[var(--surface-alt)] p-6 font-[family-name:var(--display-font)] text-xl text-[var(--accent)] focus-visible:outline-2 focus-visible:outline-offset-2"><span className="line-clamp-3">{post.frontmatter.title}</span></a></li>)}</ul><a href="/blog" className="mt-6 inline-flex min-h-11 items-center text-[var(--accent)] underline">Browse all articles</a></Section>
       <Section width="narrow" spacing="tight"><Disclosure title="Questions before buying"><FAQ items={FAQ_ITEMS} /></Disclosure></Section>
       <Section tone="alt" width="narrow"><Heading level={2}>Not ready yet?</Heading><p className="mt-4 text-[var(--fg-muted)]">Residency notes, delivered to your inbox.</p><div className="mt-6"><NewsletterForm site={SITE} source="guide-home" /></div></Section>

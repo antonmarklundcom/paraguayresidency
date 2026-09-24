@@ -73,6 +73,8 @@ export interface SiteConfig {
    */
   products?: string[];
   nav: NavItem[];
+  /** The one action the header always shows as a button (desktop and menu). */
+  cta: NavItem;
   footer: FooterSpec;
   analytics?: { plausibleDomain?: string; gtmId?: string };
   /** VenderCRM source tag (plan §1.6). */
@@ -108,6 +110,7 @@ export const sites: Record<SiteKey, SiteConfig> = {
     locale: 'en',
     currencies: ['USD'],
     theme: 'residency',
+    cta: { labelKey: 'home.ctaPrimary', href: '/route-finder' },
     nav: [
       { labelKey: 'nav.guides', href: '/guides' },
       { labelKey: 'nav.routes', href: '/process' },
@@ -155,6 +158,7 @@ export const sites: Record<SiteKey, SiteConfig> = {
     locale: 'en',
     currencies: ['USD'],
     theme: 'investorpass',
+    cta: { labelKey: 'home.ctaPrimary', href: '/contact' },
     nav: [
       { labelKey: 'nav.insights', href: '/insights' },
       { labelKey: 'nav.requirements', href: '/investor-pass/requirements' },
@@ -205,6 +209,7 @@ export const sites: Record<SiteKey, SiteConfig> = {
     // The only brand that sells (plan §12.2). `products` is what mounts
     // /login and /members here and 404s them everywhere else.
     products: [GUIDE_ENTRY_SLUG, GUIDE_INSIDER_SLUG],
+    cta: { labelKey: 'home.ctaPrimary', href: '/#price' },
     nav: [
       { labelKey: 'nav.whatsInside', href: '/#inside' },
       { labelKey: 'nav.insider', href: '/insider' },
@@ -252,6 +257,7 @@ export const sites: Record<SiteKey, SiteConfig> = {
     locale: 'en',
     currencies: ['USD'],
     theme: 'frontier',
+    cta: { labelKey: 'home.ctaPrimary', href: '/route-finder' },
     nav: [
       { labelKey: 'nav.stories', href: '/stories' },
       { labelKey: 'nav.whyParaguay', href: '/why-paraguay' },
@@ -297,6 +303,7 @@ export const sites: Record<SiteKey, SiteConfig> = {
     theme: 'residenciaes',
     // S11 (plan §6.6): Spanish routes for everything except the shared
     // conversion/legal paths (§1.3), which keep their English form.
+    cta: { labelKey: 'home.ctaPrimary', href: '/route-finder' },
     nav: [
       { labelKey: 'nav.routes', href: '/proceso' },
       { labelKey: 'nav.pricing', href: '/precios' },
@@ -343,6 +350,7 @@ export const sites: Record<SiteKey, SiteConfig> = {
     locale: 'pt',
     currencies: ['BRL', 'USD', 'PYG'],
     theme: 'residenciapt',
+    cta: { labelKey: 'home.ctaPrimary', href: '/route-finder' },
     nav: [
       { labelKey: 'nav.temporary', href: '/residencia/temporaria' },
       { labelKey: 'nav.permanent', href: '/residencia/permanente' },
@@ -394,6 +402,7 @@ export const sites: Record<SiteKey, SiteConfig> = {
     // content/site.ts onto this app's routes and i18n keys (plan §12.4). WhatsApp
     // itself is the shared NEXT_PUBLIC_WHATSAPP_NUMBER env var (plan §3b); author
     // (Anton Marklund) informs the personal-story copy rather than a registry field.
+    cta: { labelKey: 'home.ctaPrimary', href: '/route-finder' },
     nav: [
       { labelKey: 'nav.guides', href: '/guider' },
       { labelKey: 'nav.permits', href: '/uppehallstillstand' },

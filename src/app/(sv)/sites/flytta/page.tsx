@@ -1,20 +1,23 @@
-import { LeadForm } from '@/components/LeadForm';
+/* eslint-disable @next/next/no-img-element -- Responsive local Arrival images. */
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import {
-  Bento,
+  ArticleCards,
   Button,
-  Card,
-  Container,
+  Disclosure,
   Fact,
   FAQ,
   Heading,
+  IntentTiles,
+  LeadPanel,
+  PhotoHero,
+  Reasons,
   Section,
-  SplitHero,
-  StatRow,
+  Steps,
+  TeamStrip,
 } from '@/components';
 import { siteMetadata } from '@/lib/metadata';
-import { whatsappHref } from '@/lib/whatsapp';
+import { arrivalImage } from '@/lib/imagery';
 import { getPages } from '@/content';
 import { contentHref } from '@/lib/site-pages';
 import { siteOrigin } from '@/sites/registry';
@@ -29,35 +32,6 @@ export function generateMetadata(): Metadata {
     path: '/',
   });
 }
-
-function routes() {
-  return [
-    {
-      eyebrow: 'Tillfälligt uppehållstillstånd',
-      title: 'Det vanliga första steget',
-      body: 'Gäller ett par år, sedan permanent.',
-      href: '/uppehallstillstand',
-    },
-    {
-      eyebrow: 'Permanent uppehållstillstånd',
-      title: 'Långvarigt kort',
-      body: 'Med ett närvarokrav — vi förklarar exakt vad det betyder.',
-      href: '/uppehallstillstand',
-    },
-    {
-      eyebrow: 'Investor Pass',
-      title: 'Direkt till permanent',
-      body: 'Med en kvalificerande investering. Eget varumärke, samma team.',
-      href: siteOrigin('investorpass'),
-    },
-  ];
-}
-
-const STATS = [
-  { value: '≈ 40 %', label: 'Lägre kostnadsläge', note: 'Vår egen budget, uppskattning 2026' },
-  { value: 'Personligt besök', label: 'Inlämning på plats' },
-  { value: '0', label: 'Krav på spanska' },
-];
 
 const FAQ_ITEMS = [
   {
@@ -82,20 +56,23 @@ const FAQ_ITEMS = [
   },
 ];
 
+const STEPS = [
+  { title: 'Ett samtal', body: 'Vi bekräftar din väg och ditt fasta pris i kronor innan du bestämmer dig.' },
+  { title: 'Dokumenten', body: 'Apostille och översättning i Sverige, i rätt ordning, efter en lista gjord för dig.' },
+  { title: 'Veckan i Asunción', body: 'Vi lämnar in ärendet och följer med dig på besöken. Du kommer hit; vi sköter resten.' },
+  { title: 'Cédulan', body: 'När uppehållstillståndet är beviljat ordnar vi din cédula och säger vad som kommer sedan.' },
+];
+
 export default function Page() {
-  const whatsapp = whatsappHref('Hej! Jag har en fråga om att flytta till Paraguay.');
-  const latestGuides = getPages(SITE)
-    .filter((page) => page.hub === 'guider')
-    .slice(0, 3);
-  const cities = getPages(SITE)
-    .filter((page) => page.hub === 'stader')
-    .slice(0, 3);
-  const ROUTES = routes();
+  const pages = getPages(SITE);
+  const guides = pages.filter((page) => page.hub === 'guider').slice(0, 3);
+  const cities = pages.filter((page) => page.hub === 'stader').slice(0, 3);
+  const story = arrivalImage('guide-tile-terere-cafe', 'sv');
 
   const actions = (
     <>
       <Button href="/route-finder">{t(SITE, 'home.ctaPrimary')}</Button>
-      <Button href="/contact" variant="secondary">
+      <Button href="#contact" variant="secondary">
         {t(SITE, 'home.ctaSecondary')}
       </Button>
     </>
@@ -103,161 +80,131 @@ export default function Page() {
 
   return (
     <>
-      <SplitHero
+      <PhotoHero
+        image="guide-hero-reading-terrace-asuncion"
+        locale="sv"
+        focus="65% center"
         eyebrow="Flytta till Paraguay"
         title={t(SITE, 'home.h1')}
         sub={t(SITE, 'home.sub')}
         actions={actions}
-        aside={
-          <ul className="space-y-[var(--space-4)] text-[var(--fg-muted)]">
-            <li>Hela vägen från Skatteverket till cédulan, steg för steg, utan skönmålning.</li>
-            <li>Fast pris per väg, i kronor, innan du bestämmer dig.</li>
-            <li>Ärligt om vad som tar tid, vad som kostar och när Paraguay inte är rätt val.</li>
-          </ul>
+        proof={[t(SITE, 'proof.fixedFee'), t(SITE, 'proof.asuncion'), t(SITE, 'proof.reply')]}
+      />
+
+      <IntentTiles
+        locale="sv"
+        title="Var vill du börja?"
+        intro="Välj det som ligger närmast. Vet du inte, så säger vägvalstestet det på två minuter."
+        tiles={[
+          { label: 'Vilken väg passar mig?', note: 'Sex frågor, två minuter', href: '/route-finder', image: 'guide-tile-route-fork' },
+          { label: 'Uppehållstillstånd', note: 'Tillfälligt, permanent och cédula', href: '/uppehallstillstand', image: 'guide-tile-documents-desk' },
+          { label: 'Vad det kostar', note: 'Att leva här, på riktigt', href: '/kostnader', image: 'guide-tile-market-asuncion' },
+          { label: 'Vår historia', note: 'Varför vi flyttade hit', href: '/var-historia', image: 'guide-tile-hammock-reading' },
+        ]}
+      />
+
+      <section className="bg-[var(--bg)] pb-16 md:pb-24">
+        <div className="mx-auto grid max-w-[var(--container)] items-center gap-10 px-5 sm:px-8 md:grid-cols-2 md:gap-16">
+          <img
+            src={`/images/arrival/${story.id}-800.webp`}
+            srcSet={`/images/arrival/${story.id}-480.webp 480w, /images/arrival/${story.id}-800.webp 800w`}
+            sizes="(min-width: 768px) 40vw, 90vw"
+            width={800}
+            height={1000}
+            alt={story.alt}
+            loading="lazy"
+            className="aspect-[4/5] w-full max-w-md rounded-[var(--radius-brand)] object-cover shadow-[var(--shadow-lg)] md:justify-self-end"
+          />
+          <div className="max-w-lg">
+            <Heading level={2}>Vi bor här. Det är hela poängen.</Heading>
+            <p className="mt-[var(--space-4)] text-(length:--text-lg) text-[var(--fg-muted)]">
+              Vi flyttade hit utan att kunna svaret på hälften av det vi undrade. Allt vi lärde oss
+              av det sitter nu i den här sajten och i checklistorna vårt team i Asunción använder
+              med varje ny familj.
+            </p>
+            <Link
+              href="/var-historia"
+              className="mt-[var(--space-6)] inline-flex min-h-11 items-center gap-2 font-medium text-[var(--accent)] underline-offset-4 hover:underline"
+            >
+              Läs vår historia <span aria-hidden="true">→</span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <Steps
+        tone="alt"
+        title="Fyra steg, i den ordning de faktiskt händer"
+        steps={STEPS}
+        link={{ href: '/process', label: 'Processen steg för steg' }}
+      />
+
+      <Reasons
+        title="Vad som faktiskt gäller"
+        intro="Utan skönmålning: så här ser reglerna ut i dag, och vi bekräftar dem med dig innan något lämnas in."
+        reasons={[
+          { title: 'Ett tydligt första steg', body: <>Giltighet för tillfälligt uppehållstillstånd: <Fact k="temporary.duration" site={SITE} />.</> },
+          { title: 'Permanent, med närvarokrav', body: <>För permanent uppehållstillstånd gäller följande närvarokrav: <Fact k="permanent.presence_rule" site={SITE} />.</> },
+          { title: 'Territoriell beskattning', body: <><Fact k="tax.foreign_income_treatment" site={SITE} />.</> },
+        ]}
+        footer={
+          <Link href="/kostnader" className="inline-flex min-h-11 items-center gap-2 font-medium text-[var(--accent)] underline-offset-4 hover:underline">
+            Se vad det faktiskt kostar <span aria-hidden="true">→</span>
+          </Link>
         }
       />
 
-      <Section>
-        <Container width="narrow">
-          <Heading level={2}>Vi bor här. Det är hela poängen.</Heading>
-          <p className="mt-[var(--space-4)] text-[var(--fg-muted)]">
-            Vi flyttade hit utan att kunna svaret på hälften av det vi undrade. Allt vi lärde oss
-            av det sitter nu i den här sajten och i checklistorna vårt team i Asunción använder
-            med varje ny familj.
-          </p>
-          <Link
-            href="/var-historia"
-            className="mt-[var(--space-4)] inline-block text-[var(--accent)] underline underline-offset-2"
-          >
-            Läs vår historia
-          </Link>
-        </Container>
-      </Section>
+      <TeamStrip site={SITE} />
 
-      <Section tone="alt">
-        <Container>
-          <Heading level={2}>Tre vägar, en process</Heading>
-          <div className="mt-[var(--space-8)]">
-            <Bento>
-              {ROUTES.map((route) => (
-                <Card key={route.href} eyebrow={route.eyebrow} title={route.title} href={route.href}>
-                  {route.body}
-                </Card>
-              ))}
-            </Bento>
-          </div>
-        </Container>
-      </Section>
+      <ArticleCards
+        site={SITE}
+        title="Läs på innan du bestämmer dig"
+        articles={guides.map((page) => ({
+          eyebrow: 'Guider',
+          title: page.frontmatter.title,
+          description: page.frontmatter.description,
+          href: contentHref(SITE, page.slugPath),
+        }))}
+        more={{ href: '/guider', label: 'Alla guider' }}
+      />
 
-      <Section>
-        <Container width="narrow">
-          <Heading level={2}>Fyra steg, i den ordning de faktiskt händer</Heading>
-          <p className="mt-[var(--space-4)] text-[var(--fg-muted)]">
-            Samtal, dokument, veckan i Asunción, cédula — se hela{' '}
-            <Link href="/process" className="text-[var(--accent)] underline underline-offset-2">
-              processen steg för steg
-            </Link>
+      <ArticleCards
+        site={SITE}
+        tone="alt"
+        title="Var i Paraguay svenskar brukar landa"
+        articles={cities.map((page) => ({
+          eyebrow: 'Städer',
+          title: page.frontmatter.title,
+          description: page.frontmatter.description,
+          href: contentHref(SITE, page.slugPath),
+        }))}
+        more={{ href: '/stader', label: 'Alla städer' }}
+      />
+
+      <Section width="narrow">
+        <Heading level={2} className="mb-[var(--space-6)]">Detaljerna</Heading>
+        <Disclosure title="Investerar du kapital? Investor Pass">
+          <p>
+            Med en kvalificerande investering kan du gå direkt till permanent uppehållstillstånd.
+            Eget varumärke, samma team:{' '}
+            <a href={siteOrigin('investorpass')} className="text-[var(--accent)] underline underline-offset-2">
+              så fungerar Investor Pass
+            </a>
             .
           </p>
-          <div className="mt-[var(--space-8)]">
-            <StatRow stats={STATS} />
-          </div>
-        </Container>
+        </Disclosure>
+        <Disclosure title={t(SITE, 'common.faqTitle')}>
+          <FAQ items={FAQ_ITEMS} />
+        </Disclosure>
       </Section>
 
-      <Section tone="accent">
-        <Container width="narrow">
-          <Heading level={2}>Vad det faktiskt kostar</Heading>
-          <ul className="mt-[var(--space-6)] space-y-[var(--space-4)] text-[var(--fg-muted)]">
-            <li>
-              Giltighet för tillfälligt uppehållstillstånd: <Fact k="temporary.duration" site={SITE} />.
-            </li>
-            <li>
-              För permanent uppehållstillstånd gäller följande närvarokrav: <Fact k="permanent.presence_rule" site={SITE} />.
-            </li>
-            <li>
-              <Fact k="tax.foreign_income_treatment" site={SITE} />.
-            </li>
-          </ul>
-          <Link
-            href="/kostnader"
-            className="mt-[var(--space-4)] inline-block text-[var(--accent)] underline underline-offset-2"
-          >
-            Se vad det faktiskt kostar
-          </Link>
-        </Container>
-      </Section>
-
-      {latestGuides.length > 0 && (
-        <Section>
-          <Container>
-            <Heading level={2}>Läs på innan du bestämmer dig</Heading>
-            <div className="mt-[var(--space-8)]">
-              <Bento>
-                {latestGuides.map((page) => (
-                  <Card
-                    key={page.slugPath}
-                    eyebrow="Guider"
-                    title={page.frontmatter.title}
-                    href={contentHref(SITE, page.slugPath)}
-                  >
-                    {page.frontmatter.description}
-                  </Card>
-                ))}
-              </Bento>
-            </div>
-          </Container>
-        </Section>
-      )}
-
-      {cities.length > 0 && (
-        <Section tone="alt">
-          <Container>
-            <Heading level={2}>Var i Paraguay svenskar brukar landa</Heading>
-            <div className="mt-[var(--space-8)]">
-              <Bento>
-                {cities.map((page) => (
-                  <Card
-                    key={page.slugPath}
-                    eyebrow="Städer"
-                    title={page.frontmatter.title}
-                    href={contentHref(SITE, page.slugPath)}
-                  >
-                    {page.frontmatter.description}
-                  </Card>
-                ))}
-              </Bento>
-            </div>
-          </Container>
-        </Section>
-      )}
-
-      <Section>
-        <Container width="narrow">
-          <FAQ title={t(SITE, 'common.faqTitle')} items={FAQ_ITEMS} />
-        </Container>
-      </Section>
-
-      <Section tone="alt">
-        <Container className="text-center">
-          <Heading level={2}>Berätta var du står idag</Heading>
-          <p className="mt-[var(--space-4)] text-[var(--fg-muted)]">
-            Skriv en rad, så säger vi vilken väg som passar — även när svaret är att du bör vänta.
-          </p>
-        <div className="mt-[var(--space-10)] grid gap-[var(--space-8)] text-left">
-            <div>
-              <Heading level={2}>{t('flytta', 'process.fullForm')}</Heading>
-              <div className="mt-[var(--space-4)]"><LeadForm site="flytta" variant="contact" pagePath="/" /></div>
-            </div>
-            <details>
-              <summary className="flex min-h-[44px] cursor-pointer items-center text-[var(--accent)] underline underline-offset-2">{t('flytta', 'form.whatsappAlternative')}</summary>
-              {whatsapp && <a href={whatsapp} rel="noopener" className="inline-flex min-h-[44px] items-center text-[var(--accent)] underline underline-offset-2">{t('flytta', 'form.whatsapp')}</a>}
-              <p className="my-[var(--space-4)] text-[var(--fg-muted)]">{t('flytta', 'process.whatsappIntro')}</p>
-              <LeadForm site="flytta" variant="whatsapp" pagePath="/" />
-            </details>
-          </div>
-        </Container>
-      </Section>
+      <LeadPanel
+        site={SITE}
+        variant="contact"
+        title="Berätta var du står i dag"
+        intro="Skriv en rad, så säger vi vilken väg som passar — även när svaret är att du bör vänta."
+        whatsappMessage="Hej! Jag har en fråga om att flytta till Paraguay."
+      />
     </>
   );
 }

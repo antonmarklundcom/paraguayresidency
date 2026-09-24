@@ -6,6 +6,15 @@
 @import 'tailwindcss' source(none);
 @source '..';
 @source '../../content';
+/* Self-hosted variable fonts (no build-time network). Every face is declared
+   for every brand, but a browser only downloads the ones its theme uses. */
+@import '@fontsource-variable/inter/wght.css';
+@import '@fontsource-variable/inter-tight/wght.css';
+@import '@fontsource-variable/newsreader/wght.css';
+@import '@fontsource-variable/fraunces/wght.css';
+@import '@fontsource-variable/bricolage-grotesque/wght.css';
+@import '@fontsource/instrument-serif/latin.css';
+@import '@fontsource/instrument-serif/latin-ext.css';
 @import '../styles/tokens.css';
 @import '../styles/themes/residency.css';
 @import '../styles/themes/investorpass.css';
@@ -52,4 +61,23 @@ body {
 :focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
+}
+
+/*
+ * Every display-face element (headings, wordmarks, hero titles) takes the
+ * theme's weight and tracking. In the base layer so a utility on the element
+ * itself still wins.
+ */
+@layer base {
+  [class*='family-name:var(--display-font)'] {
+    font-weight: var(--display-weight);
+    letter-spacing: var(--display-tracking);
+    font-optical-sizing: auto;
+  }
+
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
 }

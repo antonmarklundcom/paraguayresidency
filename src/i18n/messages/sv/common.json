@@ -197,5 +197,17 @@
   "process.trustTitle": "Vem lämnar in ditt ärende?",
   "process.trustBody": "Ditt ärende hanteras av Anton Marklund, Yanina Alvarez och Diana Davalos, teamet som lämnar in ärenden om uppehållstillstånd, cédula och skatt i Asunción. Du går på mötena; vi sköter inlämningen.",
   "process.whatsappIntro": "Föredrar du WhatsApp? Lämna ditt namn, WhatsApp-nummer och en rad om ditt ärende. Ingen e-post behövs.",
-  "process.fullForm": "Berätta om ditt ärende"
+  "process.fullForm": "Berätta om ditt ärende",
+  "team.label": "Ditt team",
+  "team.promise": "Vi läser och svarar på varje meddelande själva.",
+  "team.place": "Asunción, Paraguay",
+  "proof.fixedFee": "Fast pris, besked i förväg",
+  "proof.asuncion": "Team på plats i Asunción",
+  "proof.reply": "Svar inom en arbetsdag",
+  "lead.eyebrow": "Börja här",
+  "lead.point.reply": "En namngiven person svarar, inom en arbetsdag",
+  "lead.point.fee": "Din väg och ditt fasta pris, skriftligt, innan du bestämmer dig",
+  "lead.point.honest": "Ett rakt svar, även när det är “inte än”",
+  "lead.or": "eller",
+  "articles.read": "Läs artikeln"
 }

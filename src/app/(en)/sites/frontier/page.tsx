@@ -94,6 +94,7 @@ export default function Page() {
         title="A second residency you can actually get."
         sub="Permanent residency without a million-dollar investment. We handle the paperwork in Asunción."
         actions={actions}
+        proof={[t('frontier', 'proof.fixedFee'), t('frontier', 'proof.asuncion'), t('frontier', 'proof.reply')]}
       />
       <IntentTiles title="Start with your question" tiles={[
         { label: 'Why a plan B', href: '/why-paraguay', image: 'frontier-tile-open-door-patio' },
@@ -102,7 +103,7 @@ export default function Page() {
         { label: 'Do I have to move?', href: '/stories/the-presence-rules-nobody-explains', image: 'frontier-tile-airport-window' },
       ]} />
       <Section tone="alt"><Heading level={2}>Three routes, compared honestly</Heading><div className="mt-8"><Bento>{ROUTES.map(route => <Card key={route.href} title={route.eyebrow} href={route.href}>{route.body}</Card>)}</Bento></div></Section>
-      <TeamStrip />
+      <TeamStrip site="frontier" />
       <Section width="narrow"><Heading level={2} className="mb-[var(--space-6)]">The details</Heading><Disclosure title="Plan B, honestly"><p className="mt-[var(--space-4)] text-[var(--fg-muted)]">
             You have probably read the &ldquo;Paraguay golden visa&rdquo; posts. Most skip the
             part where a real government office processes real paperwork on its own schedule. We
