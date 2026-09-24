@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import {
+  HeroContact,
   ArticleCards,
   Button,
   Disclosure,
@@ -73,9 +74,7 @@ export default function Page() {
   const actions = (
     <>
       <Button href="/route-finder">{t(SITE, 'home.ctaPrimary')}</Button>
-      <Button href="#contact" variant="secondary">
-        {t(SITE, 'home.ctaSecondary')}
-      </Button>
+      <HeroContact site={SITE} fallbackHref="#contact" />
     </>
   );
 

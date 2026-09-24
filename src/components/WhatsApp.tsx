@@ -1,6 +1,7 @@
 import { t } from '@/i18n';
 import { whatsappHref } from '@/lib/whatsapp';
 import type { SiteKey } from '@/sites/registry';
+import { Button } from './Button';
 import { WhatsAppIcon } from './WhatsAppIcon';
 
 /**
@@ -8,8 +9,10 @@ import { WhatsAppIcon } from './WhatsAppIcon';
  * nothing when `NEXT_PUBLIC_WHATSAPP_NUMBER` is unset (a missing credential
  * never blocks, plan §4.5), so callers pair it with a form link.
  */
-export function WhatsAppButton({ site, message, variant = 'primary', className = '' }: {
+export function WhatsAppButton({ site, message, variant = 'primary', className = '', hero = false }: {
   site: SiteKey; message?: string; variant?: 'primary' | 'secondary' | 'onDark'; className?: string;
+  /** Marks the hero's contact action, for the fold check in the browser audit. */
+  hero?: boolean;
 }) {
   const href = whatsappHref(message ?? t(site, 'whatsapp.prefill'));
   if (!href) return null;
@@ -19,7 +22,7 @@ export function WhatsAppButton({ site, message, variant = 'primary', className =
     onDark: 'bg-white text-black hover:bg-white/90',
   } as const;
   return (
-    <a href={href} rel="noopener" target="_blank" data-whatsapp className={`inline-flex min-h-11 items-center justify-center gap-2 rounded-[var(--radius-brand)] px-5 py-3 text-(length:--text-sm) font-medium transition-colors duration-[var(--duration)] ${styles[variant]} ${className}`}>
+    <a href={href} rel="noopener" target="_blank" data-whatsapp data-hero-contact={hero || undefined} className={`inline-flex min-h-11 items-center justify-center gap-2 rounded-[var(--radius-brand)] px-5 py-3 text-(length:--text-sm) font-medium transition-colors duration-[var(--duration)] ${styles[variant]} ${className}`}>
       <WhatsAppIcon className={`size-5 ${variant === 'onDark' ? 'text-[#1f8f4e]' : ''}`} />
       {t(site, 'whatsapp.cta')}
     </a>
@@ -43,5 +46,21 @@ export function WhatsAppFab({ site }: { site: SiteKey }) {
       <WhatsAppIcon className="size-7 md:size-6" />
       <span className="hidden text-(length:--text-sm) font-medium md:inline">{t(site, 'whatsapp.short')}</span>
     </a>
+  );
+}
+
+/**
+ * The hero's second action: WhatsApp when the number is configured (the main
+ * contact channel, no booked calls), otherwise a plain "Message us" link to
+ * the brand's form.
+ */
+export function HeroContact({ site, message, fallbackHref = '/contact' }: { site: SiteKey; message?: string; fallbackHref?: string }) {
+  if (whatsappHref(message ?? t(site, 'whatsapp.prefill'))) {
+    return <WhatsAppButton site={site} message={message} variant="onDark" hero />;
+  }
+  return (
+    <span data-hero-contact className="contents">
+      <Button href={fallbackHref} variant="secondary">{t(site, 'contact.cta')}</Button>
+    </span>
   );
 }

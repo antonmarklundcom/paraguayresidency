@@ -19,8 +19,13 @@ try {
     const height = width === 390 ? 844 : 900;
     await page.setViewportSize({ width, height });
     await page.goto(url('investorpass', '/'));
-    for (const label of ['See if you qualify', 'Book a call']) {
-      const box = await page.getByRole('link', { name: label, exact: true }).first().boundingBox();
+    // Primary CTA plus the hero contact action (WhatsApp when configured, else "Message us").
+    const heroActions = [
+      ['See if you qualify', page.getByRole('link', { name: 'See if you qualify', exact: true }).first()],
+      ['hero contact', page.locator('[data-hero-contact], [data-hero-contact] > a').last()],
+    ];
+    for (const [label, locator] of heroActions) {
+      const box = await locator.boundingBox();
       assert(box && box.y >= 0 && box.y + box.height <= height, label + ' outside hero fold');
     }
     assert.equal(await page.locator('#inquiry').count(), 1);

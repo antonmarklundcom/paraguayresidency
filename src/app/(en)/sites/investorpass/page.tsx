@@ -1,6 +1,7 @@
 import { ProcessTimeline } from '@/components/ProcessTimeline';
 import type { Metadata } from 'next';
 import {
+  HeroContact,
   Button,
   PhotoHero,
   heroTrust,
@@ -87,7 +88,7 @@ export default function Page() {
       <PhotoHero image="investorpass-hero-asuncion-river-dusk"
         title="Permanent residency in Paraguay, in one step."
         sub="Qualifying investors skip temporary residency. We structure, file and stay until your card arrives."
-        actions={<><Button href="#inquiry">See if you qualify</Button><Button href="/contact" variant="secondary">Book a call</Button></>}
+        actions={<><Button href="#inquiry">See if you qualify</Button><HeroContact site="investorpass" message="Hi — I have a question about the Paraguay Investor Pass." fallbackHref="#inquiry" /></>}
         trust={heroTrust('investorpass')}
       />
       <IntentTiles title="Four ways to qualify" tiles={[

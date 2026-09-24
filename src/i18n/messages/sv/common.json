@@ -93,7 +93,7 @@
   "quiz.result.investor-pass.cta": "Se kraven för Investor Pass",
   "form.phoneOrWhatsapp": "WhatsApp eller telefon, med landsnummer",
   "form.nextStep": "Anton, Yanina eller Diana läser varje meddelande och svarar inom en arbetsdag. Inga nyhetsbrev om du inte ber om det.",
-  "form.whatsappAlternative": "Hellre WhatsApp? Lämna ditt nummer",
+  "form.whatsappAlternative": "Vill du inte lämna e-post? Lämna bara ditt WhatsApp-nummer",
   "about.teamTitle": "Vilka du pratar med",
   "about.teamBody": "De läser och besvarar varje förfrågan själva.",
   "form.name": "Ditt namn",
@@ -213,5 +213,6 @@
   "whatsapp.prefill": "Hej! Jag har en fråga om att flytta till Paraguay.",
   "whatsapp.cta": "Skriv till oss på WhatsApp",
   "whatsapp.short": "WhatsApp",
-  "contact.orForm": "eller skicka formuläret. Oavsett vilket svarar en person skriftligt inom en arbetsdag."
+  "contact.orForm": "eller skicka formuläret. Oavsett vilket svarar en person skriftligt inom en arbetsdag.",
+  "contact.cta": "Skriv till oss"
 }

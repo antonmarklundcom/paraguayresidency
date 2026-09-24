@@ -93,7 +93,7 @@
   "quiz.result.investor-pass.cta": "See the Investor Pass requirements",
   "form.phoneOrWhatsapp": "WhatsApp or phone, with country code",
   "form.nextStep": "Anton, Yanina or Diana reads every message and replies within one working day. No newsletter unless you ask for one.",
-  "form.whatsappAlternative": "Prefer WhatsApp? Leave your number instead",
+  "form.whatsappAlternative": "Rather not give an email? Leave just your WhatsApp number",
   "about.teamTitle": "Who you will deal with",
   "about.teamBody": "They read and answer every inquiry themselves.",
   "form.name": "Your name",
@@ -213,5 +213,6 @@
   "whatsapp.prefill": "Hi, I have a question about Paraguay residency.",
   "whatsapp.cta": "Message us on WhatsApp",
   "whatsapp.short": "WhatsApp",
-  "contact.orForm": "or send the form below. Either way, a person answers in writing within one working day."
+  "contact.orForm": "or send the form below. Either way, a person answers in writing within one working day.",
+  "contact.cta": "Message us"
 }

@@ -2,6 +2,7 @@ import { getPages } from '@/content';
 import { contentHref } from '@/lib/site-pages';
 import type { Metadata } from 'next';
 import {
+  HeroContact,
   ArticleCards,
   Button,
   Disclosure,
@@ -65,9 +66,7 @@ export default function Page() {
   const actions = (
     <>
       <Button href="/route-finder">Descubre tu ruta</Button>
-      <Button href="#contact" variant="secondary">
-        Habla con nosotros
-      </Button>
+      <HeroContact site={SITE} message="Hola, me gustaría saber más sobre la residencia en Paraguay." fallbackHref="#contact" />
     </>
   );
 

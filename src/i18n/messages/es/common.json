@@ -93,7 +93,7 @@
   "quiz.result.investor-pass.cta": "Ver los requisitos del Investor Pass",
   "form.phoneOrWhatsapp": "WhatsApp o teléfono, con prefijo del país",
   "form.nextStep": "Anton, Yanina o Diana leen cada mensaje y responden en un día hábil. Sin boletines si no los pides.",
-  "form.whatsappAlternative": "¿Prefieres WhatsApp? Déjanos tu número",
+  "form.whatsappAlternative": "¿Prefieres no dar tu email? Déjanos solo tu WhatsApp",
   "about.teamTitle": "Con quién vas a hablar",
   "about.teamBody": "Ellos mismos leen y responden cada consulta.",
   "form.name": "Tu nombre",
@@ -213,5 +213,6 @@
   "whatsapp.prefill": "Hola, tengo una pregunta sobre la residencia en Paraguay.",
   "whatsapp.cta": "Escríbenos por WhatsApp",
   "whatsapp.short": "WhatsApp",
-  "contact.orForm": "o envía el formulario. En ambos casos te responde una persona, por escrito, en un día hábil."
+  "contact.orForm": "o envía el formulario. En ambos casos te responde una persona, por escrito, en un día hábil.",
+  "contact.cta": "Escríbenos"
 }

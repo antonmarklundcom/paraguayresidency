@@ -3,6 +3,7 @@ import { contentHref } from '@/lib/site-pages';
 import { t } from '@/i18n';
 import type { Metadata } from 'next';
 import {
+  HeroContact,
   Bento,
   Button,
   Card,
@@ -84,9 +85,7 @@ export default function Page() {
   const actions = (
     <>
       <Button href="/route-finder">Find your route</Button>
-      <Button href="/contact" variant="secondary">
-        Talk to us
-      </Button>
+      <HeroContact site="frontier" message="Hi — I have a question about a second residency in Paraguay." />
     </>
   );
 

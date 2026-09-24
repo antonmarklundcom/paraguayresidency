@@ -15,7 +15,11 @@ import { sites } from '@/sites/registry';
 
 // Forms use async server actions; isolate those from synchronous page rendering.
 vi.mock('@/components/LeadForm', () => ({ LeadForm: () => null }));
-vi.mock('@/lib/conversion-pages', () => ({ contactMetadata: () => ({}) }));
+// The contact page now renders the shared ContactPage (WhatsApp first, then the form).
+vi.mock('@/lib/conversion-pages', async (importOriginal) => ({
+  ...(await importOriginal<typeof import('@/lib/conversion-pages')>()),
+  contactMetadata: () => ({}),
+}));
 afterEach(() => vi.unstubAllEnvs());
 
 for (const [name, Page] of Object.entries({ Home, Contact, Temporary, Permanent, Cedula, Family, TaxResidency })) {
