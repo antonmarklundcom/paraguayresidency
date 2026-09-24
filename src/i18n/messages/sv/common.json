@@ -214,5 +214,11 @@
   "whatsapp.cta": "Skriv till oss på WhatsApp",
   "whatsapp.short": "WhatsApp",
   "contact.orForm": "eller skicka formuläret. Oavsett vilket svarar en person skriftligt inom en arbetsdag.",
-  "contact.cta": "Skriv till oss"
+  "contact.cta": "Skriv till oss",
+  "whatsapp.continue": "Fortsätt på WhatsApp nu",
+  "whatsapp.continueHint": "Vill du ha svar snabbare? Skicka ett WhatsApp från numret du angav, så hamnar det i samma ärende.",
+  "whatsapp.afterForm": "Hej! Jag skickade just formuläret på {domain}. Kort om mitt fall:",
+  "article.ctaTitle": "Frågor om just ditt fall?",
+  "article.ctaBody": "Skriv till oss på WhatsApp eller skicka formuläret. En namngiven person svarar skriftligt inom en arbetsdag, även när det ärliga svaret är ”inte än”.",
+  "article.orForm": "eller skicka formuläret"
 }

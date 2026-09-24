@@ -214,5 +214,11 @@
   "whatsapp.cta": "Fale com a gente no WhatsApp",
   "whatsapp.short": "WhatsApp",
   "contact.orForm": "ou envie o formulário. Nos dois casos, uma pessoa responde por escrito em um dia útil.",
-  "contact.cta": "Escreva para a gente"
+  "contact.cta": "Escreva para a gente",
+  "whatsapp.continue": "Continuar agora no WhatsApp",
+  "whatsapp.continueHint": "Quer resposta mais rápido? Mande um WhatsApp do número que você informou e ele entra no mesmo caso.",
+  "whatsapp.afterForm": "Olá! Acabei de enviar o formulário no {domain}. Meu caso em poucas palavras:",
+  "article.ctaTitle": "Dúvidas sobre o seu caso?",
+  "article.ctaBody": "Fale com a gente no WhatsApp ou envie o formulário. Uma pessoa de verdade responde por escrito em um dia útil, inclusive quando a resposta honesta é “ainda não”.",
+  "article.orForm": "ou envie o formulário"
 }

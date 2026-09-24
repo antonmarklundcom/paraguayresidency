@@ -64,6 +64,19 @@ for (const variant of ['consultation', 'investor_inquiry', 'contact', 'quiz'] as
     expect(html).toMatch(/<\/button><p[^>]*>Our team replies within one working day\.<\/p>/);
   });
 }
+it('offers "continue on WhatsApp" in the success state only when a link is configured', () => {
+  const href = 'https://wa.me/595981123456?text=Hi';
+  const withLink = renderToStaticMarkup(createElement(LeadFormFields, {
+    ...common, variant: 'contact', state: { status: 'ok' },
+    labels: { ...labels, whatsappContinueHref: href, whatsappContinue: 'Continue on WhatsApp now', whatsappContinueHint: 'Faster?' },
+  }));
+  expect(withLink).toContain(`href="${href.replace('&', '&amp;')}"`);
+  expect(withLink).toContain('data-placement="form-success"');
+  expect(withLink).toContain('Continue on WhatsApp now');
+  const without = renderToStaticMarkup(createElement(LeadFormFields, { ...common, variant: 'contact', state: { status: 'ok' } }));
+  expect(without).not.toContain('wa.me');
+});
+
 it('shows the next step on WhatsApp but never in the success state', () => {
   const html = renderToStaticMarkup(createElement(LeadFormFields, { ...common, variant: 'whatsapp' }));
   expect(html).toContain(labels.nextStep);

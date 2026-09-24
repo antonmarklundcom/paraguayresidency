@@ -56,7 +56,7 @@ export function ContactPage({ site, whatsappMessage }: { site: SiteKey; whatsapp
         <Heading level={1}>{t(site, 'contact.h1')}</Heading>
         <p className="mt-[var(--space-4)] text-[var(--fg-muted)]">{t(site, 'contact.sub')}</p>
         <div className="mt-[var(--space-8)] flex flex-wrap items-center gap-x-4 gap-y-3">
-          <WhatsAppButton site={site} message={message} />
+          <WhatsAppButton site={site} message={message} placement="contact" />
           <span className="text-(length:--text-sm) text-[var(--fg-muted)]">{t(site, 'contact.orForm')}</span>
         </div>
         <div className="mt-[var(--space-8)] rounded-[var(--radius-lg)] border border-[var(--border)] bg-[var(--surface)] p-6 shadow-[var(--shadow-sm)] sm:p-8">

@@ -1,7 +1,8 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { Breadcrumbs, Container, FAQ, Heading, Prose, Section } from '@/components';
+import { Breadcrumbs, Container, FAQ, Heading, Prose, Section, WhatsAppButton } from '@/components';
+import { whatsappHref } from '@/lib/whatsapp';
 import { Mdx } from '@/content/mdx';
 import { getPage } from '@/content';
 import { siteMetadata } from '@/lib/metadata';
@@ -73,6 +74,28 @@ export function ArticlePage({
             <FAQ title={t(site, 'common.faqTitle')} items={frontmatter.faq} />
           </div>
         )}
+        {/* Every article ends on the two contact paths: WhatsApp or the form. */}
+        <aside className="mt-[var(--space-16)] rounded-[var(--radius-lg)] border border-[var(--border)] bg-[var(--surface-alt)] p-[var(--space-6)] sm:p-[var(--space-8)]">
+          <h2 className="font-[family-name:var(--display-font)] text-(length:--text-xl)">{t(site, 'article.ctaTitle')}</h2>
+          <p className="mt-[var(--space-2)] text-[var(--fg-muted)]">{t(site, 'article.ctaBody')}</p>
+          <div className="mt-[var(--space-5)] flex flex-wrap items-center gap-x-4 gap-y-3">
+            {whatsappHref(t(site, 'whatsapp.prefill')) ? (
+              <>
+                <WhatsAppButton site={site} placement="article" />
+                <Link href="/contact" className="text-(length:--text-sm) text-[var(--accent)] underline underline-offset-4">
+                  {t(site, 'article.orForm')}
+                </Link>
+              </>
+            ) : (
+              <Link
+                href="/contact"
+                className="inline-flex min-h-11 items-center rounded-[var(--radius-brand)] bg-[var(--accent)] px-5 py-3 text-(length:--text-sm) font-medium text-[var(--accent-fg)] hover:opacity-90"
+              >
+                {t(site, 'contact.cta')}
+              </Link>
+            )}
+          </div>
+        </aside>
         {(relatedLinks?.length || serviceLink) && (
           <nav
             aria-label="Continue reading"
