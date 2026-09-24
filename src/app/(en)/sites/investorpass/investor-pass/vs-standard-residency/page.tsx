@@ -29,7 +29,7 @@ const FAQ_ITEMS = [
   {
     question: 'Can I start on the standard route and switch to the Investor Pass later?',
     answer:
-      'Generally the two are separate filings rather than an upgrade path. Tell us on the call if you are unsure which to start with — we would rather advise the right one first than have you refile.',
+      'Generally the two are separate filings rather than an upgrade path. Tell us in your first message if you are unsure which to start with — we would rather advise the right one first than have you refile.',
   },
 ];
 
@@ -68,8 +68,8 @@ export default function Page() {
           <p>
             If you are not planning to invest at that scale, or would rather keep capital liquid
             and uncommitted, the standard route reaches the identical card without tying anything
-            up — it simply takes longer. We say this on the call rather than steer everyone toward
-            the higher-ticket option.
+            up — it simply takes longer. We say this plainly in writing rather than steer everyone
+            toward the higher-ticket option.
           </p>
         </Prose>
 

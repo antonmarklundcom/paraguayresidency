@@ -16,6 +16,7 @@ import {
   heroTrust,
   IntentTiles,
   TeamStrip,
+  WhatsAppButton,
 } from '@/components';
 import { siteMetadata } from '@/lib/metadata';
 import { whatsappHref } from '@/lib/whatsapp';
@@ -146,6 +147,9 @@ export default function Page() {
       </Section>
 
       <Section tone="accent">
+        <div className="mb-[var(--space-6)]">
+          <WhatsAppButton site="frontier" message="Hi — I have a question about a second residency in Paraguay." />
+        </div>
         <div className="mt-[var(--space-10)] grid gap-[var(--space-8)] text-left">
           <div>
             <Heading level={2}>{t('frontier', 'process.fullForm')}</Heading>

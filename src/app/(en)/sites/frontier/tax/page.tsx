@@ -33,7 +33,7 @@ const FAQ_ITEMS = [
   {
     question: 'What income actually gets taxed here?',
     answer:
-      'Income sourced in Paraguay. What counts as "sourced here" for your specific income streams is exactly the kind of question we answer on a call rather than in generic terms on a web page.',
+      'Income sourced in Paraguay. What counts as "sourced here" for your specific income streams is exactly the kind of question we answer in writing for your case rather than in generic terms on a web page.',
   },
 ];
 

@@ -30,12 +30,12 @@ export default function Page() {
         {
           question: 'What happens if I do not visit often enough?',
           answer:
-            'A minimum-presence rule applies to the permanent card. What it means for your specific travel pattern is worth a call before you file, not after — we would rather tell you now than have you find out the hard way.',
+            'A minimum-presence rule applies to the permanent card. What it means for your specific travel pattern is worth raising in your first message, not after you file — we would rather tell you now than have you find out the hard way.',
         },
         {
           question: 'Does permanent residency expire?',
           answer:
-            'It carries a long validity term. We confirm the exact figure and renewal mechanics on your call rather than quoting a number we cannot stand behind here.',
+            'It carries a long validity term. We confirm the exact figure and renewal mechanics in writing for your case rather than quoting a number we cannot stand behind here.',
         },
       ]}
       serviceName="Paraguay Permanent Residency Filing"
@@ -57,7 +57,7 @@ export default function Page() {
         is the single most-misquoted figure in this niche, and we would rather you heard it
         straight from us before you file than assumed something from a forum post. What it means
         in practice depends on how you actually plan to split your time — we walk through your
-        specific pattern on the call.
+        specific pattern once you message us.
       </p>
       <h2>What we file for you</h2>
       <ul>

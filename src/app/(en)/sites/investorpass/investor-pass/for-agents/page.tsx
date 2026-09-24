@@ -28,7 +28,7 @@ const FAQ = [
   {
     question: 'Is there a referral fee?',
     answer:
-      'This is worked out per relationship rather than published as a flat rate — tell us your usual arrangement on the call and we will tell you plainly whether it works for us.',
+      'This is worked out per relationship rather than published as a flat rate — tell us your usual arrangement in your first message and we will tell you plainly whether it works for us.',
   },
   {
     question: 'What do you need from us to start?',
@@ -61,9 +61,9 @@ export default function Page() {
 
       <h2>What your client experiences</h2>
       <p>
-        The same process every direct client gets: a call to confirm the route and quote the
-        current threshold, structuring of the investment, filing, and the cédula once residency is
-        approved. Nothing is filed until they have seen the full cost, timeline and exit options in
+        The same process every direct client gets: a first message to confirm the route and quote
+        the current threshold, then structuring of the investment, filing, and the cédula once
+        residency is approved. Nothing is filed until they have seen the full cost, timeline and exit options in
         writing — which protects your recommendation as much as it protects them.
       </p>
 

@@ -88,7 +88,7 @@ export default async function Page({ searchParams }: { searchParams: SearchParam
             {t(SITE, 'thankYou.upsellBody')}
           </p>
           <div className="mt-[var(--space-8)] flex flex-wrap gap-[var(--space-4)]">
-            <Button href={`${siteOrigin('residency')}/book`} external>
+            <Button href={`${siteOrigin('residency')}/contact`} external>
               {t(SITE, 'thankYou.upsellCta')}
             </Button>
             <Link

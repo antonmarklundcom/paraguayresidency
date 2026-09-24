@@ -63,7 +63,8 @@ export default function Page() {
             <p className="mt-[var(--space-2)] text-[var(--fg-muted)]">
               The Investor Pass is a new program, and public sources genuinely disagree on the
               minimum investment and other thresholds. Rather than pick one figure and hope it is
-              right, we confirm the current numbers against the resolution text on your call — every
+              right, we confirm the current numbers against the resolution text in writing for your
+              case — every
               figure on this site is marked as such until it is.
             </p>
           </div>

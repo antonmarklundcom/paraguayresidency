@@ -57,7 +57,7 @@ export default function Page() {
         A valid passport, apostilled or legalised civil documents (birth certificate, marriage
         certificate where relevant), and a police clearance certificate from every country you
         have lived in for a meaningful period. Requirements vary slightly by nationality — we give
-        you the exact checklist on the first call, not a generic list.
+        you the exact checklist once you message us, not a generic list.
       </p>
 
       <h2>Proof of the funds themselves</h2>
@@ -79,7 +79,7 @@ export default function Page() {
       <p>
         We review your intended route, your documentation and your background before any capital
         moves, specifically so you are not the one discovering a disqualifying issue after
-        committing funds. If your case is unusual, we say so on the first call.
+        committing funds. If your case is unusual, we say so in our first reply to you.
       </p>
       <ProcessTimeline site="investorpass" route="investor" />
     </ServicePage>

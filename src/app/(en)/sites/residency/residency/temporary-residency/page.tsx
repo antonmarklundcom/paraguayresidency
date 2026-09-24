@@ -25,7 +25,7 @@ export default function Page() {
         {
           question: 'How long does temporary residency last?',
           answer:
-            'It runs for a fixed initial term before you apply for permanent residency — we confirm the current term and what happens if you let it lapse on your call.',
+            'It runs for a fixed initial term before you apply for permanent residency — we confirm the current term and what happens if you let it lapse when you message us.',
         },
         {
           question: 'Do I need to live in Paraguay full-time to keep it?',

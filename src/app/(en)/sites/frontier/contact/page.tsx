@@ -1,5 +1,5 @@
 import { whatsappHref } from '@/lib/whatsapp';
-import { Container, Heading, LeadForm, Section } from '@/components';
+import { Container, Heading, LeadForm, Section, WhatsAppButton } from '@/components';
 import { t } from '@/i18n';
 import type { Metadata } from 'next';
 import { contactMetadata } from '@/lib/conversion-pages';
@@ -15,6 +15,7 @@ export default function Page() {
   return <Section><Container>
         <Heading level={1}>{t(SITE, 'contact.h1')}</Heading>
         <p className="mt-[var(--space-4)] text-[var(--fg-muted)]">{t(SITE, 'contact.sub')}</p>
+        <div className="mt-[var(--space-6)]"><WhatsAppButton site="frontier" message="Hi — I have a question about a second residency in Paraguay." /></div>
         <div className="mt-[var(--space-10)] grid gap-[var(--space-8)] text-left">
             <div>
               <Heading level={2}>{t('frontier', 'process.fullForm')}</Heading>
