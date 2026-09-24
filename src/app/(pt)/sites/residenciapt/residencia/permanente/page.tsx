@@ -26,7 +26,7 @@ export default function Page() {
         {
           question: 'Preciso passar pela temporária antes?',
           answer:
-            'É o caminho mais comum, mas não o único — se você já se qualifica direto, avaliamos isso na consulta em vez de te fazer passar por uma etapa desnecessária.',
+            'É o caminho mais comum, mas não o único — se você já se qualifica direto, avaliamos isso no seu primeiro contato em vez de te fazer passar por uma etapa desnecessária.',
         },
         {
           question: 'O que é a regra de presença?',
@@ -55,7 +55,7 @@ export default function Page() {
         <Fact k="permanent.presence_rule" site="residenciapt" />. Isso muda o planejamento para
         quem mora em cidades de fronteira como Foz do Iguaçu e cruza com frequência, e muda ainda
         mais para quem pensa em manter a vida principal no Brasil e usar o Paraguai como base
-        secundária — conversamos sobre o seu padrão real de viagem antes de você decidir.
+        secundária — confirmamos por escrito o que isso significa para o seu padrão real de viagem antes de você decidir.
       </p>
       <h2>O que o processo envolve</h2>
       <p>

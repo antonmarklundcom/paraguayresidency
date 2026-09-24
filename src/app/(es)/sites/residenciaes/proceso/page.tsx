@@ -9,7 +9,7 @@ export function generateMetadata(): Metadata {
   return siteMetadata('residenciaes', {
     title: 'El Proceso de Residencia en Paraguay, Paso a Paso',
     description:
-      'De la primera llamada a la cédula en mano: el proceso de residencia en Paraguay paso a paso, con la lista de documentos y qué pasa en cada etapa.',
+      'De tu primer mensaje a la cédula en mano: el proceso de residencia en Paraguay paso a paso, con la lista de documentos y qué pasa en cada etapa.',
     path: PATH,
   });
 }
@@ -21,8 +21,8 @@ interface Step {
 
 const STEPS: Step[] = [
   {
-    title: '1. La llamada',
-    body: 'Preguntamos por tu nacionalidad, tu objetivo y tu plazo, te decimos qué ruta encaja, y cotizamos tu honorario fijo — antes de presentar nada.',
+    title: '1. Tu primer mensaje',
+    body: 'Escríbenos por WhatsApp o el formulario con tu nacionalidad, tu objetivo y tu plazo. Te decimos por escrito qué ruta encaja, y cotizamos tu honorario fijo — antes de presentar nada.',
   },
   {
     title: '2. Tu lista de documentos',

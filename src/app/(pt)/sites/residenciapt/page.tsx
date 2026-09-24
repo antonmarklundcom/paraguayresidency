@@ -34,7 +34,7 @@ const FAQ_ITEMS = [
   {
     question: 'Como sei qual rota serve para o meu caso?',
     answer:
-      'Faça o teste de rota — seis perguntas, dois minutos — ou fale com a gente e dizemos direto, inclusive quando a rota padrão não serve para o seu caso.',
+      'Faça o teste de rota — seis perguntas, dois minutos — ou escreva para a gente e dizemos direto, inclusive quando a rota padrão não serve para o seu caso.',
   },
   {
     question: 'Quanto custa?',
@@ -54,7 +54,7 @@ const FAQ_ITEMS = [
 ];
 
 const STEPS = [
-  { title: 'Uma conversa', body: 'Confirmamos sua rota e seu honorário fixo antes de você decidir qualquer coisa.' },
+  { title: 'Uma mensagem', body: 'Confirmamos sua rota e seu honorário fixo por escrito, antes de você decidir qualquer coisa.' },
   { title: 'Seus documentos', body: 'Checklist pela sua nacionalidade, com a legalização na ordem certa.' },
   { title: 'Assunção', body: 'Protocolamos o processo e acompanhamos você nas consultas. Você vem; nós fazemos o resto.' },
   { title: 'Sua cédula', body: 'Com a residência aprovada, cuidamos da cédula paraguaia e dizemos o que vem depois.' },

@@ -46,7 +46,7 @@ export default function Page() {
             <p className="mt-[var(--space-2)] text-[var(--fg-muted)]">
               Un honorario fijo por ruta, cotizado antes de que te comprometas. Una lista de
               documentos hecha para tu nacionalidad, no un PDF genérico. Y cuando la ruta estándar
-              no te conviene, te lo decimos en la primera llamada — y te orientamos hacia el Pase
+              no te conviene, te lo decimos en tu primer mensaje — y te orientamos hacia el Pase
               de Inversor, o hacia esperar, en vez de presentar algo que no va a servirte.
             </p>
           </div>
@@ -54,9 +54,9 @@ export default function Page() {
             <Heading level={2}>Lo que no hacemos</Heading>
             <p className="mt-[var(--space-2)] text-[var(--fg-muted)]">
               No damos cifras que no podamos respaldar — cada número legal o financiero en este
-              sitio está confirmado o claramente marcado como una estimación que confirmamos en tu
-              llamada. No asesoramos sobre las reglas fiscales de tu propio país; esa es una
-              pregunta para tu asesor, y lo decimos en vez de adivinar.
+              sitio está confirmado o claramente marcado como una estimación que te confirmamos
+              por escrito para tu caso. No asesoramos sobre las reglas fiscales de tu propio país;
+              esa es una pregunta para tu asesor, y lo decimos en vez de adivinar.
             </p>
           </div>
           <div>
@@ -66,8 +66,8 @@ export default function Page() {
               <a href="/mercosur" className="text-[var(--accent)] underline underline-offset-2">
                 la vía Mercosur
               </a>{' '}
-              antes de tu llamada — te decimos exactamente qué se simplifica y qué sigue igual para
-              tu nacionalidad.
+              antes de escribirnos — te decimos exactamente qué se simplifica y qué sigue igual
+              para tu nacionalidad.
             </p>
           </div>
         </div>

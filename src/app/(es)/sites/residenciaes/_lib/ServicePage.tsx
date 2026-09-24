@@ -65,7 +65,7 @@ export function ServicePage({
             path,
           })}
         />
-      <StickyCta formId="inquiry" label="Habla con nosotros" />
+      <StickyCta formId="inquiry" label="Escríbenos" />
       </Container>
     </Section>
   );

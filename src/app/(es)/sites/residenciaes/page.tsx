@@ -34,7 +34,7 @@ const FAQ_ITEMS = [
   {
     question: '¿Cómo sé qué ruta me conviene?',
     answer:
-      'Haz el test de ruta — seis preguntas, dos minutos — o reserva una llamada y te lo decimos directamente, incluido cuándo la ruta estándar no te conviene.',
+      'Haz el test de ruta — seis preguntas, dos minutos — o escríbenos y te lo decimos directamente, incluido cuándo la ruta estándar no te conviene.',
   },
   {
     question: '¿Cuánto cuesta esto?',
@@ -49,12 +49,12 @@ const FAQ_ITEMS = [
   {
     question: '¿Y si mi caso es poco habitual?',
     answer:
-      'Cuéntanoslo en la primera llamada. Preferimos orientarte hacia el Pase de Inversor, o decirte que esperes, antes que presentar algo que no sirva a tu caso.',
+      'Cuéntanoslo en tu primer mensaje. Preferimos orientarte hacia el Pase de Inversor, o decirte que esperes, antes que presentar algo que no sirva a tu caso.',
   },
 ];
 
 const STEPS = [
-  { title: 'Una llamada', body: 'Confirmamos tu ruta y tu honorario fijo, en euros, antes de que te comprometas.' },
+  { title: 'Un mensaje', body: 'Confirmamos tu ruta y tu honorario fijo, en euros, por escrito, antes de que te comprometas.' },
   { title: 'Tus documentos', body: 'Una lista hecha para tu nacionalidad: apostillas y traducciones en el orden correcto.' },
   { title: 'Asunción', body: 'Presentamos el expediente y te acompañamos a las citas. Tú vienes; nosotros hacemos el resto.' },
   { title: 'Tu cédula', body: 'Aprobada la residencia, tramitamos tu cédula paraguaya y te decimos qué sigue.' },

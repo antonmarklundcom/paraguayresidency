@@ -38,7 +38,7 @@ export default function Page() {
         {
           question: '¿Qué renta se grava realmente aquí?',
           answer:
-            'El sistema territorial grava lo que se origina en Paraguay, no tu renta mundial. Te explicamos qué significa eso para tus ingresos concretos en la llamada, no en términos genéricos aquí.',
+            'El sistema territorial grava lo que se origina en Paraguay, no tu renta mundial. Te explicamos qué significa eso para tus ingresos concretos por escrito, para tu caso, no en términos genéricos aquí.',
         },
       ]}
       serviceName="Residencia fiscal y alta de RUC en Paraguay"
