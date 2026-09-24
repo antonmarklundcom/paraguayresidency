@@ -8,5 +8,5 @@ export function generateMetadata(): Metadata {
 }
 
 export default function Page() {
-  return <BookPage site={SITE} />;
+  return BookPage();
 }

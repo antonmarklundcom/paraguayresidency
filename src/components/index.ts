@@ -23,3 +23,5 @@ export { Steps, type Step } from './Steps';
 export { Reasons, type Reason } from './Reasons';
 export { ArticleCards, type ArticleCard } from './ArticleCards';
 export { LeadPanel } from './LeadPanel';
+export { WhatsAppButton, WhatsAppFab } from './WhatsApp';
+export { WhatsAppIcon } from './WhatsAppIcon';

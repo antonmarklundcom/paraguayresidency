@@ -320,7 +320,7 @@ export async function sendPurchaseEmail(input: {
     expiresAt: expiryFrom(now),
     maxDownloads: MAX_DOWNLOADS,
     // The Guide's job is to feed the service brands (plan §1.2).
-    consultationUrl: `${siteOrigin('residency')}/book`,
+    consultationUrl: `${siteOrigin('residency')}/contact`,
     unsubscribeUrl: unsubscribeUrl(site, input.email),
   });
   const outcome = await sendEmail({ to: input.email, ...body });

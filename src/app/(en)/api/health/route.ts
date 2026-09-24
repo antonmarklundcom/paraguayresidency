@@ -26,7 +26,7 @@ export const runtime = 'nodejs';
  * app keeps serving (plan §4.5 — a missing credential never blocks), which is
  * exactly why it has to be loud here.
  *
- * `crm: "off"` means VenderCRM is not configured. Leads are still stored and
+ * `crm: "off"` means VenderCRM is not configured for this host's brand. Leads are still stored and
  * still emailed; only the CRM push is skipped, and `leads.crm_status` stays
  * `pending` so a later retry is meaningful (plan §1.6).
  */
@@ -35,7 +35,8 @@ export async function GET() {
   const [site, db] = await Promise.all([currentSite(), pingDatabase()]);
   const email = emailMode();
   const production = process.env.NODE_ENV === 'production';
-  const crm = crmConfigured() ? 'on' : 'off';
+  // For the brand this request is for: its own VENDERCRM_API_KEY_<SITE>, else the shared key.
+  const crm = crmConfigured(site) ? 'on' : 'off';
 
   // One boolean a monitor can alert on without knowing what any field means.
   const degraded = db !== 'ok' || secretHealth() !== 'ok' || (production && email === 'console');

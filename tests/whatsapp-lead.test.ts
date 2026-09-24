@@ -1,3 +1,4 @@
+import { leadIdempotencyKey } from '@/lib/signing';
 import { beforeEach, expect, it, vi } from 'vitest';
 import { parseLeadInput } from '@/lib/lead-schema';
 import { issueFormTimestamp, MIN_FILL_MS } from '@/lib/form-guard';
@@ -41,7 +42,12 @@ it('stores a phone-only lead, delivers to CRM and notifies the team without a vi
   const result = await createLead(input, { timestamp: issueFormTimestamp(Date.now() - MIN_FILL_MS - 1000) });
   expect(result).toMatchObject({ ok: true, stored: true, leadId: 41 });
   expect(mocks.rows).toHaveBeenCalledWith(leads, expect.objectContaining({ kind: 'contact', email: '', whatsapp: input.whatsapp }));
-  expect(mocks.crm).toHaveBeenCalledWith(expect.objectContaining({ phone: input.whatsapp }));
+  // The site picks the brand's own VenderCRM key; the lead row id gives a
+  // per-submission idempotency key that survives retries.
+  expect(mocks.crm).toHaveBeenCalledWith(
+    expect.objectContaining({ phone: input.whatsapp, idempotencyKey: leadIdempotencyKey('frontier', 41) }),
+    'frontier',
+  );
   expect(mocks.email).toHaveBeenCalledTimes(1);
   expect(mocks.email).toHaveBeenCalledWith(expect.objectContaining({ to: 'team@example.invalid', replyTo: undefined }));
 });

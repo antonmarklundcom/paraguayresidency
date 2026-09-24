@@ -6,6 +6,7 @@ import { getSite, type SiteKey } from '@/sites/registry';
 import { countryName } from './countries';
 import { describeQuizAnswers, parseLeadInput, type LeadInput } from './lead-schema';
 import { sendToVenderCrm, type CrmOutcome } from './vendercrm';
+import { leadIdempotencyKey } from './signing';
 import { leadAutoReply, leadNotification } from './email-templates';
 import { notifyTo, sendEmail, unsubscribeUrl } from './email';
 import { checkFormGuard, isSilentDrop, type GuardVerdict } from './form-guard';
@@ -225,6 +226,7 @@ async function pushToCrm(
   let outcome: CrmOutcome;
   try {
     outcome = await sendToVenderCrm({
+      idempotencyKey: leadId === null ? undefined : leadIdempotencyKey(input.site, leadId),
       phone,
       name: input.name,
       email: input.email,
@@ -251,7 +253,7 @@ async function pushToCrm(
         investment_route: input.investmentRoute,
         route_finder_result: input.quizResult,
       },
-    });
+    }, input.site);
   } catch (error) {
     // sendToVenderCrm already swallows its own failures; this is belt and braces.
     outcome = {
@@ -324,9 +326,9 @@ async function notifyLead(leadId: number | null, input: LeadInput): Promise<void
 }
 
 /**
- * Admin retry (plan §5.2.1). Re-runs delivery for one stored lead; the CRM's
- * idempotency key means a retry inside the same hour cannot create a duplicate
- * contact.
+ * Admin retry (plan §5.2.1). Re-runs delivery for one stored lead; the CRM
+ * idempotency key comes from the lead row, so a retry at any time cannot
+ * create a duplicate deal.
  */
 export async function retryLeadDelivery(leadId: number): Promise<CrmOutcome> {
   if (!hasDatabase()) throw new Error('DATABASE_URL is not set');

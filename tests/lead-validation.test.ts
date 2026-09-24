@@ -31,9 +31,26 @@ describe('parseLeadInput', () => {
     expect(result.data.nationality).toBe('DE');
   });
 
-  it('accepts a minimal submission — only site, kind and email are required', () => {
-    const result = parseLeadInput({ site: 'guide', kind: 'contact', email: 'a@b.co' });
+  it('accepts a minimal submission — only site, kind, email and a phone are required', () => {
+    const result = parseLeadInput({ site: 'guide', kind: 'contact', email: 'a@b.co', phone: '+34 600 123 456' });
     expect(result.ok).toBe(true);
+  });
+
+  it('requires a WhatsApp or phone number on every full form, naming the phone field', () => {
+    // VenderCRM keys the contact on the phone; a lead without one could never reach it.
+    for (const kind of ['contact', 'consultation', 'investor_inquiry', 'quiz']) {
+      const result = parseLeadInput({ site: 'guide', kind, email: 'a@b.co' });
+      expect(result.ok).toBe(false);
+      if (result.ok) continue;
+      expect(result.errors.phone).toBeTruthy();
+    }
+  });
+
+  it('turns a 00 international prefix into +', () => {
+    const result = parseLeadInput({ ...valid, phone: '0046 70 123 45 67' });
+    expect(result.ok).toBe(true);
+    if (!result.ok) return;
+    expect(result.data.phone).toBe('+46 70 123 45 67');
   });
 
   it('rejects a bad email and names the field', () => {
@@ -54,10 +71,10 @@ describe('parseLeadInput', () => {
   });
 
   it('treats an empty optional field as absent, not as an empty string', () => {
-    const result = parseLeadInput({ ...valid, phone: '', whatsapp: '', message: '' });
+    const result = parseLeadInput({ ...valid, whatsapp: '', message: '' });
     expect(result.ok).toBe(true);
     if (!result.ok) return;
-    expect(result.data.phone).toBeUndefined();
+    expect(result.data.whatsapp).toBeUndefined();
     expect(result.data.message).toBeUndefined();
   });
 
