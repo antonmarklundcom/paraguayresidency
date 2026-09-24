@@ -32,5 +32,9 @@
   circles. The base rule applying display weight and tracking now matches
   the class token exactly, where before it also hit prose wrappers.
 - **flytta**: the broken `StatRow` on the homepage is gone.
+- **frontier hero 1200w re-encoded** (WebP q58 from the 2400 source, 128 KB →
+  94 KB, no visible difference at 100%): it is the LCP image on frontier and
+  residenciapt, and the heaviest hero by far. Locally frontier now matches
+  `main` (0.90, LCP 3.6 s vs 3.7 s); CI had it at 0.88.
 
 Open: see KNOWN-ISSUES "hero photos are shared across brands".
