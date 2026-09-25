@@ -1,10 +1,10 @@
 import { getPages } from '@/content';
 import { contentHref } from '@/lib/site-pages';
 import type { Metadata } from 'next';
+import { ABHeroCta } from '@/components/ABHeroCta';
 import {
   HeroContact,
   ArticleCards,
-  Button,
   Disclosure,
   IntentTiles,
   LeadPanel,
@@ -64,7 +64,7 @@ export default function Page() {
 
   const actions = (
     <>
-      <Button href="/route-finder">Find your route</Button>
+      <ABHeroCta href="/route-finder" />
       <HeroContact site="residency" message="Hi — I have a question about Paraguay residency." fallbackHref="#contact" />
     </>
   );
