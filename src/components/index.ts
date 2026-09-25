@@ -11,6 +11,7 @@ export { Fact } from './Fact';
 export { StatRow, type Stat } from './StatRow';
 export { Disclaimer } from './Disclaimer';
 export { LeadForm, type LeadVariant, INVESTMENT_ROUTE_IDS } from './LeadForm';
+export { DocumentChecklist, type ChecklistRoute, type ChecklistNationality } from './DocumentChecklist';
 export { NewsletterForm } from './NewsletterForm';
 export { CheckoutButton } from './CheckoutButton';
 export { MagicLinkForm } from './MagicLinkForm';

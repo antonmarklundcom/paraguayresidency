@@ -129,6 +129,7 @@ export const sites: Record<SiteKey, SiteConfig> = {
             { labelKey: 'nav.cedula', href: '/residency/cedula' },
             { labelKey: 'nav.taxResidency', href: '/residency/tax-residency' },
             { labelKey: 'nav.family', href: '/residency/family' },
+            { labelKey: 'nav.documents', href: '/documents/checklist' },
           ],
         },
         {
@@ -275,6 +276,7 @@ export const sites: Record<SiteKey, SiteConfig> = {
             { labelKey: 'nav.routes', href: '/routes' },
             { labelKey: 'nav.taxResidency', href: '/tax' },
             { labelKey: 'nav.process', href: '/process' },
+            { labelKey: 'nav.documents', href: '/documents/checklist' },
             { labelKey: 'nav.pricing', href: '/pricing' },
           ],
         },
@@ -306,6 +308,7 @@ export const sites: Record<SiteKey, SiteConfig> = {
     cta: { labelKey: 'home.ctaPrimary', href: '/route-finder' },
     nav: [
       { labelKey: 'nav.routes', href: '/proceso' },
+      { labelKey: 'nav.documents', href: '/documentos/lista' },
       { labelKey: 'nav.pricing', href: '/precios' },
       { labelKey: 'nav.routeFinder', href: '/route-finder' },
       { labelKey: 'nav.about', href: '/nosotros' },
@@ -323,6 +326,7 @@ export const sites: Record<SiteKey, SiteConfig> = {
             { labelKey: 'nav.family', href: '/familia' },
             { labelKey: 'nav.mercosur', href: '/mercosur' },
             { labelKey: 'nav.investorPass', href: '/pase-inversor' },
+            { labelKey: 'nav.documents', href: '/documentos/lista' },
           ],
         },
         {
@@ -371,6 +375,7 @@ export const sites: Record<SiteKey, SiteConfig> = {
             { labelKey: 'nav.family', href: '/familia' },
             { labelKey: 'nav.pricing', href: '/precos' },
             { labelKey: 'nav.investorPass', href: '/investor-pass' },
+            { labelKey: 'nav.documents', href: '/documentos/lista' },
           ],
         },
         {

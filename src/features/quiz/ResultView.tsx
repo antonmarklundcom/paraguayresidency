@@ -15,6 +15,14 @@ import { isRoute, sanitizeAnswers, scoreQuiz, type Route } from './scoring';
  * cannot make the page recommend something the answers do not support.
  */
 
+/** Brands that ship the nationality × route document checklist tool (plan §14.6 follow-up). */
+const CHECKLIST_PATH: Partial<Record<SiteKey, string>> = {
+  residency: '/documents/checklist',
+  frontier: '/documents/checklist',
+  residenciaes: '/documentos/lista',
+  residenciapt: '/documentos/lista',
+};
+
 /** Facts worth showing next to each recommendation — all hedged until verified. */
 const ROUTE_FACTS: Record<Route, FactKey[]> = {
   temporary: ['temporary.duration', 'cedula.timeline'],
@@ -62,6 +70,12 @@ export function QuizResultView({
     ? destination.path
     : `${siteOrigin(destination.site)}${destination.path}`;
   const destinationSite = getSite(destination.site);
+  const checklistSuffix = CHECKLIST_PATH[destination.site];
+  const checklistHref = checklistSuffix
+    ? ownsRoute
+      ? checklistSuffix
+      : `${siteOrigin(destination.site)}${checklistSuffix}`
+    : undefined;
 
   return (
     <>
@@ -96,6 +110,17 @@ export function QuizResultView({
               {t(site, 'quiz.result.retake')}
             </Link>
           </div>
+
+          {checklistHref ? (
+            <p className="mt-[var(--space-4)]">
+              <Link
+                href={checklistHref}
+                className="text-(length:--text-sm) underline underline-offset-4"
+              >
+                {t(site, 'quiz.result.checklistCta')}
+              </Link>
+            </p>
+          ) : null}
 
           {!ownsRoute ? (
             <p className="mt-[var(--space-4)] text-(length:--text-xs) text-[var(--fg-muted)]">
