@@ -40,8 +40,18 @@ export const facts = {
   'documents.police_certificate_validity': {
     key: 'documents.police_certificate_validity',
     label: 'Police certificate — recency and acceptance',
-    display: 'the applicable certificate recency window and acceptance conditions must be confirmed for your issuing country, route and filing stage',
-    hedged: 'the applicable certificate recency window and acceptance conditions must be confirmed for your issuing country, route and filing stage',
+    display: {
+      en: 'the applicable certificate recency window and acceptance conditions must be confirmed for your issuing country, route and filing stage',
+      es: 'la vigencia y las condiciones de aceptación del certificado deben confirmarse según tu país emisor, tu ruta y la etapa de tu trámite',
+      pt: 'a validade e as condições de aceitação da certidão devem ser confirmadas conforme seu país emissor, sua rota e a etapa do seu processo',
+      sv: 'giltighetstiden och villkoren för godkännande av intyget måste bekräftas utifrån ditt utfärdande land, din väg och var i processen du befinner dig',
+    },
+    hedged: {
+      en: 'the applicable certificate recency window and acceptance conditions must be confirmed for your issuing country, route and filing stage',
+      es: 'la vigencia y las condiciones de aceptación del certificado deben confirmarse según tu país emisor, tu ruta y la etapa de tu trámite',
+      pt: 'a validade e as condições de aceitação da certidão devem ser confirmadas conforme seu país emissor, sua rota e a etapa do seu processo',
+      sv: 'giltighetstiden och villkoren för godkännande av intyget måste bekräftas utifrån ditt utfärdande land, din väg och var i processen du befinner dig',
+    },
     verified: false,
     sources: [],
     note: 'No verified validity window or nationality-specific enforcement evidence supplied. Confirm the accepted issuer, document form, authentication and translation conditions, the date used to assess recency, and whether later review can require a replacement before adding figures or verifying.',
