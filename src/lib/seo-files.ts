@@ -65,6 +65,7 @@ const staticPaths: Record<SiteKey, string[]> = {
     '/process',
     '/about',
     '/guide',
+    '/documents/checklist',
   ],
   investorpass: [
     '/insights',
@@ -95,6 +96,7 @@ const staticPaths: Record<SiteKey, string[]> = {
     '/pricing',
     '/about',
     '/guide',
+    '/documents/checklist',
   ],
   residenciaes: [
     '/guias',
@@ -116,6 +118,7 @@ const staticPaths: Record<SiteKey, string[]> = {
     '/proceso',
     '/precios',
     '/nosotros',
+    '/documentos/lista',
     // /pase-inversor is a thin, noindex bridge (plan §6.6) — excluded from
     // the sitemap, the same treatment the hub gives its own /investor-pass.
   ],
@@ -140,6 +143,7 @@ const staticPaths: Record<SiteKey, string[]> = {
     '/processo',
     '/precos',
     '/sobre',
+    '/documentos/lista',
   ],
   flytta: [
     '/guider',
