@@ -39,19 +39,20 @@ export function generateMetadata(): Metadata {
 }
 
 const CHAPTERS = [
-  { n: 1, title: 'Why Paraguay (and why not)' },
-  { n: 2, title: 'The routes compared' },
-  { n: 3, title: 'Documents, apostilles, translations by nationality' },
-  { n: 4, title: 'Costs, real ones' },
-  { n: 5, title: 'Timeline week by week' },
-  { n: 6, title: 'Cédula and RUC' },
-  { n: 7, title: 'Banking' },
-  { n: 8, title: 'Taxes for residents' },
-  { n: 9, title: 'Family' },
-  { n: 10, title: 'Investor Pass overview' },
-  { n: 11, title: 'Mistakes we see monthly' },
-  { n: 12, title: 'Checklists' },
+  { n: 1, title: 'Why Paraguay (and why not)', note: 'Who it suits, who it does not, and the honest trade-offs.' },
+  { n: 2, title: 'The routes compared', note: 'Temporary, permanent, Mercosur and the Investor Pass side by side.' },
+  { n: 3, title: 'Documents, apostilles, translations by nationality', note: 'The document chain for the US, UK, EU, Canada, Australia and LatAm.' },
+  { n: 4, title: 'Costs, real ones', note: 'Every government fee and third-party cost, with a worksheet.' },
+  { n: 5, title: 'Timeline week by week', note: 'What happens when, and where cases usually stall.' },
+  { n: 6, title: 'Cédula and RUC', note: 'Your ID card and tax number, step by step.' },
+  { n: 7, title: 'Banking', note: 'Which accounts are realistic, and what banks ask for.' },
+  { n: 8, title: 'Taxes for residents', note: 'Paraguay’s territorial system, the rates, and what it does not cover.' },
+  { n: 9, title: 'Family', note: 'Spouses, children and the extra documents they need.' },
+  { n: 10, title: 'Investor Pass overview', note: 'The four investment routes and when the shortcut is worth it.' },
+  { n: 11, title: 'Mistakes we see monthly', note: 'The errors that cost people months, and how to avoid them.' },
+  { n: 12, title: 'Checklists', note: 'Printable, tick-as-you-go lists for every stage.' },
 ];
+
 
 const FAQ_ITEMS = [
   {
@@ -93,17 +94,46 @@ export default async function Page() {
         { label: 'Free articles', href: '/blog', image: 'guide-tile-hammock-reading' },
       ]} />
       <Section id="inside"><Heading level={2}>What&apos;s inside</Heading>
-        <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">{CHAPTERS.map(chapter => <div key={chapter.n} className="rounded-[var(--radius-brand)] border border-[var(--border)] bg-[var(--surface-alt)] p-5"><h3 className="font-[family-name:var(--display-font)] text-lg">{chapter.title}</h3></div>)}</div>
+        <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">{CHAPTERS.map(chapter => <div key={chapter.n} className="rounded-[var(--radius-brand)] border border-[var(--border)] bg-[var(--surface-alt)] p-5"><span className="text-(length:--text-xs) font-semibold tracking-[0.14em] text-[var(--accent)] uppercase">Chapter {chapter.n}</span><h3 className="mt-1 font-[family-name:var(--display-font)] text-lg">{chapter.title}</h3><p className="mt-2 text-(length:--text-sm) text-[var(--fg-muted)]">{chapter.note}</p></div>)}</div>
       </Section>
-      <Section id="price" tone="accent" width="narrow">
-        <Heading level={2}>{price}, once</Heading>
-        <ul className="mt-[var(--space-4)] space-y-[var(--space-2)] text-[var(--fg-muted)]">
-          <li>Instant PDF download</li>
-          <li>Free updates for 12 months</li>
-          <li>14-day refund, no questions</li>
-        </ul>
-        <div className="mt-[var(--space-8)]">
-          <CheckoutButton />
+      <Section id="price" tone="accent">
+        <div className="grid items-center gap-[var(--space-12)] md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
+          {/* The product, drawn in CSS: a cover needs no image request, so it
+              costs nothing against LCP and never goes stale. */}
+          <div aria-hidden="true" className="mx-auto w-full max-w-[17rem] [perspective:1200px]">
+            <div className="relative aspect-[3/4] rounded-r-[10px] rounded-l-[3px] bg-[var(--accent)] p-7 text-[var(--accent-fg)] shadow-[0_30px_60px_-20px_rgba(0,0,0,0.45),0_12px_20px_-12px_rgba(0,0,0,0.3)] [transform:rotateY(-14deg)] motion-safe:transition-transform motion-safe:duration-500 hover:[transform:rotateY(-4deg)]">
+              <span className="absolute inset-y-0 left-0 w-3 rounded-l-[3px] bg-black/20" />
+              <span className="absolute inset-y-0 left-3 w-px bg-white/25" />
+              <p className="text-[0.65rem] font-semibold tracking-[0.2em] uppercase opacity-80">2026 edition</p>
+              <p className="mt-6 font-[family-name:var(--display-font)] text-[1.9rem] leading-[1.05]">The Paraguay Residency Guide</p>
+              <p className="mt-4 text-[0.8rem] leading-snug opacity-85">Every step, document and cost, written down once and kept current.</p>
+              <p className="absolute right-7 bottom-6 left-7 border-t border-white/30 pt-3 text-[0.65rem] tracking-[0.14em] uppercase opacity-80">12 chapters · checklists</p>
+            </div>
+          </div>
+          <div>
+            <p className="text-(length:--text-xs) font-semibold tracking-[0.14em] text-[var(--accent)] uppercase">The complete guide</p>
+            <Heading level={2} className="mt-2">{price}, once</Heading>
+            <ul className="mt-[var(--space-6)] space-y-[var(--space-3)]">
+              {[
+                'All 12 chapters online in your member area, plus the PDF to keep',
+                'Real figures with their official source and the date we checked them',
+                'Document checklists by nationality, ready to print',
+                'Free updates for 12 months when the rules change',
+                '14-day refund, no questions',
+              ].map((line) => (
+                <li key={line} className="flex gap-3">
+                  <span aria-hidden="true" className="mt-1 flex size-5 shrink-0 items-center justify-center rounded-full bg-[var(--accent)] text-[0.7rem] text-[var(--accent-fg)]">✓</span>
+                  <span>{line}</span>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-[var(--space-8)]">
+              <CheckoutButton />
+            </div>
+            <p className="mt-[var(--space-4)] text-(length:--text-sm) text-[var(--fg-muted)]">
+              Rather have it done for you? <a href="https://paraguayresidency.co.uk/contact" className="text-[var(--accent)] underline underline-offset-2">Our team in Asunción files it end to end</a>.
+            </p>
+          </div>
         </div>
       </Section>
 
