@@ -246,5 +246,13 @@
   "checklist.route.permanent": "Permanent uppehållstillstånd",
   "checklist.route.cedula": "Cédula (efter godkännande)",
   "checklist.route.investor": "Investor Pass",
-  "quiz.result.checklistCta": "Se dokumentchecklistan för den här vägen"
+  "quiz.result.checklistCta": "Se dokumentchecklistan för den här vägen",
+  "fact.sourceTitle": "Källa: {source}, kontrollerad {date}",
+  "article.shortAnswer": "Det korta svaret",
+  "article.keyTakeaways": "Det viktigaste",
+  "article.writtenBy": "Skriven av {name}",
+  "article.reviewedBy": "Granskad av {name}",
+  "article.updated": "Uppdaterad {date}",
+  "article.sourcesTitle": "Källor till siffrorna på sidan",
+  "article.sourceChecked": "kontrollerad {date}"
 }

@@ -1,4 +1,5 @@
 import { MDXRemote } from 'next-mdx-remote/rsc';
+import remarkGfm from 'remark-gfm';
 import Link from 'next/link';
 import type { ComponentProps } from 'react';
 import { Fact } from '@/components/Fact';
@@ -22,6 +23,19 @@ function componentsFor(site: SiteKey) {
     Card,
     StatRow,
     Disclaimer,
+    // GFM tables (remark-gfm): wrapped so a wide table scrolls inside the
+    // column instead of widening the page on a phone.
+    table: (props: ComponentProps<'table'>) => (
+      <div className="my-[var(--space-6)] overflow-x-auto rounded-[var(--radius-brand)] border border-[var(--border)]">
+        <table {...props} className="w-full border-collapse text-left text-(length:--text-sm)" />
+      </div>
+    ),
+    th: (props: ComponentProps<'th'>) => (
+      <th {...props} className="border-b border-[var(--border)] bg-[var(--surface-alt)] px-4 py-3 font-semibold" />
+    ),
+    td: (props: ComponentProps<'td'>) => (
+      <td {...props} className="border-b border-[var(--border)] px-4 py-3 align-top" />
+    ),
     a: ({ href = '', ...props }: ComponentProps<'a'>) =>
       href.startsWith('/') ? <Link href={href} {...props} /> : <a href={href} rel="noopener" {...props} />,
   };
@@ -35,7 +49,7 @@ export function Mdx({ source, site }: { source: string; site: SiteKey }) {
     <MDXRemote
       source={source}
       components={componentsFor(site)}
-      options={{ blockJS: false, blockDangerousJS: true }}
+      options={{ blockJS: false, blockDangerousJS: true, mdxOptions: { remarkPlugins: [remarkGfm] } }}
     />
   );
 }

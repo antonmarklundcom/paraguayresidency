@@ -24,6 +24,8 @@ export interface Fact {
   key: string;
   /** Short human label, e.g. for the admin verification screen. */
   label: string;
+  /** The label in the reader's language, for an article's sources list. */
+  title?: LocalizedText;
   /** The figure/claim as it should read ONCE verified. */
   display: LocalizedText;
   /** What renders while `verified` is false. Never contains a bare number. */
@@ -33,6 +35,14 @@ export interface Fact {
   verifiedOn?: string;
   /** Where the unverified value came from; the resolution text is the goal. */
   sources: string[];
+  /**
+   * Published from a cited source ahead of the owner's sign-off (Anton's
+   * decision, 2026-09-26: answer engines cannot quote "confirm on your call",
+   * so a figure with a named source and a checked date goes live). The page
+   * shows `display` plus the citation; `verified` still means "signed off".
+   * `docs/facts-verification.md` lists every sourced fact awaiting sign-off.
+   */
+  sourced?: { label: LocalizedText; url?: string; checkedOn: string };
   note?: string;
 }
 
@@ -511,5 +521,10 @@ export function localized(text: LocalizedText, locale: FactLocale = 'en'): strin
  */
 export function factText(key: FactKey, locale: FactLocale = 'en'): string {
   const fact = facts[key] as Fact;
-  return localized(fact.verified ? fact.display : fact.hedged, locale);
+  return localized(factPublished(fact) ? fact.display : fact.hedged, locale);
+}
+
+/** A fact shows its figure once it is signed off OR carries a cited source. */
+export function factPublished(fact: Fact): boolean {
+  return fact.verified || Boolean(fact.sourced);
 }

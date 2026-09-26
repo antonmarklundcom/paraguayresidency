@@ -7,9 +7,25 @@ import { Mdx } from '@/content/mdx';
 import { getPage } from '@/content';
 import { siteMetadata } from '@/lib/metadata';
 import { contentHref } from '@/lib/site-pages';
-import { t } from '@/i18n';
-import { siteOrigin, type SiteKey } from '@/sites/registry';
+import { t, INTL_LOCALE } from '@/i18n';
+import { getSite, siteOrigin, type SiteKey } from '@/sites/registry';
 import { JsonLd } from '@/components/JsonLd';
+import { TEAM, personJsonLd } from '@/content/team';
+import { facts, localized, type Fact as FactEntry } from '@content/shared/facts';
+
+/** Fact keys an article body renders, in order of first use. */
+export function factKeysIn(body: string): string[] {
+  const seen = new Set<string>();
+  for (const match of body.matchAll(/<Fact\b[^>]*\bk=["']([^"']+)["']/g)) seen.add(match[1]);
+  return [...seen].filter((key) => key in facts);
+}
+
+function formatDate(iso: string, site: SiteKey): string {
+  const locale = INTL_LOCALE[getSite(site).locale];
+  return new Intl.DateTimeFormat(locale, { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(
+    new Date(`${iso}T00:00:00Z`),
+  );
+}
 
 /** Shared renderer for every brand's MDX article route. */
 export function articleMetadata(site: SiteKey, slugPath: string): Metadata {
@@ -52,6 +68,16 @@ export function ArticlePage({
   if (!page) notFound();
 
   const { frontmatter } = page;
+  const locale = getSite(site).locale;
+  const updated = frontmatter.updatedAt ?? frontmatter.publishedAt;
+  const author = TEAM[frontmatter.author];
+  const reviewer = frontmatter.reviewedBy ? TEAM[frontmatter.reviewedBy] : undefined;
+  // Figures with a citation get listed under the article: the named source
+  // and the date it was checked are what an answer engine quotes back.
+  const cited = factKeysIn(page.body)
+    .map((key) => facts[key as keyof typeof facts] as FactEntry)
+    .filter((fact) => fact.sourced);
+  const url = `${siteOrigin(site)}${contentHref(site, slugPath)}`;
 
   return (
     <Section>
@@ -65,10 +91,64 @@ export function ArticlePage({
           <p className="mt-[var(--space-4)] text-(length:--text-lg) text-[var(--fg-muted)]">
             {frontmatter.description}
           </p>
+          <p className="mt-[var(--space-5)] flex flex-wrap gap-x-3 gap-y-1 text-(length:--text-sm) text-[var(--fg-muted)]">
+            <span>{t(site, 'article.writtenBy', { name: author.name })}</span>
+            {reviewer && reviewer.key !== author.key && (
+              <>
+                <span aria-hidden="true">·</span>
+                <span>{t(site, 'article.reviewedBy', { name: reviewer.name })}</span>
+              </>
+            )}
+            <span aria-hidden="true">·</span>
+            <time dateTime={updated}>{t(site, 'article.updated', { date: formatDate(updated, site) })}</time>
+          </p>
         </header>
+        {frontmatter.summary && (
+          <section
+            aria-labelledby="short-answer"
+            className="mt-[var(--space-10)] rounded-[var(--radius-lg)] border-l-4 border-[var(--accent)] bg-[var(--surface-alt)] p-[var(--space-6)]"
+          >
+            <h2 id="short-answer" className="text-(length:--text-xs) font-semibold tracking-[0.14em] text-[var(--accent)] uppercase">
+              {t(site, 'article.shortAnswer')}
+            </h2>
+            <p className="mt-[var(--space-2)] text-(length:--text-lg) leading-[var(--leading-snug,1.5)]">{frontmatter.summary}</p>
+          </section>
+        )}
         <Prose className="mt-[var(--space-12)]">
           <Mdx source={page.body} site={site} />
         </Prose>
+        {frontmatter.takeaways.length > 0 && (
+          <section aria-labelledby="key-takeaways" className="mt-[var(--space-12)] rounded-[var(--radius-lg)] border border-[var(--border)] p-[var(--space-6)]">
+            <h2 id="key-takeaways" className="font-[family-name:var(--display-font)] text-(length:--text-xl)">
+              {t(site, 'article.keyTakeaways')}
+            </h2>
+            <ul className="mt-[var(--space-4)] list-disc space-y-[var(--space-2)] pl-6">
+              {frontmatter.takeaways.map((line) => (
+                <li key={line}>{line}</li>
+              ))}
+            </ul>
+          </section>
+        )}
+        {cited.length > 0 && (
+          <section aria-labelledby="sources" className="mt-[var(--space-10)] text-(length:--text-sm) text-[var(--fg-muted)]">
+            <h2 id="sources" className="font-semibold text-[var(--fg)]">{t(site, 'article.sourcesTitle')}</h2>
+            <ul className="mt-[var(--space-2)] space-y-[var(--space-1)]">
+              {cited.map((fact) => (
+                <li key={fact.key}>
+                  {localized(fact.title ?? fact.label, locale)}: {localized(fact.display, locale)} —{' '}
+                  {fact.sourced!.url ? (
+                    <a href={fact.sourced!.url} rel="noopener nofollow" className="underline underline-offset-2">
+                      {localized(fact.sourced!.label, locale)}
+                    </a>
+                  ) : (
+                    localized(fact.sourced!.label, locale)
+                  )}
+                  , {t(site, 'article.sourceChecked', { date: formatDate(fact.sourced!.checkedOn, site) })}
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
         {frontmatter.faq.length > 0 && (
           <div className="mt-[var(--space-16)]">
             <FAQ title={t(site, 'common.faqTitle')} items={frontmatter.faq} />
@@ -143,9 +223,19 @@ export function ArticlePage({
             '@type': 'Article',
             headline: frontmatter.title,
             description: frontmatter.description,
+            ...(frontmatter.summary ? { abstract: frontmatter.summary } : {}),
             datePublished: frontmatter.publishedAt,
-            dateModified: frontmatter.updatedAt ?? frontmatter.publishedAt,
-            mainEntityOfPage: `${siteOrigin(site)}${contentHref(site, slugPath)}`,
+            dateModified: updated,
+            inLanguage: locale,
+            mainEntityOfPage: url,
+            url,
+            author: personJsonLd(author.key, locale),
+            ...(reviewer ? { reviewedBy: personJsonLd(reviewer.key, locale) } : {}),
+            publisher: { '@type': 'Organization', name: getSite(site).name, url: siteOrigin(site) },
+            image: `${siteOrigin(site)}/opengraph-image`,
+            ...(cited.length
+              ? { citation: cited.map((fact) => fact.sourced!.url ?? localized(fact.sourced!.label, locale)) }
+              : {}),
           }}
         />
       </Container>

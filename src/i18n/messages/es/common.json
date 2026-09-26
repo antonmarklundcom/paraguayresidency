@@ -246,5 +246,13 @@
   "checklist.route.permanent": "Residencia permanente",
   "checklist.route.cedula": "Cédula (después de la aprobación)",
   "checklist.route.investor": "Pase del Inversor",
-  "quiz.result.checklistCta": "Ver la lista de documentos para esta ruta"
+  "quiz.result.checklistCta": "Ver la lista de documentos para esta ruta",
+  "fact.sourceTitle": "Fuente: {source}, consultada el {date}",
+  "article.shortAnswer": "La respuesta corta",
+  "article.keyTakeaways": "Puntos clave",
+  "article.writtenBy": "Escrito por {name}",
+  "article.reviewedBy": "Revisado por {name}",
+  "article.updated": "Actualizado el {date}",
+  "article.sourcesTitle": "Fuentes de las cifras de esta página",
+  "article.sourceChecked": "consultada el {date}"
 }
