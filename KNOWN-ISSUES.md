@@ -42,6 +42,19 @@ link to any address it is handed.
 client changes — they're inert once the server never returns
 `email-required`).
 
+## OPEN — the repository is public, so the paid guide's text is readable on GitHub (2026-09-26)
+
+The twelve member-area chapters under `content/guide/members/` are the paid guide. Anyone can read
+them on GitHub while the repository is public. The PDF itself is git-ignored and never committed.
+Fix: Anton makes the repository private (GitHub → Settings → Change visibility). Nothing in the
+deploy depends on it being public.
+
+## OPEN — generated images cannot be downloaded in the cloud environment (2026-09-26)
+
+`*.cloudfront.net` answers CONNECT 403 here, so the guide's chapter images (slots marked
+`{/* IMAGE: … */}`) and per-brand heroes are not generated yet. Per the image pipeline rule, nothing is
+generated until the environment allows that host.
+
 ## OPEN — hero photos are shared across brands (design uplift, 2026-09-24)
 
 Only three hero photos exist (guide, investorpass, frontier). The hub reuses

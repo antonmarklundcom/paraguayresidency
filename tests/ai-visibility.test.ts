@@ -64,6 +64,12 @@ describe('facts in articles', () => {
       for (const m of source.matchAll(/<Fact\b[^>]*\bk=["']([^"']+)["']/g)) if (!(m[1] in facts)) problems.push(`${file}: <Fact k="${m[1]}">`);
       for (const m of source.matchAll(/\{\{fact:([\w.]+)\}\}/g)) if (!(m[1] in facts)) problems.push(`${file}: {{fact:${m[1]}}}`);
       if (/\[VERIFY|\bTODO\b|\bTBD\b/.test(source)) problems.push(`${file}: editorial placeholder`);
+      // Frontmatter is plain text: a <Fact> tag there would print literally.
+      const head = source.startsWith('---') ? source.split('---')[1] : '';
+      if (/<Fact\b/.test(head)) problems.push(`${file}: <Fact> in frontmatter (use {{fact:key}})`);
+      // In the MDX body a {{…}} token is a JS expression and crashes the page.
+      const body = source.startsWith('---') ? source.split('---').slice(2).join('---') : source;
+      if (/\{\{fact:/.test(body)) problems.push(`${file}: {{fact:}} token in the body (use <Fact k>)`);
     }
     expect(problems).toEqual([]);
   });
