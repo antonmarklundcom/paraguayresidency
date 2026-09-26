@@ -4,6 +4,7 @@
     "cedula.timeline",
     "cedula.timeline",
     "investorpass.launch_date",
+    "investorpass.legal_instrument",
     "investorpass.min_investment_usd",
     "investorpass.route_business_usd",
     "investorpass.route_financial_usd",

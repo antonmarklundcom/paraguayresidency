@@ -3,7 +3,10 @@ import { contentHref } from '@/lib/site-pages';
 import { t } from '@/i18n';
 import { getSite, siteOrigin, type SiteKey } from '@/sites/registry';
 import { TEAM } from '@/content/team';
-import { facts, factText, interpolateFacts, type FactKey } from '@content/shared/facts';
+import { interpolateFacts } from '@content/shared/facts';
+import { mdxToText } from './mdx-text';
+
+export { mdxToText };
 
 /**
  * `/llms.txt` and `/llms-full.txt` per brand (llmstxt.org): a plain-markdown
@@ -56,19 +59,6 @@ export function llmsText(site: SiteKey): string {
     `- [Full text of every article](${origin}/llms-full.txt)`,
     '',
   ].join('\n');
-}
-
-/** MDX body to readable markdown: facts resolved, other JSX dropped. */
-export function mdxToText(body: string, site: SiteKey): string {
-  const locale = getSite(site).locale;
-  return body
-    .replace(/<Fact\b[^>]*\bk=["']([^"']+)["'][^>]*\/>/g, (_, key: string) =>
-      key in facts ? factText(key as FactKey, locale) : '',
-    )
-    .replace(/<[A-Z][\s\S]*?\/>/g, '')
-    .replace(/<\/?[A-Z][^>]*>/g, '')
-    .replace(/\n{3,}/g, '\n\n')
-    .trim();
 }
 
 export function llmsFullText(site: SiteKey): string {

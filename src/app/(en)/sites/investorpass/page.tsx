@@ -97,7 +97,45 @@ export default function Page() {
         { label: 'Explore financial instruments', href: '/investor-pass/investment-routes#financial_instruments', image: 'investorpass-tile-financial-instruments' },
         { label: 'Back a tourism project', href: '/investor-pass/investment-routes#tourism', image: 'investorpass-tile-tourism-lodge' },
       ]} />
-      <Section width="narrow" spacing="tight"><Disclosure title="Investment requirements"><p>Programme launch: <Fact k="investorpass.launch_date" site="investorpass" />.</p><p>Card validity: <Fact k="investorpass.validity_years" site="investorpass" />.</p><p>Qualifying investment: <Fact k="investorpass.min_investment_usd" site="investorpass" />.</p><ul className="space-y-6">{ROUTES.map(route => <li key={route.id}><h3>{route.eyebrow}</h3><Fact k={route.factKey} site="investorpass" /></li>)}</ul><p>Cédula: <Fact k="cedula.timeline" site="investorpass" />.</p><a className="inline-flex min-h-11 items-center text-[var(--accent)] underline" href="/investor-pass/requirements">Full requirements</a></Disclosure></Section>
+      {/* At a glance, open on the page: the four thresholds are the first thing an
+          investor (and an answer engine) looks for, so they are not behind a toggle. */}
+      <Section width="narrow" spacing="tight">
+        <Heading level={2}>Investor Pass at a glance</Heading>
+        <div className="mt-[var(--space-6)] overflow-x-auto rounded-[var(--radius-brand)] border border-[var(--border)]">
+          <table className="w-full border-collapse text-left text-(length:--text-sm)">
+            <caption className="sr-only">Investor Pass qualifying routes and programme rules</caption>
+            <tbody>
+              <tr className="border-b border-[var(--border)] bg-[var(--surface-alt)]">
+                <th scope="row" className="w-1/3 px-4 py-3 align-top font-semibold text-[var(--fg)]">Qualifying investment</th>
+                <td className="px-4 py-3 align-top text-[var(--fg)]"><Fact k="investorpass.min_investment_usd" site="investorpass" /></td>
+              </tr>
+              {ROUTES.map((route) => (
+                <tr key={route.id} className="border-b border-[var(--border)]">
+                  <th scope="row" className="w-1/3 px-4 py-3 align-top font-semibold text-[var(--fg)]">{route.eyebrow}</th>
+                  <td className="px-4 py-3 align-top text-[var(--fg-muted)]"><Fact k={route.factKey} site="investorpass" /></td>
+                </tr>
+              ))}
+              <tr className="border-b border-[var(--border)]">
+                <th scope="row" className="px-4 py-3 align-top font-semibold text-[var(--fg)]">Legal basis</th>
+                <td className="px-4 py-3 align-top text-[var(--fg-muted)]"><Fact k="investorpass.legal_instrument" site="investorpass" /></td>
+              </tr>
+              <tr className="border-b border-[var(--border)]">
+                <th scope="row" className="px-4 py-3 align-top font-semibold text-[var(--fg)]">Launched</th>
+                <td className="px-4 py-3 align-top text-[var(--fg-muted)]"><Fact k="investorpass.launch_date" site="investorpass" /></td>
+              </tr>
+              <tr className="border-b border-[var(--border)]">
+                <th scope="row" className="px-4 py-3 align-top font-semibold text-[var(--fg)]">What you get</th>
+                <td className="px-4 py-3 align-top text-[var(--fg-muted)]"><Fact k="investorpass.validity_years" site="investorpass" /></td>
+              </tr>
+              <tr>
+                <th scope="row" className="px-4 py-3 align-top font-semibold text-[var(--fg)]">Cédula</th>
+                <td className="px-4 py-3 align-top text-[var(--fg-muted)]"><Fact k="cedula.timeline" site="investorpass" /></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <a className="mt-[var(--space-4)] inline-flex min-h-11 items-center text-[var(--accent)] underline" href="/investor-pass/requirements">Full requirements</a>
+      </Section>
       <Section tone="alt"><Heading level={2}>From first message to card</Heading><ol className="my-10 grid gap-8 sm:grid-cols-3">{['Confirm your route and investment', 'File for permanent residency', 'Collect your cédula after approval'].map((step, index) => <li key={step} className="flex items-center gap-4"><span aria-hidden="true" className="flex size-12 shrink-0 items-center justify-center rounded-full border border-[var(--border)] text-2xl text-[var(--accent)]">{['◇', '↗', '✓'][index]}</span><h3>{step}</h3></li>)}</ol><Button href="/investor-pass/process" variant="secondary">See the process</Button></Section>
       <TeamStrip site="investorpass" />
       <Section width="narrow" spacing="tight"><Disclosure title="Frequently asked"><FAQ items={FAQ_ITEMS} /></Disclosure></Section>
