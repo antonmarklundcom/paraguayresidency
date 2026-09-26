@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import { OG_LOCALE } from '@/i18n/locales';
 import { getSite, siteOrigin, type SiteKey } from '@/sites/registry';
+import { t } from '@/i18n';
+import { TEAM_KEYS, personJsonLd } from '@/content/team';
 
 export interface SiteMetadataInput {
   title: string;
@@ -77,15 +79,57 @@ export function collectionPageJsonLd(
   };
 }
 
-/** Organization JSON-LD, one shape for all three brands. */
+/**
+ * Site-wide JSON-LD graph: the brand as an Organization (a ProfessionalService
+ * for the brands that sell the residency service), the WebSite, and the named
+ * team. Answer engines resolve "who is behind this and where" from this graph,
+ * so it names people and the city, and never an address nobody has confirmed.
+ */
 export function organizationJsonLd(site: SiteKey) {
   const config = getSite(site);
+  const origin = siteOrigin(site);
+  const orgId = `${origin}/#organization`;
+  // Guide is a publisher (it sells a PDF); every other brand is a front door
+  // to the same residency service team.
+  const isService = site !== 'guide';
   return {
     '@context': 'https://schema.org',
-    '@type': 'Organization',
-    name: config.name,
-    url: siteOrigin(site),
-    sameAs: config.siblings.map((key) => siteOrigin(key)),
+    '@graph': [
+      {
+        '@type': isService ? ['Organization', 'ProfessionalService'] : 'Organization',
+        '@id': orgId,
+        name: config.name,
+        url: origin,
+        image: `${origin}/opengraph-image`,
+        description: t(site, config.tagline),
+        parentOrganization: { '@type': 'Organization', name: 'Paraguay Residency Group' },
+        areaServed: { '@type': 'Country', name: 'Paraguay' },
+        ...(isService
+          ? {
+              address: { '@type': 'PostalAddress', addressLocality: 'Asunción', addressCountry: 'PY' },
+              serviceType: 'Paraguay residency, cédula and tax residency applications',
+            }
+          : {}),
+        knowsAbout: [
+          'Paraguay temporary residency',
+          'Paraguay permanent residency',
+          'Paraguay Investor Pass',
+          'Paraguayan cédula',
+          'Paraguay tax residency',
+          'Mercosur residency',
+        ],
+        employee: TEAM_KEYS.map((key) => personJsonLd(key, config.locale)),
+        sameAs: config.siblings.map((key) => siteOrigin(key)),
+      },
+      {
+        '@type': 'WebSite',
+        '@id': `${origin}/#website`,
+        name: config.name,
+        url: origin,
+        inLanguage: config.locale,
+        publisher: { '@id': orgId },
+      },
+    ],
   };
 }
 

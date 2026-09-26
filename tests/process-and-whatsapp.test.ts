@@ -119,7 +119,9 @@ for (const { site, path, route, Page } of services) {
     expect(block).toContain('<ol');
     expect(block).toContain(t(site, 'process.fileBody'));
     const key = route === 'tax' ? 'tax.timeline' : route === 'investor' ? 'investorpass.timeline' : route === 'cedula' ? 'cedula.timeline' : 'residency.timeline';
-    expect(block).toContain('data-fact="' + key + '" data-verified="false"');
+    const entry = facts[key] as Fact;
+    const state = entry.verified ? 'true' : entry.sourced ? 'sourced' : 'false';
+    expect(block).toContain('data-fact="' + key + '" data-verified="' + state + '"');
     expect(block).toContain(factText(key, localeFor(site)));
     if (route === 'tax') expect(block).not.toContain('data-fact="cedula.timeline"');
     if (['temporary', 'permanent', 'standard'].includes(route)) expect(block).toContain('data-fact="temporary.duration"');

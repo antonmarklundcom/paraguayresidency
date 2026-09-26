@@ -9,16 +9,37 @@ import { siteOrigin, type SiteKey } from '@/sites/registry';
  */
 export const DISALLOWED = ['/admin', '/api/', '/sites/', '/dev/', '/members', '/login'];
 
+/**
+ * AI search and answer-engine crawlers, welcomed by name. A crawler that finds
+ * its own group ignores `*`, so each group repeats the same disallow list;
+ * naming them makes the intent explicit to operators that default to caution.
+ */
+export const AI_CRAWLERS = [
+  'GPTBot',
+  'OAI-SearchBot',
+  'ChatGPT-User',
+  'ClaudeBot',
+  'Claude-SearchBot',
+  'Claude-User',
+  'PerplexityBot',
+  'Perplexity-User',
+  'Google-Extended',
+  'Applebot-Extended',
+  'Bingbot',
+  'CCBot',
+  'meta-externalagent',
+];
+
 /** Serialised robots.txt for a brand, served by `src/app/robots.txt/route.ts`. */
 export function robotsText(site: SiteKey): string {
   const origin = siteOrigin(site);
+  const group = (agent: string) => [`User-agent: ${agent}`, 'Allow: /', ...DISALLOWED.map((path) => `Disallow: ${path}`), ''];
   return [
-    'User-agent: *',
-    'Allow: /',
-    ...DISALLOWED.map((path) => `Disallow: ${path}`),
-    '',
+    ...group('*'),
+    ...AI_CRAWLERS.flatMap(group),
     `Sitemap: ${origin}/sitemap.xml`,
     `Host: ${origin}`,
+    `# LLM-readable site map: ${origin}/llms.txt`,
     '',
   ].join('\n');
 }
