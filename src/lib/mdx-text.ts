@@ -5,6 +5,7 @@ import { getSite, type SiteKey } from '@/sites/registry';
 export function mdxToText(body: string, site: SiteKey): string {
   const locale = getSite(site).locale;
   return body
+    .replace(/\{\/\*[\s\S]*?\*\/\}/g, '')
     .replace(/<Fact\b[^>]*\bk=["']([^"']+)["'][^>]*\/>/g, (_, key: string) =>
       key in facts ? factText(key as FactKey, locale) : '',
     )
