@@ -329,7 +329,12 @@ export const facts = {
       "pt": "a partir de USD 200.000 em imóveis destinados a uma atividade econômica (não para moradia própria)",
       "sv": "från USD 200 000 i fastigheter som används i ekonomisk verksamhet (inte som egen bostad)"
     },
-    "hedged": "a qualifying real-estate purchase, with the current minimum confirmed in writing for your case",
+    "hedged": {
+      "en": "a qualifying real-estate purchase, with the current minimum confirmed in writing for your case",
+      "es": "una compra inmobiliaria admitida, con el mínimo vigente confirmado por escrito para tu caso",
+      "pt": "uma compra imobiliária qualificada, com o mínimo vigente confirmado por escrito para o seu caso",
+      "sv": "ett godkänt fastighetsköp, med det aktuella minimibeloppet bekräftat skriftligt för ditt fall"
+    },
     "verified": false,
     "sourced": {
       "label": "MIC Res. 0283/2026",
@@ -359,7 +364,12 @@ export const facts = {
       "pt": "a partir de USD 70.000 investidos em uma empresa produtiva, com plano de negócios e pelo menos 5 empregos formais",
       "sv": "från USD 70 000 investerat i ett produktivt företag, med affärsplan och minst 5 formella anställningar"
     },
-    "hedged": "a qualifying investment in a productive business, with the current minimum confirmed in writing for your case",
+    "hedged": {
+      "en": "a qualifying investment in a productive business, with the current minimum confirmed in writing for your case",
+      "es": "una inversión admitida en una empresa productiva, con el mínimo vigente confirmado por escrito para tu caso",
+      "pt": "um investimento qualificado em uma empresa produtiva, com o mínimo vigente confirmado por escrito para o seu caso",
+      "sv": "en godkänd investering i ett produktivt företag, med det aktuella minimibeloppet bekräftat skriftligt för ditt fall"
+    },
     "verified": false,
     "sourced": {
       "label": "MIC Res. 0283/2026",
@@ -389,7 +399,12 @@ export const facts = {
       "pt": "a partir de USD 200.000 em instrumentos financeiros qualificados, mantidos por pelo menos 2 anos",
       "sv": "från USD 200 000 i godkända finansiella instrument, som behålls i minst 2 år"
     },
-    "hedged": "a qualifying financial-instrument investment, with the current minimum confirmed in writing for your case",
+    "hedged": {
+      "en": "a qualifying financial-instrument investment, with the current minimum confirmed in writing for your case",
+      "es": "una inversión en instrumentos financieros admitidos, con el mínimo vigente confirmado por escrito para tu caso",
+      "pt": "um investimento em instrumentos financeiros qualificados, com o mínimo vigente confirmado por escrito para o seu caso",
+      "sv": "en godkänd investering i finansiella instrument, med det aktuella minimibeloppet bekräftat skriftligt för ditt fall"
+    },
     "verified": false,
     "sourced": {
       "label": "MIC Res. 0283/2026",
@@ -418,7 +433,12 @@ export const facts = {
       "pt": "a partir de USD 150.000 investidos em um projeto turístico, com plano de negócios",
       "sv": "från USD 150 000 investerat i ett turismprojekt, med affärsplan"
     },
-    "hedged": "a qualifying tourism-sector investment, with the current minimum confirmed in writing for your case",
+    "hedged": {
+      "en": "a qualifying tourism-sector investment, with the current minimum confirmed in writing for your case",
+      "es": "una inversión admitida en el sector turístico, con el mínimo vigente confirmado por escrito para tu caso",
+      "pt": "um investimento qualificado no setor de turismo, com o mínimo vigente confirmado por escrito para o seu caso",
+      "sv": "en godkänd investering inom turismsektorn, med det aktuella minimibeloppet bekräftat skriftligt för ditt fall"
+    },
     "verified": false,
     "sourced": {
       "label": "MIC Res. 0283/2026",
