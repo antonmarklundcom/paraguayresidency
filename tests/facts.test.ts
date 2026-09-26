@@ -41,7 +41,8 @@ describe('facts (plan §1.10)', () => {
       /(USD|EUR|BRL|SEK|PYG|\$|€|R\$|kr)\s?[\d,.]+|[\d,.]+\s?%|\b\d+\s?(years?|months?|weeks?|days?|años?|meses|anos|år|månader|dagar|días?|dias?)\b/i;
     for (const key of factKeys) {
       const fact = getFact(key);
-      if (fact.verified) continue;
+      // Verified or cited-source facts print their figure on purpose.
+      if (fact.verified || fact.sourced) continue;
       for (const locale of LOCALES) {
         const text = factText(key, locale as FactLocale);
         expect(text, `${key} renders nothing in ${locale}`).toBeTruthy();

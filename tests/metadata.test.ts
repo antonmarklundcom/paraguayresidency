@@ -35,11 +35,21 @@ it('only opts out of indexing when requested', () => {
   expect(siteMetadata('guide', input).robots).toBeUndefined();
   expect(siteMetadata('guide', { ...input, noindex: true }).robots).toEqual({ index: false, follow: true });
 });
-it('builds organization JSON-LD with sibling brand URLs', () => {
-  for (const site of SITE_KEYS) expect(organizationJsonLd(site)).toEqual({
-    '@context': 'https://schema.org', '@type': 'Organization', name: sites[site].name,
-    url: siteOrigin(site), sameAs: sites[site].siblings.map(siteOrigin),
-  });
+it('builds an organization + website graph with sibling brand URLs and the named team', () => {
+  for (const site of SITE_KEYS) {
+    const graph = organizationJsonLd(site)['@graph'];
+    const [org, website] = graph as [Record<string, unknown>, Record<string, unknown>];
+    expect(org.name).toBe(sites[site].name);
+    expect(org.url).toBe(siteOrigin(site));
+    expect(org.sameAs).toEqual(sites[site].siblings.map(siteOrigin));
+    expect((org.employee as { name: string }[]).map((p) => p.name)).toEqual([
+      'Anton Marklund', 'Yanina Alvarez', 'Diana Davalos',
+    ]);
+    expect(org.description).toBeTruthy();
+    // No street address until one is confirmed: city and country only.
+    if (org.address) expect(Object.keys(org.address as object).sort()).toEqual(['@type', 'addressCountry', 'addressLocality']);
+    expect(website).toMatchObject({ '@type': 'WebSite', url: siteOrigin(site), inLanguage: sites[site].locale });
+  }
 });
 it('builds service JSON-LD with its provider and area', () => {
   expect(serviceJsonLd('residency', { ...input, name: 'Residency' })).toEqual({

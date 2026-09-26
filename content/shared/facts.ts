@@ -528,3 +528,16 @@ export function factText(key: FactKey, locale: FactLocale = 'en'): string {
 export function factPublished(fact: Fact): boolean {
   return fact.verified || Boolean(fact.sourced);
 }
+
+/**
+ * Resolves `{{fact:key}}` tokens in plain-text frontmatter (an article's
+ * summary, takeaways and FAQ answers) to what `<Fact k>` would print. Those
+ * fields are strings, not MDX, and they are exactly what answer engines quote,
+ * so they need the figure too — from this register, never typed inline.
+ * An unknown key is left visible so a test can catch it.
+ */
+export function interpolateFacts(text: string, locale: FactLocale = 'en'): string {
+  return text.replace(/\{\{fact:([\w.]+)\}\}/g, (token, key: string) =>
+    key in facts ? factText(key as FactKey, locale) : token,
+  );
+}

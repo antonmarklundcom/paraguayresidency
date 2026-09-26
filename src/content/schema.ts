@@ -18,8 +18,8 @@ export const frontmatterSchema = z.object({
   related: z.array(z.string()).optional().default([]),
   /**
    * The direct answer, 40–90 words, rendered in a box above the body. This is
-   * the paragraph an answer engine lifts, so it states the answer first and
-   * may use `<Fact>`-free plain wording only (figures belong in the body).
+   * the paragraph an answer engine lifts, so it states the answer first. A
+   * figure goes in as a `{{fact:key}}` token (see `interpolateFacts`), never typed.
    */
   summary: z.string().min(40).max(700).optional(),
   /** 3–6 one-line bullets rendered as "Key takeaways" after the body. */
