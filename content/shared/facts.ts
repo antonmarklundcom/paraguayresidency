@@ -812,7 +812,7 @@ export const facts = {
     },
     "display": {
       "en": "set in minimum daily wages (jornales), G 117,077 each since 1 July 2026, so they rise with every minimum-wage adjustment",
-      "es": "fijados en jornales mínimos, de G 117.077 cada uno desde el 1 de julio de 2026, por lo que suben con cada reajuste del salario mínimo",
+      "es": "fijadas en jornales mínimos, de G 117.077 cada uno desde el 1 de julio de 2026, por lo que suben con cada reajuste del salario mínimo",
       "pt": "fixadas em diárias mínimas (jornales), de G 117.077 cada uma desde 1º de julho de 2026, por isso sobem a cada reajuste do salário mínimo",
       "sv": "fastställda i minimidagslöner (jornales), G 117 077 styck sedan den 1 juli 2026, så de höjs vid varje justering av minimilönen"
     },
