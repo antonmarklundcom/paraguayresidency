@@ -38,7 +38,7 @@ it('only opts out of indexing when requested', () => {
 it('builds an organization + website graph with sibling brand URLs and the named team', () => {
   for (const site of SITE_KEYS) {
     const graph = organizationJsonLd(site)['@graph'];
-    const [org, website] = graph as [Record<string, unknown>, Record<string, unknown>];
+    const [org, website] = graph as unknown as [Record<string, unknown>, Record<string, unknown>];
     expect(org.name).toBe(sites[site].name);
     expect(org.url).toBe(siteOrigin(site));
     expect(org.sameAs).toEqual(sites[site].siblings.map(siteOrigin));
