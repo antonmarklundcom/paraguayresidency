@@ -82,7 +82,8 @@ export default function Page() {
               Son las dos nacionalidades que más vemos llegar por esta vía, casi siempre por
               cercanía, coste de vida y familiaridad con la región. El trámite en sí no difiere
               entre ambas más de lo que difiere por tu situación personal — te lo confirmamos caso
-              por caso, no por nacionalidad en abstracto.
+              por caso, no por nacionalidad en abstracto. Los documentos de cada país están en la{' '}
+              <a href="/guias/por-pais" className="text-[var(--accent)] underline underline-offset-2">guía por nacionalidad</a>.
             </p>
           </div>
         </div>
