@@ -17,6 +17,7 @@ export { CheckoutButton } from './CheckoutButton';
 export { MagicLinkForm } from './MagicLinkForm';
 export { StickyCta } from './StickyCta';
 export { PhotoHero, heroTrust, type HeroTrust, type HeroLayout } from './PhotoHero';
+export { HeroVideo } from './HeroVideo';
 export { IntentTiles } from './IntentTiles';
 export { TeamStrip } from './TeamStrip';
 export { Disclosure } from './Disclosure';

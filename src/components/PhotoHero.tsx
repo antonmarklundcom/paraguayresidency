@@ -3,6 +3,7 @@ import type { Locale } from '@/i18n/locales';
 import { t } from '@/i18n';
 import { arrivalPicture } from '@/lib/arrival-files';
 import type { SiteKey } from '@/sites/registry';
+import { HeroVideo } from './HeroVideo';
 import { TEAM } from './TeamStrip';
 
 export interface HeroTrust {
@@ -96,8 +97,14 @@ function TrustCard({ trust, tone }: { trust: HeroTrust; tone: 'glass' | 'paper' 
  *    brand radius, cropped tall (the hub).
  *  - `editorial-dark`: full bleed, bigger type, a gold hairline (Investor Pass).
  */
-export function PhotoHero({ image, eyebrow, title, sub, actions, trust, locale = 'en', position = 'left', focus = 'center', layout = 'overlay' }: {
+export function PhotoHero({ image, eyebrow, title, sub, actions, trust, locale = 'en', position = 'left', focus = 'center', layout = 'overlay', video }: {
   image: string; eyebrow?: string; title: string; sub: string; actions: ReactNode;
+  /**
+   * An ambient clip over the photo (`public/videos/<id>-*.mp4|webm`, see
+   * docs/design/video-2026-10.md). Desktop only and loaded after `load`, so
+   * the photo stays the LCP element. `loop: false` plays once and holds.
+   */
+  video?: { id: string; loop?: boolean };
   /** A card with the team and three reassurance lines (bottom right on desktop). */
   trust?: HeroTrust;
   locale?: Locale;
@@ -125,6 +132,7 @@ export function PhotoHero({ image, eyebrow, title, sub, actions, trust, locale =
           </div>
           <div className="relative aspect-[4/3] overflow-hidden rounded-[var(--radius-brand)] bg-[var(--surface-alt)] shadow-[var(--elev-2)] sm:aspect-[16/10] lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:aspect-auto lg:min-h-[34rem]">
             <HeroPicture image={image} locale={locale} focus={focus} sizes="(min-width: 1024px) 44vw, 100vw" className="absolute inset-0 h-full w-full object-cover" />
+            {video && <HeroVideo id={video.id} loop={video.loop} focus={focus} className="absolute inset-0 h-full w-full object-cover" />}
           </div>
           {trust && <div className="max-w-md lg:self-start"><TrustCard trust={trust} tone="paper" /></div>}
         </div>
@@ -136,6 +144,7 @@ export function PhotoHero({ image, eyebrow, title, sub, actions, trust, locale =
   return (
     <section data-hero-layout={layout} className={`relative isolate flex min-h-[92svh] overflow-hidden bg-black text-white md:min-h-[86vh] items-end ${position === 'upper-left' ? 'lg:items-start' : ''}`}>
       <HeroPicture image={image} locale={locale} focus={focus} sizes="100vw" className="absolute inset-0 -z-20 h-full w-full object-cover" />
+      {video && <HeroVideo id={video.id} loop={video.loop} focus={focus} />}
       {/* Dark where the text sits, clear elsewhere so the photo carries the page. */}
       <div className={`absolute inset-0 -z-10 ${dark
         ? 'bg-[linear-gradient(to_top,rgba(5,6,8,.94),rgba(5,6,8,.62)_45%,rgba(5,6,8,.25)_100%)] md:bg-[linear-gradient(90deg,rgba(5,6,8,.88),rgba(5,6,8,.55)_45%,rgba(5,6,8,.1)_80%)]'

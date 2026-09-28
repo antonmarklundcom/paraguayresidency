@@ -11,7 +11,11 @@ import { useEffect, useRef, useState } from 'react';
  * (see `docs/design/video-2026-10.md`). `loop={false}` plays once and holds the
  * last frame, for clips that don't loop seamlessly.
  */
-export function HeroVideo({ id, focus = 'center', loop = true }: { id: string; focus?: string; loop?: boolean }) {
+export function HeroVideo({ id, focus = 'center', loop = true, className = 'absolute inset-0 -z-20 h-full w-full object-cover' }: {
+  id: string; focus?: string; loop?: boolean;
+  /** Positioning; defaults to the full-bleed layer PhotoHero's photo uses. */
+  className?: string;
+}) {
   const [src, setSrc] = useState<string | null>(null);
   const [visible, setVisible] = useState(false);
   const ref = useRef<HTMLVideoElement>(null);
@@ -44,7 +48,7 @@ export function HeroVideo({ id, focus = 'center', loop = true }: { id: string; f
       disablePictureInPicture
       onPlaying={() => setVisible(true)}
       style={{ objectPosition: focus }}
-      className={`pointer-events-none absolute inset-0 -z-20 h-full w-full object-cover transition-opacity duration-[560ms] ${visible ? 'opacity-100' : 'opacity-0'}`}
+      className={`pointer-events-none ${className} transition-opacity duration-[var(--dur-4)] ${visible ? 'opacity-100' : 'opacity-0'}`}
     >
       <source src={`${src}.webm`} type="video/webm" />
       <source src={`${src}.mp4`} type="video/mp4" />
