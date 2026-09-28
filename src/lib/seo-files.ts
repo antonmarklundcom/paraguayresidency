@@ -145,6 +145,7 @@ const staticPaths: Record<SiteKey, string[]> = {
   ],
   residenciapt: [
     '/guias',
+    '/guias/cidades',
     '/guias/comparativos',
     '/guias/documentos',
     '/guias/impostos',

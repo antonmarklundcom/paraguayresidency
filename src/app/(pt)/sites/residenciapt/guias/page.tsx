@@ -7,6 +7,7 @@ const path = '/guias';
 const title = "Guias";
 const description = "Explore nossos guias sobre documentos, vida no Paraguai, impostos e comparativos.";
 const labels: Record<string, string> = {
+  "cidades": "Cidades",
   "comparativos": "Comparativos",
   "documentos": "Documentos",
   "impostos": "Impostos",

@@ -7,6 +7,7 @@ import { getHub, getHubs } from '@/content';
 
 type Params = Promise<{ hub: string }>;
 const labels: Record<string, string> = {
+  "cidades": "Cidades",
   "comparativos": "Comparativos",
   "documentos": "Documentos",
   "impostos": "Impostos",
