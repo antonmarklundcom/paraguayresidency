@@ -39,6 +39,11 @@
   /* Motion */
   --ease: cubic-bezier(0.2, 0.6, 0.2, 1);
   --duration: 180ms;
+  /* Motion scale from docs/design/overhaul-2026-10-plan.md (HeroVideo uses --dur-4). */
+  --dur-1: 120ms;
+  --dur-2: 200ms;
+  --dur-3: 320ms;
+  --dur-4: 560ms;
 
   /* Layout */
   --container: 76rem;
@@ -82,5 +87,9 @@
 @media (prefers-reduced-motion: reduce) {
   :root {
     --duration: 0ms;
+    --dur-1: 0ms;
+    --dur-2: 0ms;
+    --dur-3: 0ms;
+    --dur-4: 0ms;
   }
 }
