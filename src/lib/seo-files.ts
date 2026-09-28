@@ -82,6 +82,7 @@ const staticPaths: Record<SiteKey, string[]> = {
     '/residency/cedula',
     '/residency/tax-residency',
     '/residency/family',
+    '/residency/citizenship',
     '/pricing',
     '/process',
     '/about',

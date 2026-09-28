@@ -37,7 +37,12 @@ function contentPaths(site: string): Set<string> {
   for (const file of mdxFiles(dir)) {
     const slugPath = file.slice(dir.length + 1).replace(/\\/g, '/').replace(/\.mdx$/, '');
     if (!slugPath.includes('/')) continue;
-    paths.add(contentHref(site as never, slugPath));
+    const href = contentHref(site as never, slugPath);
+    paths.add(href);
+    // The hub index (`/guides/documents`, `/guias/impuestos`, …) is a dynamic
+    // `[hub]` route that exists whenever the hub has an article, so an article
+    // may link to its own hub.
+    paths.add(href.slice(0, href.lastIndexOf('/')));
   }
   return paths;
 }
