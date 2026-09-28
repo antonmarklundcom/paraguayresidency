@@ -1602,6 +1602,375 @@ export const facts = {
       "https://www.abc.com.py/cotizaciones/"
     ],
     "note": "Research 2026-09-26 (medium confidence): Market quote 25 Sep 2026: buy 5,856 / sell 5,891 (search excerpt). The guaraní has strengthened a lot vs 2025 (~7,900), which is why older 'USD 370' fee conversions are now ~USD 500. Internal helper, probably not rendered."
+  },
+  // residenciaes W6-A — nationality pages (por-pais), naturalisation and the
+  // temporary-to-permanent change. All sourced, checked 2026-09-28 (confidence in each note).
+  "entry.venezuela_visa": {
+    "key": "entry.venezuela_visa",
+    "label": "Venezuelan nationals — consular visa to enter Paraguay",
+    "title": {
+      "en": "Venezuelan nationals — consular visa to enter Paraguay",
+      "es": "Nacionales de Venezuela — visa consular para entrar a Paraguay",
+      "pt": "Cidadãos venezuelanos — visto consular para entrar no Paraguai",
+      "sv": "Venezuelanska medborgare — konsulärt visum för inresa i Paraguay"
+    },
+    "display": {
+      "en": "since 10 January 2026 (Decree 5278/2026), a valid passport and a consular visa to enter Paraguay, including to settle; Venezuelans who entered regularly before that date can start or continue their residency without a visa",
+      "es": "desde el 10 de enero de 2026 (Decreto 5278/2026), pasaporte vigente y visa consular para entrar a Paraguay, también para radicarse; quien ya había entrado de forma regular antes de esa fecha puede iniciar o continuar su residencia sin visa",
+      "pt": "desde 10 de janeiro de 2026 (Decreto 5278/2026), passaporte válido e visto consular para entrar no Paraguai, inclusive para morar; quem já tinha entrado de forma regular antes dessa data pode iniciar ou continuar a residência sem visto",
+      "sv": "sedan den 10 januari 2026 (dekret 5278/2026) krävs giltigt pass och konsulärt visum för inresa i Paraguay, även för att bosätta sig; den som redan rest in regelrätt före det datumet kan påbörja eller fortsätta sin ansökan utan visum"
+    },
+    "hedged": {
+      "en": "an entry-visa rule for Venezuelan nationals, with exceptions for people already in Paraguay — we confirm how it applies to you before you travel",
+      "es": "una exigencia de visa de entrada para nacionales de Venezuela, con excepciones para quienes ya están en Paraguay — te confirmamos cómo te afecta antes de que viajes",
+      "pt": "uma exigência de visto de entrada para cidadãos venezuelanos, com exceções para quem já está no Paraguai — confirmamos como ela se aplica a você antes da viagem",
+      "sv": "ett inresevisumkrav för venezuelanska medborgare, med undantag för den som redan är i Paraguay — vi bekräftar hur det gäller dig innan du reser"
+    },
+    "verified": false,
+    "sourced": {
+      "label": "DNM — requisitos de ingreso y residencia para ciudadanos venezolanos (Decreto 5278/2026)",
+      "checkedOn": "2026-09-28",
+      "url": "https://migraciones.gov.py/migraciones-informa-sobre-los-requisitos-de-ingreso-y-residencia-para-ciudadanos-venezolanos-a-partir-de-la-nueva-disposicion/"
+    },
+    "sources": [
+      "https://migraciones.gov.py/migraciones-informa-sobre-los-requisitos-de-ingreso-y-residencia-para-ciudadanos-venezolanos-a-partir-de-la-nueva-disposicion/",
+      "https://migraciones.gov.py/informacion-sobre-visas/",
+      "https://www.abc.com.py/nacionales/2026/01/15/atencion-venezolanos-estos-son-los-nuevos-requisitos-para-ingresar-y-residir-en-paraguay/"
+    ],
+    "note": "Research 2026-09-28 (high confidence): DNM page read directly. The decree replaces Decree 14,609/1996, under which Venezuelans entered without a visa. Exempt: holders of temporary or permanent residency, refugees and asylum applicants with CONARE documents, and Venezuelans who entered regularly by 9 Jan 2026 and hold a valid stay or an open residency file. A Venezuelan without residency who leaves Paraguay needs the visa to come back. The DNM visa table (2026 file) lists Venezuela as 'requiere visa' for tourism and for residency. No relaxation found as of Sept 2026; Peña and Delcy Rodríguez opened talks on restoring relations on 19 Sept 2026, so re-check this entry if embassies reopen."
+  },
+  "entry.cuba_visa": {
+    "key": "entry.cuba_visa",
+    "label": "Cuban nationals — consular visa to enter Paraguay",
+    "title": {
+      "en": "Cuban nationals — consular visa to enter Paraguay",
+      "es": "Nacionales de Cuba — visa consular para entrar a Paraguay",
+      "pt": "Cidadãos cubanos — visto consular para entrar no Paraguai",
+      "sv": "Kubanska medborgare — konsulärt visum för inresa i Paraguay"
+    },
+    "display": {
+      "en": "Cuba is on Migraciones' list of nationalities that need a consular visa, both to enter as a tourist and to reside; the residency file then includes the visa and its verification by Paraguay's Foreign Ministry",
+      "es": "Cuba figura en la lista de Migraciones de nacionalidades que necesitan visa consular, tanto para entrar como turista como para residir; el expediente de residencia incluye después la visa y su verificación por la Cancillería paraguaya",
+      "pt": "Cuba está na lista da Migraciones de nacionalidades que precisam de visto consular, tanto para entrar como turista quanto para residir; o processo de residência inclui depois o visto e sua verificação pela Chancelaria paraguaia",
+      "sv": "Kuba står på Migraciones lista över nationaliteter som behöver konsulärt visum, både för att resa in som turist och för att bosätta sig; uppehållsansökan innehåller sedan visumet och dess kontroll av Paraguays utrikesministerium"
+    },
+    "hedged": {
+      "en": "a consular-visa requirement for Cuban nationals, which we confirm for your case before you apply",
+      "es": "una exigencia de visa consular para nacionales de Cuba, que te confirmamos para tu caso antes de solicitarla",
+      "pt": "uma exigência de visto consular para cidadãos cubanos, que confirmamos para o seu caso antes do pedido",
+      "sv": "ett krav på konsulärt visum för kubanska medborgare, som vi bekräftar för ditt fall innan du ansöker"
+    },
+    "verified": false,
+    "sourced": {
+      "label": "DNM — Información sobre visas (tabla de acuerdos de supresión de visas 2026); DNM Residencia Temporal",
+      "checkedOn": "2026-09-28",
+      "url": "https://migraciones.gov.py/informacion-sobre-visas/"
+    },
+    "sources": [
+      "https://migraciones.gov.py/informacion-sobre-visas/",
+      "https://migraciones.gov.py/residencia-temporal/",
+      "https://www.mre.gov.py/embapar-cuba/"
+    ],
+    "note": "Research 2026-09-28 (high confidence): DNM visa table row CUBA: 'LEY Nº 1738 02/08/2001 | REQUIERE VISA | REQUIERE VISA' (tourism and residency columns). The DNM temporary-residency checklist asks for the original consular visa and its MRE verification 'en los casos que se requiera'. Paraguay has an embassy with a consular section in Havana (Miramar). Cuba is not a party to the Apostille Convention, so Cuban documents are legalised, not apostilled (home-country rule, kept in prose)."
+  },
+  "entry.id_card_countries": {
+    "key": "entry.id_card_countries",
+    "label": "Entry with a national ID card instead of a passport",
+    "title": {
+      "en": "Entry with a national ID card instead of a passport",
+      "es": "Entrada con documento nacional de identidad en lugar de pasaporte",
+      "pt": "Entrada com documento nacional de identidade em vez de passaporte",
+      "sv": "Inresa med nationellt id-kort i stället för pass"
+    },
+    "display": {
+      "en": "nationals of Argentina, Brazil, Uruguay, Bolivia, Chile, Peru, Colombia and Ecuador can enter Paraguay with their valid national identity document instead of a passport",
+      "es": "los nacionales de Argentina, Brasil, Uruguay, Bolivia, Chile, Perú, Colombia y Ecuador pueden entrar a Paraguay con su documento nacional de identidad vigente, sin pasaporte",
+      "pt": "cidadãos de Argentina, Brasil, Uruguai, Bolívia, Chile, Peru, Colômbia e Equador podem entrar no Paraguai com seu documento nacional de identidade válido, sem passaporte",
+      "sv": "medborgare i Argentina, Brasilien, Uruguay, Bolivia, Chile, Peru, Colombia och Ecuador kan resa in i Paraguay med giltigt nationellt id-kort i stället för pass"
+    },
+    "hedged": {
+      "en": "some regional nationalities can enter with a national ID card — we confirm whether yours is one of them",
+      "es": "algunas nacionalidades de la región pueden entrar con su documento de identidad — te confirmamos si la tuya es una de ellas",
+      "pt": "algumas nacionalidades da região podem entrar com o documento de identidade — confirmamos se a sua é uma delas",
+      "sv": "vissa nationaliteter i regionen kan resa in med id-kort — vi bekräftar om din är en av dem"
+    },
+    "verified": false,
+    "sourced": {
+      "label": "DNM — Requerimientos migratorios de ingreso y salida del Paraguay",
+      "checkedOn": "2026-09-28",
+      "url": "https://migraciones.gov.py/entrada-y-salida-del-pais/requerimientos-migratorios-de-ingreso-y-salida-del-paraguay/"
+    },
+    "sources": [
+      "https://migraciones.gov.py/entrada-y-salida-del-pais/requerimientos-migratorios-de-ingreso-y-salida-del-paraguay/",
+      "https://migraciones.gov.py/residencia-temporaria-mercosur/"
+    ],
+    "note": "Research 2026-09-28 (high confidence): DNM says national identity documents are valid 'exclusivamente para ciudadanos oriundos del MERCOSUR' and lists these eight countries (same list as mercosur.residency_route). The Mercosur temporary-residency checklist also accepts the national ID card as the identity document. Airlines may apply their own document rules."
+  },
+  "permanent.change_window": {
+    "key": "permanent.change_window",
+    "label": "Temporary to permanent — filing window and late filing",
+    "title": {
+      "en": "Temporary to permanent residency — filing window",
+      "es": "De temporal a permanente — plazo para pedir el cambio de categoría",
+      "pt": "De temporária a permanente — prazo para pedir a mudança de categoria",
+      "sv": "Från tillfälligt till permanent — tidsfönster för ansökan"
+    },
+    "display": {
+      "en": "within the 3 months before the temporary card expires; up to 1 month after expiry it is still possible, paying the overstay fine; after that month only an extension (prórroga) of the temporary residency can be requested, up to 6 months after expiry and also with the fine",
+      "es": "dentro de los 3 meses anteriores al vencimiento del carnet temporal; hasta 1 mes después del vencimiento todavía se puede, pagando la multa por vencimiento de permanencia; pasado ese mes solo cabe pedir la prórroga de la temporal, hasta 6 meses después del vencimiento y también con multa",
+      "pt": "nos 3 meses anteriores ao vencimento da carteira temporária; até 1 mês depois do vencimento ainda é possível, pagando a multa por permanência vencida; passado esse mês só cabe pedir a prorrogação da temporária, até 6 meses depois do vencimento e também com multa",
+      "sv": "inom de 3 månaderna innan det tillfälliga kortet går ut; upp till 1 månad efter att det gått ut går det fortfarande, mot avgift för överskriden vistelse; efter den månaden kan man bara begära förlängning (prórroga) av det tillfälliga tillståndet, upp till 6 månader efter utgångsdatum och också mot avgift"
+    },
+    "hedged": {
+      "en": "a fixed window before your temporary card expires, with a narrow late option that carries a fine — we put your exact dates in writing",
+      "es": "un plazo fijo antes de que venza tu carnet temporal, con una opción tardía corta y con multa — te damos tus fechas exactas por escrito",
+      "pt": "um prazo fixo antes do vencimento da sua carteira temporária, com uma opção tardia curta e com multa — passamos suas datas exatas por escrito",
+      "sv": "ett fast tidsfönster innan ditt tillfälliga kort går ut, med en kort sen möjlighet mot avgift — vi ger dig dina exakta datum skriftligt"
+    },
+    "verified": false,
+    "sourced": {
+      "label": "DNM — Residencia permanente para el cambio de categoría de residente temporal",
+      "checkedOn": "2026-09-28",
+      "url": "https://migraciones.gov.py/residencia-permanente-para-el-cambio-de-categoria-de-residente-temporal/"
+    },
+    "sources": [
+      "https://migraciones.gov.py/residencia-permanente-para-el-cambio-de-categoria-de-residente-temporal/",
+      "https://migraciones.gov.py/residencia-temporal/"
+    ],
+    "note": "Research 2026-09-28 (high confidence): DNM page read directly: 'deberá tramitarse dentro de los 3 (tres) meses anteriores al vencimiento'; 'hasta 1 (un) mes posterior al vencimiento, debiendo abonar la multa'; 'Transcurrido 1 (un) mes ... solo se podrá solicitar la prórroga de residencia temporal, la cual será otorgada por igual período, hasta 6 (seis) meses posteriores al vencimiento del carnet'. Applies to Ley 6984/2022 temporary residents; the Mercosur conversion has its own, stricter rule (mercosur.conversion_deadline)."
+  },
+  "mercosur.conversion_deadline": {
+    "key": "mercosur.conversion_deadline",
+    "label": "Mercosur temporary residency — conversion deadline",
+    "title": {
+      "en": "Mercosur temporary residency — conversion deadline",
+      "es": "Temporaria Mercosur — plazo para pasar a la permanente",
+      "pt": "Temporária Mercosul — prazo para passar à permanente",
+      "sv": "Tillfälligt Mercosur-tillstånd — sista dag för permanent ansökan"
+    },
+    "display": {
+      "en": "the Mercosur temporary card lasts 2 years and cannot be extended: if you do not apply for permanent residency in the 90 days before it expires, you lose the Mercosur route and must apply under the general regime of Ley 6984/2022",
+      "es": "la temporaria Mercosur dura 2 años y no se prorroga: si no pides la permanente en los 90 días previos al vencimiento, pierdes la vía Mercosur y tienes que solicitar la residencia por el régimen general de la Ley 6984/2022",
+      "pt": "a temporária Mercosul dura 2 anos e não se prorroga: se você não pedir a permanente nos 90 dias anteriores ao vencimento, perde a via Mercosul e precisa pedir a residência pelo regime geral da Lei 6984/2022",
+      "sv": "det tillfälliga Mercosur-kortet gäller i 2 år och kan inte förlängas: ansöker du inte om permanent uppehållstillstånd under de 90 dagarna före utgångsdatum förlorar du Mercosur-vägen och måste ansöka enligt den allmänna ordningen i lag 6984/2022"
+    },
+    "hedged": {
+      "en": "the Mercosur temporary card cannot be extended and has a strict conversion window — we give you your exact dates in writing",
+      "es": "la temporaria Mercosur no se prorroga y tiene un plazo estricto para pasar a permanente — te damos tus fechas exactas por escrito",
+      "pt": "a temporária Mercosul não se prorroga e tem um prazo rígido para virar permanente — passamos suas datas exatas por escrito",
+      "sv": "det tillfälliga Mercosur-kortet kan inte förlängas och har ett strikt tidsfönster för permanent ansökan — vi ger dig dina exakta datum skriftligt"
+    },
+    "verified": false,
+    "sourced": {
+      "label": "DNM — Residencia Temporaria Mercosur y Residencia Permanente Mercosur",
+      "checkedOn": "2026-09-28",
+      "url": "https://migraciones.gov.py/residencia-permanente-mercosur/"
+    },
+    "sources": [
+      "https://migraciones.gov.py/residencia-permanente-mercosur/",
+      "https://migraciones.gov.py/residencia-temporaria-mercosur/"
+    ],
+    "note": "Research 2026-09-28 (high confidence): DNM temporaria page: 'Dos (2) años, no prorrogable'. Permanente page: filing 'noventa (90) días previos al vencimiento de su Carnet de Admisión Temporaria MERCOSUR'; if it lapses the person 'deberá solicitar la residencia bajo el régimen de la Ley Nº 6984/22'. The same DNM temporaria page lists the Mercosur temporary fee as G 2,341,540, which confirms the computed figure in fees.mercosur_residency (that entry could now carry a sourced block)."
+  },
+  "fees.overstay_fine": {
+    "key": "fees.overstay_fine",
+    "label": "DNM fine — expired stay",
+    "title": {
+      "en": "DNM fine — expired stay",
+      "es": "Multa de Migraciones — vencimiento del plazo de permanencia",
+      "pt": "Multa da Migraciones — vencimento do prazo de permanência",
+      "sv": "DNM-avgift — överskriden vistelsetid"
+    },
+    "display": {
+      "en": "G 702,462 (about USD 120) as the fine for an expired stay",
+      "es": "G 702.462 (unos USD 120) de multa por vencimiento del plazo de permanencia",
+      "pt": "G 702.462 (cerca de USD 120) de multa por vencimento do prazo de permanência",
+      "sv": "G 702 462 (cirka USD 120) i avgift för överskriden vistelsetid"
+    },
+    "hedged": {
+      "en": "a government fine we confirm in writing for your case",
+      "es": "una multa oficial que te confirmamos por escrito para tu caso",
+      "pt": "uma multa oficial que confirmamos por escrito para o seu caso",
+      "sv": "en statlig avgift som vi bekräftar skriftligt för ditt fall"
+    },
+    "verified": false,
+    "sourced": {
+      "label": "DNM — cambio de categoría, aranceles desde el 1 de julio de 2026 (6 jornales)",
+      "checkedOn": "2026-09-28",
+      "url": "https://migraciones.gov.py/residencia-permanente-para-el-cambio-de-categoria-de-residente-temporal/"
+    },
+    "sources": [
+      "https://migraciones.gov.py/residencia-permanente-para-el-cambio-de-categoria-de-residente-temporal/",
+      "https://migraciones.gov.py/nuevos-aranceles-migratorios-rigen-desde-el-1-de-julio-por-reajuste-del-salario-minimo/"
+    ],
+    "note": "Research 2026-09-28 (high confidence): DNM fee line 'Multa (Art. 87) Por vencimiento del plazo de estadía: Gs. 702.462' = 6 × G 117,077. USD at ~G 5,870 (fx.reference_rate). Goes stale each July with the minimum wage."
+  },
+  "fees.radicacion_certificate": {
+    "key": "fees.radicacion_certificate",
+    "label": "DNM fee — certificado de radicación",
+    "title": {
+      "en": "DNM fee — residence certificate (certificado de radicación)",
+      "es": "Tasa de Migraciones — certificado de radicación",
+      "pt": "Taxa da Migraciones — certificado de radicação",
+      "sv": "DNM-avgift — bosättningsintyg (certificado de radicación)"
+    },
+    "display": {
+      "en": "G 234,154 (about USD 40) for the certificado de radicación",
+      "es": "G 234.154 (unos USD 40) por el certificado de radicación",
+      "pt": "G 234.154 (cerca de USD 40) pelo certificado de radicação",
+      "sv": "G 234 154 (cirka USD 40) för certificado de radicación"
+    },
+    "hedged": {
+      "en": "a government fee we confirm in writing for your case",
+      "es": "una tasa oficial que te confirmamos por escrito para tu caso",
+      "pt": "uma taxa oficial que confirmamos por escrito para o seu caso",
+      "sv": "en statlig avgift som vi bekräftar skriftligt för ditt fall"
+    },
+    "verified": false,
+    "sourced": {
+      "label": "DNM — aranceles de residencia permanente desde el 1 de julio de 2026 (2 jornales)",
+      "checkedOn": "2026-09-28",
+      "url": "https://migraciones.gov.py/residencia-permanente-mercosur/"
+    },
+    "sources": [
+      "https://migraciones.gov.py/residencia-permanente-mercosur/",
+      "https://migraciones.gov.py/residencia-permanente-para-el-cambio-de-categoria-de-residente-temporal/"
+    ],
+    "note": "Research 2026-09-28 (high confidence): DNM fee line 'Certificado de Radicación: Gs. 234.154' = 2 × G 117,077, on both permanent-residency pages. The naturalisation file asks for a DNM residence certificate (pj.gov.py list)."
+  },
+  "fees.naturalization_judicial": {
+    "key": "fees.naturalization_judicial",
+    "label": "Naturalisation — judicial fee",
+    "title": {
+      "en": "Naturalisation — judicial fee",
+      "es": "Naturalización — tasa judicial",
+      "pt": "Naturalização — taxa judicial",
+      "sv": "Naturalisering — domstolsavgift"
+    },
+    "display": {
+      "en": "a judicial fee of G 43,051 (about USD 7) for the naturalisation letter, before lawyer's fees",
+      "es": "una tasa judicial de G 43.051 (unos USD 7) por la carta de naturalización, sin contar los honorarios del abogado",
+      "pt": "uma taxa judicial de G 43.051 (cerca de USD 7) pela carta de naturalização, sem contar os honorários do advogado",
+      "sv": "en domstolsavgift på G 43 051 (cirka USD 7) för naturaliseringsbrevet, utöver advokatarvodet"
+    },
+    "hedged": {
+      "en": "a small court fee plus lawyer's fees, which we confirm for your case",
+      "es": "una tasa judicial pequeña más los honorarios del abogado, que te confirmamos para tu caso",
+      "pt": "uma pequena taxa judicial mais os honorários do advogado, que confirmamos para o seu caso",
+      "sv": "en liten domstolsavgift plus advokatarvode, som vi bekräftar för ditt fall"
+    },
+    "verified": false,
+    "sourced": {
+      "label": "Poder Judicial — Carta de Naturalización (requisitos y tasa)",
+      "checkedOn": "2026-09-28",
+      "url": "https://www.pj.gov.py/contenido/463-carta-de-naturalizacion/463"
+    },
+    "sources": [
+      "https://www.pj.gov.py/contenido/463-carta-de-naturalizacion/463",
+      "https://moveparaguay.com/en/citizenship/"
+    ],
+    "note": "Research 2026-09-28 (medium confidence): pj.gov.py page read directly: 'Se debe abonar el monto de Gs. 43.051' (bank commission extra). The page is undated and may not reflect a later adjustment. Lawyer fees are the real cost (competitors quote USD 1,500–3,500); keep those out of this entry."
+  },
+  "citizenship.dual_nationality": {
+    "key": "citizenship.dual_nationality",
+    "label": "Naturalisation — multiple nationality",
+    "title": {
+      "en": "Naturalisation — multiple nationality",
+      "es": "Naturalización — nacionalidad múltiple",
+      "pt": "Naturalização — nacionalidade múltipla",
+      "sv": "Naturalisering — flera medborgarskap"
+    },
+    "display": {
+      "en": "the Constitution admits multiple nationality only through a treaty with reciprocity (art. 149); Spain and Paraguay have one, the 1959 dual-nationality convention",
+      "es": "la Constitución solo admite la nacionalidad múltiple mediante un tratado con reciprocidad (art. 149); España y Paraguay tienen uno, el Convenio de doble nacionalidad de 1959",
+      "pt": "a Constituição só admite a nacionalidade múltipla por meio de tratado com reciprocidade (art. 149); Espanha e Paraguai têm um, o Convênio de dupla nacionalidade de 1959",
+      "sv": "grundlagen tillåter flera medborgarskap endast genom ett avtal med ömsesidighet (art. 149); Spanien och Paraguay har ett, dubbelmedborgarskapsavtalet från 1959"
+    },
+    "hedged": {
+      "en": "whether you keep your nationality of origin depends on a treaty between your country and Paraguay — we confirm it for your case",
+      "es": "si conservas tu nacionalidad de origen depende de que exista un tratado entre tu país y Paraguay — te lo confirmamos para tu caso",
+      "pt": "se você mantém sua nacionalidade de origem depende de haver um tratado entre seu país e o Paraguai — confirmamos para o seu caso",
+      "sv": "om du behåller ditt ursprungliga medborgarskap beror på ett avtal mellan ditt land och Paraguay — vi bekräftar det för ditt fall"
+    },
+    "verified": false,
+    "sourced": {
+      "label": "Constitución Nacional de 1992, art. 149; Convenio de doble nacionalidad España–Paraguay (BOE-A-1960-5626)",
+      "checkedOn": "2026-09-28",
+      "url": "https://www.boe.es/buscar/doc.php?id=BOE-A-1960-5626"
+    },
+    "sources": [
+      "https://www.bacn.gov.py/constitucion-nacional-de-la-republica-del-paraguay",
+      "https://www.boe.es/buscar/doc.php?id=BOE-A-1960-5626",
+      "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2001-7286",
+      "https://www.pj.gov.py/ebook/monografias/nacional/internacional-p%C3%BAblico/Hugo-E-Estigarribia-G-Doble-o-Multiple-Nacionalidad.pdf"
+    ],
+    "note": "Research 2026-09-28 (high confidence on the text, medium on practice): art. 149 verbatim: 'La nacionalidad múltiple podrá ser admitida mediante tratado internacional por reciprocidad de rango constitucional entre los Estados del natural de origen y del de adopción.' Spain–Paraguay convention signed Madrid 25 Jun 1959 (BOE 19 Apr 1960), amended by the 1999 protocol. The pj.gov.py naturalisation checklist does not ask for renunciation, and agencies report none is required; what happens to the original nationality is mostly the home country's rule. Ley 7052/2023 regulates multiple nationality for Paraguayans by birth, not naturalised foreigners. Italy is also cited as a treaty country by agencies — not verified here."
+  },
+  "citizenship.loss_rule": {
+    "key": "citizenship.loss_rule",
+    "label": "Naturalised Paraguayans — loss of nationality",
+    "title": {
+      "en": "Naturalised Paraguayans — loss of nationality",
+      "es": "Paraguayos naturalizados — pérdida de la nacionalidad",
+      "pt": "Paraguaios naturalizados — perda da nacionalidade",
+      "sv": "Naturaliserade paraguayare — förlust av medborgarskapet"
+    },
+    "display": {
+      "en": "a naturalised Paraguayan loses the nationality through an unjustified absence of more than 3 years, declared by a court, or by voluntarily acquiring another nationality (Constitution, art. 150)",
+      "es": "un paraguayo naturalizado pierde la nacionalidad por una ausencia injustificada de más de 3 años, declarada judicialmente, o por adquirir voluntariamente otra nacionalidad (Constitución, art. 150)",
+      "pt": "um paraguaio naturalizado perde a nacionalidade por uma ausência injustificada de mais de 3 anos, declarada judicialmente, ou por adquirir voluntariamente outra nacionalidade (Constituição, art. 150)",
+      "sv": "en naturaliserad paraguayare förlorar medborgarskapet vid oförklarad frånvaro i mer än 3 år, fastställd av domstol, eller genom att frivilligt skaffa ett annat medborgarskap (grundlagen, art. 150)"
+    },
+    "hedged": {
+      "en": "naturalised citizens can lose the nationality after a long unjustified absence — we explain what it means for your travel",
+      "es": "un naturalizado puede perder la nacionalidad tras una ausencia larga e injustificada — te explicamos qué significa para tus viajes",
+      "pt": "um naturalizado pode perder a nacionalidade após uma ausência longa e injustificada — explicamos o que isso significa para suas viagens",
+      "sv": "en naturaliserad medborgare kan förlora medborgarskapet efter lång oförklarad frånvaro — vi förklarar vad det betyder för dina resor"
+    },
+    "verified": false,
+    "sourced": {
+      "label": "Constitución Nacional de 1992, art. 150",
+      "checkedOn": "2026-09-28",
+      "url": "https://www.bacn.gov.py/constitucion-nacional-de-la-republica-del-paraguay"
+    },
+    "sources": [
+      "https://www.bacn.gov.py/constitucion-nacional-de-la-republica-del-paraguay",
+      "https://www.constituteproject.org/constitution/Paraguay_2011"
+    ],
+    "note": "Research 2026-09-28 (high confidence): art. 150 verbatim: 'Los paraguayos naturalizados pierden la nacionalidad en virtud de ausencia injustificada de la República por más de tres años, declarada judicialmente, o por la adquisición voluntaria de otra nacionalidad.' Text read from the constituteproject.org edition (rev. 2011). Secondary sources say a longer absence can be notified in advance to the civil judge or at a consulate."
+  },
+  "citizenship.political_rights": {
+    "key": "citizenship.political_rights",
+    "label": "Naturalised Paraguayans — citizenship (political rights)",
+    "title": {
+      "en": "Naturalised Paraguayans — when political rights start",
+      "es": "Paraguayos naturalizados — cuándo llega la ciudadanía",
+      "pt": "Paraguaios naturalizados — quando chega a cidadania",
+      "sv": "Naturaliserade paraguayare — när de politiska rättigheterna börjar"
+    },
+    "display": {
+      "en": "naturalisation gives the nationality at once, and citizenship (political rights) 2 years after it is granted (Constitution, art. 152)",
+      "es": "la naturalización da la nacionalidad de inmediato, y la ciudadanía (los derechos políticos) 2 años después de obtenerla (Constitución, art. 152)",
+      "pt": "a naturalização dá a nacionalidade de imediato, e a cidadania (direitos políticos) 2 anos depois de obtida (Constituição, art. 152)",
+      "sv": "naturaliseringen ger medborgarskapet direkt, och de politiska rättigheterna 2 år efter att det beviljats (grundlagen, art. 152)"
+    },
+    "hedged": {
+      "en": "political rights for naturalised citizens start after a waiting period, which we confirm for your case",
+      "es": "los derechos políticos de un naturalizado llegan tras un periodo de espera, que te confirmamos para tu caso",
+      "pt": "os direitos políticos de um naturalizado chegam após um período de espera, que confirmamos para o seu caso",
+      "sv": "de politiska rättigheterna för en naturaliserad medborgare börjar efter en väntetid, som vi bekräftar för ditt fall"
+    },
+    "verified": false,
+    "sourced": {
+      "label": "Constitución Nacional de 1992, art. 152",
+      "checkedOn": "2026-09-28",
+      "url": "https://www.bacn.gov.py/constitucion-nacional-de-la-republica-del-paraguay"
+    },
+    "sources": [
+      "https://www.bacn.gov.py/constitucion-nacional-de-la-republica-del-paraguay",
+      "https://www.constituteproject.org/constitution/Paraguay_2011"
+    ],
+    "note": "Research 2026-09-28 (high confidence): art. 152.2 verbatim: 'toda persona de nacionalidad paraguaya por naturalización, después de dos años de haberla obtenido' is a citizen. Some offices (President, Congress, Supreme Court) are reserved for Paraguayans by birth under other articles; not listed here."
   }
 } as const satisfies Record<string, Fact>;
 
