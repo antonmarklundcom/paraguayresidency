@@ -5,46 +5,48 @@ import type { SiteKey } from '@/sites/registry';
  * one Arrival image per brand hub (article category), so a card is never an
  * empty grey box (overhaul plan §2, ArticleCards v2).
  *
- * For now every hub points at an existing Arrival image. guide, investorpass
- * and frontier use their own brand's photos; the other four brands have no
- * photos of their own yet, so they use the same images their homepages
- * already show. W3 is generating a category image per hub: when one lands,
- * change the id here and every card in that hub follows.
+ * Every hub has its own category image from the 2026-10 set (manifest rows
+ * with `"kind": "hub"`); the hubs added in W6 (por-pais, negocios, cidades)
+ * borrow a fitting tile of the same brand until they get one.
  *
  * Keys are the hub folder names under `content/<brand>/`. A test fails if a
  * hub is missing here or an id is not in `docs/imagery-manifest.json`.
  */
 export const HUB_IMAGES: Record<SiteKey, Record<string, string>> = {
   residency: {
-    comparisons: 'guide-tile-route-fork',
-    documents: 'guide-tile-documents-desk',
-    'living-in-paraguay': 'guide-tile-market-asuncion',
-    taxes: 'investorpass-tile-financial-instruments',
+    comparisons: 'residency-hub-comparisons-park-paths',
+    documents: 'residency-hub-documents-apostille-desk',
+    'living-in-paraguay': 'residency-hub-living-costanera-morning',
+    taxes: 'residency-hub-taxes-desk-lamp',
   },
   investorpass: {
-    insights: 'investorpass-tile-real-estate',
+    insights: 'investorpass-hub-insights-terrace-night',
   },
   guide: {
-    blog: 'guide-tile-hammock-reading',
+    blog: 'guide-hub-blog-reader-plaza',
+    updates: 'guide-hub-updates-asuncion-rooftops-morning',
   },
   frontier: {
-    stories: 'frontier-tile-open-door-patio',
+    stories: 'frontier-hub-stories-couple-red-earth-road',
   },
   residenciaes: {
-    comparativas: 'guide-tile-route-fork',
-    documentos: 'guide-tile-documents-desk',
-    impuestos: 'investorpass-tile-financial-instruments',
-    'vivir-en-paraguay': 'guide-tile-terere-cafe',
+    comparativas: 'residenciaes-hub-comparativas-cafe-terere',
+    documentos: 'residenciaes-hub-documentos-escribania-sello',
+    impuestos: 'residenciaes-hub-impuestos-oficina-casa',
+    'vivir-en-paraguay': 'residenciaes-hub-vivir-calle-barrio',
+    'por-pais': 'residenciaes-tile-terminal-omnibus-viajeros',
   },
   residenciapt: {
-    comparativos: 'frontier-tile-three-roads',
-    documentos: 'guide-tile-documents-desk',
-    impostos: 'investorpass-tile-financial-instruments',
-    'morar-no-paraguai': 'guide-tile-market-asuncion',
+    comparativos: 'residenciapt-hub-comparativos-chimarrao-terere',
+    documentos: 'residenciapt-hub-documentos-pasta-apostila',
+    impostos: 'residenciapt-hub-impostos-escritorio-ciudad-del-este',
+    'morar-no-paraguai': 'residenciapt-hub-morar-rua-ipe-amarelo',
+    negocios: 'residenciapt-tile-feira-ciudad-del-este',
+    cidades: 'residenciapt-tile-ponte-rio-fronteira',
   },
   flytta: {
-    guider: 'guide-tile-documents-desk',
-    stader: 'guide-tile-market-asuncion',
+    guider: 'flytta-hub-guider-anteckningar-veranda',
+    stader: 'flytta-hub-stader-asuncion-flygbild',
   },
 };
 
