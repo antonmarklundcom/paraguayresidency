@@ -1602,6 +1602,176 @@ export const facts = {
       "https://www.abc.com.py/cotizaciones/"
     ],
     "note": "Research 2026-09-26 (medium confidence): Market quote 25 Sep 2026: buy 5,856 / sell 5,891 (search excerpt). The guaraní has strengthened a lot vs 2025 (~7,900), which is why older 'USD 370' fee conversions are now ~USD 500. Internal helper, probably not rendered."
+  },
+  // frontier+flytta W6 — five facts added 2026-09-28 for the frontier stories and flytta guides
+  // (seo-gap.md §4 and §6). Each was checked on the web on 2026-09-28; the source is named in
+  // `sourced` and the confidence in `note`. None is signed off: Anton, please review in the report.
+  "tax.double_tax_treaties": {
+    "key": "tax.double_tax_treaties",
+    "label": "Paraguay's double-tax treaties",
+    "title": {
+      "en": "Double-tax treaties — Paraguay's network",
+      "es": "Convenios para evitar la doble imposición — la red de Paraguay",
+      "pt": "Acordos para evitar a dupla tributação — a rede do Paraguai",
+      "sv": "Skatteavtal — Paraguays avtalsnät"
+    },
+    "display": {
+      "en": "comprehensive income-tax treaties with only five partners (Chile, Taiwan, Uruguay, the United Arab Emirates and Qatar); none with the United States, Canada, the United Kingdom, Australia or Sweden",
+      "es": "convenios integrales sobre la renta con solo cinco socios (Chile, Taiwán, Uruguay, los Emiratos Árabes Unidos y Catar); ninguno con Estados Unidos, Canadá, el Reino Unido, Australia ni Suecia",
+      "pt": "acordos amplos sobre a renda com apenas cinco parceiros (Chile, Taiwan, Uruguai, Emirados Árabes Unidos e Catar); nenhum com Estados Unidos, Canadá, Reino Unido, Austrália ou Suécia",
+      "sv": "heltäckande skatteavtal för inkomstskatt med bara fem länder (Chile, Taiwan, Uruguay, Förenade Arabemiraten och Qatar); inget med USA, Kanada, Storbritannien, Australien eller Sverige"
+    },
+    "hedged": {
+      "en": "only a small treaty network — whether any treaty covers your home country is something we check with an accountant for your case",
+      "es": "una red de convenios muy reducida — si alguno cubre tu país lo verificamos con un contador para tu caso",
+      "pt": "uma rede de acordos muito pequena — se algum cobre o seu país verificamos com um contador para o seu caso",
+      "sv": "ett litet avtalsnät — om något avtal gäller ditt hemland stämmer vi av med en revisor för ditt fall"
+    },
+    "verified": false,
+    "sourced": {
+      "label": "DNIT — Convenios Internacionales (agreements to avoid double taxation)",
+      "checkedOn": "2026-09-28",
+      "url": "https://www.dnit.gov.py/en/web/portal-institucional/convenios-internacionales"
+    },
+    "sources": [
+      "https://www.dnit.gov.py/en/web/portal-institucional/convenios-internacionales",
+      "https://taxsummaries.pwc.com/paraguay/individual/foreign-tax-relief-and-tax-treaties"
+    ],
+    "note": "Research 2026-09-28 (high confidence): DNIT (primary) lists comprehensive CDIs with Chile (Ley 2965/06), the Republic of China/Taiwan (Ley 3972/10), UAE (Ley 6230/18), Uruguay (Ley 6276/19) and Qatar (Ley 6387/19), plus narrower agreements: Germany air transport (Ley 1087/84), Belgium (Ley 1236/87, scope not stated on the page) and a transport convention (Ley 1105/97). PwC Worldwide Tax Summaries (reviewed 7 Feb 2026) lists the same five and adds that Paraguay gives no credit for income tax paid abroad. Some secondary sites wrongly list Spain or Germany as full treaties."
+  },
+  "citizenship.dual_nationality": {
+    "key": "citizenship.dual_nationality",
+    "label": "Citizenship — multiple nationality",
+    "title": {
+      "en": "Citizenship — multiple nationality",
+      "es": "Nacionalidad — nacionalidad múltiple",
+      "pt": "Nacionalidade — nacionalidade múltipla",
+      "sv": "Medborgarskap — flera medborgarskap"
+    },
+    "display": {
+      "en": "multiple nationality is admitted only by international treaty or by reciprocity of constitutional rank between the two countries (Constitution, art. 149); Ley 7052/2023 protects natural-born Paraguayans who take another nationality, not naturalised ones",
+      "es": "la nacionalidad múltiple solo se admite por tratado internacional o por reciprocidad de rango constitucional entre los dos Estados (Constitución, art. 149); la Ley 7052/2023 protege a los paraguayos naturales que adquieren otra nacionalidad, no a los naturalizados",
+      "pt": "a nacionalidade múltipla só é admitida por tratado internacional ou por reciprocidade de nível constitucional entre os dois países (Constituição, art. 149); a Lei 7052/2023 protege os paraguaios natos que adquirem outra nacionalidade, não os naturalizados",
+      "sv": "flera medborgarskap godtas bara genom internationellt avtal eller genom ömsesidighet på grundlagsnivå mellan de två länderna (grundlagen, art. 149); lag 7052/2023 skyddar födda paraguayare som tar ett annat medborgarskap, inte naturaliserade"
+    },
+    "hedged": {
+      "en": "whether you can hold Paraguayan nationality alongside your current one depends on treaties and on your home country's own law, which we confirm for your case",
+      "es": "si puedes tener la nacionalidad paraguaya junto con la actual depende de los tratados y de la ley de tu país, algo que confirmamos para tu caso",
+      "pt": "se você pode ter a nacionalidade paraguaia junto com a atual depende dos tratados e da lei do seu país, o que confirmamos para o seu caso",
+      "sv": "om du kan ha paraguayanskt medborgarskap vid sidan av ditt nuvarande beror på avtal och på ditt hemlands egen lag, vilket vi bekräftar för ditt fall"
+    },
+    "verified": false,
+    "sourced": {
+      "label": "Constitución Nacional 1992, art. 149 (Constitute Project translation); Ley 7052/2023",
+      "checkedOn": "2026-09-28",
+      "url": "https://www.constituteproject.org/constitution/Paraguay_2011"
+    },
+    "sources": [
+      "https://www.constituteproject.org/constitution/Paraguay_2011",
+      "https://www.abc.com.py/politica/2023/01/13/rige-ley-que-garantiza-la-nacionalidad-multiple-a-los-paraguayos/",
+      "https://www.bacn.gov.py/leyes-paraguayas/11258/ley-n-7052-reglamenta-los-articulos-146-147-y-149-de-la-constitucion-nacional-de-la-nacionalidad-paraguaya-multiple",
+      "https://paraguaysovereign.com/citizenship/dual-citizenship/"
+    ],
+    "note": "Research 2026-09-28 (medium confidence): Art. 149 text is primary (Constitute Project translation; bacn.gov.py returned 403). Ley 7052 (promulgated 12 Jan 2023) regulates arts. 146, 147 and 149 for natural-born Paraguayans only. Paraguay has a dual-nationality treaty with Spain (1959); an agreement with Italy was approved by Ley 6479/2019 (Italian side not confirmed). One agency (paraguaysovereign) says the naturalisation oath includes a verbal renunciation that is not enforced and no proof of renunciation is asked for — secondary, NOT published. Whether the applicant keeps the first nationality is decided by the home country's law."
+  },
+  "citizenship.naturalized_loss": {
+    "key": "citizenship.naturalized_loss",
+    "label": "Citizenship — how a naturalised Paraguayan loses it",
+    "title": {
+      "en": "Citizenship — how a naturalised Paraguayan loses it",
+      "es": "Nacionalidad — pérdida para los naturalizados",
+      "pt": "Nacionalidade — perda para os naturalizados",
+      "sv": "Medborgarskap — när en naturaliserad förlorar det"
+    },
+    "display": {
+      "en": "a naturalised Paraguayan loses the nationality through an unjustified absence of more than 3 years, declared by a court, or by voluntarily acquiring another nationality (Constitution, art. 150)",
+      "es": "el paraguayo naturalizado pierde la nacionalidad por ausencia injustificada de más de 3 años, declarada judicialmente, o por la adquisición voluntaria de otra nacionalidad (Constitución, art. 150)",
+      "pt": "o paraguaio naturalizado perde a nacionalidade por ausência injustificada de mais de 3 anos, declarada judicialmente, ou pela aquisição voluntária de outra nacionalidade (Constituição, art. 150)",
+      "sv": "en naturaliserad paraguayare förlorar medborgarskapet vid en oförklarad frånvaro på mer än 3 år, fastställd av domstol, eller genom att frivilligt skaffa ett annat medborgarskap (grundlagen, art. 150)"
+    },
+    "hedged": {
+      "en": "naturalised citizens can lose Paraguayan nationality in circumstances the Constitution sets out, which we explain for your case",
+      "es": "los naturalizados pueden perder la nacionalidad paraguaya en los supuestos que fija la Constitución, que te explicamos para tu caso",
+      "pt": "os naturalizados podem perder a nacionalidade paraguaia nas hipóteses previstas na Constituição, que explicamos para o seu caso",
+      "sv": "naturaliserade medborgare kan förlora det paraguayanska medborgarskapet i situationer som grundlagen anger, vilka vi förklarar för ditt fall"
+    },
+    "verified": false,
+    "sourced": {
+      "label": "Constitución Nacional 1992, art. 150 (Constitute Project translation)",
+      "checkedOn": "2026-09-28",
+      "url": "https://www.constituteproject.org/constitution/Paraguay_2011"
+    },
+    "sources": [
+      "https://www.constituteproject.org/constitution/Paraguay_2011",
+      "https://paraguaysovereign.com/citizenship/dual-citizenship/"
+    ],
+    "note": "Research 2026-09-28 (high confidence on the text, low on enforcement): the constitutional text is unambiguous; how often the absence ground is actually pursued in court was not researched."
+  },
+  "citizenship.naturalization_requirements": {
+    "key": "citizenship.naturalization_requirements",
+    "label": "Naturalisation — requirements and filing",
+    "title": {
+      "en": "Naturalisation — requirements and filing",
+      "es": "Naturalización — requisitos y presentación",
+      "pt": "Naturalização — requisitos e protocolo",
+      "sv": "Naturalisation — krav och ansökan"
+    },
+    "display": {
+      "en": "adult age, at least 3 years of permanent residency, proof that you regularly work, run a business or study in Paraguay, and good conduct; filed with the Supreme Court through a sponsoring lawyer, with a legal address in Asunción",
+      "es": "mayoría de edad, al menos 3 años de residencia permanente, prueba de que trabajas, tienes un negocio o estudias en Paraguay de forma regular, y buena conducta; se presenta ante la Corte Suprema con patrocinio de abogado y domicilio legal en Asunción",
+      "pt": "maioridade, pelo menos 3 anos de residência permanente, prova de que você trabalha, tem um negócio ou estuda no Paraguai de forma regular, e boa conduta; o pedido é feito à Corte Suprema com patrocínio de advogado e domicílio legal em Assunção",
+      "sv": "myndig ålder, minst 3 års permanent uppehållstillstånd, bevis på att du regelbundet arbetar, driver företag eller studerar i Paraguay, och god vandel; ansökan lämnas till Högsta domstolen via ett ombud (advokat) med delgivningsadress i Asunción"
+    },
+    "hedged": {
+      "en": "a set of residence, occupation and conduct requirements, filed through the courts, which we confirm for your case",
+      "es": "un conjunto de requisitos de residencia, ocupación y conducta, tramitado ante la justicia, que confirmamos para tu caso",
+      "pt": "um conjunto de requisitos de residência, ocupação e conduta, processado na Justiça, que confirmamos para o seu caso",
+      "sv": "ett antal krav på bosättning, sysselsättning och vandel, prövade av domstol, som vi bekräftar för ditt fall"
+    },
+    "verified": false,
+    "sourced": {
+      "label": "Poder Judicial — Carta de Naturalización (requisitos); Constitución Nacional, art. 148",
+      "checkedOn": "2026-09-28",
+      "url": "https://www.pj.gov.py/contenido/463-carta-de-naturalizacion/463"
+    },
+    "sources": [
+      "https://www.pj.gov.py/contenido/463-carta-de-naturalizacion/463",
+      "https://www.constituteproject.org/constitution/Paraguay_2011"
+    ],
+    "note": "Research 2026-09-28 (high confidence): the Poder Judicial page lists 14 items, including the permanent-residency card, a DNM residence certificate, police and judicial records, a home-country good-conduct certificate (apostilled), an employment certificate with the employer's RUC OR a commercial licence OR student enrolment OR professional credentials, a CV, a sworn declaration, a judicial fee (G 43,051 at the time of checking) and a petition signed by a sponsoring lawyer with a legal domicile in Asunción. No language test is listed on that page."
+  },
+  "entry.visa_exemption_us_ca_au": {
+    "key": "entry.visa_exemption_us_ca_au",
+    "label": "Entry — visa exemption for US, Canadian, Australian and New Zealand tourists",
+    "title": {
+      "en": "Entry — visa exemption for US, Canadian, Australian and New Zealand tourists",
+      "es": "Ingreso — exoneración de visa para turistas de EE. UU., Canadá, Australia y Nueva Zelanda",
+      "pt": "Entrada — isenção de visto para turistas dos EUA, Canadá, Austrália e Nova Zelândia",
+      "sv": "Inresa — visumfrihet för turister från USA, Kanada, Australien och Nya Zeeland"
+    },
+    "display": {
+      "en": "no tourist visa needed for US, Canadian, Australian and New Zealand citizens staying up to 90 days, under Ley 7314/2024, valid until 13 August 2027",
+      "es": "no se exige visa de turista a ciudadanos de EE. UU., Canadá, Australia y Nueva Zelanda para estancias de hasta 90 días, según la Ley 7314/2024, vigente hasta el 13 de agosto de 2027",
+      "pt": "não é exigido visto de turista para cidadãos dos EUA, Canadá, Austrália e Nova Zelândia em estadias de até 90 dias, pela Lei 7314/2024, válida até 13 de agosto de 2027",
+      "sv": "inget turistvisum krävs för medborgare i USA, Kanada, Australien och Nya Zeeland vid vistelser på upp till 90 dagar, enligt lag 7314/2024, som gäller till den 13 augusti 2027"
+    },
+    "hedged": {
+      "en": "entry rules for your passport, which change from time to time — we confirm them before you book a flight",
+      "es": "las reglas de ingreso para tu pasaporte, que cambian cada cierto tiempo — las confirmamos antes de que compres el vuelo",
+      "pt": "as regras de entrada para o seu passaporte, que mudam de tempos em tempos — confirmamos antes de você comprar a passagem",
+      "sv": "inresereglerna för ditt pass, som ändras ibland — vi bekräftar dem innan du bokar flyg"
+    },
+    "verified": false,
+    "sourced": {
+      "label": "DNM — Acuerdos de supresión de visas (updated January 2026); DNM news on Ley 7314",
+      "checkedOn": "2026-09-28",
+      "url": "https://migraciones.gov.py/wp-content/uploads/2026/01/ACUERDOS-DE-SUPRESION-DE-VISAS-2026.pdf"
+    },
+    "sources": [
+      "https://migraciones.gov.py/wp-content/uploads/2026/01/ACUERDOS-DE-SUPRESION-DE-VISAS-2026.pdf",
+      "https://www.migraciones.gov.py/index.php/noticias/se-prorroga-por-tres-anos-mas-la-supresion-de-visas-de-ingreso-para-turistas-de-estados-unidos-canada-australia-y-nueva-zelanda"
+    ],
+    "note": "Research 2026-09-28 (high confidence): Ley 7314 (DNM news, 14 Aug 2024) extends Ley 6790/2021 by three years; DNM's January 2026 table gives the end date 13 August 2027. Tourism entries only; a residency applicant files inside Paraguay after entering. Re-check before August 2027 — this fact expires."
   }
 } as const satisfies Record<string, Fact>;
 
