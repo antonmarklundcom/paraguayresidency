@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Breadcrumbs, Container, DocumentChecklist, Heading, JsonLd, Section } from '@/components';
+import { Breadcrumbs, Container, DocumentChecklist, Heading, JsonLd, LeadForm, Section } from '@/components';
 import { t } from '@/i18n';
 import { serviceJsonLd, siteMetadata } from '@/lib/metadata';
 import type { ChecklistNationality, ChecklistRoute } from '@/components/DocumentChecklist';
@@ -54,8 +54,7 @@ export default function Page() {
         </p>
         <div className="mt-[var(--space-10)]">
           <DocumentChecklist
-            site={SITE}
-            pagePath={PATH}
+            form={<LeadForm site={SITE} variant="quiz" pagePath={PATH} />}
             routes={routes()}
             nationalities={NATIONALITIES}
             policeCertHref="/guias/documentos/certidao-de-antecedentes-e-a-confusao-com-a-interpol"
