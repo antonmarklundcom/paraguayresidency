@@ -38,6 +38,8 @@ function contentPaths(site: string): Set<string> {
     const slugPath = file.slice(dir.length + 1).replace(/\\/g, '/').replace(/\.mdx$/, '');
     if (!slugPath.includes('/')) continue;
     paths.add(contentHref(site as never, slugPath));
+    // The hub index an article sits in (`/guias/impostos`) is a real page too.
+    paths.add(contentHref(site as never, slugPath).replace(/\/[^/]+$/, ''));
   }
   return paths;
 }

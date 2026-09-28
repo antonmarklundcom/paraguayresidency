@@ -44,7 +44,7 @@ export function HeroVideo({ id, focus = 'center', loop = true }: { id: string; f
       disablePictureInPicture
       onPlaying={() => setVisible(true)}
       style={{ objectPosition: focus }}
-      className={`pointer-events-none absolute inset-0 -z-20 h-full w-full object-cover transition-opacity duration-[var(--dur-4,560ms)] ${visible ? 'opacity-100' : 'opacity-0'}`}
+      className={`pointer-events-none absolute inset-0 -z-20 h-full w-full object-cover transition-opacity duration-[560ms] ${visible ? 'opacity-100' : 'opacity-0'}`}
     >
       <source src={`${src}.webm`} type="video/webm" />
       <source src={`${src}.mp4`} type="video/mp4" />

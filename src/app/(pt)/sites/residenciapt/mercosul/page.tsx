@@ -72,6 +72,10 @@ export default function Page() {
         <a href="/route-finder">teste de rota</a> já leva isso em conta, ou fale direto com a gente
         pelo formulário abaixo.
       </p>
+      <p>
+        Para ver a rota em ação, do primeiro documento à cédula, leia o{' '}
+        <a href="/guias/documentos/como-tirar-residencia-no-paraguai">passo a passo para tirar a residência no Paraguai</a>.
+      </p>
       <ProcessTimeline site="residenciapt" route="standard" />
     </ServicoPage>
   );
