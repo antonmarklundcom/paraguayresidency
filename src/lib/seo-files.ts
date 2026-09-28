@@ -149,6 +149,7 @@ const staticPaths: Record<SiteKey, string[]> = {
     '/guias/documentos',
     '/guias/impostos',
     '/guias/morar-no-paraguai',
+    '/guias/negocios',
     '/',
     '/route-finder',
     '/contact',

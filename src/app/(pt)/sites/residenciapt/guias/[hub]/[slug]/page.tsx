@@ -15,6 +15,7 @@ const HUB_SERVICE: Record<string, ArticleLink> = {
   documentos: { label: 'Residência temporária', href: '/residencia/temporaria' },
   'morar-no-paraguai': { label: 'Custo de vida', href: '/custo-de-vida' },
   impostos: { label: 'Residência fiscal', href: '/residencia-fiscal' },
+  negocios: { label: 'Residência fiscal', href: '/residencia-fiscal' },
   comparativos: { label: 'Residência permanente', href: '/residencia/permanente' },
 };
 
