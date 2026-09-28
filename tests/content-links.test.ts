@@ -67,13 +67,28 @@ function routePaths(site: string): Set<string> {
   return paths;
 }
 
+/**
+ * Hub index paths (e.g. `/guias/cidades`) served by a dynamic `[hub]/page.tsx`:
+ * the parent of an article's public path, when that route file exists.
+ */
+function hubPaths(site: string): Set<string> {
+  const dir = join(APP, `(${getSite(site as never).locale})`, 'sites', site);
+  const paths = new Set<string>();
+  for (const path of contentPaths(site)) {
+    const hub = path.slice(0, path.lastIndexOf('/'));
+    const prefix = hub.slice(0, hub.lastIndexOf('/')).split('/').filter(Boolean);
+    if (existsSync(join(dir, ...prefix, '[hub]', 'page.tsx'))) paths.add(hub);
+  }
+  return paths;
+}
+
 describe('every internal MDX link resolves', () => {
   for (const site of SITE_KEYS) {
     const files = mdxFiles(join(CONTENT, site));
     if (files.length === 0) continue;
 
     it(`${site}: no dead links in ${files.length} article(s)`, () => {
-      const known = new Set([...contentPaths(site), ...routePaths(site)]);
+      const known = new Set([...contentPaths(site), ...routePaths(site), ...hubPaths(site)]);
       const dead: string[] = [];
 
       for (const file of files) {
@@ -91,6 +106,11 @@ describe('every internal MDX link resolves', () => {
       expect(dead, `dead internal link(s):\n  ${dead.join('\n  ')}`).toEqual([]);
     });
   }
+
+  it('accepts a hub index link only where a [hub] route serves it', () => {
+    expect(hubPaths('residenciapt')).toContain('/guias/morar-no-paraguai');
+    expect(hubPaths('flytta').size).toBe(0);
+  });
 
   it('knows the real public path of a content page, not the file path', () => {
     // The regression itself: the file lives at content/residency/taxes/x.mdx

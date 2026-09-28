@@ -8,6 +8,7 @@ import { HUB_COPY } from '@/app/(pt)/sites/residenciapt/_lib/hub-copy';
 
 type Params = Promise<{ hub: string }>;
 const labels: Record<string, string> = {
+  "cidades": "Cidades",
   "comparativos": "Comparativos",
   "documentos": "Documentos",
   "impostos": "Impostos",

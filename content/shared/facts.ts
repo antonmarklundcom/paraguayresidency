@@ -1809,6 +1809,141 @@ export const facts = {
     ],
     "note": "Research 2026-09-26 (high confidence): Art. 148: adult, min. 3 years' residence, lawful occupation, good conduct. Judicial process (Corte Suprema). Paraguay does not generally allow dual nationality for naturalised citizens except by treaty (e.g. Spain, Italy) — not researched in depth; owner should confirm before publishing any dual-citizenship claim. Language and presence tests in practice not researched."
   },
+  // residenciapt W6-B — added 2026-09-28 for the vidanoparaguai.com life, cities, car and land pages.
+  "land.border_security_zone": {
+    "key": "land.border_security_zone",
+    "label": "Border security zone — rural land owned by foreigners from neighbouring countries",
+    "title": {
+      "en": "Border security zone — rural land and neighbouring-country nationals",
+      "es": "Zona de seguridad fronteriza — inmuebles rurales y extranjeros de países limítrofes",
+      "pt": "Zona de segurança de fronteira — imóvel rural e estrangeiros de países vizinhos",
+      "sv": "Gränssäkerhetszonen — landsbygdsmark och medborgare i grannländer"
+    },
+    "display": {
+      "en": "a 50 km strip along Paraguay's land and river borders in which nationals of neighbouring countries (Brazil included), and companies they mostly own, may not own, co-own or hold usufruct over rural property, unless the Executive authorises it by decree (Law 2532/2005)",
+      "es": "una franja de 50 km a lo largo de las fronteras terrestres y fluviales en la que los extranjeros de países limítrofes (Brasil incluido), y las empresas integradas mayoritariamente por ellos, no pueden ser propietarios, condóminos ni usufructuarios de inmuebles rurales, salvo autorización por decreto del Poder Ejecutivo (Ley 2532/2005)",
+      "pt": "uma faixa de 50 km ao longo das fronteiras terrestres e fluviais em que estrangeiros de países vizinhos (Brasil incluído), e empresas formadas majoritariamente por eles, não podem ser donos, condôminos nem usufrutuários de imóvel rural, salvo autorização por decreto do Poder Executivo (Lei 2.532/2005)",
+      "sv": "en 50 km bred zon längs Paraguays land- och flodgränser där medborgare i grannländer (Brasilien inräknat), och bolag som de till största delen äger, inte får äga, samäga eller ha nyttjanderätt till landsbygdsfastigheter, om inte regeringen ger tillstånd genom dekret (lag 2532/2005)"
+    },
+    "hedged": {
+      "en": "a restriction on rural land near the border for nationals of neighbouring countries, which we check for your case and your plot",
+      "es": "una restricción sobre inmuebles rurales cerca de la frontera para extranjeros de países limítrofes, que revisamos para tu caso y tu terreno",
+      "pt": "uma restrição à compra de imóvel rural perto da fronteira por estrangeiros de países vizinhos, que conferimos para o seu caso e o seu terreno",
+      "sv": "en begränsning för medborgare i grannländer att äga landsbygdsmark nära gränsen, som vi kontrollerar för ditt fall och din tomt"
+    },
+    "verified": false,
+    "sourced": {
+      "label": "Ley N.º 2532/2005, Zona de Seguridad Fronteriza (BACN, Congreso Nacional)",
+      "checkedOn": "2026-09-28",
+      "url": "https://www.bacn.gov.py/leyes-paraguayas/4025/ley-n-2532-establece-la-zona-de-seguridad-fronteriza-de-la-republica-del-paraguay"
+    },
+    "sources": [
+      "https://www.bacn.gov.py/leyes-paraguayas/4025/ley-n-2532-establece-la-zona-de-seguridad-fronteriza-de-la-republica-del-paraguay",
+      "https://www.catastro.gov.py/public/439bc5_ley%202532-05%20seguridad%20fronteriza.pdf",
+      "https://ghp.com.py/2019/06/18/interpretando-la-ley-de-seguridad-fronteriza-del-paraguay/"
+    ],
+    "note": "Research 2026-09-28 (high confidence): Art. 1 sets the 50 km strip; Art. 2 bars nationals of bordering countries (and legal persons mostly made up of them) from owning, co-owning or holding usufruct over RURAL property there, save a decree of the Executive on public-interest grounds (job creation counts). Urban property is not covered. Rights acquired before the law are kept. Regulated by Decreto 7525/2011. bacn.gov.py returned 403 to the fetcher; wording confirmed from the search excerpt of the official text and GHP Abogados' commentary."
+  },
+  "vehicles.used_import_age": {
+    "key": "vehicles.used_import_age",
+    "label": "Used vehicle imports — maximum age",
+    "title": {
+      "en": "Used vehicle imports — maximum age",
+      "es": "Importación de vehículos usados — antigüedad máxima",
+      "pt": "Importação de veículo usado — idade máxima",
+      "sv": "Import av begagnade fordon — högsta ålder"
+    },
+    "display": {
+      "en": "no more than 10 years old, counted from the year of manufacture to shipment at origin (Law 4333/2011, amending Law 2018/2002); classic cars certified by Customs are the exception",
+      "es": "hasta 10 años de antigüedad, contados desde el año de fabricación hasta su despacho en origen (Ley 4333/2011, que modifica la Ley 2018/2002); la excepción son los clásicos certificados por la Aduana",
+      "pt": "no máximo 10 anos de fabricação, contados do ano de fabricação até o embarque na origem (Lei 4.333/2011, que altera a Lei 2.018/2002); a exceção são os carros clássicos certificados pela Aduana",
+      "sv": "högst 10 år gamla, räknat från tillverkningsåret till avsändandet i ursprungslandet (lag 4333/2011, som ändrar lag 2018/2002); undantaget är veteranbilar som tullen certifierat"
+    },
+    "hedged": {
+      "en": "an age limit for importing a used vehicle, which we confirm with a customs broker for your car",
+      "es": "un límite de antigüedad para importar un vehículo usado, que confirmamos con un despachante para tu auto",
+      "pt": "um limite de idade para importar carro usado, que confirmamos com um despachante para o seu veículo",
+      "sv": "en åldersgräns för import av begagnade fordon, som vi bekräftar med en tullombud för din bil"
+    },
+    "verified": false,
+    "sourced": {
+      "label": "Ley N.º 4333/2011, modifica el art. 1 de la Ley 2018/2002 (BACN, Congreso Nacional)",
+      "checkedOn": "2026-09-28",
+      "url": "https://www.bacn.gov.py/leyes-paraguayas/3705/modifica-el-articulo-1-de-la-ley-n-201802-que-autoriza-la-libre-importacion-de-vehiculos-maquinarias-agricolas-y-maquinarias-de-construccion-usados-modificada-por-la-ley-n-215303"
+    },
+    "sources": [
+      "https://www.bacn.gov.py/leyes-paraguayas/3705/modifica-el-articulo-1-de-la-ley-n-201802-que-autoriza-la-libre-importacion-de-vehiculos-maquinarias-agricolas-y-maquinarias-de-construccion-usados-modificada-por-la-ley-n-215303",
+      "https://www.ultimahora.com/ejecutivo-promulga-ley-que-fija-10-anos-la-antigedad-autos-usados-importados-n431944",
+      "https://paraguayway.com/importar-vehiculo-paraguay/"
+    ],
+    "note": "Research 2026-09-28 (medium confidence): Ley 4333/2011 (promulgated May 2011) re-set the 10-year limit after a failed 5-year proposal. Bills to lower it (7 years, 2018) or lift it (2023) appeared in the press; a 2026 importer guide still states 10 years. Owner: confirm no later amendment with a despachante before signing off. Import duties, IVA and the resident's household-goods regime are not covered by this fact."
+  },
+  "customs.cash_declaration": {
+    "key": "customs.cash_declaration",
+    "label": "Cash carried across the border — declaration threshold",
+    "title": {
+      "en": "Cash at the border — declaration threshold",
+      "es": "Dinero en efectivo en la frontera — umbral de declaración",
+      "pt": "Dinheiro em espécie na fronteira — limite para declarar",
+      "sv": "Kontanter vid gränsen — gräns för deklaration"
+    },
+    "display": {
+      "en": "more than USD 10,000 (or the equivalent in other currencies) in cash per traveller, entering or leaving Paraguay, must be declared to Customs (Law 1015/1997); the DNIT's e-DAV form lets you declare online before the trip",
+      "es": "más de USD 10.000 (o su equivalente en otras monedas) en efectivo por viajero, al entrar o salir de Paraguay, se declaran ante la Aduana (Ley 1015/1997); el formulario e-DAV de la DNIT permite hacerlo en línea antes del viaje",
+      "pt": "mais de USD 10.000 (ou o equivalente em outras moedas) em espécie por viajante, na entrada ou na saída do Paraguai, precisam ser declarados à Aduana (Lei 1.015/1997); o formulário e-DAV da DNIT permite declarar on-line antes da viagem",
+      "sv": "mer än USD 10 000 (eller motsvarande i annan valuta) i kontanter per resenär, vid in- eller utresa, ska deklareras för tullen (lag 1015/1997); DNIT:s e-DAV-formulär gör att du kan deklarera online före resan"
+    },
+    "hedged": {
+      "en": "a cash amount above which you must declare to Paraguayan Customs, which we confirm before you travel",
+      "es": "un monto en efectivo por encima del cual debes declararlo ante la Aduana paraguaya, que confirmamos antes de tu viaje",
+      "pt": "um valor em espécie acima do qual é obrigatório declarar à Aduana paraguaia, que confirmamos antes da sua viagem",
+      "sv": "ett kontantbelopp över vilket du måste deklarera för den paraguayanska tullen, som vi bekräftar före resan"
+    },
+    "verified": false,
+    "sourced": {
+      "label": "DNIT (Aduanas), control de dinero no declarado; Ley 1015/1997",
+      "checkedOn": "2026-09-28",
+      "url": "https://www.dnit.gov.py/en/web/portal-institucional/w/la-dnit-realiza-incautacion-de-dinero-no-declarado-en-control-fronterizo-1"
+    },
+    "sources": [
+      "https://www.dnit.gov.py/en/web/portal-institucional/w/la-dnit-realiza-incautacion-de-dinero-no-declarado-en-control-fronterizo-1",
+      "https://www.dnit.gov.py/documents/20123/1085745/Ayuda-Viajero-Declaracion-Electronica-ESP.pdf/ea112a1e-d15c-0f4f-c190-eea66d4a7b5c?t=1727195535625"
+    ],
+    "note": "Research 2026-09-28 (high confidence): DNIT's own notice states the USD 10,000 per-traveller threshold under Ley 1015/97, both directions. Declaring is not a tax; failing to declare leads to seizure. Brazil has its own, separate declaration (e-DBV, Receita Federal) that this fact does not cover."
+  },
+  "tourist.brazilian_stay": {
+    "key": "tourist.brazilian_stay",
+    "label": "Brazilian tourists — length of stay in Paraguay",
+    "title": {
+      "en": "Brazilian tourists — length of stay",
+      "es": "Turistas brasileños — plazo de permanencia",
+      "pt": "Turista brasileiro — prazo de permanência",
+      "sv": "Brasilianska turister — vistelsens längd"
+    },
+    "display": {
+      "en": "up to 90 days as a tourist, entering with a valid Brazilian ID card (RG) or passport, extendable once for the same period at the discretion of Migraciones",
+      "es": "hasta 90 días como turista, entrando con la cédula brasileña (RG) o el pasaporte vigentes, prorrogables una vez por el mismo plazo a criterio de Migraciones",
+      "pt": "até 90 dias como turista, entrando com RG ou passaporte válidos, prorrogáveis uma vez por igual período a critério da Migração paraguaia",
+      "sv": "upp till 90 dagar som turist, med giltigt brasilianskt id-kort (RG) eller pass, som kan förlängas en gång med lika lång tid efter Migraciones bedömning"
+    },
+    "hedged": {
+      "en": "a limited tourist stay for Brazilians, with the current term and extension rules confirmed for your trip",
+      "es": "una estadía de turista limitada para brasileños, con el plazo y la prórroga vigentes confirmados para tu viaje",
+      "pt": "uma permanência limitada como turista, com o prazo e a prorrogação vigentes confirmados para a sua viagem",
+      "sv": "en begränsad turistvistelse för brasilianare, med gällande tid och förlängningsregler bekräftade för din resa"
+    },
+    "verified": false,
+    "sourced": {
+      "label": "Prefeitura de Ponta Porã, Ingresso de brasileiros no Paraguai (orientação do Consulado do Brasil)",
+      "checkedOn": "2026-09-28",
+      "url": "https://pontapora.ms.gov.br/v2/secretarias/secretaria-de-desenvolvimento-integrado/ingresso-de-brasileiros-no-paraguai/"
+    },
+    "sources": [
+      "https://pontapora.ms.gov.br/v2/secretarias/secretaria-de-desenvolvimento-integrado/ingresso-de-brasileiros-no-paraguai/",
+      "https://www.gov.br/mre/pt-br/consulado-assuncao/Ingresso%20Paraguai"
+    ],
+    "note": "Research 2026-09-28 (medium confidence): The Ponta Porã page states 'até 90 dias, prorrogáveis por igual período' with RG or passport; search excerpts of the Brazilian consulate page in Asunción add that the extension is granted once, at the DNM's discretion, and that RG entries get a separate 'boleta' stamp. The consulate page itself was CAPTCHA-walled for the fetcher. The RG must be in good condition (some guides say issued within the last 10 years) — not part of this fact."
+  },
   "costofliving.monthly_family": {
     "key": "costofliving.monthly_family",
     "label": "Cost of living — family of four",
