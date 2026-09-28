@@ -56,7 +56,9 @@ export default function Page() {
         Paraguay is a newer name on most investor-residency comparison lists, which means clients
         researching it online run into inconsistent numbers and thin detail. We give your client a
         straight, current answer — including telling them when the Investor Pass is not their best
-        option — rather than a sales pitch that reflects badly on your recommendation later.
+        option — rather than a sales pitch that reflects badly on your recommendation later. For
+        the legal detail, <a href="/insights/investor-pass-resolution-explained">Resolution
+        0283/2026 explained</a> walks through the text article by article.
       </p>
 
       <h2>What your client experiences</h2>

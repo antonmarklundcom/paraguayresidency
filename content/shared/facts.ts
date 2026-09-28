@@ -2752,6 +2752,316 @@ export const facts = {
     ],
     "note": "Research 2026-09-28 (high confidence): art. 152.2 verbatim: 'toda persona de nacionalidad paraguaya por naturalización, después de dos años de haberla obtenido' is a citizen. Some offices (President, Congress, Supreme Court) are reserved for Paraguayans by birth under other articles; not listed here."
   },
+  // merged from a parallel W6 writer branch
+  "investorpass.cie_scope": {
+    "key": "investorpass.cie_scope",
+    "label": "Investor Pass — what the investor certificate (CIE) is",
+    "title": "Investor Pass — what the investor certificate (CIE) is",
+    "display": "a Foreign Investor Certificate (CIE) issued by the Ministry of Industry and Commerce through SUACE, only to individual foreign investors and only so that the migration office (DNM) can grant permanent residency without the temporary stage (Ley 6984/2022, art. 46)",
+    "hedged": "an investor certificate from the Ministry of Industry and Commerce that supports a direct permanent residency application, with the current rules confirmed for your case",
+    "verified": false,
+    "sourced": {
+      "label": "MIC Res. 0283/2026, art. 1 and Annex I art. 1(a); Ley 6984/2022, art. 46",
+      "checkedOn": "2026-09-28",
+      "url": "https://www.mic.gov.py/wp-content/uploads/2026/04/Res.-N-0283.2026_Constancia-de-Inversionista.pdf"
+    },
+    "sources": [
+      "https://www.mic.gov.py/wp-content/uploads/2026/04/Res.-N-0283.2026_Constancia-de-Inversionista.pdf",
+      "https://baselegal.com.py/docs/7118f528-513d-11ed-b822-525400343722"
+    ],
+    "note": "Research 2026-09-28 (high confidence): read from the resolution PDF (scanned, 10 pages). The CIE is issued 'exclusivamente a favor de personas físicas extranjeras' and 'exclusivamente a los efectos de obtener la residencia permanente'; DNM and SEPRELAD powers are reserved. Art. 1 cites 'Ley 6934/2022', a typo for 6984 in the original. The resolution says nothing about spouses or children: family cover comes from DNM practice and REDIEX statements, not from this text."
+  },
+  "investorpass.cie_issuing_term": {
+    "key": "investorpass.cie_issuing_term",
+    "label": "Investor Pass — issuing term for the CIE",
+    "title": "Investor Pass — issuing term for the investor certificate",
+    "display": "within 5 working days of SUACE receiving a complete file, with the clock stopped while any observations or requests for more information are answered",
+    "hedged": "a short issuing window once the file is complete, which we confirm for your case",
+    "verified": false,
+    "sourced": {
+      "label": "MIC Res. 0283/2026, art. 4",
+      "checkedOn": "2026-09-28",
+      "url": "https://www.mic.gov.py/wp-content/uploads/2026/04/Res.-N-0283.2026_Constancia-de-Inversionista.pdf"
+    },
+    "sources": [
+      "https://www.mic.gov.py/wp-content/uploads/2026/04/Res.-N-0283.2026_Constancia-de-Inversionista.pdf"
+    ],
+    "note": "Research 2026-09-28 (high confidence): 'en un plazo no mayor a 5 días hábiles a partir de la recepción del expediente. En caso de observaciones, solicitudes de información complementaria o requerimientos de rectificación, el plazo quedará suspendido'. The DNM residency stage that follows has no term in this resolution."
+  },
+  "investorpass.resolution_history": {
+    "key": "investorpass.resolution_history",
+    "label": "Investor Pass — which resolution is in force",
+    "title": "Investor Pass — which resolution is in force",
+    "display": "MIC Resolution 0283 of 21 April 2026, which repealed Resolution 1052 of 11 September 2025, itself the replacement for Resolution 236 of 14 February 2019: the same SUACE investor certificate, regulated three times",
+    "hedged": "the MIC resolution currently in force, which replaced earlier versions of the same investor certificate",
+    "verified": false,
+    "sourced": {
+      "label": "MIC Res. 0283/2026, preamble and art. 7",
+      "checkedOn": "2026-09-28",
+      "url": "https://www.mic.gov.py/wp-content/uploads/2026/04/Res.-N-0283.2026_Constancia-de-Inversionista.pdf"
+    },
+    "sources": [
+      "https://www.mic.gov.py/wp-content/uploads/2026/04/Res.-N-0283.2026_Constancia-de-Inversionista.pdf"
+    ],
+    "note": "Research 2026-09-28 (high confidence): signed by Minister Marco Nicolás Riquelme Boettner. Art. 6 applies the new rules to applications pending under Res. 1052/2025 where they are more favourable to the applicant."
+  },
+  "investorpass.cie_documents": {
+    "key": "investorpass.cie_documents",
+    "label": "Investor Pass — personal documents for the CIE",
+    "title": "Investor Pass — personal documents for the investor certificate",
+    "display": "an online application form that counts as a sworn statement; your passport or national ID; proof of entry to Paraguay (entry card, passport stamp or DNM movement certificate, plus a consular visa if your nationality needs one); an apostilled or legalised criminal record certificate from your country of origin, and from any country you lived in for more than a year in the last 3 years; a Paraguayan Interpol certificate; and a sworn statement on the origin of the funds",
+    "hedged": "a personal document set (identity, entry record, criminal record certificates and a source-of-funds statement) that we list for your case",
+    "verified": false,
+    "sourced": {
+      "label": "MIC Res. 0283/2026, Annex I art. 2",
+      "checkedOn": "2026-09-28",
+      "url": "https://www.mic.gov.py/wp-content/uploads/2026/04/Res.-N-0283.2026_Constancia-de-Inversionista.pdf"
+    },
+    "sources": [
+      "https://www.mic.gov.py/wp-content/uploads/2026/04/Res.-N-0283.2026_Constancia-de-Inversionista.pdf"
+    ],
+    "note": "Research 2026-09-28 (high confidence): the source-of-funds statement includes a commitment to SEPRELAD anti-money-laundering rules. The route-specific evidence (business plan, deed, securities certificate) comes on top."
+  },
+  "investorpass.investment_status": {
+    "key": "investorpass.investment_status",
+    "label": "Investor Pass — timing and valuation of the investment",
+    "title": "Investor Pass — timing and valuation of the investment",
+    "display": "the investment may be completed or still in progress, as long as the financial commitment is documented; minimums are in US dollars or the guaraní equivalent at the official rate on the day you apply",
+    "hedged": "rules on when the investment must be made and how it is valued, which we confirm for your case",
+    "verified": false,
+    "sourced": {
+      "label": "MIC Res. 0283/2026, Annex I art. 1(g) and (h)",
+      "checkedOn": "2026-09-28",
+      "url": "https://www.mic.gov.py/wp-content/uploads/2026/04/Res.-N-0283.2026_Constancia-de-Inversionista.pdf"
+    },
+    "sources": [
+      "https://www.mic.gov.py/wp-content/uploads/2026/04/Res.-N-0283.2026_Constancia-de-Inversionista.pdf"
+    ],
+    "note": "Research 2026-09-28 (high confidence): 'Las inversiones podrán encontrarse ejecutadas o en proceso de ejecución, siempre que se acredite documentalmente su compromiso económico.' Foreign-currency documents are converted at the BCP official rate on the day of conversion (Annex I art. 7(a))."
+  },
+  "investorpass.productive_conditions": {
+    "key": "investorpass.productive_conditions",
+    "label": "Investor Pass — productive route conditions",
+    "title": "Investor Pass — productive business route conditions",
+    "display": "a business plan in industry, commerce or services that creates at least 5 formal jobs, with an execution schedule and progress reports every six months; rent, salaries, utilities and recurring admin costs do not count as investment, and each co-investor must meet the minimum individually",
+    "hedged": "a business plan, job creation and progress reporting, with the current conditions confirmed in writing for your case",
+    "verified": false,
+    "sourced": {
+      "label": "MIC Res. 0283/2026, Annex I arts. 1(c) and 3",
+      "checkedOn": "2026-09-28",
+      "url": "https://www.mic.gov.py/wp-content/uploads/2026/04/Res.-N-0283.2026_Constancia-de-Inversionista.pdf"
+    },
+    "sources": [
+      "https://www.mic.gov.py/wp-content/uploads/2026/04/Res.-N-0283.2026_Constancia-de-Inversionista.pdf"
+    ],
+    "note": "Research 2026-09-28 (high confidence): counts as investment: property, machinery and equipment, specialised tools, vehicles used in the activity, technology, operating furniture, civil works and installations. Solvency is shown with 3 months of bank statements (own or company) or investment titles, or with property/vehicle valuations. The resolution sets no fixed execution deadline (the '24 months' in suace.status comes from the repealed 2025 regime)."
+  },
+  "investorpass.tourism_conditions": {
+    "key": "investorpass.tourism_conditions",
+    "label": "Investor Pass — tourism route conditions",
+    "title": "Investor Pass — tourism route conditions",
+    "display": "a tourism business plan (creating, buying, expanding, modernising or running tourism assets, infrastructure or services) with an execution schedule and progress reports every six months; the resolution sets no minimum number of jobs for this route, and rent, salaries and running costs do not count as investment",
+    "hedged": "a tourism business plan and progress reporting, with the current conditions confirmed in writing for your case",
+    "verified": false,
+    "sourced": {
+      "label": "MIC Res. 0283/2026, Annex I arts. 1(f) and 4",
+      "checkedOn": "2026-09-28",
+      "url": "https://www.mic.gov.py/wp-content/uploads/2026/04/Res.-N-0283.2026_Constancia-de-Inversionista.pdf"
+    },
+    "sources": [
+      "https://www.mic.gov.py/wp-content/uploads/2026/04/Res.-N-0283.2026_Constancia-de-Inversionista.pdf"
+    ],
+    "note": "Research 2026-09-28 (high confidence): the plan must name the category of tourism service provider under the competent authority's classification (SENATUR is not named in the text). Same solvency evidence as the productive route."
+  },
+  "investorpass.financial_conditions": {
+    "key": "investorpass.financial_conditions",
+    "label": "Investor Pass — financial instruments route conditions",
+    "title": "Investor Pass — financial instruments route conditions",
+    "display": "a certificate from an entity authorised by the Superintendencia de Valores of the Central Bank of Paraguay, for a term of at least 2 years and stating the investment's value; supporting documents no older than 180 days when you file; no business plan or jobs, but the holding must be reported every year",
+    "hedged": "an investment certified by an authorised Paraguayan securities entity and held for a minimum term, with the conditions confirmed in writing for your case",
+    "verified": false,
+    "sourced": {
+      "label": "MIC Res. 0283/2026, Annex I arts. 1(d) and 5",
+      "checkedOn": "2026-09-28",
+      "url": "https://www.mic.gov.py/wp-content/uploads/2026/04/Res.-N-0283.2026_Constancia-de-Inversionista.pdf"
+    },
+    "sources": [
+      "https://www.mic.gov.py/wp-content/uploads/2026/04/Res.-N-0283.2026_Constancia-de-Inversionista.pdf"
+    ],
+    "note": "Research 2026-09-28 (high confidence): 'Se admiten todas las inversiones económicamente demostrables, cuya naturaleza económica sea verificable con documentación.' The text names no list of instruments (bonds, funds, CDAs); the test is who issues the certificate and for how long."
+  },
+  "investorpass.real_estate_evidence": {
+    "key": "investorpass.real_estate_evidence",
+    "label": "Investor Pass — real estate route evidence",
+    "title": "Investor Pass — real estate route evidence",
+    "display": "a registered title deed, or a private purchase contract with signatures certified by a notary (escribano) showing at least 30% of the declared investment paid; documents no older than 180 days when you file; property bought for purely personal or family use does not qualify",
+    "hedged": "a registered deed or a notarised purchase contract meeting the route's conditions, which we confirm in writing for your case",
+    "verified": false,
+    "sourced": {
+      "label": "MIC Res. 0283/2026, Annex I arts. 1(e) and 6",
+      "checkedOn": "2026-09-28",
+      "url": "https://www.mic.gov.py/wp-content/uploads/2026/04/Res.-N-0283.2026_Constancia-de-Inversionista.pdf"
+    },
+    "sources": [
+      "https://www.mic.gov.py/wp-content/uploads/2026/04/Res.-N-0283.2026_Constancia-de-Inversionista.pdf"
+    ],
+    "note": "Research 2026-09-28 (high confidence): qualifying = acquisition, development or exploitation of real property or recognised real rights, to earn rent, appreciation or productive use. No business plan or jobs. The 30%-paid private contract is new relative to the site's real-estate deep dive, which says off-plan purchases generally do not work."
+  },
+  "investorpass.foreign_documents": {
+    "key": "investorpass.foreign_documents",
+    "label": "Investor Pass — foreign documents",
+    "title": "Investor Pass — authentication and translation of foreign documents",
+    "display": "apostilled (or legalised by the Paraguayan consulate and then the Foreign Ministry) and translated into Spanish by a Paraguayan registered public translator or an authorised foreign one, with the translation itself apostilled or legalised; Brazilian documents in Portuguese need no translation",
+    "hedged": "authenticated and translated to the standard the resolution sets, which we check document by document",
+    "verified": false,
+    "sourced": {
+      "label": "MIC Res. 0283/2026, Annex I art. 7",
+      "checkedOn": "2026-09-28",
+      "url": "https://www.mic.gov.py/wp-content/uploads/2026/04/Res.-N-0283.2026_Constancia-de-Inversionista.pdf"
+    },
+    "sources": [
+      "https://www.mic.gov.py/wp-content/uploads/2026/04/Res.-N-0283.2026_Constancia-de-Inversionista.pdf"
+    ],
+    "note": "Research 2026-09-28 (high confidence)."
+  },
+  "residency.criminal_record_refusal": {
+    "key": "residency.criminal_record_refusal",
+    "label": "Criminal record — grounds for refusing residency",
+    "title": "Criminal record — grounds for refusing residency",
+    "display": "the migration office may refuse temporary or permanent residency to anyone prosecuted or convicted, in Paraguay or abroad, for an intentional offence that carries more than 2 years in prison under Paraguayan law, and to anyone with a pattern of repeat offending (Ley 6984/2022, arts. 50 and 52)",
+    "hedged": "Paraguayan law lets the migration office refuse residency over certain criminal records, and we tell you how yours is likely to be read before you file",
+    "verified": false,
+    "sourced": {
+      "label": "Ley 6984/2022 de Migraciones, arts. 50 and 52",
+      "checkedOn": "2026-09-28",
+      "url": "https://www.bacn.gov.py/leyes-paraguayas/10973/ley-n-6984-de-migraciones"
+    },
+    "sources": [
+      "https://www.bacn.gov.py/leyes-paraguayas/10973/ley-n-6984-de-migraciones",
+      "https://baselegal.com.py/docs/7118f528-513d-11ed-b822-525400343722"
+    ],
+    "note": "Research 2026-09-28 (high confidence): text read on baselegal.com.py (BACN returned 403). Art. 52: 'podrá denegar la Residencia Permanente a quienes hayan sido procesados o condenados por hechos punibles de carácter doloso cometidos en el país o fuera de él, que merezcan según las leyes de la República del Paraguay la aplicación de penas privativas de libertad mayores a 2 (dos) años y a quienes registren una conducta reiterante'; art. 50 has the same wording for temporary residency. The power is discretionary ('podrá'). Art. 55.1: residency obtained with false documents can be cancelled at any time."
+  },
+  "uk.state_pension_paraguay": {
+    "key": "uk.state_pension_paraguay",
+    "label": "UK State Pension in Paraguay — annual increases",
+    "title": "UK State Pension in Paraguay — annual increases",
+    "display": "paid in Paraguay but frozen: Paraguay is not on the GOV.UK list of countries where the UK pays the State Pension's annual increase, so it stays at the rate you are first paid abroad",
+    "hedged": "payable abroad, with annual increases that depend on where you live — check your own position with the International Pension Centre",
+    "verified": false,
+    "sourced": {
+      "label": "GOV.UK — Countries where we pay an annual increase in the State Pension",
+      "checkedOn": "2026-09-28",
+      "url": "https://www.gov.uk/government/publications/state-pensions-annual-increases-if-you-live-abroad/countries-where-we-pay-an-annual-increase-in-the-state-pension"
+    },
+    "sources": [
+      "https://www.gov.uk/government/publications/state-pensions-annual-increases-if-you-live-abroad/countries-where-we-pay-an-annual-increase-in-the-state-pension",
+      "https://www.gov.uk/state-pension-if-you-retire-abroad"
+    ],
+    "note": "Research 2026-09-28 (high confidence): the list covers the EEA, Switzerland and 17 agreement countries (Barbados, Bermuda, Bosnia-Herzegovina, Gibraltar, Guernsey, Isle of Man, Israel, Jamaica, Jersey, Kosovo, Mauritius, Montenegro, North Macedonia, Philippines, Serbia, Turkey, USA). No South American country is on it. A UK home-country rule: re-check if the UK ever signs a social security agreement with Paraguay."
+  },
+  "uk.voluntary_nic_abroad": {
+    "key": "uk.voluntary_nic_abroad",
+    "label": "UK voluntary National Insurance from abroad",
+    "title": "UK voluntary National Insurance contributions from abroad",
+    "display": "from 6 April 2026 only voluntary Class 3 contributions can be paid for time abroad, and only if you previously lived in the UK for 10 years in a row or paid 10 years of contributions in total",
+    "hedged": "voluntary National Insurance contributions from abroad are subject to eligibility rules that changed recently — check your record with HMRC",
+    "verified": false,
+    "sourced": {
+      "label": "GOV.UK — Voluntary National Insurance contributions for periods abroad from April 2026",
+      "checkedOn": "2026-09-28",
+      "url": "https://www.gov.uk/government/publications/changes-to-voluntary-national-insurance-contributions-for-periods-spent-abroad/voluntary-national-insurance-contributions-for-periods-abroad-from-april-2026"
+    },
+    "sources": [
+      "https://www.gov.uk/government/publications/changes-to-voluntary-national-insurance-contributions-for-periods-spent-abroad/voluntary-national-insurance-contributions-for-periods-abroad-from-april-2026"
+    ],
+    "note": "Research 2026-09-28 (high confidence): Class 2 for periods abroad ends with 2025–26. Transitional rule: people who applied before 6 April 2026 can pay Class 3 under the old 3-year test if they apply and pay by 5 April 2027. A UK home-country rule, not Paraguayan."
+  },
+  "uk.paraguay_tax_treaty": {
+    "key": "uk.paraguay_tax_treaty",
+    "label": "UK–Paraguay double taxation agreement",
+    "title": "UK–Paraguay double taxation agreement",
+    "display": "there is no double taxation agreement between the United Kingdom and Paraguay (HMRC Double Taxation Relief Manual, DT15200)",
+    "hedged": "the tax treaty position between the UK and Paraguay, which your UK tax adviser should confirm",
+    "verified": false,
+    "sourced": {
+      "label": "HMRC Double Taxation Relief Manual, DT15200 (Paraguay)",
+      "checkedOn": "2026-09-28",
+      "url": "https://www.gov.uk/hmrc-internal-manuals/double-taxation-relief/dt15200"
+    },
+    "sources": [
+      "https://www.gov.uk/hmrc-internal-manuals/double-taxation-relief/dt15200"
+    ],
+    "note": "Research 2026-09-28 (high confidence): the page reads, in full, 'There is no double taxation agreement between the United Kingdom and Paraguay.' Unilateral relief may still apply; that is for a UK adviser."
+  },
+  "citizenship.constitutional_requirements": {
+    "key": "citizenship.constitutional_requirements",
+    "label": "Naturalisation — constitutional requirements",
+    "title": "Naturalisation — constitutional requirements",
+    "display": "legal adulthood, a minimum of 3 years' residence (radicación) in Paraguay, a profession, trade, science, art or industry exercised in the country, and good conduct (Constitution, art. 148)",
+    "hedged": "the constitutional conditions for naturalisation, which we set out for your case",
+    "verified": false,
+    "sourced": {
+      "label": "Constitución Nacional (1992), art. 148, as published by the Embassy of Paraguay in Japan",
+      "checkedOn": "2026-09-28",
+      "url": "https://embapar.jp/archivos/nacionalidad-paraguaya/"
+    },
+    "sources": [
+      "https://embapar.jp/archivos/nacionalidad-paraguaya/",
+      "https://www.pj.gov.py/contenido/463-carta-de-naturalizacion/463"
+    ],
+    "note": "Research 2026-09-28 (high confidence): the Supreme Court (Corte Suprema de Justicia) issues the carta de naturalización. How the courts test 'radicación' in practice (permanent residency held for 3 years, per citizenship.years) and any language or interview step were not researched."
+  },
+  "visa.india_consular": {
+    "key": "visa.india_consular",
+    "label": "Indian nationals — Paraguayan entry visa",
+    "title": "Indian nationals — Paraguayan entry visa",
+    "display": "Indian ordinary-passport holders need a Paraguayan consular visa before they travel: India is on Paraguay's consular-visa list, and Paraguay is not on India's own list of visa-free, visa-on-arrival or e-visa destinations",
+    "hedged": "Indian nationals generally need a visa arranged before travel, and we confirm the current consular process for your case",
+    "verified": false,
+    "sourced": {
+      "label": "Government of India, MEA — visa facility for Indian nationals (as on 2 Feb 2026); Paraguayan consular visa regime",
+      "checkedOn": "2026-09-28",
+      "url": "https://www.mea.gov.in/vffin"
+    },
+    "sources": [
+      "https://www.mea.gov.in/vffin",
+      "https://www2.mre.gov.py/congralpar-buenos-aires/index.php/tramites-y-servicios/visas",
+      "https://www.mic.gov.py/wp-content/uploads/2026/04/Res.-N-0283.2026_Constancia-de-Inversionista.pdf"
+    ],
+    "note": "Research 2026-09-28 (medium confidence): the MEA list (page updated 27 Aug 2026) does not include Paraguay in any visa-facility category. A search excerpt of the Paraguayan consulate page (403 on fetch) lists India among nationalities needing a consular visa with Foreign Ministry authorisation. Some visa-agency pages claim visa-free entry; they conflict with both. Paraguay has an embassy in New Delhi. Owner: confirm with the embassy before relying on it."
+  },
+  "driving.uk_licence_visitors": {
+    "key": "driving.uk_licence_visitors",
+    "label": "Driving in Paraguay on a UK licence (visitors)",
+    "title": "Driving in Paraguay on a UK licence (visitors)",
+    "display": "visitors can drive in Paraguay on a UK photocard licence, and must carry it with the passport showing their entry stamp",
+    "hedged": "visitor driving rules for UK licence holders, which you should check in the FCDO's current travel advice",
+    "verified": false,
+    "sourced": {
+      "label": "FCDO travel advice: Paraguay — safety and security (driving)",
+      "checkedOn": "2026-09-28",
+      "url": "https://www.gov.uk/foreign-travel-advice/paraguay/safety-and-security"
+    },
+    "sources": [
+      "https://www.gov.uk/foreign-travel-advice/paraguay/safety-and-security"
+    ],
+    "note": "Research 2026-09-28 (high confidence on the FCDO wording): the FCDO gives no time limit for visitors. Agency guides say a foreign licence is accepted for 90 days as a tourist; not verified in a primary source, so not published. Paper-licence holders may need an IDP (FCDO)."
+  },
+  "driving.resident_licence": {
+    "key": "driving.resident_licence",
+    "label": "Paraguayan driving licence for residents",
+    "title": "Paraguayan driving licence for residents",
+    "display": "residents exchange a valid foreign licence for a Paraguayan one at the municipality where they live, usually without driving tests, once they hold a cédula",
+    "hedged": "a Paraguayan licence issued by the municipality where you live, once your residency paperwork allows it, with the current requirements confirmed for your case",
+    "verified": false,
+    "sources": [
+      "https://www.asuncion.gov.py/f-a-q/requisitos-para-obtencion-de-licencias-de-conducir",
+      "https://guiaparaguay.com.py/blog/canje-de-licencia-de-conducir-en-paraguay-la-guia-definitiva-para-residentes-extranjeros.html",
+      "https://moveparaguay.com/en/driver-license/"
+    ],
+    "note": "Research 2026-09-28 (low confidence): the Municipalidad de Asunción publishes its requirements only as images (Ordenanza 479/10). Guides agree on: cédula required, blood-group certificate from a Paraguayan lab, apostilled and translated foreign licence, no tests for a straight exchange, fee around G 225,000–240,000. Kept hedged until someone reads the municipal sheet."
+  },
 } as const satisfies Record<string, Fact>;
 
 export type FactKey = keyof typeof facts;

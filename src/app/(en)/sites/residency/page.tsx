@@ -111,6 +111,13 @@ export default function Page() {
       <Section width="narrow">
         <Heading level={2} className="mb-[var(--space-6)]">The details</Heading>
         <Disclosure title="Frequently asked"><FAQ items={FAQ_ITEMS} /></Disclosure>
+        <p className="mt-[var(--space-6)] text-[var(--fg-muted)]">
+          Comparing residency agents, lawyers and consultants? Read{' '}
+          <a href="/guides/documents/choosing-a-paraguay-residency-agent" className="text-[var(--accent)] underline underline-offset-2">
+            how to choose a Paraguay residency agent
+          </a>
+          : the questions to ask anyone, including us.
+        </p>
       </Section>
 
       <ArticleCards

@@ -101,6 +101,11 @@ export default function Page() {
             Message us
           </a>{' '}
           or take the <a href="/route-finder" className="text-[var(--accent)] underline underline-offset-2">Route Finder</a> first.
+          Comparing us with other providers? Read{' '}
+          <a href="/guides/documents/choosing-a-paraguay-residency-agent" className="text-[var(--accent)] underline underline-offset-2">
+            how to choose a Paraguay residency agent
+          </a>
+          .
         </p>
           <ProcessTimeline site="residency" route="standard" />
         </Container>

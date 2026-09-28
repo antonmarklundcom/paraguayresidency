@@ -79,6 +79,11 @@ export function collectionPageJsonLd(
   };
 }
 
+/** Extra names a brand is known by, for `alternateName` on its Organization. */
+const ALTERNATE_NAMES: Partial<Record<SiteKey, string[]>> = {
+  residency: ['Paraguay Residency UK', 'paraguayresidency.co.uk'],
+};
+
 /**
  * Site-wide JSON-LD graph: the brand as an Organization (a ProfessionalService
  * for the brands that sell the residency service), the WebSite, and the named
@@ -99,6 +104,9 @@ export function organizationJsonLd(site: SiteKey) {
         '@type': isService ? ['Organization', 'ProfessionalService'] : 'Organization',
         '@id': orgId,
         name: config.name,
+        // Other companies trade under near-identical names (seo-gap §0b.8), so
+        // the hub pairs its name with the UK domain it actually runs on.
+        ...(ALTERNATE_NAMES[site] ? { alternateName: ALTERNATE_NAMES[site] } : {}),
         url: origin,
         image: `${origin}/opengraph-image`,
         description: t(site, config.tagline),
