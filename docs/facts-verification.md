@@ -11,7 +11,7 @@ To pull a figure off every page at once, delete its `sourced` block.
 | Status | Count |
 |---|---|
 | Verified | 0 |
-| Published with source, awaiting sign-off | 36 |
+| Published with source, awaiting sign-off | 40 |
 | Hedged | 13 |
 
 ## Published with source — awaiting sign-off
@@ -23,7 +23,7 @@ To pull a figure off every page at once, delete its `sourced` block.
 - **Source:** [DNM requisitos Residencia Temporal (Ley 6984/2022), 2025–26 checklist](https://migraciones.gov.py/residencia-temporal/) — checked 2026-09-26
 - **Other sources:** <https://migraciones.gov.py/residencia-temporal/> · <https://migraciones.gov.py/wp-content/uploads/2025/10/Residencia-Temporal-Ley-6984-1025.pdf> · <https://paraguaysovereign.com/residency/police-certificate/> · <https://moveparaguay.com/en/full-guide/>
 - **Note:** Research 2026-09-26 (medium confidence): The DNM checklist (primary) says the certificate must be original, 'vigente', apostilled/legalised, national/federal level, plus certificates from any country of residence in the last 3 years; under-14s exempt. It does NOT print a day count in the search snippets. The 90-day window (counted from issue date, not apostille date) comes from agency guides; some guides say 6 months for foreign certificates. Since late 2025 DNM/Interpol also verifies directly with the issuing country, which can add delay. Owner: confirm the 90-day practice with the filing lawyer before publishing; the 3-year prior-residence rule is primary-sourced.
-- **Where it appears (28):**
+- **Where it appears (29):**
   - guide member area — members/after-approval/family (`content/guide/members/after-approval/family.mdx`)
   - guide member area — members/costs-and-timeline/timeline-week-by-week (`content/guide/members/costs-and-timeline/timeline-week-by-week.mdx`)
   - guide member area — members/getting-started/documents-by-nationality (`content/guide/members/getting-started/documents-by-nationality.mdx`)
@@ -52,6 +52,7 @@ To pull a figure off every page at once, delete its `sourced` block.
   - https://residenciaenparaguay.es/guias/documentos/antecedentes-penales-espana-apostilla (`content/residenciaes/documentos/antecedentes-penales-espana-apostilla.mdx`)
   - https://residenciaenparaguay.es/guias/documentos/certificado-de-antecedentes-y-la-confusion-con-interpol (`content/residenciaes/documentos/certificado-de-antecedentes-y-la-confusion-con-interpol.mdx`)
   - https://vidanoparaguai.com/guias/documentos/certidao-de-antecedentes-e-a-confusao-com-a-interpol (`content/residenciapt/documentos/certidao-de-antecedentes-e-a-confusao-com-a-interpol.mdx`)
+  - https://vidanoparaguai.com/guias/morar-no-paraguai/aposentado-brasileiro-no-paraguai (`content/residenciapt/morar-no-paraguai/aposentado-brasileiro-no-paraguai.mdx`)
 
 ### Investor Pass — minimum qualifying investment
 
@@ -120,7 +121,7 @@ To pull a figure off every page at once, delete its `sourced` block.
 - **Source:** [Ley 6984/2022, art. 55; Res. DNM 376/2026 (13 May 2026)](https://www.bacn.gov.py/leyes-paraguayas/10973/ley-n-6984-de-migraciones) — checked 2026-09-26
 - **Other sources:** <https://www.bacn.gov.py/leyes-paraguayas/10973/ley-n-6984-de-migraciones> · <https://www.ip.gov.py/ip/2026/04/08/unjustified-absence-from-the-country-leads-to-revocation-of-residency-for-foreigners-officials-remind/> · <https://liberation.travel/paraguay-residency-absence-rules-376-2026/>
 - **Note:** Research 2026-09-26 (high confidence): Rule is consecutive absence, not days per year; one entry resets the clock. Some guides cite art. 54 — the cancellation causes are in art. 55 per most sources; check article number in the law text. NEW IN 2026: Res. DNM 376/2026 (signed 13 May 2026 by director Jorge Kronawetter, repeals Res. 018/2023 and 120/2023) makes the Dirección de Control de Permanencia sweep the register twice a year and cancel by administrative act; prior authorisation for longer absences can be requested (art. 6). Absences justified by DNM authorisation do not count.
-- **Where it appears (43):**
+- **Where it appears (44):**
   - guide member area — members/after-approval/family (`content/guide/members/after-approval/family.mdx`)
   - guide member area — members/costs-and-timeline/timeline-week-by-week (`content/guide/members/costs-and-timeline/timeline-week-by-week.mdx`)
   - guide member area — members/getting-started/the-routes-compared (`content/guide/members/getting-started/the-routes-compared.mdx`)
@@ -161,6 +162,7 @@ To pull a figure off every page at once, delete its `sourced` block.
   - https://residenciaenparaguay.es/residencia/permanente (`src/app/(es)/sites/residenciaes/residencia/permanente/page.tsx`)
   - https://vidanoparaguai.com/ (`src/app/(pt)/sites/residenciapt/page.tsx`)
   - https://vidanoparaguai.com/guias/comparativos/paraguai-vs-uruguai-residencia-para-brasileiros (`content/residenciapt/comparativos/paraguai-vs-uruguai-residencia-para-brasileiros.mdx`)
+  - https://vidanoparaguai.com/guias/morar-no-paraguai/aposentado-brasileiro-no-paraguai (`content/residenciapt/morar-no-paraguai/aposentado-brasileiro-no-paraguai.mdx`)
   - https://vidanoparaguai.com/residencia/permanente (`src/app/(pt)/sites/residenciapt/residencia/permanente/page.tsx`)
   - shared code, shown on several pages (`src/features/quiz/ResultView.tsx`)
   - shared code, shown on several pages (`src/lib/site-pages.tsx`)
@@ -172,7 +174,7 @@ To pull a figure off every page at once, delete its `sourced` block.
 - **Source:** [Ley 6984/2022; DNM Residencia Temporal and Cambio de categoría pages](https://migraciones.gov.py/residencia-temporal/) — checked 2026-09-26
 - **Other sources:** <https://migraciones.gov.py/residencia-temporal/> · <https://migraciones.gov.py/residencia-permanente-para-el-cambio-de-categoria-de-residente-temporal/> · <https://altra.com.py/dos-anos-de-la-ley-6984-2022-residentes-temporales-ya-pueden-acceder-a-su-residencia-permanente/>
 - **Note:** Research 2026-09-26 (high confidence): DNM: card 'hasta 2 años, prorrogable por períodos iguales'. Change of category must be filed within the 3 months (≈90 days) before the temporary card expires — some sources say '3 months', Mercosur page says '90 days'. From 6 July 2026 the conversion requires proof of means under Res. DNM 407/2026 (see solvency.requirement). Extension (prórroga) fee G 1,287,847.
-- **Where it appears (50):**
+- **Where it appears (51):**
   - guide member area — members/costs-and-timeline/timeline-week-by-week (`content/guide/members/costs-and-timeline/timeline-week-by-week.mdx`)
   - guide member area — members/getting-started/the-routes-compared (`content/guide/members/getting-started/the-routes-compared.mdx`)
   - guide member area — members/getting-started/why-paraguay-and-why-not (`content/guide/members/getting-started/why-paraguay-and-why-not.mdx`)
@@ -218,6 +220,7 @@ To pull a figure off every page at once, delete its `sourced` block.
   - https://vidanoparaguai.com/guias/comparativos/paraguai-vs-uruguai-residencia-para-brasileiros (`content/residenciapt/comparativos/paraguai-vs-uruguai-residencia-para-brasileiros.mdx`)
   - https://vidanoparaguai.com/guias/documentos/rotas-de-residencia-temporaria-permanente-mercosul (`content/residenciapt/documentos/rotas-de-residencia-temporaria-permanente-mercosul.mdx`)
   - https://vidanoparaguai.com/guias/morar-no-paraguai/saude-e-escola-para-brasileiros-no-paraguai (`content/residenciapt/morar-no-paraguai/saude-e-escola-para-brasileiros-no-paraguai.mdx`)
+  - https://vidanoparaguai.com/guias/morar-no-paraguai/vale-a-pena-morar-no-paraguai (`content/residenciapt/morar-no-paraguai/vale-a-pena-morar-no-paraguai.mdx`)
   - https://vidanoparaguai.com/processo (`src/app/(pt)/sites/residenciapt/processo/page.tsx`)
   - https://vidanoparaguai.com/residencia/temporaria (`src/app/(pt)/sites/residenciapt/residencia/temporaria/page.tsx`)
   - shared code, shown on several pages (`src/components/ProcessTimeline.tsx`)
@@ -231,7 +234,7 @@ To pull a figure off every page at once, delete its `sourced` block.
 - **Source:** [Policía Nacional, Dpto. de Identificaciones — cédula por primera vez a extranjeros](https://www.policianacional.gov.py/identificaciones/cedula-de-identidad-por-primera-vez-a-extranjeros-con-radicacion-permanente/) — checked 2026-09-26
 - **Other sources:** <https://www.policianacional.gov.py/identificaciones/cedula-de-identidad-por-primera-vez-a-extranjeros-con-radicacion-permanente/> · <https://www.policianacional.gov.py/identificaciones/expedicion-de-cedula-de-identidad-a-extranjeros-por-primera-vez/> · <https://moveparaguay.com/en/cedula/> · <https://goparaguay.co/en/blog/paraguay-temporary-residency-guide-2026>
 - **Note:** Research 2026-09-26 (medium confidence): Official page (via search excerpt) lists 60 working days for foreigners needing carnet + antecedentes + Interpol checks (30 working days reference for others). Agencies report 6–12 weeks typical and 'over 3 months' as of Feb 2026 because of volume and the enhanced Interpol verification. Legal basis cited: Res. 215/2020 art. 13. The old 'weeks' wording is too optimistic.
-- **Where it appears (52):**
+- **Where it appears (54):**
   - guide member area — members/after-approval/cedula-and-ruc (`content/guide/members/after-approval/cedula-and-ruc.mdx`)
   - guide member area — members/costs-and-timeline/timeline-week-by-week (`content/guide/members/costs-and-timeline/timeline-week-by-week.mdx`)
   - guide member area — members/insider-deep-dives/this-months-deep-dive (`content/guide/members/insider-deep-dives/this-months-deep-dive.mdx`)
@@ -279,6 +282,8 @@ To pull a figure off every page at once, delete its `sourced` block.
   - https://residenciaenparaguay.es/proceso (`src/app/(es)/sites/residenciaes/proceso/page.tsx`)
   - https://residenciaenparaguay.es/residencia/cedula (`src/app/(es)/sites/residenciaes/residencia/cedula/page.tsx`)
   - https://vidanoparaguai.com/guias/documentos/rotas-de-residencia-temporaria-permanente-mercosul (`content/residenciapt/documentos/rotas-de-residencia-temporaria-permanente-mercosul.mdx`)
+  - https://vidanoparaguai.com/guias/morar-no-paraguai/abrir-conta-bancaria-no-paraguai (`content/residenciapt/morar-no-paraguai/abrir-conta-bancaria-no-paraguai.mdx`)
+  - https://vidanoparaguai.com/guias/morar-no-paraguai/medicina-no-paraguai-e-a-residencia (`content/residenciapt/morar-no-paraguai/medicina-no-paraguai-e-a-residencia.mdx`)
   - https://vidanoparaguai.com/guias/morar-no-paraguai/saude-e-escola-para-brasileiros-no-paraguai (`content/residenciapt/morar-no-paraguai/saude-e-escola-para-brasileiros-no-paraguai.mdx`)
   - https://vidanoparaguai.com/processo (`src/app/(pt)/sites/residenciapt/processo/page.tsx`)
   - https://vidanoparaguai.com/residencia/cedula (`src/app/(pt)/sites/residenciapt/residencia/cedula/page.tsx`)
@@ -292,7 +297,7 @@ To pull a figure off every page at once, delete its `sourced` block.
 - **Source:** [Ley 6380/2019 (IRP), PwC Worldwide Tax Summaries](https://www.bacn.gov.py/leyes-paraguayas/9332/ley-n-6380-de-modernizacion-y-simplificacion-del-sistema-tributario-nacional) — checked 2026-09-26
 - **Other sources:** <https://www.bacn.gov.py/leyes-paraguayas/9332/ley-n-6380-de-modernizacion-y-simplificacion-del-sistema-tributario-nacional> · <https://taxsummaries.pwc.com/paraguay/individual/taxes-on-personal-income> · <https://www.dnit.gov.py/en/web/portal-institucional/w/d-ley-n-6380-19>
 - **Note:** Research 2026-09-26 (high confidence): IRP personal services: 8% up to G 50m, 9% G 50–150m, 10% above G 150m net income; capital income (rents, interest, gains) flat 8%. The old '10% flat' display is a simplification — keep '10%' only as 'top rate'. Personal-services IRP applies once gross annual income exceeds G 80m (PwC summary; owner should confirm current threshold). Never render as advice.
-- **Where it appears (29):**
+- **Where it appears (30):**
   - guide member area — members/after-approval/taxes-for-residents (`content/guide/members/after-approval/taxes-for-residents.mdx`)
   - guide member area — members/getting-started/why-paraguay-and-why-not (`content/guide/members/getting-started/why-paraguay-and-why-not.mdx`)
   - guide member area — members/next-steps/mistakes-we-see-monthly (`content/guide/members/next-steps/mistakes-we-see-monthly.mdx`)
@@ -320,6 +325,7 @@ To pull a figure off every page at once, delete its `sourced` block.
   - https://residenciaenparaguay.es/residencia-fiscal (`src/app/(es)/sites/residenciaes/residencia-fiscal/page.tsx`)
   - https://vidanoparaguai.com/guias/impostos/impostos-no-paraguai-e-a-sua-declaracao-no-brasil (`content/residenciapt/impostos/impostos-no-paraguai-e-a-sua-declaracao-no-brasil.mdx`)
   - https://vidanoparaguai.com/guias/morar-no-paraguai/fronteira-ciudad-del-este-e-foz-do-iguacu (`content/residenciapt/morar-no-paraguai/fronteira-ciudad-del-este-e-foz-do-iguacu.mdx`)
+  - https://vidanoparaguai.com/guias/morar-no-paraguai/vale-a-pena-morar-no-paraguai (`content/residenciapt/morar-no-paraguai/vale-a-pena-morar-no-paraguai.mdx`)
   - https://vidanoparaguai.com/residencia-fiscal (`src/app/(pt)/sites/residenciapt/residencia-fiscal/page.tsx`)
   - shared code, shown on several pages (`src/content/mdx.tsx`)
 
@@ -330,7 +336,7 @@ To pull a figure off every page at once, delete its `sourced` block.
 - **Source:** [MIC Res. 0283/2026](https://www.mic.gov.py/wp-content/uploads/2026/04/Res.-N-0283.2026_Constancia-de-Inversionista.pdf) — checked 2026-09-26
 - **Other sources:** <https://www.mic.gov.py/wp-content/uploads/2026/04/Res.-N-0283.2026_Constancia-de-Inversionista.pdf> · <https://www.mic.gov.py/paraguay-fortalece-la-atraccion-de-inversiones-extranjeras-con-el-nuevo-investor-pass/> · <https://www.rediex.gov.py/paraguay-fortalece-la-atraccion-de-inversiones-extranjeras-con-el-nuevo-investor-pass/> · <https://getgoldenvisa.com/paraguay-golden-visa>
 - **Note:** Research 2026-09-26 (high confidence): No jobs or business plan required, but property must be for economic activity — personal/family use excluded. The current 'from USD 70,000' display is WRONG and must change.
-- **Where it appears (10):**
+- **Where it appears (11):**
   - guide member area — members/getting-started/the-routes-compared (`content/guide/members/getting-started/the-routes-compared.mdx`)
   - guide member area — members/next-steps/investor-pass-overview (`content/guide/members/next-steps/investor-pass-overview.mdx`)
   - guide member area — members/next-steps/mistakes-we-see-monthly (`content/guide/members/next-steps/mistakes-we-see-monthly.mdx`)
@@ -341,6 +347,7 @@ To pull a figure off every page at once, delete its `sourced` block.
   - https://paraguayresidencyguide.com/blog/paraguay-investor-pass-explained (`content/guide/blog/paraguay-investor-pass-explained.mdx`)
   - https://residenciaenparaguay.es/guias/comparativas/investor-pass-paraguay-en-espanol (`content/residenciaes/comparativas/investor-pass-paraguay-en-espanol.mdx`)
   - https://residenciaenparaguay.es/guias/documentos/rutas-de-residencia (`content/residenciaes/documentos/rutas-de-residencia.mdx`)
+  - https://vidanoparaguai.com/guias/morar-no-paraguai/comprar-imovel-ou-terra-no-paraguai (`content/residenciapt/morar-no-paraguai/comprar-imovel-ou-terra-no-paraguai.mdx`)
 
 ### Investor Pass — productive business route minimum
 
@@ -397,7 +404,7 @@ To pull a figure off every page at once, delete its `sourced` block.
 - **Source:** [Acuerdo de Residencia Mercosur (2002), Leyes 3565/2008 y 3578/2008; DNM Residencia Temporaria/Permanente Mercosur](https://migraciones.gov.py/residencia-permanente-mercosur/) — checked 2026-09-26
 - **Other sources:** <https://migraciones.gov.py/residencia-permanente-mercosur/> · <https://migraciones.gov.py/residencia-temporaria-mercosur/> · <http://www.bacn.gov.py/leyes-paraguayas/1096/ley-n-3565-aprueba-el-acuerdo-sobre-residencia-para-nacionales-de-los-estados-partes-del-mercosur> · <https://sela.org/observatorio/observatorio-de-migraciones/gobernanza-migratoria/paraguay/>
 - **Note:** Research 2026-09-26 (medium confidence): Country list is from the DNM page. Missing the 90-day window loses the right to convert under the Agreement. Since 6 July 2026 Res. DNM 407/2026 applies the SAME solvency evidence to Mercosur and Ley 6984 permanent residencies — the Mercosur route is no longer lighter on proof of means. Mercosur temporary card term '2 years' is from the Agreement (art. 4) — verify on DNM page. Keep the existing note: never present as a fixed entitlement.
-- **Where it appears (19):**
+- **Where it appears (26):**
   - guide member area — members/getting-started/the-routes-compared (`content/guide/members/getting-started/the-routes-compared.mdx`)
   - guide member area — members/next-steps/checklists (`content/guide/members/next-steps/checklists.mdx`)
   - https://paraguayresidency.co.uk/guides/comparisons/paraguay-vs-uruguay-residency (`content/residency/comparisons/paraguay-vs-uruguay-residency.mdx`)
@@ -411,10 +418,17 @@ To pull a figure off every page at once, delete its `sourced` block.
   - https://residenciaenparaguay.es/guias/documentos/documentos-y-apostillas-para-colombianos (`content/residenciaes/documentos/documentos-y-apostillas-para-colombianos.mdx`)
   - https://residenciaenparaguay.es/guias/documentos/rutas-de-residencia (`content/residenciaes/documentos/rutas-de-residencia.mdx`)
   - https://residenciaenparaguay.es/mercosur (`src/app/(es)/sites/residenciaes/mercosur/page.tsx`)
+  - https://vidanoparaguai.com/guias/cidades/melhores-cidades-para-morar-no-paraguai (`content/residenciapt/cidades/melhores-cidades-para-morar-no-paraguai.mdx`)
+  - https://vidanoparaguai.com/guias/cidades/morar-em-assuncao (`content/residenciapt/cidades/morar-em-assuncao.mdx`)
+  - https://vidanoparaguai.com/guias/cidades/morar-em-encarnacion (`content/residenciapt/cidades/morar-em-encarnacion.mdx`)
+  - https://vidanoparaguai.com/guias/cidades/morar-em-pedro-juan-caballero (`content/residenciapt/cidades/morar-em-pedro-juan-caballero.mdx`)
   - https://vidanoparaguai.com/guias/comparativos/paraguai-vs-portugal-residencia-para-brasileiros (`content/residenciapt/comparativos/paraguai-vs-portugal-residencia-para-brasileiros.mdx`)
   - https://vidanoparaguai.com/guias/comparativos/paraguai-vs-uruguai-residencia-para-brasileiros (`content/residenciapt/comparativos/paraguai-vs-uruguai-residencia-para-brasileiros.mdx`)
   - https://vidanoparaguai.com/guias/documentos/rotas-de-residencia-temporaria-permanente-mercosul (`content/residenciapt/documentos/rotas-de-residencia-temporaria-permanente-mercosul.mdx`)
+  - https://vidanoparaguai.com/guias/morar-no-paraguai/aposentado-brasileiro-no-paraguai (`content/residenciapt/morar-no-paraguai/aposentado-brasileiro-no-paraguai.mdx`)
   - https://vidanoparaguai.com/guias/morar-no-paraguai/fronteira-ciudad-del-este-e-foz-do-iguacu (`content/residenciapt/morar-no-paraguai/fronteira-ciudad-del-este-e-foz-do-iguacu.mdx`)
+  - https://vidanoparaguai.com/guias/morar-no-paraguai/medicina-no-paraguai-e-a-residencia (`content/residenciapt/morar-no-paraguai/medicina-no-paraguai-e-a-residencia.mdx`)
+  - https://vidanoparaguai.com/guias/morar-no-paraguai/vale-a-pena-morar-no-paraguai (`content/residenciapt/morar-no-paraguai/vale-a-pena-morar-no-paraguai.mdx`)
   - https://vidanoparaguai.com/mercosul (`src/app/(pt)/sites/residenciapt/mercosul/page.tsx`)
   - https://vidanoparaguai.com/residencia/temporaria (`src/app/(pt)/sites/residenciapt/residencia/temporaria/page.tsx`)
 
@@ -425,7 +439,7 @@ To pull a figure off every page at once, delete its `sourced` block.
 - **Source:** [Ley 6380/2019, art. 6 (source rule)](https://www.bacn.gov.py/leyes-paraguayas/9332/ley-n-6380-de-modernizacion-y-simplificacion-del-sistema-tributario-nacional) — checked 2026-09-26
 - **Other sources:** <https://www.bacn.gov.py/leyes-paraguayas/9332/ley-n-6380-de-modernizacion-y-simplificacion-del-sistema-tributario-nacional> · <https://taxsummaries.pwc.com/paraguay/individual/taxes-on-personal-income> · <https://www.dnit.gov.py/en/web/portal-institucional/w/d-ley-n-6380-19>
 - **Note:** Research 2026-09-26 (high confidence): CAVEAT for the frontier brand: Ley 6380 deems interest on deposits abroad, FX differences and foreign dividends to be Paraguay-source WHEN the investing entity is constituted or resident in Paraguay — i.e. routing foreign investments through a Paraguayan company (IRE) brings them into tax. For individuals holding directly, foreign interest/dividends/pensions are generally out of scope. Never render as 'tax-free'; home-country rules still apply.
-- **Where it appears (46):**
+- **Where it appears (48):**
   - guide member area — members/after-approval/taxes-for-residents (`content/guide/members/after-approval/taxes-for-residents.mdx`)
   - guide member area — members/getting-started/why-paraguay-and-why-not (`content/guide/members/getting-started/why-paraguay-and-why-not.mdx`)
   - guide member area — members/next-steps/mistakes-we-see-monthly (`content/guide/members/next-steps/mistakes-we-see-monthly.mdx`)
@@ -472,6 +486,8 @@ To pull a figure off every page at once, delete its `sourced` block.
   - https://vidanoparaguai.com/ (`src/app/(pt)/sites/residenciapt/page.tsx`)
   - https://vidanoparaguai.com/guias/documentos/rotas-de-residencia-temporaria-permanente-mercosul (`content/residenciapt/documentos/rotas-de-residencia-temporaria-permanente-mercosul.mdx`)
   - https://vidanoparaguai.com/guias/impostos/impostos-no-paraguai-e-a-sua-declaracao-no-brasil (`content/residenciapt/impostos/impostos-no-paraguai-e-a-sua-declaracao-no-brasil.mdx`)
+  - https://vidanoparaguai.com/guias/morar-no-paraguai/aposentado-brasileiro-no-paraguai (`content/residenciapt/morar-no-paraguai/aposentado-brasileiro-no-paraguai.mdx`)
+  - https://vidanoparaguai.com/guias/morar-no-paraguai/vale-a-pena-morar-no-paraguai (`content/residenciapt/morar-no-paraguai/vale-a-pena-morar-no-paraguai.mdx`)
 
 ### Cost of living — general comparison
 
@@ -480,7 +496,7 @@ To pull a figure off every page at once, delete its `sourced` block.
 - **Source:** [Numbeo, Asunción, updated Aug 2026](https://www.numbeo.com/cost-of-living/in/Asuncion) — checked 2026-09-26
 - **Other sources:** <https://www.numbeo.com/cost-of-living/in/Asuncion> · <https://citycost.org/asuncion/> · <https://wise.com/gb/cost-of-living/paraguay/asuncion> · <https://expatsettle.com/asuncion/cost-of-living>
 - **Note:** Research 2026-09-26 (medium confidence): Numbeo Aug 2026: single person USD 598.8 (G 3,549,650) excl. rent; family of four USD 2,242 (G 13,293,016) excl. rent. CityCost ~USD 622, Wise ~GBP 435. Crowd-sourced; Numbeo page itself could not be fetched (proxy) — figures from search excerpts. Dated figure: must show the month. pt brand's comparative framing vs Brazilian capitals can stay as extra copy.
-- **Where it appears (16):**
+- **Where it appears (21):**
   - guide member area — members/costs-and-timeline/real-costs (`content/guide/members/costs-and-timeline/real-costs.mdx`)
   - guide member area — members/getting-started/why-paraguay-and-why-not (`content/guide/members/getting-started/why-paraguay-and-why-not.mdx`)
   - https://paraguayfrontier.com/stories/cost-of-living-reality-check (`content/frontier/stories/cost-of-living-reality-check.mdx`)
@@ -493,10 +509,15 @@ To pull a figure off every page at once, delete its `sourced` block.
   - https://residenciaenparaguay.es/guias/vivir-en-paraguay/jubilarse-en-paraguay (`content/residenciaes/vivir-en-paraguay/jubilarse-en-paraguay.mdx`)
   - https://vidanoparaguai.com/ (`src/app/(pt)/sites/residenciapt/page.tsx`)
   - https://vidanoparaguai.com/custo-de-vida (`src/app/(pt)/sites/residenciapt/custo-de-vida/page.tsx`)
+  - https://vidanoparaguai.com/guias/cidades/melhores-cidades-para-morar-no-paraguai (`content/residenciapt/cidades/melhores-cidades-para-morar-no-paraguai.mdx`)
+  - https://vidanoparaguai.com/guias/cidades/morar-em-assuncao (`content/residenciapt/cidades/morar-em-assuncao.mdx`)
+  - https://vidanoparaguai.com/guias/cidades/morar-em-encarnacion (`content/residenciapt/cidades/morar-em-encarnacion.mdx`)
   - https://vidanoparaguai.com/guias/comparativos/paraguai-vs-portugal-residencia-para-brasileiros (`content/residenciapt/comparativos/paraguai-vs-portugal-residencia-para-brasileiros.mdx`)
   - https://vidanoparaguai.com/guias/comparativos/paraguai-vs-uruguai-residencia-para-brasileiros (`content/residenciapt/comparativos/paraguai-vs-uruguai-residencia-para-brasileiros.mdx`)
+  - https://vidanoparaguai.com/guias/morar-no-paraguai/aposentado-brasileiro-no-paraguai (`content/residenciapt/morar-no-paraguai/aposentado-brasileiro-no-paraguai.mdx`)
   - https://vidanoparaguai.com/guias/morar-no-paraguai/custo-de-vida-para-brasileiro-no-paraguai (`content/residenciapt/morar-no-paraguai/custo-de-vida-para-brasileiro-no-paraguai.mdx`)
   - https://vidanoparaguai.com/guias/morar-no-paraguai/fronteira-ciudad-del-este-e-foz-do-iguacu (`content/residenciapt/morar-no-paraguai/fronteira-ciudad-del-este-e-foz-do-iguacu.mdx`)
+  - https://vidanoparaguai.com/guias/morar-no-paraguai/vale-a-pena-morar-no-paraguai (`content/residenciapt/morar-no-paraguai/vale-a-pena-morar-no-paraguai.mdx`)
 
 ### Government fees — how they are set
 
@@ -656,7 +677,7 @@ To pull a figure off every page at once, delete its `sourced` block.
 - **Source:** [Policía Nacional, Dpto. de Identificaciones](https://www.policianacional.gov.py/identificaciones/cedula-de-identidad-por-primera-vez-a-extranjeros-con-radicacion-permanente/) — checked 2026-09-26
 - **Other sources:** <https://www.policianacional.gov.py/identificaciones/cedula-de-identidad-por-primera-vez-a-extranjeros-con-radicacion-permanente/> · <https://vfparaguaygestiones.com.py/cedula-paraguaya-extranjeros/> · <https://www.policianacional.gov.py/identificaciones/expedicion-de-cedula-de-identidad-a-extranjeros-por-primera-vez/>
 - **Note:** Research 2026-09-26 (medium confidence): Supporting certificates (police record, Interpol) cost extra. Apply within ~6 months of the residency resolution (agency claim).
-- **Where it appears (16):**
+- **Where it appears (17):**
   - guide member area — members/after-approval/cedula-and-ruc (`content/guide/members/after-approval/cedula-and-ruc.mdx`)
   - guide member area — members/costs-and-timeline/real-costs (`content/guide/members/costs-and-timeline/real-costs.mdx`)
   - guide member area — members/next-steps/checklists (`content/guide/members/next-steps/checklists.mdx`)
@@ -673,6 +694,7 @@ To pull a figure off every page at once, delete its `sourced` block.
   - https://residenciaenparaguay.es/guias/documentos/documentos-y-apostillas-para-mexicanos (`content/residenciaes/documentos/documentos-y-apostillas-para-mexicanos.mdx`)
   - https://residenciaenparaguay.es/guias/documentos/que-necesitas-para-solicitar (`content/residenciaes/documentos/que-necesitas-para-solicitar.mdx`)
   - https://residenciaenparaguay.es/guias/documentos/rutas-de-residencia (`content/residenciaes/documentos/rutas-de-residencia.mdx`)
+  - https://vidanoparaguai.com/guias/morar-no-paraguai/abrir-conta-bancaria-no-paraguai (`content/residenciapt/morar-no-paraguai/abrir-conta-bancaria-no-paraguai.mdx`)
 
 ### Temporary residency — presence requirement
 
@@ -681,7 +703,7 @@ To pull a figure off every page at once, delete its `sourced` block.
 - **Source:** [Ley 6984/2022, art. 55; Res. DNM 376/2026](https://www.bacn.gov.py/leyes-paraguayas/10973/ley-n-6984-de-migraciones) — checked 2026-09-26
 - **Other sources:** <https://www.bacn.gov.py/leyes-paraguayas/10973/ley-n-6984-de-migraciones> · <https://www.ip.gov.py/ip/2026/04/08/unjustified-absence-from-the-country-leads-to-revocation-of-residency-for-foreigners-officials-remind/> · <https://liberation.travel/paraguay-residency-absence-rules-376-2026/> · <https://paraguaysovereign.com/residency/maintain-residency/>
 - **Note:** Research 2026-09-26 (high confidence): No minimum stay; one entry resets the clock. Not a new 2026 law — it is the 2022 law, but 2026 brought active enforcement (Res. 376/2026: twice-yearly register sweeps, cancellation by administrative act). DNM can authorise longer absences in advance.
-- **Where it appears (13):**
+- **Where it appears (15):**
   - guide member area — members/after-approval/family (`content/guide/members/after-approval/family.mdx`)
   - guide member area — members/costs-and-timeline/timeline-week-by-week (`content/guide/members/costs-and-timeline/timeline-week-by-week.mdx`)
   - guide member area — members/getting-started/the-routes-compared (`content/guide/members/getting-started/the-routes-compared.mdx`)
@@ -695,6 +717,8 @@ To pull a figure off every page at once, delete its `sourced` block.
   - https://residenciaenparaguay.es/guias/comparativas/paraguay-vs-argentina (`content/residenciaes/comparativas/paraguay-vs-argentina.mdx`)
   - https://residenciaenparaguay.es/guias/documentos/como-obtener-la-residencia-en-paraguay-paso-a-paso (`content/residenciaes/documentos/como-obtener-la-residencia-en-paraguay-paso-a-paso.mdx`)
   - https://residenciaenparaguay.es/guias/documentos/rutas-de-residencia (`content/residenciaes/documentos/rutas-de-residencia.mdx`)
+  - https://vidanoparaguai.com/guias/morar-no-paraguai/aposentado-brasileiro-no-paraguai (`content/residenciapt/morar-no-paraguai/aposentado-brasileiro-no-paraguai.mdx`)
+  - https://vidanoparaguai.com/guias/morar-no-paraguai/medicina-no-paraguai-e-a-residencia (`content/residenciapt/morar-no-paraguai/medicina-no-paraguai-e-a-residencia.mdx`)
 
 ### Proof of means — current rule
 
@@ -703,7 +727,7 @@ To pull a figure off every page at once, delete its `sourced` block.
 - **Source:** [Res. DNM 407/2026 (applies to filings from 6 July 2026)](https://migraciones.gov.py/migraciones-actualiza-el-regimen-de-acreditacion-de-solvencia-economica-para-extranjeros/) — checked 2026-09-26
 - **Other sources:** <https://migraciones.gov.py/migraciones-actualiza-el-regimen-de-acreditacion-de-solvencia-economica-para-extranjeros/> · <https://www.mersanlaw.com/novedades/nuevos-criterios-para-acreditar-la-solvencia-economica-en-la-residencia-permanente/> · <https://www.ip.gov.py/ip/2026/06/25/the-paraguayan-directorate-of-migration-updates-the-requirements-for-permanent-residency/> · <https://paraguaysovereign.com/residency/resolution-407/>
 - **Note:** Research 2026-09-26 (medium confidence): BIG 2026 CHANGE: Res. 407/2026 governs permanent residency (Ley 6984 conversions AND Mercosur). Categories include professionals, technicians, employees, self-employed, teleworkers/digital nomads, property owners, shareholders, farmers, clergy, retirees, dependants, students. A degree alone no longer suffices; RUC and apostilled income evidence often required. One source gives effective date 28 May 2026 vs 6 July 2026 in DNM/most sources — likely dictated 28 May, applies to files from 6 July; confirm. Temporary-residency solvency evidence not covered by 407.
-- **Where it appears (16):**
+- **Where it appears (18):**
   - guide member area — members/after-approval/family (`content/guide/members/after-approval/family.mdx`)
   - guide member area — members/getting-started/the-routes-compared (`content/guide/members/getting-started/the-routes-compared.mdx`)
   - guide member area — members/getting-started/why-paraguay-and-why-not (`content/guide/members/getting-started/why-paraguay-and-why-not.mdx`)
@@ -720,6 +744,8 @@ To pull a figure off every page at once, delete its `sourced` block.
   - https://residenciaenparaguay.es/guias/documentos/residencia-permanente-requisitos-2026 (`content/residenciaes/documentos/residencia-permanente-requisitos-2026.mdx`)
   - https://residenciaenparaguay.es/guias/documentos/rutas-de-residencia (`content/residenciaes/documentos/rutas-de-residencia.mdx`)
   - https://residenciaenparaguay.es/guias/vivir-en-paraguay/jubilarse-en-paraguay (`content/residenciaes/vivir-en-paraguay/jubilarse-en-paraguay.mdx`)
+  - https://vidanoparaguai.com/guias/morar-no-paraguai/aposentado-brasileiro-no-paraguai (`content/residenciapt/morar-no-paraguai/aposentado-brasileiro-no-paraguai.mdx`)
+  - https://vidanoparaguai.com/guias/morar-no-paraguai/transferir-dinheiro-do-brasil-para-o-paraguai (`content/residenciapt/morar-no-paraguai/transferir-dinheiro-do-brasil-para-o-paraguai.mdx`)
 
 ### The old USD 5,000 bank deposit
 
@@ -728,7 +754,7 @@ To pull a figure off every page at once, delete its `sourced` block.
 - **Source:** [Ley 6984/2022 (repealed Ley 978/1996 regime); IMI Daily](https://www.imidaily.com/program-updates/paraguay-no-longer-accepting-5000-deposit-based-applications-for-permanent-residence/) — checked 2026-09-26
 - **Other sources:** <https://www.imidaily.com/program-updates/paraguay-no-longer-accepting-5000-deposit-based-applications-for-permanent-residence/> · <https://paraguayresidencyguide.com/5000-deposit/> · <https://paraguaypathways.com/5000-deposit-for-residency/>
 - **Note:** Research 2026-09-26 (medium confidence): Secondary sources consistent. Note: paraguayresidencyguide.com appears in results as a third-party site — Anton's guide domain; check whether that content is Anton's own before citing it as an independent source.
-- **Where it appears (12):**
+- **Where it appears (13):**
   - guide member area — members/costs-and-timeline/real-costs (`content/guide/members/costs-and-timeline/real-costs.mdx`)
   - guide member area — members/getting-started/the-routes-compared (`content/guide/members/getting-started/the-routes-compared.mdx`)
   - guide member area — members/getting-started/why-paraguay-and-why-not (`content/guide/members/getting-started/why-paraguay-and-why-not.mdx`)
@@ -741,6 +767,7 @@ To pull a figure off every page at once, delete its `sourced` block.
   - https://residenciaenparaguay.es/guias/documentos/que-necesitas-para-solicitar (`content/residenciaes/documentos/que-necesitas-para-solicitar.mdx`)
   - https://residenciaenparaguay.es/guias/documentos/residencia-permanente-requisitos-2026 (`content/residenciaes/documentos/residencia-permanente-requisitos-2026.mdx`)
   - https://residenciaenparaguay.es/guias/documentos/rutas-de-residencia (`content/residenciaes/documentos/rutas-de-residencia.mdx`)
+  - https://vidanoparaguai.com/guias/morar-no-paraguai/aposentado-brasileiro-no-paraguai (`content/residenciapt/morar-no-paraguai/aposentado-brasileiro-no-paraguai.mdx`)
 
 ### Investor Pass — legal instrument
 
@@ -791,11 +818,12 @@ To pull a figure off every page at once, delete its `sourced` block.
 - **Source:** [Ley 6380/2019 (IRP rentas del capital); PwC WWTS](https://www.bacn.gov.py/leyes-paraguayas/9332/ley-n-6380-de-modernizacion-y-simplificacion-del-sistema-tributario-nacional) — checked 2026-09-26
 - **Other sources:** <https://www.bacn.gov.py/leyes-paraguayas/9332/ley-n-6380-de-modernizacion-y-simplificacion-del-sistema-tributario-nacional> · <https://taxsummaries.pwc.com/paraguay/individual/taxes-on-personal-income>
 - **Note:** Research 2026-09-26 (high confidence): 
-- **Where it appears (4):**
+- **Where it appears (5):**
   - guide member area — members/after-approval/taxes-for-residents (`content/guide/members/after-approval/taxes-for-residents.mdx`)
   - https://paraguayresidencyguide.com/blog/paraguay-tax-residency-certificate (`content/guide/blog/paraguay-tax-residency-certificate.mdx`)
   - https://residenciaenparaguay.es/guias/impuestos/impuestos-en-paraguay-tabla-2026 (`content/residenciaes/impuestos/impuestos-en-paraguay-tabla-2026.mdx`)
   - https://residenciaenparaguay.es/guias/impuestos/sistema-tributario-territorial (`content/residenciaes/impuestos/sistema-tributario-territorial.mdx`)
+  - https://vidanoparaguai.com/guias/morar-no-paraguai/comprar-imovel-ou-terra-no-paraguai (`content/residenciapt/morar-no-paraguai/comprar-imovel-ou-terra-no-paraguai.mdx`)
 
 ### IRE — business income tax
 
@@ -804,11 +832,12 @@ To pull a figure off every page at once, delete its `sourced` block.
 - **Source:** [Ley 6380/2019 (IRE)](https://www.bacn.gov.py/leyes-paraguayas/9332/ley-n-6380-de-modernizacion-y-simplificacion-del-sistema-tributario-nacional) — checked 2026-09-26
 - **Other sources:** <https://www.bacn.gov.py/leyes-paraguayas/9332/ley-n-6380-de-modernizacion-y-simplificacion-del-sistema-tributario-nacional> · <https://taxsummaries.pwc.com/paraguay/corporate/taxes-on-corporate-income> · <https://practiceguides.chambers.com/practice-guides/corporate-tax-2026/paraguay/trends-and-developments>
 - **Note:** Research 2026-09-26 (high confidence): IRE SIMPLE is described in guides as ~3% of gross revenue (it is actually a presumptive-profit regime; do not render '3%' without accountant review). RESIMPLE: up to G 80m turnover, fixed monthly payments.
-- **Where it appears (4):**
+- **Where it appears (5):**
   - guide member area — members/after-approval/taxes-for-residents (`content/guide/members/after-approval/taxes-for-residents.mdx`)
   - https://paraguayresidencyguide.com/blog/paraguay-tax-residency-certificate (`content/guide/blog/paraguay-tax-residency-certificate.mdx`)
   - https://residenciaenparaguay.es/guias/impuestos/impuestos-en-paraguay-tabla-2026 (`content/residenciaes/impuestos/impuestos-en-paraguay-tabla-2026.mdx`)
   - https://residenciaenparaguay.es/guias/impuestos/sistema-tributario-territorial (`content/residenciaes/impuestos/sistema-tributario-territorial.mdx`)
+  - https://vidanoparaguai.com/guias/morar-no-paraguai/comprar-imovel-ou-terra-no-paraguai (`content/residenciapt/morar-no-paraguai/comprar-imovel-ou-terra-no-paraguai.mdx`)
 
 ### Dividend tax (IDU)
 
@@ -854,6 +883,52 @@ To pull a figure off every page at once, delete its `sourced` block.
   - https://paraguayresidencyguide.com/blog/paraguayan-citizenship (`content/guide/blog/paraguayan-citizenship.mdx`)
   - https://residenciaenparaguay.es/guias/documentos/residencia-permanente-requisitos-2026 (`content/residenciaes/documentos/residencia-permanente-requisitos-2026.mdx`)
 
+### Border security zone — rural land owned by foreigners from neighbouring countries
+
+- **Key:** `land.border_security_zone`
+- **Shows (en):** a 50 km strip along Paraguay's land and river borders in which nationals of neighbouring countries (Brazil included), and companies they mostly own, may not own, co-own or hold usufruct over rural property, unless the Executive authorises it by decree (Law 2532/2005)
+- **Source:** [Ley N.º 2532/2005, Zona de Seguridad Fronteriza (BACN, Congreso Nacional)](https://www.bacn.gov.py/leyes-paraguayas/4025/ley-n-2532-establece-la-zona-de-seguridad-fronteriza-de-la-republica-del-paraguay) — checked 2026-09-28
+- **Other sources:** <https://www.bacn.gov.py/leyes-paraguayas/4025/ley-n-2532-establece-la-zona-de-seguridad-fronteriza-de-la-republica-del-paraguay> · <https://www.catastro.gov.py/public/439bc5_ley%202532-05%20seguridad%20fronteriza.pdf> · <https://ghp.com.py/2019/06/18/interpretando-la-ley-de-seguridad-fronteriza-del-paraguay/>
+- **Note:** Research 2026-09-28 (high confidence): Art. 1 sets the 50 km strip; Art. 2 bars nationals of bordering countries (and legal persons mostly made up of them) from owning, co-owning or holding usufruct over RURAL property there, save a decree of the Executive on public-interest grounds (job creation counts). Urban property is not covered. Rights acquired before the law are kept. Regulated by Decreto 7525/2011. bacn.gov.py returned 403 to the fetcher; wording confirmed from the search excerpt of the official text and GHP Abogados' commentary.
+- **Where it appears (3):**
+  - https://vidanoparaguai.com/guias/cidades/melhores-cidades-para-morar-no-paraguai (`content/residenciapt/cidades/melhores-cidades-para-morar-no-paraguai.mdx`)
+  - https://vidanoparaguai.com/guias/cidades/morar-em-pedro-juan-caballero (`content/residenciapt/cidades/morar-em-pedro-juan-caballero.mdx`)
+  - https://vidanoparaguai.com/guias/morar-no-paraguai/comprar-imovel-ou-terra-no-paraguai (`content/residenciapt/morar-no-paraguai/comprar-imovel-ou-terra-no-paraguai.mdx`)
+
+### Used vehicle imports — maximum age
+
+- **Key:** `vehicles.used_import_age`
+- **Shows (en):** no more than 10 years old, counted from the year of manufacture to shipment at origin (Law 4333/2011, amending Law 2018/2002); classic cars certified by Customs are the exception
+- **Source:** [Ley N.º 4333/2011, modifica el art. 1 de la Ley 2018/2002 (BACN, Congreso Nacional)](https://www.bacn.gov.py/leyes-paraguayas/3705/modifica-el-articulo-1-de-la-ley-n-201802-que-autoriza-la-libre-importacion-de-vehiculos-maquinarias-agricolas-y-maquinarias-de-construccion-usados-modificada-por-la-ley-n-215303) — checked 2026-09-28
+- **Other sources:** <https://www.bacn.gov.py/leyes-paraguayas/3705/modifica-el-articulo-1-de-la-ley-n-201802-que-autoriza-la-libre-importacion-de-vehiculos-maquinarias-agricolas-y-maquinarias-de-construccion-usados-modificada-por-la-ley-n-215303> · <https://www.ultimahora.com/ejecutivo-promulga-ley-que-fija-10-anos-la-antigedad-autos-usados-importados-n431944> · <https://paraguayway.com/importar-vehiculo-paraguay/>
+- **Note:** Research 2026-09-28 (medium confidence): Ley 4333/2011 (promulgated May 2011) re-set the 10-year limit after a failed 5-year proposal. Bills to lower it (7 years, 2018) or lift it (2023) appeared in the press; a 2026 importer guide still states 10 years. Owner: confirm no later amendment with a despachante before signing off. Import duties, IVA and the resident's household-goods regime are not covered by this fact.
+- **Where it appears (1):**
+  - https://vidanoparaguai.com/guias/morar-no-paraguai/carro-brasileiro-no-paraguai (`content/residenciapt/morar-no-paraguai/carro-brasileiro-no-paraguai.mdx`)
+
+### Cash carried across the border — declaration threshold
+
+- **Key:** `customs.cash_declaration`
+- **Shows (en):** more than USD 10,000 (or the equivalent in other currencies) in cash per traveller, entering or leaving Paraguay, must be declared to Customs (Law 1015/1997); the DNIT's e-DAV form lets you declare online before the trip
+- **Source:** [DNIT (Aduanas), control de dinero no declarado; Ley 1015/1997](https://www.dnit.gov.py/en/web/portal-institucional/w/la-dnit-realiza-incautacion-de-dinero-no-declarado-en-control-fronterizo-1) — checked 2026-09-28
+- **Other sources:** <https://www.dnit.gov.py/en/web/portal-institucional/w/la-dnit-realiza-incautacion-de-dinero-no-declarado-en-control-fronterizo-1> · <https://www.dnit.gov.py/documents/20123/1085745/Ayuda-Viajero-Declaracion-Electronica-ESP.pdf/ea112a1e-d15c-0f4f-c190-eea66d4a7b5c?t=1727195535625>
+- **Note:** Research 2026-09-28 (high confidence): DNIT's own notice states the USD 10,000 per-traveller threshold under Ley 1015/97, both directions. Declaring is not a tax; failing to declare leads to seizure. Brazil has its own, separate declaration (e-DBV, Receita Federal) that this fact does not cover.
+- **Where it appears (1):**
+  - https://vidanoparaguai.com/guias/morar-no-paraguai/transferir-dinheiro-do-brasil-para-o-paraguai (`content/residenciapt/morar-no-paraguai/transferir-dinheiro-do-brasil-para-o-paraguai.mdx`)
+
+### Brazilian tourists — length of stay in Paraguay
+
+- **Key:** `tourist.brazilian_stay`
+- **Shows (en):** up to 90 days as a tourist, entering with a valid Brazilian ID card (RG) or passport, extendable once for the same period at the discretion of Migraciones
+- **Source:** [Prefeitura de Ponta Porã, Ingresso de brasileiros no Paraguai (orientação do Consulado do Brasil)](https://pontapora.ms.gov.br/v2/secretarias/secretaria-de-desenvolvimento-integrado/ingresso-de-brasileiros-no-paraguai/) — checked 2026-09-28
+- **Other sources:** <https://pontapora.ms.gov.br/v2/secretarias/secretaria-de-desenvolvimento-integrado/ingresso-de-brasileiros-no-paraguai/> · <https://www.gov.br/mre/pt-br/consulado-assuncao/Ingresso%20Paraguai>
+- **Note:** Research 2026-09-28 (medium confidence): The Ponta Porã page states 'até 90 dias, prorrogáveis por igual período' with RG or passport; search excerpts of the Brazilian consulate page in Asunción add that the extension is granted once, at the DNM's discretion, and that RG entries get a separate 'boleta' stamp. The consulate page itself was CAPTCHA-walled for the fetcher. The RG must be in good condition (some guides say issued within the last 10 years) — not part of this fact.
+- **Where it appears (5):**
+  - https://vidanoparaguai.com/guias/cidades/morar-em-pedro-juan-caballero (`content/residenciapt/cidades/morar-em-pedro-juan-caballero.mdx`)
+  - https://vidanoparaguai.com/guias/morar-no-paraguai/abrir-conta-bancaria-no-paraguai (`content/residenciapt/morar-no-paraguai/abrir-conta-bancaria-no-paraguai.mdx`)
+  - https://vidanoparaguai.com/guias/morar-no-paraguai/carro-brasileiro-no-paraguai (`content/residenciapt/morar-no-paraguai/carro-brasileiro-no-paraguai.mdx`)
+  - https://vidanoparaguai.com/guias/morar-no-paraguai/medicina-no-paraguai-e-a-residencia (`content/residenciapt/morar-no-paraguai/medicina-no-paraguai-e-a-residencia.mdx`)
+  - https://vidanoparaguai.com/guias/morar-no-paraguai/vale-a-pena-morar-no-paraguai (`content/residenciapt/morar-no-paraguai/vale-a-pena-morar-no-paraguai.mdx`)
+
 ### Cost of living — family of four
 
 - **Key:** `costofliving.monthly_family`
@@ -861,13 +936,14 @@ To pull a figure off every page at once, delete its `sourced` block.
 - **Source:** [Numbeo, Asunción, Aug 2026](https://www.numbeo.com/cost-of-living/in/Asuncion) — checked 2026-09-26
 - **Other sources:** <https://www.numbeo.com/cost-of-living/in/Asuncion> · <https://expatsettle.com/asuncion/cost-of-living>
 - **Note:** Research 2026-09-26 (medium confidence): Numbeo USD 2,242.3 (G 13,293,016); ExpatSettle USD 2,155. Crowd-sourced.
-- **Where it appears (6):**
+- **Where it appears (7):**
   - guide member area — members/costs-and-timeline/real-costs (`content/guide/members/costs-and-timeline/real-costs.mdx`)
   - guide member area — members/getting-started/why-paraguay-and-why-not (`content/guide/members/getting-started/why-paraguay-and-why-not.mdx`)
   - https://paraguayresidencyguide.com/blog/real-cost-of-living-in-paraguay (`content/guide/blog/real-cost-of-living-in-paraguay.mdx`)
   - https://residenciaenparaguay.es/guias/comparativas/paraguay-vs-espana (`content/residenciaes/comparativas/paraguay-vs-espana.mdx`)
   - https://residenciaenparaguay.es/guias/vivir-en-paraguay/costo-de-vida-en-paraguay (`content/residenciaes/vivir-en-paraguay/costo-de-vida-en-paraguay.mdx`)
   - https://residenciaenparaguay.es/guias/vivir-en-paraguay/jubilarse-en-paraguay (`content/residenciaes/vivir-en-paraguay/jubilarse-en-paraguay.mdx`)
+  - https://vidanoparaguai.com/guias/cidades/morar-em-assuncao (`content/residenciapt/cidades/morar-em-assuncao.mdx`)
 
 ### Reference exchange rate used for USD conversions
 
@@ -876,7 +952,7 @@ To pull a figure off every page at once, delete its `sourced` block.
 - **Source:** [BCP reference rate / market 25 Sep 2026](https://www.bcp.gov.py/webapps/web/cotizacion/referencial-fluctuante) — checked 2026-09-26
 - **Other sources:** <https://www.bcp.gov.py/webapps/web/cotizacion/referencial-fluctuante> · <https://www.abc.com.py/cotizaciones/>
 - **Note:** Research 2026-09-26 (medium confidence): Market quote 25 Sep 2026: buy 5,856 / sell 5,891 (search excerpt). The guaraní has strengthened a lot vs 2025 (~7,900), which is why older 'USD 370' fee conversions are now ~USD 500. Internal helper, probably not rendered.
-- **Where it appears (7):**
+- **Where it appears (9):**
   - guide member area — members/after-approval/banking (`content/guide/members/after-approval/banking.mdx`)
   - guide member area — members/costs-and-timeline/real-costs (`content/guide/members/costs-and-timeline/real-costs.mdx`)
   - guide member area — members/next-steps/investor-pass-overview (`content/guide/members/next-steps/investor-pass-overview.mdx`)
@@ -884,6 +960,8 @@ To pull a figure off every page at once, delete its `sourced` block.
   - https://paraguayresidencyguide.com/blog/real-cost-of-living-in-paraguay (`content/guide/blog/real-cost-of-living-in-paraguay.mdx`)
   - https://residenciaenparaguay.es/guias/documentos/cuanto-cuesta-la-residencia-en-paraguay (`content/residenciaes/documentos/cuanto-cuesta-la-residencia-en-paraguay.mdx`)
   - https://residenciaenparaguay.es/guias/vivir-en-paraguay/costo-de-vida-en-paraguay (`content/residenciaes/vivir-en-paraguay/costo-de-vida-en-paraguay.mdx`)
+  - https://vidanoparaguai.com/guias/morar-no-paraguai/abrir-conta-bancaria-no-paraguai (`content/residenciapt/morar-no-paraguai/abrir-conta-bancaria-no-paraguai.mdx`)
+  - https://vidanoparaguai.com/guias/morar-no-paraguai/transferir-dinheiro-do-brasil-para-o-paraguai (`content/residenciapt/morar-no-paraguai/transferir-dinheiro-do-brasil-para-o-paraguai.mdx`)
 
 ## Hedged (not shown as a figure)
 
