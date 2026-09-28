@@ -30,14 +30,22 @@ function mdxFiles(dir: string, out: string[] = []): string[] {
   return out;
 }
 
-/** Public paths a brand serves from MDX, e.g. `/guides/taxes/ruc-and-tax-residency`. */
+/**
+ * Public paths a brand serves from MDX, e.g. `/guides/taxes/ruc-and-tax-residency`,
+ * plus each hub's index (`/guides/taxes`) when a `[hub]/page.tsx` route serves it.
+ */
 function contentPaths(site: string): Set<string> {
   const dir = join(CONTENT, site);
+  const locale = getSite(site as never).locale;
   const paths = new Set<string>();
   for (const file of mdxFiles(dir)) {
     const slugPath = file.slice(dir.length + 1).replace(/\\/g, '/').replace(/\.mdx$/, '');
     if (!slugPath.includes('/')) continue;
-    paths.add(contentHref(site as never, slugPath));
+    const href = contentHref(site as never, slugPath);
+    paths.add(href);
+    const hubIndex = href.slice(0, href.lastIndexOf('/'));
+    const hubRoute = join(APP, `(${locale})`, 'sites', site, hubIndex.slice(0, hubIndex.lastIndexOf('/')), '[hub]', 'page.tsx');
+    if (existsSync(hubRoute)) paths.add(hubIndex);
   }
   return paths;
 }
