@@ -10,7 +10,12 @@ const labels: Record<string, string> = {
   "comparativas": "Comparativas",
   "documentos": "Documentos",
   "impuestos": "Impuestos",
+  "por-pais": "Por país",
   "vivir-en-paraguay": "Vivir en Paraguay"
+};
+/** A hub whose label does not read as "Artículos sobre <label>" gets its own line. */
+const blurbs: Record<string, string> = {
+  "por-pais": "Elige tu nacionalidad: ruta, requisitos y documentos para tu país.",
 };
 
 export function generateMetadata(): Metadata {
@@ -29,7 +34,7 @@ export default function Page() {
         <div className="mt-[var(--space-10)] grid gap-[var(--space-6)] sm:grid-cols-2 lg:grid-cols-3">
           {hubs.map((hub) => (
             <Card headingLevel={2} key={hub} title={labels[hub] ?? hub} href={path + '/' + hub}>
-              {"Artículos sobre " + (labels[hub] ?? hub).toLocaleLowerCase('es-ES') + '.'}
+              {blurbs[hub] ?? "Artículos sobre " + (labels[hub] ?? hub).toLocaleLowerCase('es-ES') + '.'}
             </Card>
           ))}
         </div>

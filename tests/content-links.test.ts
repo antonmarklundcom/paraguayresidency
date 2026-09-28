@@ -65,13 +65,32 @@ function routePaths(site: string): Set<string> {
   return paths;
 }
 
+/**
+ * Hub index pages a brand serves from a dynamic `<prefix>/[hub]/page.tsx`, one
+ * per content folder (e.g. `/guias/documentos`), so an article can link to its
+ * own hub.
+ */
+function hubIndexPaths(site: string): Set<string> {
+  const locale = getSite(site as never).locale;
+  const siteDir = join(APP, `(${locale})`, 'sites', site);
+  const contentDir = join(CONTENT, site);
+  const paths = new Set<string>();
+  if (!existsSync(siteDir) || !existsSync(contentDir)) return paths;
+  const hubs = readdirSync(contentDir).filter((entry) => statSync(join(contentDir, entry)).isDirectory());
+  for (const prefix of readdirSync(siteDir)) {
+    if (!existsSync(join(siteDir, prefix, '[hub]', 'page.tsx'))) continue;
+    for (const hub of hubs) paths.add(`/${prefix}/${hub}`);
+  }
+  return paths;
+}
+
 describe('every internal MDX link resolves', () => {
   for (const site of SITE_KEYS) {
     const files = mdxFiles(join(CONTENT, site));
     if (files.length === 0) continue;
 
     it(`${site}: no dead links in ${files.length} article(s)`, () => {
-      const known = new Set([...contentPaths(site), ...routePaths(site)]);
+      const known = new Set([...contentPaths(site), ...routePaths(site), ...hubIndexPaths(site)]);
       const dead: string[] = [];
 
       for (const file of files) {
