@@ -1469,6 +1469,278 @@ export const facts = {
     ],
     "note": "Research 2026-09-26 (low confidence): CONFLICT: RG 65/2020 requires the DNM 'Constancia de Movimiento Migratorio' for the fiscal period. Some guides say you need either an active RUC or >120 days' presence; others call 120 days a myth (it relates to domicile under Ley 125/1991 art. 152). No source found for an investment-based alternative (the brief's 'investment alternative' could not be confirmed). Certificate is per fiscal year / valid ~1 year. Needs accountant sign-off before any day count is published."
   },
+  // residenciapt W6-A — facts added for the pt-BR SEO pages (2026-09-28). One block, keep it contiguous.
+  "tax.iva_rate": {
+    "key": "tax.iva_rate",
+    "label": "IVA — value added tax rates",
+    "title": {
+      "en": "IVA — value added tax rates",
+      "es": "IVA — tasas del impuesto al valor agregado",
+      "pt": "IVA — alíquotas do imposto sobre valor agregado",
+      "sv": "IVA — mervärdesskattesatser"
+    },
+    "display": {
+      "en": "10% general rate and 5% reduced rate (some basic-basket foods, medicines, real estate sales and residential rent)",
+      "es": "10% de tasa general y 5% de tasa reducida (algunos alimentos de la canasta básica, medicamentos, venta de inmuebles y alquiler de vivienda)",
+      "pt": "10% na alíquota geral e 5% na reduzida (parte da cesta básica, medicamentos, venda de imóveis e aluguel residencial)",
+      "sv": "10 % i normalskattesats och 5 % i reducerad skattesats (vissa baslivsmedel, läkemedel, fastighetsförsäljning och bostadshyra)"
+    },
+    "hedged": {
+      "en": "a general IVA rate and a reduced rate for some essentials, which your accountant confirms for what you sell",
+      "es": "una tasa general de IVA y una reducida para algunos bienes básicos, que tu asesor confirma según lo que vendas",
+      "pt": "uma alíquota geral de IVA e uma reduzida para alguns itens básicos, que o contador confirma conforme o que você vende",
+      "sv": "en allmän IVA-sats och en reducerad sats för vissa baslivsmedel, som din revisor bekräftar utifrån vad du säljer"
+    },
+    "verified": false,
+    "sourced": {
+      "label": "Ley 6380/2019 (IVA); La Nación, 17 Jul 2026",
+      "checkedOn": "2026-09-28",
+      "url": "https://www.bacn.gov.py/leyes-paraguayas/9332/ley-n-6380-de-modernizacion-y-simplificacion-del-sistema-tributario-nacional"
+    },
+    "sources": [
+      "https://www.bacn.gov.py/leyes-paraguayas/9332/ley-n-6380-de-modernizacion-y-simplificacion-del-sistema-tributario-nacional",
+      "https://www.lanacion.com.py/negocios/2026/07/17/iva-en-paraguay-el-impuesto-que-esta-presente-en-casi-todas-las-compras/"
+    ],
+    "note": "Research 2026-09-28 (high confidence): two rates, 10% general and 5% reduced (basic-basket items such as rice, pasta, oil, yerba, milk, eggs, flour; medicines; real estate sales; rent for housing). Non-residential rent is 10%. The 'imposto 10 10 10' search term = IRE 10% + IRP top 10% + IVA 10%."
+  },
+  "tax.irp_threshold": {
+    "key": "tax.irp_threshold",
+    "label": "IRP — registration threshold for personal-services income",
+    "title": {
+      "en": "IRP — registration threshold for personal-services income",
+      "es": "IRP — umbral de inscripción por rentas de servicios personales",
+      "pt": "IRP — limite de inscrição para renda de serviços pessoais",
+      "sv": "IRP — registreringsgräns för inkomst av personliga tjänster"
+    },
+    "display": {
+      "en": "you must register for IRP on personal-services income once your taxed annual income passes G 80 million",
+      "es": "la inscripción en el IRP por servicios personales es obligatoria cuando los ingresos anuales gravados superan los G 80 millones",
+      "pt": "a inscrição no IRP por serviços pessoais passa a ser obrigatória quando a renda anual tributada passa de G 80 milhões",
+      "sv": "registrering för IRP på inkomst av personliga tjänster krävs när den beskattade årsinkomsten överstiger G 80 miljoner"
+    },
+    "hedged": {
+      "en": "an annual income threshold above which personal-services income must be registered for IRP, which your accountant confirms",
+      "es": "un umbral de ingresos anuales a partir del cual hay que inscribirse en el IRP, que confirma tu asesor",
+      "pt": "um limite de renda anual a partir do qual é preciso se inscrever no IRP, que o contador confirma",
+      "sv": "en årlig inkomstgräns över vilken inkomst av personliga tjänster ska registreras för IRP, som din revisor bekräftar"
+    },
+    "verified": false,
+    "sourced": {
+      "label": "DNIT — umbral IRP-RSP (Ley 6380/2019)",
+      "checkedOn": "2026-09-28",
+      "url": "https://www.dnit.gov.py/web/portal-institucional/w/desde-el-ano-2020-el-monto-que-obliga-a-inscribirse-en-el-irp-rsp-es-haber-superado-los-80-millones-de-guaranies-de-ingresos-anuales-gravados"
+    },
+    "sources": [
+      "https://www.dnit.gov.py/web/portal-institucional/w/desde-el-ano-2020-el-monto-que-obliga-a-inscribirse-en-el-irp-rsp-es-haber-superado-los-80-millones-de-guaranies-de-ingresos-anuales-gravados",
+      "https://www.dnit.gov.py/en/web/portal-institucional/irp"
+    ],
+    "note": "Research 2026-09-28 (high confidence, DNIT primary): G 80 million of taxed annual income, fixed since 2020 (no longer stepped down each year). Registration within 30 business days of passing it; the obligation lapses after two consecutive years under the threshold. Personal-services income only; capital income has its own rules."
+  },
+  "tax.resimple": {
+    "key": "tax.resimple",
+    "label": "IRE RESIMPLE — small sole-proprietor regime",
+    "title": {
+      "en": "IRE RESIMPLE — small sole-proprietor regime",
+      "es": "IRE RESIMPLE — régimen de pequeñas empresas unipersonales",
+      "pt": "IRE RESIMPLE — regime das pequenas empresas unipessoais",
+      "sv": "IRE RESIMPLE — förenklad ordning för små enskilda firmor"
+    },
+    "display": {
+      "en": "for sole proprietorships with annual income up to G 80 million: a fixed amount of G 20,000 to G 80,000 a month (paid monthly or quarterly) and one annual return in February",
+      "es": "para empresas unipersonales con ingresos anuales de hasta G 80 millones: un monto fijo de G 20.000 a G 80.000 por mes (pagado mensual o trimestralmente) y una sola declaración anual en febrero",
+      "pt": "para empresas unipessoais com renda anual de até G 80 milhões: um valor fixo de G 20.000 a G 80.000 por mês (pago mensal ou trimestralmente) e uma única declaração anual em fevereiro",
+      "sv": "för enskilda firmor med en årsinkomst på högst G 80 miljoner: ett fast belopp på G 20 000 till G 80 000 per månad (betalas månads- eller kvartalsvis) och en enda årsdeklaration i februari"
+    },
+    "hedged": {
+      "en": "a simplified regime for very small sole proprietorships with a fixed periodic payment, which your accountant confirms for your turnover",
+      "es": "un régimen simplificado para empresas unipersonales muy pequeñas, con un pago fijo periódico, que tu asesor confirma según tu facturación",
+      "pt": "um regime simplificado para empresas unipessoais muito pequenas, com pagamento fixo periódico, que o contador confirma conforme o seu faturamento",
+      "sv": "en förenklad ordning för mycket små enskilda firmor med en fast periodisk betalning, som din revisor bekräftar utifrån din omsättning"
+    },
+    "verified": false,
+    "sourced": {
+      "label": "DNIT — IRE RESIMPLE",
+      "checkedOn": "2026-09-28",
+      "url": "https://www.dnit.gov.py/en/web/portal-institucional/ire-resimple"
+    },
+    "sources": [
+      "https://www.dnit.gov.py/en/web/portal-institucional/ire-resimple",
+      "https://www.dnit.gov.py/en/web/portal-institucional/w/ire-resimple-ingresos-de-2025-deben-declararse-en-febrero",
+      "https://ecovisparaguay.com.py/impuesto-a-la-renta-empresarial-regimen-re-simple-en-paraguay/"
+    ],
+    "note": "Research 2026-09-28 (medium confidence): DNIT page lists 'Empresas Unipersonales (con ingresos anuales de hasta Gs. 80.000.000)', 'De 20.000 a 80.000 G. en forma mensual', payable monthly or quarterly, annual sworn return in February (Form 502). An agency (Ecovis) describes four quarterly instalments of G 60,000–240,000, which is the same scale per quarter. Sole proprietorships only — not an EAS or SRL. This is the closest Paraguayan analogue to Brazil's MEI, but it is not the same thing."
+  },
+  "business.eas": {
+    "key": "business.eas",
+    "label": "EAS — simplified joint-stock company",
+    "title": {
+      "en": "EAS — simplified joint-stock company",
+      "es": "EAS — Empresa por Acciones Simplificadas",
+      "pt": "EAS — Empresa por Ações Simplificada",
+      "sv": "EAS — förenklat aktiebolag"
+    },
+    "display": {
+      "en": "the EAS (Empresa por Acciones Simplificadas, Ley 6480/2020) can have a single shareholder, an individual or a company, and is formed online through SUACE at the Ministry of Industry and Commerce",
+      "es": "la EAS (Empresa por Acciones Simplificadas, Ley 6480/2020) puede tener un único accionista, persona física o jurídica, y se constituye en línea a través del SUACE del Ministerio de Industria y Comercio",
+      "pt": "a EAS (Empresa por Acciones Simplificadas, Lei 6480/2020) pode ter um único acionista, pessoa física ou jurídica, e é constituída on-line pelo SUACE, do Ministério da Indústria e Comércio",
+      "sv": "EAS (Empresa por Acciones Simplificadas, lag 6480/2020) kan ha en enda aktieägare, fysisk eller juridisk person, och bildas digitalt via SUACE hos industri- och handelsministeriet"
+    },
+    "hedged": {
+      "en": "a simplified company form that one person can set up, registered through the government's company-opening system — your lawyer confirms whether it fits your case",
+      "es": "una forma societaria simplificada que puede constituir una sola persona, registrada a través del sistema estatal de apertura de empresas — tu abogado confirma si encaja en tu caso",
+      "pt": "um tipo societário simplificado que uma pessoa sozinha pode abrir, registrado pelo sistema oficial de abertura de empresas — o advogado confirma se ele serve para o seu caso",
+      "sv": "en förenklad bolagsform som en enda person kan bilda, registrerad via statens system för bolagsbildning — din jurist bekräftar om den passar ditt fall"
+    },
+    "verified": false,
+    "sourced": {
+      "label": "Ley 6480/2020 (EAS); SUACE — preguntas frecuentes EAS",
+      "checkedOn": "2026-09-28",
+      "url": "https://www.bacn.gov.py/leyes-paraguayas/9100/ley-n-6480-crea-la-empresa-por-acciones-simplificadas-eas"
+    },
+    "sources": [
+      "https://www.bacn.gov.py/leyes-paraguayas/9100/ley-n-6480-crea-la-empresa-por-acciones-simplificadas-eas",
+      "https://suace.gov.py/index.php/preguntas-frecuentes-2/",
+      "https://eas.mic.gov.py/Preguntas-frecuentes",
+      "https://www.vouga.com.py/en/el-poder-ejecutivo-promulgo-la-ley-6480-20-que-crea-la-empresa-por-acciones-simplificadas/"
+    ],
+    "note": "Research 2026-09-28 (high confidence on the law; BACN page from search excerpt): one or more natural or legal persons; a single-person EAS must carry 'Unipersonal' in its name and cannot own another single-person EAS; always commercial in nature; opened through SUACE (MIC), regulated by Decreto 3998/2020. Minimum capital, foreign-shareholder paperwork and the local legal-representative question were NOT researched — do not publish a figure or a rule on those without the lawyer."
+  },
+  "temporary.precarious_status": {
+    "key": "temporary.precarious_status",
+    "label": "Temporary residency — 'residente precario' status while the file is processed",
+    "title": {
+      "en": "Temporary residency — status while the file is processed",
+      "es": "Residencia temporal — condición de residente precario durante el trámite",
+      "pt": "Residência temporária — condição de residente precário durante o trâmite",
+      "sv": "Tillfälligt uppehållstillstånd — status medan ansökan handläggs"
+    },
+    "display": {
+      "en": "while the temporary residency application is processed you hold 'residente precario' status, which lets you leave and re-enter the country, study and work",
+      "es": "mientras dura el trámite de la residencia temporal tienes la condición de residente precario, que te habilita a salir y reingresar al país, estudiar y trabajar",
+      "pt": "enquanto a residência temporária está em trâmite, você tem a condição de residente precário, que permite sair e voltar ao país, estudar e trabalhar",
+      "sv": "medan ansökan om tillfälligt uppehållstillstånd handläggs har du status som 'residente precario', som ger rätt att resa ut och in, studera och arbeta"
+    },
+    "hedged": {
+      "en": "an interim status while your file is processed, whose exact rights we confirm for your case",
+      "es": "una condición provisoria mientras se tramita tu expediente, cuyos derechos exactos confirmamos para tu caso",
+      "pt": "uma condição provisória enquanto o seu processo tramita, cujos direitos exatos confirmamos para o seu caso",
+      "sv": "en tillfällig status medan ditt ärende handläggs, vars exakta rättigheter vi bekräftar för ditt fall"
+    },
+    "verified": false,
+    "sourced": {
+      "label": "DNM — Residencia Temporal (Ley 6984/2022); Agencia IP, 4 May 2026",
+      "checkedOn": "2026-09-28",
+      "url": "https://migraciones.gov.py/residencia-temporal/"
+    },
+    "sources": [
+      "https://migraciones.gov.py/residencia-temporal/",
+      "https://www.ip.gov.py/ip/2026/05/04/migraciones-detalla-requisitos-y-procedimientos-para-la-residencia-temporal-en-paraguay/",
+      "https://paraguaysovereign.com/residency/resident-precaria-explained/"
+    ],
+    "note": "Research 2026-09-28 (high confidence on the rights, DNM page fetched): 'residente precario' lasts 'mientras dure el trámite' and 'lo habilita a salir y reingresar del país, estudiar y trabajar'. An agency (Paraguay Sovereign) says the precario card is valid 90 days, issued once and not renewable; the DNM page does not print a day count, so that is NOT in display. Owner: confirm the card's validity window before publishing a number."
+  },
+  "fx.brl_reference_rate": {
+    "key": "fx.brl_reference_rate",
+    "label": "Reference rate for Brazilian real conversions",
+    "title": {
+      "en": "Reference rate for Brazilian real conversions",
+      "es": "Tipo de cambio de referencia para conversiones a reales",
+      "pt": "Câmbio de referência para conversões em reais",
+      "sv": "Referenskurs för omräkning till brasilianska real"
+    },
+    "display": {
+      "en": "about R$ 5.20 per US dollar and G 1,130 per real (late September 2026)",
+      "es": "unos R$ 5,20 por dólar y G 1.130 por real (finales de septiembre de 2026)",
+      "pt": "cerca de R$ 5,20 por dólar e G 1.130 por real (final de setembro de 2026)",
+      "sv": "cirka R$ 5,20 per US-dollar och G 1 130 per real (slutet av september 2026)"
+    },
+    "hedged": {
+      "en": "the current real exchange rate, which we confirm on the day you pay",
+      "es": "el tipo de cambio del real vigente, que confirmamos el día del pago",
+      "pt": "o câmbio do real no dia, que confirmamos quando você for pagar",
+      "sv": "den aktuella kursen för real, som vi bekräftar den dag du betalar"
+    },
+    "verified": false,
+    "sourced": {
+      "label": "InfoMoney (dólar comercial, 25 Sep 2026); ABC Color cotizaciones (28 Sep 2026)",
+      "checkedOn": "2026-09-28",
+      "url": "https://www.infomoney.com.br/mercados/dolar-hoje-abertura-fechamento-comercial-turismo-25092026/"
+    },
+    "sources": [
+      "https://www.infomoney.com.br/mercados/dolar-hoje-abertura-fechamento-comercial-turismo-25092026/",
+      "https://www.abc.com.py/cotizaciones/"
+    ],
+    "note": "Research 2026-09-28 (medium confidence): USD/BRL closed R$ 5.1834 on 25 Sep 2026 and traded ~R$ 5.20 on 28 Sep. ABC Color (Banco Atlas) 28 Sep 2026: real buy G 1,080 / sell G 1,190; dollar buy G 5,780 / sell G 6,070. G 5,870 ÷ 5.19 ≈ G 1,131 per real. Moves daily — re-check with fx.reference_rate."
+  },
+  "fees.residency_brl": {
+    "key": "fees.residency_brl",
+    "label": "DNM residency fee converted to Brazilian reais",
+    "title": {
+      "en": "DNM residency fee in Brazilian reais",
+      "es": "Tasa de Migraciones de residencia en reales",
+      "pt": "Taxa da Migração para residência, em reais",
+      "sv": "Migrationsavgiften för uppehållstillstånd i real"
+    },
+    "display": {
+      "en": "about R$ 2,600 per person for temporary or for permanent residency (G 2,926,925 at the late-September 2026 rate)",
+      "es": "unos R$ 2.600 por persona para la temporal o para la permanente (G 2.926.925 al cambio de finales de septiembre de 2026)",
+      "pt": "cerca de R$ 2.600 por pessoa na temporária ou na permanente (G 2.926.925 ao câmbio do fim de setembro de 2026)",
+      "sv": "cirka R$ 2 600 per person för tillfälligt eller permanent uppehållstillstånd (G 2 926 925 till kursen i slutet av september 2026)"
+    },
+    "hedged": {
+      "en": "a government fee in guaraníes whose value in reais we confirm on the day you pay",
+      "es": "una tasa oficial en guaraníes cuyo valor en reales confirmamos el día del pago",
+      "pt": "uma taxa oficial em guaranis cujo valor em reais confirmamos no dia do pagamento",
+      "sv": "en myndighetsavgift i guaraní vars värde i real vi bekräftar den dag du betalar"
+    },
+    "verified": false,
+    "sourced": {
+      "label": "DNM aranceles from 1 Jul 2026 (Res. DNM 478/2026), converted at InfoMoney/ABC rates of 25–28 Sep 2026",
+      "checkedOn": "2026-09-28",
+      "url": "https://migraciones.gov.py/aranceles-migratorios/"
+    },
+    "sources": [
+      "https://migraciones.gov.py/aranceles-migratorios/",
+      "https://www.infomoney.com.br/mercados/dolar-hoje-abertura-fechamento-comercial-turismo-25092026/",
+      "https://www.abc.com.py/cotizaciones/"
+    ],
+    "note": "Derived 2026-09-28 (medium confidence): fees.temporary_residency / fees.permanent_residency (25 jornales = G 2,926,925) ÷ ~G 1,131 per real = R$ 2,588; USD ~500 × R$ 5.19 = R$ 2,595. Rounded to R$ 2,600. Goes stale with every jornal adjustment (July) and with the exchange rate."
+  },
+  "citizenship.multiple_nationality": {
+    "key": "citizenship.multiple_nationality",
+    "label": "Multiple nationality — constitutional rule",
+    "title": {
+      "en": "Multiple nationality — constitutional rule",
+      "es": "Nacionalidad múltiple — regla constitucional",
+      "pt": "Nacionalidade múltipla — regra constitucional",
+      "sv": "Flerfaldigt medborgarskap — grundlagens regel"
+    },
+    "display": {
+      "en": "the Paraguayan Constitution admits multiple nationality through an international treaty with reciprocity between the country of origin and the country of adoption (art. 149, regulated by Ley 7052/2023)",
+      "es": "la Constitución paraguaya admite la nacionalidad múltiple mediante tratado internacional con reciprocidad entre el Estado de origen y el de adopción (art. 149, reglamentado por la Ley 7052/2023)",
+      "pt": "a Constituição paraguaia admite a nacionalidade múltipla por tratado internacional com reciprocidade entre o país de origem e o de adoção (art. 149, regulamentado pela Lei 7052/2023)",
+      "sv": "Paraguays grundlag tillåter flerfaldigt medborgarskap genom internationellt avtal med ömsesidighet mellan ursprungsland och adoptivland (art. 149, reglerad av lag 7052/2023)"
+    },
+    "hedged": {
+      "en": "whether you can keep your original nationality depends on rules in both countries, which we confirm with a lawyer for your case",
+      "es": "si puedes conservar tu nacionalidad de origen depende de las normas de ambos países, que confirmamos con un abogado para tu caso",
+      "pt": "se você pode manter a nacionalidade de origem depende das regras dos dois países, que confirmamos com advogado para o seu caso",
+      "sv": "om du kan behålla ditt ursprungliga medborgarskap beror på reglerna i båda länderna, vilket vi bekräftar med en jurist för ditt fall"
+    },
+    "verified": false,
+    "sourced": {
+      "label": "Constitución Nacional, art. 149; Ley 7052/2023 (BACN)",
+      "checkedOn": "2026-09-28",
+      "url": "https://www.bacn.gov.py/leyes-paraguayas/11258/ley-n-7052-reglamenta-los-articulos-146-147-y-149-de-la-constitucion-nacional-de-la-nacionalidad-paraguaya-multiple"
+    },
+    "sources": [
+      "https://www.bacn.gov.py/leyes-paraguayas/11258/ley-n-7052-reglamenta-los-articulos-146-147-y-149-de-la-constitucion-nacional-de-la-nacionalidad-paraguaya-multiple",
+      "https://www.abc.com.py/politica/2023/01/13/rige-ley-que-garantiza-la-nacionalidad-multiple-a-los-paraguayos/",
+      "https://www.pj.gov.py/ebook/monografias/nacional/internacional-p%C3%BAblico/Hugo-E-Estigarribia-G-Doble-o-Multiple-Nacionalidad.pdf"
+    ],
+    "note": "Research 2026-09-28 (medium confidence): art. 149 text confirmed via several excerpts; BACN page returned 403 to the fetcher. Ley 7052 (promulgated 12 Jan 2023) is mainly about natural-born Paraguayans keeping their nationality abroad. Whether a Brazilian naturalised in Paraguay must renounce Brazilian nationality in Paraguay's eyes was NOT confirmed — lawyer to confirm. Brazil side (EC 131/2023: loss only on express request) is hedged in prose, not here."
+  },
+  // end residenciapt W6-A
   "apostille.since": {
     "key": "apostille.since",
     "label": "Apostille — Paraguay's membership",
