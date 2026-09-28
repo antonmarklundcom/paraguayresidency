@@ -160,6 +160,7 @@ export default function Page() {
           title: post.frontmatter.title,
           description: post.frontmatter.description,
           href: contentHref(SITE, post.slugPath),
+          hub: post.hub,
         }))}
         more={{ href: '/guias', label: 'Todas las guías' }}
       />

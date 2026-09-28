@@ -164,6 +164,7 @@ export default function Page() {
           title: page.frontmatter.title,
           description: page.frontmatter.description,
           href: contentHref(SITE, page.slugPath),
+          hub: page.hub,
         }))}
         more={{ href: '/guider', label: 'Alla guider' }}
       />
@@ -177,6 +178,7 @@ export default function Page() {
           title: page.frontmatter.title,
           description: page.frontmatter.description,
           href: contentHref(SITE, page.slugPath),
+          hub: page.hub,
         }))}
         more={{ href: '/stader', label: 'Alla städer' }}
       />
