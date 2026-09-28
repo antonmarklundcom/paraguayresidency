@@ -65,6 +65,14 @@ export default function Page() {
         papel) muda de país para país. Depois disso é protocolo, um conjunto de consultas em
         Assunção, e a espera pela aprovação — em seguida vem o pedido da cédula.
       </p>
+      <p>
+        O caminho inteiro, do cartório à cédula, está no{' '}
+        <a href="/guias/documentos/como-tirar-residencia-no-paraguai">passo a passo para tirar a residência</a>; as taxas
+        oficiais e o câmbio em reais, em{' '}
+        <a href="/guias/documentos/quanto-custa-a-residencia-no-paraguai">quanto custa a residência no Paraguai</a>; e o
+        que você pode fazer enquanto espera, em{' '}
+        <a href="/guias/documentos/residencia-precaria-no-paraguai">residência precária</a>.
+      </p>
       <h2>Prazo e o que vem depois</h2>
       <p>
         Prazo da residência temporária: <Fact k="temporary.duration" site="residenciapt" />. A maioria

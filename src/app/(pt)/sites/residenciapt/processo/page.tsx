@@ -99,6 +99,17 @@ export default function Page() {
         </div>
 
         <p className="mt-[var(--space-12)] text-[var(--fg-muted)]">
+          O mesmo caminho em texto corrido, com a ordem dos documentos e os erros mais comuns, está em{' '}
+          <a href="/guias/documentos/como-tirar-residencia-no-paraguai" className="text-[var(--accent)] underline underline-offset-2">
+            como tirar residência no Paraguai
+          </a>
+          ; as taxas oficiais, em{' '}
+          <a href="/guias/documentos/quanto-custa-a-residencia-no-paraguai" className="text-[var(--accent)] underline underline-offset-2">
+            quanto custa a residência
+          </a>
+          .
+        </p>
+        <p className="mt-[var(--space-12)] text-[var(--fg-muted)]">
           Prazo da residência temporária: <Fact k="temporary.duration" site="residenciapt" />. A cédula é <Fact k="cedula.timeline" site="residenciapt" />. Pronto para começar?{' '}
           <a href="/contact" className="text-[var(--accent)] underline underline-offset-2">
             Escreva para nós

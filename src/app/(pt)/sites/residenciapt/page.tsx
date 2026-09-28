@@ -161,6 +161,19 @@ export default function Page() {
             , com o mesmo time.
           </p>
         </Disclosure>
+        <Disclosure title="Passo a passo e custos">
+          <p>
+            O caminho inteiro, do cartório no Brasil à cédula paraguaia, está em{' '}
+            <a href="/guias/documentos/como-tirar-residencia-no-paraguai" className="text-[var(--accent)] underline underline-offset-2">
+              como tirar residência no Paraguai
+            </a>
+            . As taxas oficiais, as certidões e o câmbio em reais estão em{' '}
+            <a href="/guias/documentos/quanto-custa-a-residencia-no-paraguai" className="text-[var(--accent)] underline underline-offset-2">
+              quanto custa a residência no Paraguai
+            </a>
+            .
+          </p>
+        </Disclosure>
         <Disclosure title="Perguntas frequentes">
           <FAQ items={FAQ_ITEMS} />
         </Disclosure>
