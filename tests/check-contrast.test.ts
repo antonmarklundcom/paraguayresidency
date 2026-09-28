@@ -27,7 +27,7 @@ describe('check:contrast', () => {
 
     it(`${file} has no warm pink or peach soft tint`, () => {
       const soft = parseVars(readFileSync(`src/styles/themes/${file}`, 'utf8'))['--accent-soft'];
-      const [r, g, b] = [1, 3, 5].map((i) => parseInt(soft.slice(i, i + 2), 16));
+      const [r, , b] = [1, 3, 5].map((i) => parseInt(soft.slice(i, i + 2), 16));
       // A peach/rose tint has red clearly above blue (the old guide #fbe7dc: 251 vs 220).
       expect(r - b, `${file} --accent-soft ${soft} leans warm`).toBeLessThanOrEqual(12);
     });
