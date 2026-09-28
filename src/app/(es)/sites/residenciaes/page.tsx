@@ -19,14 +19,14 @@ import {
   TeamStrip,
 } from '@/components';
 import { siteMetadata } from '@/lib/metadata';
+import { t } from '@/i18n';
 
 const SITE = 'residenciaes' as const;
 
 export function generateMetadata(): Metadata {
   return siteMetadata(SITE, {
-    title: 'Residencia en Paraguay para Españoles — Temporal, Permanente y Cédula',
-    description:
-      'Trámite de residencia en Paraguay llave en mano. Honorarios fijos en euros, documentos según tu nacionalidad, citas en Asunción. Descubre tu ruta en 2 minutos.',
+    title: t(SITE, 'home.metaTitle'),
+    description: t(SITE, 'home.metaDescription'),
     path: '/',
   });
 }
@@ -130,7 +130,8 @@ export default function Page() {
           <p>
             Personas que se trasladan por trabajo, jubilación o familia; nómadas y autónomos que
             quieren una base legal y un RUC que puedan usar de verdad; nacionales del Mercosur con
-            una vía propia; e inversores que prefieren ir directos a la permanente. Si no sabes
+            una vía propia (busca tu país en la <a href="/guias/por-pais" className="text-[var(--accent)] underline underline-offset-2">guía por nacionalidad</a>);
+            e inversores que prefieren ir directos a la permanente. Si no sabes
             cuál de estos eres, el{' '}
             <a href="/route-finder" className="text-[var(--accent)] underline underline-offset-2">
               test de ruta

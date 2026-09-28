@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { ArticlePage, articleMetadata, type ArticleLink } from '@/lib/article-page';
 import { getPage, getPages } from '@/content';
 import { contentHref } from '@/lib/site-pages';
+import { nationalityServiceLink } from '../../../_lib/por-pais';
 
 type Params = Promise<{ hub: string; slug: string }>;
 
@@ -15,6 +16,9 @@ const HUB_SERVICE: Record<string, ArticleLink> = {
   'vivir-en-paraguay': { label: 'Residencia permanente', href: '/residencia/permanente' },
   impuestos: { label: 'Residencia fiscal', href: '/residencia-fiscal' },
   comparativas: { label: 'Residencia permanente', href: '/residencia/permanente' },
+  // Nationality pages: /mercosur for nationals on the Mercosur list, the
+  // general temporary residency otherwise (see `nationalityServiceLink`).
+  'por-pais': { label: 'Residencia Mercosur', href: '/mercosur' },
 };
 
 // Content is fixed at build time. Reject unknown params at the router so
@@ -49,7 +53,7 @@ export default async function Page({ params }: { params: Params }) {
       site="residenciaes"
       slugPath={slugPath}
       relatedLinks={relatedLinks}
-      serviceLink={HUB_SERVICE[hub]}
+      serviceLink={nationalityServiceLink(slugPath) ?? HUB_SERVICE[hub]}
     />
   );
 }
