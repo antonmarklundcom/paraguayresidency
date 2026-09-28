@@ -1,0 +1,44 @@
+{
+ "brand": "flytta",
+ "domain": "flyttatillparaguay.se",
+ "mode": "live",
+ "base": "https://flyttatillparaguay.se",
+ "generatedAt": "2026-09-28T19:55:32.918Z",
+ "sitemap": {
+  "url": "https://flyttatillparaguay.se/sitemap.xml",
+  "status": null,
+  "error": "TypeError | fetch failed | ENOTFOUND | getaddrinfo ENOTFOUND flyttatillparaguay.se",
+  "indexes": [],
+  "count": 0,
+  "paths": [],
+  "hosts": []
+ },
+ "reachable": false,
+ "pages": [
+  {
+   "path": "/",
+   "url": "https://flyttatillparaguay.se/",
+   "mode": "live",
+   "status": null,
+   "error": "Error | page.goto: net::ERR_NAME_NOT_RESOLVED at https://flyttatillparaguay.se/\nCall log:\n\u001b[2m  - navigating to \"https://flyttatillparaguay.se/\", waiting until \"load\"\u001b[22m\n",
+   "consoleErrors": [],
+   "badResponses": [],
+   "failedRequests": [
+    {
+     "url": "https://flyttatillparaguay.se/",
+     "error": "net::ERR_NAME_NOT_RESOLVED",
+     "type": "document"
+    },
+    {
+     "url": "https://flyttatillparaguay.se/",
+     "error": "net::ERR_NAME_NOT_RESOLVED",
+     "type": "document"
+    }
+   ]
+  }
+ ],
+ "links": {},
+ "shots": [],
+ "health": null,
+ "unreachableReason": "Error | page.goto: net::ERR_NAME_NOT_RESOLVED at https://flyttatillparaguay.se/\nCall log:\n\u001b[2m  - navigating to \"https://flyttatillparaguay.se/\", waiting until \"load\"\u001b[22m\n"
+}

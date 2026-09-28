@@ -1,0 +1,247 @@
+{
+ "generatedAt": "2026-09-28T20:27:13.269Z",
+ "rows": [
+  {
+   "brand": "residency",
+   "kind": "home",
+   "url": "https://paraguayresidency.co.uk/",
+   "run": false,
+   "reason": "DNS: paraguayresidency.co.uk does not resolve"
+  },
+  {
+   "brand": "residency",
+   "kind": "article",
+   "url": "https://paraguayresidency.co.uk/guides/documents/apostille-uk-documents-for-paraguay",
+   "run": false,
+   "reason": "DNS: paraguayresidency.co.uk does not resolve"
+  },
+  {
+   "brand": "investorpass",
+   "kind": "home",
+   "url": "https://paraguayinvestorpass.com/",
+   "run": false,
+   "reason": "DNS: paraguayinvestorpass.com does not resolve"
+  },
+  {
+   "brand": "investorpass",
+   "kind": "article",
+   "url": "https://paraguayinvestorpass.com/insights/what-the-investor-pass-is",
+   "run": false,
+   "reason": "DNS: paraguayinvestorpass.com does not resolve"
+  },
+  {
+   "brand": "guide",
+   "kind": "home",
+   "url": "https://paraguayresidencyguide.com/",
+   "run": true,
+   "finalUrl": "https://paraguayresidencyguide.com/",
+   "performance": 53,
+   "accessibility": 96,
+   "seo": 100,
+   "bestPractices": 100,
+   "lcpMs": 5856,
+   "tbtMs": 901,
+   "cls": 0,
+   "fcpMs": 1855,
+   "lcpElement": {
+    "selector": "div > main#main > section.relative > img.absolute",
+    "snippet": "<img src=\"https://paraguayresidencyguide.com/images/arrival/guide-hero-reading-terra…\" srcset=\"/images/arrival/guide-hero-reading-terrace-asuncion-1200.webp 1200w, /imag…\" sizes=\"100vw\" width=\"2400\" h",
+    "label": "Woman reading a printed guide on a terrace under jacaranda trees in Asunción"
+   },
+   "lcpBreakdown": {
+    "timeToFirstByte": 362,
+    "resourceLoadDelay": 154,
+    "resourceLoadDuration": 151,
+    "elementRenderDelay": 2183
+   },
+   "runWarnings": [
+    "The tested device appears to have a slower CPU than  Lighthouse expects. This can negatively affect your performance score. Learn more about [calibrating an appropriate CPU slowdown multiplier](https://github.com/GoogleChrome/lighthouse/blob/main/docs/throttling.md#cpu-throttling)."
+   ],
+   "runtimeError": null,
+   "note": null,
+   "fetchTime": "2026-09-28T20:20:50.784Z",
+   "lighthouseVersion": "13.5.0"
+  },
+  {
+   "brand": "guide",
+   "kind": "article",
+   "url": "https://paraguayresidencyguide.com/blog/paraguay-residency-cost",
+   "run": true,
+   "finalUrl": "https://paraguayresidencyguide.com/blog/paraguay-residency-cost",
+   "performance": 99,
+   "accessibility": 100,
+   "seo": 100,
+   "bestPractices": 100,
+   "lcpMs": 1718,
+   "tbtMs": 100,
+   "cls": 0,
+   "fcpMs": 1118,
+   "lcpElement": {
+    "selector": "div.mx-auto > div.mx-auto > header.mt-[var(--space-8)] > h1.font-[family-name:var(--display-font)]",
+    "snippet": "<h1 class=\"font-[family-name:var(--display-font)] leading-[var(--leading-tight)] text…\">",
+    "label": "How much does Paraguay residency cost in 2026?"
+   },
+   "lcpBreakdown": {
+    "timeToFirstByte": 197,
+    "elementRenderDelay": 622
+   },
+   "runWarnings": [],
+   "runtimeError": null,
+   "note": null,
+   "fetchTime": "2026-09-28T20:22:55.207Z",
+   "lighthouseVersion": "13.5.0"
+  },
+  {
+   "brand": "frontier",
+   "kind": "home",
+   "url": "https://paraguayfrontier.com/",
+   "run": true,
+   "finalUrl": "https://paraguayfrontier.com/",
+   "performance": 81,
+   "accessibility": 100,
+   "seo": 100,
+   "bestPractices": 100,
+   "lcpMs": 4864,
+   "tbtMs": 101,
+   "cls": 0,
+   "fcpMs": 1097,
+   "lcpElement": {
+    "selector": "div > main#main > section.relative > img.absolute",
+    "snippet": "<img src=\"https://paraguayfrontier.com/images/arrival/frontier-hero-red-earth-road-1…\" srcset=\"/images/arrival/frontier-hero-red-earth-road-1200.webp 1200w, /images/arri…\" sizes=\"100vw\" width=\"2400\" h",
+    "label": "Red-earth road through green countryside in rural Paraguay at golden hour"
+   },
+   "lcpBreakdown": {
+    "timeToFirstByte": 378,
+    "resourceLoadDelay": 9,
+    "resourceLoadDuration": 123,
+    "elementRenderDelay": 708
+   },
+   "runWarnings": [
+    "The tested device appears to have a slower CPU than  Lighthouse expects. This can negatively affect your performance score. Learn more about [calibrating an appropriate CPU slowdown multiplier](https://github.com/GoogleChrome/lighthouse/blob/main/docs/throttling.md#cpu-throttling)."
+   ],
+   "runtimeError": null,
+   "note": null,
+   "fetchTime": "2026-09-28T20:23:25.074Z",
+   "lighthouseVersion": "13.5.0"
+  },
+  {
+   "brand": "frontier",
+   "kind": "article",
+   "url": "https://paraguayfrontier.com/stories/american-first-90-days",
+   "run": true,
+   "finalUrl": "https://paraguayfrontier.com/stories/american-first-90-days",
+   "performance": 87,
+   "accessibility": 100,
+   "seo": 100,
+   "bestPractices": 100,
+   "lcpMs": 3610,
+   "tbtMs": 181,
+   "cls": 0,
+   "fcpMs": 1138,
+   "lcpElement": {
+    "selector": "div.mx-auto > div.mx-auto > header.mt-[var(--space-8)] > p.mt-[var(--space-4)]",
+    "snippet": "<p class=\"mt-[var(--space-4)] text-(length:--text-lg) text-[var(--fg-muted)]\">",
+    "label": "What actually happens in the early stages of a US citizen's Paraguay residency …"
+   },
+   "lcpBreakdown": {
+    "timeToFirstByte": 215,
+    "elementRenderDelay": 776
+   },
+   "runWarnings": [],
+   "runtimeError": null,
+   "note": null,
+   "fetchTime": "2026-09-28T20:23:58.980Z",
+   "lighthouseVersion": "13.5.0"
+  },
+  {
+   "brand": "residenciaes",
+   "kind": "home",
+   "url": "https://residenciaenparaguay.es/",
+   "run": true,
+   "finalUrl": "https://residenciaenparaguay.es/",
+   "performance": 88,
+   "accessibility": 96,
+   "seo": 100,
+   "bestPractices": 96,
+   "lcpMs": 2868,
+   "tbtMs": 311,
+   "cls": 0,
+   "fcpMs": 1176,
+   "lcpElement": {
+    "selector": "div.mx-auto > div.mx-auto > ul.mt-[var(--space-6)] > li",
+    "snippet": "<li>",
+    "label": "Para nacionales del Mercosur, la vía de residencia es la siguiente: la nacional…"
+   },
+   "lcpBreakdown": {
+    "timeToFirstByte": 204,
+    "elementRenderDelay": 1013
+   },
+   "runWarnings": [
+    "The tested device appears to have a slower CPU than  Lighthouse expects. This can negatively affect your performance score. Learn more about [calibrating an appropriate CPU slowdown multiplier](https://github.com/GoogleChrome/lighthouse/blob/main/docs/throttling.md#cpu-throttling)."
+   ],
+   "runtimeError": null,
+   "note": null,
+   "fetchTime": "2026-09-28T20:24:36.770Z",
+   "lighthouseVersion": "13.5.0"
+  },
+  {
+   "brand": "residenciaes",
+   "kind": "article",
+   "url": "https://residenciaenparaguay.es/guias/documentos/como-obtener-la-residencia-en-paraguay-paso-a-paso",
+   "run": true,
+   "finalUrl": "https://residenciaenparaguay.es/guias/documentos/como-obtener-la-residencia-en-paraguay-paso-a-paso",
+   "performance": 73,
+   "accessibility": 100,
+   "seo": 100,
+   "bestPractices": 100,
+   "lcpMs": 4373,
+   "tbtMs": 467,
+   "cls": 0,
+   "fcpMs": 1286,
+   "lcpElement": {
+    "selector": "div.mx-auto > div.mx-auto > header.mt-[var(--space-8)] > p.mt-[var(--space-4)]",
+    "snippet": "<p class=\"mt-[var(--space-4)] text-(length:--text-lg) text-[var(--fg-muted)]\">",
+    "label": "Los pasos concretos para conseguir la residencia en Paraguay, con la tabla de p…"
+   },
+   "lcpBreakdown": {
+    "timeToFirstByte": 206,
+    "elementRenderDelay": 1366
+   },
+   "runWarnings": [
+    "The tested device appears to have a slower CPU than  Lighthouse expects. This can negatively affect your performance score. Learn more about [calibrating an appropriate CPU slowdown multiplier](https://github.com/GoogleChrome/lighthouse/blob/main/docs/throttling.md#cpu-throttling)."
+   ],
+   "runtimeError": null,
+   "note": null,
+   "fetchTime": "2026-09-28T20:25:23.061Z",
+   "lighthouseVersion": "13.5.0"
+  },
+  {
+   "brand": "residenciapt",
+   "kind": "home",
+   "url": "https://vidanoparaguai.com/",
+   "run": false,
+   "reason": "DNS: vidanoparaguai.com does not resolve"
+  },
+  {
+   "brand": "residenciapt",
+   "kind": "article",
+   "url": "https://vidanoparaguai.com/guias/documentos/rotas-de-residencia-temporaria-permanente-mercosul",
+   "run": false,
+   "reason": "DNS: vidanoparaguai.com does not resolve"
+  },
+  {
+   "brand": "flytta",
+   "kind": "home",
+   "url": "https://flyttatillparaguay.se/",
+   "run": false,
+   "reason": "DNS: flyttatillparaguay.se does not resolve"
+  },
+  {
+   "brand": "flytta",
+   "kind": "article",
+   "url": "https://flyttatillparaguay.se/guider/residency-i-paraguay-komplett-guide",
+   "run": false,
+   "reason": "DNS: flyttatillparaguay.se does not resolve"
+  }
+ ]
+}
