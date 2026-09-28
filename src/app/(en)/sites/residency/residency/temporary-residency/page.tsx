@@ -56,7 +56,12 @@ export default function Page() {
         build that checklist against your specific nationality rather than handing you a generic
         PDF, because the rules that matter (which clearance offices are accepted, how a document
         is legalised) differ by country. From there it is a filing, a set of appointments in
-        Asunción, and a wait for approval — after which the cédula application follows.
+        Asunción, and a wait for approval — after which the cédula application follows. If your
+        police clearance is likely to show anything, read{' '}
+        <a href="/guides/documents/paraguay-residency-with-a-criminal-record">
+          Paraguay residency with a criminal record
+        </a>{' '}
+        before you order the rest.
       </p>
       <h2>Timeline and what comes after</h2>
       <p>

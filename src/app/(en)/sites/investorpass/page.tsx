@@ -135,6 +135,7 @@ export default function Page() {
           </table>
         </div>
         <a className="mt-[var(--space-4)] inline-flex min-h-11 items-center text-[var(--accent)] underline" href="/investor-pass/requirements">Full requirements</a>
+        <p className="mt-[var(--space-2)] text-[var(--fg-muted)]">Searching for a Paraguay golden visa? It is this program. <a className="text-[var(--accent)] underline" href="/insights/paraguay-golden-visa">The golden visa, explained</a>.</p>
       </Section>
       <Section tone="alt"><Heading level={2}>From first message to card</Heading><ol className="my-10 grid gap-8 sm:grid-cols-3">{['Confirm your route and investment', 'File for permanent residency', 'Collect your cédula after approval'].map((step, index) => <li key={step} className="flex items-center gap-4"><span aria-hidden="true" className="flex size-12 shrink-0 items-center justify-center rounded-full border border-[var(--border)] text-2xl text-[var(--accent)]">{['◇', '↗', '✓'][index]}</span><h3>{step}</h3></li>)}</ol><Button href="/investor-pass/process" variant="secondary">See the process</Button></Section>
       <TeamStrip site="investorpass" />

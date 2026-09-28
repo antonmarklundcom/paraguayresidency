@@ -71,6 +71,11 @@ export default function Page() {
             up — it simply takes longer. We say this plainly in writing rather than steer everyone
             toward the higher-ticket option.
           </p>
+          <p>
+            Read about a separate &ldquo;SUACE residency&rdquo;? It is the same investor channel
+            under an older name; <a href="/insights/investor-pass-vs-suace">Investor Pass vs SUACE</a>{' '}
+            explains how the two relate.
+          </p>
         </Prose>
 
         <div className="mt-[var(--space-16)]">

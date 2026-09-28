@@ -66,7 +66,13 @@ export default function Page() {
       <h2>What we do, and what we do not</h2>
       <ul>
         <li>We register your RUC and explain the territorial system as it applies generally.</li>
-        <li>We do not advise on your home country&apos;s tax obligations — that is your accountant&apos;s job, and we say so rather than guessing.</li>
+        <li>
+          We do not advise on your home country&apos;s tax obligations — that is your accountant&apos;s job, and we say so rather than guessing. Leaving the UK? Our guide to{' '}
+          <a href="/guides/taxes/uk-pensions-isas-and-property-after-moving-to-paraguay">
+            UK pensions, ISAs and property after the move
+          </a>{' '}
+          lists the questions to take to your adviser.
+        </li>
         <li>
           Unsure if tax residency is the piece you actually need? The{' '}
           <a href="/route-finder">Route Finder</a> asks about your tax motive directly.

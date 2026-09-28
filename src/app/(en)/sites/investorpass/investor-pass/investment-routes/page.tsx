@@ -67,7 +67,9 @@ export default function Page() {
         <Fact k="investorpass.route_financial_usd" site="investorpass" />. This route suits
         investors who want the qualifying capital to stay liquid and managed rather than tied to
         property or an operating business. Which instruments actually qualify is one of the
-        details we confirm against the current rules before you commit anything.
+        details we confirm against the current rules before you commit anything; the{' '}
+        <a href="/insights/financial-instruments-and-tourism-routes">financial and tourism routes in detail</a>{' '}
+        sets out what the resolution asks for.
       </p>
 
       <h2 id="tourism">Tourism</h2>
@@ -85,6 +87,13 @@ export default function Page() {
         goal through the form below, or{' '}
         <a href="/route-finder">take the Route Finder</a> if you are still deciding whether the
         Investor Pass is the right program at all.
+      </p>
+      <p>
+        Found this page looking for a Paraguay golden visa? This is it:{' '}
+        <a href="/insights/paraguay-golden-visa">the golden visa, explained</a>. And if you have
+        read about a separate SUACE route,{' '}
+        <a href="/insights/investor-pass-vs-suace">Investor Pass vs SUACE</a> explains why it is
+        the same channel.
       </p>
       <ProcessTimeline site="investorpass" route="investor" />
     </ServicePage>

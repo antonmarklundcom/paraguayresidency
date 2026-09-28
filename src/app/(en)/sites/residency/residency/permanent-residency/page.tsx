@@ -66,6 +66,15 @@ export default function Page() {
         <li>Coordination with your cédula renewal, so the two stay in sync.</li>
       </ul>
       <p>
+        Planning further ahead? Permanent residency is also the stage that leads to{' '}
+        <a href="/residency/citizenship">Paraguayan citizenship</a>, if you want it. And if you are
+        retiring from the UK, read{' '}
+        <a href="/guides/living-in-paraguay/uk-state-pension-in-paraguay">
+          retiring in Paraguay on a UK State Pension
+        </a>{' '}
+        before you plan your income around it.
+      </p>
+      <p>
         Not sure whether you are better off waiting out temporary residency or qualifying for the
         Investor Pass now? The <a href="/route-finder">Route Finder</a> compares both against your
         actual situation in about two minutes.

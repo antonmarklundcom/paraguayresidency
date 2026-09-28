@@ -49,7 +49,9 @@ export default function Page() {
         Minimum qualifying investment:{' '}
         <Fact k="investorpass.min_investment_usd" site="investorpass" />. The exact threshold for
         your chosen route is confirmed against the resolution text before you file — see{' '}
-        <a href="/investor-pass/investment-routes">investment routes</a> for what each one covers.
+        <a href="/investor-pass/investment-routes">investment routes</a> for what each one covers,
+        and <a href="/insights/investor-pass-resolution-explained">Resolution 0283/2026 explained</a>{' '}
+        for the text itself, article by article.
       </p>
 
       <h2>Identity and background documentation</h2>
