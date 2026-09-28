@@ -624,5 +624,95 @@
       "resolution": "1k",
       "review": "rejected: mountain postcard clipped in the folder; replaced by index 52"
     }
-  ]
+  ],
+  "videos": {
+    "model": "seedance_2_5 omni_reference, 6 s, no audio; start frame = the hero still (and end frame too for loops)",
+    "cost": "draft 480p 18 + finalize 1080p 72 credits each, 630 total",
+    "clips": [
+      {
+        "id": "residency-hero-asuncion-colonnade",
+        "draft_job_id": "df60bff0-13ad-4e70-9d14-1e435d8119e4",
+        "final_job_id": "aeb11ae9-6eed-41f6-a9fc-f9084999f42d",
+        "mode": "once",
+        "files": [
+          "public/videos/residency-hero-asuncion-colonnade-1080.mp4",
+          "public/videos/residency-hero-asuncion-colonnade-1080.webm",
+          "public/videos/residency-hero-asuncion-colonnade-720.mp4",
+          "public/videos/residency-hero-asuncion-colonnade-720.webm"
+        ]
+      },
+      {
+        "id": "investorpass-hero-business-district-blue-hour",
+        "draft_job_id": "c6ecc94f-111e-41b7-aa5a-68dacffa499c",
+        "final_job_id": "782013d6-2267-445f-ba6d-61ae945e645f",
+        "mode": "loop",
+        "files": [
+          "public/videos/investorpass-hero-business-district-blue-hour-1080.mp4",
+          "public/videos/investorpass-hero-business-district-blue-hour-1080.webm",
+          "public/videos/investorpass-hero-business-district-blue-hour-720.mp4",
+          "public/videos/investorpass-hero-business-district-blue-hour-720.webm"
+        ]
+      },
+      {
+        "id": "guide-hero-reading-desk-asuncion",
+        "draft_job_id": "a0b6d921-4626-47b7-acb2-ccc00ab0a837",
+        "final_job_id": "c750b3c9-a19e-454c-87f5-71ac039e11c1",
+        "mode": "loop",
+        "files": [
+          "public/videos/guide-hero-reading-desk-asuncion-1080.mp4",
+          "public/videos/guide-hero-reading-desk-asuncion-1080.webm",
+          "public/videos/guide-hero-reading-desk-asuncion-720.mp4",
+          "public/videos/guide-hero-reading-desk-asuncion-720.webm"
+        ]
+      },
+      {
+        "id": "frontier-hero-red-earth-ranch-gate",
+        "draft_job_id": "1d590bdc-bd78-4cfe-a03c-92eb8f258fb5",
+        "final_job_id": "858fc032-04f0-42bb-a883-2bfc21fb78e5",
+        "mode": "loop",
+        "files": [
+          "public/videos/frontier-hero-red-earth-ranch-gate-1080.mp4",
+          "public/videos/frontier-hero-red-earth-ranch-gate-1080.webm",
+          "public/videos/frontier-hero-red-earth-ranch-gate-720.mp4",
+          "public/videos/frontier-hero-red-earth-ranch-gate-720.webm"
+        ]
+      },
+      {
+        "id": "residenciaes-hero-cafe-arcade-plaza",
+        "draft_job_id": "99400279-49dc-4266-9aaf-0e1f495fcbe9",
+        "final_job_id": "4bb6d8e4-54ba-4fa8-9c52-32bd234045ba",
+        "mode": "loop",
+        "files": [
+          "public/videos/residenciaes-hero-cafe-arcade-plaza-1080.mp4",
+          "public/videos/residenciaes-hero-cafe-arcade-plaza-1080.webm",
+          "public/videos/residenciaes-hero-cafe-arcade-plaza-720.mp4",
+          "public/videos/residenciaes-hero-cafe-arcade-plaza-720.webm"
+        ]
+      },
+      {
+        "id": "residenciapt-hero-family-veranda-terere",
+        "draft_job_id": "2df38636-d452-4cba-a7cf-4810f86c87e5",
+        "final_job_id": "b4c2f5ab-e760-4d8c-a884-a24abe8456df",
+        "mode": "loop",
+        "files": [
+          "public/videos/residenciapt-hero-family-veranda-terere-1080.mp4",
+          "public/videos/residenciapt-hero-family-veranda-terere-1080.webm",
+          "public/videos/residenciapt-hero-family-veranda-terere-720.mp4",
+          "public/videos/residenciapt-hero-family-veranda-terere-720.webm"
+        ]
+      },
+      {
+        "id": "flytta-hero-veranda-moving-boxes",
+        "draft_job_id": "42aed788-2f79-4c84-abe3-c8d3f94f97ac",
+        "final_job_id": "4fc86770-6c1d-45b7-8739-89ccd9ecd844",
+        "mode": "loop",
+        "files": [
+          "public/videos/flytta-hero-veranda-moving-boxes-1080.mp4",
+          "public/videos/flytta-hero-veranda-moving-boxes-1080.webm",
+          "public/videos/flytta-hero-veranda-moving-boxes-720.mp4",
+          "public/videos/flytta-hero-veranda-moving-boxes-720.webm"
+        ]
+      }
+    ]
+  }
 }
