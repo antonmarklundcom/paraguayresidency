@@ -1,18 +1,23 @@
-/* Anton's personal-story brand, in Swedish. Quiet Nordic light, one blue. */
+/* Anton's personal-story brand, in Swedish. Quiet Nordic light, lake blue,
+   birch as a fill that carries dark text (overhaul plan §1.1).
+   check-contrast: accent-2 fill */
 [data-theme='flytta'] {
-  --bg: #f7f8fa;
+  --bg: #f7f8f7;
   --surface: #ffffff;
-  --surface-alt: #e8ecf2;
-  --fg: #131a24;
-  --fg-muted: #55606f;
-  --border: #d3dae3;
-  --accent: #0b4f8a;
+  --surface-alt: #eaeef0;
+  --fg: #121a22;
+  --fg-muted: #4f5a66;
+  --border: #d3dbe0;
+  --accent: #1d4e89;
   --accent-fg: #ffffff;
-  --accent-soft: #d9e7f4;
+  --accent-soft: #dde7f2;
+  --accent-2: #d9c7a3;
+  --accent-2-on-dark: #d9c7a3;
+  --accent-2-fg: #121a22;
   --display-font: var(--font-inter-tight);
   --display-weight: 600;
   --display-tracking: -0.025em;
   --body-font: var(--font-system);
   --radius-brand: var(--radius);
-  --hero-pattern: linear-gradient(180deg, #f7f8fa 0%, #e8ecf2 100%);
+  --hero-pattern: linear-gradient(180deg, #f7f8f7 0%, #eaeef0 100%);
 }

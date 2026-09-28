@@ -1,6 +1,7 @@
-/* Shared design tokens for all three brands (plan §1.8).
+/* Shared design tokens for all seven brands (plan §1.8; overhaul plan §1.2).
    Per-brand values live in src/styles/themes/*.css and are switched with
-   `data-theme="<siteKey>"` on the site layout wrapper. */
+   `data-theme="<siteKey>"` on the site layout wrapper. Colour pairs are
+   checked for WCAG AA by `npm run check:contrast` (scripts/check-contrast.ts). */
 :root {
   /* Spacing scale */
   --space-1: 0.25rem;
@@ -14,36 +15,72 @@
   --space-12: 3rem;
   --space-16: 4rem;
   --space-24: 6rem;
+  /* Vertical rhythm between page sections, and the page's side gutter. */
+  --space-section: clamp(4rem, 3rem + 5vw, 8rem);
+  --space-gutter: clamp(1.25rem, 0.9rem + 1.5vw, 2rem);
 
-  /* Type scale */
-  --text-xs: 0.8125rem;
-  --text-sm: 0.9375rem;
-  --text-base: 1.0625rem;
-  --text-lg: 1.25rem;
-  --text-xl: 1.5rem;
-  --text-2xl: 1.875rem;
-  --text-3xl: 2.5rem;
-  --text-4xl: 3.25rem;
+  /* Fluid type scale: each step grows linearly from a 360px to a 1440px
+     viewport and holds outside that range. Use as `text-(length:--step-3)`. */
+  --step--2: 0.8125rem; /* 13px, labels and eyebrows: never scales */
+  --step--1: clamp(0.875rem, 0.8542rem + 0.0926vw, 0.9375rem); /* 14 → 15px */
+  --step-0: clamp(1rem, 0.9792rem + 0.0926vw, 1.0625rem); /* 16 → 17px, body */
+  --step-1: clamp(1.125rem, 1.0625rem + 0.2778vw, 1.3125rem); /* 18 → 21px */
+  --step-2: clamp(1.3125rem, 1.2083rem + 0.463vw, 1.625rem); /* 21 → 26px */
+  --step-3: clamp(1.5rem, 1.2917rem + 0.9259vw, 2.125rem); /* 24 → 34px */
+  --step-4: clamp(1.875rem, 1.5417rem + 1.4815vw, 2.875rem); /* 30 → 46px */
+  --step-5: clamp(2.25rem, 1.75rem + 2.2222vw, 3.75rem); /* 36 → 60px */
+  --step-6: clamp(2.625rem, 1.75rem + 3.8889vw, 5.25rem); /* 42 → 84px, heroes */
+
+  /* The pre-overhaul names, kept as aliases so every existing component
+     keeps working. New code uses the steps. */
+  --text-xs: var(--step--2);
+  --text-sm: var(--step--1);
+  --text-base: var(--step-0);
+  --text-lg: var(--step-1);
+  --text-xl: var(--step-2);
+  --text-2xl: var(--step-3);
+  --text-3xl: var(--step-4);
+  --text-4xl: var(--step-5);
   --leading-tight: 1.1;
   --leading-body: 1.65;
   --measure: 68ch;
 
-  /* Radius + elevation */
+  /* Radius */
   --radius-sm: 4px;
   --radius: 10px;
   --radius-lg: 20px;
-  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.06);
-  --shadow: 0 10px 30px -12px rgb(0 0 0 / 0.18);
-  --shadow-lg: 0 30px 60px -30px rgb(0 0 0 / 0.35);
 
-  /* Motion */
-  --ease: cubic-bezier(0.2, 0.6, 0.2, 1);
-  --duration: 180ms;
-  --dur-4: 560ms; /* HeroVideo fade; the rest of the --dur-* scale is in docs/design/overhaul-2026-10-plan.md */
+  /* Elevation: a hairline, a soft lift, a raised card, an overlay. The shadow
+     colour is a cool ink, never a warm brown, so no brand picks up a tint.
+     `--elev-0` (the hairline) uses the theme's border, so it is declared on
+     [data-theme] below: a custom property that reads another one resolves
+     where it is declared, and :root would pin it to the neutral border. */
+  --elev-0: 0 0 0 1px var(--border);
+  --elev-1: 0 1px 2px rgb(16 24 40 / 0.05), 0 1px 3px rgb(16 24 40 / 0.06);
+  --elev-2: 0 12px 32px -12px rgb(16 24 40 / 0.18), 0 2px 6px -2px rgb(16 24 40 / 0.06);
+  --elev-3: 0 32px 64px -24px rgb(16 24 40 / 0.35), 0 8px 16px -8px rgb(16 24 40 / 0.12);
+  /* Pre-overhaul names. */
+  --shadow-sm: var(--elev-1);
+  --shadow: var(--elev-2);
+  --shadow-lg: var(--elev-3);
+
+  /* Motion. Every duration is 0 under prefers-reduced-motion (below). */
+  --dur-1: 120ms;
+  --dur-2: 200ms;
+  --dur-3: 320ms;
+  --dur-4: 560ms;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  /* Pre-overhaul names. */
+  --ease: var(--ease-out);
+  --duration: var(--dur-2);
 
   /* Layout */
   --container: 76rem;
   --container-narrow: 46rem;
+  /* Height of the mobile action bar (MobileWhatsAppBar), without the
+     safe-area inset; the shell reserves this much space under the footer. */
+  --mobile-bar-h: 4.25rem;
 
   /* Font stacks. Brand faces are declared in fonts.css; each theme picks one
      display and one body face. */
@@ -67,9 +104,21 @@
   --accent: #1d6b4f;
   --accent-fg: #ffffff;
   --accent-soft: #e9efec;
+  /* The brand's second colour (plan §1.1). `--accent-2` is the version that
+     is safe as text on the brand's light surfaces (or purely decorative where
+     the theme says so); `--accent-2-on-dark` is for dark bands; `--accent-2-fg`
+     is the text colour on an `--accent-2` fill. Dark bands on a light brand use
+     `--fg` as their background. */
+  --accent-2: #565b63;
+  --accent-2-on-dark: #c9ccd1;
+  --accent-2-fg: #ffffff;
+  /* WhatsApp actions look the same on every brand (plan §1.1). */
+  --wa: #0b7a43;
+  --wa-hover: #096437;
+  --wa-fg: #ffffff;
 
-  /* Feedback colours. Shared across the three themes: a validation error must
-     read the same everywhere, and no brand accent is allowed to be red. */
+  /* Feedback colours. Shared across the themes: a validation error must
+     read the same everywhere. */
   --danger: #b3261e;
   --success: #1d6b4f;
   --body-font: var(--font-system);
@@ -80,8 +129,15 @@
   --radius-brand: var(--radius);
 }
 
+[data-theme] {
+  --elev-0: 0 0 0 1px var(--border);
+}
+
 @media (prefers-reduced-motion: reduce) {
   :root {
-    --duration: 0ms;
+    --dur-1: 0ms;
+    --dur-2: 0ms;
+    --dur-3: 0ms;
+    --dur-4: 0ms;
   }
 }

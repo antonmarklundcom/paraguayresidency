@@ -1,18 +1,23 @@
-/* Low-ticket entry — warm, light, single long-form sales page. */
+/* Guide: a well-made book. Ink on paper white, deep forest, brass
+   (overhaul plan §1.1). No terracotta, no peach.
+   check-contrast: accent-2 text */
 [data-theme='guide'] {
-  --bg: #fdf8f1;
+  --bg: #faf8f3;
   --surface: #ffffff;
-  --surface-alt: #f6ead8;
-  --fg: #211a12;
-  --fg-muted: #6b5c4b;
-  --border: #e6d6bf;
-  --accent: #b4471f;
+  --surface-alt: #f0ede4;
+  --fg: #15181b;
+  --fg-muted: #515861;
+  --border: #dfdbd0;
+  --accent: #1f4a36;
   --accent-fg: #ffffff;
-  --accent-soft: #fbe7dc;
+  --accent-soft: #e3ece6;
+  --accent-2: #8a6a22;
+  --accent-2-on-dark: #b8923f;
+  --accent-2-fg: #ffffff;
   --display-font: var(--font-fraunces);
   --display-weight: 500;
   --display-tracking: -0.025em;
   --body-font: var(--font-system);
   --radius-brand: var(--radius-lg);
-  --hero-pattern: linear-gradient(180deg, #fdf8f1 0%, #f6ead8 100%);
+  --hero-pattern: linear-gradient(180deg, #faf8f3 0%, #f0ede4 100%);
 }

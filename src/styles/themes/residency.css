@@ -1,18 +1,22 @@
-/* Hub — calm, institutional, light. Split-screen hero + bento routes. */
+/* Hub: authority. Ink navy on paper, one brass metal (overhaul plan §1.1).
+   check-contrast: accent-2 text */
 [data-theme='residency'] {
-  --bg: #f7f7f4;
-  --surface: #ffffff;
-  --surface-alt: #eeeee8;
-  --fg: #16181c;
-  --fg-muted: #565b63;
-  --border: #dedcd4;
-  --accent: #1d6b4f;
+  --bg: #f6f4ef;
+  --surface: #fcfbf8;
+  --surface-alt: #ebe7de;
+  --fg: #101b2a;
+  --fg-muted: #4a5465;
+  --border: #d9d4c8;
+  --accent: #12304f;
   --accent-fg: #ffffff;
-  --accent-soft: #e4efe9;
+  --accent-soft: #e3e8ee;
+  --accent-2: #8c6a22;
+  --accent-2-on-dark: #c8a24a;
+  --accent-2-fg: #ffffff;
   --display-font: var(--font-newsreader);
   --display-weight: 500;
   --display-tracking: -0.02em;
   --body-font: var(--font-system);
   --radius-brand: var(--radius);
-  --hero-pattern: linear-gradient(180deg, #f7f7f4 0%, #eeeee8 100%);
+  --hero-pattern: linear-gradient(180deg, #f6f4ef 0%, #ebe7de 100%);
 }

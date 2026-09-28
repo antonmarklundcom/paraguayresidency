@@ -16,7 +16,7 @@ export { NewsletterForm } from './NewsletterForm';
 export { CheckoutButton } from './CheckoutButton';
 export { MagicLinkForm } from './MagicLinkForm';
 export { StickyCta } from './StickyCta';
-export { PhotoHero, heroTrust, type HeroTrust } from './PhotoHero';
+export { PhotoHero, heroTrust, type HeroTrust, type HeroLayout } from './PhotoHero';
 export { IntentTiles } from './IntentTiles';
 export { TeamStrip } from './TeamStrip';
 export { Disclosure } from './Disclosure';
@@ -26,3 +26,15 @@ export { ArticleCards, type ArticleCard } from './ArticleCards';
 export { LeadPanel } from './LeadPanel';
 export { HeroContact, WhatsAppButton, WhatsAppFab } from './WhatsApp';
 export { WhatsAppIcon } from './WhatsAppIcon';
+export { Band, Eyebrow, SectionHeader, type BandTone } from './SectionKit';
+// Overhaul 2026-10 (plan §2). Proof components read content/shared/proof.ts
+// and render nothing while their data is empty.
+export { TrustBar } from './TrustBar';
+export { Testimonials, reviewsFor, flagEmoji } from './Testimonials';
+export { PriceTable, PRICE_ROUTES, type PriceRoute } from './PriceTable';
+export { AfterYouMessage } from './AfterYouMessage';
+export { Guarantee } from './Guarantee';
+export { TeamSection } from './TeamSection';
+export { OfficeStrip } from './OfficeStrip';
+export { MobileWhatsAppBar } from './MobileWhatsAppBar';
+export { BookMockup, TocPreview, SamplePages, ForWhom, ServiceUpsell, GUIDE_COVER } from './GuideSales';

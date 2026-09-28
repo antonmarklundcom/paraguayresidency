@@ -127,6 +127,7 @@ export default function Page() {
           title: post.frontmatter.title,
           description: post.frontmatter.description,
           href: contentHref('residency', post.slugPath),
+          hub: post.hub,
         }))}
         more={{ href: '/guides', label: 'Browse all guides' }}
       />
