@@ -712,6 +712,25 @@ export const facts = {
     "sources": [],
     "note": "No approved service price supplied. Confirm the route scope and separate costs with the team before entering a figure or verifying. Government fees and document-provider charges are not this service fee."
   },
+  "pricing.investor_pass": {
+    "key": "pricing.investor_pass",
+    "label": "Investor Pass — service fee",
+    "display": {
+      "en": "fixed service fee confirmed in writing",
+      "es": "honorario fijo confirmado por escrito",
+      "pt": "honorário fixo confirmado por escrito",
+      "sv": "fast arvode som bekräftas skriftligt"
+    },
+    "hedged": {
+      "en": "a fixed service fee quoted in writing — we confirm the scope and separate costs before you commit",
+      "es": "un honorario fijo cotizado por escrito — confirmamos el alcance y los gastos separados antes de que te comprometas",
+      "pt": "um honorário fixo cotado por escrito — confirmamos o escopo e os custos separados antes de você decidir",
+      "sv": "ett fast arvode som vi offererar skriftligt — vi bekräftar omfattningen och de separata kostnaderna innan du bestämmer dig"
+    },
+    "verified": false,
+    "sources": [],
+    "note": "No approved service price supplied. Added by the design overhaul (W4) so the PriceTable's Investor Pass row reads from the register like the other routes. The investment itself and government fees are not this service fee."
+  },
   "residency.timeline": {
     "key": "residency.timeline",
     "label": "Residency application — processing window",
