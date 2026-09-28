@@ -11,8 +11,8 @@ To pull a figure off every page at once, delete its `sourced` block.
 | Status | Count |
 |---|---|
 | Verified | 0 |
-| Published with source, awaiting sign-off | 36 |
-| Hedged | 13 |
+| Published with source, awaiting sign-off | 54 |
+| Hedged | 14 |
 
 ## Published with source — awaiting sign-off
 
@@ -23,7 +23,7 @@ To pull a figure off every page at once, delete its `sourced` block.
 - **Source:** [DNM requisitos Residencia Temporal (Ley 6984/2022), 2025–26 checklist](https://migraciones.gov.py/residencia-temporal/) — checked 2026-09-26
 - **Other sources:** <https://migraciones.gov.py/residencia-temporal/> · <https://migraciones.gov.py/wp-content/uploads/2025/10/Residencia-Temporal-Ley-6984-1025.pdf> · <https://paraguaysovereign.com/residency/police-certificate/> · <https://moveparaguay.com/en/full-guide/>
 - **Note:** Research 2026-09-26 (medium confidence): The DNM checklist (primary) says the certificate must be original, 'vigente', apostilled/legalised, national/federal level, plus certificates from any country of residence in the last 3 years; under-14s exempt. It does NOT print a day count in the search snippets. The 90-day window (counted from issue date, not apostille date) comes from agency guides; some guides say 6 months for foreign certificates. Since late 2025 DNM/Interpol also verifies directly with the issuing country, which can add delay. Owner: confirm the 90-day practice with the filing lawyer before publishing; the 3-year prior-residence rule is primary-sourced.
-- **Where it appears (28):**
+- **Where it appears (31):**
   - guide member area — members/after-approval/family (`content/guide/members/after-approval/family.mdx`)
   - guide member area — members/costs-and-timeline/timeline-week-by-week (`content/guide/members/costs-and-timeline/timeline-week-by-week.mdx`)
   - guide member area — members/getting-started/documents-by-nationality (`content/guide/members/getting-started/documents-by-nationality.mdx`)
@@ -42,7 +42,10 @@ To pull a figure off every page at once, delete its `sourced` block.
   - https://paraguayresidency.co.uk/guides/documents/apostille-and-documents-for-british-applicants (`content/residency/documents/apostille-and-documents-for-british-applicants.mdx`)
   - https://paraguayresidency.co.uk/guides/documents/apostille-and-documents-for-canadian-applicants (`content/residency/documents/apostille-and-documents-for-canadian-applicants.mdx`)
   - https://paraguayresidency.co.uk/guides/documents/apostille-and-documents-for-german-applicants (`content/residency/documents/apostille-and-documents-for-german-applicants.mdx`)
+  - https://paraguayresidency.co.uk/guides/documents/apostille-and-documents-for-indian-applicants (`content/residency/documents/apostille-and-documents-for-indian-applicants.mdx`)
   - https://paraguayresidency.co.uk/guides/documents/apostille-and-documents-for-south-african-applicants (`content/residency/documents/apostille-and-documents-for-south-african-applicants.mdx`)
+  - https://paraguayresidency.co.uk/guides/documents/choosing-a-paraguay-residency-agent (`content/residency/documents/choosing-a-paraguay-residency-agent.mdx`)
+  - https://paraguayresidency.co.uk/guides/documents/paraguay-residency-with-a-criminal-record (`content/residency/documents/paraguay-residency-with-a-criminal-record.mdx`)
   - https://paraguayresidency.co.uk/guides/documents/police-certificate-and-interpol-checks (`content/residency/documents/police-certificate-and-interpol-checks.mdx`)
   - https://paraguayresidency.co.uk/guides/documents/uk-police-certificate-acro-for-paraguay (`content/residency/documents/uk-police-certificate-acro-for-paraguay.mdx`)
   - https://paraguayresidencyguide.com/blog/apostille-for-paraguay-residency (`content/guide/blog/apostille-for-paraguay-residency.mdx`)
@@ -60,12 +63,15 @@ To pull a figure off every page at once, delete its `sourced` block.
 - **Source:** [MIC Resolución N.º 0283/2026 (Constancia de Inversionista Extranjero)](https://www.mic.gov.py/wp-content/uploads/2026/04/Res.-N-0283.2026_Constancia-de-Inversionista.pdf) — checked 2026-09-26
 - **Other sources:** <https://www.mic.gov.py/wp-content/uploads/2026/04/Res.-N-0283.2026_Constancia-de-Inversionista.pdf> · <https://www.mic.gov.py/paraguay-fortalece-la-atraccion-de-inversiones-extranjeras-con-el-nuevo-investor-pass/> · <https://www.rediex.gov.py/paraguay-fortalece-la-atraccion-de-inversiones-extranjeras-con-el-nuevo-investor-pass/> · <https://cdn-www.lanacionpy.arcpublishing.com/negocios/2026/08/09/con-el-investor-pass-paraguay-busca-atraer-capital-extranjero-con-inversiones-desde-usd-70000/> · <https://www.fragomen.com/insights/paraguay-new-investor-pass-expands-permanent-residence-options.html>
 - **Note:** Research 2026-09-26 (high confidence): The old 70k/150k/200k 'conflict' is resolved: they are different routes under one resolution. 70k = productive (jobs + business plan); 150k = tourism; 200k = real estate and financial instruments. Consistent across MIC, REDIEX (gov) and La Nación. Primary PDF could not be fetched (proxy) — figures taken from MIC/REDIEX official news and search excerpts of the PDF. Pages that promise '70k with no jobs' are wrong; the 70k route requires jobs.
-- **Where it appears (17):**
+- **Where it appears (20):**
   - guide member area — members/getting-started/the-routes-compared (`content/guide/members/getting-started/the-routes-compared.mdx`)
   - guide member area — members/next-steps/investor-pass-overview (`content/guide/members/next-steps/investor-pass-overview.mdx`)
   - https://paraguayinvestorpass.com/ (`src/app/(en)/sites/investorpass/page.tsx`)
   - https://paraguayinvestorpass.com/insights/bringing-your-family (`content/investorpass/insights/bringing-your-family.mdx`)
+  - https://paraguayinvestorpass.com/insights/investor-pass-resolution-explained (`content/investorpass/insights/investor-pass-resolution-explained.mdx`)
+  - https://paraguayinvestorpass.com/insights/investor-pass-vs-suace (`content/investorpass/insights/investor-pass-vs-suace.mdx`)
   - https://paraguayinvestorpass.com/insights/investor-pass-vs-uruguay-panama (`content/investorpass/insights/investor-pass-vs-uruguay-panama.mdx`)
+  - https://paraguayinvestorpass.com/insights/paraguay-golden-visa (`content/investorpass/insights/paraguay-golden-visa.mdx`)
   - https://paraguayinvestorpass.com/insights/real-estate-route-deep-dive (`content/investorpass/insights/real-estate-route-deep-dive.mdx`)
   - https://paraguayinvestorpass.com/insights/what-the-investor-pass-is (`content/investorpass/insights/what-the-investor-pass-is.mdx`)
   - https://paraguayinvestorpass.com/investor-pass/requirements (`src/app/(en)/sites/investorpass/investor-pass/requirements/page.tsx`)
@@ -86,10 +92,13 @@ To pull a figure off every page at once, delete its `sourced` block.
 - **Source:** [MIC/DNM joint launch, 17 Apr 2026; Res. MIC 0283/2026](https://migraciones.gov.py/paraguay-investor-pass-nueva-herramienta-para-facilitar-la-inversion-extranjera-en-el-pais/) — checked 2026-09-26
 - **Other sources:** <https://migraciones.gov.py/paraguay-investor-pass-nueva-herramienta-para-facilitar-la-inversion-extranjera-en-el-pais/> · <https://www.hoy.com.py/nacionales/2026/04/17/mic-y-migraciones-lanzan-el-paraguay-investor-pass> · <https://www.paraguaytv.gov.py/2026/04/23/paraguay-investor-pass-nuevo-instrumento-legal-para-atraer-capitales-extranjeros/> · <https://www.mic.gov.py/wp-content/uploads/2026/04/Res.-N-0283.2026_Constancia-de-Inversionista.pdf>
 - **Note:** Research 2026-09-26 (medium confidence): Public launch event 17 April 2026 (Diario HOY, DNM). IMI Daily reports the resolution signed by Minister Marco Riquelme on 21 April 2026; one guide says rules in force 28 April 2026, another says effective 16 April. Safest public wording: 'April 2026'. Owner: read the resolution's date/vigencia clause in the PDF.
-- **Where it appears (5):**
+- **Where it appears (8):**
   - guide member area — members/next-steps/investor-pass-overview (`content/guide/members/next-steps/investor-pass-overview.mdx`)
   - https://paraguayinvestorpass.com/ (`src/app/(en)/sites/investorpass/page.tsx`)
+  - https://paraguayinvestorpass.com/insights/investor-pass-resolution-explained (`content/investorpass/insights/investor-pass-resolution-explained.mdx`)
+  - https://paraguayinvestorpass.com/insights/investor-pass-vs-suace (`content/investorpass/insights/investor-pass-vs-suace.mdx`)
   - https://paraguayinvestorpass.com/insights/investor-pass-vs-uruguay-panama (`content/investorpass/insights/investor-pass-vs-uruguay-panama.mdx`)
+  - https://paraguayinvestorpass.com/insights/paraguay-golden-visa (`content/investorpass/insights/paraguay-golden-visa.mdx`)
   - https://paraguayinvestorpass.com/insights/what-the-investor-pass-is (`content/investorpass/insights/what-the-investor-pass-is.mdx`)
   - shared code, shown on several pages (`src/features/quiz/ResultView.tsx`)
 
@@ -100,12 +109,13 @@ To pull a figure off every page at once, delete its `sourced` block.
 - **Source:** [Ley 6984/2022 (permanent = indefinite); DNM 'Renovación de Carnet Permanente'](https://migraciones.gov.py/renovacion-de-carnet-permanente/) — checked 2026-09-26
 - **Other sources:** <https://migraciones.gov.py/renovacion-de-carnet-permanente/> · <https://www.bacn.gov.py/leyes-paraguayas/10973/ley-n-6984-de-migraciones> · <https://www.elnacional.com.py/nacionales/todo-lo-hay-saber-sobre-nueva-ley-migraciones-n36782>
 - **Note:** Research 2026-09-26 (medium confidence): Many agency pages say 'a 10-year permanent residency' — that conflates the card with the status. Permanent residency is indefinite ('residir por tiempo indeterminado'); the carnet (and the cédula) are renewed every 10 years under Ley 6984. Renewal fee G 468,308 from 1 Jul 2026. Holders under old Ley 978/1996 are not required to renew. Presence rule still applies (see permanent.presence_rule).
-- **Where it appears (11):**
+- **Where it appears (12):**
   - guide member area — members/getting-started/the-routes-compared (`content/guide/members/getting-started/the-routes-compared.mdx`)
   - guide member area — members/next-steps/investor-pass-overview (`content/guide/members/next-steps/investor-pass-overview.mdx`)
   - https://paraguayinvestorpass.com/ (`src/app/(en)/sites/investorpass/page.tsx`)
   - https://paraguayinvestorpass.com/insights/bringing-your-family (`content/investorpass/insights/bringing-your-family.mdx`)
   - https://paraguayinvestorpass.com/insights/investor-pass-vs-uruguay-panama (`content/investorpass/insights/investor-pass-vs-uruguay-panama.mdx`)
+  - https://paraguayinvestorpass.com/insights/paraguay-golden-visa (`content/investorpass/insights/paraguay-golden-visa.mdx`)
   - https://paraguayinvestorpass.com/insights/renewing-and-converting-to-permanent (`content/investorpass/insights/renewing-and-converting-to-permanent.mdx`)
   - https://paraguayinvestorpass.com/insights/what-the-investor-pass-is (`content/investorpass/insights/what-the-investor-pass-is.mdx`)
   - https://paraguayinvestorpass.com/investor-pass/process (`src/app/(en)/sites/investorpass/investor-pass/process/page.tsx`)
@@ -120,7 +130,7 @@ To pull a figure off every page at once, delete its `sourced` block.
 - **Source:** [Ley 6984/2022, art. 55; Res. DNM 376/2026 (13 May 2026)](https://www.bacn.gov.py/leyes-paraguayas/10973/ley-n-6984-de-migraciones) — checked 2026-09-26
 - **Other sources:** <https://www.bacn.gov.py/leyes-paraguayas/10973/ley-n-6984-de-migraciones> · <https://www.ip.gov.py/ip/2026/04/08/unjustified-absence-from-the-country-leads-to-revocation-of-residency-for-foreigners-officials-remind/> · <https://liberation.travel/paraguay-residency-absence-rules-376-2026/>
 - **Note:** Research 2026-09-26 (high confidence): Rule is consecutive absence, not days per year; one entry resets the clock. Some guides cite art. 54 — the cancellation causes are in art. 55 per most sources; check article number in the law text. NEW IN 2026: Res. DNM 376/2026 (signed 13 May 2026 by director Jorge Kronawetter, repeals Res. 018/2023 and 120/2023) makes the Dirección de Control de Permanencia sweep the register twice a year and cancel by administrative act; prior authorisation for longer absences can be requested (art. 6). Absences justified by DNM authorisation do not count.
-- **Where it appears (43):**
+- **Where it appears (50):**
   - guide member area — members/after-approval/family (`content/guide/members/after-approval/family.mdx`)
   - guide member area — members/costs-and-timeline/timeline-week-by-week (`content/guide/members/costs-and-timeline/timeline-week-by-week.mdx`)
   - guide member area — members/getting-started/the-routes-compared (`content/guide/members/getting-started/the-routes-compared.mdx`)
@@ -138,12 +148,19 @@ To pull a figure off every page at once, delete its `sourced` block.
   - https://paraguayfrontier.com/ (`src/app/(en)/sites/frontier/page.tsx`)
   - https://paraguayfrontier.com/routes (`src/app/(en)/sites/frontier/routes/page.tsx`)
   - https://paraguayfrontier.com/stories/the-presence-rules-nobody-explains (`content/frontier/stories/the-presence-rules-nobody-explains.mdx`)
+  - https://paraguayinvestorpass.com/insights/financial-instruments-and-tourism-routes (`content/investorpass/insights/financial-instruments-and-tourism-routes.mdx`)
+  - https://paraguayinvestorpass.com/insights/investor-pass-vs-suace (`content/investorpass/insights/investor-pass-vs-suace.mdx`)
   - https://paraguayinvestorpass.com/insights/investor-pass-vs-uruguay-panama (`content/investorpass/insights/investor-pass-vs-uruguay-panama.mdx`)
+  - https://paraguayinvestorpass.com/insights/paraguay-citizenship-by-investment (`content/investorpass/insights/paraguay-citizenship-by-investment.mdx`)
+  - https://paraguayinvestorpass.com/insights/paraguay-golden-visa (`content/investorpass/insights/paraguay-golden-visa.mdx`)
   - https://paraguayinvestorpass.com/insights/real-estate-route-deep-dive (`content/investorpass/insights/real-estate-route-deep-dive.mdx`)
   - https://paraguayinvestorpass.com/insights/what-the-investor-pass-is (`content/investorpass/insights/what-the-investor-pass-is.mdx`)
   - https://paraguayinvestorpass.com/investor-pass/process (`src/app/(en)/sites/investorpass/investor-pass/process/page.tsx`)
   - https://paraguayinvestorpass.com/investor-pass/vs-standard-residency (`src/app/(en)/sites/investorpass/investor-pass/vs-standard-residency/page.tsx`)
   - https://paraguayresidency.co.uk/ (`src/app/(en)/sites/residency/page.tsx`)
+  - https://paraguayresidency.co.uk/guides/comparisons/paraguay-vs-dubai-residency (`content/residency/comparisons/paraguay-vs-dubai-residency.mdx`)
+  - https://paraguayresidency.co.uk/guides/living-in-paraguay/uk-state-pension-in-paraguay (`content/residency/living-in-paraguay/uk-state-pension-in-paraguay.mdx`)
+  - https://paraguayresidency.co.uk/residency/citizenship (`src/app/(en)/sites/residency/residency/citizenship/page.tsx`)
   - https://paraguayresidency.co.uk/residency/permanent-residency (`src/app/(en)/sites/residency/residency/permanent-residency/page.tsx`)
   - https://paraguayresidencyguide.com/blog/is-paraguay-residency-worth-it (`content/guide/blog/is-paraguay-residency-worth-it.mdx`)
   - https://paraguayresidencyguide.com/blog/mistakes-we-see-every-month (`content/guide/blog/mistakes-we-see-every-month.mdx`)
@@ -172,7 +189,7 @@ To pull a figure off every page at once, delete its `sourced` block.
 - **Source:** [Ley 6984/2022; DNM Residencia Temporal and Cambio de categoría pages](https://migraciones.gov.py/residencia-temporal/) — checked 2026-09-26
 - **Other sources:** <https://migraciones.gov.py/residencia-temporal/> · <https://migraciones.gov.py/residencia-permanente-para-el-cambio-de-categoria-de-residente-temporal/> · <https://altra.com.py/dos-anos-de-la-ley-6984-2022-residentes-temporales-ya-pueden-acceder-a-su-residencia-permanente/>
 - **Note:** Research 2026-09-26 (high confidence): DNM: card 'hasta 2 años, prorrogable por períodos iguales'. Change of category must be filed within the 3 months (≈90 days) before the temporary card expires — some sources say '3 months', Mercosur page says '90 days'. From 6 July 2026 the conversion requires proof of means under Res. DNM 407/2026 (see solvency.requirement). Extension (prórroga) fee G 1,287,847.
-- **Where it appears (50):**
+- **Where it appears (57):**
   - guide member area — members/costs-and-timeline/timeline-week-by-week (`content/guide/members/costs-and-timeline/timeline-week-by-week.mdx`)
   - guide member area — members/getting-started/the-routes-compared (`content/guide/members/getting-started/the-routes-compared.mdx`)
   - guide member area — members/getting-started/why-paraguay-and-why-not (`content/guide/members/getting-started/why-paraguay-and-why-not.mdx`)
@@ -192,12 +209,19 @@ To pull a figure off every page at once, delete its `sourced` block.
   - https://paraguayfrontier.com/process (`src/app/(en)/sites/frontier/process/page.tsx`)
   - https://paraguayfrontier.com/routes (`src/app/(en)/sites/frontier/routes/page.tsx`)
   - https://paraguayfrontier.com/stories/the-presence-rules-nobody-explains (`content/frontier/stories/the-presence-rules-nobody-explains.mdx`)
+  - https://paraguayinvestorpass.com/insights/investor-pass-vs-suace (`content/investorpass/insights/investor-pass-vs-suace.mdx`)
+  - https://paraguayinvestorpass.com/insights/paraguay-citizenship-by-investment (`content/investorpass/insights/paraguay-citizenship-by-investment.mdx`)
   - https://paraguayinvestorpass.com/investor-pass/vs-standard-residency (`src/app/(en)/sites/investorpass/investor-pass/vs-standard-residency/page.tsx`)
   - https://paraguayresidency.co.uk/ (`src/app/(en)/sites/residency/page.tsx`)
+  - https://paraguayresidency.co.uk/guides/comparisons/paraguay-vs-dubai-residency (`content/residency/comparisons/paraguay-vs-dubai-residency.mdx`)
   - https://paraguayresidency.co.uk/guides/comparisons/paraguay-vs-panama-residency (`content/residency/comparisons/paraguay-vs-panama-residency.mdx`)
+  - https://paraguayresidency.co.uk/guides/comparisons/paraguay-vs-portugal-for-british-citizens (`content/residency/comparisons/paraguay-vs-portugal-for-british-citizens.mdx`)
   - https://paraguayresidency.co.uk/guides/comparisons/paraguay-vs-uruguay-residency (`content/residency/comparisons/paraguay-vs-uruguay-residency.mdx`)
+  - https://paraguayresidency.co.uk/guides/documents/apostille-and-documents-for-indian-applicants (`content/residency/documents/apostille-and-documents-for-indian-applicants.mdx`)
   - https://paraguayresidency.co.uk/guides/documents/what-you-need-to-apply (`content/residency/documents/what-you-need-to-apply.mdx`)
+  - https://paraguayresidency.co.uk/guides/living-in-paraguay/uk-state-pension-in-paraguay (`content/residency/living-in-paraguay/uk-state-pension-in-paraguay.mdx`)
   - https://paraguayresidency.co.uk/process (`src/app/(en)/sites/residency/process/page.tsx`)
+  - https://paraguayresidency.co.uk/residency/citizenship (`src/app/(en)/sites/residency/residency/citizenship/page.tsx`)
   - https://paraguayresidency.co.uk/residency/temporary-residency (`src/app/(en)/sites/residency/residency/temporary-residency/page.tsx`)
   - https://paraguayresidencyguide.com/blog/documents-you-need-for-paraguay-residency (`content/guide/blog/documents-you-need-for-paraguay-residency.mdx`)
   - https://paraguayresidencyguide.com/blog/how-long-paraguay-residency-actually-takes (`content/guide/blog/how-long-paraguay-residency-actually-takes.mdx`)
@@ -231,7 +255,7 @@ To pull a figure off every page at once, delete its `sourced` block.
 - **Source:** [Policía Nacional, Dpto. de Identificaciones — cédula por primera vez a extranjeros](https://www.policianacional.gov.py/identificaciones/cedula-de-identidad-por-primera-vez-a-extranjeros-con-radicacion-permanente/) — checked 2026-09-26
 - **Other sources:** <https://www.policianacional.gov.py/identificaciones/cedula-de-identidad-por-primera-vez-a-extranjeros-con-radicacion-permanente/> · <https://www.policianacional.gov.py/identificaciones/expedicion-de-cedula-de-identidad-a-extranjeros-por-primera-vez/> · <https://moveparaguay.com/en/cedula/> · <https://goparaguay.co/en/blog/paraguay-temporary-residency-guide-2026>
 - **Note:** Research 2026-09-26 (medium confidence): Official page (via search excerpt) lists 60 working days for foreigners needing carnet + antecedentes + Interpol checks (30 working days reference for others). Agencies report 6–12 weeks typical and 'over 3 months' as of Feb 2026 because of volume and the enhanced Interpol verification. Legal basis cited: Res. 215/2020 art. 13. The old 'weeks' wording is too optimistic.
-- **Where it appears (52):**
+- **Where it appears (58):**
   - guide member area — members/after-approval/cedula-and-ruc (`content/guide/members/after-approval/cedula-and-ruc.mdx`)
   - guide member area — members/costs-and-timeline/timeline-week-by-week (`content/guide/members/costs-and-timeline/timeline-week-by-week.mdx`)
   - guide member area — members/insider-deep-dives/this-months-deep-dive (`content/guide/members/insider-deep-dives/this-months-deep-dive.mdx`)
@@ -253,12 +277,18 @@ To pull a figure off every page at once, delete its `sourced` block.
   - https://paraguayinvestorpass.com/ (`src/app/(en)/sites/investorpass/page.tsx`)
   - https://paraguayinvestorpass.com/insights/bringing-your-family (`content/investorpass/insights/bringing-your-family.mdx`)
   - https://paraguayinvestorpass.com/insights/how-long-it-actually-takes (`content/investorpass/insights/how-long-it-actually-takes.mdx`)
+  - https://paraguayinvestorpass.com/insights/investor-pass-vs-suace (`content/investorpass/insights/investor-pass-vs-suace.mdx`)
+  - https://paraguayinvestorpass.com/insights/paraguay-golden-visa (`content/investorpass/insights/paraguay-golden-visa.mdx`)
   - https://paraguayinvestorpass.com/insights/real-estate-route-deep-dive (`content/investorpass/insights/real-estate-route-deep-dive.mdx`)
   - https://paraguayinvestorpass.com/insights/what-the-investor-pass-is (`content/investorpass/insights/what-the-investor-pass-is.mdx`)
   - https://paraguayinvestorpass.com/investor-pass/process (`src/app/(en)/sites/investorpass/investor-pass/process/page.tsx`)
   - https://paraguayinvestorpass.com/investor-pass/requirements (`src/app/(en)/sites/investorpass/investor-pass/requirements/page.tsx`)
+  - https://paraguayresidency.co.uk/guides/documents/apostille-and-documents-for-indian-applicants (`content/residency/documents/apostille-and-documents-for-indian-applicants.mdx`)
   - https://paraguayresidency.co.uk/guides/documents/apostilles-and-translations (`content/residency/documents/apostilles-and-translations.mdx`)
+  - https://paraguayresidency.co.uk/guides/living-in-paraguay/keeping-uk-bank-accounts-after-moving-to-paraguay (`content/residency/living-in-paraguay/keeping-uk-bank-accounts-after-moving-to-paraguay.mdx`)
   - https://paraguayresidency.co.uk/guides/living-in-paraguay/opening-a-bank-account (`content/residency/living-in-paraguay/opening-a-bank-account.mdx`)
+  - https://paraguayresidency.co.uk/guides/living-in-paraguay/uk-driving-licence-in-paraguay (`content/residency/living-in-paraguay/uk-driving-licence-in-paraguay.mdx`)
+  - https://paraguayresidency.co.uk/guides/living-in-paraguay/uk-state-pension-in-paraguay (`content/residency/living-in-paraguay/uk-state-pension-in-paraguay.mdx`)
   - https://paraguayresidency.co.uk/guides/taxes/ruc-and-tax-residency (`content/residency/taxes/ruc-and-tax-residency.mdx`)
   - https://paraguayresidency.co.uk/process (`src/app/(en)/sites/residency/process/page.tsx`)
   - https://paraguayresidency.co.uk/residency/cedula (`src/app/(en)/sites/residency/residency/cedula/page.tsx`)
@@ -292,7 +322,7 @@ To pull a figure off every page at once, delete its `sourced` block.
 - **Source:** [Ley 6380/2019 (IRP), PwC Worldwide Tax Summaries](https://www.bacn.gov.py/leyes-paraguayas/9332/ley-n-6380-de-modernizacion-y-simplificacion-del-sistema-tributario-nacional) — checked 2026-09-26
 - **Other sources:** <https://www.bacn.gov.py/leyes-paraguayas/9332/ley-n-6380-de-modernizacion-y-simplificacion-del-sistema-tributario-nacional> · <https://taxsummaries.pwc.com/paraguay/individual/taxes-on-personal-income> · <https://www.dnit.gov.py/en/web/portal-institucional/w/d-ley-n-6380-19>
 - **Note:** Research 2026-09-26 (high confidence): IRP personal services: 8% up to G 50m, 9% G 50–150m, 10% above G 150m net income; capital income (rents, interest, gains) flat 8%. The old '10% flat' display is a simplification — keep '10%' only as 'top rate'. Personal-services IRP applies once gross annual income exceeds G 80m (PwC summary; owner should confirm current threshold). Never render as advice.
-- **Where it appears (29):**
+- **Where it appears (33):**
   - guide member area — members/after-approval/taxes-for-residents (`content/guide/members/after-approval/taxes-for-residents.mdx`)
   - guide member area — members/getting-started/why-paraguay-and-why-not (`content/guide/members/getting-started/why-paraguay-and-why-not.mdx`)
   - guide member area — members/next-steps/mistakes-we-see-monthly (`content/guide/members/next-steps/mistakes-we-see-monthly.mdx`)
@@ -303,12 +333,16 @@ To pull a figure off every page at once, delete its `sourced` block.
   - https://paraguayfrontier.com/why-paraguay (`src/app/(en)/sites/frontier/why-paraguay/page.tsx`)
   - https://paraguayinvestorpass.com/insights/investor-pass-and-your-taxes (`content/investorpass/insights/investor-pass-and-your-taxes.mdx`)
   - https://paraguayinvestorpass.com/insights/investor-pass-vs-uruguay-panama (`content/investorpass/insights/investor-pass-vs-uruguay-panama.mdx`)
+  - https://paraguayinvestorpass.com/insights/paraguay-golden-visa (`content/investorpass/insights/paraguay-golden-visa.mdx`)
   - https://paraguayinvestorpass.com/insights/real-estate-route-deep-dive (`content/investorpass/insights/real-estate-route-deep-dive.mdx`)
+  - https://paraguayresidency.co.uk/guides/comparisons/paraguay-vs-dubai-residency (`content/residency/comparisons/paraguay-vs-dubai-residency.mdx`)
   - https://paraguayresidency.co.uk/guides/comparisons/paraguay-vs-panama-residency (`content/residency/comparisons/paraguay-vs-panama-residency.mdx`)
+  - https://paraguayresidency.co.uk/guides/comparisons/paraguay-vs-portugal-for-british-citizens (`content/residency/comparisons/paraguay-vs-portugal-for-british-citizens.mdx`)
   - https://paraguayresidency.co.uk/guides/comparisons/paraguay-vs-uruguay-residency (`content/residency/comparisons/paraguay-vs-uruguay-residency.mdx`)
   - https://paraguayresidency.co.uk/guides/living-in-paraguay/opening-a-bank-account (`content/residency/living-in-paraguay/opening-a-bank-account.mdx`)
   - https://paraguayresidency.co.uk/guides/taxes/ruc-and-tax-residency (`content/residency/taxes/ruc-and-tax-residency.mdx`)
   - https://paraguayresidency.co.uk/guides/taxes/territorial-tax-explained (`content/residency/taxes/territorial-tax-explained.mdx`)
+  - https://paraguayresidency.co.uk/guides/taxes/uk-pensions-isas-and-property-after-moving-to-paraguay (`content/residency/taxes/uk-pensions-isas-and-property-after-moving-to-paraguay.mdx`)
   - https://paraguayresidency.co.uk/guides/taxes/uk-tax-when-moving-to-paraguay (`content/residency/taxes/uk-tax-when-moving-to-paraguay.mdx`)
   - https://paraguayresidency.co.uk/residency/tax-residency (`src/app/(en)/sites/residency/residency/tax-residency/page.tsx`)
   - https://paraguayresidencyguide.com/blog/paraguay-residency-scams (`content/guide/blog/paraguay-residency-scams.mdx`)
@@ -330,11 +364,13 @@ To pull a figure off every page at once, delete its `sourced` block.
 - **Source:** [MIC Res. 0283/2026](https://www.mic.gov.py/wp-content/uploads/2026/04/Res.-N-0283.2026_Constancia-de-Inversionista.pdf) — checked 2026-09-26
 - **Other sources:** <https://www.mic.gov.py/wp-content/uploads/2026/04/Res.-N-0283.2026_Constancia-de-Inversionista.pdf> · <https://www.mic.gov.py/paraguay-fortalece-la-atraccion-de-inversiones-extranjeras-con-el-nuevo-investor-pass/> · <https://www.rediex.gov.py/paraguay-fortalece-la-atraccion-de-inversiones-extranjeras-con-el-nuevo-investor-pass/> · <https://getgoldenvisa.com/paraguay-golden-visa>
 - **Note:** Research 2026-09-26 (high confidence): No jobs or business plan required, but property must be for economic activity — personal/family use excluded. The current 'from USD 70,000' display is WRONG and must change.
-- **Where it appears (10):**
+- **Where it appears (12):**
   - guide member area — members/getting-started/the-routes-compared (`content/guide/members/getting-started/the-routes-compared.mdx`)
   - guide member area — members/next-steps/investor-pass-overview (`content/guide/members/next-steps/investor-pass-overview.mdx`)
   - guide member area — members/next-steps/mistakes-we-see-monthly (`content/guide/members/next-steps/mistakes-we-see-monthly.mdx`)
   - https://paraguayinvestorpass.com/ (`src/app/(en)/sites/investorpass/page.tsx`)
+  - https://paraguayinvestorpass.com/insights/investor-pass-resolution-explained (`content/investorpass/insights/investor-pass-resolution-explained.mdx`)
+  - https://paraguayinvestorpass.com/insights/paraguay-golden-visa (`content/investorpass/insights/paraguay-golden-visa.mdx`)
   - https://paraguayinvestorpass.com/insights/real-estate-route-deep-dive (`content/investorpass/insights/real-estate-route-deep-dive.mdx`)
   - https://paraguayinvestorpass.com/insights/what-the-investor-pass-is (`content/investorpass/insights/what-the-investor-pass-is.mdx`)
   - https://paraguayinvestorpass.com/investor-pass/investment-routes (`src/app/(en)/sites/investorpass/investor-pass/investment-routes/page.tsx`)
@@ -349,9 +385,12 @@ To pull a figure off every page at once, delete its `sourced` block.
 - **Source:** [MIC Res. 0283/2026](https://www.mic.gov.py/wp-content/uploads/2026/04/Res.-N-0283.2026_Constancia-de-Inversionista.pdf) — checked 2026-09-26
 - **Other sources:** <https://www.mic.gov.py/wp-content/uploads/2026/04/Res.-N-0283.2026_Constancia-de-Inversionista.pdf> · <https://www.mic.gov.py/paraguay-fortalece-la-atraccion-de-inversiones-extranjeras-con-el-nuevo-investor-pass/> · <https://www.rediex.gov.py/paraguay-fortalece-la-atraccion-de-inversiones-extranjeras-con-el-nuevo-investor-pass/> · <https://www.ferrere.com/es/novedades/residencia-permanente-por-inversion-paraguay-agiliza-el-acceso-a-la-constancia-de-inversionista-extranjero/>
 - **Note:** Research 2026-09-26 (high confidence): Industry, commerce or services. SUACE requirement sheets add an execution schedule with the investment implemented within max 24 months (see suace.status).
-- **Where it appears (7):**
+- **Where it appears (10):**
   - guide member area — members/next-steps/investor-pass-overview (`content/guide/members/next-steps/investor-pass-overview.mdx`)
   - https://paraguayinvestorpass.com/ (`src/app/(en)/sites/investorpass/page.tsx`)
+  - https://paraguayinvestorpass.com/insights/investor-pass-resolution-explained (`content/investorpass/insights/investor-pass-resolution-explained.mdx`)
+  - https://paraguayinvestorpass.com/insights/investor-pass-vs-suace (`content/investorpass/insights/investor-pass-vs-suace.mdx`)
+  - https://paraguayinvestorpass.com/insights/paraguay-golden-visa (`content/investorpass/insights/paraguay-golden-visa.mdx`)
   - https://paraguayinvestorpass.com/insights/what-the-investor-pass-is (`content/investorpass/insights/what-the-investor-pass-is.mdx`)
   - https://paraguayinvestorpass.com/investor-pass/investment-routes (`src/app/(en)/sites/investorpass/investor-pass/investment-routes/page.tsx`)
   - https://paraguayresidencyguide.com/blog/paraguay-investor-pass-explained (`content/guide/blog/paraguay-investor-pass-explained.mdx`)
@@ -365,9 +404,12 @@ To pull a figure off every page at once, delete its `sourced` block.
 - **Source:** [MIC Res. 0283/2026](https://www.mic.gov.py/wp-content/uploads/2026/04/Res.-N-0283.2026_Constancia-de-Inversionista.pdf) — checked 2026-09-26
 - **Other sources:** <https://www.mic.gov.py/wp-content/uploads/2026/04/Res.-N-0283.2026_Constancia-de-Inversionista.pdf> · <https://www.mic.gov.py/paraguay-fortalece-la-atraccion-de-inversiones-extranjeras-con-el-nuevo-investor-pass/> · <https://www.rediex.gov.py/paraguay-fortalece-la-atraccion-de-inversiones-extranjeras-con-el-nuevo-investor-pass/>
 - **Note:** Research 2026-09-26 (high confidence): No jobs or business management required. Some guides describe it as Paraguayan stock-market (BVA) securities; exact eligible instruments (bonds, CDAs, funds?) must be read from the resolution text before being listed.
-- **Where it appears (7):**
+- **Where it appears (10):**
   - guide member area — members/next-steps/investor-pass-overview (`content/guide/members/next-steps/investor-pass-overview.mdx`)
   - https://paraguayinvestorpass.com/ (`src/app/(en)/sites/investorpass/page.tsx`)
+  - https://paraguayinvestorpass.com/insights/financial-instruments-and-tourism-routes (`content/investorpass/insights/financial-instruments-and-tourism-routes.mdx`)
+  - https://paraguayinvestorpass.com/insights/investor-pass-resolution-explained (`content/investorpass/insights/investor-pass-resolution-explained.mdx`)
+  - https://paraguayinvestorpass.com/insights/paraguay-golden-visa (`content/investorpass/insights/paraguay-golden-visa.mdx`)
   - https://paraguayinvestorpass.com/insights/what-the-investor-pass-is (`content/investorpass/insights/what-the-investor-pass-is.mdx`)
   - https://paraguayinvestorpass.com/investor-pass/investment-routes (`src/app/(en)/sites/investorpass/investor-pass/investment-routes/page.tsx`)
   - https://paraguayresidencyguide.com/blog/paraguay-investor-pass-explained (`content/guide/blog/paraguay-investor-pass-explained.mdx`)
@@ -381,9 +423,12 @@ To pull a figure off every page at once, delete its `sourced` block.
 - **Source:** [MIC Res. 0283/2026](https://www.mic.gov.py/wp-content/uploads/2026/04/Res.-N-0283.2026_Constancia-de-Inversionista.pdf) — checked 2026-09-26
 - **Other sources:** <https://www.mic.gov.py/wp-content/uploads/2026/04/Res.-N-0283.2026_Constancia-de-Inversionista.pdf> · <https://www.mic.gov.py/paraguay-fortalece-la-atraccion-de-inversiones-extranjeras-con-el-nuevo-investor-pass/> · <https://www.rediex.gov.py/paraguay-fortalece-la-atraccion-de-inversiones-extranjeras-con-el-nuevo-investor-pass/> · <https://finance.yahoo.com/economy/policy/articles/paraguay-offers-direct-permanent-residency-152937040.html>
 - **Note:** Research 2026-09-26 (high confidence): Business plan and technical follow-up (likely SENATUR involvement) required; job-creation requirement not stated for this route in the sources seen.
-- **Where it appears (7):**
+- **Where it appears (10):**
   - guide member area — members/next-steps/investor-pass-overview (`content/guide/members/next-steps/investor-pass-overview.mdx`)
   - https://paraguayinvestorpass.com/ (`src/app/(en)/sites/investorpass/page.tsx`)
+  - https://paraguayinvestorpass.com/insights/financial-instruments-and-tourism-routes (`content/investorpass/insights/financial-instruments-and-tourism-routes.mdx`)
+  - https://paraguayinvestorpass.com/insights/investor-pass-resolution-explained (`content/investorpass/insights/investor-pass-resolution-explained.mdx`)
+  - https://paraguayinvestorpass.com/insights/paraguay-golden-visa (`content/investorpass/insights/paraguay-golden-visa.mdx`)
   - https://paraguayinvestorpass.com/insights/what-the-investor-pass-is (`content/investorpass/insights/what-the-investor-pass-is.mdx`)
   - https://paraguayinvestorpass.com/investor-pass/investment-routes (`src/app/(en)/sites/investorpass/investor-pass/investment-routes/page.tsx`)
   - https://paraguayresidencyguide.com/blog/paraguay-investor-pass-explained (`content/guide/blog/paraguay-investor-pass-explained.mdx`)
@@ -425,7 +470,7 @@ To pull a figure off every page at once, delete its `sourced` block.
 - **Source:** [Ley 6380/2019, art. 6 (source rule)](https://www.bacn.gov.py/leyes-paraguayas/9332/ley-n-6380-de-modernizacion-y-simplificacion-del-sistema-tributario-nacional) — checked 2026-09-26
 - **Other sources:** <https://www.bacn.gov.py/leyes-paraguayas/9332/ley-n-6380-de-modernizacion-y-simplificacion-del-sistema-tributario-nacional> · <https://taxsummaries.pwc.com/paraguay/individual/taxes-on-personal-income> · <https://www.dnit.gov.py/en/web/portal-institucional/w/d-ley-n-6380-19>
 - **Note:** Research 2026-09-26 (high confidence): CAVEAT for the frontier brand: Ley 6380 deems interest on deposits abroad, FX differences and foreign dividends to be Paraguay-source WHEN the investing entity is constituted or resident in Paraguay — i.e. routing foreign investments through a Paraguayan company (IRE) brings them into tax. For individuals holding directly, foreign interest/dividends/pensions are generally out of scope. Never render as 'tax-free'; home-country rules still apply.
-- **Where it appears (46):**
+- **Where it appears (50):**
   - guide member area — members/after-approval/taxes-for-residents (`content/guide/members/after-approval/taxes-for-residents.mdx`)
   - guide member area — members/getting-started/why-paraguay-and-why-not (`content/guide/members/getting-started/why-paraguay-and-why-not.mdx`)
   - guide member area — members/next-steps/mistakes-we-see-monthly (`content/guide/members/next-steps/mistakes-we-see-monthly.mdx`)
@@ -446,10 +491,14 @@ To pull a figure off every page at once, delete its `sourced` block.
   - https://paraguayinvestorpass.com/insights/investor-pass-and-your-taxes (`content/investorpass/insights/investor-pass-and-your-taxes.mdx`)
   - https://paraguayinvestorpass.com/insights/investor-pass-vs-uruguay-panama (`content/investorpass/insights/investor-pass-vs-uruguay-panama.mdx`)
   - https://paraguayresidency.co.uk/ (`src/app/(en)/sites/residency/page.tsx`)
+  - https://paraguayresidency.co.uk/guides/comparisons/paraguay-vs-dubai-residency (`content/residency/comparisons/paraguay-vs-dubai-residency.mdx`)
   - https://paraguayresidency.co.uk/guides/comparisons/paraguay-vs-panama-residency (`content/residency/comparisons/paraguay-vs-panama-residency.mdx`)
+  - https://paraguayresidency.co.uk/guides/comparisons/paraguay-vs-portugal-for-british-citizens (`content/residency/comparisons/paraguay-vs-portugal-for-british-citizens.mdx`)
   - https://paraguayresidency.co.uk/guides/comparisons/paraguay-vs-uruguay-residency (`content/residency/comparisons/paraguay-vs-uruguay-residency.mdx`)
+  - https://paraguayresidency.co.uk/guides/living-in-paraguay/uk-state-pension-in-paraguay (`content/residency/living-in-paraguay/uk-state-pension-in-paraguay.mdx`)
   - https://paraguayresidency.co.uk/guides/taxes/ruc-and-tax-residency (`content/residency/taxes/ruc-and-tax-residency.mdx`)
   - https://paraguayresidency.co.uk/guides/taxes/territorial-tax-explained (`content/residency/taxes/territorial-tax-explained.mdx`)
+  - https://paraguayresidency.co.uk/guides/taxes/uk-pensions-isas-and-property-after-moving-to-paraguay (`content/residency/taxes/uk-pensions-isas-and-property-after-moving-to-paraguay.mdx`)
   - https://paraguayresidency.co.uk/guides/taxes/uk-tax-when-moving-to-paraguay (`content/residency/taxes/uk-tax-when-moving-to-paraguay.mdx`)
   - https://paraguayresidency.co.uk/residency/tax-residency (`src/app/(en)/sites/residency/residency/tax-residency/page.tsx`)
   - https://paraguayresidencyguide.com/blog/is-paraguay-residency-worth-it (`content/guide/blog/is-paraguay-residency-worth-it.mdx`)
@@ -480,10 +529,13 @@ To pull a figure off every page at once, delete its `sourced` block.
 - **Source:** [Numbeo, Asunción, updated Aug 2026](https://www.numbeo.com/cost-of-living/in/Asuncion) — checked 2026-09-26
 - **Other sources:** <https://www.numbeo.com/cost-of-living/in/Asuncion> · <https://citycost.org/asuncion/> · <https://wise.com/gb/cost-of-living/paraguay/asuncion> · <https://expatsettle.com/asuncion/cost-of-living>
 - **Note:** Research 2026-09-26 (medium confidence): Numbeo Aug 2026: single person USD 598.8 (G 3,549,650) excl. rent; family of four USD 2,242 (G 13,293,016) excl. rent. CityCost ~USD 622, Wise ~GBP 435. Crowd-sourced; Numbeo page itself could not be fetched (proxy) — figures from search excerpts. Dated figure: must show the month. pt brand's comparative framing vs Brazilian capitals can stay as extra copy.
-- **Where it appears (16):**
+- **Where it appears (19):**
   - guide member area — members/costs-and-timeline/real-costs (`content/guide/members/costs-and-timeline/real-costs.mdx`)
   - guide member area — members/getting-started/why-paraguay-and-why-not (`content/guide/members/getting-started/why-paraguay-and-why-not.mdx`)
   - https://paraguayfrontier.com/stories/cost-of-living-reality-check (`content/frontier/stories/cost-of-living-reality-check.mdx`)
+  - https://paraguayresidency.co.uk/guides/comparisons/paraguay-vs-dubai-residency (`content/residency/comparisons/paraguay-vs-dubai-residency.mdx`)
+  - https://paraguayresidency.co.uk/guides/comparisons/paraguay-vs-portugal-for-british-citizens (`content/residency/comparisons/paraguay-vs-portugal-for-british-citizens.mdx`)
+  - https://paraguayresidency.co.uk/guides/living-in-paraguay/uk-state-pension-in-paraguay (`content/residency/living-in-paraguay/uk-state-pension-in-paraguay.mdx`)
   - https://paraguayresidencyguide.com/blog/real-cost-of-living-in-paraguay (`content/guide/blog/real-cost-of-living-in-paraguay.mdx`)
   - https://paraguayresidencyguide.com/blog/retire-in-paraguay (`content/guide/blog/retire-in-paraguay.mdx`)
   - https://residenciaenparaguay.es/guias/comparativas/paraguay-vs-espana (`content/residenciaes/comparativas/paraguay-vs-espana.mdx`)
@@ -505,11 +557,13 @@ To pull a figure off every page at once, delete its `sourced` block.
 - **Source:** [Decreto 6225/2026; Res. DNM 478/2026](https://migraciones.gov.py/nuevos-aranceles-migratorios-rigen-desde-el-1-de-julio-por-reajuste-del-salario-minimo/) — checked 2026-09-26
 - **Other sources:** <https://migraciones.gov.py/nuevos-aranceles-migratorios-rigen-desde-el-1-de-julio-por-reajuste-del-salario-minimo/> · <https://www.vouga.com.py/en/decreto-n-6225-2026-reajuste-del-salario-minimo-legal-para-el-sector-privado/> · <https://www.ip.gov.py/ip/2026/07/01/direccion-de-migraciones-establece-nuevos-aranceles-para-tramites-migratorios-desde-este-1-de-julio/>
 - **Note:** Research 2026-09-26 (high confidence): Minimum wage G 3,044,000/month, daily G 117,077, from 1 Jul 2026 (+5%). Every fees.* entry below goes stale each July; set a yearly review.
-- **Where it appears (15):**
+- **Where it appears (17):**
   - guide member area — members/costs-and-timeline/real-costs (`content/guide/members/costs-and-timeline/real-costs.mdx`)
   - guide member area — members/getting-started/why-paraguay-and-why-not (`content/guide/members/getting-started/why-paraguay-and-why-not.mdx`)
   - guide member area — members/next-steps/checklists (`content/guide/members/next-steps/checklists.mdx`)
   - guide member area — members/next-steps/mistakes-we-see-monthly (`content/guide/members/next-steps/mistakes-we-see-monthly.mdx`)
+  - https://paraguayinvestorpass.com/insights/paraguay-golden-visa (`content/investorpass/insights/paraguay-golden-visa.mdx`)
+  - https://paraguayresidency.co.uk/guides/documents/choosing-a-paraguay-residency-agent (`content/residency/documents/choosing-a-paraguay-residency-agent.mdx`)
   - https://paraguayresidencyguide.com/blog/paraguay-residency-2026-rule-changes (`content/guide/blog/paraguay-residency-2026-rule-changes.mdx`)
   - https://paraguayresidencyguide.com/blog/paraguay-residency-cost (`content/guide/blog/paraguay-residency-cost.mdx`)
   - https://residenciaenparaguay.es/guias/comparativas/paraguay-vs-argentina (`content/residenciaes/comparativas/paraguay-vs-argentina.mdx`)
@@ -529,12 +583,14 @@ To pull a figure off every page at once, delete its `sourced` block.
 - **Source:** [DNM aranceles from 1 Jul 2026 (Res. DNM 478/2026) — 25 jornales](https://migraciones.gov.py/aranceles-migratorios/) — checked 2026-09-26
 - **Other sources:** <https://migraciones.gov.py/aranceles-migratorios/> · <https://migraciones.gov.py/nuevos-aranceles-migratorios-rigen-desde-el-1-de-julio-por-reajuste-del-salario-minimo/> · <https://expatsettle.com/paraguay-residency-calculator> · <https://vfparaguaygestiones.com.py/residencia-temporal-paraguay/>
 - **Note:** Research 2026-09-26 (high confidence): 25 × G 117,077 = G 2,926,925 exactly, matching agency quotes. Before 1 Jul 2026 it was G 2,787,550 (25 × 111,502) — pages quoting that figure are outdated. USD at BCP ~G 5,870/USD (25 Sep 2026); older pages say ~USD 370 using a weaker guaraní. Cash in guaraníes or Bancard POS cards. Some agencies add a separate 'certificado de radicación' fee — check the DNM table.
-- **Where it appears (18):**
+- **Where it appears (20):**
   - guide member area — members/after-approval/family (`content/guide/members/after-approval/family.mdx`)
   - guide member area — members/costs-and-timeline/real-costs (`content/guide/members/costs-and-timeline/real-costs.mdx`)
   - guide member area — members/costs-and-timeline/timeline-week-by-week (`content/guide/members/costs-and-timeline/timeline-week-by-week.mdx`)
   - guide member area — members/getting-started/the-routes-compared (`content/guide/members/getting-started/the-routes-compared.mdx`)
   - guide member area — members/next-steps/checklists (`content/guide/members/next-steps/checklists.mdx`)
+  - https://paraguayresidency.co.uk/guides/documents/apostille-and-documents-for-indian-applicants (`content/residency/documents/apostille-and-documents-for-indian-applicants.mdx`)
+  - https://paraguayresidency.co.uk/guides/documents/choosing-a-paraguay-residency-agent (`content/residency/documents/choosing-a-paraguay-residency-agent.mdx`)
   - https://paraguayresidencyguide.com/blog/documents-you-need-for-paraguay-residency (`content/guide/blog/documents-you-need-for-paraguay-residency.mdx`)
   - https://paraguayresidencyguide.com/blog/paraguay-residency-cost (`content/guide/blog/paraguay-residency-cost.mdx`)
   - https://paraguayresidencyguide.com/blog/requirements-residency-paraguay (`content/guide/blog/requirements-residency-paraguay.mdx`)
@@ -605,13 +661,16 @@ To pull a figure off every page at once, delete its `sourced` block.
 - **Source:** [Policía Nacional, Dpto. Interpol — 1 jornal from 1 Jul 2026](https://www.abc.com.py/nacionales/2026/07/01/certificado-de-antecedentes-interpol-nuevo-costo-vigente-desde-julio-2026/) — checked 2026-09-26
 - **Other sources:** <https://www.abc.com.py/nacionales/2026/07/01/certificado-de-antecedentes-interpol-nuevo-costo-vigente-desde-julio-2026/> · <https://x.com/InterpolOCNASU/status/1940019823271973099> · <https://www.ip.gov.py/ip/2026/04/20/el-departamento-de-interpol-detalla-requisitos-para-la-expedicion-del-certificado-de-antecedentes/>
 - **Note:** Research 2026-09-26 (high confidence): Was G 111,502 until 30 Jun 2026. Issued in 1–2 working days per guides, but 2026 enhanced verification with country of origin can delay. Press (La Política Online) reported allegations of parallel 'fees' at Interpol — worth warning clients to pay only the official amount.
-- **Where it appears (15):**
+- **Where it appears (18):**
   - guide member area — members/after-approval/cedula-and-ruc (`content/guide/members/after-approval/cedula-and-ruc.mdx`)
   - guide member area — members/costs-and-timeline/real-costs (`content/guide/members/costs-and-timeline/real-costs.mdx`)
   - guide member area — members/costs-and-timeline/timeline-week-by-week (`content/guide/members/costs-and-timeline/timeline-week-by-week.mdx`)
   - guide member area — members/getting-started/documents-by-nationality (`content/guide/members/getting-started/documents-by-nationality.mdx`)
   - guide member area — members/next-steps/checklists (`content/guide/members/next-steps/checklists.mdx`)
   - guide member area — members/next-steps/mistakes-we-see-monthly (`content/guide/members/next-steps/mistakes-we-see-monthly.mdx`)
+  - https://paraguayinvestorpass.com/insights/paraguay-golden-visa (`content/investorpass/insights/paraguay-golden-visa.mdx`)
+  - https://paraguayresidency.co.uk/guides/documents/choosing-a-paraguay-residency-agent (`content/residency/documents/choosing-a-paraguay-residency-agent.mdx`)
+  - https://paraguayresidency.co.uk/guides/documents/paraguay-residency-with-a-criminal-record (`content/residency/documents/paraguay-residency-with-a-criminal-record.mdx`)
   - https://paraguayresidency.co.uk/guides/documents/uk-police-certificate-acro-for-paraguay (`content/residency/documents/uk-police-certificate-acro-for-paraguay.mdx`)
   - https://paraguayresidencyguide.com/blog/cedula-power-of-attorney (`content/guide/blog/cedula-power-of-attorney.mdx`)
   - https://paraguayresidencyguide.com/blog/documents-you-need-for-paraguay-residency (`content/guide/blog/documents-you-need-for-paraguay-residency.mdx`)
@@ -629,12 +688,13 @@ To pull a figure off every page at once, delete its `sourced` block.
 - **Source:** [Policía Nacional, Certificado de Antecedentes Policiales](https://www.policianacional.gov.py/identificaciones/certificado-de-antecedentes-policiales/) — checked 2026-09-26
 - **Other sources:** <https://www.policianacional.gov.py/identificaciones/certificado-de-antecedentes-policiales/> · <https://paraguay.gov.py/oee/policia-nacional/14>
 - **Note:** Research 2026-09-26 (medium confidence): Figures from search excerpts; may have been adjusted in July 2026 — confirm.
-- **Where it appears (18):**
+- **Where it appears (19):**
   - guide member area — members/after-approval/cedula-and-ruc (`content/guide/members/after-approval/cedula-and-ruc.mdx`)
   - guide member area — members/costs-and-timeline/real-costs (`content/guide/members/costs-and-timeline/real-costs.mdx`)
   - guide member area — members/costs-and-timeline/timeline-week-by-week (`content/guide/members/costs-and-timeline/timeline-week-by-week.mdx`)
   - guide member area — members/getting-started/documents-by-nationality (`content/guide/members/getting-started/documents-by-nationality.mdx`)
   - guide member area — members/next-steps/checklists (`content/guide/members/next-steps/checklists.mdx`)
+  - https://paraguayresidency.co.uk/guides/documents/paraguay-residency-with-a-criminal-record (`content/residency/documents/paraguay-residency-with-a-criminal-record.mdx`)
   - https://paraguayresidencyguide.com/blog/cedula-power-of-attorney (`content/guide/blog/cedula-power-of-attorney.mdx`)
   - https://paraguayresidencyguide.com/blog/documents-you-need-for-paraguay-residency (`content/guide/blog/documents-you-need-for-paraguay-residency.mdx`)
   - https://paraguayresidencyguide.com/blog/paraguay-residency-cost (`content/guide/blog/paraguay-residency-cost.mdx`)
@@ -681,7 +741,7 @@ To pull a figure off every page at once, delete its `sourced` block.
 - **Source:** [Ley 6984/2022, art. 55; Res. DNM 376/2026](https://www.bacn.gov.py/leyes-paraguayas/10973/ley-n-6984-de-migraciones) — checked 2026-09-26
 - **Other sources:** <https://www.bacn.gov.py/leyes-paraguayas/10973/ley-n-6984-de-migraciones> · <https://www.ip.gov.py/ip/2026/04/08/unjustified-absence-from-the-country-leads-to-revocation-of-residency-for-foreigners-officials-remind/> · <https://liberation.travel/paraguay-residency-absence-rules-376-2026/> · <https://paraguaysovereign.com/residency/maintain-residency/>
 - **Note:** Research 2026-09-26 (high confidence): No minimum stay; one entry resets the clock. Not a new 2026 law — it is the 2022 law, but 2026 brought active enforcement (Res. 376/2026: twice-yearly register sweeps, cancellation by administrative act). DNM can authorise longer absences in advance.
-- **Where it appears (13):**
+- **Where it appears (16):**
   - guide member area — members/after-approval/family (`content/guide/members/after-approval/family.mdx`)
   - guide member area — members/costs-and-timeline/timeline-week-by-week (`content/guide/members/costs-and-timeline/timeline-week-by-week.mdx`)
   - guide member area — members/getting-started/the-routes-compared (`content/guide/members/getting-started/the-routes-compared.mdx`)
@@ -689,6 +749,9 @@ To pull a figure off every page at once, delete its `sourced` block.
   - guide member area — members/next-steps/checklists (`content/guide/members/next-steps/checklists.mdx`)
   - guide member area — members/next-steps/investor-pass-overview (`content/guide/members/next-steps/investor-pass-overview.mdx`)
   - guide member area — members/next-steps/mistakes-we-see-monthly (`content/guide/members/next-steps/mistakes-we-see-monthly.mdx`)
+  - https://paraguayresidency.co.uk/guides/comparisons/paraguay-vs-dubai-residency (`content/residency/comparisons/paraguay-vs-dubai-residency.mdx`)
+  - https://paraguayresidency.co.uk/guides/comparisons/paraguay-vs-portugal-for-british-citizens (`content/residency/comparisons/paraguay-vs-portugal-for-british-citizens.mdx`)
+  - https://paraguayresidency.co.uk/guides/living-in-paraguay/uk-state-pension-in-paraguay (`content/residency/living-in-paraguay/uk-state-pension-in-paraguay.mdx`)
   - https://paraguayresidencyguide.com/blog/mistakes-we-see-every-month (`content/guide/blog/mistakes-we-see-every-month.mdx`)
   - https://paraguayresidencyguide.com/blog/paraguay-residency-2026-rule-changes (`content/guide/blog/paraguay-residency-2026-rule-changes.mdx`)
   - https://paraguayresidencyguide.com/blog/paraguay-residency-for-remote-workers (`content/guide/blog/paraguay-residency-for-remote-workers.mdx`)
@@ -703,12 +766,18 @@ To pull a figure off every page at once, delete its `sourced` block.
 - **Source:** [Res. DNM 407/2026 (applies to filings from 6 July 2026)](https://migraciones.gov.py/migraciones-actualiza-el-regimen-de-acreditacion-de-solvencia-economica-para-extranjeros/) — checked 2026-09-26
 - **Other sources:** <https://migraciones.gov.py/migraciones-actualiza-el-regimen-de-acreditacion-de-solvencia-economica-para-extranjeros/> · <https://www.mersanlaw.com/novedades/nuevos-criterios-para-acreditar-la-solvencia-economica-en-la-residencia-permanente/> · <https://www.ip.gov.py/ip/2026/06/25/the-paraguayan-directorate-of-migration-updates-the-requirements-for-permanent-residency/> · <https://paraguaysovereign.com/residency/resolution-407/>
 - **Note:** Research 2026-09-26 (medium confidence): BIG 2026 CHANGE: Res. 407/2026 governs permanent residency (Ley 6984 conversions AND Mercosur). Categories include professionals, technicians, employees, self-employed, teleworkers/digital nomads, property owners, shareholders, farmers, clergy, retirees, dependants, students. A degree alone no longer suffices; RUC and apostilled income evidence often required. One source gives effective date 28 May 2026 vs 6 July 2026 in DNM/most sources — likely dictated 28 May, applies to files from 6 July; confirm. Temporary-residency solvency evidence not covered by 407.
-- **Where it appears (16):**
+- **Where it appears (22):**
   - guide member area — members/after-approval/family (`content/guide/members/after-approval/family.mdx`)
   - guide member area — members/getting-started/the-routes-compared (`content/guide/members/getting-started/the-routes-compared.mdx`)
   - guide member area — members/getting-started/why-paraguay-and-why-not (`content/guide/members/getting-started/why-paraguay-and-why-not.mdx`)
   - guide member area — members/next-steps/checklists (`content/guide/members/next-steps/checklists.mdx`)
   - guide member area — members/next-steps/mistakes-we-see-monthly (`content/guide/members/next-steps/mistakes-we-see-monthly.mdx`)
+  - https://paraguayinvestorpass.com/insights/investor-pass-vs-suace (`content/investorpass/insights/investor-pass-vs-suace.mdx`)
+  - https://paraguayresidency.co.uk/guides/comparisons/paraguay-vs-portugal-for-british-citizens (`content/residency/comparisons/paraguay-vs-portugal-for-british-citizens.mdx`)
+  - https://paraguayresidency.co.uk/guides/documents/apostille-and-documents-for-indian-applicants (`content/residency/documents/apostille-and-documents-for-indian-applicants.mdx`)
+  - https://paraguayresidency.co.uk/guides/documents/choosing-a-paraguay-residency-agent (`content/residency/documents/choosing-a-paraguay-residency-agent.mdx`)
+  - https://paraguayresidency.co.uk/guides/living-in-paraguay/uk-state-pension-in-paraguay (`content/residency/living-in-paraguay/uk-state-pension-in-paraguay.mdx`)
+  - https://paraguayresidency.co.uk/residency/citizenship (`src/app/(en)/sites/residency/residency/citizenship/page.tsx`)
   - https://paraguayresidencyguide.com/blog/5000-deposit (`content/guide/blog/5000-deposit.mdx`)
   - https://paraguayresidencyguide.com/blog/documents-you-need-for-paraguay-residency (`content/guide/blog/documents-you-need-for-paraguay-residency.mdx`)
   - https://paraguayresidencyguide.com/blog/paraguay-residency-2026-rule-changes (`content/guide/blog/paraguay-residency-2026-rule-changes.mdx`)
@@ -728,11 +797,13 @@ To pull a figure off every page at once, delete its `sourced` block.
 - **Source:** [Ley 6984/2022 (repealed Ley 978/1996 regime); IMI Daily](https://www.imidaily.com/program-updates/paraguay-no-longer-accepting-5000-deposit-based-applications-for-permanent-residence/) — checked 2026-09-26
 - **Other sources:** <https://www.imidaily.com/program-updates/paraguay-no-longer-accepting-5000-deposit-based-applications-for-permanent-residence/> · <https://paraguayresidencyguide.com/5000-deposit/> · <https://paraguaypathways.com/5000-deposit-for-residency/>
 - **Note:** Research 2026-09-26 (medium confidence): Secondary sources consistent. Note: paraguayresidencyguide.com appears in results as a third-party site — Anton's guide domain; check whether that content is Anton's own before citing it as an independent source.
-- **Where it appears (12):**
+- **Where it appears (14):**
   - guide member area — members/costs-and-timeline/real-costs (`content/guide/members/costs-and-timeline/real-costs.mdx`)
   - guide member area — members/getting-started/the-routes-compared (`content/guide/members/getting-started/the-routes-compared.mdx`)
   - guide member area — members/getting-started/why-paraguay-and-why-not (`content/guide/members/getting-started/why-paraguay-and-why-not.mdx`)
   - guide member area — members/next-steps/mistakes-we-see-monthly (`content/guide/members/next-steps/mistakes-we-see-monthly.mdx`)
+  - https://paraguayinvestorpass.com/insights/paraguay-citizenship-by-investment (`content/investorpass/insights/paraguay-citizenship-by-investment.mdx`)
+  - https://paraguayresidency.co.uk/guides/documents/choosing-a-paraguay-residency-agent (`content/residency/documents/choosing-a-paraguay-residency-agent.mdx`)
   - https://paraguayresidencyguide.com/blog/5000-deposit (`content/guide/blog/5000-deposit.mdx`)
   - https://paraguayresidencyguide.com/blog/paraguay-residency-2026-rule-changes (`content/guide/blog/paraguay-residency-2026-rule-changes.mdx`)
   - https://paraguayresidencyguide.com/blog/paraguay-residency-cost (`content/guide/blog/paraguay-residency-cost.mdx`)
@@ -749,11 +820,12 @@ To pull a figure off every page at once, delete its `sourced` block.
 - **Source:** [MIC Res. 0283/2026 (repeals Res. 1052/2025)](https://www.mic.gov.py/wp-content/uploads/2026/04/Res.-N-0283.2026_Constancia-de-Inversionista.pdf) — checked 2026-09-26
 - **Other sources:** <https://www.mic.gov.py/wp-content/uploads/2026/04/Res.-N-0283.2026_Constancia-de-Inversionista.pdf> · <https://www.mic.gov.py/paraguay-fortalece-la-atraccion-de-inversiones-extranjeras-con-el-nuevo-investor-pass/> · <https://www.rediex.gov.py/paraguay-fortalece-la-atraccion-de-inversiones-extranjeras-con-el-nuevo-investor-pass/> · <https://pasmorabogados.com/paraguay-investor-pass-resolucion-mic-283-2026/>
 - **Note:** Research 2026-09-26 (high confidence): Skips the 2-year temporary stage. Covers investor plus spouse and minor children (per REDIEX/Yahoo). Issued by MIC via SUACE; residency itself granted by DNM.
-- **Where it appears (9):**
+- **Where it appears (10):**
   - guide member area — members/getting-started/the-routes-compared (`content/guide/members/getting-started/the-routes-compared.mdx`)
   - guide member area — members/getting-started/why-paraguay-and-why-not (`content/guide/members/getting-started/why-paraguay-and-why-not.mdx`)
   - guide member area — members/next-steps/investor-pass-overview (`content/guide/members/next-steps/investor-pass-overview.mdx`)
   - https://paraguayinvestorpass.com/ (`src/app/(en)/sites/investorpass/page.tsx`)
+  - https://paraguayinvestorpass.com/insights/paraguay-citizenship-by-investment (`content/investorpass/insights/paraguay-citizenship-by-investment.mdx`)
   - https://paraguayresidencyguide.com/blog/paraguay-investor-pass-explained (`content/guide/blog/paraguay-investor-pass-explained.mdx`)
   - https://paraguayresidencyguide.com/blog/paraguay-residency-2026-rule-changes (`content/guide/blog/paraguay-residency-2026-rule-changes.mdx`)
   - https://paraguayresidencyguide.com/blog/requirements-residency-paraguay (`content/guide/blog/requirements-residency-paraguay.mdx`)
@@ -791,8 +863,9 @@ To pull a figure off every page at once, delete its `sourced` block.
 - **Source:** [Ley 6380/2019 (IRP rentas del capital); PwC WWTS](https://www.bacn.gov.py/leyes-paraguayas/9332/ley-n-6380-de-modernizacion-y-simplificacion-del-sistema-tributario-nacional) — checked 2026-09-26
 - **Other sources:** <https://www.bacn.gov.py/leyes-paraguayas/9332/ley-n-6380-de-modernizacion-y-simplificacion-del-sistema-tributario-nacional> · <https://taxsummaries.pwc.com/paraguay/individual/taxes-on-personal-income>
 - **Note:** Research 2026-09-26 (high confidence): 
-- **Where it appears (4):**
+- **Where it appears (5):**
   - guide member area — members/after-approval/taxes-for-residents (`content/guide/members/after-approval/taxes-for-residents.mdx`)
+  - https://paraguayresidency.co.uk/guides/taxes/uk-pensions-isas-and-property-after-moving-to-paraguay (`content/residency/taxes/uk-pensions-isas-and-property-after-moving-to-paraguay.mdx`)
   - https://paraguayresidencyguide.com/blog/paraguay-tax-residency-certificate (`content/guide/blog/paraguay-tax-residency-certificate.mdx`)
   - https://residenciaenparaguay.es/guias/impuestos/impuestos-en-paraguay-tabla-2026 (`content/residenciaes/impuestos/impuestos-en-paraguay-tabla-2026.mdx`)
   - https://residenciaenparaguay.es/guias/impuestos/sistema-tributario-territorial (`content/residenciaes/impuestos/sistema-tributario-territorial.mdx`)
@@ -830,9 +903,10 @@ To pull a figure off every page at once, delete its `sourced` block.
 - **Source:** [HCCH status table / news (accession deposited 10 Dec 2013)](https://www.hcch.net/en/news-archive/details/?varevent=342) — checked 2026-09-26
 - **Other sources:** <https://www.hcch.net/en/news-archive/details/?varevent=342> · <https://www.hcch.net/en/instruments/conventions/status-table/print/?cid=41> · <https://irglobal.com/article/the-apostille-convenion-becomes-effective-in-august-2014-in-paraguay-4667/>
 - **Note:** Research 2026-09-26 (high confidence): Germany had objected; the Convention only applied between Germany and Paraguay from 6 Jan 2022. Non-Hague countries still need consular legalisation.
-- **Where it appears (6):**
+- **Where it appears (7):**
   - guide member area — members/getting-started/documents-by-nationality (`content/guide/members/getting-started/documents-by-nationality.mdx`)
   - guide member area — members/next-steps/checklists (`content/guide/members/next-steps/checklists.mdx`)
+  - https://paraguayresidency.co.uk/guides/documents/apostille-and-documents-for-indian-applicants (`content/residency/documents/apostille-and-documents-for-indian-applicants.mdx`)
   - https://paraguayresidencyguide.com/blog/apostille-for-paraguay-residency (`content/guide/blog/apostille-for-paraguay-residency.mdx`)
   - https://paraguayresidencyguide.com/blog/documents-you-need-for-paraguay-residency (`content/guide/blog/documents-you-need-for-paraguay-residency.mdx`)
   - https://residenciaenparaguay.es/guias/documentos/antecedentes-penales-espana-apostilla (`content/residenciaes/documentos/antecedentes-penales-espana-apostilla.mdx`)
@@ -845,11 +919,16 @@ To pull a figure off every page at once, delete its `sourced` block.
 - **Source:** [Constitución Nacional, art. 148; Poder Judicial — Carta de Naturalización](https://www.pj.gov.py/contenido/463-carta-de-naturalizacion/463) — checked 2026-09-26
 - **Other sources:** <https://www.pj.gov.py/contenido/463-carta-de-naturalizacion/463> · <https://embapar.jp/archivos/nacionalidad-paraguaya/> · <https://www.diputados.gov.py/noticias/noticias/283>
 - **Note:** Research 2026-09-26 (high confidence): Art. 148: adult, min. 3 years' residence, lawful occupation, good conduct. Judicial process (Corte Suprema). Paraguay does not generally allow dual nationality for naturalised citizens except by treaty (e.g. Spain, Italy) — not researched in depth; owner should confirm before publishing any dual-citizenship claim. Language and presence tests in practice not researched.
-- **Where it appears (7):**
+- **Where it appears (12):**
   - guide member area — members/costs-and-timeline/timeline-week-by-week (`content/guide/members/costs-and-timeline/timeline-week-by-week.mdx`)
   - guide member area — members/getting-started/the-routes-compared (`content/guide/members/getting-started/the-routes-compared.mdx`)
   - guide member area — members/getting-started/why-paraguay-and-why-not (`content/guide/members/getting-started/why-paraguay-and-why-not.mdx`)
   - guide member area — members/next-steps/investor-pass-overview (`content/guide/members/next-steps/investor-pass-overview.mdx`)
+  - https://paraguayinvestorpass.com/insights/paraguay-citizenship-by-investment (`content/investorpass/insights/paraguay-citizenship-by-investment.mdx`)
+  - https://paraguayinvestorpass.com/insights/paraguay-golden-visa (`content/investorpass/insights/paraguay-golden-visa.mdx`)
+  - https://paraguayresidency.co.uk/guides/comparisons/paraguay-vs-dubai-residency (`content/residency/comparisons/paraguay-vs-dubai-residency.mdx`)
+  - https://paraguayresidency.co.uk/guides/comparisons/paraguay-vs-portugal-for-british-citizens (`content/residency/comparisons/paraguay-vs-portugal-for-british-citizens.mdx`)
+  - https://paraguayresidency.co.uk/residency/citizenship (`src/app/(en)/sites/residency/residency/citizenship/page.tsx`)
   - https://paraguayresidencyguide.com/blog/paraguay-residency-scams (`content/guide/blog/paraguay-residency-scams.mdx`)
   - https://paraguayresidencyguide.com/blog/paraguayan-citizenship (`content/guide/blog/paraguayan-citizenship.mdx`)
   - https://residenciaenparaguay.es/guias/documentos/residencia-permanente-requisitos-2026 (`content/residenciaes/documentos/residencia-permanente-requisitos-2026.mdx`)
@@ -884,6 +963,215 @@ To pull a figure off every page at once, delete its `sourced` block.
   - https://paraguayresidencyguide.com/blog/real-cost-of-living-in-paraguay (`content/guide/blog/real-cost-of-living-in-paraguay.mdx`)
   - https://residenciaenparaguay.es/guias/documentos/cuanto-cuesta-la-residencia-en-paraguay (`content/residenciaes/documentos/cuanto-cuesta-la-residencia-en-paraguay.mdx`)
   - https://residenciaenparaguay.es/guias/vivir-en-paraguay/costo-de-vida-en-paraguay (`content/residenciaes/vivir-en-paraguay/costo-de-vida-en-paraguay.mdx`)
+
+### Investor Pass — what the investor certificate (CIE) is
+
+- **Key:** `investorpass.cie_scope`
+- **Shows (en):** a Foreign Investor Certificate (CIE) issued by the Ministry of Industry and Commerce through SUACE, only to individual foreign investors and only so that the migration office (DNM) can grant permanent residency without the temporary stage (Ley 6984/2022, art. 46)
+- **Source:** [MIC Res. 0283/2026, art. 1 and Annex I art. 1(a); Ley 6984/2022, art. 46](https://www.mic.gov.py/wp-content/uploads/2026/04/Res.-N-0283.2026_Constancia-de-Inversionista.pdf) — checked 2026-09-28
+- **Other sources:** <https://www.mic.gov.py/wp-content/uploads/2026/04/Res.-N-0283.2026_Constancia-de-Inversionista.pdf> · <https://baselegal.com.py/docs/7118f528-513d-11ed-b822-525400343722>
+- **Note:** Research 2026-09-28 (high confidence): read from the resolution PDF (scanned, 10 pages). The CIE is issued 'exclusivamente a favor de personas físicas extranjeras' and 'exclusivamente a los efectos de obtener la residencia permanente'; DNM and SEPRELAD powers are reserved. Art. 1 cites 'Ley 6934/2022', a typo for 6984 in the original. The resolution says nothing about spouses or children: family cover comes from DNM practice and REDIEX statements, not from this text.
+- **Where it appears (4):**
+  - https://paraguayinvestorpass.com/insights/investor-pass-resolution-explained (`content/investorpass/insights/investor-pass-resolution-explained.mdx`)
+  - https://paraguayinvestorpass.com/insights/investor-pass-vs-suace (`content/investorpass/insights/investor-pass-vs-suace.mdx`)
+  - https://paraguayinvestorpass.com/insights/paraguay-citizenship-by-investment (`content/investorpass/insights/paraguay-citizenship-by-investment.mdx`)
+  - https://paraguayinvestorpass.com/insights/paraguay-golden-visa (`content/investorpass/insights/paraguay-golden-visa.mdx`)
+
+### Investor Pass — issuing term for the CIE
+
+- **Key:** `investorpass.cie_issuing_term`
+- **Shows (en):** within 5 working days of SUACE receiving a complete file, with the clock stopped while any observations or requests for more information are answered
+- **Source:** [MIC Res. 0283/2026, art. 4](https://www.mic.gov.py/wp-content/uploads/2026/04/Res.-N-0283.2026_Constancia-de-Inversionista.pdf) — checked 2026-09-28
+- **Other sources:** <https://www.mic.gov.py/wp-content/uploads/2026/04/Res.-N-0283.2026_Constancia-de-Inversionista.pdf>
+- **Note:** Research 2026-09-28 (high confidence): 'en un plazo no mayor a 5 días hábiles a partir de la recepción del expediente. En caso de observaciones, solicitudes de información complementaria o requerimientos de rectificación, el plazo quedará suspendido'. The DNM residency stage that follows has no term in this resolution.
+- **Where it appears (3):**
+  - https://paraguayinvestorpass.com/insights/investor-pass-resolution-explained (`content/investorpass/insights/investor-pass-resolution-explained.mdx`)
+  - https://paraguayinvestorpass.com/insights/investor-pass-vs-suace (`content/investorpass/insights/investor-pass-vs-suace.mdx`)
+  - https://paraguayinvestorpass.com/insights/paraguay-golden-visa (`content/investorpass/insights/paraguay-golden-visa.mdx`)
+
+### Investor Pass — which resolution is in force
+
+- **Key:** `investorpass.resolution_history`
+- **Shows (en):** MIC Resolution 0283 of 21 April 2026, which repealed Resolution 1052 of 11 September 2025, itself the replacement for Resolution 236 of 14 February 2019: the same SUACE investor certificate, regulated three times
+- **Source:** [MIC Res. 0283/2026, preamble and art. 7](https://www.mic.gov.py/wp-content/uploads/2026/04/Res.-N-0283.2026_Constancia-de-Inversionista.pdf) — checked 2026-09-28
+- **Other sources:** <https://www.mic.gov.py/wp-content/uploads/2026/04/Res.-N-0283.2026_Constancia-de-Inversionista.pdf>
+- **Note:** Research 2026-09-28 (high confidence): signed by Minister Marco Nicolás Riquelme Boettner. Art. 6 applies the new rules to applications pending under Res. 1052/2025 where they are more favourable to the applicant.
+- **Where it appears (3):**
+  - https://paraguayinvestorpass.com/insights/investor-pass-resolution-explained (`content/investorpass/insights/investor-pass-resolution-explained.mdx`)
+  - https://paraguayinvestorpass.com/insights/investor-pass-vs-suace (`content/investorpass/insights/investor-pass-vs-suace.mdx`)
+  - https://paraguayinvestorpass.com/insights/paraguay-golden-visa (`content/investorpass/insights/paraguay-golden-visa.mdx`)
+
+### Investor Pass — personal documents for the CIE
+
+- **Key:** `investorpass.cie_documents`
+- **Shows (en):** an online application form that counts as a sworn statement; your passport or national ID; proof of entry to Paraguay (entry card, passport stamp or DNM movement certificate, plus a consular visa if your nationality needs one); an apostilled or legalised criminal record certificate from your country of origin, and from any country you lived in for more than a year in the last 3 years; a Paraguayan Interpol certificate; and a sworn statement on the origin of the funds
+- **Source:** [MIC Res. 0283/2026, Annex I art. 2](https://www.mic.gov.py/wp-content/uploads/2026/04/Res.-N-0283.2026_Constancia-de-Inversionista.pdf) — checked 2026-09-28
+- **Other sources:** <https://www.mic.gov.py/wp-content/uploads/2026/04/Res.-N-0283.2026_Constancia-de-Inversionista.pdf>
+- **Note:** Research 2026-09-28 (high confidence): the source-of-funds statement includes a commitment to SEPRELAD anti-money-laundering rules. The route-specific evidence (business plan, deed, securities certificate) comes on top.
+- **Where it appears (2):**
+  - https://paraguayinvestorpass.com/insights/investor-pass-resolution-explained (`content/investorpass/insights/investor-pass-resolution-explained.mdx`)
+  - https://paraguayinvestorpass.com/insights/paraguay-golden-visa (`content/investorpass/insights/paraguay-golden-visa.mdx`)
+
+### Investor Pass — timing and valuation of the investment
+
+- **Key:** `investorpass.investment_status`
+- **Shows (en):** the investment may be completed or still in progress, as long as the financial commitment is documented; minimums are in US dollars or the guaraní equivalent at the official rate on the day you apply
+- **Source:** [MIC Res. 0283/2026, Annex I art. 1(g) and (h)](https://www.mic.gov.py/wp-content/uploads/2026/04/Res.-N-0283.2026_Constancia-de-Inversionista.pdf) — checked 2026-09-28
+- **Other sources:** <https://www.mic.gov.py/wp-content/uploads/2026/04/Res.-N-0283.2026_Constancia-de-Inversionista.pdf>
+- **Note:** Research 2026-09-28 (high confidence): 'Las inversiones podrán encontrarse ejecutadas o en proceso de ejecución, siempre que se acredite documentalmente su compromiso económico.' Foreign-currency documents are converted at the BCP official rate on the day of conversion (Annex I art. 7(a)).
+- **Where it appears (4):**
+  - https://paraguayinvestorpass.com/insights/financial-instruments-and-tourism-routes (`content/investorpass/insights/financial-instruments-and-tourism-routes.mdx`)
+  - https://paraguayinvestorpass.com/insights/investor-pass-resolution-explained (`content/investorpass/insights/investor-pass-resolution-explained.mdx`)
+  - https://paraguayinvestorpass.com/insights/investor-pass-vs-suace (`content/investorpass/insights/investor-pass-vs-suace.mdx`)
+  - https://paraguayinvestorpass.com/insights/paraguay-golden-visa (`content/investorpass/insights/paraguay-golden-visa.mdx`)
+
+### Investor Pass — productive route conditions
+
+- **Key:** `investorpass.productive_conditions`
+- **Shows (en):** a business plan in industry, commerce or services that creates at least 5 formal jobs, with an execution schedule and progress reports every six months; rent, salaries, utilities and recurring admin costs do not count as investment, and each co-investor must meet the minimum individually
+- **Source:** [MIC Res. 0283/2026, Annex I arts. 1(c) and 3](https://www.mic.gov.py/wp-content/uploads/2026/04/Res.-N-0283.2026_Constancia-de-Inversionista.pdf) — checked 2026-09-28
+- **Other sources:** <https://www.mic.gov.py/wp-content/uploads/2026/04/Res.-N-0283.2026_Constancia-de-Inversionista.pdf>
+- **Note:** Research 2026-09-28 (high confidence): counts as investment: property, machinery and equipment, specialised tools, vehicles used in the activity, technology, operating furniture, civil works and installations. Solvency is shown with 3 months of bank statements (own or company) or investment titles, or with property/vehicle valuations. The resolution sets no fixed execution deadline (the '24 months' in suace.status comes from the repealed 2025 regime).
+- **Where it appears (2):**
+  - https://paraguayinvestorpass.com/insights/investor-pass-resolution-explained (`content/investorpass/insights/investor-pass-resolution-explained.mdx`)
+  - https://paraguayinvestorpass.com/insights/paraguay-golden-visa (`content/investorpass/insights/paraguay-golden-visa.mdx`)
+
+### Investor Pass — tourism route conditions
+
+- **Key:** `investorpass.tourism_conditions`
+- **Shows (en):** a tourism business plan (creating, buying, expanding, modernising or running tourism assets, infrastructure or services) with an execution schedule and progress reports every six months; the resolution sets no minimum number of jobs for this route, and rent, salaries and running costs do not count as investment
+- **Source:** [MIC Res. 0283/2026, Annex I arts. 1(f) and 4](https://www.mic.gov.py/wp-content/uploads/2026/04/Res.-N-0283.2026_Constancia-de-Inversionista.pdf) — checked 2026-09-28
+- **Other sources:** <https://www.mic.gov.py/wp-content/uploads/2026/04/Res.-N-0283.2026_Constancia-de-Inversionista.pdf>
+- **Note:** Research 2026-09-28 (high confidence): the plan must name the category of tourism service provider under the competent authority's classification (SENATUR is not named in the text). Same solvency evidence as the productive route.
+- **Where it appears (2):**
+  - https://paraguayinvestorpass.com/insights/financial-instruments-and-tourism-routes (`content/investorpass/insights/financial-instruments-and-tourism-routes.mdx`)
+  - https://paraguayinvestorpass.com/insights/investor-pass-resolution-explained (`content/investorpass/insights/investor-pass-resolution-explained.mdx`)
+
+### Investor Pass — financial instruments route conditions
+
+- **Key:** `investorpass.financial_conditions`
+- **Shows (en):** a certificate from an entity authorised by the Superintendencia de Valores of the Central Bank of Paraguay, for a term of at least 2 years and stating the investment's value; supporting documents no older than 180 days when you file; no business plan or jobs, but the holding must be reported every year
+- **Source:** [MIC Res. 0283/2026, Annex I arts. 1(d) and 5](https://www.mic.gov.py/wp-content/uploads/2026/04/Res.-N-0283.2026_Constancia-de-Inversionista.pdf) — checked 2026-09-28
+- **Other sources:** <https://www.mic.gov.py/wp-content/uploads/2026/04/Res.-N-0283.2026_Constancia-de-Inversionista.pdf>
+- **Note:** Research 2026-09-28 (high confidence): 'Se admiten todas las inversiones económicamente demostrables, cuya naturaleza económica sea verificable con documentación.' The text names no list of instruments (bonds, funds, CDAs); the test is who issues the certificate and for how long.
+- **Where it appears (4):**
+  - https://paraguayinvestorpass.com/insights/financial-instruments-and-tourism-routes (`content/investorpass/insights/financial-instruments-and-tourism-routes.mdx`)
+  - https://paraguayinvestorpass.com/insights/investor-pass-resolution-explained (`content/investorpass/insights/investor-pass-resolution-explained.mdx`)
+  - https://paraguayinvestorpass.com/insights/investor-pass-vs-suace (`content/investorpass/insights/investor-pass-vs-suace.mdx`)
+  - https://paraguayinvestorpass.com/insights/paraguay-golden-visa (`content/investorpass/insights/paraguay-golden-visa.mdx`)
+
+### Investor Pass — real estate route evidence
+
+- **Key:** `investorpass.real_estate_evidence`
+- **Shows (en):** a registered title deed, or a private purchase contract with signatures certified by a notary (escribano) showing at least 30% of the declared investment paid; documents no older than 180 days when you file; property bought for purely personal or family use does not qualify
+- **Source:** [MIC Res. 0283/2026, Annex I arts. 1(e) and 6](https://www.mic.gov.py/wp-content/uploads/2026/04/Res.-N-0283.2026_Constancia-de-Inversionista.pdf) — checked 2026-09-28
+- **Other sources:** <https://www.mic.gov.py/wp-content/uploads/2026/04/Res.-N-0283.2026_Constancia-de-Inversionista.pdf>
+- **Note:** Research 2026-09-28 (high confidence): qualifying = acquisition, development or exploitation of real property or recognised real rights, to earn rent, appreciation or productive use. No business plan or jobs. The 30%-paid private contract is new relative to the site's real-estate deep dive, which says off-plan purchases generally do not work.
+- **Where it appears (2):**
+  - https://paraguayinvestorpass.com/insights/investor-pass-resolution-explained (`content/investorpass/insights/investor-pass-resolution-explained.mdx`)
+  - https://paraguayinvestorpass.com/insights/paraguay-golden-visa (`content/investorpass/insights/paraguay-golden-visa.mdx`)
+
+### Investor Pass — foreign documents
+
+- **Key:** `investorpass.foreign_documents`
+- **Shows (en):** apostilled (or legalised by the Paraguayan consulate and then the Foreign Ministry) and translated into Spanish by a Paraguayan registered public translator or an authorised foreign one, with the translation itself apostilled or legalised; Brazilian documents in Portuguese need no translation
+- **Source:** [MIC Res. 0283/2026, Annex I art. 7](https://www.mic.gov.py/wp-content/uploads/2026/04/Res.-N-0283.2026_Constancia-de-Inversionista.pdf) — checked 2026-09-28
+- **Other sources:** <https://www.mic.gov.py/wp-content/uploads/2026/04/Res.-N-0283.2026_Constancia-de-Inversionista.pdf>
+- **Note:** Research 2026-09-28 (high confidence).
+- **Where it appears (3):**
+  - https://paraguayinvestorpass.com/insights/financial-instruments-and-tourism-routes (`content/investorpass/insights/financial-instruments-and-tourism-routes.mdx`)
+  - https://paraguayinvestorpass.com/insights/investor-pass-resolution-explained (`content/investorpass/insights/investor-pass-resolution-explained.mdx`)
+  - https://paraguayinvestorpass.com/insights/paraguay-golden-visa (`content/investorpass/insights/paraguay-golden-visa.mdx`)
+
+### Criminal record — grounds for refusing residency
+
+- **Key:** `residency.criminal_record_refusal`
+- **Shows (en):** the migration office may refuse temporary or permanent residency to anyone prosecuted or convicted, in Paraguay or abroad, for an intentional offence that carries more than 2 years in prison under Paraguayan law, and to anyone with a pattern of repeat offending (Ley 6984/2022, arts. 50 and 52)
+- **Source:** [Ley 6984/2022 de Migraciones, arts. 50 and 52](https://www.bacn.gov.py/leyes-paraguayas/10973/ley-n-6984-de-migraciones) — checked 2026-09-28
+- **Other sources:** <https://www.bacn.gov.py/leyes-paraguayas/10973/ley-n-6984-de-migraciones> · <https://baselegal.com.py/docs/7118f528-513d-11ed-b822-525400343722>
+- **Note:** Research 2026-09-28 (high confidence): text read on baselegal.com.py (BACN returned 403). Art. 52: 'podrá denegar la Residencia Permanente a quienes hayan sido procesados o condenados por hechos punibles de carácter doloso cometidos en el país o fuera de él, que merezcan según las leyes de la República del Paraguay la aplicación de penas privativas de libertad mayores a 2 (dos) años y a quienes registren una conducta reiterante'; art. 50 has the same wording for temporary residency. The power is discretionary ('podrá'). Art. 55.1: residency obtained with false documents can be cancelled at any time.
+- **Where it appears (1):**
+  - https://paraguayresidency.co.uk/guides/documents/paraguay-residency-with-a-criminal-record (`content/residency/documents/paraguay-residency-with-a-criminal-record.mdx`)
+
+### UK State Pension in Paraguay — annual increases
+
+- **Key:** `uk.state_pension_paraguay`
+- **Shows (en):** paid in Paraguay but frozen: Paraguay is not on the GOV.UK list of countries where the UK pays the State Pension's annual increase, so it stays at the rate you are first paid abroad
+- **Source:** [GOV.UK — Countries where we pay an annual increase in the State Pension](https://www.gov.uk/government/publications/state-pensions-annual-increases-if-you-live-abroad/countries-where-we-pay-an-annual-increase-in-the-state-pension) — checked 2026-09-28
+- **Other sources:** <https://www.gov.uk/government/publications/state-pensions-annual-increases-if-you-live-abroad/countries-where-we-pay-an-annual-increase-in-the-state-pension> · <https://www.gov.uk/state-pension-if-you-retire-abroad>
+- **Note:** Research 2026-09-28 (high confidence): the list covers the EEA, Switzerland and 17 agreement countries (Barbados, Bermuda, Bosnia-Herzegovina, Gibraltar, Guernsey, Isle of Man, Israel, Jamaica, Jersey, Kosovo, Mauritius, Montenegro, North Macedonia, Philippines, Serbia, Turkey, USA). No South American country is on it. A UK home-country rule: re-check if the UK ever signs a social security agreement with Paraguay.
+- **Where it appears (5):**
+  - https://paraguayresidency.co.uk/guides/comparisons/paraguay-vs-dubai-residency (`content/residency/comparisons/paraguay-vs-dubai-residency.mdx`)
+  - https://paraguayresidency.co.uk/guides/comparisons/paraguay-vs-portugal-for-british-citizens (`content/residency/comparisons/paraguay-vs-portugal-for-british-citizens.mdx`)
+  - https://paraguayresidency.co.uk/guides/living-in-paraguay/keeping-uk-bank-accounts-after-moving-to-paraguay (`content/residency/living-in-paraguay/keeping-uk-bank-accounts-after-moving-to-paraguay.mdx`)
+  - https://paraguayresidency.co.uk/guides/living-in-paraguay/uk-state-pension-in-paraguay (`content/residency/living-in-paraguay/uk-state-pension-in-paraguay.mdx`)
+  - https://paraguayresidency.co.uk/guides/taxes/uk-pensions-isas-and-property-after-moving-to-paraguay (`content/residency/taxes/uk-pensions-isas-and-property-after-moving-to-paraguay.mdx`)
+
+### UK voluntary National Insurance from abroad
+
+- **Key:** `uk.voluntary_nic_abroad`
+- **Shows (en):** from 6 April 2026 only voluntary Class 3 contributions can be paid for time abroad, and only if you previously lived in the UK for 10 years in a row or paid 10 years of contributions in total
+- **Source:** [GOV.UK — Voluntary National Insurance contributions for periods abroad from April 2026](https://www.gov.uk/government/publications/changes-to-voluntary-national-insurance-contributions-for-periods-spent-abroad/voluntary-national-insurance-contributions-for-periods-abroad-from-april-2026) — checked 2026-09-28
+- **Other sources:** <https://www.gov.uk/government/publications/changes-to-voluntary-national-insurance-contributions-for-periods-spent-abroad/voluntary-national-insurance-contributions-for-periods-abroad-from-april-2026>
+- **Note:** Research 2026-09-28 (high confidence): Class 2 for periods abroad ends with 2025–26. Transitional rule: people who applied before 6 April 2026 can pay Class 3 under the old 3-year test if they apply and pay by 5 April 2027. A UK home-country rule, not Paraguayan.
+- **Where it appears (1):**
+  - https://paraguayresidency.co.uk/guides/living-in-paraguay/uk-state-pension-in-paraguay (`content/residency/living-in-paraguay/uk-state-pension-in-paraguay.mdx`)
+
+### UK–Paraguay double taxation agreement
+
+- **Key:** `uk.paraguay_tax_treaty`
+- **Shows (en):** there is no double taxation agreement between the United Kingdom and Paraguay (HMRC Double Taxation Relief Manual, DT15200)
+- **Source:** [HMRC Double Taxation Relief Manual, DT15200 (Paraguay)](https://www.gov.uk/hmrc-internal-manuals/double-taxation-relief/dt15200) — checked 2026-09-28
+- **Other sources:** <https://www.gov.uk/hmrc-internal-manuals/double-taxation-relief/dt15200>
+- **Note:** Research 2026-09-28 (high confidence): the page reads, in full, 'There is no double taxation agreement between the United Kingdom and Paraguay.' Unilateral relief may still apply; that is for a UK adviser.
+- **Where it appears (5):**
+  - https://paraguayresidency.co.uk/guides/comparisons/paraguay-vs-dubai-residency (`content/residency/comparisons/paraguay-vs-dubai-residency.mdx`)
+  - https://paraguayresidency.co.uk/guides/comparisons/paraguay-vs-portugal-for-british-citizens (`content/residency/comparisons/paraguay-vs-portugal-for-british-citizens.mdx`)
+  - https://paraguayresidency.co.uk/guides/living-in-paraguay/uk-state-pension-in-paraguay (`content/residency/living-in-paraguay/uk-state-pension-in-paraguay.mdx`)
+  - https://paraguayresidency.co.uk/guides/taxes/uk-pensions-isas-and-property-after-moving-to-paraguay (`content/residency/taxes/uk-pensions-isas-and-property-after-moving-to-paraguay.mdx`)
+  - https://paraguayresidency.co.uk/guides/taxes/uk-tax-when-moving-to-paraguay (`content/residency/taxes/uk-tax-when-moving-to-paraguay.mdx`)
+
+### Naturalisation — constitutional requirements
+
+- **Key:** `citizenship.constitutional_requirements`
+- **Shows (en):** legal adulthood, a minimum of 3 years' residence (radicación) in Paraguay, a profession, trade, science, art or industry exercised in the country, and good conduct (Constitution, art. 148)
+- **Source:** [Constitución Nacional (1992), art. 148, as published by the Embassy of Paraguay in Japan](https://embapar.jp/archivos/nacionalidad-paraguaya/) — checked 2026-09-28
+- **Other sources:** <https://embapar.jp/archivos/nacionalidad-paraguaya/> · <https://www.pj.gov.py/contenido/463-carta-de-naturalizacion/463>
+- **Note:** Research 2026-09-28 (high confidence): the Supreme Court (Corte Suprema de Justicia) issues the carta de naturalización. How the courts test 'radicación' in practice (permanent residency held for 3 years, per citizenship.years) and any language or interview step were not researched.
+- **Where it appears (2):**
+  - https://paraguayinvestorpass.com/insights/paraguay-citizenship-by-investment (`content/investorpass/insights/paraguay-citizenship-by-investment.mdx`)
+  - https://paraguayresidency.co.uk/residency/citizenship (`src/app/(en)/sites/residency/residency/citizenship/page.tsx`)
+
+### Naturalisation — keeping another nationality
+
+- **Key:** `citizenship.dual_nationality`
+- **Shows (en):** the Constitution admits multiple nationality only through an international treaty with constitutional-rank reciprocity between the country of origin and Paraguay (art. 149)
+- **Source:** [Constitución Nacional (1992), art. 149, as published by the Embassy of Paraguay in Japan](https://embapar.jp/archivos/nacionalidad-paraguaya/) — checked 2026-09-28
+- **Other sources:** <https://embapar.jp/archivos/nacionalidad-paraguaya/> · <https://www.bacn.gov.py/leyes-paraguayas/11258/ley-n-7052-reglamenta-los-articulos-146-147-y-149-de-la-constitucion-nacional-de-la-nacionalidad-paraguaya-multiple>
+- **Note:** Research 2026-09-28 (medium confidence on practice): the article text is certain; which treaties exist (Spain and Italy are commonly cited) and whether a naturalised foreigner must formally renounce were not verified. Ley 7052 regulates arts. 146, 147 and 149 for Paraguayans by birth. Never promise dual nationality.
+- **Where it appears (2):**
+  - https://paraguayinvestorpass.com/insights/paraguay-citizenship-by-investment (`content/investorpass/insights/paraguay-citizenship-by-investment.mdx`)
+  - https://paraguayresidency.co.uk/residency/citizenship (`src/app/(en)/sites/residency/residency/citizenship/page.tsx`)
+
+### Indian nationals — Paraguayan entry visa
+
+- **Key:** `visa.india_consular`
+- **Shows (en):** Indian ordinary-passport holders need a Paraguayan consular visa before they travel: India is on Paraguay's consular-visa list, and Paraguay is not on India's own list of visa-free, visa-on-arrival or e-visa destinations
+- **Source:** [Government of India, MEA — visa facility for Indian nationals (as on 2 Feb 2026); Paraguayan consular visa regime](https://www.mea.gov.in/vffin) — checked 2026-09-28
+- **Other sources:** <https://www.mea.gov.in/vffin> · <https://www2.mre.gov.py/congralpar-buenos-aires/index.php/tramites-y-servicios/visas> · <https://www.mic.gov.py/wp-content/uploads/2026/04/Res.-N-0283.2026_Constancia-de-Inversionista.pdf>
+- **Note:** Research 2026-09-28 (medium confidence): the MEA list (page updated 27 Aug 2026) does not include Paraguay in any visa-facility category. A search excerpt of the Paraguayan consulate page (403 on fetch) lists India among nationalities needing a consular visa with Foreign Ministry authorisation. Some visa-agency pages claim visa-free entry; they conflict with both. Paraguay has an embassy in New Delhi. Owner: confirm with the embassy before relying on it.
+- **Where it appears (1):**
+  - https://paraguayresidency.co.uk/guides/documents/apostille-and-documents-for-indian-applicants (`content/residency/documents/apostille-and-documents-for-indian-applicants.mdx`)
+
+### Driving in Paraguay on a UK licence (visitors)
+
+- **Key:** `driving.uk_licence_visitors`
+- **Shows (en):** visitors can drive in Paraguay on a UK photocard licence, and must carry it with the passport showing their entry stamp
+- **Source:** [FCDO travel advice: Paraguay — safety and security (driving)](https://www.gov.uk/foreign-travel-advice/paraguay/safety-and-security) — checked 2026-09-28
+- **Other sources:** <https://www.gov.uk/foreign-travel-advice/paraguay/safety-and-security>
+- **Note:** Research 2026-09-28 (high confidence on the FCDO wording): the FCDO gives no time limit for visitors. Agency guides say a foreign licence is accepted for 90 days as a tourist; not verified in a primary source, so not published. Paper-licence holders may need an IDP (FCDO).
+- **Where it appears (1):**
+  - https://paraguayresidency.co.uk/guides/living-in-paraguay/uk-driving-licence-in-paraguay (`content/residency/living-in-paraguay/uk-driving-licence-in-paraguay.mdx`)
 
 ## Hedged (not shown as a figure)
 
@@ -925,7 +1213,7 @@ To pull a figure off every page at once, delete its `sourced` block.
 - **Shows (en):** a fixed service fee quoted in writing — we confirm the scope and separate costs before you commit
 - **Proposed figure (en):** fixed service fee confirmed in writing
 - **Note:** No approved service price supplied. Confirm the route scope and separate costs with the team before entering a figure or verifying. Government fees and document-provider charges are not this service fee.
-- **Where it appears (21):**
+- **Where it appears (22):**
   - guide member area — members/costs-and-timeline/real-costs (`content/guide/members/costs-and-timeline/real-costs.mdx`)
   - guide member area — members/costs-and-timeline/timeline-week-by-week (`content/guide/members/costs-and-timeline/timeline-week-by-week.mdx`)
   - guide member area — members/getting-started/the-routes-compared (`content/guide/members/getting-started/the-routes-compared.mdx`)
@@ -934,6 +1222,7 @@ To pull a figure off every page at once, delete its `sourced` block.
   - https://flyttatillparaguay.se/guider/sa-gar-flytten-till (`content/flytta/guider/sa-gar-flytten-till.mdx`)
   - https://flyttatillparaguay.se/priser (`src/app/(sv)/sites/flytta/priser/page.tsx`)
   - https://paraguayfrontier.com/pricing (`src/app/(en)/sites/frontier/pricing/page.tsx`)
+  - https://paraguayresidency.co.uk/guides/documents/choosing-a-paraguay-residency-agent (`content/residency/documents/choosing-a-paraguay-residency-agent.mdx`)
   - https://paraguayresidency.co.uk/pricing (`src/app/(en)/sites/residency/pricing/page.tsx`)
   - https://residenciaenparaguay.es/guias/comparativas/paraguay-vs-espana (`content/residenciaes/comparativas/paraguay-vs-espana.mdx`)
   - https://residenciaenparaguay.es/guias/documentos/antecedentes-penales-espana-apostilla (`content/residenciaes/documentos/antecedentes-penales-espana-apostilla.mdx`)
@@ -1060,9 +1349,13 @@ To pull a figure off every page at once, delete its `sourced` block.
 - **Proposed figure (en):** about 3–4 months: up to 5 working days for the investor certificate (CIE), then roughly 60–90 working days for the permanent residency resolution
 - **Other sources:** <https://www.mic.gov.py/paraguay-fortalece-la-atraccion-de-inversiones-extranjeras-con-el-nuevo-investor-pass/> · <https://www.ferrere.com/es/novedades/residencia-permanente-por-inversion-paraguay-agiliza-el-acceso-a-la-constancia-de-inversionista-extranjero/> · <https://vfparaguaygestiones.com.py/blog/paraguay-investor-pass-2026/> · <https://ntltrust.com/residency-by-investment/paraguay/>
 - **Note:** Research 2026-09-26 (low confidence): The 5-business-day CIE term is primary (resolution, confirmed by Ferrere). DNM stage 60–90 business days and total 90–120 days are agency claims; another guide says 4–9 months for the old SUACE route. Note 60–90 BUSINESS days is itself ~3–4.5 months, so '90–120 calendar days total' is internally inconsistent — owner should pick after first real cases. Excludes the time to make the investment and gather apostilled documents.
-- **Where it appears (7):**
+- **Where it appears (11):**
   - guide member area — members/next-steps/investor-pass-overview (`content/guide/members/next-steps/investor-pass-overview.mdx`)
   - https://paraguayinvestorpass.com/insights/how-long-it-actually-takes (`content/investorpass/insights/how-long-it-actually-takes.mdx`)
+  - https://paraguayinvestorpass.com/insights/investor-pass-resolution-explained (`content/investorpass/insights/investor-pass-resolution-explained.mdx`)
+  - https://paraguayinvestorpass.com/insights/investor-pass-vs-suace (`content/investorpass/insights/investor-pass-vs-suace.mdx`)
+  - https://paraguayinvestorpass.com/insights/paraguay-citizenship-by-investment (`content/investorpass/insights/paraguay-citizenship-by-investment.mdx`)
+  - https://paraguayinvestorpass.com/insights/paraguay-golden-visa (`content/investorpass/insights/paraguay-golden-visa.mdx`)
   - https://paraguayinvestorpass.com/insights/what-the-investor-pass-is (`content/investorpass/insights/what-the-investor-pass-is.mdx`)
   - https://paraguayresidencyguide.com/blog/how-long-paraguay-residency-actually-takes (`content/guide/blog/how-long-paraguay-residency-actually-takes.mdx`)
   - https://paraguayresidencyguide.com/blog/paraguay-investor-pass-explained (`content/guide/blog/paraguay-investor-pass-explained.mdx`)
@@ -1123,3 +1416,13 @@ To pull a figure off every page at once, delete its `sourced` block.
   - https://residenciaenparaguay.es/guias/impuestos/impuestos-en-paraguay-tabla-2026 (`content/residenciaes/impuestos/impuestos-en-paraguay-tabla-2026.mdx`)
   - https://residenciaenparaguay.es/guias/impuestos/irse-de-espana-a-paraguay-fiscalidad (`content/residenciaes/impuestos/irse-de-espana-a-paraguay-fiscalidad.mdx`)
   - https://residenciaenparaguay.es/guias/impuestos/ruc-para-extranjeros (`content/residenciaes/impuestos/ruc-para-extranjeros.mdx`)
+
+### Paraguayan driving licence for residents
+
+- **Key:** `driving.resident_licence`
+- **Shows (en):** a Paraguayan licence issued by the municipality where you live, once your residency paperwork allows it, with the current requirements confirmed for your case
+- **Proposed figure (en):** residents exchange a valid foreign licence for a Paraguayan one at the municipality where they live, usually without driving tests, once they hold a cédula
+- **Other sources:** <https://www.asuncion.gov.py/f-a-q/requisitos-para-obtencion-de-licencias-de-conducir> · <https://guiaparaguay.com.py/blog/canje-de-licencia-de-conducir-en-paraguay-la-guia-definitiva-para-residentes-extranjeros.html> · <https://moveparaguay.com/en/driver-license/>
+- **Note:** Research 2026-09-28 (low confidence): the Municipalidad de Asunción publishes its requirements only as images (Ordenanza 479/10). Guides agree on: cédula required, blood-group certificate from a Paraguayan lab, apostilled and translated foreign licence, no tests for a straight exchange, fee around G 225,000–240,000. Kept hedged until someone reads the municipal sheet.
+- **Where it appears (1):**
+  - https://paraguayresidency.co.uk/guides/living-in-paraguay/uk-driving-licence-in-paraguay (`content/residency/living-in-paraguay/uk-driving-licence-in-paraguay.mdx`)
