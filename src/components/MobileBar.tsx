@@ -67,7 +67,11 @@ export function MobileBarClient({ site, label, primary, secondary }: {
 
   useEffect(() => {
     if (!('IntersectionObserver' in window)) return;
-    const targets: Element[] = [...document.querySelectorAll('main form, footer')];
+    // Watch the section around each form, not the form: a progressive form
+    // swaps its <form> element when it enhances, and a detached element
+    // reports "not visible" for good.
+    const forms = [...document.querySelectorAll('main form')].map((form) => form.closest('section') ?? form.parentElement ?? form);
+    const targets: Element[] = [...new Set([...forms, ...document.querySelectorAll('footer')])];
     const url = new URL(primary.href, window.location.href);
     if (url.hash && url.pathname === window.location.pathname) {
       const target = document.getElementById(decodeURIComponent(url.hash.slice(1)));

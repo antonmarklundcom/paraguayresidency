@@ -94,8 +94,8 @@ export function Testimonials({ site, proof = PROOF, limit = 3, tone = 'default' 
                     ) : (
                       <span>{t(site, `reviews.source.${review.source}`)}</span>
                     )}
-                    {translatedFrom && <span>{t(site, 'reviews.translatedFrom', { language: translatedFrom })}</span>}
                   </p>
+                  {translatedFrom && <p className="mt-2 text-(length:--step--2) italic text-[var(--fg-muted)]">{t(site, 'reviews.translatedFrom', { language: translatedFrom })}</p>}
                 </figcaption>
               </figure>
             </li>
