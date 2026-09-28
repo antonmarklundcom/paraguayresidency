@@ -1741,6 +1741,245 @@ export const facts = {
     "note": "Research 2026-09-28 (medium confidence): art. 149 text confirmed via several excerpts; BACN page returned 403 to the fetcher. Ley 7052 (promulgated 12 Jan 2023) is mainly about natural-born Paraguayans keeping their nationality abroad. Whether a Brazilian naturalised in Paraguay must renounce Brazilian nationality in Paraguay's eyes was NOT confirmed — lawyer to confirm. Brazil side (EC 131/2023: loss only on express request) is hedged in prose, not here."
   },
   // end residenciapt W6-A
+  // residenciaes W6-B (2026-09-28): figures for the new .es articles, researched on the web.
+  "tax.spain_treaty": {
+    "key": "tax.spain_treaty",
+    "label": "Spain–Paraguay double tax treaty — status and dates",
+    "title": {
+      "en": "Spain–Paraguay double tax treaty",
+      "es": "Convenio España–Paraguay para evitar la doble imposición",
+      "pt": "Convenção Espanha–Paraguai para evitar a dupla tributação",
+      "sv": "Dubbelbeskattningsavtalet Spanien–Paraguay"
+    },
+    "display": {
+      "en": "the Spain–Paraguay income tax treaty, signed on 25 March 2023 (Paraguayan Law 7271/2024), in force since 14 October 2024 and applying to tax years starting on or after 1 January 2025",
+      "es": "el Convenio entre España y Paraguay para evitar la doble imposición, firmado el 25 de marzo de 2023 (Ley paraguaya 7271/2024), en vigor desde el 14 de octubre de 2024 y aplicable a los ejercicios que empiezan desde el 1 de enero de 2025",
+      "pt": "a convenção entre Espanha e Paraguai para evitar a dupla tributação, assinada em 25 de março de 2023 (Lei paraguaia 7271/2024), em vigor desde 14 de outubro de 2024 e aplicável aos exercícios iniciados a partir de 1º de janeiro de 2025",
+      "sv": "dubbelbeskattningsavtalet mellan Spanien och Paraguay, undertecknat den 25 mars 2023 (paraguayansk lag 7271/2024), i kraft sedan den 14 oktober 2024 och tillämpligt på beskattningsår som börjar från och med den 1 januari 2025"
+    },
+    "hedged": {
+      "en": "a double tax treaty between Spain and Paraguay, whose effect on your case your adviser confirms",
+      "es": "un convenio para evitar la doble imposición entre España y Paraguay, cuyo efecto en tu caso confirma tu asesor",
+      "pt": "uma convenção para evitar a dupla tributação entre Espanha e Paraguai, cujo efeito no seu caso o seu contador confirma",
+      "sv": "ett dubbelbeskattningsavtal mellan Spanien och Paraguay, vars betydelse för ditt fall din rådgivare bekräftar"
+    },
+    "verified": false,
+    "sourced": {
+      "label": "BOE-A-2024-15573 (BOE, 29 jul 2024); Ley paraguaya 7271/2024",
+      "checkedOn": "2026-09-28",
+      "url": "https://www.boe.es/buscar/doc.php?id=BOE-A-2024-15573"
+    },
+    "sources": [
+      "https://www.boe.es/buscar/doc.php?id=BOE-A-2024-15573",
+      "https://sede.agenciatributaria.gob.es/Sede/normativa-criterios-interpretativos/fiscalidad-internacional/convenios-doble-imposicion-firmados-espana/paraguay.html",
+      "https://www.amaral.com.py/es/convenio-para-evitar-la-doble-imposicion-cdi-entre-paraguay-y-espana-aprobado-por-ley-n-7271-2024-una-oportunidad-para-empresas-e-inversionistas-n5"
+    ],
+    "note": "Research 2026-09-28 (high confidence): BOE text: signed Santo Domingo 25 Mar 2023, published BOE 29 Jul 2024, 'entrará en vigor el 14 de octubre de 2024'; art. 27.2.a applies it to tax years starting from 1 Jan of the following year (2025). Art. 4.2 tie-breaker: permanent home, centre of vital interests, habitual abode, nationality, mutual agreement. Private pensions (art. 17) taxed only in the state of residence; government pensions (art. 18) in the paying state as a rule. Same research: Paraguay is NOT on Spain's list of jurisdicciones no cooperativas (Orden HFP/115/2023 as amended by Orden HAC/649/2026, BOE-A-2026-13946)."
+  },
+  "wages.minimum_monthly": {
+    "key": "wages.minimum_monthly",
+    "label": "Paraguay monthly minimum wage (private sector)",
+    "title": {
+      "en": "Paraguay minimum wage from July 2026",
+      "es": "Salario mínimo en Paraguay desde julio de 2026",
+      "pt": "Salário mínimo no Paraguai desde julho de 2026",
+      "sv": "Minimilön i Paraguay från juli 2026"
+    },
+    "display": {
+      "en": "G 3,044,000 a month (about USD 520) for general activities from 1 July 2026 (Decree 6225/2026)",
+      "es": "G 3.044.000 al mes (unos USD 520) para actividades diversas desde el 1 de julio de 2026 (Decreto 6225/2026)",
+      "pt": "G 3.044.000 por mês (cerca de USD 520) para atividades diversas desde 1º de julho de 2026 (Decreto 6225/2026)",
+      "sv": "G 3 044 000 i månaden (cirka USD 520) för allmänna verksamheter från den 1 juli 2026 (dekret 6225/2026)"
+    },
+    "hedged": {
+      "en": "the current legal minimum wage, which we confirm for your case",
+      "es": "el salario mínimo legal vigente, que te confirmamos para tu caso",
+      "pt": "o salário mínimo legal vigente, que confirmamos para o seu caso",
+      "sv": "den gällande lagstadgade minimilönen, som vi bekräftar för ditt fall"
+    },
+    "verified": false,
+    "sourced": {
+      "label": "Decreto N.º 6225/2026 (reajuste del salario mínimo, desde el 1 jul 2026)",
+      "checkedOn": "2026-09-28",
+      "url": "https://www.vouga.com.py/wp-content/uploads/2026/06/Decreto-6225.pdf"
+    },
+    "sources": [
+      "https://www.vouga.com.py/wp-content/uploads/2026/06/Decreto-6225.pdf",
+      "https://www.vouga.com.py/en/decreto-n-6225-2026-reajuste-del-salario-minimo-legal-para-el-sector-privado/",
+      "https://www.hoy.com.py/nacionales/2026/07/08/oficializan-nuevo-salario-minimo-desde-este-fin-de-mes-se-debe-percibir-gs-3044000"
+    ],
+    "note": "Research 2026-09-28 (high confidence): G 3.044.000 monthly and G 117.077 daily jornal (same jornal as fees.basis), +5% over Decreto 4122/2025, in force 1 Jul 2026. USD at fx.reference_rate (~G 5.870)."
+  },
+  "company.eas": {
+    "key": "company.eas",
+    "label": "EAS (simplified company) — how it is formed",
+    "title": {
+      "en": "EAS simplified company (Law 6480/2020)",
+      "es": "Empresa por Acciones Simplificadas (EAS, Ley 6480/2020)",
+      "pt": "Empresa por Ações Simplificadas (EAS, Lei 6480/2020)",
+      "sv": "Förenklat aktiebolag EAS (lag 6480/2020)"
+    },
+    "display": {
+      "en": "an EAS (Law 6480/2020) is formed online through SUACE by one or more shareholders with no legal minimum capital, in about 72 hours with the model by-laws (up to 8 business days with custom ones); its main legal representative must hold Paraguayan nationality or a Paraguayan cédula",
+      "es": "la EAS (Ley 6480/2020) se constituye en línea por el SUACE, con uno o más accionistas y sin capital mínimo legal, en unas 72 horas con el estatuto modelo (hasta 8 días hábiles con estatuto propio); su representante legal principal debe tener nacionalidad o cédula paraguaya",
+      "pt": "a EAS (Lei 6480/2020) é constituída on-line pelo SUACE, com um ou mais acionistas e sem capital mínimo legal, em cerca de 72 horas com o estatuto-modelo (até 8 dias úteis com estatuto próprio); o representante legal principal deve ter nacionalidade ou cédula paraguaia",
+      "sv": "ett EAS (lag 6480/2020) bildas digitalt via SUACE av en eller flera aktieägare utan lagstadgat minimikapital, på cirka 72 timmar med standardstadgar (upp till 8 arbetsdagar med egna stadgar); den huvudsakliga företrädaren måste ha paraguayanskt medborgarskap eller paraguayansk cédula"
+    },
+    "hedged": {
+      "en": "a simplified company formed online, with the requirements for your shareholders and legal representative confirmed for your case",
+      "es": "una sociedad simplificada que se constituye en línea, con los requisitos para tus accionistas y tu representante legal confirmados para tu caso",
+      "pt": "uma sociedade simplificada constituída on-line, com os requisitos para acionistas e representante legal confirmados para o seu caso",
+      "sv": "ett förenklat bolag som bildas digitalt, där kraven på aktieägare och företrädare bekräftas för ditt fall"
+    },
+    "verified": false,
+    "sourced": {
+      "label": "MIC, EAS – Preguntas frecuentes (Ley 6480/2020, Decreto 3998/2020)",
+      "checkedOn": "2026-09-28",
+      "url": "https://eas.mic.gov.py/Preguntas-frecuentes"
+    },
+    "sources": [
+      "https://eas.mic.gov.py/Preguntas-frecuentes",
+      "https://www.bacn.gov.py/leyes-paraguayas/9100/ley-n-6480-crea-la-empresa-por-acciones-simplificadas-eas",
+      "https://baselegal.com.py/docs/22da4ff1-0a27-11eb-82fb-525400c761ca"
+    ],
+    "note": "Research 2026-09-28 (high confidence, official MIC FAQ): foreign shareholders sign with a Paraguayan cédula/permanent-residence card or through an apostilled power of attorney; shareholders need not be resident; 'no se requiere de un capital mínimo'. The FAQ quotes no fee, so no cost is published."
+  },
+  "property.border_zone": {
+    "key": "property.border_zone",
+    "label": "Border security zone — rural land and foreigners from neighbouring countries",
+    "title": {
+      "en": "Border security zone (Law 2532/2005)",
+      "es": "Zona de seguridad fronteriza (Ley 2532/2005)",
+      "pt": "Zona de segurança de fronteira (Lei 2532/2005)",
+      "sv": "Gränssäkerhetszonen (lag 2532/2005)"
+    },
+    "display": {
+      "en": "within the 50 km border security strip along land and river borders, nationals of neighbouring countries (Argentina, Brazil, Bolivia) cannot own rural property unless authorised by decree (Law 2532/2005); urban property is not affected",
+      "es": "en la franja de seguridad fronteriza de 50 km junto a las fronteras terrestres y fluviales, los extranjeros de países limítrofes (Argentina, Brasil y Bolivia) no pueden ser propietarios de inmuebles rurales salvo autorización por decreto (Ley 2532/2005); no afecta a los inmuebles urbanos",
+      "pt": "na faixa de segurança de fronteira de 50 km junto às fronteiras terrestres e fluviais, estrangeiros de países limítrofes (Argentina, Brasil e Bolívia) não podem ser proprietários de imóveis rurais salvo autorização por decreto (Lei 2532/2005); imóveis urbanos não são afetados",
+      "sv": "inom den 50 km breda gränssäkerhetszonen längs land- och flodgränser får medborgare i grannländerna (Argentina, Brasilien, Bolivia) inte äga landsbygdsfastigheter utan tillstånd genom dekret (lag 2532/2005); stadsfastigheter berörs inte"
+    },
+    "hedged": {
+      "en": "a border security zone with limits on rural property for some nationalities, which we check for the plot you are looking at",
+      "es": "una zona de seguridad fronteriza con límites a la propiedad rural para algunas nacionalidades, que revisamos para el inmueble que te interesa",
+      "pt": "uma zona de segurança de fronteira com limites à propriedade rural para algumas nacionalidades, que verificamos para o imóvel que interessa a você",
+      "sv": "en gränssäkerhetszon med begränsningar för landsbygdsfastigheter för vissa nationaliteter, som vi kontrollerar för den fastighet du tittar på"
+    },
+    "verified": false,
+    "sourced": {
+      "label": "Ley N.º 2532/2005 (zona de seguridad fronteriza), BACN",
+      "checkedOn": "2026-09-28",
+      "url": "https://www.bacn.gov.py/leyes-paraguayas/4025/ley-n-2532-establece-la-zona-de-seguridad-fronteriza-de-la-republica-del-paraguay"
+    },
+    "sources": [
+      "https://www.bacn.gov.py/leyes-paraguayas/4025/ley-n-2532-establece-la-zona-de-seguridad-fronteriza-de-la-republica-del-paraguay",
+      "https://www.bacn.gov.py/leyes-paraguayas/4202/ley-n-2647-modifica-el-articulo-3-de-la-ley-n-2532-del-17-de-febrero-de-2005-que-establece-la-zona-de-seguridad-fronteriza-de-la-republica-del-paraguay",
+      "https://ghp.com.py/2019/06/18/interpretando-la-ley-de-seguridad-fronteriza-del-paraguay/"
+    ],
+    "note": "Research 2026-09-28 (high confidence): art. 1 sets the 50 km strip; art. 2 bars nationals of bordering countries (and entities mainly owned by them) from owning, co-owning or holding usufruct of rural property there, save executive decree for public-interest reasons. Acquired rights and inheritance are protected. Art. 3 amended by Ley 2647/2005. Spaniards and other non-neighbouring nationals are not covered by art. 2."
+  },
+  "property.annual_tax": {
+    "key": "property.annual_tax",
+    "label": "Impuesto inmobiliario — annual property tax",
+    "title": {
+      "en": "Annual property tax (impuesto inmobiliario)",
+      "es": "Impuesto inmobiliario anual",
+      "pt": "Imposto imobiliário anual",
+      "sv": "Årlig fastighetsskatt (impuesto inmobiliario)"
+    },
+    "display": {
+      "en": "1% a year of the property's fiscal (not market) value, collected by the municipality; fiscal values are indexed every year (+4.1% for 2026)",
+      "es": "un 1% anual sobre el valor fiscal del inmueble (no el de mercado), cobrado por la municipalidad; el valor fiscal se reajusta cada año (un 4,1% para 2026)",
+      "pt": "1% ao ano sobre o valor fiscal do imóvel (não o de mercado), cobrado pelo município; o valor fiscal é reajustado todo ano (+4,1% para 2026)",
+      "sv": "1 % per år av fastighetens taxeringsvärde (inte marknadsvärdet), som kommunen tar ut; taxeringsvärdet räknas upp varje år (+4,1 % för 2026)"
+    },
+    "hedged": {
+      "en": "an annual municipal property tax on the fiscal value, which we estimate for the property you are looking at",
+      "es": "un impuesto municipal anual sobre el valor fiscal, que estimamos para el inmueble que te interesa",
+      "pt": "um imposto municipal anual sobre o valor fiscal, que estimamos para o imóvel que interessa a você",
+      "sv": "en årlig kommunal fastighetsskatt på taxeringsvärdet, som vi uppskattar för den fastighet du tittar på"
+    },
+    "verified": false,
+    "sourced": {
+      "label": "ABC Color, 27 dic 2025 (Decreto 5181/2025); Ley 5513/2015",
+      "checkedOn": "2026-09-28",
+      "url": "https://www.abc.com.py/economia/2025/12/27/ejecutivo-ajusto-41-el-valor-fiscal-para-impuesto-inmobiliario-de-2026/"
+    },
+    "sources": [
+      "https://www.abc.com.py/economia/2025/12/27/ejecutivo-ajusto-41-el-valor-fiscal-para-impuesto-inmobiliario-de-2026/",
+      "https://www.bacn.gov.py/leyes-paraguayas/4492/ley-n-5513-modifica-los-articulos-60-62-66-70-y-74-de-la-ley-n-12591-que-establece-el-nuevo-regimen-tributario-y-los-articulos-155-y-179-de-la-ley-n-396610-organica-municipal",
+      "https://www.mersanlaw.com/novedades/paraguay-actualiza-valores-fiscales-inmobiliarios-para-2026/"
+    ],
+    "note": "Research 2026-09-28 (medium-high confidence): rate 1% of valor fiscal, urban and rural; fiscal values set per district and indexed by CPI each year (Decreto 5181/2025: +4.1% for 2026). Reduced rates for small rural holdings exist in Ley 125/91 and are not published here."
+  },
+  "ips.contributions": {
+    "key": "ips.contributions",
+    "label": "IPS social security contributions (employees)",
+    "title": {
+      "en": "IPS social security contributions",
+      "es": "Aportes al IPS (seguro social)",
+      "pt": "Contribuições ao IPS (seguridade social)",
+      "sv": "Avgifter till IPS (socialförsäkring)"
+    },
+    "display": {
+      "en": "25.5% of salary: 9% paid by the employee and 16.5% by the employer, with the minimum wage as the floor",
+      "es": "un 25,5% del salario: 9% a cargo del trabajador y 16,5% a cargo del empleador, con el salario mínimo como base mínima",
+      "pt": "25,5% do salário: 9% pagos pelo trabalhador e 16,5% pelo empregador, com o salário mínimo como base mínima",
+      "sv": "25,5 % av lönen: 9 % betalas av den anställda och 16,5 % av arbetsgivaren, med minimilönen som lägsta underlag"
+    },
+    "hedged": {
+      "en": "the IPS contribution split between employee and employer, which we confirm for your case",
+      "es": "el reparto de aportes al IPS entre trabajador y empleador, que te confirmamos para tu caso",
+      "pt": "a divisão das contribuições ao IPS entre trabalhador e empregador, que confirmamos para o seu caso",
+      "sv": "fördelningen av IPS-avgifter mellan anställd och arbetsgivare, som vi bekräftar för ditt fall"
+    },
+    "verified": false,
+    "sourced": {
+      "label": "MTESS / IPS, régimen de aporte obrero-patronal (Ley 213/93)",
+      "checkedOn": "2026-09-28",
+      "url": "https://www.mtess.gov.py/?p=7713"
+    },
+    "sources": [
+      "https://www.mtess.gov.py/?p=7713",
+      "https://portal.ips.gov.py/sistemas/ipsportal/contenido.php?e=12",
+      "https://www.deel.com/es/blog/aportes-ips-en-paraguay/"
+    ],
+    "note": "Research 2026-09-28 (high confidence on 9%/16.5%; the 2021 transitional 2.5% employer rate for some sectors has lapsed): IPS covers salaried employees; the self-employed are not compulsorily covered (voluntary schemes exist)."
+  },
+  "socialsecurity.spain_agreement": {
+    "key": "socialsecurity.spain_agreement",
+    "label": "Spain–Paraguay social security agreement",
+    "title": {
+      "en": "Spain–Paraguay social security agreement",
+      "es": "Convenio de Seguridad Social España–Paraguay",
+      "pt": "Convênio de Seguridade Social Espanha–Paraguai",
+      "sv": "Socialförsäkringsavtalet Spanien–Paraguay"
+    },
+    "display": {
+      "en": "a bilateral Spain–Paraguay social security agreement in force since 2006 (administrative arrangement of 2016) that lets contribution periods in both countries count towards contributory pensions; both also apply the Ibero-American Multilateral Agreement",
+      "es": "un convenio bilateral de Seguridad Social entre España y Paraguay, en vigor desde 2006 (con acuerdo administrativo de 2016), que permite sumar los periodos cotizados en ambos países para las pensiones contributivas; los dos aplican además el Convenio Multilateral Iberoamericano",
+      "pt": "um convênio bilateral de seguridade social entre Espanha e Paraguai, em vigor desde 2006 (com acordo administrativo de 2016), que permite somar os períodos de contribuição nos dois países para as aposentadorias contributivas; ambos aplicam também o Convênio Multilateral Ibero-americano",
+      "sv": "ett bilateralt socialförsäkringsavtal mellan Spanien och Paraguay, i kraft sedan 2006 (med ett administrativt avtal från 2016), som låter avgiftsperioder i båda länderna räknas samman för avgiftsbaserade pensioner; båda tillämpar också det iberoamerikanska multilaterala avtalet"
+    },
+    "hedged": {
+      "en": "a social security agreement between Spain and Paraguay, whose effect on your pension the INSS confirms",
+      "es": "un convenio de Seguridad Social entre España y Paraguay, cuyo efecto en tu pensión confirma el INSS",
+      "pt": "um convênio de seguridade social entre Espanha e Paraguai, cujo efeito na sua aposentadoria o INSS espanhol confirma",
+      "sv": "ett socialförsäkringsavtal mellan Spanien och Paraguay, vars betydelse för din pension INSS bekräftar"
+    },
+    "verified": false,
+    "sourced": {
+      "label": "BOE-A-2006-1619 (Convenio de Seguridad Social España–Paraguay); BOE-A-2017-687",
+      "checkedOn": "2026-09-28",
+      "url": "https://www.boe.es/buscar/doc.php?id=BOE-A-2006-1619"
+    },
+    "sources": [
+      "https://www.boe.es/buscar/doc.php?id=BOE-A-2006-1619",
+      "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2017-687",
+      "https://oiss.org/paraguay-se-incorpora-a-la/"
+    ],
+    "note": "Research 2026-09-28 (high confidence): signed Asunción 24 Jun 1998 (Paraguayan Ley 1468/1999), in force March 2006; administrative agreement Madrid 15 Sep 2016 (BOE 2017). Paraguay's IPS does not compulsorily cover the self-employed, so Spanish autónomo periods count on the Spanish side only. Pension payment abroad and the annual fe de vida are INSS rules, hedged in prose."
+  },
   "apostille.since": {
     "key": "apostille.since",
     "label": "Apostille — Paraguay's membership",
