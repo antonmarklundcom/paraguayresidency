@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
-import { ContactPage, contactMetadata } from '@/lib/conversion-pages';
+import { BrandContactPage } from '@/lib/brand-contact';
+import { contactMetadata } from '@/lib/conversion-pages';
 
 const SITE = 'residenciapt' as const;
 
@@ -8,5 +9,5 @@ export function generateMetadata(): Metadata {
 }
 
 export default function Page() {
-  return <ContactPage site={SITE} />;
+  return <BrandContactPage site={SITE} eyebrow="Fale com a gente" />;
 }
