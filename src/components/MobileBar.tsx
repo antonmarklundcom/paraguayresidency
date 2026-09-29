@@ -94,7 +94,7 @@ export function MobileBarClient({ site, label, primary, secondary }: {
   return (
     <MobileBarFrame hidden={hidden} label={label} data-mobile-bar>
       {primary.kind === 'whatsapp' ? (
-        <a href={primary.href} rel="noopener" target="_blank" data-whatsapp data-placement="mobile-bar" className={barStyles.whatsapp}>
+        <a href={primary.href} rel="noopener" target="_blank" data-whatsapp data-wa-page data-placement="mobile-bar" className={barStyles.whatsapp}>
           <WhatsAppIcon className="size-5" />
           {primary.label}
         </a>
@@ -104,7 +104,7 @@ export function MobileBarClient({ site, label, primary, secondary }: {
         </Link>
       )}
       {secondary && (
-        <a href={secondary.href} rel="noopener" target="_blank" data-whatsapp data-placement="mobile-bar" aria-label={secondary.label} className={barStyles.icon}>
+        <a href={secondary.href} rel="noopener" target="_blank" data-whatsapp data-wa-page data-placement="mobile-bar" aria-label={secondary.label} className={barStyles.icon}>
           <WhatsAppIcon className="size-6" />
         </a>
       )}

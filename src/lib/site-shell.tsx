@@ -28,7 +28,7 @@ export function SiteShell({ site, children }: { site: SiteKey; children: ReactNo
       <WhatsAppFab site={site} />
       {/* Phones: one fixed action bar (WhatsApp, or the guide's buy button). */}
       <MobileWhatsAppBar site={site} />
-      <WhatsAppClickTracker site={site} />
+      <WhatsAppClickTracker site={site} pageTemplate={t(site, 'whatsapp.prefillPage', { page: '{page}' })} />
       <JsonLd data={organizationJsonLd(site)} />
       {/* Env-gated: renders nothing unless NEXT_PUBLIC_PLAUSIBLE_ENABLED=true. track() calls need it mounted. */}
       <Analytics domain={getSite(site).analytics?.plausibleDomain ?? getSite(site).canonicalHost} />
