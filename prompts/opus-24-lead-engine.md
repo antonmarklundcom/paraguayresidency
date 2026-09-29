@@ -6,7 +6,30 @@ Goal: traffic that trusts the sites and becomes service clients. Every visitor w
 form must reach a person, be traceable to the page that produced them, and nothing may fail silently. The paid guide
 and Stripe are NOT in scope this week (leave `FREE_ACCESS_MODE` as is).
 
-A Sonnet session runs in parallel on the front-end side (WhatsApp bar, "what happens next" blocks, price
+## State when you start (2026-09-29) and how to work alongside Sonnet
+
+You may start now, in parallel with the Sonnet builders. Already merged to `main`: PR #87 (WhatsApp bar names the page,
+shared `NextSteps` block), PR #89 (28 new intent pages), PR #90 (metadata/structured-data/link-graph test gates, related
+guides, breadcrumbs). Still running or to come: A2 (price presentation + trust components, touches `PriceTable`,
+`proof.ts`-driven components, service/pricing pages) and a final speed + visual QA sweep. Always `git fetch` and branch
+from the latest `origin/main`; rebase before each PR. Do not edit files those builders own (components under
+`src/components/{PriceTable,TrustBar,Testimonials,TeamSection,OfficeStrip,Guarantee}*`, `content/**`).
+
+**Step 0 — double-check the Sonnet work before building on it (30–45 min, use a Sonnet-medium subagent for the read-through,
+you judge the findings):**
+- `NextSteps`, `WhatsApp*`, `MobileBar`: does every WhatsApp click path work with JS off and with the number unset?
+  Does `WhatsAppClickTracker` post anything the lead kinds in item 2 can consume? Reconcile with your item 2 contract.
+- The new gates in `tests/seo-*.test.ts` and `tests/helpers/render-pages.ts`: do they run in CI time, without a database?
+- `src/lib/metadata.ts` Organization/LocalBusiness JSON-LD: nothing invented, address/rating only from `proof.ts`.
+- Run the seven-host smoke in a built app yourself; list anything broken as issues to fix in your items.
+Write findings to `docs/log/o24.md` "Step 0" and fix what falls inside your ownership; report the rest.
+
+**CI warning:** GitHub Actions has been unreliable this session — the Sonnet PRs showed no check runs, and one run hung on
+`npm ci` for 30+ minutes. Do not merge on a red check. If Actions does not start or hangs, run the full
+`npm run verify` locally on the merge result, say so in the PR body, and merge; never skip a test. Retry a stuck run once
+(re-run API), never with an empty commit. Tell Anton at the end if Actions needs attention (budget/minutes).
+
+Sonnet sessions run on the front-end side (WhatsApp bar, "what happens next" blocks, price
 presentation, trust surfaces, metadata/JSON-LD/link gates, speed, visual QA). Do not touch those files; you own the
 server, data and ops side below. Rebase on `main` before each PR and after each merge.
 
