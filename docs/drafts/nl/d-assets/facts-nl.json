@@ -1,0 +1,307 @@
+{
+  "documents.police_certificate_validity": {
+    "title.nl": "Bewijs van goed gedrag: recentheid en acceptatie",
+    "display.nl": "niet langer dan 90 dagen voor je aanvraag afgegeven, met apostille of gelegaliseerd, uit je land van herkomst (en uit elk land waar je de afgelopen 3 jaar hebt gewoond)",
+    "hedged.nl": "de geldende termijn voor de recentheid van het bewijs en de voorwaarden voor acceptatie moeten worden bevestigd voor jouw afgevende land, jouw route en het stadium van je aanvraag"
+  },
+  "investorpass.min_investment_usd": {
+    "title.nl": "Investor Pass: minimale kwalificerende investering",
+    "display.nl": "vanaf USD 70.000 (productief bedrijf met minstens 5 formele banen); USD 150.000 tot 200.000 bij de passieve routes",
+    "hedged.nl": "vanaf een kwalificerend investeringsbedrag dat we voor jouw situatie schriftelijk bevestigen"
+  },
+  "investorpass.launch_date": {
+    "title.nl": "Investor Pass: start van het programma",
+    "display.nl": "gestart op 17 april 2026 (Resolutie 0283/2026, ondertekend op 21 april 2026)",
+    "hedged.nl": "de start van het programma en de actuele status, schriftelijk bevestigd voor jouw situatie"
+  },
+  "investorpass.validity_years": {
+    "title.nl": "Investor Pass: geldigheid van de verblijfsvergunning",
+    "display.nl": "permanent verblijf zonder einddatum; de verblijfskaart wordt elke 10 jaar vernieuwd",
+    "hedged.nl": "een permanente kaart met een lange geldigheid; we bevestigen de exacte termijn schriftelijk voordat je indient"
+  },
+  "permanent.presence_rule": {
+    "title.nl": "Permanente verblijfsvergunning: aanwezigheidseis",
+    "display.nl": "minstens één inreis per drie jaar; een ongerechtvaardigde afwezigheid van meer dan 3 jaar achter elkaar maakt de permanente verblijfsvergunning ongeldig",
+    "hedged.nl": "er geldt een minimale aanwezigheidsregel; we leggen precies uit wat die voor jouw reispatroon betekent"
+  },
+  "temporary.duration": {
+    "title.nl": "Tijdelijke verblijfsvergunning: duur",
+    "display.nl": "maximaal twee jaar (verlengbaar); daarna kan in de laatste 90 dagen van de kaart permanent verblijf worden aangevraagd",
+    "hedged.nl": "een vaste eerste termijn, waarna je permanent verblijf aanvraagt; de actuele termijn bevestigen we schriftelijk voor jouw situatie"
+  },
+  "cedula.timeline": {
+    "title.nl": "Cédula: gebruikelijke doorlooptijd",
+    "display.nl": "officieel 60 werkdagen voor een eerste cédula voor een buitenlandse ingezetene, in 2026 vaak langer",
+    "hedged.nl": "afgegeven nadat je verblijfsvergunning is goedgekeurd; we geven je een actuele, realistische termijn en niet het gunstigste scenario"
+  },
+  "tax.territorial_rate": {
+    "title.nl": "Inkomstenbelasting voor personen: territoriaal tarief",
+    "display.nl": "8 tot 10% over inkomen uit Paraguay (10% als hoogste tarief; 8% over kapitaalinkomen)",
+    "hedged.nl": "een laag vast tarief over inkomen uit Paraguay binnen een territoriaal stelsel; je belastingadviseur bevestigt jouw situatie"
+  },
+  "investorpass.route_real_estate_usd": {
+    "title.nl": "Investor Pass: minimum voor de vastgoedroute",
+    "display.nl": "vanaf USD 200.000 in vastgoed dat voor een economische activiteit wordt gebruikt (niet je eigen woning)",
+    "hedged.nl": "een kwalificerende vastgoedaankoop, waarbij we het actuele minimum schriftelijk voor jouw situatie bevestigen"
+  },
+  "investorpass.route_business_usd": {
+    "title.nl": "Investor Pass: minimum voor de route productief bedrijf",
+    "display.nl": "vanaf USD 70.000 geïnvesteerd in een productief bedrijf, met een ondernemingsplan en minstens 5 formele banen",
+    "hedged.nl": "een kwalificerende investering in een productief bedrijf, waarbij we het actuele minimum schriftelijk voor jouw situatie bevestigen"
+  },
+  "investorpass.route_financial_usd": {
+    "title.nl": "Investor Pass: minimum voor de route financiële instrumenten",
+    "display.nl": "vanaf USD 200.000 in kwalificerende financiële instrumenten, minstens 2 jaar aangehouden",
+    "hedged.nl": "een kwalificerende investering in financiële instrumenten, waarbij we het actuele minimum schriftelijk voor jouw situatie bevestigen"
+  },
+  "investorpass.route_tourism_usd": {
+    "title.nl": "Investor Pass: minimum voor de route toerismesector",
+    "display.nl": "vanaf USD 150.000 geïnvesteerd in een toerismeproject, met een ondernemingsplan",
+    "hedged.nl": "een kwalificerende investering in de toerismesector, waarbij we het actuele minimum schriftelijk voor jouw situatie bevestigen"
+  },
+  "tax.foreign_income_treatment": {
+    "title.nl": "Buitenlands inkomen binnen het territoriale stelsel",
+    "display.nl": "inkomen uit het buitenland valt in het algemeen buiten de Paraguayaanse inkomstenbelasting (Wet 6380/2019 belast alleen inkomen uit Paraguay)",
+    "hedged.nl": "Paraguay belast territoriaal, en dat verandert hoe buitenlands inkomen wordt behandeld; wat dat voor jouw eigen land en jouw eigen inkomen betekent, is een vraag voor je belastingadviseur, en dat zeggen we liever dan dat we iets beloven"
+  },
+  "costofliving.overview": {
+    "title.nl": "Kosten van levensonderhoud: algemene vergelijking",
+    "display.nl": "ongeveer USD 600 per maand voor één persoon vóór huur in Asunción (Numbeo, augustus 2026)",
+    "hedged.nl": "je budget hangt af van stad, levensstijl en gezinsgrootte; we lopen je eigen uitgaven met je door in plaats van een gemiddelde te noemen dat voor niemand klopt"
+  },
+  "costofliving.rent": {
+    "title.nl": "Kosten van levensonderhoud: gebruikelijke huurprijs",
+    "display.nl": "ongeveer USD 450 tot 600 per maand voor een appartement met één slaapkamer in het centrum van Asunción (2026), minder buiten het centrum en in kleinere steden",
+    "hedged.nl": "de huur hangt af van je stad en het soort woning dat je wilt; we bekijken samen de actuele bedragen in plaats van een getal te noemen dat snel verouderd is"
+  },
+  "costofliving.groceries": {
+    "title.nl": "Kosten van levensonderhoud: boodschappen en uit eten",
+    "display.nl": "ongeveer USD 150 tot 210 per maand aan boodschappen voor één persoon, en ongeveer G 35.000 tot 40.000 (≈ USD 6 tot 7) voor een vaste lunch in een eenvoudig restaurant",
+    "hedged.nl": "de dagelijkse uitgaven zijn een van de categorieën die we kunnen doorlopen met echte bonnetjes van klanten die er al wonen, in plaats van een algemeen boodschappenmandje"
+  },
+  "pricing.temporary": {
+    "title.nl": "Tijdelijke verblijfsvergunning: honorarium",
+    "display.nl": "een vast honorarium dat schriftelijk wordt bevestigd",
+    "hedged.nl": "een vast honorarium dat schriftelijk wordt opgegeven; we bevestigen de omvang en de aparte kosten voordat je je vastlegt"
+  },
+  "pricing.permanent": {
+    "title.nl": "Permanente verblijfsvergunning: honorarium",
+    "display.nl": "een vast honorarium dat schriftelijk wordt bevestigd",
+    "hedged.nl": "een vast honorarium dat schriftelijk wordt opgegeven; we bevestigen de omvang en de aparte kosten voordat je je vastlegt"
+  },
+  "pricing.cedula": {
+    "title.nl": "Cédula de identidad: honorarium",
+    "display.nl": "een vast honorarium dat schriftelijk wordt bevestigd",
+    "hedged.nl": "een vast honorarium dat schriftelijk wordt opgegeven; we bevestigen de omvang en de aparte kosten voordat je je vastlegt"
+  },
+  "pricing.tax_residency": {
+    "title.nl": "Fiscale woonplaats en RUC: honorarium",
+    "display.nl": "een vast honorarium dat schriftelijk wordt bevestigd",
+    "hedged.nl": "een vast honorarium dat schriftelijk wordt opgegeven; we bevestigen de omvang en de aparte kosten voordat je je vastlegt"
+  },
+  "pricing.family": {
+    "title.nl": "Gezinsaanvraag: honorarium",
+    "display.nl": "een vast honorarium dat schriftelijk wordt bevestigd",
+    "hedged.nl": "een vast honorarium dat schriftelijk wordt opgegeven; we bevestigen de omvang en de aparte kosten voordat je je vastlegt"
+  },
+  "pricing.investor_pass": {
+    "title.nl": "Investor Pass: honorarium",
+    "display.nl": "een vast honorarium dat schriftelijk wordt bevestigd",
+    "hedged.nl": "een vast honorarium dat schriftelijk wordt opgegeven; we bevestigen de omvang en de aparte kosten voordat je je vastlegt"
+  },
+  "tax.timeline": {
+    "title.nl": "Fiscale woonplaats en RUC: doorlooptijd",
+    "display.nl": "tot ongeveer 10 werkdagen voor het fiscale-woonplaatsbewijs van de DNIT, zodra je een cédula en een actief RUC hebt",
+    "hedged.nl": "een aparte doorlooptijd voor belasting en RUC die we met de boekhouder voor jouw situatie bevestigen; de goedkeuring van je verblijfsvergunning bepaalt deze termijn niet"
+  },
+  "investorpass.timeline": {
+    "title.nl": "Investor Pass: doorlooptijd",
+    "display.nl": "ongeveer 3 tot 4 maanden: tot 5 werkdagen voor het investeerderscertificaat (CIE), daarna ongeveer 60 tot 90 werkdagen voor het besluit over permanent verblijf",
+    "hedged.nl": "een termijn per situatie die we schriftelijk bevestigen voordat je indient; de opzet van de investering, de documenten over de herkomst van het geld en de beoordeling door de autoriteiten beïnvloeden de duur"
+  },
+  "fees.basis": {
+    "title.nl": "Overheidstarieven: hoe ze worden vastgesteld",
+    "display.nl": "vastgesteld in minimale dagloner (jornales), sinds 1 juli 2026 elk G 117.077, dus ze stijgen bij elke aanpassing van het minimumloon",
+    "hedged.nl": "een overheidstarief dat aan het minimumloon is gekoppeld en dat we schriftelijk voor jouw situatie bevestigen"
+  },
+  "fees.temporary_residency": {
+    "title.nl": "DNM-tarief: tijdelijke verblijfsvergunning",
+    "display.nl": "G 2.926.925 (ongeveer USD 500) aan overheidstarieven",
+    "hedged.nl": "een overheidstarief dat we schriftelijk voor jouw situatie bevestigen"
+  },
+  "fees.permanent_residency": {
+    "title.nl": "DNM-tarief: permanente verblijfsvergunning (wijziging van categorie)",
+    "display.nl": "G 2.926.925 (ongeveer USD 500) aan overheidstarieven",
+    "hedged.nl": "een overheidstarief dat we schriftelijk voor jouw situatie bevestigen"
+  },
+  "fees.mercosur_residency": {
+    "title.nl": "DNM-tarief: Mercosur-verblijf",
+    "display.nl": "een verlaagd DNM-tarief van ongeveer G 2,3 miljoen (≈ USD 400) voor onderdanen van Mercosur-landen",
+    "hedged.nl": "een overheidstarief dat we schriftelijk voor jouw situatie bevestigen"
+  },
+  "fees.temporary_extension": {
+    "title.nl": "DNM-tarief: verlenging tijdelijke verblijfsvergunning (prórroga)",
+    "display.nl": "G 1.287.847 om een tijdelijke verblijfsvergunning te verlengen",
+    "hedged.nl": "een overheidstarief dat we schriftelijk voor jouw situatie bevestigen"
+  },
+  "fees.permanent_card_renewal": {
+    "title.nl": "DNM-tarief: vernieuwing permanente verblijfskaart",
+    "display.nl": "G 468.308 om de permanente verblijfskaart elke 10 jaar te vernieuwen",
+    "hedged.nl": "een overheidstarief dat we schriftelijk voor jouw situatie bevestigen"
+  },
+  "fees.interpol_certificate": {
+    "title.nl": "Tarief Interpol-bewijs van goed gedrag (Paraguay)",
+    "display.nl": "G 117.077 (ongeveer USD 20), alleen contant",
+    "hedged.nl": "een overheidstarief dat we schriftelijk voor jouw situatie bevestigen"
+  },
+  "fees.police_certificate_py": {
+    "title.nl": "Tarief Paraguayaans politieblad (voor de cédula)",
+    "display.nl": "G 24.500 in persoon (G 27.364 online)",
+    "hedged.nl": "een overheidstarief dat we schriftelijk voor jouw situatie bevestigen"
+  },
+  "fees.cedula_first": {
+    "title.nl": "Cédula: overheidstarief, eerste afgifte",
+    "display.nl": "gratis bij de eerste afgifte (vernieuwing of vervanging G 8.500)",
+    "hedged.nl": "een overheidstarief dat we schriftelijk voor jouw situatie bevestigen"
+  },
+  "temporary.presence_rule": {
+    "title.nl": "Tijdelijke verblijfsvergunning: aanwezigheidseis",
+    "display.nl": "minstens één inreis per 12 maanden; een ongerechtvaardigde afwezigheid van meer dan een jaar maakt de tijdelijke verblijfsvergunning ongeldig",
+    "hedged.nl": "een maximale tijd in het buitenland die we voor jouw situatie bevestigen"
+  },
+  "investorpass.legal_instrument": {
+    "title.nl": "Investor Pass: rechtsgrond",
+    "display.nl": "MIC-resolutie nr. 0283/2026, die een investeerderscertificaat voor buitenlanders (CIE) toekent dat directe toegang geeft tot permanent verblijf",
+    "hedged.nl": "de overheidsresolutie waarmee de Investor Pass is ingesteld, waarnaar we voor jouw situatie verwijzen"
+  },
+  "suace.status": {
+    "title.nl": "SUACE-investeerdersroute: actuele status",
+    "display.nl": "nog open als productieve route binnen de Investor Pass: vanaf USD 70.000, minstens 5 formele banen",
+    "hedged.nl": "het kwalificerende investeringsbedrag, de eis voor banen en de termijn voor uitvoering bij deze route, die we voor jouw situatie bevestigen"
+  },
+  "tax.irp_brackets": {
+    "title.nl": "IRP: schijven van de inkomstenbelasting voor personen",
+    "display.nl": "8% tot G 50 miljoen, 9% van G 50 tot 150 miljoen en 10% boven G 150 miljoen netto-inkomen",
+    "hedged.nl": "de belastingschijven die voor jouw inkomensniveau gelden en die we met je doornemen"
+  },
+  "tax.capital_income_rate": {
+    "title.nl": "IRP: tarief over kapitaalinkomen",
+    "display.nl": "een vast tarief van 8% over kapitaalinkomen en vermogenswinst uit Paraguay",
+    "hedged.nl": "een vast tarief over kapitaalinkomen dat we voor jouw situatie bevestigen"
+  },
+  "tax.ire_rate": {
+    "title.nl": "IRE: winstbelasting voor bedrijven",
+    "display.nl": "10% over bedrijfswinst (IRE); kleine bedrijven met een omzet onder G 2 miljard kunnen kiezen voor IRE SIMPLE",
+    "hedged.nl": "het tarief van de winstbelasting en de drempel voor kleine bedrijven die voor jouw situatie gelden"
+  },
+  "tax.dividends": {
+    "title.nl": "Dividendbelasting (IDU)",
+    "display.nl": "8% over dividend dat wordt uitgekeerd aan inwoners van Paraguay en 15% aan niet-inwoners",
+    "hedged.nl": "het tarief van de dividendbelasting dat geldt, afhankelijk van waar je woonachtig bent"
+  },
+  "tax.residency_certificate": {
+    "title.nl": "Bewijs van fiscale woonplaats: vereisten",
+    "display.nl": "afgegeven door de DNIT aan inwoners met een cédula en een actief RUC, onderbouwd met een officieel overzicht van in- en uitreizen",
+    "hedged.nl": "de documenten en het bewijs van aanwezigheid die de DNIT verwacht en die we voor jouw situatie bevestigen"
+  },
+  "tax.iva_rate": {
+    "title.nl": "IVA: tarieven van de btw",
+    "display.nl": "10% algemeen tarief en 5% verlaagd tarief (sommige basisvoedingsmiddelen, medicijnen, verkoop van vastgoed en huur van woonruimte)",
+    "hedged.nl": "een algemeen IVA-tarief en een verlaagd tarief voor sommige eerste levensbehoeften, dat je belastingadviseur bevestigt voor wat jij verkoopt"
+  },
+  "tax.irp_threshold": {
+    "title.nl": "IRP: registratiedrempel voor inkomen uit persoonlijke diensten",
+    "display.nl": "je moet je voor IRP registreren voor inkomen uit persoonlijke diensten zodra je belaste jaarinkomen boven G 80 miljoen uitkomt",
+    "hedged.nl": "een drempel voor het jaarinkomen waarboven inkomen uit persoonlijke diensten voor IRP moet worden geregistreerd, die je belastingadviseur bevestigt"
+  },
+  "tax.resimple": {
+    "title.nl": "IRE RESIMPLE: regime voor kleine eenmanszaken",
+    "display.nl": "voor eenmanszaken met een jaarinkomen tot G 80 miljoen: een vast bedrag van G 20.000 tot G 80.000 per maand (maandelijks of per kwartaal betaald) en één jaarlijkse aangifte in februari",
+    "hedged.nl": "een vereenvoudigd regime voor zeer kleine eenmanszaken met een vaste periodieke betaling, dat je belastingadviseur bevestigt voor jouw omzet"
+  },
+  "temporary.precarious_status": {
+    "title.nl": "Tijdelijke verblijfsvergunning: status tijdens de behandeling van het dossier",
+    "display.nl": "zolang de aanvraag voor de tijdelijke verblijfsvergunning wordt behandeld, heb je de status 'residente precario', waarmee je het land mag verlaten en weer inreizen, mag studeren en mag werken",
+    "hedged.nl": "een tussentijdse status terwijl je dossier wordt behandeld, waarvan we de exacte rechten voor jouw situatie bevestigen"
+  },
+  "costofliving.monthly_family": {
+    "title.nl": "Kosten van levensonderhoud: gezin van vier",
+    "display.nl": "ongeveer USD 2.200 per maand voor een gezin van vier vóór huur in Asunción (Numbeo, augustus 2026)",
+    "hedged.nl": "een schatting van het maandbudget voor een gezin, die we met je doornemen"
+  },
+  "tax.double_tax_treaties": {
+    "title.nl": "Belastingverdragen: het netwerk van Paraguay",
+    "display.nl": "uitgebreide belastingverdragen voor inkomstenbelasting met slechts vijf partners (Chili, Taiwan, Uruguay, de Verenigde Arabische Emiraten en Qatar); geen met de Verenigde Staten, Canada, het Verenigd Koninkrijk, Australië of Zweden",
+    "hedged.nl": "slechts een klein verdragennetwerk; of een verdrag jouw thuisland dekt, controleren we voor jouw situatie met een boekhouder"
+  },
+  "permanent.change_window": {
+    "title.nl": "Van tijdelijk naar permanent verblijf: indieningstermijn",
+    "display.nl": "binnen de 3 maanden voordat de tijdelijke kaart verloopt; tot 1 maand na het verlopen kan het nog, met betaling van de boete voor verlopen verblijf; na die maand kan alleen nog een verlenging (prórroga) van de tijdelijke verblijfsvergunning worden aangevraagd, tot 6 maanden na het verlopen en eveneens met de boete",
+    "hedged.nl": "een vaste termijn voordat je tijdelijke kaart verloopt, met een smalle late mogelijkheid waar een boete aan zit; we zetten je exacte data schriftelijk voor je op een rij"
+  },
+  "fees.overstay_fine": {
+    "title.nl": "DNM-boete: verlopen verblijf",
+    "display.nl": "G 702.462 (ongeveer USD 120) als boete voor een verlopen verblijf",
+    "hedged.nl": "een overheidsboete die we schriftelijk voor jouw situatie bevestigen"
+  },
+  "fees.radicacion_certificate": {
+    "title.nl": "DNM-tarief: verblijfsbewijs (certificado de radicación)",
+    "display.nl": "G 234.154 (ongeveer USD 40) voor het certificado de radicación",
+    "hedged.nl": "een overheidstarief dat we schriftelijk voor jouw situatie bevestigen"
+  },
+  "fees.naturalization_judicial": {
+    "title.nl": "Naturalisatie: gerechtelijk tarief",
+    "display.nl": "een gerechtelijk tarief van G 43.051 (ongeveer USD 7) voor de naturalisatiebrief, vóór de kosten van de advocaat",
+    "hedged.nl": "een klein gerechtelijk tarief plus de kosten van de advocaat, die we voor jouw situatie bevestigen"
+  },
+  "investorpass.cie_scope": {
+    "title.nl": "Investor Pass: wat het investeerderscertificaat (CIE) is",
+    "display.nl": "een investeerderscertificaat voor buitenlanders (CIE) dat het Ministerie van Industrie en Handel via SUACE afgeeft, alleen aan individuele buitenlandse investeerders en alleen zodat de migratiedienst (DNM) permanent verblijf kan verlenen zonder de tijdelijke fase (Wet 6984/2022, art. 46)",
+    "hedged.nl": "een investeerderscertificaat van het Ministerie van Industrie en Handel dat een directe aanvraag voor permanent verblijf ondersteunt, waarbij we de actuele regels voor jouw situatie bevestigen"
+  },
+  "investorpass.cie_issuing_term": {
+    "title.nl": "Investor Pass: afgiftetermijn van het investeerderscertificaat",
+    "display.nl": "binnen 5 werkdagen nadat SUACE een volledig dossier heeft ontvangen, waarbij de klok stilstaat zolang opmerkingen of verzoeken om meer informatie worden beantwoord",
+    "hedged.nl": "een korte afgiftetermijn zodra het dossier compleet is, die we voor jouw situatie bevestigen"
+  },
+  "investorpass.resolution_history": {
+    "title.nl": "Investor Pass: welke resolutie geldt",
+    "display.nl": "MIC-resolutie 0283 van 21 april 2026, die Resolutie 1052 van 11 september 2025 introk, die zelf de opvolger was van Resolutie 236 van 14 februari 2019: hetzelfde SUACE-investeerderscertificaat, driemaal geregeld",
+    "hedged.nl": "de MIC-resolutie die nu geldt en eerdere versies van hetzelfde investeerderscertificaat heeft vervangen"
+  },
+  "investorpass.cie_documents": {
+    "title.nl": "Investor Pass: persoonlijke documenten voor het investeerderscertificaat",
+    "display.nl": "een online aanvraagformulier dat geldt als beëdigde verklaring; je paspoort of nationale identiteitskaart; bewijs van binnenkomst in Paraguay (inreiskaart, paspoortstempel of bewijs van de DNM over je grensbewegingen, plus een consulair visum als je nationaliteit dat nodig heeft); een bewijs van goed gedrag met apostille of gelegaliseerd uit je land van herkomst en uit elk land waar je in de afgelopen 3 jaar langer dan een jaar hebt gewoond; een Paraguayaans Interpol-bewijs; en een beëdigde verklaring over de herkomst van het geld",
+    "hedged.nl": "een persoonlijke set documenten (identiteit, bewijs van binnenkomst, bewijzen van goed gedrag en een verklaring over de herkomst van het geld) die we voor jouw situatie opsommen"
+  },
+  "investorpass.investment_status": {
+    "title.nl": "Investor Pass: tijdstip en waardering van de investering",
+    "display.nl": "de investering mag al voltooid zijn of nog lopen, zolang de financiële verplichting is gedocumenteerd; de minima gelden in Amerikaanse dollars of de tegenwaarde in guaraní tegen de officiële koers op de dag van je aanvraag",
+    "hedged.nl": "regels over wanneer de investering moet zijn gedaan en hoe die wordt gewaardeerd, die we voor jouw situatie bevestigen"
+  },
+  "investorpass.productive_conditions": {
+    "title.nl": "Investor Pass: voorwaarden voor de route productief bedrijf",
+    "display.nl": "een ondernemingsplan in industrie, handel of diensten dat minstens 5 formele banen creëert, met een uitvoeringsschema en elk half jaar een voortgangsrapport; huur, salarissen, nutsvoorzieningen en terugkerende beheerkosten tellen niet mee als investering, en elke medeïnvesteerder moet zelf het minimum halen",
+    "hedged.nl": "een ondernemingsplan, het creëren van banen en voortgangsrapportage, waarbij we de actuele voorwaarden schriftelijk voor jouw situatie bevestigen"
+  },
+  "investorpass.tourism_conditions": {
+    "title.nl": "Investor Pass: voorwaarden voor de toerismeroute",
+    "display.nl": "een ondernemingsplan voor toerisme (het opzetten, kopen, uitbreiden, moderniseren of exploiteren van toeristische bezittingen, infrastructuur of diensten) met een uitvoeringsschema en elk half jaar een voortgangsrapport; de resolutie stelt voor deze route geen minimumaantal banen, en huur, salarissen en lopende kosten tellen niet mee als investering",
+    "hedged.nl": "een ondernemingsplan voor toerisme en voortgangsrapportage, waarbij we de actuele voorwaarden schriftelijk voor jouw situatie bevestigen"
+  },
+  "investorpass.financial_conditions": {
+    "title.nl": "Investor Pass: voorwaarden voor de route financiële instrumenten",
+    "display.nl": "een certificaat van een instelling met toestemming van de Superintendencia de Valores van de Centrale Bank van Paraguay, voor een looptijd van minstens 2 jaar en met de waarde van de investering; onderliggende documenten niet ouder dan 180 dagen bij indiening; geen ondernemingsplan of banen, maar het belang moet elk jaar worden gemeld",
+    "hedged.nl": "een investering die door een erkende Paraguayaanse effecteninstelling is gecertificeerd en een minimale looptijd wordt aangehouden, waarbij we de voorwaarden schriftelijk voor jouw situatie bevestigen"
+  },
+  "investorpass.real_estate_evidence": {
+    "title.nl": "Investor Pass: bewijs voor de vastgoedroute",
+    "display.nl": "een geregistreerde eigendomsakte, of een particuliere koopovereenkomst met handtekeningen die door een notaris (escribano) zijn gewaarmerkt en waaruit blijkt dat minstens 30% van de opgegeven investering is betaald; documenten niet ouder dan 180 dagen bij indiening; vastgoed dat uitsluitend voor persoonlijk of familiegebruik is gekocht, komt niet in aanmerking",
+    "hedged.nl": "een geregistreerde akte of een notariële koopovereenkomst die aan de voorwaarden van de route voldoet en die we schriftelijk voor jouw situatie bevestigen"
+  },
+  "investorpass.foreign_documents": {
+    "title.nl": "Investor Pass: legalisatie en vertaling van buitenlandse documenten",
+    "display.nl": "voorzien van een apostille (of gelegaliseerd door het Paraguayaanse consulaat en daarna door het Ministerie van Buitenlandse Zaken) en in het Spaans vertaald door een in Paraguay geregistreerde beëdigde vertaler of een erkende buitenlandse vertaler, waarbij de vertaling zelf een apostille of legalisatie krijgt; Braziliaanse documenten in het Portugees hoeven niet te worden vertaald",
+    "hedged.nl": "gelegaliseerd en vertaald volgens de norm van de resolutie, wat we document voor document controleren"
+  }
+}
