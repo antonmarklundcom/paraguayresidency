@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { Breadcrumbs, Container, FAQ, Heading, Prose, Section, WhatsAppButton } from '@/components';
+import { Breadcrumbs, Container, FAQ, Heading, NextSteps, Prose, Section, WhatsAppButton } from '@/components';
 import { whatsappHref } from '@/lib/whatsapp';
 import { Mdx } from '@/content/mdx';
 import { getPage, getPages } from '@/content';
@@ -225,6 +225,7 @@ export function ArticlePage({
             <FAQ title={t(site, 'common.faqTitle')} items={faq} />
           </div>
         )}
+        <NextSteps site={site} path={slugPath} />
         {/* Every article ends on the two contact paths: WhatsApp or the form. */}
         <aside className="mt-[var(--space-16)] rounded-[var(--radius-lg)] border border-[var(--border)] bg-[var(--surface-alt)] p-[var(--space-6)] sm:p-[var(--space-8)]">
           <h2 className="font-[family-name:var(--display-font)] text-(length:--text-xl)">{t(site, 'article.ctaTitle')}</h2>

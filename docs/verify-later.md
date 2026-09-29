@@ -169,7 +169,17 @@ Full detail per fact: [`docs/facts-verification.md`](facts-verification.md) (sea
 
 ## F. Added by the Sonnet front-end run (appended by the session)
 
-_Nothing yet._ Each row: text · file:line · what to confirm.
+_Nothing yet from other agents._ Each row: text · file:line · what to confirm.
+
+### A1
+
+- `NEXT_PUBLIC_WHATSAPP_NUMBER` (digits only) must be set in the host env, then Redeploy · env · until set, every WhatsApp button, the floating button and the phone bar are hidden and the contact page is offered instead.
+- `NEXT_PUBLIC_REPLY_HOURS` (whole number of working hours, optional) · `src/lib/reply-window.ts:8` · unset, the block promises no number ("as soon as we can"). Set it only to a time the team can keep; the pages then say "We aim to answer within N working hours" in all four languages.
+- "A person on our team reads your message and answers it, not a bot" (who replies) · `src/i18n/messages/{en,es,pt,sv}/common.json` `nextSteps.who.body` · confirm true (no auto-reply bot handles the first answer).
+- "Nothing starts until you say yes in writing. If it is not a fit, we say so." · `nextSteps.3.body` · confirm; restates the existing `after.3.body` promise.
+- "Government fees and document costs are listed separately." · `nextSteps.price.note` · confirm matches how quotes are written.
+- Price line is the `pricing.*` fact chosen by page path (`priceKeyFor`, `src/lib/reply-window.ts`): hedged wording until Anton verifies each fee in `content/shared/facts.ts`; articles default to `pricing.temporary` unless the slug names another route.
+- Page-aware WhatsApp text ("Hi, I was reading "{page}" ...") uses the page title, set on click by `WhatsAppClickTracker` · `whatsapp.prefillPage` · confirm the wording in es/pt/sv.
 
 ### B. SEO gates and structured data (S24-B)
 

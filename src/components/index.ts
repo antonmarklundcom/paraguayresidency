@@ -34,6 +34,7 @@ export { TrustBar } from './TrustBar';
 export { Testimonials, reviewsFor, flagEmoji } from './Testimonials';
 export { PriceTable, PRICE_ROUTES, type PriceRoute } from './PriceTable';
 export { AfterYouMessage } from './AfterYouMessage';
+export { NextSteps } from './NextSteps';
 export { Guarantee } from './Guarantee';
 export { TeamSection } from './TeamSection';
 export { OfficeStrip } from './OfficeStrip';
