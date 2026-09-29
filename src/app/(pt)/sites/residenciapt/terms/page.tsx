@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Container, Heading, Prose, Section } from '@/components';
+import { Breadcrumbs, Container, Heading, Prose, Section } from '@/components';
 import { siteMetadata } from '@/lib/metadata';
 import { getSite } from '@/sites/registry';
 
@@ -17,7 +17,8 @@ export default function Page() {
   return (
     <Section>
       <Container width="narrow">
-        <Heading level={1}>Termos de Serviço</Heading>
+        <Breadcrumbs site="residenciapt" items={[{ label: 'Termos de Serviço', href: '/terms' }]} />
+        <Heading level={1} className="mt-[var(--space-8)]">Termos de Serviço</Heading>
         <p className="mt-[var(--space-4)] text-[var(--fg-muted)]">Atualizado em 09/09/2026.</p>
         <Prose className="mt-[var(--space-8)]">
           <h2>O que fornecemos</h2>

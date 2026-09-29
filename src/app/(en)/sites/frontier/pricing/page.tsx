@@ -9,7 +9,7 @@ export function generateMetadata(): Metadata {
   return siteMetadata('frontier', {
     title: 'Paraguay Residency Pricing for a Plan B — Fixed Fees',
     description:
-      'What a plan-B Paraguay residency costs. Fixed fees, quoted before you commit — real figures confirmed in writing for your case until published here.',
+      'What a plan-B residency in Paraguay costs: fixed fees, quoted in writing for your case before you commit, with exact figures confirmed on your call.',
     path: PATH,
   });
 }

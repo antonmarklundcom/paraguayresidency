@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Container, Heading, Prose, Section } from '@/components';
+import { Breadcrumbs, Container, Heading, Prose, Section } from '@/components';
 import { siteMetadata } from '@/lib/metadata';
 import { getSite } from '@/sites/registry';
 
@@ -18,7 +18,8 @@ export default function Page() {
   return (
     <Section>
       <Container width="narrow">
-        <Heading level={1}>Användarvillkor</Heading>
+        <Breadcrumbs site="flytta" items={[{ label: 'Användarvillkor', href: '/terms' }]} />
+        <Heading level={1} className="mt-[var(--space-8)]">Användarvillkor</Heading>
         <p className="mt-[var(--space-4)] text-[var(--fg-muted)]">Uppdaterad 2026-09-16.</p>
         <Prose className="mt-[var(--space-8)]">
           <h2>Vad vi erbjuder</h2>

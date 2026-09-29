@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Card, Container, Heading, Section } from '@/components';
+import { Breadcrumbs, Card, Container, Heading, Section } from '@/components';
 import { getHub } from '@/content';
 import { contentHref } from '@/lib/site-pages';
 import { siteMetadata } from '@/lib/metadata';
@@ -21,7 +21,8 @@ export default function Page() {
   return (
     <Section>
       <Container>
-        <Heading level={1}>Articles</Heading>
+        <Breadcrumbs site="guide" items={[{ label: 'Blog', href: PATH }]} />
+        <Heading level={1} className="mt-[var(--space-8)]">Articles</Heading>
         <p className="mt-[var(--space-2)] max-w-[var(--measure)] text-[var(--fg-muted)]">
           Free samples of the same voice and the same honesty as the guide itself.
         </p>

@@ -7,14 +7,13 @@ type Params = Promise<{ hub: string; slug: string }>;
 
 /**
  * One service page per hub (plan §6.7 quality bar: every "life" page ends in
- * a residency CTA). `morar-no-paraguai` (the brand's own hub) routes to the
- * cost-of-living page rather than a service, matching how that hub's
- * articles talk about a life before a document.
+ * a residency CTA). `morar-no-paraguai` (the brand's own hub) routes to
+ * temporary residency too; the cost-of-living page is linked from the body.
  */
 const HUB_SERVICE: Record<string, ArticleLink> = {
   cidades: { label: 'Residência temporária', href: '/residencia/temporaria' },
   documentos: { label: 'Residência temporária', href: '/residencia/temporaria' },
-  'morar-no-paraguai': { label: 'Custo de vida', href: '/custo-de-vida' },
+  'morar-no-paraguai': { label: 'Residência temporária', href: '/residencia/temporaria' },
   impostos: { label: 'Residência fiscal', href: '/residencia-fiscal' },
   negocios: { label: 'Residência fiscal', href: '/residencia-fiscal' },
   comparativos: { label: 'Residência permanente', href: '/residencia/permanente' },

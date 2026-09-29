@@ -8,7 +8,7 @@ const PATH = '/guide';
 
 export function generateMetadata(): Metadata {
   return siteMetadata(SITE, {
-    title: 'Inte redo att höra av dig än? Läs Paraguay Residency Guide först',
+    title: 'Inte redo än? Läs Paraguay Residency Guide först',
     description:
       'Vill du förstå hela processen själv innan du hör av dig? Paraguay Residency Guide går igenom varje steg, kostnad och misstag på engelska.',
     path: PATH,

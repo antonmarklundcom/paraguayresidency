@@ -2,7 +2,8 @@ import type { Metadata } from 'next';
 import { OG_LOCALE } from '@/i18n/locales';
 import { getSite, siteOrigin, type SiteKey } from '@/sites/registry';
 import { t } from '@/i18n';
-import { TEAM_KEYS, personJsonLd } from '@/content/team';
+import { TEAM_KEYS, TEAM, personJsonLd } from '@/content/team';
+import { PROOF, type Proof } from '@content/shared/proof';
 
 export interface SiteMetadataInput {
   title: string;
@@ -90,18 +91,31 @@ const ALTERNATE_NAMES: Partial<Record<SiteKey, string[]>> = {
  * team. Answer engines resolve "who is behind this and where" from this graph,
  * so it names people and the city, and never an address nobody has confirmed.
  */
-export function organizationJsonLd(site: SiteKey) {
+export function organizationJsonLd(site: SiteKey, proof: Proof = PROOF) {
   const config = getSite(site);
   const origin = siteOrigin(site);
   const orgId = `${origin}/#organization`;
   // Guide is a publisher (it sells a PDF); every other brand is a front door
   // to the same residency service team.
   const isService = site !== 'guide';
+  // Real business data only. Each of these is null until Anton supplies it
+  // (content/shared/proof.ts), and nothing is emitted, let alone invented,
+  // while it is: no street address, no map, no rating.
+  const { office, stats } = proof;
+  const rating = stats.googleRating;
+  const sameAs = [
+    ...config.siblings.map((key) => siteOrigin(key)),
+    ...(rating?.url ? [rating.url] : []),
+    ...(office.mapsUrl ? [office.mapsUrl] : []),
+    ...TEAM_KEYS.flatMap((key) => TEAM[key].sameAs),
+  ];
   return {
     '@context': 'https://schema.org',
     '@graph': [
       {
-        '@type': isService ? ['Organization', 'ProfessionalService'] : 'Organization',
+        // ProfessionalService is a schema.org LocalBusiness subtype; LocalBusiness
+        // is named too so validators that look for the parent type find it.
+        '@type': isService ? ['Organization', 'LocalBusiness', 'ProfessionalService'] : 'Organization',
         '@id': orgId,
         name: config.name,
         // Other companies trade under near-identical names (seo-gap §0b.8), so
@@ -114,7 +128,23 @@ export function organizationJsonLd(site: SiteKey) {
         areaServed: { '@type': 'Country', name: 'Paraguay' },
         ...(isService
           ? {
-              address: { '@type': 'PostalAddress', addressLocality: 'Asunción', addressCountry: 'PY' },
+              address: {
+                '@type': 'PostalAddress',
+                ...(office.address ? { streetAddress: office.address } : {}),
+                addressLocality: 'Asunción',
+                addressCountry: 'PY',
+              },
+              ...(office.mapsUrl ? { hasMap: office.mapsUrl } : {}),
+              ...(rating
+                ? {
+                    aggregateRating: {
+                      '@type': 'AggregateRating',
+                      ratingValue: rating.rating,
+                      reviewCount: rating.count,
+                      bestRating: 5,
+                    },
+                  }
+                : {}),
               serviceType: 'Paraguay residency, cédula and tax residency applications',
             }
           : {}),
@@ -127,7 +157,7 @@ export function organizationJsonLd(site: SiteKey) {
           'Mercosur residency',
         ],
         employee: TEAM_KEYS.map((key) => personJsonLd(key, config.locale)),
-        sameAs: config.siblings.map((key) => siteOrigin(key)),
+        sameAs,
       },
       {
         '@type': 'WebSite',

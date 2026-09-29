@@ -9,8 +9,8 @@ const PATH = '/documents/checklist';
 
 export function generateMetadata(): Metadata {
   return siteMetadata(SITE, {
-    title: t(SITE, 'checklist.metaTitle'),
-    description: t(SITE, 'checklist.metaDescription'),
+    title: 'Plan-B residency documents: checklist by nationality',
+    description: 'Gathering paperwork for a plan-B move? See which documents your nationality needs and the order to collect them, from certificates to apostilles.',
     path: PATH,
   });
 }
@@ -42,7 +42,7 @@ export default function Page() {
         <JsonLd
           data={serviceJsonLd(SITE, {
             name: 'Paraguay Residency Document Checklist',
-            description: t(SITE, 'checklist.metaDescription'),
+            description: 'Gathering paperwork for a plan-B move? See which documents your nationality needs and the order to collect them, from certificates to apostilles.',
             path: PATH,
           })}
         />

@@ -220,6 +220,7 @@
   "whatsapp.continueHint": "Want an answer sooner? Send us a WhatsApp from the number you entered, and it lands on the same case.",
   "whatsapp.afterForm": "Hi! I just sent the form on {domain}. My case in short:",
   "article.ctaTitle": "Questions about your own case?",
+  "article.relatedGuides": "Related guides",
   "article.ctaBody": "Message us on WhatsApp or send the form. A named person answers in writing within one working day, including when the honest answer is “not yet”.",
   "article.orForm": "or send the form",
   "nav.documents": "Documents",

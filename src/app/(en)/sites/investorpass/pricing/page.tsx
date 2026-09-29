@@ -9,7 +9,7 @@ export function generateMetadata(): Metadata {
   return siteMetadata('investorpass', {
     title: 'Investor Pass Service Fee — Fixed, Quoted in Writing',
     description:
-      'How the Paraguay Investor Pass service fee works: one fixed fee for structuring and filing, quoted in writing before you commit. Your investment and government fees are separate.',
+      'How the Investor Pass service fee works: one fixed fee for structuring and filing, quoted in writing first. Investment and government fees are separate.',
     path: PATH,
   });
 }

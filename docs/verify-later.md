@@ -171,6 +171,15 @@ Full detail per fact: [`docs/facts-verification.md`](facts-verification.md) (sea
 
 _Nothing yet._ Each row: text · file:line · what to confirm.
 
+### B. SEO gates and structured data (S24-B)
+
+| # | What | Where | Confirm |
+|---|---|---|---|
+| FB1 | Street address, Google Maps link, Google review rating and count, and public profile links (LinkedIn etc.) for Anton, Yanina and Diana. The Organization/LocalBusiness JSON-LD emits `streetAddress`, `hasMap`, `aggregateRating` and extra `sameAs` **only** once these are filled, and never before. | `content/shared/proof.ts` (`office`, `stats.googleRating`), `src/content/team.ts` (`sameAs`) | Supply the real values. Nothing is invented while they are null. Google does not show star snippets for a business rating its own site; the markup is still correct and matches the visible TrustBar. |
+| FB2 | Page titles and descriptions edited to meet the length gate (titles at most 60 characters, descriptions 70 to 160). Wording is shorter, meaning unchanged: guide `/insider` and `/refunds`, investorpass `/pricing`, frontier `/pricing`, `/documents/checklist` and the banking story, residenciaes `/precios` and `/residencia/permanente`, flytta `/guide`, `/process`, `/route-finder`, `/skatt`, `/uppehallstillstand`. | the page files under `src/app/**/sites/*` | Skim the Spanish and Swedish rewrites. |
+| FB3 | residenciapt hub `morar-no-paraguai` articles now end on the "Residência temporária" service link instead of `/custo-de-vida`, so every article links to a real service page. | `src/app/(pt)/sites/residenciapt/guias/[hub]/[slug]/page.tsx` | Confirm temporary residency is the CTA you want for the life-in-Paraguay hub. |
+| FB4 | flytta `/guide` (the English guide bridge) is now linked from the end of `/process`, so it is no longer an orphan. | `src/app/(sv)/sites/flytta/process/page.tsx` | Confirm the guide bridge should be reachable from the main site. |
+
 ## G. Added by the Opus O24 run (appended by the session)
 
 _Nothing yet._ Each row: text · file:line · what to confirm. Database work lives in `docs/db-work-later.md`.

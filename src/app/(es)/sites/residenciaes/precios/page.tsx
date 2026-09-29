@@ -23,9 +23,9 @@ const PATH = '/precios';
 
 export function generateMetadata(): Metadata {
   return siteMetadata(SITE, {
-    title: 'Precios de la Residencia en Paraguay — Honorarios Fijos, Cotizados Antes',
+    title: 'Precios de la residencia en Paraguay: honorarios fijos',
     description:
-      'Lo que cuestan nuestros trámites de residencia en Paraguay. Honorarios fijos, cotizados antes de que te comprometas — cifras reales confirmadas por escrito para tu caso hasta que se publiquen aquí.',
+      'Lo que cuestan nuestros trámites de residencia en Paraguay: honorarios fijos, cotizados por escrito para tu caso antes de que te comprometas.',
     path: PATH,
   });
 }

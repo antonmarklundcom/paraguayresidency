@@ -10,7 +10,7 @@ const PATH = '/uppehallstillstand';
 
 export function generateMetadata(): Metadata {
   return siteMetadata(SITE, {
-    title: 'Uppehållstillstånd i Paraguay — tillfälligt, permanent och Investor Pass',
+    title: 'Uppehållstillstånd i Paraguay: tillfälligt och permanent',
     description:
       'De tre vägarna till uppehållstillstånd i Paraguay: tillfälligt, permanent och Investor Pass för dig med kapital att investera. Vad var och en kräver.',
     path: PATH,

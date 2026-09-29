@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import {
+  Breadcrumbs,
   Button,
   Card,
   CheckoutButton,
@@ -34,7 +35,7 @@ export const revalidate = 300;
 
 export function generateMetadata(): Metadata {
   return siteMetadata(SITE, {
-    title: 'Paraguay Residency Insider — the membership that keeps the guide current',
+    title: 'Paraguay Residency Insider — the living guide membership',
     description:
       'Monthly deep dives, an updates feed and case studies on top of the Paraguay Residency Guide. Cancel anytime.',
     path: PATH,
@@ -86,6 +87,9 @@ export default async function Page() {
 
   return (
     <>
+      <Container className="pt-[var(--space-6)]">
+        <Breadcrumbs site="guide" items={[{ label: 'Insider', href: '/insider' }]} />
+      </Container>
       <EditorialHero
         eyebrow="Paraguay Residency Insider"
         title="The guide, kept current — plus everything a static PDF can't cover."

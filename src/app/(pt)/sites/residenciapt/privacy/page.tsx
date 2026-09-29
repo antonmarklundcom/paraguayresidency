@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Container, Heading, Prose, Section } from '@/components';
+import { Breadcrumbs, Container, Heading, Prose, Section } from '@/components';
 import { siteMetadata } from '@/lib/metadata';
 import { getSite } from '@/sites/registry';
 
@@ -22,7 +22,8 @@ export default function Page() {
   return (
     <Section>
       <Container width="narrow">
-        <Heading level={1}>Política de Privacidade</Heading>
+        <Breadcrumbs site="residenciapt" items={[{ label: 'Política de Privacidade', href: '/privacy' }]} />
+        <Heading level={1} className="mt-[var(--space-8)]">Política de Privacidade</Heading>
         <p className="mt-[var(--space-4)] text-[var(--fg-muted)]">Atualizado em 09/09/2026.</p>
         <Prose className="mt-[var(--space-8)]">
           <h2>O que coletamos</h2>
