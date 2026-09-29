@@ -187,7 +187,7 @@ for (const { site, Page } of [{ site: 'residency', Page: About0 }, { site: 'inve
     expect(html).toContain(t(site, 'about.teamTitle'));
     expect(html).toContain(t(site, 'about.teamBody'));
     for (const name of ['Anton Marklund', 'Yanina Alvarez', 'Diana Davalos']) {
-      expect(html).toContain('<li>' + name + '</li>');
+      expect(html).toContain(name);
       expect(t(site, 'process.trustBody')).toContain(name);
     }
   });

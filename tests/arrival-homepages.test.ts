@@ -56,7 +56,7 @@ async function baseline(site: string) {
   return renderToStaticMarkup(await exports.default!());
 }
 
-for (const [site, Page, count] of [['guide', Guide, 5], ['investorpass', Investor, 4], ['frontier', Frontier, 4]] as const) {
+for (const [site, Page, count] of [['guide', Guide, 5], ['investorpass', Investor, 0], ['frontier', Frontier, 4]] as const) {
   it(`${site} renders Arrival and preserves every origin/main fact occurrence`, async () => {
     const html = renderToStaticMarkup(await Page());
     const facts = (markup: string) => [...markup.matchAll(/data-fact="([^"]+)"/g)].map(match => match[1]).sort();
@@ -70,11 +70,18 @@ for (const [site, Page, count] of [['guide', Guide, 5], ['investorpass', Investo
     }
     expect(facts(html)).toEqual(JSON.parse(readFileSync(fixture, 'utf8'))[site]);
     expect(html.match(/<img\b[^>]*fetchPriority="high"/gi)).toHaveLength(1);
-    const block = html.match(/<section data-intent-tiles[\s\S]*?<\/section>/)?.[0];
-    expect(block).toBeDefined();
-    expect(block!.match(/<a\s/g)).toHaveLength(count);
-    expect(block!.match(/loading="lazy"/g)).toHaveLength(count);
-    expect(block).toContain('snap-mandatory');
+    // Investor Pass (W5-B) shows its four routes as a numbered index, not IntentTiles.
+    if (count === 0) {
+      const index = html.match(/<ol class="mt-12 border-b[\s\S]*?<\/ol>/)?.[0];
+      expect(index!.match(/<a\s/g)).toHaveLength(4);
+      expect(index!.match(/loading="lazy"/g)).toHaveLength(4);
+    } else {
+      const block = html.match(/<section data-intent-tiles[\s\S]*?<\/section>/)?.[0];
+      expect(block).toBeDefined();
+      expect(block!.match(/<a\s/g)).toHaveLength(count);
+      expect(block!.match(/loading="lazy"/g)).toHaveLength(count);
+      expect(block).toContain('snap-mandatory');
+    }
     for (const name of ['Anton Marklund', 'Yanina Alvarez', 'Diana Davalos']) expect(html).toContain(name);
     for (const img of html.matchAll(/<img\b[^>]+>/g)) {
       expect(img[0]).toContain('srcSet=');
@@ -82,7 +89,7 @@ for (const [site, Page, count] of [['guide', Guide, 5], ['investorpass', Investo
       expect(img[0]).toMatch(/width="\d+" height="\d+"/);
       const asset = imagery.images.find(asset => img[0].includes(asset.id));
       expect(asset).toBeDefined();
-      expect(img[0]).toContain(`alt="${asset!.alt_en}"`);
+      expect(img[0]).toContain(`alt="${asset!.alt_en.replace(/'/g, '&#x27;')}"`);
     }
     expect(html).not.toMatch(/<details[^>]*\bopen(?:=|\s|>)/);
     expect(html).not.toMatch(/lawyer/i);

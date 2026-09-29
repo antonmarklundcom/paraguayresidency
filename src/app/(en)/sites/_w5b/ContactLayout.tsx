@@ -1,6 +1,7 @@
 import { AfterYouMessage, Band, Breadcrumbs, LeadForm, OfficeStrip, WhatsAppButton } from '@/components';
 import type { LeadVariant } from '@/components/LeadFormFields';
 import { t } from '@/i18n';
+import { whatsappHref } from '@/lib/whatsapp';
 import type { SiteKey } from '@/sites/registry';
 
 /**
@@ -10,6 +11,7 @@ import type { SiteKey } from '@/sites/registry';
  * the office (hidden until the proof file has one).
  */
 export function ContactLayout({ site, variant, message }: { site: SiteKey; variant: Exclude<LeadVariant, 'whatsapp' | 'quiz'>; message: string }) {
+  const whatsapp = whatsappHref(message);
   const points = ['lead.point.reply', 'lead.point.fee', 'lead.point.honest'];
   return (
     <>
@@ -38,7 +40,8 @@ export function ContactLayout({ site, variant, message }: { site: SiteKey; varia
               <LeadForm site={site} variant={variant} pagePath="/contact" />
             </div>
             <details className="mt-8 border-t border-[var(--border)] pt-4">
-              <summary className="flex min-h-11 cursor-pointer items-center text-[var(--accent)] underline underline-offset-2">{t(site, 'form.whatsappAlternative')}</summary>
+              <summary className="flex min-h-[44px] cursor-pointer items-center text-[var(--accent)] underline underline-offset-2">{t(site, 'form.whatsappAlternative')}</summary>
+              {whatsapp && <a href={whatsapp} rel="noopener" className="inline-flex min-h-[44px] items-center text-[var(--accent)] underline underline-offset-2">{t(site, 'form.whatsapp')}</a>}
               <p className="my-4 text-[var(--fg-muted)]">{t(site, 'process.whatsappIntro')}</p>
               <LeadForm site={site} variant="whatsapp" pagePath="/contact" />
             </details>

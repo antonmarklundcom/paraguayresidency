@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Band, Breadcrumbs, Button, Eyebrow, Guarantee, OfficeStrip, TeamSection, TrustBar } from '@/components';
 import { siteMetadata } from '@/lib/metadata';
+import { t } from '@/i18n';
 import { siteOrigin } from '@/sites/registry';
 
 const PATH = '/about';
@@ -28,12 +29,13 @@ export default function Page() {
               One team, a dedicated brand for a plan-B case
             </h1>
           </div>
-          <p className="text-(length:--step-0) leading-relaxed text-[var(--fg-muted)] lg:pt-14">
+          <div className="lg:pt-14"><p className="text-(length:--step-0) leading-relaxed text-[var(--fg-muted)]">
             Paraguay Frontier is run by the same team that files standard residency, cédula and tax cases every week in Asunción — on{' '}
             <a href={siteOrigin('residency')} rel="noopener" className={link}>paraguayresidency.co.uk</a>. We separated this brand because
             Americans, Canadians, Britons and Australians weighing optionality — a residency and tax ID in reserve, not necessarily a full
             move — ask a different set of questions than someone already committed to relocating.
           </p>
+          <p className="mt-4 text-[var(--fg)]">{t('frontier', 'about.teamBody')}</p></div>
         </div>
       </Band>
       <TrustBar site="frontier" />

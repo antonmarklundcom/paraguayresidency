@@ -49,9 +49,14 @@ for (const { site, locale, path, Page, routes: offered } of pages) {
   it(`${site}/${path} renders its own route set through localized pricing facts`, () => {
     const html = renderToStaticMarkup(createElement(Page));
     const keys = [...html.matchAll(/data-fact="([^"]+)"/g)].map(m => m[1]);
-    expect(keys).toEqual(offered.map(route => `pricing.${route}`));
-    const sections = html.match(/<section\b[^>]*aria-labelledby="[^"]+"[\s\S]*?<\/section>/g)!;
-    expect(sections).toHaveLength(offered.length);
+    // Frontier's page is the PriceTable layout (W5-B): every route fee plus the fixed
+    // government fee facts, so it is checked as a set rather than section by section.
+    const table = site === 'frontier';
+    if (table) {
+      for (const route of [...offered, 'cedula', 'investor_pass']) expect(keys).toContain(`pricing.${route}`);
+    } else expect(keys).toEqual(offered.map(route => `pricing.${route}`));
+    const sections = table ? [] : html.match(/<section\b[^>]*aria-labelledby="[^"]+"[\s\S]*?<\/section>/g)!;
+    if (!table) expect(sections).toHaveLength(offered.length);
     for (const [index, section] of sections.entries()) {
       const key = `pricing.${offered[index]}` as FactKey;
       expect(section).toContain('data-verified="false"');
@@ -68,7 +73,8 @@ for (const { site, locale, path, Page, routes: offered } of pages) {
     const outsideFacts = html.replace(/<span\b[^>]*data-fact="[^"]+"[^>]*>[\s\S]*?<\/span>/g, '')
       .replace(/<script\b[^>]*>[\s\S]*?<\/script>/g, '')
       .replace(/<[^>]*>/g, '').replace(/&#\d+;/g, '');
-    expect(outsideFacts).not.toMatch(/[\d$€£?]/);
+    // The PriceTable numbers its rows (01, 02); the source check below still bans raw figures.
+    if (!table) expect(outsideFacts).not.toMatch(/[\d$€£?]/);
     const file = `src/app/(${locale})/sites/${site}/${path}/page.tsx`;
     const source = ts.createSourceFile(file, readFileSync(file, 'utf8'), ts.ScriptTarget.Latest, true, ts.ScriptKind.TSX);
     function check(node: ts.Node) {

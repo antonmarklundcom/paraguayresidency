@@ -17,12 +17,12 @@ export function generateMetadata(): Metadata {
 export default function Page() {
   return (
     <>
-      <Band labelledBy="pricing-h1">
+      <Band labelledBy="pricing-heading">
         <Breadcrumbs site="investorpass" items={[{ label: 'Pricing', href: PATH }]} />
         <div className="mt-10 grid gap-10 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:items-end lg:gap-20">
           <div>
             <Eyebrow>Service fee</Eyebrow>
-            <h1 id="pricing-h1" className="mt-5 font-[family-name:var(--display-font)] text-(length:--step-5) leading-[1.02] text-balance">
+            <h1 id="pricing-heading" className="mt-5 font-[family-name:var(--display-font)] text-(length:--step-5) leading-[1.02] text-balance">
               One fixed fee for structuring and filing
             </h1>
           </div>

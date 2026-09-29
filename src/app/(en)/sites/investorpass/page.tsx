@@ -17,11 +17,13 @@ import {
   Heading,
   JsonLd,
   LeadPanel,
+  Disclosure,
   Band,
   Eyebrow,
   SectionHeader,
   Section,
 } from '@/components';
+import { ProcessTimeline } from '@/components/ProcessTimeline';
 import { getPages } from '@/content';
 import { contentHref } from '@/lib/content-href';
 import { siteMetadata, serviceOfferJsonLd } from '@/lib/metadata';
@@ -212,6 +214,9 @@ export default function Page() {
           <a className="inline-flex min-h-11 items-center text-[var(--accent)] underline underline-offset-4" href="/investor-pass/process">The full process</a>
           <a className="inline-flex min-h-11 items-center text-[var(--accent)] underline underline-offset-4" href="/investor-pass/for-agents">For migration agents</a>
         </p>
+        <div className="mt-[var(--space-6)]">
+          <Disclosure title="The full process"><ProcessTimeline site="investorpass" route="investor" /></Disclosure>
+        </div>
       </Section>
 
       <LeadPanel
