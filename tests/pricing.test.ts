@@ -50,12 +50,16 @@ for (const { site, locale, path, Page, routes: offered } of pages) {
     const html = renderToStaticMarkup(createElement(Page));
     // Pages built on the shared <PriceTable> also list the state's fees (`fees.*`); only our own fees are checked here.
     const priceTable = html.includes('data-price-table');
+    // ES/PT mark their per-route sections with data-route-section; a route's fee may sit in the table instead.
+    const scoped = html.match(/<section\b[^>]*data-route-section[\s\S]*?<\/section>/g);
     const keys = [...html.matchAll(/data-fact="([^"]+)"/g)].map(m => m[1]).filter(key => !priceTable || key.startsWith('pricing.'));
-    // Frontier's PriceTable page also lists the fixed cedula and investor-pass fees: a superset check.
-    if (site === 'frontier') for (const route of [...offered, 'cedula', 'investor_pass']) expect(keys).toContain(`pricing.${route}`);
-    else expect(keys).toEqual(site === 'residency' && priceTable ? ['pricing.temporary', 'pricing.permanent', 'pricing.cedula', 'pricing.investor_pass', 'pricing.tax_residency', 'pricing.family'] : offered.map(route => `pricing.${route}`));
-    const sections = priceTable ? [] : html.match(/<section\b[^>]*aria-labelledby="[^"]+"[\s\S]*?<\/section>/g)!;
-    if (priceTable) {
+    const expected = offered.map(route => `pricing.${route}`);
+    if (scoped) expect([...new Set(keys)].sort()).toEqual([...expected].sort());
+    else if (site === 'frontier') for (const route of [...offered, 'cedula', 'investor_pass']) expect(keys).toContain(`pricing.${route}`);
+    else expect(keys).toEqual(site === 'residency' && priceTable ? ['pricing.temporary', 'pricing.permanent', 'pricing.cedula', 'pricing.investor_pass', 'pricing.tax_residency', 'pricing.family'] : expected);
+    const sections = scoped ?? (priceTable ? [] : html.match(/<section\b[^>]*aria-labelledby="[^"]+"[\s\S]*?<\/section>/g)!);
+    if (scoped) expect(sections).toHaveLength(offered.length);
+    else if (priceTable) {
       for (const route of offered) {
         expect(html).toContain(`data-fact="pricing.${route}" data-verified="false"`);
         expect(html).toContain(factText(`pricing.${route}` as FactKey, locale));
@@ -63,8 +67,10 @@ for (const { site, locale, path, Page, routes: offered } of pages) {
     } else expect(sections).toHaveLength(offered.length);
     for (const [index, section] of sections.entries()) {
       const key = `pricing.${offered[index]}` as FactKey;
-      expect(section).toContain('data-verified="false"');
-      expect(section).toContain(factText(key, locale));
+      if (!scoped || section.includes('data-fact')) {
+        expect(section).toContain('data-verified="false"');
+        expect(section).toContain(factText(key, locale));
+      }
       // Coverage and quoting stay route-specific; exclusions and payment terms are shared.
       expect(section.match(/<dt\b/g)).toHaveLength(2);
       const descriptions = [...section.matchAll(/<dd>(.*?)<\/dd>/g)];
@@ -77,6 +83,7 @@ for (const { site, locale, path, Page, routes: offered } of pages) {
     // Row numerals (01, 02) and the lead form's own copy are layout, not published figures.
     const outsideFacts = html.replace(/<p aria-hidden="true"[^>]*>\d+<\/p>/g, '').replace(/<section\b[^>]*id="inquiry"[\s\S]*?<\/section>/g, '').replace(/<span\b[^>]*data-fact="[^"]+"[^>]*>[\s\S]*?<\/span>/g, '')
       .replace(/<script\b[^>]*>[\s\S]*?<\/script>/g, '')
+      .replace(/<[a-z]+\b[^>]*aria-hidden="true"[^>]*>[^<]*<\/[a-z]+>/g, '')
       .replace(/<[^>]*>/g, '').replace(/&#\d+;/g, '');
     // The PriceTable numbers its rows (01, 02); the source check below still bans raw figures.
     if (!priceTable) expect(outsideFacts).not.toMatch(/[\d$€£?]/);

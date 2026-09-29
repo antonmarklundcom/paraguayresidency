@@ -5,8 +5,6 @@ import { Nav } from '@/components/Nav';
 import { Footer } from '@/components/Footer';
 import { SITE_KEYS, getSite, siteOrigin } from '@/sites/registry';
 import { t } from '@/i18n';
-import { getPages } from '@/content';
-import { contentHref } from '@/lib/site-pages';
 import Residency from '@/app/(en)/sites/residency/page';
 import Frontier from '@/app/(en)/sites/frontier/page';
 import * as residency from '@/app/(en)/sites/residency/guides/page';
