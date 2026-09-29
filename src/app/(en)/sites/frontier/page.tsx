@@ -1,29 +1,35 @@
-import { getPages } from '@/content';
-import { contentHref } from '@/lib/site-pages';
-import { t } from '@/i18n';
 import type { Metadata } from 'next';
+import type { ReactNode } from 'react';
 import {
   HeroContact,
-  Bento,
   Button,
-  Card,
+  PhotoHero,
+  heroTrust,
+  TrustBar,
+  IntentTiles,
+  PriceTable,
+  AfterYouMessage,
+  ArticleCards,
+  TeamStrip,
+  Guarantee,
+  Testimonials,
   Fact,
   FAQ,
   Heading,
-  LeadForm,
-  Disclosure,
+  LeadPanel,
+  Band,
+  Eyebrow,
+  SectionHeader,
   Section,
-  PhotoHero,
-  heroTrust,
-  IntentTiles,
-  TeamStrip,
   WhatsAppButton,
 } from '@/components';
+import { getPages } from '@/content';
+import { contentHref } from '@/lib/content-href';
 import { siteMetadata } from '@/lib/metadata';
-import { whatsappHref } from '@/lib/whatsapp';
 import { siteOrigin } from '@/sites/registry';
 
 const PATH = '/';
+const MESSAGE = 'Hi — I have a question about a second residency in Paraguay.';
 
 export function generateMetadata(): Metadata {
   return siteMetadata('frontier', {
@@ -33,27 +39,6 @@ export function generateMetadata(): Metadata {
     path: PATH,
   });
 }
-
-const ROUTES = [
-  {
-    eyebrow: 'Temporary residency',
-    title: 'The standard first step',
-    body: 'Start here, then permanent.',
-    href: '/routes#temporary',
-  },
-  {
-    eyebrow: 'Permanent residency',
-    title: 'The long-term card',
-    body: 'Understand the presence rules.',
-    href: '/routes#permanent',
-  },
-  {
-    eyebrow: 'Investor Pass',
-    title: 'Straight to permanent',
-    body: 'With a qualifying investment.',
-    href: '/routes#investor-pass',
-  },
-];
 
 const FAQ_ITEMS = [
   {
@@ -78,100 +63,204 @@ const FAQ_ITEMS = [
   },
 ];
 
-export default function Page() {
-  const latest = getPages('frontier').filter((post) => !post.frontmatter.draft).slice(0, 3);
-  const whatsapp = whatsappHref('Hi — I have a question about a second residency in Paraguay.');
-
-  const actions = (
-    <>
-      <Button href="/route-finder">Find your route</Button>
-      <HeroContact site="frontier" message="Hi — I have a question about a second residency in Paraguay." />
-    </>
+/** "The catch", a call-out: a red-earth rule, a mono label, plain words. */
+function Catch({ label, title, children }: { label: string; title: string; children: ReactNode }) {
+  return (
+    <aside className="border-l-4 border-[var(--accent)] bg-[var(--surface)] px-6 py-6 sm:px-8">
+      <p className="font-[family-name:var(--font-mono)] text-(length:--step--2) font-medium uppercase tracking-[.16em] text-[var(--accent)]">{label}</p>
+      <h3 className="mt-2 font-[family-name:var(--display-font)] text-(length:--step-2) leading-tight text-balance">{title}</h3>
+      <div className="mt-3 leading-relaxed text-[var(--fg-muted)]">{children}</div>
+    </aside>
   );
+}
+
+/** The document path by passport: which story to read first for each. */
+const PASSPORTS: { code: string; name: string; slugs: string[] }[] = [
+  { code: 'US', name: 'American passport', slugs: ['us-document-chain-before-paraguay', 'us-taxes-while-holding-paraguay-residency'] },
+  { code: 'CA', name: 'Canadian passport', slugs: ['canadian-document-chain-for-paraguay', 'paraguay-residency-for-canadians'] },
+  { code: 'AU', name: 'Australian passport', slugs: ['moving-to-paraguay-from-australia'] },
+];
+
+const MORE_STORIES = [
+  'the-presence-rules-nobody-explains',
+  'the-real-cost-of-holding-a-paraguay-plan-b',
+  'paraguay-residency-reddit-questions-answered',
+  'retiring-in-paraguay-on-social-security',
+  'paraguay-citizenship-and-a-second-passport',
+  'paraguay-vs-costa-rica-and-ecuador-for-a-plan-b',
+];
+
+export default function Page() {
+  const pages = getPages('frontier').filter((page) => !page.frontmatter.draft);
+  const bySlug = (slug: string) => pages.find((page) => page.slugPath.endsWith(`/${slug}`));
+  const stories = MORE_STORIES.flatMap((slug) => {
+    const post = bySlug(slug);
+    return post ? [{ title: post.frontmatter.title, description: post.frontmatter.description, href: contentHref('frontier', post.slugPath), hub: 'stories' }] : [];
+  });
 
   return (
     <>
-      <PhotoHero image="frontier-hero-red-earth-road" position="upper-left"
+      <PhotoHero
+        image="frontier-hero-red-earth-ranch-gate"
+        video={{ id: 'frontier-hero-red-earth-ranch-gate' }}
+        position="upper-left"
+        eyebrow="Plan B, handled"
         title="A second residency you can actually get."
         sub="Permanent residency without a million-dollar investment. We handle the paperwork in Asunción."
-        actions={actions}
+        actions={
+          <>
+            <Button href="/route-finder">Find your route</Button>
+            <HeroContact site="frontier" message={MESSAGE} />
+          </>
+        }
         trust={heroTrust('frontier')}
       />
-      <IntentTiles title="Start with your question" tiles={[
-        { label: 'Why a plan B', href: '/why-paraguay', image: 'frontier-tile-open-door-patio' },
-        { label: 'The three routes', href: '/routes', image: 'frontier-tile-three-roads' },
-        { label: 'Tax, plainly', href: '/tax', image: 'frontier-tile-home-office' },
-        { label: 'Do I have to move?', href: '/stories/the-presence-rules-nobody-explains', image: 'frontier-tile-airport-window' },
-      ]} />
-      <Section tone="alt"><Heading level={2}>Three routes, compared honestly</Heading><div className="mt-8"><Bento>{ROUTES.map(route => <Card key={route.href} title={route.eyebrow} href={route.href}>{route.body}</Card>)}</Bento></div></Section>
+      <TrustBar site="frontier" />
+
+      {/* The read-first column with a narrow sidebar: the catch, said up front. */}
+      <Band labelledBy="catch-title">
+        <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_19rem] lg:gap-20">
+          <div className="max-w-[46rem]">
+            <Eyebrow>Read this first</Eyebrow>
+            <h2 id="catch-title" className="mt-5 font-[family-name:var(--display-font)] text-(length:--step-4) leading-[1.06] text-balance">
+              Plan B, honestly: what you get and where the catch is
+            </h2>
+            <p className="mt-6 text-(length:--step-0) leading-relaxed text-[var(--fg-muted)]">
+              You have probably read the &ldquo;Paraguay golden visa&rdquo; posts. Most skip the part where a real government office
+              processes real paperwork on its own schedule. We are here to get you a genuine residency card and a tax ID you can hold
+              in reserve, filed correctly the first time, so it is there if and when you need it. Some clients move here fully. Most do
+              not, and that is fine.
+            </p>
+            <div className="mt-10 space-y-6">
+              <Catch label="The catch" title="Paperwork sets the pace, not us">
+                <p>Documents take longer than a blog post suggests and some offices move slowly. We give you the order to gather them in and tell you what takes time.</p>
+              </Catch>
+              <Catch label="The catch" title="The presence rule is real">
+                <p>Temporary residency duration: <Fact k="temporary.duration" site="frontier" />. Permanent residency: <Fact k="permanent.presence_rule" site="frontier" />. Your travel pattern decides whether this works as a plan B.</p>
+                <p className="mt-3"><a className="font-medium text-[var(--accent)] underline underline-offset-4" href="/stories/the-presence-rules-nobody-explains">The presence rules, stated plainly</a></p>
+              </Catch>
+              <Catch label="The catch" title="Territorial is not tax-free">
+                <p>Paraguay applies <Fact k="tax.territorial_rate" site="frontier" />. Foreign-income treatment: <Fact k="tax.foreign_income_treatment" site="frontier" />. What it means for your own country&apos;s rules is a question for your own accountant.</p>
+                <p className="mt-3"><a className="font-medium text-[var(--accent)] underline underline-offset-4" href="/tax">Territorial tax, without the hype</a></p>
+              </Catch>
+            </div>
+            <blockquote className="mt-12 border-t-2 border-[var(--accent)] pt-6">
+              <p className="font-[family-name:var(--display-font)] text-(length:--step-3) leading-snug text-[var(--accent)] text-balance">
+                A client who knows what to expect is easier to serve well than one who was sold a fantasy.
+              </p>
+              <footer className="mt-3 font-[family-name:var(--font-mono)] text-(length:--step--2) uppercase tracking-[.14em] text-[var(--fg-muted)]">Our rule</footer>
+            </blockquote>
+          </div>
+          <aside aria-label="Start here" className="self-start lg:sticky lg:top-24">
+            <div className="border-t-2 border-[var(--fg)] bg-[var(--surface)] p-6">
+              <p className="font-[family-name:var(--font-mono)] text-(length:--step--2) font-medium uppercase tracking-[.16em] text-[var(--fg-muted)]">Start here</p>
+              <ul className="mt-4 divide-y divide-[var(--border)]">
+                {[
+                  ['Why a plan B', '/why-paraguay'],
+                  ['The three routes compared', '/routes'],
+                  ['Tax, plainly', '/tax'],
+                  ['How the process works', '/process'],
+                  ['What it costs', '/pricing'],
+                ].map(([label, href]) => (
+                  <li key={href}>
+                    <a href={href} className="flex min-h-11 items-center justify-between gap-3 py-2 font-medium hover:text-[var(--accent)]">
+                      {label} <span aria-hidden="true">→</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-6 flex flex-col gap-3 [&>a]:w-full">
+                <Button href="/route-finder">Find your route</Button>
+                <WhatsAppButton site="frontier" message={MESSAGE} variant="secondary" placement="sidebar" />
+              </div>
+            </div>
+          </aside>
+        </div>
+      </Band>
+
+      <IntentTiles
+        title="Start with your question"
+        tiles={[
+          { label: 'Do I have to move?', href: '/stories/the-presence-rules-nobody-explains', image: 'frontier-tile-airport-bench-bag' },
+          { label: 'Land and farms as a foreigner', href: '/stories/land-and-farms-as-a-foreigner', image: 'frontier-tile-fence-pasture-cattle' },
+          { label: 'What life costs', href: '/stories/cost-of-living-reality-check', image: 'frontier-tile-small-town-veranda-street' },
+          { label: 'Tax and remote income', href: '/tax', image: 'frontier-tile-laptop-veranda-terere' },
+        ]}
+      />
+
+      {/* The US / CA / AU document path. */}
+      <Band tone="alt" labelledBy="path-title">
+        <SectionHeader
+          id="path-title"
+          eyebrow="Document path"
+          title="Your passport decides the paperwork"
+          intro="Apostilled records, police certificates and translations differ by country. Start with the guide for your passport, then get the full checklist."
+          aside={<Button href="/documents/checklist" variant="secondary">Document checklist</Button>}
+        />
+        <ul className="mt-12 grid gap-6 md:grid-cols-3">
+          {PASSPORTS.map((passport) => (
+            <li key={passport.code} className="flex flex-col border-t-2 border-[var(--fg)] bg-[var(--surface)] p-6">
+              <p className="font-[family-name:var(--font-mono)] text-(length:--step-3) leading-none text-[var(--accent)]">{passport.code}</p>
+              <p className="mt-2 text-(length:--step--1) font-medium uppercase tracking-[.14em] text-[var(--fg-muted)]">{passport.name}</p>
+              <ul className="mt-5 space-y-4">
+                {passport.slugs.flatMap((slug) => {
+                  const post = bySlug(slug);
+                  return post ? [(
+                    <li key={slug}>
+                      <a href={contentHref('frontier', post.slugPath)} className="group block min-h-11">
+                        <span className="font-[family-name:var(--display-font)] text-(length:--step-1) leading-snug group-hover:text-[var(--accent)]">{post.frontmatter.title}</span>
+                        <span className="mt-1 line-clamp-3 block text-(length:--step--1) leading-relaxed text-[var(--fg-muted)]">{post.frontmatter.description}</span>
+                      </a>
+                    </li>
+                  )] : [];
+                })}
+              </ul>
+            </li>
+          ))}
+        </ul>
+        <p className="mt-8 text-(length:--step--1) text-[var(--fg-muted)]">
+          Holding a UK or another passport? The <a className="text-[var(--accent)] underline underline-offset-4" href="/documents/checklist">checklist</a> covers it, and the{' '}
+          <a className="text-[var(--accent)] underline underline-offset-4" href={siteOrigin('residency')}>hub</a> has the UK-specific pages.
+        </p>
+      </Band>
+
+      <PriceTable site="frontier" />
+
+      <AfterYouMessage site="frontier" tone="alt" message={MESSAGE} />
+
+      <ArticleCards
+        site="frontier"
+        title="Plan B, by situation"
+        articles={stories}
+        more={{ href: '/stories', label: 'Browse all stories' }}
+      />
+
+      <Testimonials site="frontier" tone="alt" />
+      <Guarantee site="frontier" />
       <TeamStrip site="frontier" />
-      <Section width="narrow"><Heading level={2} className="mb-[var(--space-6)]">The details</Heading><Disclosure title="Plan B, honestly"><p className="mt-[var(--space-4)] text-[var(--fg-muted)]">
-            You have probably read the &ldquo;Paraguay golden visa&rdquo; posts. Most skip the
-            part where a real government office processes real paperwork on its own schedule. We
-            are not here to sell you a fantasy — we are here to get you a genuine residency card
-            and a tax ID you can hold in reserve, filed correctly the first time, so it is there
-            if and when you need it. Some clients move here fully. Most do not, and that is fine —
-            the card does not expire because you kept living somewhere else.
-          </p></Disclosure>
-<Disclosure title="Territorial tax, explained without the hype"><p className="mt-[var(--space-4)] text-[var(--fg-muted)]">
-            Paraguay applies <Fact k="tax.territorial_rate" site="frontier" />. Foreign-income treatment: <Fact k="tax.foreign_income_treatment" site="frontier" />. That is a genuinely
-            useful feature if your income is sourced outside Paraguay. It is not the same claim as
-            &ldquo;tax-free,&rdquo; and we will never call it that — what it means for your own
-            country&apos;s rules is a question for your own accountant. See the full{' '}
-            <a href="/tax" className="text-[var(--accent)] underline underline-offset-2">
-              tax page
-            </a>{' '}
-            for the detail.
-          </p></Disclosure>
-<Disclosure title="The presence rules, stated plainly"><p className="mt-[var(--space-4)] text-[var(--fg-muted)]">
-            Temporary residency duration: <Fact k="temporary.duration" site="frontier" />. Permanent residency comes with a presence rule: <Fact k="permanent.presence_rule" site="frontier" />. Your travel pattern matters when assessing whether this works as a plan B. We would rather explain it correctly now than
-            have you find out the hard way after filing.
-          </p></Disclosure>
-<Disclosure title="Frequently asked"><FAQ items={FAQ_ITEMS} /></Disclosure><a href="/process" className="mt-6 inline-flex min-h-11 items-center text-[var(--accent)] underline">How the process works</a></Section>
-      <Section><Heading level={2}>Latest articles</Heading>
-        <ul className="mt-8 grid auto-cols-[82%] grid-flow-col snap-x snap-mandatory gap-4 overflow-x-auto p-2 md:auto-cols-[31%]">
-          {latest.map(post => <li key={post.slugPath} className="min-w-0 snap-start"><a href={contentHref('frontier', post.slugPath)} className="flex min-h-44 items-end rounded-[var(--radius-brand)] border border-[var(--border)] bg-[var(--surface-alt)] p-6 font-[family-name:var(--display-font)] text-xl text-[var(--accent)] focus-visible:outline-2 focus-visible:outline-offset-2">{post.frontmatter.title.split(/\s+/).slice(0, 8).join(' ')}</a></li>)}
-        </ul><a href="/stories" className="mt-6 inline-flex min-h-11 items-center text-[var(--accent)] underline">Browse all stories</a>
-      </Section>
-      <Section width="narrow" className="text-center">
-        <Heading level={2}>Ready to find your route?</Heading>
-        <p className="mt-[var(--space-4)] text-[var(--fg-muted)]">
-          Two minutes tells you which route fits, and where the catch is. Not ready to file
-          anything yet?{' '}
-          <a href="/guide" className="text-[var(--accent)] underline underline-offset-2">
-            Read the guide first
-          </a>
-          .
+
+      <Section width="narrow" tone="alt">
+        <Heading level={2}>Questions we get</Heading>
+        <FAQ items={FAQ_ITEMS} />
+        <p className="mt-[var(--space-6)] text-[var(--fg-muted)]">
+          Not ready to file anything yet?{' '}
+          <a href="/guide" className="text-[var(--accent)] underline underline-offset-4">Read the guide first</a>.
         </p>
       </Section>
 
-      <Section tone="accent">
-        <div className="mb-[var(--space-6)]">
-          <WhatsAppButton site="frontier" message="Hi — I have a question about a second residency in Paraguay." />
-        </div>
-        <div className="mt-[var(--space-10)] grid gap-[var(--space-8)] text-left">
-          <div>
-            <Heading level={2}>{t('frontier', 'process.fullForm')}</Heading>
-            <div className="mt-[var(--space-4)]"><LeadForm site="frontier" variant="consultation" pagePath="/" /></div>
-          </div>
-          <details>
-            <summary className="flex min-h-[44px] cursor-pointer items-center text-[var(--accent)] underline underline-offset-2">{t('frontier', 'form.whatsappAlternative')}</summary>
-            {whatsapp && <a href={whatsapp} rel="noopener" className="inline-flex min-h-[44px] items-center text-[var(--accent)] underline underline-offset-2">{t('frontier', 'form.whatsapp')}</a>}
-            <p className="my-[var(--space-4)] text-[var(--fg-muted)]">{t('frontier', 'process.whatsappIntro')}</p>
-            <LeadForm site="frontier" variant="whatsapp" pagePath="/" />
-          </details>
-        </div>
-        <p className="mt-[var(--space-6)] text-(length:--text-sm) text-[var(--fg-muted)]">
-          Investing serious capital instead?{' '}
-          <a
-            href={siteOrigin('investorpass')}
-            className="text-[var(--accent)] underline underline-offset-2"
-          >
-            See the Investor Pass
-          </a>
-          .
-        </p>
-      </Section>
+      <LeadPanel
+        site="frontier"
+        variant="consultation"
+        title="Ready to find your route?"
+        intro="Two minutes tells you which route fits, and where the catch is. Message us, or leave the form."
+        whatsappMessage={MESSAGE}
+        footnote={
+          <>
+            Investing serious capital instead?{' '}
+            <a href={siteOrigin('investorpass')} className="text-[var(--accent)] underline underline-offset-2">See the Investor Pass</a>.
+          </>
+        }
+      />
     </>
   );
 }

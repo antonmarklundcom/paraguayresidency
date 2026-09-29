@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
-import { ContactPage, contactMetadata } from '@/lib/conversion-pages';
+import { contactMetadata } from '@/lib/conversion-pages';
+import { ContactLayout } from '../../_w5b/ContactLayout';
 
 const SITE = 'frontier' as const;
 
@@ -8,5 +9,5 @@ export function generateMetadata(): Metadata {
 }
 
 export default function Page() {
-  return <ContactPage site={SITE} whatsappMessage="Hi — I have a question about a second residency in Paraguay." />;
+  return <ContactLayout site={SITE} variant="contact" message="Hi — I have a question about a second residency in Paraguay." />;
 }

@@ -1,6 +1,5 @@
-import { t } from '@/i18n';
 import type { Metadata } from 'next';
-import { Breadcrumbs, Button, Container, Heading, Section } from '@/components';
+import { Band, Breadcrumbs, Button, Eyebrow, Guarantee, OfficeStrip, TeamSection, TrustBar } from '@/components';
 import { siteMetadata } from '@/lib/metadata';
 import { siteOrigin } from '@/sites/registry';
 
@@ -15,97 +14,73 @@ export function generateMetadata(): Metadata {
   });
 }
 
+const link = 'text-[var(--accent)] underline underline-offset-4';
+
 export default function Page() {
   return (
-    <Section>
-      <Container width="narrow">
+    <>
+      <Band labelledBy="about-h1">
         <Breadcrumbs site="frontier" items={[{ label: 'About', href: PATH }]} />
-        <Heading level={1} className="mt-[var(--space-8)]">
-          One team, a dedicated brand for a plan-B case
-        </Heading>
-        <p className="mt-[var(--space-4)] text-(length:--text-lg) text-[var(--fg-muted)]">
-          Paraguay Frontier is run by the same team that files standard residency, cédula and tax
-          cases every week in Asunción — on{' '}
-          <a
-            href={siteOrigin('residency')}
-            rel="noopener"
-            className="text-[var(--accent)] underline underline-offset-2"
-          >
-            paraguayresidency.co.uk
-          </a>
-          . We separated this brand because Americans, Canadians, Britons and Australians weighing
-          optionality — a residency and tax ID in reserve, not necessarily a full move — ask a
-          different set of questions than someone already committed to relocating.
+        <div className="mt-10 grid gap-10 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:gap-20">
+          <div>
+            <Eyebrow>About</Eyebrow>
+            <h1 id="about-h1" className="mt-5 font-[family-name:var(--display-font)] text-(length:--step-5) leading-[1.02] text-balance">
+              One team, a dedicated brand for a plan-B case
+            </h1>
+          </div>
+          <p className="text-(length:--step-0) leading-relaxed text-[var(--fg-muted)] lg:pt-14">
+            Paraguay Frontier is run by the same team that files standard residency, cédula and tax cases every week in Asunción — on{' '}
+            <a href={siteOrigin('residency')} rel="noopener" className={link}>paraguayresidency.co.uk</a>. We separated this brand because
+            Americans, Canadians, Britons and Australians weighing optionality — a residency and tax ID in reserve, not necessarily a full
+            move — ask a different set of questions than someone already committed to relocating.
+          </p>
+        </div>
+      </Band>
+      <TrustBar site="frontier" />
+
+      <TeamSection site="frontier" tone="alt" />
+
+      <Band labelledBy="how-title">
+        <h2 id="how-title" className="sr-only">How we work and why we state the catch</h2>
+        <div className="grid gap-x-16 gap-y-12 md:grid-cols-2">
+          <div className="border-l-4 border-[var(--accent)] bg-[var(--surface)] p-6 sm:p-8">
+            <h3 className="font-[family-name:var(--display-font)] text-(length:--step-3) leading-tight">How we work</h3>
+            <p className="mt-4 leading-relaxed text-[var(--fg-muted)]">
+              A fixed fee per route, quoted before you commit, a document checklist built for your nationality, and filing handled in
+              Asunción. You attend the appointments; the rest is ours. <a className={link} href="/pricing">See the fees</a>.
+            </p>
+          </div>
+          <div className="border-l-4 border-[var(--accent)] bg-[var(--surface)] p-6 sm:p-8">
+            <h3 className="font-[family-name:var(--display-font)] text-(length:--step-3) leading-tight">Why we state the catch</h3>
+            <p className="mt-4 leading-relaxed text-[var(--fg-muted)]">
+              This niche has a hype problem — golden-visa blog posts that skip the presence rules, the bureaucracy, and the difference between
+              territorial tax and no tax at all. We would rather be the site that says so than the one that oversells it, because a client who
+              knows what to expect is easier to serve well. Start with{' '}
+              <a className={link} href="/stories/paraguay-residency-reddit-questions-answered">the questions people ask most</a>.
+            </p>
+          </div>
+        </div>
+      </Band>
+
+      <OfficeStrip site="frontier" tone="alt" />
+      <Guarantee site="frontier" />
+
+      <Band tone="alt" labelledBy="rest-title">
+        <h2 id="rest-title" className="font-[family-name:var(--display-font)] text-(length:--step-3) leading-tight">The rest of what we run</h2>
+        <p className="mt-4 max-w-[62ch] leading-relaxed text-[var(--fg-muted)]">
+          Done-for-you standard residency services live on{' '}
+          <a href={siteOrigin('residency')} rel="noopener" className={link}>paraguayresidency.co.uk</a>, direct permanent residency by
+          investment is on <a href={siteOrigin('investorpass')} rel="noopener" className={link}>paraguayinvestorpass.com</a>, and a
+          written-down, kept-current reference guide is at{' '}
+          <a href={siteOrigin('guide')} rel="noopener" className={link}>paraguayresidencyguide.com</a> if you would rather read the whole
+          process yourself first.
         </p>
-
-
-        <section className="mt-[var(--space-12)]">
-          <Heading level={2}>{t('frontier', 'about.teamTitle')}</Heading>
-          <ul className="mt-[var(--space-4)] list-disc pl-5 text-[var(--fg-muted)]">
-            <li>Anton Marklund</li>
-            <li>Yanina Alvarez</li>
-            <li>Diana Davalos</li>
-          </ul>
-          <p className="mt-[var(--space-4)] text-[var(--fg-muted)]">{t('frontier', 'about.teamBody')}</p>
-        </section>
-
-        <div className="mt-[var(--space-12)] space-y-[var(--space-8)]">
-          <div>
-            <Heading level={2}>How we work</Heading>
-            <p className="mt-[var(--space-2)] text-[var(--fg-muted)]">
-              A fixed fee per route, quoted before you commit, a document checklist built for your
-              nationality, and filing handled in Asunción. You attend the appointments; the rest is
-              ours.
-            </p>
-          </div>
-          <div>
-            <Heading level={2}>Why we state the catch</Heading>
-            <p className="mt-[var(--space-2)] text-[var(--fg-muted)]">
-              This niche has a hype problem — golden-visa blog posts that skip the presence rules,
-              the bureaucracy, and the difference between territorial tax and no tax at all. We
-              would rather be the site that says so than the one that oversells it, because a
-              client who knows what to expect is easier to serve well.
-            </p>
-          </div>
-          <div>
-            <Heading level={2}>The rest of what we run</Heading>
-            <p className="mt-[var(--space-2)] text-[var(--fg-muted)]">
-              Done-for-you standard residency services live on{' '}
-              <a
-                href={siteOrigin('residency')}
-                rel="noopener"
-                className="text-[var(--accent)] underline underline-offset-2"
-              >
-                paraguayresidency.co.uk
-              </a>
-              , direct permanent residency by investment is on{' '}
-              <a
-                href={siteOrigin('investorpass')}
-                rel="noopener"
-                className="text-[var(--accent)] underline underline-offset-2"
-              >
-                paraguayinvestorpass.com
-              </a>
-              , and a written-down, kept-current reference guide is at{' '}
-              <a
-                href={siteOrigin('guide')}
-                rel="noopener"
-                className="text-[var(--accent)] underline underline-offset-2"
-              >
-                paraguayresidencyguide.com
-              </a>{' '}
-              if you would rather read the whole process yourself first.
-            </p>
-          </div>
-        </div>
-
-        <div className="mt-[var(--space-16)] flex flex-wrap gap-[var(--space-3)]">
+        <div className="mt-10 flex flex-wrap gap-3">
           <Button href="/route-finder">Find your route</Button>
-          <Button href="/why-paraguay" variant="secondary">
-            Why Paraguay
-          </Button>
+          <Button href="/why-paraguay" variant="secondary">Why Paraguay</Button>
+          <Button href="/contact" variant="secondary">Contact</Button>
         </div>
-      </Container>
-    </Section>
+      </Band>
+    </>
   );
 }

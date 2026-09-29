@@ -1,6 +1,5 @@
-import { t } from '@/i18n';
 import type { Metadata } from 'next';
-import { Breadcrumbs, Button, Container, Heading, Section } from '@/components';
+import { Band, Breadcrumbs, Button, Eyebrow, Guarantee, OfficeStrip, TeamSection, TrustBar } from '@/components';
 import { siteMetadata } from '@/lib/metadata';
 import { siteOrigin } from '@/sites/registry';
 
@@ -15,90 +14,71 @@ export function generateMetadata(): Metadata {
   });
 }
 
+const link = 'text-[var(--accent)] underline underline-offset-4';
+
 export default function Page() {
   return (
-    <Section>
-      <Container width="narrow">
+    <>
+      <Band labelledBy="about-h1">
         <Breadcrumbs site="investorpass" items={[{ label: 'About', href: PATH }]} />
-        <Heading level={1} className="mt-[var(--space-8)]">
-          One team, a dedicated brand for a different kind of case
-        </Heading>
-        <p className="mt-[var(--space-4)] text-(length:--text-lg) text-[var(--fg-muted)]">
-          Paraguay Investor Pass is run by the same team that files standard residency, cédula and
-          tax cases every week in Asunción — on{' '}
-          <a
-            href={siteOrigin('residency')}
-            rel="noopener"
-            className="text-[var(--accent)] underline underline-offset-2"
-          >
-            paraguayresidency.co.uk
-          </a>
-          . We separated the brand because investors, family offices and migration agents ask
-          different questions and need a different depth of detail than someone filing for
-          temporary residency for the first time.
+        <div className="mt-10 grid gap-10 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:gap-20">
+          <div>
+            <Eyebrow>About</Eyebrow>
+            <h1 id="about-h1" className="mt-5 font-[family-name:var(--display-font)] text-(length:--step-5) leading-[1.02] text-balance">
+              One team, a dedicated brand for a different kind of case
+            </h1>
+          </div>
+          <p className="text-(length:--step-0) leading-relaxed text-[var(--fg-muted)] lg:pt-14">
+            Paraguay Investor Pass is run by the same team that files standard residency, cédula and tax cases every week in Asunción — on{' '}
+            <a href={siteOrigin('residency')} rel="noopener" className={link}>paraguayresidency.co.uk</a>. We separated the brand because
+            investors, family offices and migration agents ask different questions and need a different depth of detail than someone filing
+            for temporary residency for the first time.
+          </p>
+        </div>
+      </Band>
+      <TrustBar site="investorpass" />
+
+      <TeamSection site="investorpass" tone="alt" />
+
+      <Band labelledBy="how-title">
+        <h2 id="how-title" className="sr-only">How we work</h2>
+        <div className="grid gap-x-16 gap-y-12 md:grid-cols-2">
+          <div className="border-t border-[var(--accent)]/40 pt-6">
+            <h3 className="font-[family-name:var(--display-font)] text-(length:--step-3) leading-tight">How we work</h3>
+            <p className="mt-4 leading-relaxed text-[var(--fg-muted)]">
+              We structure the investment, file the application, and stay with you until the permanent card is in your hand. Nothing is filed
+              until you have seen the full cost, timeline and exit options in writing.
+            </p>
+          </div>
+          <div className="border-t border-[var(--accent)]/40 pt-6">
+            <h3 className="font-[family-name:var(--display-font)] text-(length:--step-3) leading-tight">Why the numbers are hedged</h3>
+            <p className="mt-4 leading-relaxed text-[var(--fg-muted)]">
+              The Investor Pass is a new program, and public sources genuinely disagree on the minimum investment and other thresholds. Rather
+              than pick one figure and hope it is right, we confirm the current numbers against the resolution text in writing for your case —
+              every figure on this site is marked as such until it is. Start with{' '}
+              <a className={link} href="/insights/investor-pass-resolution-explained">the resolution, explained</a>.
+            </p>
+          </div>
+        </div>
+      </Band>
+
+      <OfficeStrip site="investorpass" tone="alt" />
+      <Guarantee site="investorpass" />
+
+      <Band tone="alt" labelledBy="rest-title">
+        <h2 id="rest-title" className="font-[family-name:var(--display-font)] text-(length:--step-3) leading-tight">The rest of what we run</h2>
+        <p className="mt-4 max-w-[62ch] leading-relaxed text-[var(--fg-muted)]">
+          The done-for-you standard residency services live on{' '}
+          <a href={siteOrigin('residency')} rel="noopener" className={link}>paraguayresidency.co.uk</a>, and a written-down, kept-current
+          reference guide is at <a href={siteOrigin('guide')} rel="noopener" className={link}>paraguayresidencyguide.com</a> if you would
+          rather read the whole process yourself first.
         </p>
-
-
-        <section className="mt-[var(--space-12)]">
-          <Heading level={2}>{t('investorpass', 'about.teamTitle')}</Heading>
-          <ul className="mt-[var(--space-4)] list-disc pl-5 text-[var(--fg-muted)]">
-            <li>Anton Marklund</li>
-            <li>Yanina Alvarez</li>
-            <li>Diana Davalos</li>
-          </ul>
-          <p className="mt-[var(--space-4)] text-[var(--fg-muted)]">{t('investorpass', 'about.teamBody')}</p>
-        </section>
-
-        <div className="mt-[var(--space-12)] space-y-[var(--space-8)]">
-          <div>
-            <Heading level={2}>How we work</Heading>
-            <p className="mt-[var(--space-2)] text-[var(--fg-muted)]">
-              We structure the investment, file the application, and stay with you until the
-              permanent card is in your hand. Nothing is filed until you have seen the full cost,
-              timeline and exit options in writing.
-            </p>
-          </div>
-          <div>
-            <Heading level={2}>Why the numbers are hedged</Heading>
-            <p className="mt-[var(--space-2)] text-[var(--fg-muted)]">
-              The Investor Pass is a new program, and public sources genuinely disagree on the
-              minimum investment and other thresholds. Rather than pick one figure and hope it is
-              right, we confirm the current numbers against the resolution text in writing for your
-              case — every
-              figure on this site is marked as such until it is.
-            </p>
-          </div>
-          <div>
-            <Heading level={2}>The rest of what we run</Heading>
-            <p className="mt-[var(--space-2)] text-[var(--fg-muted)]">
-              The done-for-you standard residency services live on{' '}
-              <a
-                href={siteOrigin('residency')}
-                rel="noopener"
-                className="text-[var(--accent)] underline underline-offset-2"
-              >
-                paraguayresidency.co.uk
-              </a>
-              , and a written-down, kept-current reference guide is at{' '}
-              <a
-                href={siteOrigin('guide')}
-                rel="noopener"
-                className="text-[var(--accent)] underline underline-offset-2"
-              >
-                paraguayresidencyguide.com
-              </a>{' '}
-              if you would rather read the whole process yourself first.
-            </p>
-          </div>
-        </div>
-
-        <div className="mt-[var(--space-16)] flex flex-wrap gap-[var(--space-3)]">
+        <div className="mt-10 flex flex-wrap gap-3">
           <Button href="/contact">See if you qualify</Button>
-          <Button href="/investor-pass/investment-routes" variant="secondary">
-            Investment routes
-          </Button>
+          <Button href="/investor-pass/investment-routes" variant="secondary">Investment routes</Button>
+          <Button href="/pricing" variant="secondary">Service fee</Button>
         </div>
-      </Container>
-    </Section>
+      </Band>
+    </>
   );
 }
