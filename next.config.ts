@@ -127,6 +127,10 @@ const nextConfig: NextConfig = {
     // is a Node process, and every process AND thread counts against the
     // account-wide 200 "Max Processes" cap.
     cpus: 1,
+    // Turbopack runs PostCSS (Tailwind) in a spawned Node child by default; on
+    // Hostinger that spawn dies ("node process exited before we could connect")
+    // under the process cap. Worker threads keep it inside the build process.
+    turbopackPluginRuntimeStrategy: 'workerThreads',
   },
   // Nothing renders through next/image (pages use pre-sized files under
   // public/images), so the /_next/image optimizer is closed rather than left for
