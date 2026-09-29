@@ -101,7 +101,7 @@ export function LeadFormFields({
               target="_blank"
               data-whatsapp
               data-placement="form-success"
-              className="mt-[var(--space-3)] inline-flex min-h-11 items-center justify-center gap-2 rounded-[var(--radius-brand)] bg-[#1f8f4e] px-5 py-3 text-(length:--text-sm) font-medium text-white hover:bg-[#197a42]"
+              className="mt-[var(--space-3)] inline-flex min-h-11 items-center justify-center gap-2 rounded-[var(--radius-brand)] bg-[var(--wa)] px-5 py-3 text-(length:--text-sm) font-medium text-[var(--wa-fg)] hover:bg-[var(--wa-hover)]"
             >
               <WhatsAppIcon className="size-5" />
               {labels.whatsappContinue}

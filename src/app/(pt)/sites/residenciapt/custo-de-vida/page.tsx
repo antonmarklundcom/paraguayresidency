@@ -37,7 +37,9 @@ export default function Page() {
           <p>
             <Fact k="costofliving.rent" site="residenciapt" />. Assunção, Ciudad del Este e cidades
             menores têm faixas bem diferentes entre si — outro motivo para não existir um número
-            único que sirva para todo mundo.
+            único que sirva para todo mundo. Compare as{' '}
+            <a href="/guias/cidades/melhores-cidades-para-morar-no-paraguai">melhores cidades para morar no Paraguai</a>{' '}
+            e veja o guia de <a href="/guias/cidades/morar-em-assuncao">morar em Assunção</a>.
           </p>
           <h2>Mercado e restaurante</h2>
           <p>
@@ -51,7 +53,8 @@ export default function Page() {
             vezes mais lento, às vezes mais simples do que a brasileira, dependendo do órgão. E a
             malha rodoviária fora dos eixos principais é mais simples do que a de uma capital
             brasileira grande. Falamos disso por escrito, no seu primeiro contato, porque quem decide com informação
-            completa tem menos chance de se arrepender depois.
+            completa tem menos chance de se arrepender depois. Pesamos tudo isso em{' '}
+            <a href="/guias/morar-no-paraguai/vale-a-pena-morar-no-paraguai">vale a pena morar no Paraguai?</a>
           </p>
           <h2>Negócio, terra e a região de fronteira</h2>
           <p>

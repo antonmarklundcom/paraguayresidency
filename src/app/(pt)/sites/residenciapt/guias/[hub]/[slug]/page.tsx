@@ -12,9 +12,11 @@ type Params = Promise<{ hub: string; slug: string }>;
  * articles talk about a life before a document.
  */
 const HUB_SERVICE: Record<string, ArticleLink> = {
+  cidades: { label: 'Residência temporária', href: '/residencia/temporaria' },
   documentos: { label: 'Residência temporária', href: '/residencia/temporaria' },
   'morar-no-paraguai': { label: 'Custo de vida', href: '/custo-de-vida' },
   impostos: { label: 'Residência fiscal', href: '/residencia-fiscal' },
+  negocios: { label: 'Residência fiscal', href: '/residencia-fiscal' },
   comparativos: { label: 'Residência permanente', href: '/residencia/permanente' },
 };
 

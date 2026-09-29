@@ -1,20 +1,24 @@
-/* Spain first, Spanish-speaking LatAm second. Warm, sunlit, direct.
-   Mediterranean teal on warm cream: no red or rose (a red accent reads as an
-   error state and its tints read as pink). */
+/* Spain first, Spanish-speaking LatAm second. Whitewash, deep teal, olive
+   (overhaul plan §1.1). No red or rose: a red accent reads as an error state
+   and its tints read as pink.
+   check-contrast: accent-2 text */
 [data-theme='residenciaes'] {
-  --bg: #fdfaf5;
+  --bg: #fbfaf6;
   --surface: #ffffff;
-  --surface-alt: #f4eadc;
-  --fg: #241c12;
-  --fg-muted: #6d5f4d;
-  --border: #e5d8c3;
+  --surface-alt: #eef2ef;
+  --fg: #16201f;
+  --fg-muted: #4e5c5a;
+  --border: #d6dfdb;
   --accent: #0e5563;
   --accent-fg: #ffffff;
-  --accent-soft: #e2eeee;
+  --accent-soft: #e0ecec;
+  --accent-2: #5d6b2f;
+  --accent-2-on-dark: #b9c68a;
+  --accent-2-fg: #ffffff;
   --display-font: var(--font-fraunces);
   --display-weight: 500;
   --display-tracking: -0.025em;
   --body-font: var(--font-system);
   --radius-brand: var(--radius);
-  --hero-pattern: linear-gradient(180deg, #fdfaf5 0%, #f6ecdd 100%);
+  --hero-pattern: linear-gradient(180deg, #fbfaf6 0%, #eef2ef 100%);
 }

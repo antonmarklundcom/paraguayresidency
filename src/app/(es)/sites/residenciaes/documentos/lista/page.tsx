@@ -1,8 +1,10 @@
 import type { Metadata } from 'next';
-import { Breadcrumbs, Container, DocumentChecklist, Heading, JsonLd, Section } from '@/components';
+import { Breadcrumbs, Container, DocumentChecklist, Heading, JsonLd, LeadForm, Section } from '@/components';
 import { t } from '@/i18n';
 import { serviceJsonLd, siteMetadata } from '@/lib/metadata';
 import type { ChecklistNationality, ChecklistRoute } from '@/components/DocumentChecklist';
+import { contentHref } from '@/lib/content-href';
+import { NATIONALITIES as BY_COUNTRY } from '../../_lib/por-pais';
 
 const SITE = 'residenciaes' as const;
 const PATH = '/documentos/lista';
@@ -29,11 +31,9 @@ function routes(): ChecklistRoute[] {
   ];
 }
 
+// Every nationality with its own guide (the `/guias/por-pais` list), then "other".
 const NATIONALITIES: ChecklistNationality[] = [
-  { id: 'es', label: 'España', href: '/guias/documentos/documentos-y-apostillas-para-espanoles' },
-  { id: 'ar', label: 'Argentina', href: '/guias/documentos/documentos-y-apostillas-para-argentinos' },
-  { id: 'co', label: 'Colombia', href: '/guias/documentos/documentos-y-apostillas-para-colombianos' },
-  { id: 'mx', label: 'México', href: '/guias/documentos/documentos-y-apostillas-para-mexicanos' },
+  ...BY_COUNTRY.map((n) => ({ id: n.id, label: n.country, href: contentHref(SITE, n.slugPath) })),
   { id: 'other', label: 'Otra nacionalidad' },
 ];
 
@@ -57,8 +57,7 @@ export default function Page() {
         </p>
         <div className="mt-[var(--space-10)]">
           <DocumentChecklist
-            site={SITE}
-            pagePath={PATH}
+            form={<LeadForm site={SITE} variant="quiz" pagePath={PATH} />}
             routes={routes()}
             nationalities={NATIONALITIES}
             policeCertHref="/guias/documentos/certificado-de-antecedentes-y-la-confusion-con-interpol"

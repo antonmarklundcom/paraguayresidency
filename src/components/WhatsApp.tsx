@@ -19,13 +19,13 @@ export function WhatsAppButton({ site, message, variant = 'primary', className =
   const href = whatsappHref(message ?? t(site, 'whatsapp.prefill'));
   if (!href) return null;
   const styles = {
-    primary: 'bg-[#1f8f4e] text-white hover:bg-[#197a42]',
-    secondary: 'border border-[var(--border)] bg-[var(--surface)] text-[var(--fg)] hover:border-[#1f8f4e]',
+    primary: 'bg-[var(--wa)] text-[var(--wa-fg)] hover:bg-[var(--wa-hover)]',
+    secondary: 'border border-[var(--border)] bg-[var(--surface)] text-[var(--fg)] hover:border-[var(--wa)]',
     onDark: 'bg-white text-black hover:bg-white/90',
   } as const;
   return (
     <a href={href} rel="noopener" target="_blank" data-whatsapp data-placement={hero ? 'hero' : placement} data-hero-contact={hero || undefined} className={`inline-flex min-h-11 items-center justify-center gap-2 rounded-[var(--radius-brand)] px-5 py-3 text-(length:--text-sm) font-medium transition-colors duration-[var(--duration)] ${styles[variant]} ${className}`}>
-      <WhatsAppIcon className={`size-5 ${variant === 'onDark' ? 'text-[#1f8f4e]' : ''}`} />
+      <WhatsAppIcon className={`size-5 ${variant === 'onDark' ? 'text-[var(--wa)]' : ''}`} />
       {t(site, 'whatsapp.cta')}
     </a>
   );
@@ -44,7 +44,7 @@ export function WhatsAppFab({ site }: { site: SiteKey }) {
       data-wa-fab
       data-placement="floating"
       aria-label={t(site, 'whatsapp.cta')}
-      className="group fixed right-4 bottom-[calc(1rem+env(safe-area-inset-bottom))] z-40 flex size-14 items-center justify-center gap-2 rounded-full bg-[#1f8f4e] text-white shadow-[0_12px_30px_-8px_rgba(0,0,0,.45)] transition-[width,background-color] duration-300 hover:bg-[#197a42] sm:right-6 sm:bottom-6 md:w-auto md:px-5"
+      className="group fixed right-4 bottom-[calc(1rem+env(safe-area-inset-bottom))] z-40 flex size-14 items-center justify-center gap-2 rounded-full bg-[var(--wa)] text-[var(--wa-fg)] shadow-[0_12px_30px_-8px_rgba(0,0,0,.45)] transition-[width,background-color] duration-300 hover:bg-[var(--wa-hover)] sm:right-6 sm:bottom-6 md:w-auto md:px-5"
     >
       <WhatsAppIcon className="size-7 md:size-6" />
       <span className="hidden text-(length:--text-sm) font-medium md:inline">{t(site, 'whatsapp.short')}</span>

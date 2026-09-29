@@ -7,7 +7,15 @@
     "actual_spend_credits": 18.5,
     "ledger_checked": "16 lines GPT Image 2.5 Sunburst, 2026-09-22; +2 lines 0.5 each for the regenerated tiles, 2026-09-22",
     "download_status": "localized",
-    "review": "hammock and home-office tiles regenerated 2026-09-22 (the first versions showed sea and hills; Paraguay is landlocked and flat): Asunción veranda and street, lapacho, terracotta roofs"
+    "review": "hammock and home-office tiles regenerated 2026-09-22 (the first versions showed sea and hills; Paraguay is landlocked and flat): Asunción veranda and street, lapacho, terracotta roofs",
+    "overhaul_2026_10": {
+      "generated": "2026-09-28",
+      "purpose": "Design overhaul: a unique hero + 4 tiles per brand, guide cover art and 11 chapter images, one category image per article hub",
+      "widths": "hero 1200/2400, cover 600/1200, tile 480/800, chapter 800/1200, hub 480/800/1200; AVIF + WebP via webimg",
+      "cost_preflight": "high 2k 2.75, medium 1k 0.5 credits",
+      "spend_credits": 52.5,
+      "review": "every result viewed; 4 rejected and regenerated (sea/mountains/flag), see docs/design/image-jobs-2026-10.json"
+    }
   },
   "images": [
     {
@@ -251,6 +259,1277 @@
       "px": "896x1120",
       "model": "gpt_image_2_5 sunburst medium 1k",
       "job_id": "18788497-d979-42e0-915d-cb4289bc6998"
+    },
+    {
+      "id": "residency-hero-asuncion-colonnade",
+      "files": [
+        "public/images/arrival/residency-hero-asuncion-colonnade-1200.avif",
+        "public/images/arrival/residency-hero-asuncion-colonnade-1200.webp",
+        "public/images/arrival/residency-hero-asuncion-colonnade-2400.avif",
+        "public/images/arrival/residency-hero-asuncion-colonnade-2400.webp"
+      ],
+      "alt_en": "Man in a navy blazer walking with a document folder along a sunlit colonial colonnade in Asunción",
+      "alt_es": "Hombre con blazer azul marino camina con una carpeta por una columnata colonial soleada en Asunción",
+      "alt_pt": "Homem de blazer azul-marinho caminha com uma pasta por uma colunata colonial ensolarada em Assunção",
+      "alt_sv": "Man i marinblå kavaj går med en dokumentmapp längs en solig kolonial pelargång i Asunción",
+      "ratio": "16:9",
+      "px": "2688x1520",
+      "model": "gpt_image_2_5 sunburst high 2k",
+      "job_id": "175ba2fc-258d-4389-85df-a8272593d67b",
+      "set": "overhaul-2026-10",
+      "kind": "hero"
+    },
+    {
+      "id": "investorpass-hero-business-district-blue-hour",
+      "files": [
+        "public/images/arrival/investorpass-hero-business-district-blue-hour-1200.avif",
+        "public/images/arrival/investorpass-hero-business-district-blue-hour-1200.webp",
+        "public/images/arrival/investorpass-hero-business-district-blue-hour-2400.avif",
+        "public/images/arrival/investorpass-hero-business-district-blue-hour-2400.webp"
+      ],
+      "alt_en": "Glass office towers along a tree-lined avenue in Asunción's business district at blue hour",
+      "alt_es": "Torres de oficinas de cristal junto a una avenida arbolada del distrito financiero de Asunción a la hora azul",
+      "alt_pt": "Torres de escritórios de vidro ao longo de uma avenida arborizada no distrito financeiro de Assunção na hora azul",
+      "alt_sv": "Kontorstorn i glas längs en trädkantad aveny i Asuncións affärsdistrikt i blå timmen",
+      "ratio": "16:9",
+      "px": "2688x1520",
+      "model": "gpt_image_2_5 sunburst high 2k",
+      "job_id": "036500c4-de93-4fb6-85c7-108bc0b8e167",
+      "set": "overhaul-2026-10",
+      "kind": "hero"
+    },
+    {
+      "id": "guide-hero-reading-desk-asuncion",
+      "files": [
+        "public/images/arrival/guide-hero-reading-desk-asuncion-1200.avif",
+        "public/images/arrival/guide-hero-reading-desk-asuncion-1200.webp",
+        "public/images/arrival/guide-hero-reading-desk-asuncion-2400.avif",
+        "public/images/arrival/guide-hero-reading-desk-asuncion-2400.webp"
+      ],
+      "alt_en": "Open guidebook, passport, reading glasses and a glass of tereré on an oak desk by a window in Asunción",
+      "alt_es": "Guía abierta, pasaporte, gafas de lectura y un vaso de tereré sobre un escritorio de roble junto a una ventana en Asunción",
+      "alt_pt": "Guia aberto, passaporte, óculos de leitura e um copo de tereré sobre uma mesa de carvalho junto à janela em Assunção",
+      "alt_sv": "Uppslagen guidebok, pass, läsglasögon och ett glas tereré på ett ekskrivbord vid ett fönster i Asunción",
+      "ratio": "16:9",
+      "px": "2688x1520",
+      "model": "gpt_image_2_5 sunburst high 2k",
+      "job_id": "bace9282-aad0-4490-85de-cd78eb7b919a",
+      "set": "overhaul-2026-10",
+      "kind": "hero"
+    },
+    {
+      "id": "frontier-hero-red-earth-ranch-gate",
+      "files": [
+        "public/images/arrival/frontier-hero-red-earth-ranch-gate-1200.avif",
+        "public/images/arrival/frontier-hero-red-earth-ranch-gate-1200.webp",
+        "public/images/arrival/frontier-hero-red-earth-ranch-gate-2400.avif",
+        "public/images/arrival/frontier-hero-red-earth-ranch-gate-2400.webp"
+      ],
+      "alt_en": "Pickup truck on a red-earth road beside a wooden ranch gate, flat pasture and palms in rural Paraguay",
+      "alt_es": "Camioneta en un camino de tierra roja junto a una tranquera de madera, campo llano y palmeras en el Paraguay rural",
+      "alt_pt": "Caminhonete numa estrada de terra vermelha ao lado de uma porteira de madeira, pasto plano e palmeiras no interior do Paraguai",
+      "alt_sv": "Pickup på en röd grusväg vid en trägrind, platt betesmark och palmer på Paraguays landsbygd",
+      "ratio": "16:9",
+      "px": "2688x1520",
+      "model": "gpt_image_2_5 sunburst high 2k",
+      "job_id": "060d3632-69e4-4a06-b5c1-5397c6c7ebc7",
+      "set": "overhaul-2026-10",
+      "kind": "hero"
+    },
+    {
+      "id": "residenciaes-hero-cafe-arcade-plaza",
+      "files": [
+        "public/images/arrival/residenciaes-hero-cafe-arcade-plaza-1200.avif",
+        "public/images/arrival/residenciaes-hero-cafe-arcade-plaza-1200.webp",
+        "public/images/arrival/residenciaes-hero-cafe-arcade-plaza-2400.avif",
+        "public/images/arrival/residenciaes-hero-cafe-arcade-plaza-2400.webp"
+      ],
+      "alt_en": "Two friends talking over coffee under a whitewashed colonial arcade facing a leafy plaza in Asunción",
+      "alt_es": "Dos amigos conversan tomando café bajo una galería colonial encalada frente a una plaza arbolada de Asunción",
+      "alt_pt": "Dois amigos conversam tomando café sob uma arcada colonial caiada diante de uma praça arborizada em Assunção",
+      "alt_sv": "Två vänner pratar över en kaffe under en vitkalkad kolonial arkad vid ett grönskande torg i Asunción",
+      "ratio": "16:9",
+      "px": "2688x1520",
+      "model": "gpt_image_2_5 sunburst high 2k",
+      "job_id": "17b3e6ce-6fbe-4fb2-8723-851a07555a68",
+      "set": "overhaul-2026-10",
+      "kind": "hero"
+    },
+    {
+      "id": "residenciapt-hero-family-veranda-terere",
+      "files": [
+        "public/images/arrival/residenciapt-hero-family-veranda-terere-1200.avif",
+        "public/images/arrival/residenciapt-hero-family-veranda-terere-1200.webp",
+        "public/images/arrival/residenciapt-hero-family-veranda-terere-2400.avif",
+        "public/images/arrival/residenciapt-hero-family-veranda-terere-2400.webp"
+      ],
+      "alt_en": "Young family sharing tereré on the veranda of a house with a mango tree and a red-earth garden in Paraguay",
+      "alt_es": "Familia joven comparte tereré en la galería de una casa con un mango y un jardín de tierra roja en Paraguay",
+      "alt_pt": "Família jovem tomando tereré na varanda de uma casa com mangueira e jardim de terra vermelha no Paraguai",
+      "alt_sv": "Ung familj delar tereré på verandan till ett hus med mangoträd och röd jord i trädgården i Paraguay",
+      "ratio": "16:9",
+      "px": "2688x1520",
+      "model": "gpt_image_2_5 sunburst high 2k",
+      "job_id": "eb093d87-99f7-4530-9349-4bf7bc6323ca",
+      "set": "overhaul-2026-10",
+      "kind": "hero"
+    },
+    {
+      "id": "flytta-hero-veranda-moving-boxes",
+      "files": [
+        "public/images/arrival/flytta-hero-veranda-moving-boxes-1200.avif",
+        "public/images/arrival/flytta-hero-veranda-moving-boxes-1200.webp",
+        "public/images/arrival/flytta-hero-veranda-moving-boxes-2400.avif",
+        "public/images/arrival/flytta-hero-veranda-moving-boxes-2400.webp"
+      ],
+      "alt_en": "Moving boxes and a birch chair on a bright veranda facing a mango tree and a yellow lapacho in Asunción",
+      "alt_es": "Cajas de mudanza y una silla de abedul en una galería luminosa frente a un mango y un lapacho amarillo en Asunción",
+      "alt_pt": "Caixas de mudança e uma cadeira de bétula numa varanda clara diante de uma mangueira e um ipê-amarelo em Assunção",
+      "alt_sv": "Flyttkartonger och en björkstol på en ljus veranda med utsikt mot ett mangoträd och en gul lapacho i Asunción",
+      "ratio": "16:9",
+      "px": "2688x1520",
+      "model": "gpt_image_2_5 sunburst high 2k",
+      "job_id": "c52e641f-750a-468e-86f3-73097045b61d",
+      "set": "overhaul-2026-10",
+      "kind": "hero"
+    },
+    {
+      "id": "guide-cover-art-river-topography",
+      "files": [
+        "public/images/arrival/guide-cover-art-river-topography-1200.avif",
+        "public/images/arrival/guide-cover-art-river-topography-1200.webp",
+        "public/images/arrival/guide-cover-art-river-topography-600.avif",
+        "public/images/arrival/guide-cover-art-river-topography-600.webp"
+      ],
+      "alt_en": "Cover artwork of the Paraguay Residency Guide: a river winding through flat land in gold and forest-green line drawing",
+      "alt_es": "Portada de la guía de residencia en Paraguay: un río serpenteante sobre tierra llana en dibujo de líneas doradas y verdes",
+      "alt_pt": "Capa do guia de residência no Paraguai: um rio sinuoso em terra plana desenhado em linhas douradas e verde-escuras",
+      "alt_sv": "Omslagsbild till guiden om uppehållstillstånd i Paraguay: en slingrande flod över platt land i guld och mörkgrönt",
+      "ratio": "2:3",
+      "px": "1360x2048",
+      "model": "gpt_image_2_5 sunburst high 2k",
+      "job_id": "1c9b5818-00a8-4664-b382-75e64bf2d81a",
+      "set": "overhaul-2026-10",
+      "kind": "cover"
+    },
+    {
+      "id": "residency-tile-route-finder-map",
+      "files": [
+        "public/images/arrival/residency-tile-route-finder-map-480.avif",
+        "public/images/arrival/residency-tile-route-finder-map-480.webp",
+        "public/images/arrival/residency-tile-route-finder-map-800.avif",
+        "public/images/arrival/residency-tile-route-finder-map-800.webp"
+      ],
+      "alt_en": "Hand unfolding a vintage map of a winding river beside a brass compass on a café table",
+      "alt_es": "Mano desplegando un mapa antiguo de un río sinuoso junto a una brújula de latón sobre una mesa de café",
+      "alt_pt": "Mão abrindo um mapa antigo de um rio sinuoso ao lado de uma bússola de latão numa mesa de café",
+      "alt_sv": "Hand vecklar ut en gammal karta över en slingrande flod bredvid en mässingskompass på ett kafébord",
+      "ratio": "4:5",
+      "px": "896x1120",
+      "model": "gpt_image_2_5 sunburst medium 1k",
+      "job_id": "4184f541-3342-4b60-bc3d-5257cf8ffe4c",
+      "set": "overhaul-2026-10",
+      "kind": "tile"
+    },
+    {
+      "id": "residency-tile-temporary-documents",
+      "files": [
+        "public/images/arrival/residency-tile-temporary-documents-480.avif",
+        "public/images/arrival/residency-tile-temporary-documents-480.webp",
+        "public/images/arrival/residency-tile-temporary-documents-800.avif",
+        "public/images/arrival/residency-tile-temporary-documents-800.webp"
+      ],
+      "alt_en": "Navy passport on a stack of sealed official documents with a fountain pen on a limestone desk",
+      "alt_es": "Pasaporte azul marino sobre una pila de documentos oficiales sellados con una pluma estilográfica en un escritorio de piedra",
+      "alt_pt": "Passaporte azul-marinho sobre uma pilha de documentos oficiais selados com uma caneta-tinteiro numa mesa de pedra",
+      "alt_sv": "Marinblått pass på en bunt stämplade officiella dokument med en reservoarpenna på ett skrivbord i kalksten",
+      "ratio": "4:5",
+      "px": "896x1120",
+      "model": "gpt_image_2_5 sunburst medium 1k",
+      "job_id": "f569dee6-65e1-4702-b950-9d5170786b93",
+      "set": "overhaul-2026-10",
+      "kind": "tile"
+    },
+    {
+      "id": "residency-tile-permanent-colonial-door",
+      "files": [
+        "public/images/arrival/residency-tile-permanent-colonial-door-480.avif",
+        "public/images/arrival/residency-tile-permanent-colonial-door-480.webp",
+        "public/images/arrival/residency-tile-permanent-colonial-door-800.avif",
+        "public/images/arrival/residency-tile-permanent-colonial-door-800.webp"
+      ],
+      "alt_en": "Hand turning a brass key in the dark wooden door of a whitewashed colonial house in Asunción",
+      "alt_es": "Mano girando una llave de latón en la puerta de madera oscura de una casa colonial encalada en Asunción",
+      "alt_pt": "Mão girando uma chave de latão na porta de madeira escura de uma casa colonial caiada em Assunção",
+      "alt_sv": "Hand vrider om en mässingsnyckel i den mörka trädörren till ett vitkalkat kolonialhus i Asunción",
+      "ratio": "4:5",
+      "px": "896x1120",
+      "model": "gpt_image_2_5 sunburst medium 1k",
+      "job_id": "7c39c62e-b514-40c4-94c2-c319b89332f6",
+      "set": "overhaul-2026-10",
+      "kind": "tile"
+    },
+    {
+      "id": "residency-tile-investor-tower",
+      "files": [
+        "public/images/arrival/residency-tile-investor-tower-480.avif",
+        "public/images/arrival/residency-tile-investor-tower-480.webp",
+        "public/images/arrival/residency-tile-investor-tower-800.avif",
+        "public/images/arrival/residency-tile-investor-tower-800.webp"
+      ],
+      "alt_en": "Modern glass and stone office tower in Asunción against a deep blue sky with a royal palm",
+      "alt_es": "Torre de oficinas moderna de cristal y piedra en Asunción contra un cielo azul intenso con una palmera",
+      "alt_pt": "Torre de escritórios moderna de vidro e pedra em Assunção contra um céu azul intenso com uma palmeira",
+      "alt_sv": "Modernt kontorstorn i glas och sten i Asunción mot en djupblå himmel med en kungspalm",
+      "ratio": "4:5",
+      "px": "896x1120",
+      "model": "gpt_image_2_5 sunburst medium 1k",
+      "job_id": "79d21503-71f5-4eb1-9cfa-2d4088dbfd94",
+      "set": "overhaul-2026-10",
+      "kind": "tile"
+    },
+    {
+      "id": "investorpass-tile-residential-lobby-dusk",
+      "files": [
+        "public/images/arrival/investorpass-tile-residential-lobby-dusk-480.avif",
+        "public/images/arrival/investorpass-tile-residential-lobby-dusk-480.webp",
+        "public/images/arrival/investorpass-tile-residential-lobby-dusk-800.avif",
+        "public/images/arrival/investorpass-tile-residential-lobby-dusk-800.webp"
+      ],
+      "alt_en": "Lobby of a modern residential building in Asunción at dusk with dark stone, brass and warm lamplight",
+      "alt_es": "Vestíbulo de un edificio residencial moderno en Asunción al anochecer con piedra oscura, latón y luz cálida",
+      "alt_pt": "Saguão de um edifício residencial moderno em Assunção ao anoitecer com pedra escura, latão e luz quente",
+      "alt_sv": "Entré i ett modernt bostadshus i Asunción i skymningen med mörk sten, mässing och varmt lampljus",
+      "ratio": "4:5",
+      "px": "896x1120",
+      "model": "gpt_image_2_5 sunburst medium 1k",
+      "job_id": "19436a37-825a-45a2-b7d8-c1fb2718c8da",
+      "set": "overhaul-2026-10",
+      "kind": "tile"
+    },
+    {
+      "id": "investorpass-tile-agro-silos-blue-hour",
+      "files": [
+        "public/images/arrival/investorpass-tile-agro-silos-blue-hour-480.avif",
+        "public/images/arrival/investorpass-tile-agro-silos-blue-hour-480.webp",
+        "public/images/arrival/investorpass-tile-agro-silos-blue-hour-800.avif",
+        "public/images/arrival/investorpass-tile-agro-silos-blue-hour-800.webp"
+      ],
+      "alt_en": "Grain silos and an agro-industrial plant on flat farmland in eastern Paraguay at blue hour",
+      "alt_es": "Silos de granos y una planta agroindustrial en campos llanos del este de Paraguay a la hora azul",
+      "alt_pt": "Silos de grãos e uma planta agroindustrial em lavouras planas no leste do Paraguai na hora azul",
+      "alt_sv": "Spannmålssilor och en jordbruksanläggning på platt åkermark i östra Paraguay i blå timmen",
+      "ratio": "4:5",
+      "px": "896x1120",
+      "model": "gpt_image_2_5 sunburst medium 1k",
+      "job_id": "b2b0b25c-bb60-4a9f-ae8f-cdc1d3464b80",
+      "set": "overhaul-2026-10",
+      "kind": "tile"
+    },
+    {
+      "id": "investorpass-tile-private-meeting-room",
+      "files": [
+        "public/images/arrival/investorpass-tile-private-meeting-room-480.avif",
+        "public/images/arrival/investorpass-tile-private-meeting-room-480.webp",
+        "public/images/arrival/investorpass-tile-private-meeting-room-800.avif",
+        "public/images/arrival/investorpass-tile-private-meeting-room-800.webp"
+      ],
+      "alt_en": "Private meeting room at night with a walnut table, leather chairs and city lights through the window",
+      "alt_es": "Sala de reuniones privada de noche con mesa de nogal, sillas de cuero y luces de la ciudad por la ventana",
+      "alt_pt": "Sala de reuniões privada à noite com mesa de nogueira, cadeiras de couro e luzes da cidade pela janela",
+      "alt_sv": "Privat mötesrum på kvällen med valnötsbord, läderstolar och stadens ljus genom fönstret",
+      "ratio": "4:5",
+      "px": "896x1120",
+      "model": "gpt_image_2_5 sunburst medium 1k",
+      "job_id": "5ec9c1e6-7e91-4c49-98a3-461c97b0c9c5",
+      "set": "overhaul-2026-10",
+      "kind": "tile"
+    },
+    {
+      "id": "investorpass-tile-river-lodge-dusk",
+      "files": [
+        "public/images/arrival/investorpass-tile-river-lodge-dusk-480.avif",
+        "public/images/arrival/investorpass-tile-river-lodge-dusk-480.webp",
+        "public/images/arrival/investorpass-tile-river-lodge-dusk-800.avif",
+        "public/images/arrival/investorpass-tile-river-lodge-dusk-800.webp"
+      ],
+      "alt_en": "Timber eco-lodge on stilts beside a calm river in Paraguay's wetlands at dusk",
+      "alt_es": "Ecolodge de madera sobre pilotes junto a un río tranquilo en los humedales de Paraguay al atardecer",
+      "alt_pt": "Ecolodge de madeira sobre palafitas ao lado de um rio calmo nas áreas úmidas do Paraguai ao entardecer",
+      "alt_sv": "Ekolodge i trä på pålar vid en lugn flod i Paraguays våtmarker i skymningen",
+      "ratio": "4:5",
+      "px": "896x1120",
+      "model": "gpt_image_2_5 sunburst medium 1k",
+      "job_id": "118e7212-0d38-4554-8efe-364e8658a11f",
+      "set": "overhaul-2026-10",
+      "kind": "tile"
+    },
+    {
+      "id": "guide-tile-red-earth-paths-palm",
+      "files": [
+        "public/images/arrival/guide-tile-red-earth-paths-palm-480.avif",
+        "public/images/arrival/guide-tile-red-earth-paths-palm-480.webp",
+        "public/images/arrival/guide-tile-red-earth-paths-palm-800.avif",
+        "public/images/arrival/guide-tile-red-earth-paths-palm-800.webp"
+      ],
+      "alt_en": "Two red-earth paths splitting across flat grassland around a lone palm tree in rural Paraguay",
+      "alt_es": "Dos senderos de tierra roja que se separan en un campo llano junto a una palmera solitaria en Paraguay",
+      "alt_pt": "Duas trilhas de terra vermelha que se separam num campo plano junto a uma palmeira solitária no Paraguai",
+      "alt_sv": "Två röda jordstigar som delar sig över platt gräsmark vid en ensam palm på Paraguays landsbygd",
+      "ratio": "4:5",
+      "px": "896x1120",
+      "model": "gpt_image_2_5 sunburst medium 1k",
+      "job_id": "7ee11eb0-941a-4fb1-acd7-19a33d155e82",
+      "set": "overhaul-2026-10",
+      "kind": "tile"
+    },
+    {
+      "id": "guide-tile-apostille-checklist-desk",
+      "files": [
+        "public/images/arrival/guide-tile-apostille-checklist-desk-480.avif",
+        "public/images/arrival/guide-tile-apostille-checklist-desk-480.webp",
+        "public/images/arrival/guide-tile-apostille-checklist-desk-800.avif",
+        "public/images/arrival/guide-tile-apostille-checklist-desk-800.webp"
+      ],
+      "alt_en": "Apostilled certificate with a seal and ribbon, a passport and a ticked checklist on a white desk",
+      "alt_es": "Certificado apostillado con sello y cinta, un pasaporte y una lista marcada sobre un escritorio blanco",
+      "alt_pt": "Certidão apostilada com selo e fita, um passaporte e uma lista marcada sobre uma mesa branca",
+      "alt_sv": "Apostillerat intyg med sigill och band, ett pass och en ifylld checklista på ett vitt skrivbord",
+      "ratio": "4:5",
+      "px": "896x1120",
+      "model": "gpt_image_2_5 sunburst medium 1k",
+      "job_id": "678aafcf-f104-4b3e-820c-fd392b064d54",
+      "set": "overhaul-2026-10",
+      "kind": "tile"
+    },
+    {
+      "id": "guide-tile-calculator-cocido-notebook",
+      "files": [
+        "public/images/arrival/guide-tile-calculator-cocido-notebook-480.avif",
+        "public/images/arrival/guide-tile-calculator-cocido-notebook-480.webp",
+        "public/images/arrival/guide-tile-calculator-cocido-notebook-800.avif",
+        "public/images/arrival/guide-tile-calculator-cocido-notebook-800.webp"
+      ],
+      "alt_en": "Calculator, notebook with empty columns and a cup of cocido on a wooden table by a window",
+      "alt_es": "Calculadora, cuaderno con columnas vacías y una taza de cocido sobre una mesa de madera junto a la ventana",
+      "alt_pt": "Calculadora, caderno com colunas vazias e uma xícara de cocido sobre uma mesa de madeira junto à janela",
+      "alt_sv": "Miniräknare, anteckningsbok med tomma kolumner och en kopp cocido på ett träbord vid fönstret",
+      "ratio": "4:5",
+      "px": "896x1120",
+      "model": "gpt_image_2_5 sunburst medium 1k",
+      "job_id": "13bdd006-002b-4a66-87ab-5174144577c9",
+      "set": "overhaul-2026-10",
+      "kind": "tile"
+    },
+    {
+      "id": "guide-tile-terere-street-cafe",
+      "files": [
+        "public/images/arrival/guide-tile-terere-street-cafe-480.avif",
+        "public/images/arrival/guide-tile-terere-street-cafe-480.webp",
+        "public/images/arrival/guide-tile-terere-street-cafe-800.avif",
+        "public/images/arrival/guide-tile-terere-street-cafe-800.webp"
+      ],
+      "alt_en": "Leather tereré thermos and guampa on a café table on a leafy street in Asunción",
+      "alt_es": "Termo de tereré forrado en cuero y guampa sobre una mesa de café en una calle arbolada de Asunción",
+      "alt_pt": "Garrafa térmica de tereré revestida de couro e guampa numa mesa de café em uma rua arborizada de Assunção",
+      "alt_sv": "Tereré-termos i läder och en guampa på ett kafébord på en grönskande gata i Asunción",
+      "ratio": "4:5",
+      "px": "896x1120",
+      "model": "gpt_image_2_5 sunburst medium 1k",
+      "job_id": "4bb86955-9995-4572-bd88-0945fb25425f",
+      "set": "overhaul-2026-10",
+      "kind": "tile"
+    },
+    {
+      "id": "frontier-tile-airport-bench-bag",
+      "files": [
+        "public/images/arrival/frontier-tile-airport-bench-bag-480.avif",
+        "public/images/arrival/frontier-tile-airport-bench-bag-480.webp",
+        "public/images/arrival/frontier-tile-airport-bench-bag-800.avif",
+        "public/images/arrival/frontier-tile-airport-bench-bag-800.webp"
+      ],
+      "alt_en": "Leather travel bag and passport on a bench in a small airport terminal overlooking flat green country",
+      "alt_es": "Bolso de viaje de cuero y pasaporte en un banco de una pequeña terminal aérea con vista al campo llano",
+      "alt_pt": "Bolsa de viagem de couro e passaporte num banco de um pequeno terminal aéreo com vista para o campo plano",
+      "alt_sv": "Resväska i läder och pass på en bänk i en liten flygterminal med utsikt över platt grön landsbygd",
+      "ratio": "4:5",
+      "px": "896x1120",
+      "model": "gpt_image_2_5 sunburst medium 1k",
+      "job_id": "47efd8a4-14a6-4f8b-a636-951e87c78864",
+      "set": "overhaul-2026-10",
+      "kind": "tile"
+    },
+    {
+      "id": "frontier-tile-fence-pasture-cattle",
+      "files": [
+        "public/images/arrival/frontier-tile-fence-pasture-cattle-480.avif",
+        "public/images/arrival/frontier-tile-fence-pasture-cattle-480.webp",
+        "public/images/arrival/frontier-tile-fence-pasture-cattle-800.avif",
+        "public/images/arrival/frontier-tile-fence-pasture-cattle-800.webp"
+      ],
+      "alt_en": "Weathered fence post on flat pasture with red earth, distant cattle and palms in rural Paraguay",
+      "alt_es": "Poste de alambrado gastado en un campo llano de tierra roja con ganado y palmeras a lo lejos en Paraguay",
+      "alt_pt": "Mourão de cerca desgastado em pasto plano de terra vermelha com gado e palmeiras ao longe no Paraguai",
+      "alt_sv": "Väderbiten staketstolpe på platt betesmark med röd jord, boskap och palmer i fjärran i Paraguay",
+      "ratio": "4:5",
+      "px": "896x1120",
+      "model": "gpt_image_2_5 sunburst medium 1k",
+      "job_id": "4b57a4ce-8f6b-4e35-a07d-30bd845e4242",
+      "set": "overhaul-2026-10",
+      "kind": "tile"
+    },
+    {
+      "id": "frontier-tile-small-town-veranda-street",
+      "files": [
+        "public/images/arrival/frontier-tile-small-town-veranda-street-480.avif",
+        "public/images/arrival/frontier-tile-small-town-veranda-street-480.webp",
+        "public/images/arrival/frontier-tile-small-town-veranda-street-800.avif",
+        "public/images/arrival/frontier-tile-small-town-veranda-street-800.webp"
+      ],
+      "alt_en": "Quiet small-town street in rural Paraguay with colonial verandas, a red-earth sidewalk and a motorbike",
+      "alt_es": "Calle tranquila de un pueblo del interior de Paraguay con corredores coloniales, vereda de tierra roja y una moto",
+      "alt_pt": "Rua tranquila de uma cidade do interior do Paraguai com varandas coloniais, calçada de terra vermelha e uma moto",
+      "alt_sv": "Lugn gata i en småstad på Paraguays landsbygd med koloniala verandor, röd trottoar och en motorcykel",
+      "ratio": "4:5",
+      "px": "896x1120",
+      "model": "gpt_image_2_5 sunburst medium 1k",
+      "job_id": "8030b9ac-32e6-487a-8576-0fc8177c8484",
+      "set": "overhaul-2026-10",
+      "kind": "tile"
+    },
+    {
+      "id": "frontier-tile-laptop-veranda-terere",
+      "files": [
+        "public/images/arrival/frontier-tile-laptop-veranda-terere-480.avif",
+        "public/images/arrival/frontier-tile-laptop-veranda-terere-480.webp",
+        "public/images/arrival/frontier-tile-laptop-veranda-terere-800.avif",
+        "public/images/arrival/frontier-tile-laptop-veranda-terere-800.webp"
+      ],
+      "alt_en": "Laptop, notebook and iced tereré on a rustic table on a shaded veranda with palms beyond",
+      "alt_es": "Portátil, cuaderno y tereré helado sobre una mesa rústica en una galería sombreada con palmeras al fondo",
+      "alt_pt": "Notebook, caderno e tereré gelado numa mesa rústica em uma varanda sombreada com palmeiras ao fundo",
+      "alt_sv": "Laptop, anteckningsbok och iskall tereré på ett rustikt bord på en skuggig veranda med palmer bortom",
+      "ratio": "4:5",
+      "px": "896x1120",
+      "model": "gpt_image_2_5 sunburst medium 1k",
+      "job_id": "35ad8970-0968-4dc1-858c-96515231e250",
+      "set": "overhaul-2026-10",
+      "kind": "tile"
+    },
+    {
+      "id": "residenciaes-tile-esquina-centro-historico",
+      "files": [
+        "public/images/arrival/residenciaes-tile-esquina-centro-historico-480.avif",
+        "public/images/arrival/residenciaes-tile-esquina-centro-historico-480.webp",
+        "public/images/arrival/residenciaes-tile-esquina-centro-historico-800.avif",
+        "public/images/arrival/residenciaes-tile-esquina-centro-historico-800.webp"
+      ],
+      "alt_en": "Sunny street corner in Asunción's historic centre with whitewashed colonial facades and teal shutters",
+      "alt_es": "Esquina soleada del centro histórico de Asunción con fachadas coloniales encaladas y postigos verde azulado",
+      "alt_pt": "Esquina ensolarada do centro histórico de Assunção com fachadas coloniais caiadas e venezianas verde-azuladas",
+      "alt_sv": "Solig gathörna i Asuncións gamla stadskärna med vitkalkade kolonialfasader och blågröna fönsterluckor",
+      "ratio": "4:5",
+      "px": "896x1120",
+      "model": "gpt_image_2_5 sunburst medium 1k",
+      "job_id": "94caf143-c40b-42bb-83bd-1306e91a30ab",
+      "set": "overhaul-2026-10",
+      "kind": "tile"
+    },
+    {
+      "id": "residenciaes-tile-pasaporte-apostilla",
+      "files": [
+        "public/images/arrival/residenciaes-tile-pasaporte-apostilla-480.avif",
+        "public/images/arrival/residenciaes-tile-pasaporte-apostilla-480.webp",
+        "public/images/arrival/residenciaes-tile-pasaporte-apostilla-800.avif",
+        "public/images/arrival/residenciaes-tile-pasaporte-apostilla-800.webp"
+      ],
+      "alt_en": "Burgundy passport and a folder of apostilled documents with a green ribbon on a whitewashed table",
+      "alt_es": "Pasaporte granate y una carpeta de documentos apostillados con cinta verde sobre una mesa encalada",
+      "alt_pt": "Passaporte bordô e uma pasta de documentos apostilados com fita verde sobre uma mesa caiada",
+      "alt_sv": "Vinrött pass och en mapp med apostillerade dokument och ett grönt band på ett vitkalkat bord",
+      "ratio": "4:5",
+      "px": "896x1120",
+      "model": "gpt_image_2_5 sunburst medium 1k",
+      "job_id": "b6bb3169-84d2-4970-a1a0-0868183324eb",
+      "set": "overhaul-2026-10",
+      "kind": "tile"
+    },
+    {
+      "id": "residenciaes-tile-llaves-puerta-colonial",
+      "files": [
+        "public/images/arrival/residenciaes-tile-llaves-puerta-colonial-480.avif",
+        "public/images/arrival/residenciaes-tile-llaves-puerta-colonial-480.webp",
+        "public/images/arrival/residenciaes-tile-llaves-puerta-colonial-800.avif",
+        "public/images/arrival/residenciaes-tile-llaves-puerta-colonial-800.webp"
+      ],
+      "alt_en": "Brass keys in the lock of a teal colonial door with white jasmine on a whitewashed wall in Asunción",
+      "alt_es": "Llaves de latón en la cerradura de una puerta colonial verde azulada con jazmín blanco en Asunción",
+      "alt_pt": "Chaves de latão na fechadura de uma porta colonial verde-azulada com jasmim branco em Assunção",
+      "alt_sv": "Mässingsnycklar i låset på en blågrön kolonial dörr med vit jasmin på en vitkalkad vägg i Asunción",
+      "ratio": "4:5",
+      "px": "896x1120",
+      "model": "gpt_image_2_5 sunburst medium 1k",
+      "job_id": "efe6943e-cedd-491c-ad13-53f45b441701",
+      "set": "overhaul-2026-10",
+      "kind": "tile"
+    },
+    {
+      "id": "residenciaes-tile-terminal-omnibus-viajeros",
+      "files": [
+        "public/images/arrival/residenciaes-tile-terminal-omnibus-viajeros-480.avif",
+        "public/images/arrival/residenciaes-tile-terminal-omnibus-viajeros-480.webp",
+        "public/images/arrival/residenciaes-tile-terminal-omnibus-viajeros-800.avif",
+        "public/images/arrival/residenciaes-tile-terminal-omnibus-viajeros-800.webp"
+      ],
+      "alt_en": "Travellers with suitcases walking to a long-distance coach at a bus terminal in Paraguay",
+      "alt_es": "Viajeros con maletas caminan hacia un ómnibus de larga distancia en una terminal de Paraguay",
+      "alt_pt": "Viajantes com malas caminham até um ônibus de longa distância num terminal rodoviário no Paraguai",
+      "alt_sv": "Resenärer med resväskor går mot en långfärdsbuss på en busstation i Paraguay",
+      "ratio": "4:5",
+      "px": "896x1120",
+      "model": "gpt_image_2_5 sunburst medium 1k",
+      "job_id": "d233c3b9-b0b6-4f46-a553-5fefdbf60328",
+      "set": "overhaul-2026-10",
+      "kind": "tile"
+    },
+    {
+      "id": "residenciapt-tile-bifurcacao-estrada-terra",
+      "files": [
+        "public/images/arrival/residenciapt-tile-bifurcacao-estrada-terra-480.avif",
+        "public/images/arrival/residenciapt-tile-bifurcacao-estrada-terra-480.webp",
+        "public/images/arrival/residenciapt-tile-bifurcacao-estrada-terra-800.avif",
+        "public/images/arrival/residenciapt-tile-bifurcacao-estrada-terra-800.webp"
+      ],
+      "alt_en": "Fork in a red-earth road with a blank wooden signpost between flat soybean fields in eastern Paraguay",
+      "alt_es": "Bifurcación de un camino de tierra roja con un cartel de madera en blanco entre sojales llanos del este de Paraguay",
+      "alt_pt": "Bifurcação de estrada de terra vermelha com placa de madeira em branco entre lavouras de soja no leste do Paraguai",
+      "alt_sv": "Vägskäl på en röd grusväg med en tom träskylt mellan platta sojafält i östra Paraguay",
+      "ratio": "4:5",
+      "px": "896x1120",
+      "model": "gpt_image_2_5 sunburst medium 1k",
+      "job_id": "b5d9c7e5-f4be-4c44-8b64-5490a9aa0dbb",
+      "set": "overhaul-2026-10",
+      "kind": "tile"
+    },
+    {
+      "id": "residenciapt-tile-ponte-rio-fronteira",
+      "files": [
+        "public/images/arrival/residenciapt-tile-ponte-rio-fronteira-480.avif",
+        "public/images/arrival/residenciapt-tile-ponte-rio-fronteira-480.webp",
+        "public/images/arrival/residenciapt-tile-ponte-rio-fronteira-800.avif",
+        "public/images/arrival/residenciapt-tile-ponte-rio-fronteira-800.webp"
+      ],
+      "alt_en": "Road bridge over a broad brown river at sunrise between flat green banks on the border",
+      "alt_es": "Puente carretero sobre un ancho río marrón al amanecer entre orillas verdes y llanas en la frontera",
+      "alt_pt": "Ponte rodoviária sobre um largo rio marrom ao nascer do sol entre margens verdes e planas na fronteira",
+      "alt_sv": "Vägbro över en bred brun flod i soluppgången mellan platta gröna stränder vid gränsen",
+      "ratio": "4:5",
+      "px": "896x1120",
+      "model": "gpt_image_2_5 sunburst medium 1k",
+      "job_id": "638e66f6-1f4c-4808-9239-8ae54465c952",
+      "set": "overhaul-2026-10",
+      "kind": "tile"
+    },
+    {
+      "id": "residenciapt-tile-documentos-terere-mesa",
+      "files": [
+        "public/images/arrival/residenciapt-tile-documentos-terere-mesa-480.avif",
+        "public/images/arrival/residenciapt-tile-documentos-terere-mesa-480.webp",
+        "public/images/arrival/residenciapt-tile-documentos-terere-mesa-800.avif",
+        "public/images/arrival/residenciapt-tile-documentos-terere-mesa-800.webp"
+      ],
+      "alt_en": "Passport and a folder of apostilled documents next to a guampa of tereré and a thermos on a wooden table",
+      "alt_es": "Pasaporte y carpeta de documentos apostillados junto a una guampa de tereré y un termo sobre una mesa de madera",
+      "alt_pt": "Passaporte e pasta de documentos apostilados ao lado de uma guampa de tereré e uma garrafa térmica numa mesa de madeira",
+      "alt_sv": "Pass och en mapp med apostillerade dokument bredvid en guampa med tereré och en termos på ett träbord",
+      "ratio": "4:5",
+      "px": "896x1120",
+      "model": "gpt_image_2_5 sunburst medium 1k",
+      "job_id": "268ce317-f35a-4d88-8a45-071135d3944b",
+      "set": "overhaul-2026-10",
+      "kind": "tile"
+    },
+    {
+      "id": "residenciapt-tile-feira-ciudad-del-este",
+      "files": [
+        "public/images/arrival/residenciapt-tile-feira-ciudad-del-este-480.avif",
+        "public/images/arrival/residenciapt-tile-feira-ciudad-del-este-480.webp",
+        "public/images/arrival/residenciapt-tile-feira-ciudad-del-este-800.avif",
+        "public/images/arrival/residenciapt-tile-feira-ciudad-del-este-800.webp"
+      ],
+      "alt_en": "Market stall in Ciudad del Este with mangoes, cassava, oranges and bananas and a vendor arranging fruit",
+      "alt_es": "Puesto de mercado en Ciudad del Este con mangos, mandioca, naranjas y bananas y un vendedor acomodando la fruta",
+      "alt_pt": "Banca de feira em Ciudad del Este com mangas, mandioca, laranjas e bananas e um vendedor arrumando as frutas",
+      "alt_sv": "Marknadsstånd i Ciudad del Este med mango, maniok, apelsiner och bananer och en försäljare som ordnar frukten",
+      "ratio": "4:5",
+      "px": "896x1120",
+      "model": "gpt_image_2_5 sunburst medium 1k",
+      "job_id": "d636ef26-32c9-454e-848d-dc7a89a0a7c3",
+      "set": "overhaul-2026-10",
+      "kind": "tile"
+    },
+    {
+      "id": "flytta-tile-kompass-anteckningsbok",
+      "files": [
+        "public/images/arrival/flytta-tile-kompass-anteckningsbok-480.avif",
+        "public/images/arrival/flytta-tile-kompass-anteckningsbok-480.webp",
+        "public/images/arrival/flytta-tile-kompass-anteckningsbok-800.avif",
+        "public/images/arrival/flytta-tile-kompass-anteckningsbok-800.webp"
+      ],
+      "alt_en": "Brass compass and a linen notebook with a pencil on a pale birch table",
+      "alt_es": "Brújula de latón y un cuaderno de lino con un lápiz sobre una mesa de abedul claro",
+      "alt_pt": "Bússola de latão e um caderno de linho com um lápis sobre uma mesa de bétula clara",
+      "alt_sv": "Mässingskompass och en anteckningsbok i linne med en blyertspenna på ett ljust björkbord",
+      "ratio": "4:5",
+      "px": "896x1120",
+      "model": "gpt_image_2_5 sunburst medium 1k",
+      "job_id": "b1f01517-fb4a-4630-bcef-f9093122c43f",
+      "set": "overhaul-2026-10",
+      "kind": "tile"
+    },
+    {
+      "id": "flytta-tile-pass-dokumentmapp",
+      "files": [
+        "public/images/arrival/flytta-tile-pass-dokumentmapp-480.avif",
+        "public/images/arrival/flytta-tile-pass-dokumentmapp-480.webp",
+        "public/images/arrival/flytta-tile-pass-dokumentmapp-800.avif",
+        "public/images/arrival/flytta-tile-pass-dokumentmapp-800.webp"
+      ],
+      "alt_en": "Burgundy EU passport and a grey folder of sealed documents on a clean white table",
+      "alt_es": "Pasaporte granate de la UE y una carpeta gris de documentos sellados sobre una mesa blanca",
+      "alt_pt": "Passaporte bordô da UE e uma pasta cinza de documentos selados sobre uma mesa branca",
+      "alt_sv": "Vinrött EU-pass och en grå mapp med stämplade dokument på ett rent vitt bord",
+      "ratio": "4:5",
+      "px": "896x1120",
+      "model": "gpt_image_2_5 sunburst medium 1k",
+      "job_id": "a9dc53e0-9875-49ff-9da2-4abf82d52fc2",
+      "set": "overhaul-2026-10",
+      "kind": "tile"
+    },
+    {
+      "id": "flytta-tile-matkasse-marknad-asuncion",
+      "files": [
+        "public/images/arrival/flytta-tile-matkasse-marknad-asuncion-480.avif",
+        "public/images/arrival/flytta-tile-matkasse-marknad-asuncion-480.webp",
+        "public/images/arrival/flytta-tile-matkasse-marknad-asuncion-800.avif",
+        "public/images/arrival/flytta-tile-matkasse-marknad-asuncion-800.webp"
+      ],
+      "alt_en": "Linen bag of mangoes, avocados, tomatoes, cassava and chipa on a kitchen counter in Asunción",
+      "alt_es": "Bolsa de lino con mangos, paltas, tomates, mandioca y chipa sobre la mesada de una cocina en Asunción",
+      "alt_pt": "Sacola de linho com mangas, abacates, tomates, mandioca e chipa na bancada de uma cozinha em Assunção",
+      "alt_sv": "Linnekasse med mango, avokado, tomater, maniok och chipa på en köksbänk i Asunción",
+      "ratio": "4:5",
+      "px": "896x1120",
+      "model": "gpt_image_2_5 sunburst medium 1k",
+      "job_id": "de64e13a-1014-4264-9500-84b35ea105a6",
+      "set": "overhaul-2026-10",
+      "kind": "tile"
+    },
+    {
+      "id": "flytta-tile-par-veranda-skymning",
+      "files": [
+        "public/images/arrival/flytta-tile-par-veranda-skymning-480.avif",
+        "public/images/arrival/flytta-tile-par-veranda-skymning-480.webp",
+        "public/images/arrival/flytta-tile-par-veranda-skymning-800.avif",
+        "public/images/arrival/flytta-tile-par-veranda-skymning-800.webp"
+      ],
+      "alt_en": "Couple seen from behind on veranda steps at dusk looking over a subtropical garden, a moving box beside them",
+      "alt_es": "Pareja de espaldas en los escalones de una galería al anochecer mirando un jardín subtropical, junto a una caja de mudanza",
+      "alt_pt": "Casal de costas nos degraus de uma varanda ao anoitecer olhando um jardim subtropical, ao lado de uma caixa de mudança",
+      "alt_sv": "Par sett bakifrån på verandatrappan i skymningen med utsikt över en subtropisk trädgård och en flyttkartong bredvid",
+      "ratio": "4:5",
+      "px": "896x1120",
+      "model": "gpt_image_2_5 sunburst medium 1k",
+      "job_id": "3263d808-f4ed-424d-8696-fb964340d284",
+      "set": "overhaul-2026-10",
+      "kind": "tile"
+    },
+    {
+      "id": "guide-chapter-bank-account-signing",
+      "files": [
+        "public/images/arrival/guide-chapter-bank-account-signing-1200.avif",
+        "public/images/arrival/guide-chapter-bank-account-signing-1200.webp",
+        "public/images/arrival/guide-chapter-bank-account-signing-800.avif",
+        "public/images/arrival/guide-chapter-bank-account-signing-800.webp"
+      ],
+      "alt_en": "Customer signing account-opening forms at the counter of a modern bank branch in Asunción",
+      "alt_es": "Cliente firmando los formularios de apertura de cuenta en el mostrador de una sucursal bancaria de Asunción",
+      "alt_pt": "Cliente assinando os formulários de abertura de conta no balcão de uma agência bancária em Assunção",
+      "alt_sv": "Kund skriver under papper för att öppna konto vid disken på ett modernt bankkontor i Asunción",
+      "ratio": "16:9",
+      "px": "1344x752",
+      "model": "gpt_image_2_5 sunburst medium 1k",
+      "job_id": "a68784f7-336a-4b10-9dac-c958bf4a75a3",
+      "set": "overhaul-2026-10",
+      "kind": "chapter"
+    },
+    {
+      "id": "guide-chapter-cedula-wallet",
+      "files": [
+        "public/images/arrival/guide-chapter-cedula-wallet-1200.avif",
+        "public/images/arrival/guide-chapter-cedula-wallet-1200.webp",
+        "public/images/arrival/guide-chapter-cedula-wallet-800.avif",
+        "public/images/arrival/guide-chapter-cedula-wallet-800.webp"
+      ],
+      "alt_en": "Hands sliding a new identity card into a leather wallet next to a passport on a café table",
+      "alt_es": "Manos guardando una nueva tarjeta de identidad en una billetera de cuero junto a un pasaporte en una mesa de café",
+      "alt_pt": "Mãos guardando um novo documento de identidade numa carteira de couro ao lado de um passaporte numa mesa de café",
+      "alt_sv": "Händer stoppar ett nytt id-kort i en plånbok av läder bredvid ett pass på ett kafébord",
+      "ratio": "16:9",
+      "px": "1344x752",
+      "model": "gpt_image_2_5 sunburst medium 1k",
+      "job_id": "49750562-3e89-4600-a501-9ce7f7afd704",
+      "set": "overhaul-2026-10",
+      "kind": "chapter"
+    },
+    {
+      "id": "guide-chapter-family-leafy-street",
+      "files": [
+        "public/images/arrival/guide-chapter-family-leafy-street-1200.avif",
+        "public/images/arrival/guide-chapter-family-leafy-street-1200.webp",
+        "public/images/arrival/guide-chapter-family-leafy-street-800.avif",
+        "public/images/arrival/guide-chapter-family-leafy-street-800.webp"
+      ],
+      "alt_en": "Family of four walking hand in hand along a leafy residential street in Asunción, seen from behind",
+      "alt_es": "Familia de cuatro caminando de la mano por una calle residencial arbolada de Asunción, vista de espaldas",
+      "alt_pt": "Família de quatro caminhando de mãos dadas por uma rua residencial arborizada de Assunção, vista de costas",
+      "alt_sv": "Familj på fyra går hand i hand längs en grönskande villagata i Asunción, sedd bakifrån",
+      "ratio": "16:9",
+      "px": "1344x752",
+      "model": "gpt_image_2_5 sunburst medium 1k",
+      "job_id": "c99ce993-36c6-4626-a54d-1deea0f974af",
+      "set": "overhaul-2026-10",
+      "kind": "chapter"
+    },
+    {
+      "id": "guide-chapter-accountant-tax-review",
+      "files": [
+        "public/images/arrival/guide-chapter-accountant-tax-review-1200.avif",
+        "public/images/arrival/guide-chapter-accountant-tax-review-1200.webp",
+        "public/images/arrival/guide-chapter-accountant-tax-review-800.avif",
+        "public/images/arrival/guide-chapter-accountant-tax-review-800.webp"
+      ],
+      "alt_en": "Resident and an accountant reviewing tax paperwork at a desk in a bright office in Asunción",
+      "alt_es": "Residente y contadora revisando papeles de impuestos en un escritorio de una oficina luminosa de Asunción",
+      "alt_pt": "Residente e contadora revisando documentos fiscais numa mesa de um escritório claro em Assunção",
+      "alt_sv": "Invånare och en revisor går igenom skattepapper vid ett skrivbord på ett ljust kontor i Asunción",
+      "ratio": "16:9",
+      "px": "1344x752",
+      "model": "gpt_image_2_5 sunburst medium 1k",
+      "job_id": "d042aa5b-22e3-433a-8a15-58bc85310e28",
+      "set": "overhaul-2026-10",
+      "kind": "chapter"
+    },
+    {
+      "id": "guide-chapter-budget-worksheet-costs",
+      "files": [
+        "public/images/arrival/guide-chapter-budget-worksheet-costs-1200.avif",
+        "public/images/arrival/guide-chapter-budget-worksheet-costs-1200.webp",
+        "public/images/arrival/guide-chapter-budget-worksheet-costs-800.avif",
+        "public/images/arrival/guide-chapter-budget-worksheet-costs-800.webp"
+      ],
+      "alt_en": "Budget worksheet, calculator, pen and coins on a wooden table for working out real costs",
+      "alt_es": "Planilla de presupuesto, calculadora, bolígrafo y monedas sobre una mesa de madera para calcular los costos reales",
+      "alt_pt": "Planilha de orçamento, calculadora, caneta e moedas numa mesa de madeira para calcular os custos reais",
+      "alt_sv": "Budgetark, miniräknare, penna och mynt på ett träbord för att räkna fram de verkliga kostnaderna",
+      "ratio": "16:9",
+      "px": "1344x752",
+      "model": "gpt_image_2_5 sunburst medium 1k",
+      "job_id": "18281ad7-24ab-4375-a9c9-9cad9558ff86",
+      "set": "overhaul-2026-10",
+      "kind": "chapter"
+    },
+    {
+      "id": "guide-chapter-planner-document-folders",
+      "files": [
+        "public/images/arrival/guide-chapter-planner-document-folders-1200.avif",
+        "public/images/arrival/guide-chapter-planner-document-folders-1200.webp",
+        "public/images/arrival/guide-chapter-planner-document-folders-800.avif",
+        "public/images/arrival/guide-chapter-planner-document-folders-800.webp"
+      ],
+      "alt_en": "Weekly planner, two document folders and a passport on a sunny desk with coffee",
+      "alt_es": "Agenda semanal, dos carpetas de documentos y un pasaporte sobre un escritorio soleado con café",
+      "alt_pt": "Agenda semanal, duas pastas de documentos e um passaporte sobre uma mesa ensolarada com café",
+      "alt_sv": "Veckoplanerare, två dokumentmappar och ett pass på ett soligt skrivbord med kaffe",
+      "ratio": "16:9",
+      "px": "1344x752",
+      "model": "gpt_image_2_5 sunburst medium 1k",
+      "job_id": "097a003f-53b1-40e3-b06f-07bf3ba36add",
+      "set": "overhaul-2026-10",
+      "kind": "chapter"
+    },
+    {
+      "id": "guide-chapter-documents-name-check",
+      "files": [
+        "public/images/arrival/guide-chapter-documents-name-check-1200.avif",
+        "public/images/arrival/guide-chapter-documents-name-check-1200.webp",
+        "public/images/arrival/guide-chapter-documents-name-check-800.avif",
+        "public/images/arrival/guide-chapter-documents-name-check-800.webp"
+      ],
+      "alt_en": "Passport, apostilled birth certificate and police certificate side by side under a magnifying glass",
+      "alt_es": "Pasaporte, partida de nacimiento apostillada y certificado de antecedentes lado a lado bajo una lupa",
+      "alt_pt": "Passaporte, certidão de nascimento apostilada e certidão de antecedentes lado a lado sob uma lupa",
+      "alt_sv": "Pass, apostillerat födelsebevis och utdrag ur belastningsregistret sida vid sida under ett förstoringsglas",
+      "ratio": "16:9",
+      "px": "1344x752",
+      "model": "gpt_image_2_5 sunburst medium 1k",
+      "job_id": "6f9c98a3-1ec1-4e9b-a1ae-7223336ff75f",
+      "set": "overhaul-2026-10",
+      "kind": "chapter"
+    },
+    {
+      "id": "guide-chapter-costanera-skyline",
+      "files": [
+        "public/images/arrival/guide-chapter-costanera-skyline-1200.avif",
+        "public/images/arrival/guide-chapter-costanera-skyline-1200.webp",
+        "public/images/arrival/guide-chapter-costanera-skyline-800.avif",
+        "public/images/arrival/guide-chapter-costanera-skyline-800.webp"
+      ],
+      "alt_en": "Asunción skyline from the Costanera riverfront with the wide Paraguay River and people walking",
+      "alt_es": "Vista de Asunción desde la Costanera con el ancho río Paraguay y gente paseando",
+      "alt_pt": "Vista de Assunção a partir da Costanera com o largo rio Paraguai e pessoas caminhando",
+      "alt_sv": "Asuncións silhuett från strandpromenaden Costanera med den breda Paraguayfloden och flanörer",
+      "ratio": "16:9",
+      "px": "1344x752",
+      "model": "gpt_image_2_5 sunburst medium 1k",
+      "job_id": "d7fca673-850b-44fc-a0ae-03b53bdb4fa4",
+      "set": "overhaul-2026-10",
+      "kind": "chapter"
+    },
+    {
+      "id": "guide-chapter-business-district-avenue",
+      "files": [
+        "public/images/arrival/guide-chapter-business-district-avenue-1200.avif",
+        "public/images/arrival/guide-chapter-business-district-avenue-1200.webp",
+        "public/images/arrival/guide-chapter-business-district-avenue-800.avif",
+        "public/images/arrival/guide-chapter-business-district-avenue-800.webp"
+      ],
+      "alt_en": "Office towers and yellow lapacho trees along a wide avenue in Asunción's business district",
+      "alt_es": "Torres de oficinas y lapachos amarillos a lo largo de una amplia avenida del distrito financiero de Asunción",
+      "alt_pt": "Torres de escritórios e ipês-amarelos ao longo de uma avenida larga no distrito financeiro de Assunção",
+      "alt_sv": "Kontorstorn och gula lapachoträd längs en bred aveny i Asuncións affärsdistrikt",
+      "ratio": "16:9",
+      "px": "1344x752",
+      "model": "gpt_image_2_5 sunburst medium 1k",
+      "job_id": "4105cbc4-a3a0-4866-a66f-b7facaca48ae",
+      "set": "overhaul-2026-10",
+      "kind": "chapter"
+    },
+    {
+      "id": "guide-chapter-calendar-circled-dates",
+      "files": [
+        "public/images/arrival/guide-chapter-calendar-circled-dates-1200.avif",
+        "public/images/arrival/guide-chapter-calendar-circled-dates-1200.webp",
+        "public/images/arrival/guide-chapter-calendar-circled-dates-800.avif",
+        "public/images/arrival/guide-chapter-calendar-circled-dates-800.webp"
+      ],
+      "alt_en": "Desk calendar with dates circled in red pencil beside a passport and a laptop in a home office",
+      "alt_es": "Calendario de escritorio con fechas marcadas en rojo junto a un pasaporte y un portátil en una oficina en casa",
+      "alt_pt": "Calendário de mesa com datas circuladas em vermelho ao lado de um passaporte e um notebook num escritório em casa",
+      "alt_sv": "Bordskalender med datum inringade i rött bredvid ett pass och en laptop på ett hemmakontor",
+      "ratio": "16:9",
+      "px": "1344x752",
+      "model": "gpt_image_2_5 sunburst medium 1k",
+      "job_id": "04511292-d96e-4719-98fb-71d9ea91b42d",
+      "set": "overhaul-2026-10",
+      "kind": "chapter"
+    },
+    {
+      "id": "residency-hub-comparisons-park-paths",
+      "files": [
+        "public/images/arrival/residency-hub-comparisons-park-paths-1200.avif",
+        "public/images/arrival/residency-hub-comparisons-park-paths-1200.webp",
+        "public/images/arrival/residency-hub-comparisons-park-paths-480.avif",
+        "public/images/arrival/residency-hub-comparisons-park-paths-480.webp",
+        "public/images/arrival/residency-hub-comparisons-park-paths-800.avif",
+        "public/images/arrival/residency-hub-comparisons-park-paths-800.webp"
+      ],
+      "alt_en": "Two stone paths dividing around an old tree in a sunlit park in Asunción",
+      "alt_es": "Dos senderos de piedra que se separan alrededor de un árbol antiguo en un parque soleado de Asunción",
+      "alt_pt": "Dois caminhos de pedra que se dividem em torno de uma árvore antiga num parque ensolarado de Assunção",
+      "alt_sv": "Två stenlagda gångar som delar sig runt ett gammalt träd i en solig park i Asunción",
+      "ratio": "3:2",
+      "px": "1024x688",
+      "model": "gpt_image_2_5 sunburst medium 1k",
+      "job_id": "701b376b-68a5-477b-b42c-64b3ecc83310",
+      "set": "overhaul-2026-10",
+      "kind": "hub"
+    },
+    {
+      "id": "residency-hub-documents-apostille-desk",
+      "files": [
+        "public/images/arrival/residency-hub-documents-apostille-desk-1200.avif",
+        "public/images/arrival/residency-hub-documents-apostille-desk-1200.webp",
+        "public/images/arrival/residency-hub-documents-apostille-desk-480.avif",
+        "public/images/arrival/residency-hub-documents-apostille-desk-480.webp",
+        "public/images/arrival/residency-hub-documents-apostille-desk-800.avif",
+        "public/images/arrival/residency-hub-documents-apostille-desk-800.webp"
+      ],
+      "alt_en": "Apostilled documents with a red ribbon seal and a dark red passport on a navy desk mat",
+      "alt_es": "Documentos apostillados con sello de cinta roja y un pasaporte rojo oscuro sobre un protector de escritorio azul",
+      "alt_pt": "Documentos apostilados com selo de fita vermelha e um passaporte vermelho-escuro sobre um porta-documentos azul",
+      "alt_sv": "Apostillerade dokument med rött sigillband och ett mörkrött pass på ett marinblått skrivbordsunderlägg",
+      "ratio": "3:2",
+      "px": "1024x688",
+      "model": "gpt_image_2_5 sunburst medium 1k",
+      "job_id": "243c96ac-de6c-4888-9448-a9fec00e3a21",
+      "set": "overhaul-2026-10",
+      "kind": "hub"
+    },
+    {
+      "id": "residency-hub-living-costanera-morning",
+      "files": [
+        "public/images/arrival/residency-hub-living-costanera-morning-1200.avif",
+        "public/images/arrival/residency-hub-living-costanera-morning-1200.webp",
+        "public/images/arrival/residency-hub-living-costanera-morning-480.avif",
+        "public/images/arrival/residency-hub-living-costanera-morning-480.webp",
+        "public/images/arrival/residency-hub-living-costanera-morning-800.avif",
+        "public/images/arrival/residency-hub-living-costanera-morning-800.webp"
+      ],
+      "alt_en": "Joggers and walkers on the Costanera riverfront promenade in Asunción in the early morning",
+      "alt_es": "Personas corriendo y paseando por la Costanera de Asunción temprano por la mañana",
+      "alt_pt": "Pessoas correndo e caminhando na Costanera de Assunção de manhã cedo",
+      "alt_sv": "Joggare och flanörer på strandpromenaden Costanera i Asunción tidigt på morgonen",
+      "ratio": "3:2",
+      "px": "1024x688",
+      "model": "gpt_image_2_5 sunburst medium 1k",
+      "job_id": "4696176f-b787-4c5b-b2c3-cf9a78156953",
+      "set": "overhaul-2026-10",
+      "kind": "hub"
+    },
+    {
+      "id": "residency-hub-taxes-desk-lamp",
+      "files": [
+        "public/images/arrival/residency-hub-taxes-desk-lamp-1200.avif",
+        "public/images/arrival/residency-hub-taxes-desk-lamp-1200.webp",
+        "public/images/arrival/residency-hub-taxes-desk-lamp-480.avif",
+        "public/images/arrival/residency-hub-taxes-desk-lamp-480.webp",
+        "public/images/arrival/residency-hub-taxes-desk-lamp-800.avif",
+        "public/images/arrival/residency-hub-taxes-desk-lamp-800.webp"
+      ],
+      "alt_en": "Calculator, fountain pen and a folder of tax forms under a brass desk lamp",
+      "alt_es": "Calculadora, pluma estilográfica y una carpeta de formularios fiscales bajo una lámpara de latón",
+      "alt_pt": "Calculadora, caneta-tinteiro e uma pasta de formulários fiscais sob uma luminária de latão",
+      "alt_sv": "Miniräknare, reservoarpenna och en mapp med skatteblanketter under en skrivbordslampa i mässing",
+      "ratio": "3:2",
+      "px": "1024x688",
+      "model": "gpt_image_2_5 sunburst medium 1k",
+      "job_id": "cd8d2079-5b98-41c3-92e2-d7b6d0c6d104",
+      "set": "overhaul-2026-10",
+      "kind": "hub"
+    },
+    {
+      "id": "investorpass-hub-insights-terrace-night",
+      "files": [
+        "public/images/arrival/investorpass-hub-insights-terrace-night-1200.avif",
+        "public/images/arrival/investorpass-hub-insights-terrace-night-1200.webp",
+        "public/images/arrival/investorpass-hub-insights-terrace-night-480.avif",
+        "public/images/arrival/investorpass-hub-insights-terrace-night-480.webp",
+        "public/images/arrival/investorpass-hub-insights-terrace-night-800.avif",
+        "public/images/arrival/investorpass-hub-insights-terrace-night-800.webp"
+      ],
+      "alt_en": "Leather portfolio and fountain pen on a walnut table on a terrace with Asunción's towers lit at night",
+      "alt_es": "Portafolio de cuero y pluma sobre una mesa de nogal en una terraza con las torres de Asunción iluminadas de noche",
+      "alt_pt": "Pasta de couro e caneta numa mesa de nogueira num terraço com as torres de Assunção iluminadas à noite",
+      "alt_sv": "Läderportfölj och reservoarpenna på ett valnötsbord på en terrass med Asuncións upplysta torn i kvällen",
+      "ratio": "3:2",
+      "px": "1024x688",
+      "model": "gpt_image_2_5 sunburst medium 1k",
+      "job_id": "58295ffc-9c63-4bf1-978b-650f8f3e3de3",
+      "set": "overhaul-2026-10",
+      "kind": "hub"
+    },
+    {
+      "id": "guide-hub-blog-reader-plaza",
+      "files": [
+        "public/images/arrival/guide-hub-blog-reader-plaza-1200.avif",
+        "public/images/arrival/guide-hub-blog-reader-plaza-1200.webp",
+        "public/images/arrival/guide-hub-blog-reader-plaza-480.avif",
+        "public/images/arrival/guide-hub-blog-reader-plaza-480.webp",
+        "public/images/arrival/guide-hub-blog-reader-plaza-800.avif",
+        "public/images/arrival/guide-hub-blog-reader-plaza-800.webp"
+      ],
+      "alt_en": "Person reading a printed guide on a bench in a leafy plaza in Asunción, seen from behind",
+      "alt_es": "Persona leyendo una guía impresa en un banco de una plaza arbolada de Asunción, vista de espaldas",
+      "alt_pt": "Pessoa lendo um guia impresso num banco de uma praça arborizada de Assunção, vista de costas",
+      "alt_sv": "Person läser en tryckt guide på en bänk i ett grönskande torg i Asunción, sedd bakifrån",
+      "ratio": "3:2",
+      "px": "1024x688",
+      "model": "gpt_image_2_5 sunburst medium 1k",
+      "job_id": "4ca63084-f2de-4fab-ae86-1e6910b34018",
+      "set": "overhaul-2026-10",
+      "kind": "hub"
+    },
+    {
+      "id": "guide-chapter-checklist-binder",
+      "files": [
+        "public/images/arrival/guide-chapter-checklist-binder-1200.avif",
+        "public/images/arrival/guide-chapter-checklist-binder-1200.webp",
+        "public/images/arrival/guide-chapter-checklist-binder-800.avif",
+        "public/images/arrival/guide-chapter-checklist-binder-800.webp"
+      ],
+      "alt_en": "Ring binder with colour-coded tabs and a ticked checklist next to a passport and a green pen",
+      "alt_es": "Carpeta de anillas con separadores de colores y una lista marcada junto a un pasaporte y un bolígrafo verde",
+      "alt_pt": "Fichário com divisórias coloridas e uma lista marcada ao lado de um passaporte e uma caneta verde",
+      "alt_sv": "Ringpärm med färgade flikar och en avbockad checklista bredvid ett pass och en grön penna",
+      "ratio": "16:9",
+      "px": "1344x752",
+      "model": "gpt_image_2_5 sunburst medium 1k",
+      "job_id": "5dc92594-62ea-44f1-ad43-59e6114e94a7",
+      "set": "overhaul-2026-10",
+      "kind": "chapter"
+    },
+    {
+      "id": "guide-hub-updates-asuncion-rooftops-morning",
+      "files": [
+        "public/images/arrival/guide-hub-updates-asuncion-rooftops-morning-1200.avif",
+        "public/images/arrival/guide-hub-updates-asuncion-rooftops-morning-1200.webp",
+        "public/images/arrival/guide-hub-updates-asuncion-rooftops-morning-480.avif",
+        "public/images/arrival/guide-hub-updates-asuncion-rooftops-morning-480.webp",
+        "public/images/arrival/guide-hub-updates-asuncion-rooftops-morning-800.avif",
+        "public/images/arrival/guide-hub-updates-asuncion-rooftops-morning-800.webp"
+      ],
+      "alt_en": "Morning view over Asunción's green treetops and rooftops from a balcony with a cup of coffee",
+      "alt_es": "Vista matinal sobre las copas verdes y los techos de Asunción desde un balcón con una taza de café",
+      "alt_pt": "Vista matinal sobre as copas verdes e os telhados de Assunção a partir de uma varanda com uma xícara de café",
+      "alt_sv": "Morgonutsikt över Asuncións gröna trädkronor och tak från en balkong med en kopp kaffe",
+      "ratio": "3:2",
+      "px": "1024x688",
+      "model": "gpt_image_2_5 sunburst medium 1k",
+      "job_id": "cf895b0a-8ea6-43a0-8c4d-ecaa3c92e20c",
+      "set": "overhaul-2026-10",
+      "kind": "hub"
+    },
+    {
+      "id": "frontier-hub-stories-couple-red-earth-road",
+      "files": [
+        "public/images/arrival/frontier-hub-stories-couple-red-earth-road-1200.avif",
+        "public/images/arrival/frontier-hub-stories-couple-red-earth-road-1200.webp",
+        "public/images/arrival/frontier-hub-stories-couple-red-earth-road-480.avif",
+        "public/images/arrival/frontier-hub-stories-couple-red-earth-road-480.webp",
+        "public/images/arrival/frontier-hub-stories-couple-red-earth-road-800.avif",
+        "public/images/arrival/frontier-hub-stories-couple-red-earth-road-800.webp"
+      ],
+      "alt_en": "Older couple walking hand in hand along a red-earth road between palms in rural Paraguay",
+      "alt_es": "Pareja mayor caminando de la mano por un camino de tierra roja entre palmeras en el Paraguay rural",
+      "alt_pt": "Casal mais velho caminhando de mãos dadas por uma estrada de terra vermelha entre palmeiras no interior do Paraguai",
+      "alt_sv": "Äldre par går hand i hand längs en röd grusväg mellan palmer på Paraguays landsbygd",
+      "ratio": "3:2",
+      "px": "1024x688",
+      "model": "gpt_image_2_5 sunburst medium 1k",
+      "job_id": "66371d5f-75c1-4eb6-9092-6fcf569c318c",
+      "set": "overhaul-2026-10",
+      "kind": "hub"
+    },
+    {
+      "id": "residenciaes-hub-comparativas-cafe-terere",
+      "files": [
+        "public/images/arrival/residenciaes-hub-comparativas-cafe-terere-1200.avif",
+        "public/images/arrival/residenciaes-hub-comparativas-cafe-terere-1200.webp",
+        "public/images/arrival/residenciaes-hub-comparativas-cafe-terere-480.avif",
+        "public/images/arrival/residenciaes-hub-comparativas-cafe-terere-480.webp",
+        "public/images/arrival/residenciaes-hub-comparativas-cafe-terere-800.avif",
+        "public/images/arrival/residenciaes-hub-comparativas-cafe-terere-800.webp"
+      ],
+      "alt_en": "A café con leche and a guampa of tereré side by side on a marble table under a colonial arcade",
+      "alt_es": "Un café con leche y una guampa de tereré lado a lado sobre una mesa de mármol bajo una galería colonial",
+      "alt_pt": "Um café com leite e uma guampa de tereré lado a lado numa mesa de mármore sob uma arcada colonial",
+      "alt_sv": "En café con leche och en guampa med tereré sida vid sida på ett marmorbord under en kolonial arkad",
+      "ratio": "3:2",
+      "px": "1024x688",
+      "model": "gpt_image_2_5 sunburst medium 1k",
+      "job_id": "39a282f5-6b09-49a3-a2dd-89957e893d19",
+      "set": "overhaul-2026-10",
+      "kind": "hub"
+    },
+    {
+      "id": "residenciaes-hub-documentos-escribania-sello",
+      "files": [
+        "public/images/arrival/residenciaes-hub-documentos-escribania-sello-1200.avif",
+        "public/images/arrival/residenciaes-hub-documentos-escribania-sello-1200.webp",
+        "public/images/arrival/residenciaes-hub-documentos-escribania-sello-480.avif",
+        "public/images/arrival/residenciaes-hub-documentos-escribania-sello-480.webp",
+        "public/images/arrival/residenciaes-hub-documentos-escribania-sello-800.avif",
+        "public/images/arrival/residenciaes-hub-documentos-escribania-sello-800.webp"
+      ],
+      "alt_en": "Notary pressing a rubber stamp onto a sealed document at a desk in Asunción",
+      "alt_es": "Escribano estampando un sello sobre un documento en un escritorio de una escribanía de Asunción",
+      "alt_pt": "Tabelião carimbando um documento selado numa mesa de um cartório em Assunção",
+      "alt_sv": "Notarie stämplar ett förseglat dokument vid ett skrivbord i Asunción",
+      "ratio": "3:2",
+      "px": "1024x688",
+      "model": "gpt_image_2_5 sunburst medium 1k",
+      "job_id": "cf173bd0-220f-4cee-bc26-44f2e566785e",
+      "set": "overhaul-2026-10",
+      "kind": "hub"
+    },
+    {
+      "id": "residenciaes-hub-impuestos-oficina-casa",
+      "files": [
+        "public/images/arrival/residenciaes-hub-impuestos-oficina-casa-1200.avif",
+        "public/images/arrival/residenciaes-hub-impuestos-oficina-casa-1200.webp",
+        "public/images/arrival/residenciaes-hub-impuestos-oficina-casa-480.avif",
+        "public/images/arrival/residenciaes-hub-impuestos-oficina-casa-480.webp",
+        "public/images/arrival/residenciaes-hub-impuestos-oficina-casa-800.avif",
+        "public/images/arrival/residenciaes-hub-impuestos-oficina-casa-800.webp"
+      ],
+      "alt_en": "Home office in Asunción with a laptop, calculator and receipts by open teal shutters",
+      "alt_es": "Oficina en casa en Asunción con portátil, calculadora y recibos junto a postigos abiertos",
+      "alt_pt": "Escritório em casa em Assunção com notebook, calculadora e recibos junto a venezianas abertas",
+      "alt_sv": "Hemmakontor i Asunción med laptop, miniräknare och kvitton vid öppna blågröna fönsterluckor",
+      "ratio": "3:2",
+      "px": "1024x688",
+      "model": "gpt_image_2_5 sunburst medium 1k",
+      "job_id": "8225fb89-16d6-4daa-8196-d129bdd7add4",
+      "set": "overhaul-2026-10",
+      "kind": "hub"
+    },
+    {
+      "id": "residenciaes-hub-vivir-calle-barrio",
+      "files": [
+        "public/images/arrival/residenciaes-hub-vivir-calle-barrio-1200.avif",
+        "public/images/arrival/residenciaes-hub-vivir-calle-barrio-1200.webp",
+        "public/images/arrival/residenciaes-hub-vivir-calle-barrio-480.avif",
+        "public/images/arrival/residenciaes-hub-vivir-calle-barrio-480.webp",
+        "public/images/arrival/residenciaes-hub-vivir-calle-barrio-800.avif",
+        "public/images/arrival/residenciaes-hub-vivir-calle-barrio-800.webp"
+      ],
+      "alt_en": "Leafy residential street in Asunción with whitewashed houses, teal gates and a neighbour watering plants",
+      "alt_es": "Calle residencial arbolada de Asunción con casas encaladas, portones verde azulado y una vecina regando plantas",
+      "alt_pt": "Rua residencial arborizada de Assunção com casas caiadas, portões verde-azulados e uma vizinha regando plantas",
+      "alt_sv": "Grönskande villagata i Asunción med vitkalkade hus, blågröna grindar och en granne som vattnar blommor",
+      "ratio": "3:2",
+      "px": "1024x688",
+      "model": "gpt_image_2_5 sunburst medium 1k",
+      "job_id": "bb818373-8e36-437d-a6ef-dc15686008bf",
+      "set": "overhaul-2026-10",
+      "kind": "hub"
+    },
+    {
+      "id": "residenciapt-hub-comparativos-chimarrao-terere",
+      "files": [
+        "public/images/arrival/residenciapt-hub-comparativos-chimarrao-terere-1200.avif",
+        "public/images/arrival/residenciapt-hub-comparativos-chimarrao-terere-1200.webp",
+        "public/images/arrival/residenciapt-hub-comparativos-chimarrao-terere-480.avif",
+        "public/images/arrival/residenciapt-hub-comparativos-chimarrao-terere-480.webp",
+        "public/images/arrival/residenciapt-hub-comparativos-chimarrao-terere-800.avif",
+        "public/images/arrival/residenciapt-hub-comparativos-chimarrao-terere-800.webp"
+      ],
+      "alt_en": "A Brazilian chimarrão gourd and a Paraguayan tereré guampa side by side on a veranda table",
+      "alt_es": "Un mate chimarrão brasileño y una guampa de tereré paraguaya lado a lado sobre una mesa en la galería",
+      "alt_pt": "Uma cuia de chimarrão e uma guampa de tereré lado a lado numa mesa de varanda",
+      "alt_sv": "En brasiliansk chimarrão-kalebass och en paraguayansk tereré-guampa sida vid sida på ett verandabord",
+      "ratio": "3:2",
+      "px": "1024x688",
+      "model": "gpt_image_2_5 sunburst medium 1k",
+      "job_id": "8c1b5963-33c0-47dc-8768-3604db1585e7",
+      "set": "overhaul-2026-10",
+      "kind": "hub"
+    },
+    {
+      "id": "residenciapt-hub-documentos-pasta-apostila",
+      "files": [
+        "public/images/arrival/residenciapt-hub-documentos-pasta-apostila-1200.avif",
+        "public/images/arrival/residenciapt-hub-documentos-pasta-apostila-1200.webp",
+        "public/images/arrival/residenciapt-hub-documentos-pasta-apostila-480.avif",
+        "public/images/arrival/residenciapt-hub-documentos-pasta-apostila-480.webp",
+        "public/images/arrival/residenciapt-hub-documentos-pasta-apostila-800.avif",
+        "public/images/arrival/residenciapt-hub-documentos-pasta-apostila-800.webp"
+      ],
+      "alt_en": "Applicant putting a passport and an apostilled certificate into a clear document folder beside a guampa",
+      "alt_es": "Solicitante guardando un pasaporte y un certificado apostillado en una carpeta transparente junto a una guampa",
+      "alt_pt": "Requerente colocando passaporte e certidão apostilada numa pasta transparente ao lado de uma guampa",
+      "alt_sv": "Sökande lägger ett pass och ett apostillerat intyg i en genomskinlig mapp bredvid en guampa",
+      "ratio": "3:2",
+      "px": "1024x688",
+      "model": "gpt_image_2_5 sunburst medium 1k",
+      "job_id": "14a6c0ee-8639-4a9d-9788-4049dc1ad35e",
+      "set": "overhaul-2026-10",
+      "kind": "hub"
+    },
+    {
+      "id": "residenciapt-hub-impostos-escritorio-ciudad-del-este",
+      "files": [
+        "public/images/arrival/residenciapt-hub-impostos-escritorio-ciudad-del-este-1200.avif",
+        "public/images/arrival/residenciapt-hub-impostos-escritorio-ciudad-del-este-1200.webp",
+        "public/images/arrival/residenciapt-hub-impostos-escritorio-ciudad-del-este-480.avif",
+        "public/images/arrival/residenciapt-hub-impostos-escritorio-ciudad-del-este-480.webp",
+        "public/images/arrival/residenciapt-hub-impostos-escritorio-ciudad-del-este-800.avif",
+        "public/images/arrival/residenciapt-hub-impostos-escritorio-ciudad-del-este-800.webp"
+      ],
+      "alt_en": "Bright small-business office in Ciudad del Este with a laptop, calculator and a view of a commercial street",
+      "alt_es": "Oficina luminosa de una pequeña empresa en Ciudad del Este con portátil, calculadora y vista a una calle comercial",
+      "alt_pt": "Escritório claro de uma pequena empresa em Ciudad del Este com notebook, calculadora e vista para uma rua comercial",
+      "alt_sv": "Ljust kontor för ett litet företag i Ciudad del Este med laptop, miniräknare och utsikt över en affärsgata",
+      "ratio": "3:2",
+      "px": "1024x688",
+      "model": "gpt_image_2_5 sunburst medium 1k",
+      "job_id": "43b1033e-b916-496b-9595-3402d578832f",
+      "set": "overhaul-2026-10",
+      "kind": "hub"
+    },
+    {
+      "id": "residenciapt-hub-morar-rua-ipe-amarelo",
+      "files": [
+        "public/images/arrival/residenciapt-hub-morar-rua-ipe-amarelo-1200.avif",
+        "public/images/arrival/residenciapt-hub-morar-rua-ipe-amarelo-1200.webp",
+        "public/images/arrival/residenciapt-hub-morar-rua-ipe-amarelo-480.avif",
+        "public/images/arrival/residenciapt-hub-morar-rua-ipe-amarelo-480.webp",
+        "public/images/arrival/residenciapt-hub-morar-rua-ipe-amarelo-800.avif",
+        "public/images/arrival/residenciapt-hub-morar-rua-ipe-amarelo-800.webp"
+      ],
+      "alt_en": "Couple walking a dog and children cycling on a residential street lined with yellow ipê trees in Paraguay",
+      "alt_es": "Pareja paseando un perro y niños en bicicleta por una calle residencial con lapachos amarillos en Paraguay",
+      "alt_pt": "Casal passeando com o cachorro e crianças de bicicleta numa rua residencial com ipês-amarelos no Paraguai",
+      "alt_sv": "Par med hund och barn på cykel på en villagata kantad av gula lapachoträd i Paraguay",
+      "ratio": "3:2",
+      "px": "1024x688",
+      "model": "gpt_image_2_5 sunburst medium 1k",
+      "job_id": "139643c1-0aab-49bc-a24d-a42b880c9006",
+      "set": "overhaul-2026-10",
+      "kind": "hub"
+    },
+    {
+      "id": "flytta-hub-guider-anteckningar-veranda",
+      "files": [
+        "public/images/arrival/flytta-hub-guider-anteckningar-veranda-1200.avif",
+        "public/images/arrival/flytta-hub-guider-anteckningar-veranda-1200.webp",
+        "public/images/arrival/flytta-hub-guider-anteckningar-veranda-480.avif",
+        "public/images/arrival/flytta-hub-guider-anteckningar-veranda-480.webp",
+        "public/images/arrival/flytta-hub-guider-anteckningar-veranda-800.avif",
+        "public/images/arrival/flytta-hub-guider-anteckningar-veranda-800.webp"
+      ],
+      "alt_en": "Open notebook, tereré guampa and reading glasses on a birch table on a veranda in Asunción",
+      "alt_es": "Cuaderno abierto, guampa de tereré y gafas de lectura sobre una mesa de abedul en una galería de Asunción",
+      "alt_pt": "Caderno aberto, guampa de tereré e óculos de leitura numa mesa de bétula numa varanda em Assunção",
+      "alt_sv": "Uppslagen anteckningsbok, tereré-guampa och läsglasögon på ett björkbord på en veranda i Asunción",
+      "ratio": "3:2",
+      "px": "1024x688",
+      "model": "gpt_image_2_5 sunburst medium 1k",
+      "job_id": "c1a4ba2b-cca1-423b-9126-939ac05830bb",
+      "set": "overhaul-2026-10",
+      "kind": "hub"
+    },
+    {
+      "id": "flytta-hub-stader-asuncion-flygbild",
+      "files": [
+        "public/images/arrival/flytta-hub-stader-asuncion-flygbild-1200.avif",
+        "public/images/arrival/flytta-hub-stader-asuncion-flygbild-1200.webp",
+        "public/images/arrival/flytta-hub-stader-asuncion-flygbild-480.avif",
+        "public/images/arrival/flytta-hub-stader-asuncion-flygbild-480.webp",
+        "public/images/arrival/flytta-hub-stader-asuncion-flygbild-800.avif",
+        "public/images/arrival/flytta-hub-stader-asuncion-flygbild-800.webp"
+      ],
+      "alt_en": "Aerial view of Asunción's leafy neighbourhoods, towers and the wide river on a clear morning",
+      "alt_es": "Vista aérea de los barrios arbolados de Asunción, sus torres y el ancho río en una mañana despejada",
+      "alt_pt": "Vista aérea dos bairros arborizados de Assunção, suas torres e o largo rio numa manhã clara",
+      "alt_sv": "Flygbild över Asuncións grönskande stadsdelar, höghus och den breda floden en klar morgon",
+      "ratio": "3:2",
+      "px": "1024x688",
+      "model": "gpt_image_2_5 sunburst medium 1k",
+      "job_id": "dcbca11c-a866-4959-926f-d2b2c3831c80",
+      "set": "overhaul-2026-10",
+      "kind": "hub"
     }
   ]
 }

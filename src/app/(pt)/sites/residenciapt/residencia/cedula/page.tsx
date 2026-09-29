@@ -54,6 +54,10 @@ export default function Page() {
         A cédula é <Fact k="cedula.timeline" site="residenciapt" />. Cuidamos do agendamento
         assim que sua residência sai, para não haver um vão entre um documento e o outro.
       </p>
+      <p>
+        O passo a passo, com o que levar à Polícia Nacional e quanto custa, está no guia da{' '}
+        <a href="/guias/documentos/cedula-paraguaia-para-brasileiros">cédula paraguaia para brasileiros</a>.
+      </p>
       <h2>O que fazemos por você</h2>
       <ul>
         <li>Agendamos a captura biométrica junto com o restante do seu protocolo.</li>

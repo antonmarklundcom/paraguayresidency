@@ -64,6 +64,17 @@ export default function Page() {
         entre brasileiros na região da fronteira e no cinturão agro — tratamos o registro junto com
         a sua residência, na ordem certa.
       </p>
+      <h2>Leia antes de decidir</h2>
+      <p>
+        Os impostos paraguaios um a um estão em{' '}
+        <a href="/guias/impostos/como-funcionam-os-impostos-no-paraguai">como funcionam os impostos no Paraguai</a>. Por que
+        a residência fiscal paraguaia não muda nada para quem continua morando aqui está em{' '}
+        <a href="/guias/impostos/residencia-fiscal-no-paraguai-morando-no-brasil">residência fiscal no Paraguai morando no Brasil</a>.
+        O rito na Receita está em{' '}
+        <a href="/guias/impostos/saida-definitiva-do-pais-para-quem-vai-ao-paraguai">saída definitiva do Brasil</a>, e quem
+        pensa em empresa deve ler{' '}
+        <a href="/guias/negocios/abrir-empresa-no-paraguai-sendo-brasileiro">abrir empresa no Paraguai sendo brasileiro</a>.
+      </p>
       <h2>O que fazemos por você</h2>
       <ul>
         <li>Explicamos a diferença entre residência migratória e fiscal para o seu caso específico.</li>

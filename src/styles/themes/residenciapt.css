@@ -1,18 +1,23 @@
-/* Brazil. Speaks to a neighbour: green-blue, open, never carnival-loud. */
+/* Brazil: a neighbour's voice. Green on a pale green-white, with ipê yellow
+   as a fill that only ever carries dark text (overhaul plan §1.1).
+   check-contrast: accent-2 fill */
 [data-theme='residenciapt'] {
-  --bg: #f5faf7;
+  --bg: #f6f8f3;
   --surface: #ffffff;
-  --surface-alt: #e3f1e9;
-  --fg: #10241b;
-  --fg-muted: #4e6a5c;
-  --border: #c8e0d3;
-  --accent: #006b3c;
+  --surface-alt: #e7efe4;
+  --fg: #0f2118;
+  --fg-muted: #4a5e52;
+  --border: #cfdccb;
+  --accent: #0b6b3a;
   --accent-fg: #ffffff;
-  --accent-soft: #d5efe0;
+  --accent-soft: #dcebe0;
+  --accent-2: #e0b12f;
+  --accent-2-on-dark: #e0b12f;
+  --accent-2-fg: #0f2118;
   --display-font: var(--font-bricolage);
   --display-weight: 600;
   --display-tracking: -0.025em;
   --body-font: var(--font-system);
   --radius-brand: var(--radius-lg);
-  --hero-pattern: linear-gradient(180deg, #f5faf7 0%, #e3f1e9 100%);
+  --hero-pattern: linear-gradient(180deg, #f6f8f3 0%, #e7efe4 100%);
 }

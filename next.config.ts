@@ -125,6 +125,10 @@ const nextConfig: NextConfig = {
   // CLAUDE.md is hand-written project law (plan §4).
   agentRules: false,
   poweredByHeader: false,
+  // With `revalidate = 600` in the root layouts, HTML goes out as
+  // `s-maxage=600, stale-while-revalidate=3000`: a CDN may serve a page at most an
+  // hour old, never the year-old copy that outlived its CSS (seo-gap.md T2).
+  expireTime: 3600,
   async headers() {
     return [
       {

@@ -4,12 +4,15 @@ import { contentHref } from '@/lib/site-pages';
 import { collectionPageJsonLd, siteMetadata } from '@/lib/metadata';
 import { notFound } from 'next/navigation';
 import { getHub, getHubs } from '@/content';
+import { HUB_COPY } from '@/app/(pt)/sites/residenciapt/_lib/hub-copy';
 
 type Params = Promise<{ hub: string }>;
 const labels: Record<string, string> = {
+  "cidades": "Cidades",
   "comparativos": "Comparativos",
   "documentos": "Documentos",
   "impostos": "Impostos",
+  "negocios": "Negócios",
   "morar-no-paraguai": "Morar no Paraguai"
 };
 
@@ -25,23 +28,37 @@ function collection(hub: string) {
   const posts = getHub('residenciapt', hub).filter((post) => !post.frontmatter.draft);
   if (!posts.length) notFound();
   const title = labels[hub] ?? hub;
-  return { posts, title, description: "Artigos sobre " + title.toLocaleLowerCase('pt-BR') + '.', path: '/guias/' + hub };
+  const copy = HUB_COPY[hub];
+  return {
+    posts,
+    title,
+    heading: copy?.h1 ?? title,
+    intro: copy?.intro ?? "Artigos sobre " + title.toLocaleLowerCase('pt-BR') + '.',
+    description: copy?.metaDescription ?? "Artigos sobre " + title.toLocaleLowerCase('pt-BR') + '.',
+    path: '/guias/' + hub,
+  };
 }
 
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
-  const { title, path } = collection((await params).hub);
-  return siteMetadata('residenciapt', { title: title + " — Guias de residência no Paraguai", description: "Explore nossos guias sobre " + title.toLocaleLowerCase("pt") + " no Paraguai, com orientações para preparar sua mudança, entender o processo e conversar com nossa equipe.", path });
+  const hub = (await params).hub;
+  const { title, path } = collection(hub);
+  const copy = HUB_COPY[hub];
+  return siteMetadata('residenciapt', {
+    title: copy?.metaTitle ?? title + " — Guias de residência no Paraguai",
+    description: copy?.metaDescription ?? "Explore nossos guias sobre " + title.toLocaleLowerCase("pt") + " no Paraguai, com orientações para preparar sua mudança, entender o processo e conversar com nossa equipe.",
+    path,
+  });
 }
 
 export default async function Page({ params }: { params: Params }) {
-  const { posts, title, description, path } = collection((await params).hub);
+  const { posts, title, heading, intro, description, path } = collection((await params).hub);
   return (
     <Section>
       <Container>
         <Breadcrumbs site="residenciapt" items={[{ label: "Guias", href: '/guias' }, { label: title, href: path }]} />
         <JsonLd data={collectionPageJsonLd('residenciapt', { name: title, description, path, items: posts.map((post) => ({ name: post.frontmatter.title, path: contentHref('residenciapt', post.slugPath) })) })} />
-        <Heading level={1}>{title}</Heading>
-        <p className="mt-[var(--space-2)] max-w-[var(--measure)] text-[var(--fg-muted)]">{description}</p>
+        <Heading level={1}>{heading}</Heading>
+        <p className="mt-[var(--space-2)] max-w-[var(--measure)] text-[var(--fg-muted)]">{intro}</p>
         <div className="mt-[var(--space-10)] grid gap-[var(--space-6)] sm:grid-cols-2 lg:grid-cols-3">
           {posts.map((post) => (
             <Card headingLevel={2} key={post.slugPath} title={post.frontmatter.title} href={contentHref('residenciapt', post.slugPath)}

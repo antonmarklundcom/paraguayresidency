@@ -68,6 +68,7 @@ export default function Page() {
         </section>
 
         <p className="mt-[var(--space-8)]"><a href="/investor-pass" className="text-[var(--accent)] underline">Investor Pass work has its own scope and quote through our sibling brand. See the Investor Pass route.</a></p>
+        <p className="mt-[var(--space-4)] text-[var(--fg-muted)]">If you are comparing quotes from several providers, our guide to <a href="/guides/documents/choosing-a-paraguay-residency-agent" className="text-[var(--accent)] underline">choosing a Paraguay residency agent</a> lists what to check in any quote, ours included.</p>
         <div id="inquiry" className="scroll-mt-6 mt-[var(--space-16)] rounded-[var(--radius-brand)] border border-[var(--border)] bg-[var(--surface-alt)] p-[var(--space-8)]">
           <Heading level={2}>Get your written quote</Heading>
           <p className="mt-[var(--space-4)]">Tell us your nationality, route and timeline — on WhatsApp or the form. We confirm the service scope, then set out the fixed fee and separate costs in writing before you decide.</p>

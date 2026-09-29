@@ -1,0 +1,1534 @@
+{
+ "generatedAt": "2026-09-28T20:10:19.305Z",
+ "results": {
+  "guide": {
+   "local": {
+    "reachable": true,
+    "at": "2026-09-28T20:05:54.843Z",
+    "whatsapp": {
+     "390": {
+      "fab": {
+       "present": true,
+       "visible": true,
+       "inViewport": true,
+       "box": {
+        "x": 318,
+        "y": 772,
+        "width": 56,
+        "height": 56
+       }
+      },
+      "links": [
+       {
+        "number": "…0000",
+        "text": "Hi, I have a question about Paraguay residency.",
+        "language": "en (exact brand prefill)",
+        "placement": "floating",
+        "visible": true
+       }
+      ],
+      "numbers": [
+       "…0000"
+      ],
+      "stickyCta": 0,
+      "plausible": {
+       "script": false,
+       "pageviewEvents": 0,
+       "whatsappClickEvents": null,
+       "allEvents": []
+      },
+      "abortedWhatsappNavigations": 0
+     },
+     "1440": {
+      "fab": {
+       "present": true,
+       "visible": true,
+       "inViewport": true,
+       "box": {
+        "x": 1272.90625,
+        "y": 820,
+        "width": 143.09375,
+        "height": 56
+       }
+      },
+      "links": [
+       {
+        "number": "…0000",
+        "text": "Hi, I have a question about Paraguay residency.",
+        "language": "en (exact brand prefill)",
+        "placement": "floating",
+        "visible": true
+       }
+      ],
+      "numbers": [
+       "…0000"
+      ],
+      "stickyCta": 0,
+      "plausible": {
+       "script": false,
+       "pageviewEvents": 0,
+       "whatsappClickEvents": null,
+       "allEvents": []
+      },
+      "abortedWhatsappNavigations": 0
+     }
+    },
+    "leadForm": {
+     "path": "/contact",
+     "status": 200,
+     "renders": true,
+     "enhanced": true,
+     "kind": "contact",
+     "fields": [
+      "name",
+      "email*",
+      "phone*",
+      "message"
+     ],
+     "noValidate": true,
+     "actionAttr": "javascript:throw new Error('A React form was unexpectedly su",
+     "clientValidation": {
+      "postAttemptedWithInvalidEmail": true,
+      "endpoint": {
+       "url": "http://guide.localhost:3100/contact",
+       "serverAction": true,
+       "contentType": null
+      },
+      "invalidFields": [],
+      "visibleError": []
+     },
+     "submission": {
+      "httpStatus": 200,
+      "success": true,
+      "statusText": "Got it. A person reads every one of these. You will hear back within one working day, usually sooner. Want an answer sooner? Send us a WhatsApp from the number you entered, and it lands on the same case. Continue on WhatsApp now",
+      "errorText": "",
+      "url": "/contact?lead=ok",
+      "continueOnWhatsapp": 1
+     }
+    },
+    "routeFinder": {
+     "steps": 6,
+     "questions": [
+      "Which passport will you apply with?",
+      "What do you actually want out of this?",
+      "How soon do you need the card in your hand?",
+      "How much capital could you put into a qualifying investment?",
+      "Who is coming with you?",
+      "Is tax residency part of the reason?"
+     ],
+     "reachedResult": true,
+     "resultPath": "/route-finder/result?r=permanent&a=…",
+     "h1": "Aim straight at permanent residency",
+     "next": {
+      "whatsapp": 0,
+      "whatsappFab": 1,
+      "leadForm": 1,
+      "book": 0,
+      "contact": 0,
+      "checkout": 0,
+      "buttons": [
+       "Read the permanent residency page",
+       "Have someone check this"
+      ]
+     }
+    },
+    "guideBuy": {
+     "/": {
+      "path": "/",
+      "controls": [
+       {
+        "tag": "span",
+        "text": "Checkout opens shortly",
+        "disabled": null
+       }
+      ],
+      "priceText": "2026 EDITION The Paraguay Residency Guide Every step, document and cost, written down once and kept current. 12 CHAPTERS · CHECKLISTS THE COMPLETE GUIDE $7, once ✓ All 12 chapters online in your member area, plus the PDF to keep ✓ Real figures with their official source and the date we checked them ✓ Document checklists by nationality, ready to print ✓ Free updates for 12 months when the rules cha",
+      "hasBuyButton": false
+     },
+     "/insider": {
+      "path": "/insider",
+      "controls": [
+       {
+        "tag": "span",
+        "text": "Checkout opens shortly",
+        "disabled": null
+       }
+      ],
+      "priceText": "$7/mo Cancel anytime, keep access through the period you paid for 14-day refund on your first charge, no questions Everything in the guide, plus the updates feed, deep dives and case studies Checkout opens shortly",
+      "hasBuyButton": false
+     }
+    },
+    "plausibleNote": "NEXT_PUBLIC_PLAUSIBLE_ENABLED is unset locally, so no Plausible script by design"
+   },
+   "live": {
+    "reachable": true,
+    "at": "2026-09-28T20:06:23.478Z",
+    "whatsapp": {
+     "390": {
+      "fab": {
+       "present": false,
+       "visible": false,
+       "inViewport": false,
+       "box": null
+      },
+      "links": [],
+      "numbers": [],
+      "stickyCta": 0,
+      "plausible": {
+       "script": false,
+       "pageviewEvents": 0,
+       "whatsappClickEvents": null,
+       "allEvents": []
+      },
+      "abortedWhatsappNavigations": 0
+     },
+     "1440": {
+      "fab": {
+       "present": false,
+       "visible": false,
+       "inViewport": false,
+       "box": null
+      },
+      "links": [],
+      "numbers": [],
+      "stickyCta": 0,
+      "plausible": {
+       "script": false,
+       "pageviewEvents": 0,
+       "whatsappClickEvents": null,
+       "allEvents": []
+      },
+      "abortedWhatsappNavigations": 0
+     }
+    },
+    "leadForm": {
+     "path": "/contact",
+     "status": 200,
+     "renders": true,
+     "enhanced": true,
+     "kind": "contact",
+     "fields": [
+      "name",
+      "email*",
+      "phone*",
+      "message"
+     ],
+     "noValidate": true,
+     "actionAttr": "javascript:throw new Error('A React form was unexpectedly su",
+     "clientValidation": {
+      "postAttemptedWithInvalidEmail": true,
+      "endpoint": {
+       "url": "https://paraguayresidencyguide.com/contact",
+       "serverAction": true,
+       "contentType": "multipart/form-data; boundary=----WebKitFormBoundaryukf1NuFTvuXCiAd7"
+      },
+      "invalidFields": [],
+      "visibleError": []
+     },
+     "submission": "not tested — needs Anton's OK (a live submission creates a real lead)"
+    },
+    "routeFinder": {
+     "steps": 6,
+     "questions": [
+      "Which passport will you apply with?",
+      "What do you actually want out of this?",
+      "How soon do you need the card in your hand?",
+      "How much capital could you put into a qualifying investment?",
+      "Who is coming with you?",
+      "Is tax residency part of the reason?"
+     ],
+     "reachedResult": true,
+     "resultPath": "/route-finder/result?r=permanent&a=…",
+     "h1": "Aim straight at permanent residency",
+     "next": {
+      "whatsapp": 0,
+      "whatsappFab": 0,
+      "leadForm": 1,
+      "book": 0,
+      "contact": 0,
+      "checkout": 0,
+      "buttons": [
+       "Read the permanent residency page",
+       "Have someone check this"
+      ]
+     }
+    },
+    "guideBuy": {
+     "/": {
+      "path": "/",
+      "controls": [
+       {
+        "tag": "span",
+        "text": "Checkout opens shortly",
+        "disabled": null
+       }
+      ],
+      "priceText": "2026 EDITION The Paraguay Residency Guide Every step, document and cost, written down once and kept current. 12 CHAPTERS · CHECKLISTS THE COMPLETE GUIDE $49, once ✓ All 12 chapters online in your member area, plus the PDF to keep ✓ Real figures with their official source and the date we checked them ✓ Document checklists by nationality, ready to print ✓ Free updates for 12 months when the rules ch",
+      "hasBuyButton": false
+     },
+     "/insider": {
+      "path": "/insider",
+      "controls": [
+       {
+        "tag": "span",
+        "text": "Insider opens shortly",
+        "disabled": null
+       }
+      ],
+      "priceText": "$9/mo Cancel anytime, keep access through the period you paid for 14-day refund on your first charge, no questions Everything in the guide, plus the updates feed, deep dives and case studies Insider opens shortly",
+      "hasBuyButton": false
+     }
+    }
+   }
+  },
+  "residency": {
+   "local": {
+    "reachable": true,
+    "at": "2026-09-28T20:04:53.932Z",
+    "whatsapp": {
+     "390": {
+      "fab": {
+       "present": true,
+       "visible": true,
+       "inViewport": true,
+       "box": {
+        "x": 318,
+        "y": 772,
+        "width": 56,
+        "height": 56
+       }
+      },
+      "links": [
+       {
+        "number": "…0000",
+        "text": "Hi — I have a question about Paraguay residency.",
+        "language": "custom text (check)",
+        "placement": "hero",
+        "visible": true
+       },
+       {
+        "number": "…0000",
+        "text": "Hi — I have a question about Paraguay residency.",
+        "language": "custom text (check)",
+        "placement": "lead-panel",
+        "visible": true
+       },
+       {
+        "number": "…0000",
+        "text": "Hi — I have a question about Paraguay residency.",
+        "language": "custom text (check)",
+        "placement": null,
+        "visible": true
+       },
+       {
+        "number": "…0000",
+        "text": "Hi, I have a question about Paraguay residency.",
+        "language": "en (exact brand prefill)",
+        "placement": "floating",
+        "visible": true
+       }
+      ],
+      "numbers": [
+       "…0000"
+      ],
+      "stickyCta": 0,
+      "plausible": {
+       "script": false,
+       "pageviewEvents": 0,
+       "whatsappClickEvents": null,
+       "allEvents": []
+      },
+      "abortedWhatsappNavigations": 0
+     },
+     "1440": {
+      "fab": {
+       "present": true,
+       "visible": true,
+       "inViewport": true,
+       "box": {
+        "x": 1272.90625,
+        "y": 820,
+        "width": 143.09375,
+        "height": 56
+       }
+      },
+      "links": [
+       {
+        "number": "…0000",
+        "text": "Hi — I have a question about Paraguay residency.",
+        "language": "custom text (check)",
+        "placement": "hero",
+        "visible": true
+       },
+       {
+        "number": "…0000",
+        "text": "Hi — I have a question about Paraguay residency.",
+        "language": "custom text (check)",
+        "placement": "lead-panel",
+        "visible": true
+       },
+       {
+        "number": "…0000",
+        "text": "Hi — I have a question about Paraguay residency.",
+        "language": "custom text (check)",
+        "placement": null,
+        "visible": true
+       },
+       {
+        "number": "…0000",
+        "text": "Hi, I have a question about Paraguay residency.",
+        "language": "en (exact brand prefill)",
+        "placement": "floating",
+        "visible": true
+       }
+      ],
+      "numbers": [
+       "…0000"
+      ],
+      "stickyCta": 0,
+      "plausible": {
+       "script": false,
+       "pageviewEvents": 0,
+       "whatsappClickEvents": null,
+       "allEvents": []
+      },
+      "abortedWhatsappNavigations": 0
+     }
+    },
+    "leadForm": {
+     "path": "/contact",
+     "status": 200,
+     "renders": true,
+     "enhanced": true,
+     "kind": "contact",
+     "fields": [
+      "name",
+      "email*",
+      "phone*",
+      "message"
+     ],
+     "noValidate": true,
+     "actionAttr": "javascript:throw new Error('A React form was unexpectedly su",
+     "clientValidation": {
+      "postAttemptedWithInvalidEmail": true,
+      "endpoint": {
+       "url": "http://residency.localhost:3100/contact",
+       "serverAction": true,
+       "contentType": null
+      },
+      "invalidFields": [],
+      "visibleError": []
+     },
+     "submission": {
+      "httpStatus": 200,
+      "success": true,
+      "statusText": "Got it. A person reads every one of these. You will hear back within one working day, usually sooner. Want an answer sooner? Send us a WhatsApp from the number you entered, and it lands on the same case. Continue on WhatsApp now",
+      "errorText": "",
+      "url": "/contact?lead=ok",
+      "continueOnWhatsapp": 1
+     }
+    },
+    "routeFinder": {
+     "steps": 6,
+     "questions": [
+      "Which passport will you apply with?",
+      "What do you actually want out of this?",
+      "How soon do you need the card in your hand?",
+      "How much capital could you put into a qualifying investment?",
+      "Who is coming with you?",
+      "Is tax residency part of the reason?"
+     ],
+     "reachedResult": true,
+     "resultPath": "/route-finder/result?r=permanent&a=…",
+     "h1": "Aim straight at permanent residency",
+     "next": {
+      "whatsapp": 0,
+      "whatsappFab": 1,
+      "leadForm": 1,
+      "book": 0,
+      "contact": 0,
+      "checkout": 0,
+      "buttons": [
+       "Read the permanent residency page",
+       "Have someone check this"
+      ]
+     }
+    },
+    "plausibleNote": "NEXT_PUBLIC_PLAUSIBLE_ENABLED is unset locally, so no Plausible script by design"
+   },
+   "live": {
+    "reachable": false,
+    "reason": "DNS: paraguayresidency.co.uk does not resolve (EAI_AGAIN)"
+   }
+  },
+  "investorpass": {
+   "local": {
+    "reachable": true,
+    "at": "2026-09-28T20:05:26.489Z",
+    "whatsapp": {
+     "390": {
+      "fab": {
+       "present": true,
+       "visible": true,
+       "inViewport": true,
+       "box": {
+        "x": 318,
+        "y": 772,
+        "width": 56,
+        "height": 56
+       }
+      },
+      "links": [
+       {
+        "number": "…0000",
+        "text": "Hi — I have a question about the Paraguay Investor Pass.",
+        "language": "custom text (check)",
+        "placement": "hero",
+        "visible": true
+       },
+       {
+        "number": "…0000",
+        "text": "Hi — I have a question about the Investor Pass.",
+        "language": "custom text (check)",
+        "placement": null,
+        "visible": true
+       },
+       {
+        "number": "…0000",
+        "text": "Hi, I have a question about Paraguay residency.",
+        "language": "en (exact brand prefill)",
+        "placement": "floating",
+        "visible": true
+       }
+      ],
+      "numbers": [
+       "…0000"
+      ],
+      "stickyCta": 0,
+      "plausible": {
+       "script": false,
+       "pageviewEvents": 0,
+       "whatsappClickEvents": null,
+       "allEvents": []
+      },
+      "abortedWhatsappNavigations": 0
+     },
+     "1440": {
+      "fab": {
+       "present": true,
+       "visible": true,
+       "inViewport": true,
+       "box": {
+        "x": 1272.90625,
+        "y": 820,
+        "width": 143.09375,
+        "height": 56
+       }
+      },
+      "links": [
+       {
+        "number": "…0000",
+        "text": "Hi — I have a question about the Paraguay Investor Pass.",
+        "language": "custom text (check)",
+        "placement": "hero",
+        "visible": true
+       },
+       {
+        "number": "…0000",
+        "text": "Hi — I have a question about the Investor Pass.",
+        "language": "custom text (check)",
+        "placement": null,
+        "visible": true
+       },
+       {
+        "number": "…0000",
+        "text": "Hi, I have a question about Paraguay residency.",
+        "language": "en (exact brand prefill)",
+        "placement": "floating",
+        "visible": true
+       }
+      ],
+      "numbers": [
+       "…0000"
+      ],
+      "stickyCta": 0,
+      "plausible": {
+       "script": false,
+       "pageviewEvents": 0,
+       "whatsappClickEvents": null,
+       "allEvents": []
+      },
+      "abortedWhatsappNavigations": 0
+     }
+    },
+    "leadForm": {
+     "path": "/contact",
+     "status": 200,
+     "renders": true,
+     "enhanced": true,
+     "kind": "investor_inquiry",
+     "fields": [
+      "name",
+      "email*",
+      "phone*",
+      "nationality",
+      "investmentRange",
+      "investmentRoute",
+      "message"
+     ],
+     "noValidate": true,
+     "actionAttr": "javascript:throw new Error('A React form was unexpectedly su",
+     "clientValidation": {
+      "postAttemptedWithInvalidEmail": true,
+      "endpoint": {
+       "url": "http://investorpass.localhost:3100/contact",
+       "serverAction": true,
+       "contentType": null
+      },
+      "invalidFields": [],
+      "visibleError": []
+     },
+     "submission": {
+      "httpStatus": 200,
+      "success": true,
+      "statusText": "Got it. A person reads every one of these. You will hear back within one working day, usually sooner. Want an answer sooner? Send us a WhatsApp from the number you entered, and it lands on the same case. Continue on WhatsApp now",
+      "errorText": "",
+      "url": "/contact?lead=ok",
+      "continueOnWhatsapp": 1
+     }
+    },
+    "routeFinder": {
+     "steps": 6,
+     "questions": [
+      "Which passport will you apply with?",
+      "What do you actually want out of this?",
+      "How soon do you need the card in your hand?",
+      "How much capital could you put into a qualifying investment?",
+      "Who is coming with you?",
+      "Is tax residency part of the reason?"
+     ],
+     "reachedResult": true,
+     "resultPath": "/route-finder/result?r=permanent&a=…",
+     "h1": "Aim straight at permanent residency",
+     "next": {
+      "whatsapp": 0,
+      "whatsappFab": 1,
+      "leadForm": 1,
+      "book": 0,
+      "contact": 0,
+      "checkout": 0,
+      "buttons": [
+       "Read the permanent residency page",
+       "Have someone check this"
+      ]
+     }
+    },
+    "plausibleNote": "NEXT_PUBLIC_PLAUSIBLE_ENABLED is unset locally, so no Plausible script by design"
+   },
+   "live": {
+    "reachable": false,
+    "reason": "DNS: paraguayinvestorpass.com does not resolve (EAI_AGAIN)"
+   }
+  },
+  "frontier": {
+   "local": {
+    "reachable": true,
+    "at": "2026-09-28T20:09:56.602Z",
+    "whatsapp": {
+     "390": {
+      "fab": {
+       "present": true,
+       "visible": true,
+       "inViewport": true,
+       "box": {
+        "x": 318,
+        "y": 772,
+        "width": 56,
+        "height": 56
+       }
+      },
+      "links": [
+       {
+        "number": "…0000",
+        "text": "Hi — I have a question about a second residency in Paraguay.",
+        "language": "custom text (check)",
+        "placement": "hero",
+        "visible": true
+       },
+       {
+        "number": "…0000",
+        "text": "Hi — I have a question about a second residency in Paraguay.",
+        "language": "custom text (check)",
+        "placement": "inline",
+        "visible": true
+       },
+       {
+        "number": "…0000",
+        "text": "Hi — I have a question about a second residency in Paraguay.",
+        "language": "custom text (check)",
+        "placement": null,
+        "visible": true
+       },
+       {
+        "number": "…0000",
+        "text": "Hi, I have a question about Paraguay residency.",
+        "language": "en (exact brand prefill)",
+        "placement": "floating",
+        "visible": true
+       }
+      ],
+      "numbers": [
+       "…0000"
+      ],
+      "stickyCta": 0,
+      "plausible": {
+       "script": false,
+       "pageviewEvents": 0,
+       "whatsappClickEvents": null,
+       "allEvents": []
+      },
+      "abortedWhatsappNavigations": 0
+     },
+     "1440": {
+      "fab": {
+       "present": true,
+       "visible": true,
+       "inViewport": true,
+       "box": {
+        "x": 1272.90625,
+        "y": 820,
+        "width": 143.09375,
+        "height": 56
+       }
+      },
+      "links": [
+       {
+        "number": "…0000",
+        "text": "Hi — I have a question about a second residency in Paraguay.",
+        "language": "custom text (check)",
+        "placement": "hero",
+        "visible": true
+       },
+       {
+        "number": "…0000",
+        "text": "Hi — I have a question about a second residency in Paraguay.",
+        "language": "custom text (check)",
+        "placement": "inline",
+        "visible": true
+       },
+       {
+        "number": "…0000",
+        "text": "Hi — I have a question about a second residency in Paraguay.",
+        "language": "custom text (check)",
+        "placement": null,
+        "visible": true
+       },
+       {
+        "number": "…0000",
+        "text": "Hi, I have a question about Paraguay residency.",
+        "language": "en (exact brand prefill)",
+        "placement": "floating",
+        "visible": true
+       }
+      ],
+      "numbers": [
+       "…0000"
+      ],
+      "stickyCta": 0,
+      "plausible": {
+       "script": false,
+       "pageviewEvents": 0,
+       "whatsappClickEvents": null,
+       "allEvents": []
+      },
+      "abortedWhatsappNavigations": 0
+     }
+    },
+    "leadForm": {
+     "path": "/contact",
+     "status": 200,
+     "renders": true,
+     "enhanced": true,
+     "kind": "contact",
+     "fields": [
+      "name",
+      "email*",
+      "phone*",
+      "message"
+     ],
+     "noValidate": true,
+     "actionAttr": "javascript:throw new Error('A React form was unexpectedly su",
+     "clientValidation": {
+      "postAttemptedWithInvalidEmail": true,
+      "endpoint": {
+       "url": "http://frontier.localhost:3100/contact",
+       "serverAction": true,
+       "contentType": null
+      },
+      "invalidFields": [],
+      "visibleError": []
+     },
+     "submission": {
+      "httpStatus": 200,
+      "success": true,
+      "statusText": "Got it. A person reads every one of these. You will hear back within one working day, usually sooner. Want an answer sooner? Send us a WhatsApp from the number you entered, and it lands on the same case. Continue on WhatsApp now",
+      "errorText": "",
+      "url": "/contact?lead=ok",
+      "continueOnWhatsapp": 1
+     }
+    },
+    "routeFinder": {
+     "steps": 6,
+     "questions": [
+      "Which passport will you apply with?",
+      "What do you actually want out of this?",
+      "How soon do you need the card in your hand?",
+      "How much capital could you put into a qualifying investment?",
+      "Who is coming with you?",
+      "Is tax residency part of the reason?"
+     ],
+     "reachedResult": true,
+     "resultPath": "/route-finder/result?r=permanent&a=…",
+     "h1": "Aim straight at permanent residency",
+     "next": {
+      "whatsapp": 0,
+      "whatsappFab": 1,
+      "leadForm": 1,
+      "book": 0,
+      "contact": 0,
+      "checkout": 0,
+      "buttons": [
+       "Read the permanent residency page",
+       "Have someone check this"
+      ]
+     }
+    },
+    "plausibleNote": "NEXT_PUBLIC_PLAUSIBLE_ENABLED is unset locally, so no Plausible script by design"
+   },
+   "live": {
+    "reachable": true,
+    "at": "2026-09-28T20:07:16.656Z",
+    "whatsapp": {
+     "390": {
+      "fab": {
+       "present": false,
+       "visible": false,
+       "inViewport": false,
+       "box": null
+      },
+      "links": [],
+      "numbers": [],
+      "stickyCta": 0,
+      "plausible": {
+       "script": false,
+       "pageviewEvents": 0,
+       "whatsappClickEvents": null,
+       "allEvents": []
+      },
+      "abortedWhatsappNavigations": 0
+     },
+     "1440": {
+      "fab": {
+       "present": false,
+       "visible": false,
+       "inViewport": false,
+       "box": null
+      },
+      "links": [],
+      "numbers": [],
+      "stickyCta": 0,
+      "plausible": {
+       "script": false,
+       "pageviewEvents": 0,
+       "whatsappClickEvents": null,
+       "allEvents": []
+      },
+      "abortedWhatsappNavigations": 0
+     }
+    },
+    "leadForm": {
+     "path": "/contact",
+     "status": 200,
+     "renders": true,
+     "enhanced": true,
+     "kind": "contact",
+     "fields": [
+      "name",
+      "email*",
+      "phone*",
+      "message"
+     ],
+     "noValidate": true,
+     "actionAttr": "javascript:throw new Error('A React form was unexpectedly su",
+     "clientValidation": {
+      "postAttemptedWithInvalidEmail": true,
+      "endpoint": {
+       "url": "https://paraguayfrontier.com/contact",
+       "serverAction": true,
+       "contentType": "multipart/form-data; boundary=----WebKitFormBoundary7BF5431NRjRWK2AW"
+      },
+      "invalidFields": [],
+      "visibleError": []
+     },
+     "submission": "not tested — needs Anton's OK (a live submission creates a real lead)"
+    },
+    "routeFinder": {
+     "steps": 6,
+     "questions": [
+      "Which passport will you apply with?",
+      "What do you actually want out of this?",
+      "How soon do you need the card in your hand?",
+      "How much capital could you put into a qualifying investment?",
+      "Who is coming with you?",
+      "Is tax residency part of the reason?"
+     ],
+     "reachedResult": true,
+     "resultPath": "/route-finder/result?r=permanent&a=…",
+     "h1": "Aim straight at permanent residency",
+     "next": {
+      "whatsapp": 0,
+      "whatsappFab": 0,
+      "leadForm": 1,
+      "book": 0,
+      "contact": 0,
+      "checkout": 0,
+      "buttons": [
+       "Read the permanent residency page",
+       "Have someone check this"
+      ]
+     }
+    }
+   }
+  },
+  "residenciaes": {
+   "local": {
+    "reachable": true,
+    "at": "2026-09-28T20:07:32.351Z",
+    "whatsapp": {
+     "390": {
+      "fab": {
+       "present": true,
+       "visible": true,
+       "inViewport": true,
+       "box": {
+        "x": 318,
+        "y": 772,
+        "width": 56,
+        "height": 56
+       }
+      },
+      "links": [
+       {
+        "number": "…0000",
+        "text": "Hola, me gustaría saber más sobre la residencia en Paraguay.",
+        "language": "custom text (check)",
+        "placement": "hero",
+        "visible": true
+       },
+       {
+        "number": "…0000",
+        "text": "Hola, me gustaría saber más sobre la residencia en Paraguay.",
+        "language": "custom text (check)",
+        "placement": "lead-panel",
+        "visible": true
+       },
+       {
+        "number": "…0000",
+        "text": "Hola, me gustaría saber más sobre la residencia en Paraguay.",
+        "language": "custom text (check)",
+        "placement": null,
+        "visible": true
+       },
+       {
+        "number": "…0000",
+        "text": "Hola, tengo una pregunta sobre la residencia en Paraguay.",
+        "language": "es (exact brand prefill)",
+        "placement": "floating",
+        "visible": true
+       }
+      ],
+      "numbers": [
+       "…0000"
+      ],
+      "stickyCta": 0,
+      "plausible": {
+       "script": false,
+       "pageviewEvents": 0,
+       "whatsappClickEvents": null,
+       "allEvents": []
+      },
+      "abortedWhatsappNavigations": 0
+     },
+     "1440": {
+      "fab": {
+       "present": true,
+       "visible": true,
+       "inViewport": true,
+       "box": {
+        "x": 1272.90625,
+        "y": 820,
+        "width": 143.09375,
+        "height": 56
+       }
+      },
+      "links": [
+       {
+        "number": "…0000",
+        "text": "Hola, me gustaría saber más sobre la residencia en Paraguay.",
+        "language": "custom text (check)",
+        "placement": "hero",
+        "visible": true
+       },
+       {
+        "number": "…0000",
+        "text": "Hola, me gustaría saber más sobre la residencia en Paraguay.",
+        "language": "custom text (check)",
+        "placement": "lead-panel",
+        "visible": true
+       },
+       {
+        "number": "…0000",
+        "text": "Hola, me gustaría saber más sobre la residencia en Paraguay.",
+        "language": "custom text (check)",
+        "placement": null,
+        "visible": true
+       },
+       {
+        "number": "…0000",
+        "text": "Hola, tengo una pregunta sobre la residencia en Paraguay.",
+        "language": "es (exact brand prefill)",
+        "placement": "floating",
+        "visible": true
+       }
+      ],
+      "numbers": [
+       "…0000"
+      ],
+      "stickyCta": 0,
+      "plausible": {
+       "script": false,
+       "pageviewEvents": 0,
+       "whatsappClickEvents": null,
+       "allEvents": []
+      },
+      "abortedWhatsappNavigations": 0
+     }
+    },
+    "leadForm": {
+     "path": "/contact",
+     "status": 200,
+     "renders": true,
+     "enhanced": true,
+     "kind": "contact",
+     "fields": [
+      "name",
+      "email*",
+      "phone*",
+      "message"
+     ],
+     "noValidate": true,
+     "actionAttr": "javascript:throw new Error('A React form was unexpectedly su",
+     "clientValidation": {
+      "postAttemptedWithInvalidEmail": true,
+      "endpoint": {
+       "url": "http://residenciaes.localhost:3100/contact",
+       "serverAction": true,
+       "contentType": null
+      },
+      "invalidFields": [],
+      "visibleError": []
+     },
+     "submission": {
+      "httpStatus": 200,
+      "success": true,
+      "statusText": "Recibido. Una persona lee cada uno de estos mensajes. Tendrás respuesta en un día laborable, normalmente antes. ¿Quieres respuesta antes? Escríbenos por WhatsApp desde el número que pusiste y queda en el mismo caso. Seguir ahora por WhatsApp",
+      "errorText": "",
+      "url": "/contact?lead=ok",
+      "continueOnWhatsapp": 1
+     }
+    },
+    "routeFinder": {
+     "steps": 6,
+     "questions": [
+      "¿Con qué pasaporte vas a hacer el trámite?",
+      "¿Qué quieres conseguir realmente con esto?",
+      "¿Con qué rapidez necesitas la cédula en la mano?",
+      "¿Cuánto capital podrías destinar a una inversión que califique?",
+      "¿Quién viene contigo?",
+      "¿La residencia fiscal es parte del motivo?"
+     ],
+     "reachedResult": true,
+     "resultPath": "/route-finder/result?r=permanent&a=…",
+     "h1": "Ve directo a la residencia permanente",
+     "next": {
+      "whatsapp": 0,
+      "whatsappFab": 1,
+      "leadForm": 1,
+      "book": 0,
+      "contact": 0,
+      "checkout": 0,
+      "buttons": [
+       "Ver la página de residencia permanente",
+       "Que alguien lo revise"
+      ]
+     }
+    },
+    "plausibleNote": "NEXT_PUBLIC_PLAUSIBLE_ENABLED is unset locally, so no Plausible script by design"
+   },
+   "live": {
+    "reachable": true,
+    "at": "2026-09-28T20:07:57.301Z",
+    "whatsapp": {
+     "390": {
+      "fab": {
+       "present": false,
+       "visible": false,
+       "inViewport": false,
+       "box": null
+      },
+      "links": [],
+      "numbers": [],
+      "stickyCta": 0,
+      "plausible": {
+       "script": false,
+       "pageviewEvents": 0,
+       "whatsappClickEvents": null,
+       "allEvents": []
+      },
+      "abortedWhatsappNavigations": 0
+     },
+     "1440": {
+      "fab": {
+       "present": false,
+       "visible": false,
+       "inViewport": false,
+       "box": null
+      },
+      "links": [],
+      "numbers": [],
+      "stickyCta": 0,
+      "plausible": {
+       "script": false,
+       "pageviewEvents": 0,
+       "whatsappClickEvents": null,
+       "allEvents": []
+      },
+      "abortedWhatsappNavigations": 0
+     }
+    },
+    "leadForm": {
+     "path": "/contact",
+     "status": 200,
+     "renders": true,
+     "enhanced": true,
+     "kind": "contact",
+     "fields": [
+      "name",
+      "email*",
+      "phone*",
+      "message"
+     ],
+     "noValidate": true,
+     "actionAttr": "javascript:throw new Error('A React form was unexpectedly su",
+     "clientValidation": {
+      "postAttemptedWithInvalidEmail": true,
+      "endpoint": {
+       "url": "https://residenciaenparaguay.es/contact",
+       "serverAction": true,
+       "contentType": "multipart/form-data; boundary=----WebKitFormBoundaryWfNz8GmHV4qerarK"
+      },
+      "invalidFields": [],
+      "visibleError": []
+     },
+     "submission": "not tested — needs Anton's OK (a live submission creates a real lead)"
+    },
+    "routeFinder": {
+     "steps": 6,
+     "questions": [
+      "¿Con qué pasaporte vas a hacer el trámite?",
+      "¿Qué quieres conseguir realmente con esto?",
+      "¿Con qué rapidez necesitas la cédula en la mano?",
+      "¿Cuánto capital podrías destinar a una inversión que califique?",
+      "¿Quién viene contigo?",
+      "¿La residencia fiscal es parte del motivo?"
+     ],
+     "reachedResult": true,
+     "resultPath": "/route-finder/result?r=permanent&a=…",
+     "h1": "Ve directo a la residencia permanente",
+     "next": {
+      "whatsapp": 0,
+      "whatsappFab": 0,
+      "leadForm": 1,
+      "book": 0,
+      "contact": 0,
+      "checkout": 0,
+      "buttons": [
+       "Ver la página de residencia permanente",
+       "Que alguien lo revise"
+      ]
+     }
+    }
+   }
+  },
+  "residenciapt": {
+   "local": {
+    "reachable": true,
+    "at": "2026-09-28T20:08:12.416Z",
+    "whatsapp": {
+     "390": {
+      "fab": {
+       "present": true,
+       "visible": true,
+       "inViewport": true,
+       "box": {
+        "x": 318,
+        "y": 772,
+        "width": 56,
+        "height": 56
+       }
+      },
+      "links": [
+       {
+        "number": "…0000",
+        "text": "Olá, tenho uma dúvida sobre residência no Paraguai.",
+        "language": "pt (exact brand prefill)",
+        "placement": "hero",
+        "visible": true
+       },
+       {
+        "number": "…0000",
+        "text": "Olá — tenho uma dúvida sobre residência no Paraguai.",
+        "language": "custom text (check)",
+        "placement": "lead-panel",
+        "visible": true
+       },
+       {
+        "number": "…0000",
+        "text": "Olá — tenho uma dúvida sobre residência no Paraguai.",
+        "language": "custom text (check)",
+        "placement": null,
+        "visible": true
+       },
+       {
+        "number": "…0000",
+        "text": "Olá, tenho uma dúvida sobre residência no Paraguai.",
+        "language": "pt (exact brand prefill)",
+        "placement": "floating",
+        "visible": true
+       }
+      ],
+      "numbers": [
+       "…0000"
+      ],
+      "stickyCta": 0,
+      "plausible": {
+       "script": false,
+       "pageviewEvents": 0,
+       "whatsappClickEvents": null,
+       "allEvents": []
+      },
+      "abortedWhatsappNavigations": 0
+     },
+     "1440": {
+      "fab": {
+       "present": true,
+       "visible": true,
+       "inViewport": true,
+       "box": {
+        "x": 1272.90625,
+        "y": 820,
+        "width": 143.09375,
+        "height": 56
+       }
+      },
+      "links": [
+       {
+        "number": "…0000",
+        "text": "Olá, tenho uma dúvida sobre residência no Paraguai.",
+        "language": "pt (exact brand prefill)",
+        "placement": "hero",
+        "visible": true
+       },
+       {
+        "number": "…0000",
+        "text": "Olá — tenho uma dúvida sobre residência no Paraguai.",
+        "language": "custom text (check)",
+        "placement": "lead-panel",
+        "visible": true
+       },
+       {
+        "number": "…0000",
+        "text": "Olá — tenho uma dúvida sobre residência no Paraguai.",
+        "language": "custom text (check)",
+        "placement": null,
+        "visible": true
+       },
+       {
+        "number": "…0000",
+        "text": "Olá, tenho uma dúvida sobre residência no Paraguai.",
+        "language": "pt (exact brand prefill)",
+        "placement": "floating",
+        "visible": true
+       }
+      ],
+      "numbers": [
+       "…0000"
+      ],
+      "stickyCta": 0,
+      "plausible": {
+       "script": false,
+       "pageviewEvents": 0,
+       "whatsappClickEvents": null,
+       "allEvents": []
+      },
+      "abortedWhatsappNavigations": 0
+     }
+    },
+    "leadForm": {
+     "path": "/contact",
+     "status": 200,
+     "renders": true,
+     "enhanced": true,
+     "kind": "contact",
+     "fields": [
+      "name",
+      "email*",
+      "phone*",
+      "message"
+     ],
+     "noValidate": true,
+     "actionAttr": "javascript:throw new Error('A React form was unexpectedly su",
+     "clientValidation": {
+      "postAttemptedWithInvalidEmail": true,
+      "endpoint": {
+       "url": "http://residenciapt.localhost:3100/contact",
+       "serverAction": true,
+       "contentType": null
+      },
+      "invalidFields": [],
+      "visibleError": []
+     },
+     "submission": {
+      "httpStatus": 200,
+      "success": true,
+      "statusText": "Recebido. Uma pessoa lê cada uma dessas mensagens. Você terá resposta em um dia útil, normalmente antes. Quer resposta mais rápido? Mande um WhatsApp do número que você informou e ele entra no mesmo caso. Continuar agora no WhatsApp",
+      "errorText": "",
+      "url": "/contact?lead=ok",
+      "continueOnWhatsapp": 1
+     }
+    },
+    "routeFinder": {
+     "steps": 6,
+     "questions": [
+      "Com qual passaporte você vai dar entrada?",
+      "O que você quer de verdade com isso?",
+      "Em quanto tempo você precisa da cédula na mão?",
+      "Quanto capital você poderia colocar em um investimento que qualifica?",
+      "Quem vai com você?",
+      "A residência fiscal faz parte do motivo?"
+     ],
+     "reachedResult": true,
+     "resultPath": "/route-finder/result?r=permanent&a=…",
+     "h1": "Vá direto para a residência permanente",
+     "next": {
+      "whatsapp": 0,
+      "whatsappFab": 1,
+      "leadForm": 1,
+      "book": 0,
+      "contact": 0,
+      "checkout": 0,
+      "buttons": [
+       "Ver a página de residência permanente",
+       "Peça uma conferida"
+      ]
+     }
+    },
+    "plausibleNote": "NEXT_PUBLIC_PLAUSIBLE_ENABLED is unset locally, so no Plausible script by design"
+   },
+   "live": {
+    "reachable": false,
+    "reason": "DNS: vidanoparaguai.com does not resolve (ENOTFOUND)"
+   }
+  },
+  "flytta": {
+   "local": {
+    "reachable": true,
+    "at": "2026-09-28T20:08:37.709Z",
+    "whatsapp": {
+     "390": {
+      "fab": {
+       "present": true,
+       "visible": true,
+       "inViewport": true,
+       "box": {
+        "x": 318,
+        "y": 772,
+        "width": 56,
+        "height": 56
+       }
+      },
+      "links": [
+       {
+        "number": "…0000",
+        "text": "Hej! Jag har en fråga om att flytta till Paraguay.",
+        "language": "sv (exact brand prefill)",
+        "placement": "hero",
+        "visible": true
+       },
+       {
+        "number": "…0000",
+        "text": "Hej! Jag har en fråga om att flytta till Paraguay.",
+        "language": "sv (exact brand prefill)",
+        "placement": "lead-panel",
+        "visible": true
+       },
+       {
+        "number": "…0000",
+        "text": "Hej! Jag har en fråga om att flytta till Paraguay.",
+        "language": "sv (exact brand prefill)",
+        "placement": null,
+        "visible": true
+       },
+       {
+        "number": "…0000",
+        "text": "Hej! Jag har en fråga om att flytta till Paraguay.",
+        "language": "sv (exact brand prefill)",
+        "placement": "floating",
+        "visible": true
+       }
+      ],
+      "numbers": [
+       "…0000"
+      ],
+      "stickyCta": 0,
+      "plausible": {
+       "script": false,
+       "pageviewEvents": 0,
+       "whatsappClickEvents": null,
+       "allEvents": []
+      },
+      "abortedWhatsappNavigations": 0
+     },
+     "1440": {
+      "fab": {
+       "present": true,
+       "visible": true,
+       "inViewport": true,
+       "box": {
+        "x": 1272.90625,
+        "y": 820,
+        "width": 143.09375,
+        "height": 56
+       }
+      },
+      "links": [
+       {
+        "number": "…0000",
+        "text": "Hej! Jag har en fråga om att flytta till Paraguay.",
+        "language": "sv (exact brand prefill)",
+        "placement": "hero",
+        "visible": true
+       },
+       {
+        "number": "…0000",
+        "text": "Hej! Jag har en fråga om att flytta till Paraguay.",
+        "language": "sv (exact brand prefill)",
+        "placement": "lead-panel",
+        "visible": true
+       },
+       {
+        "number": "…0000",
+        "text": "Hej! Jag har en fråga om att flytta till Paraguay.",
+        "language": "sv (exact brand prefill)",
+        "placement": null,
+        "visible": true
+       },
+       {
+        "number": "…0000",
+        "text": "Hej! Jag har en fråga om att flytta till Paraguay.",
+        "language": "sv (exact brand prefill)",
+        "placement": "floating",
+        "visible": true
+       }
+      ],
+      "numbers": [
+       "…0000"
+      ],
+      "stickyCta": 0,
+      "plausible": {
+       "script": false,
+       "pageviewEvents": 0,
+       "whatsappClickEvents": null,
+       "allEvents": []
+      },
+      "abortedWhatsappNavigations": 0
+     }
+    },
+    "leadForm": {
+     "path": "/contact",
+     "status": 200,
+     "renders": true,
+     "enhanced": true,
+     "kind": "contact",
+     "fields": [
+      "name",
+      "email*",
+      "phone*",
+      "message"
+     ],
+     "noValidate": true,
+     "actionAttr": "javascript:throw new Error('A React form was unexpectedly su",
+     "clientValidation": {
+      "postAttemptedWithInvalidEmail": true,
+      "endpoint": {
+       "url": "http://flytta.localhost:3100/contact",
+       "serverAction": true,
+       "contentType": null
+      },
+      "invalidFields": [],
+      "visibleError": []
+     },
+     "submission": {
+      "httpStatus": 200,
+      "success": true,
+      "statusText": "Tack, den kom fram. En människa läser varenda en av de här. Du hör från oss inom en arbetsdag, oftast tidigare. Vill du ha svar snabbare? Skicka ett WhatsApp från numret du angav, så hamnar det i samma ärende. Fortsätt på WhatsApp nu",
+      "errorText": "",
+      "url": "/contact?lead=ok",
+      "continueOnWhatsapp": 1
+     }
+    },
+    "routeFinder": {
+     "steps": 6,
+     "questions": [
+      "Vilket pass ska du söka med?",
+      "Vad vill du faktiskt få ut av det här?",
+      "Hur snart behöver du kortet i handen?",
+      "Hur mycket kapital skulle du kunna lägga i en kvalificerande investering?",
+      "Vem följer med?",
+      "Är skatterättslig hemvist en del av skälet?"
+     ],
+     "reachedResult": true,
+     "resultPath": "/route-finder/result?r=permanent&a=…",
+     "h1": "Sikta direkt på permanent uppehållstillstånd",
+     "next": {
+      "whatsapp": 0,
+      "whatsappFab": 1,
+      "leadForm": 1,
+      "book": 0,
+      "contact": 0,
+      "checkout": 0,
+      "buttons": [
+       "Läs sidan om permanent uppehållstillstånd",
+       "Låt någon titta på det"
+      ]
+     }
+    },
+    "plausibleNote": "NEXT_PUBLIC_PLAUSIBLE_ENABLED is unset locally, so no Plausible script by design"
+   },
+   "live": {
+    "reachable": false,
+    "reason": "DNS: flyttatillparaguay.se does not resolve (ENOTFOUND)"
+   }
+  }
+ }
+}

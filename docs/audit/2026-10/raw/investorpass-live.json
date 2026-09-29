@@ -1,0 +1,44 @@
+{
+ "brand": "investorpass",
+ "domain": "paraguayinvestorpass.com",
+ "mode": "live",
+ "base": "https://paraguayinvestorpass.com",
+ "generatedAt": "2026-09-28T19:42:30.412Z",
+ "sitemap": {
+  "url": "https://paraguayinvestorpass.com/sitemap.xml",
+  "status": null,
+  "error": "TypeError | fetch failed | EAI_AGAIN | getaddrinfo EAI_AGAIN paraguayinvestorpass.com",
+  "indexes": [],
+  "count": 0,
+  "paths": [],
+  "hosts": []
+ },
+ "reachable": false,
+ "pages": [
+  {
+   "path": "/",
+   "url": "https://paraguayinvestorpass.com/",
+   "mode": "live",
+   "status": null,
+   "error": "Error | page.goto: net::ERR_NAME_NOT_RESOLVED at https://paraguayinvestorpass.com/\nCall log:\n\u001b[2m  - navigating to \"https://paraguayinvestorpass.com/\", waiting until \"load\"\u001b[22m\n",
+   "consoleErrors": [],
+   "badResponses": [],
+   "failedRequests": [
+    {
+     "url": "https://paraguayinvestorpass.com/",
+     "error": "net::ERR_NAME_NOT_RESOLVED",
+     "type": "document"
+    },
+    {
+     "url": "https://paraguayinvestorpass.com/",
+     "error": "net::ERR_NAME_NOT_RESOLVED",
+     "type": "document"
+    }
+   ]
+  }
+ ],
+ "links": {},
+ "shots": [],
+ "health": null,
+ "unreachableReason": "Error | page.goto: net::ERR_NAME_NOT_RESOLVED at https://paraguayinvestorpass.com/\nCall log:\n\u001b[2m  - navigating to \"https://paraguayinvestorpass.com/\", waiting until \"load\"\u001b[22m\n"
+}

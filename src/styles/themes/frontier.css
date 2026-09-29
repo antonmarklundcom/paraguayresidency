@@ -1,19 +1,23 @@
-/* Plan B / optionality, for Americans and expats. Cool, plain, skeptical —
-   the brand's promise is "we state the catch", so the palette is sober. */
+/* Frontier: plain talk. Newsprint and sand, red-earth accent, charcoal rules
+   and mono labels (overhaul plan §1.1). The soft tint is a neutral sand.
+   check-contrast: accent-2 text */
 [data-theme='frontier'] {
-  --bg: #f8f5f2;
-  --surface: #ffffff;
-  --surface-alt: #eee6df;
-  --fg: #261c17;
-  --fg-muted: #6b5a50;
-  --border: #ddcec3;
-  --accent: #9c4221;
+  --bg: #f4f1ea;
+  --surface: #fbfaf6;
+  --surface-alt: #e8e3d7;
+  --fg: #1b1a17;
+  --fg-muted: #57544c;
+  --border: #d5cfc1;
+  --accent: #9a3412;
   --accent-fg: #ffffff;
-  --accent-soft: #f3e2d6;
+  --accent-soft: #ebe8e1;
+  --accent-2: #2e2d29;
+  --accent-2-on-dark: #d5cfc1;
+  --accent-2-fg: #fbfaf6;
   --display-font: var(--font-inter-tight);
   --display-weight: 600;
   --display-tracking: -0.025em;
   --body-font: var(--font-system);
   --radius-brand: var(--radius-sm);
-  --hero-pattern: linear-gradient(180deg, #f8f5f2 0%, #eee6df 100%);
+  --hero-pattern: linear-gradient(180deg, #f4f1ea 0%, #e8e3d7 100%);
 }

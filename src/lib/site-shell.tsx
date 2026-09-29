@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { Footer, JsonLd, Nav, WhatsAppFab } from '@/components';
+import { Footer, JsonLd, MobileWhatsAppBar, Nav, WhatsAppFab } from '@/components';
 import { t } from '@/i18n';
 import { Analytics } from '@/lib/analytics';
 import { WhatsAppClickTracker } from '@/components/WhatsAppClickTracker';
@@ -26,6 +26,8 @@ export function SiteShell({ site, children }: { site: SiteKey; children: ReactNo
       </main>
       <Footer site={site} />
       <WhatsAppFab site={site} />
+      {/* Phones: one fixed action bar (WhatsApp, or the guide's buy button). */}
+      <MobileWhatsAppBar site={site} />
       <WhatsAppClickTracker site={site} />
       <JsonLd data={organizationJsonLd(site)} />
       {/* Env-gated: renders nothing unless NEXT_PUBLIC_PLAUSIBLE_ENABLED=true. track() calls need it mounted. */}

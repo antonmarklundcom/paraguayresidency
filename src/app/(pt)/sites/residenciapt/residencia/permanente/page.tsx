@@ -72,6 +72,10 @@ export default function Page() {
         ainda está decidindo entre temporária, permanente ou o Investor Pass, o{' '}
         <a href="/route-finder">teste de rota</a> ajuda em dois minutos.
       </p>
+      <p>
+        E, para quem pensa em longo prazo, a permanente é o caminho até a{' '}
+        <a href="/guias/documentos/cidadania-paraguaia-para-brasileiros">cidadania paraguaia</a>.
+      </p>
       <h2>O que está incluído</h2>
       <ul>
         <li>Avaliação honesta se você pode pular a temporária.</li>

@@ -47,7 +47,12 @@ export default function Page() {
               One fixed fee per route, quoted before you commit. A document checklist built for
               your nationality, not a generic PDF. And when the standard route is wrong for your
               case, we tell you that in your first message — and point you to the Investor Pass, or to
-              waiting, rather than filing something that will not serve you.
+              waiting, rather than filing something that will not serve you. If you are comparing
+              us with other providers, our guide to{' '}
+              <a href="/guides/documents/choosing-a-paraguay-residency-agent" className="text-[var(--accent)] underline underline-offset-2">
+                choosing a Paraguay residency agent
+              </a>{' '}
+              sets out the questions to ask all of us.
             </p>
           </div>
           <div>

@@ -1,9 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
-import { LeadForm } from './LeadForm';
-import type { SiteKey } from '@/sites/registry';
+import { useState, type ReactNode } from 'react';
 
 export interface ChecklistRoute {
   id: string;
@@ -28,17 +26,19 @@ const label = 'block text-(length:--text-sm) font-medium text-[var(--fg)]';
  * legal reference: every route renders the same hedge note, and the police
  * certificate row always links to the Interpol/police-certificate explainer
  * rather than asserting a country's process inline.
+ *
+ * The lead form arrives as a `form` slot rendered by the (server) page:
+ * `LeadForm` is a server component, and importing it here made every
+ * checklist page crash (docs/audit/2026-10/site-audit.md).
  */
 export function DocumentChecklist({
-  site,
-  pagePath,
+  form,
   routes,
   nationalities,
   policeCertHref,
   copy,
 }: {
-  site: SiteKey;
-  pagePath: string;
+  form: ReactNode;
   routes: ChecklistRoute[];
   nationalities: ChecklistNationality[];
   policeCertHref: string;
@@ -145,9 +145,7 @@ export function DocumentChecklist({
           {copy.formTitle}
         </h2>
         <p className="mt-[var(--space-3)] text-[var(--fg-muted)]">{copy.formBody}</p>
-        <div className="mt-[var(--space-6)]">
-          <LeadForm site={site} variant="quiz" pagePath={pagePath} />
-        </div>
+        <div className="mt-[var(--space-6)]">{form}</div>
       </div>
     </div>
   );

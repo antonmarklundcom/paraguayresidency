@@ -65,7 +65,13 @@ try {
     args: ['--remote-debugging-port=0'],
   });
   // Chrome chooses a free port and records it in this isolated temporary profile.
-  const port = Number((await readFile(join(profile, 'DevToolsActivePort'), 'utf8')).split('\n')[0]);
+  // Chrome writes the file shortly after launch; on slow CI runners it can lag, so poll.
+  let portFile;
+  for (let i = 0; i < 100 && portFile === undefined; i++) {
+    try { portFile = await readFile(join(profile, 'DevToolsActivePort'), 'utf8'); }
+    catch (err) { if (err.code !== 'ENOENT') throw err; await new Promise((r) => setTimeout(r, 100)); }
+  }
+  const port = Number((portFile ?? '').split('\n')[0]);
   if (!Number.isInteger(port) || port < 1) throw new Error('Chrome did not provide a debugging port.');
 
   console.log(`Lighthouse mobile | performance (0-1) | bar >= ${BAR.toFixed(2)}`);

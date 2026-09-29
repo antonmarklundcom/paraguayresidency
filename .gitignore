@@ -152,3 +152,7 @@ private/*
 
 # Audit screenshots stay local (181 MB per run); report.md references them by path.
 docs/audit/*/shots/
+
+# Agent worktrees during parallel builds, and third-party competitor screenshots.
+.claude/worktrees/
+docs/audit/*/competitors/

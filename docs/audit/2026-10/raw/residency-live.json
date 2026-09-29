@@ -1,0 +1,44 @@
+{
+ "brand": "residency",
+ "domain": "paraguayresidency.co.uk",
+ "mode": "live",
+ "base": "https://paraguayresidency.co.uk",
+ "generatedAt": "2026-09-28T19:41:03.592Z",
+ "sitemap": {
+  "url": "https://paraguayresidency.co.uk/sitemap.xml",
+  "status": null,
+  "error": "TypeError | fetch failed | EAI_AGAIN | getaddrinfo EAI_AGAIN paraguayresidency.co.uk",
+  "indexes": [],
+  "count": 0,
+  "paths": [],
+  "hosts": []
+ },
+ "reachable": false,
+ "pages": [
+  {
+   "path": "/",
+   "url": "https://paraguayresidency.co.uk/",
+   "mode": "live",
+   "status": null,
+   "error": "Error | page.goto: net::ERR_NAME_NOT_RESOLVED at https://paraguayresidency.co.uk/\nCall log:\n\u001b[2m  - navigating to \"https://paraguayresidency.co.uk/\", waiting until \"load\"\u001b[22m\n",
+   "consoleErrors": [],
+   "badResponses": [],
+   "failedRequests": [
+    {
+     "url": "https://paraguayresidency.co.uk/",
+     "error": "net::ERR_NAME_NOT_RESOLVED",
+     "type": "document"
+    },
+    {
+     "url": "https://paraguayresidency.co.uk/",
+     "error": "net::ERR_NAME_NOT_RESOLVED",
+     "type": "document"
+    }
+   ]
+  }
+ ],
+ "links": {},
+ "shots": [],
+ "health": null,
+ "unreachableReason": "Error | page.goto: net::ERR_NAME_NOT_RESOLVED at https://paraguayresidency.co.uk/\nCall log:\n\u001b[2m  - navigating to \"https://paraguayresidency.co.uk/\", waiting until \"load\"\u001b[22m\n"
+}

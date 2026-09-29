@@ -89,8 +89,17 @@ body {
   to { opacity: 1; transform: none; }
 }
 
-/* On mobile the sticky form bar (StickyCta) carries its own WhatsApp button;
-   the floating one would sit on top of it. */
+/*
+ * Phones get one fixed action bar (MobileWhatsAppBar, from SiteShell). The
+ * floating WhatsApp button is desktop-only there, a page with its own form
+ * bar (StickyCta) shows that bar instead of the shell's, and the footer gets
+ * the bar's height as extra room so the bar never covers the page's end.
+ */
 @media (max-width: 767px) {
+  body:has([data-mobile-bar]) [data-wa-fab],
   body:has([data-sticky-cta]) [data-wa-fab] { display: none; }
+  body:has([data-sticky-cta-page]) [data-mobile-bar] { display: none; }
+  [data-site]:has([data-mobile-bar]) > footer {
+    padding-bottom: calc(var(--space-12) + var(--mobile-bar-h) + env(safe-area-inset-bottom));
+  }
 }

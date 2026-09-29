@@ -1,0 +1,4388 @@
+{
+ "generatedAt": "2026-09-28T20:36:46.722Z",
+ "brands": {
+  "residency": {
+   "domain": "paraguayresidency.co.uk",
+   "live": {
+    "reachable": false,
+    "reason": "Error | page.goto: net::ERR_NAME_NOT_RESOLVED at https://paraguayresidency.co.uk/\nCall log:\n\u001b[2m  - navigating to \"https://paraguayresidency.co.uk/\", waiting until \"load\"\u001b[22m\n",
+    "health": null
+   },
+   "local": {
+    "reachable": true,
+    "health": {
+     "ok": true,
+     "degraded": true,
+     "site": "residency",
+     "host": "residency.localhost:3100",
+     "db": "down",
+     "secret": "weak",
+     "email": "console",
+     "crm": "off",
+     "time": "2026-09-28T19:41:06.258Z"
+    },
+    "sitemap": {
+     "status": 200,
+     "count": 39,
+     "hosts": [
+      "paraguayresidency.co.uk"
+     ]
+    },
+    "crawled": 40,
+    "fromSitemapUnion": 39,
+    "discovered": 1,
+    "discoveredNotCrawled": 0,
+    "statuses": {
+     "200": 40
+    },
+    "errored": [],
+    "indexable": 39,
+    "issues": {
+     "missingTitle": [
+      "/documents/checklist"
+     ],
+     "longTitle": [],
+     "shortTitle": [],
+     "dupTitle": [],
+     "missingDesc": [
+      "/documents/checklist"
+     ],
+     "longDesc": [],
+     "shortDesc": [],
+     "dupDesc": [],
+     "h1Missing": [],
+     "h1Multiple": [],
+     "canonicalMissing": [
+      "/documents/checklist"
+     ],
+     "canonicalWrong": [],
+     "noindexInSitemap": [],
+     "noindexPages": [
+      "/investor-pass"
+     ],
+     "wrongLang": [
+      {
+       "path": "/documents/checklist",
+       "lang": null
+      }
+     ],
+     "thin": [
+      {
+       "path": "/about",
+       "words": 255,
+       "template": "page"
+      },
+      {
+       "path": "/contact",
+       "words": 102,
+       "template": "conversion"
+      },
+      {
+       "path": "/documents/checklist",
+       "words": 13,
+       "template": "page"
+      },
+      {
+       "path": "/guide",
+       "words": 93,
+       "template": "page"
+      },
+      {
+       "path": "/guides",
+       "words": 33,
+       "template": "page"
+      },
+      {
+       "path": "/guides/comparisons",
+       "words": 74,
+       "template": "article"
+      },
+      {
+       "path": "/guides/living-in-paraguay",
+       "words": 121,
+       "template": "article"
+      },
+      {
+       "path": "/guides/taxes",
+       "words": 106,
+       "template": "article"
+      },
+      {
+       "path": "/privacy",
+       "words": 279,
+       "template": "legal"
+      },
+      {
+       "path": "/route-finder",
+       "words": 76,
+       "template": "conversion"
+      },
+      {
+       "path": "/terms",
+       "words": 211,
+       "template": "legal"
+      }
+     ],
+     "notInSitemap": [
+      {
+       "path": "/investor-pass",
+       "status": 200,
+       "noindex": true,
+       "source": "discovered"
+      }
+     ],
+     "sitemapNon200": [],
+     "jsonldParseErrors": [],
+     "noOgImage": [
+      "/documents/checklist"
+     ],
+     "orphans": [],
+     "noBodyInbound": []
+    },
+    "schema": {
+     "types": {
+      "FAQPage": 25,
+      "Organization": 39,
+      "ProfessionalService": 39,
+      "WebSite": 39,
+      "BreadcrumbList": 34,
+      "CollectionPage": 5,
+      "Article": 19,
+      "Service": 5
+     },
+     "homeTypes": [
+      "FAQPage",
+      "Organization",
+      "ProfessionalService",
+      "WebSite"
+     ],
+     "articlesWithBreadcrumb": 23,
+     "articlesWithArticleType": 19,
+     "articles": 23,
+     "pagesWithFaq": 25,
+     "localBusiness": true,
+     "organization": true
+    },
+    "broken": [
+     {
+      "url": "https://paraguayinvestorpass.com/",
+      "status": null,
+      "kind": "sibling",
+      "error": "TypeError | fetch failed | EAI_AGAIN | getaddrinfo EAI_AGAIN paraguayinvestorpas",
+      "fromCount": 39,
+      "from": [
+       "/",
+       "/about",
+       "/contact"
+      ]
+     },
+     {
+      "url": "https://vidanoparaguai.com/",
+      "status": null,
+      "kind": "sibling",
+      "error": "TypeError | fetch failed | ENOTFOUND | getaddrinfo ENOTFOUND vidanoparaguai.com",
+      "fromCount": 39,
+      "from": [
+       "/",
+       "/about",
+       "/contact"
+      ]
+     },
+     {
+      "url": "https://flyttatillparaguay.se/",
+      "status": null,
+      "kind": "sibling",
+      "error": "TypeError | fetch failed | ENOTFOUND | getaddrinfo ENOTFOUND flyttatillparaguay.",
+      "fromCount": 39,
+      "from": [
+       "/",
+       "/about",
+       "/contact"
+      ]
+     }
+    ],
+    "redirects": [],
+    "linksChecked": 51,
+    "axe": {
+     "violationsByImpact": {
+      "critical": 0,
+      "serious": 41,
+      "moderate": 0,
+      "minor": 0
+     },
+     "nodesByImpact": {
+      "critical": 0,
+      "serious": 62,
+      "moderate": 0,
+      "minor": 0
+     },
+     "rules": [
+      {
+       "id": "color-contrast",
+       "impact": "serious",
+       "pages": 39,
+       "nodes": 60,
+       "help": "Elements must meet minimum color contrast ratio thresholds",
+       "sample": "a[data-placement=\"lead-panel\"]",
+       "samplePath": "/"
+      },
+      {
+       "id": "document-title",
+       "impact": "serious",
+       "pages": 1,
+       "nodes": 1,
+       "help": "Documents must have <title> element to aid in navigation",
+       "sample": "#__next_error__",
+       "samplePath": "/documents/checklist"
+      },
+      {
+       "id": "html-has-lang",
+       "impact": "serious",
+       "pages": 1,
+       "nodes": 1,
+       "help": "<html> element must have a lang attribute",
+       "sample": "#__next_error__",
+       "samplePath": "/documents/checklist"
+      }
+     ]
+    },
+    "console": {
+     "pages": 1,
+     "top": [
+      [
+       "pageerror: Unknown encoding: base64url",
+       1
+      ]
+     ]
+    },
+    "badSubresources": [],
+    "whatsapp": {
+     "pagesWithLink": 39,
+     "of": 40,
+     "numbers": [
+      "…0000"
+     ],
+     "texts": [
+      "Hi — I have a question about Paraguay residency.",
+      "Hi, I have a question about Paraguay residency.",
+      "Hi — I have a question about paraguay cédula de identidad processing.",
+      "Hi — I have a question about paraguay family residency filing.",
+      "Hi — I have a question about paraguay permanent residency filing.",
+      "Hi — I have a question about paraguay tax residency & ruc setup."
+     ],
+     "fabPages": 39
+    },
+    "leadForms": {
+     "pagesWithLeadForm": 8,
+     "newsletterPages": 0,
+     "of": 40
+    },
+    "wordsMedian": 1108,
+    "shots": 16
+   },
+   "diff": null
+  },
+  "investorpass": {
+   "domain": "paraguayinvestorpass.com",
+   "live": {
+    "reachable": false,
+    "reason": "Error | page.goto: net::ERR_NAME_NOT_RESOLVED at https://paraguayinvestorpass.com/\nCall log:\n\u001b[2m  - navigating to \"https://paraguayinvestorpass.com/\", waiting until \"load\"\u001b[22m\n",
+    "health": null
+   },
+   "local": {
+    "reachable": true,
+    "health": {
+     "ok": true,
+     "degraded": true,
+     "site": "investorpass",
+     "host": "investorpass.localhost:3100",
+     "db": "down",
+     "secret": "weak",
+     "email": "console",
+     "crm": "off",
+     "time": "2026-09-28T19:42:32.987Z"
+    },
+    "sitemap": {
+     "status": 200,
+     "count": 20,
+     "hosts": [
+      "paraguayinvestorpass.com"
+     ]
+    },
+    "crawled": 20,
+    "fromSitemapUnion": 20,
+    "discovered": 0,
+    "discoveredNotCrawled": 0,
+    "statuses": {
+     "200": 20
+    },
+    "errored": [],
+    "indexable": 20,
+    "issues": {
+     "missingTitle": [],
+     "longTitle": [],
+     "shortTitle": [],
+     "dupTitle": [],
+     "missingDesc": [],
+     "longDesc": [],
+     "shortDesc": [],
+     "dupDesc": [],
+     "h1Missing": [],
+     "h1Multiple": [],
+     "canonicalMissing": [],
+     "canonicalWrong": [],
+     "noindexInSitemap": [],
+     "noindexPages": [],
+     "wrongLang": [],
+     "thin": [
+      {
+       "path": "/about",
+       "words": 222,
+       "template": "page"
+      },
+      {
+       "path": "/insights",
+       "words": 276,
+       "template": "page"
+      },
+      {
+       "path": "/privacy",
+       "words": 280,
+       "template": "legal"
+      },
+      {
+       "path": "/route-finder",
+       "words": 70,
+       "template": "conversion"
+      },
+      {
+       "path": "/terms",
+       "words": 212,
+       "template": "legal"
+      }
+     ],
+     "notInSitemap": [],
+     "sitemapNon200": [],
+     "jsonldParseErrors": [],
+     "noOgImage": [],
+     "orphans": [],
+     "noBodyInbound": []
+    },
+    "schema": {
+     "types": {
+      "FAQPage": 14,
+      "Service": 6,
+      "Organization": 20,
+      "ProfessionalService": 20,
+      "WebSite": 20,
+      "BreadcrumbList": 15,
+      "CollectionPage": 1,
+      "Article": 8
+     },
+     "homeTypes": [
+      "FAQPage",
+      "Service",
+      "Organization",
+      "ProfessionalService",
+      "WebSite"
+     ],
+     "articlesWithBreadcrumb": 8,
+     "articlesWithArticleType": 8,
+     "articles": 8,
+     "pagesWithFaq": 14,
+     "localBusiness": true,
+     "organization": true
+    },
+    "broken": [
+     {
+      "url": "https://paraguayresidency.co.uk/",
+      "status": null,
+      "kind": "sibling",
+      "error": "TypeError | fetch failed | EAI_AGAIN | getaddrinfo EAI_AGAIN paraguayresidency.c",
+      "fromCount": 20,
+      "from": [
+       "/",
+       "/about",
+       "/contact"
+      ]
+     },
+     {
+      "url": "https://paraguayresidency.co.uk/residency/temporary-residency",
+      "status": null,
+      "kind": "sibling",
+      "error": "TypeError | fetch failed | EAI_AGAIN | getaddrinfo EAI_AGAIN paraguayresidency.c",
+      "fromCount": 1,
+      "from": [
+       "/investor-pass/vs-standard-residency"
+      ]
+     },
+     {
+      "url": "https://paraguayresidency.co.uk/residency/permanent-residency",
+      "status": null,
+      "kind": "sibling",
+      "error": "TypeError | fetch failed | EAI_AGAIN | getaddrinfo EAI_AGAIN paraguayresidency.c",
+      "fromCount": 1,
+      "from": [
+       "/investor-pass/vs-standard-residency"
+      ]
+     },
+     {
+      "url": "https://paraguayresidency.co.uk/residency/cedula",
+      "status": null,
+      "kind": "sibling",
+      "error": "TypeError | fetch failed | EAI_AGAIN | getaddrinfo EAI_AGAIN paraguayresidency.c",
+      "fromCount": 1,
+      "from": [
+       "/investor-pass/vs-standard-residency"
+      ]
+     },
+     {
+      "url": "https://paraguayresidency.co.uk/residency/tax-residency",
+      "status": null,
+      "kind": "sibling",
+      "error": "TypeError | fetch failed | EAI_AGAIN | getaddrinfo EAI_AGAIN paraguayresidency.c",
+      "fromCount": 1,
+      "from": [
+       "/investor-pass/vs-standard-residency"
+      ]
+     }
+    ],
+    "redirects": [],
+    "linksChecked": 31,
+    "axe": {
+     "violationsByImpact": {
+      "critical": 0,
+      "serious": 20,
+      "moderate": 0,
+      "minor": 0
+     },
+     "nodesByImpact": {
+      "critical": 0,
+      "serious": 29,
+      "moderate": 0,
+      "minor": 0
+     },
+     "rules": [
+      {
+       "id": "color-contrast",
+       "impact": "serious",
+       "pages": 20,
+       "nodes": 29,
+       "help": "Elements must meet minimum color contrast ratio thresholds",
+       "sample": ".md\\:inline",
+       "samplePath": "/"
+      }
+     ]
+    },
+    "console": {
+     "pages": 0,
+     "top": []
+    },
+    "badSubresources": [],
+    "whatsapp": {
+     "pagesWithLink": 20,
+     "of": 20,
+     "numbers": [
+      "…0000"
+     ],
+     "texts": [
+      "Hi — I have a question about the Paraguay Investor Pass.",
+      "Hi — I have a question about the Investor Pass.",
+      "Hi, I have a question about Paraguay residency.",
+      "Hi — I have a question about investor pass — referral program for agents.",
+      "Hi — I have a question about investor pass — investment routes.",
+      "Hi — I have a question about investor pass — process."
+     ],
+     "fabPages": 20
+    },
+    "leadForms": {
+     "pagesWithLeadForm": 6,
+     "newsletterPages": 0,
+     "of": 20
+    },
+    "wordsMedian": 1087,
+    "shots": 14
+   },
+   "diff": null
+  },
+  "guide": {
+   "domain": "paraguayresidencyguide.com",
+   "live": {
+    "reachable": true,
+    "health": {
+     "ok": true,
+     "degraded": true,
+     "site": "guide",
+     "host": "paraguayresidencyguide.com",
+     "db": "ok",
+     "secret": "ok",
+     "email": "console",
+     "crm": "off",
+     "time": "2026-09-28T19:44:02.390Z"
+    },
+    "sitemap": {
+     "status": 200,
+     "count": 37,
+     "hosts": [
+      "paraguayresidencyguide.com"
+     ]
+    },
+    "crawled": 37,
+    "fromSitemapUnion": 37,
+    "discovered": 0,
+    "discoveredNotCrawled": 0,
+    "statuses": {
+     "200": 37
+    },
+    "errored": [],
+    "indexable": 37,
+    "issues": {
+     "missingTitle": [],
+     "longTitle": [
+      {
+       "path": "/insider",
+       "len": 72,
+       "title": "Paraguay Residency Insider — the membership that keeps the guide current"
+      }
+     ],
+     "shortTitle": [],
+     "dupTitle": [],
+     "missingDesc": [],
+     "longDesc": [],
+     "shortDesc": [
+      {
+       "path": "/refunds",
+       "len": 69,
+       "description": "14 days, no questions. How to ask for a refund and what happens next."
+      }
+     ],
+     "dupDesc": [],
+     "h1Missing": [],
+     "h1Multiple": [],
+     "canonicalMissing": [],
+     "canonicalWrong": [],
+     "noindexInSitemap": [],
+     "noindexPages": [],
+     "wrongLang": [],
+     "thin": [
+      {
+       "path": "/about",
+       "words": 220,
+       "template": "page"
+      },
+      {
+       "path": "/contact",
+       "words": 88,
+       "template": "conversion"
+      },
+      {
+       "path": "/privacy",
+       "words": 280,
+       "template": "legal"
+      },
+      {
+       "path": "/refunds",
+       "words": 150,
+       "template": "legal"
+      },
+      {
+       "path": "/route-finder",
+       "words": 72,
+       "template": "conversion"
+      },
+      {
+       "path": "/terms",
+       "words": 236,
+       "template": "legal"
+      }
+     ],
+     "notInSitemap": [],
+     "sitemapNon200": [],
+     "jsonldParseErrors": [],
+     "noOgImage": [],
+     "orphans": [],
+     "noBodyInbound": []
+    },
+    "schema": {
+     "types": {
+      "FAQPage": 30,
+      "Product": 2,
+      "Organization": 37,
+      "WebSite": 37,
+      "BreadcrumbList": 29,
+      "Article": 28
+     },
+     "homeTypes": [
+      "FAQPage",
+      "Product",
+      "Organization",
+      "WebSite"
+     ],
+     "articlesWithBreadcrumb": 28,
+     "articlesWithArticleType": 28,
+     "articles": 28,
+     "pagesWithFaq": 30,
+     "localBusiness": false,
+     "organization": true
+    },
+    "broken": [
+     {
+      "url": "https://paraguayresidency.co.uk/contact",
+      "status": null,
+      "kind": "sibling",
+      "error": "TypeError | fetch failed | EAI_AGAIN | getaddrinfo EAI_AGAIN paraguayresidency.c",
+      "fromCount": 29,
+      "from": [
+       "/",
+       "/blog/5000-deposit",
+       "/blog/apostille-for-paraguay-residency"
+      ]
+     },
+     {
+      "url": "https://paraguayresidency.co.uk/",
+      "status": null,
+      "kind": "sibling",
+      "error": "TypeError | fetch failed | EAI_AGAIN | getaddrinfo EAI_AGAIN paraguayresidency.c",
+      "fromCount": 37,
+      "from": [
+       "/",
+       "/about",
+       "/blog"
+      ]
+     },
+     {
+      "url": "https://paraguayinvestorpass.com/",
+      "status": null,
+      "kind": "sibling",
+      "error": "TypeError | fetch failed | EAI_AGAIN | getaddrinfo EAI_AGAIN paraguayinvestorpas",
+      "fromCount": 37,
+      "from": [
+       "/",
+       "/about",
+       "/blog"
+      ]
+     }
+    ],
+    "redirects": [],
+    "linksChecked": 47,
+    "axe": {
+     "violationsByImpact": {
+      "critical": 0,
+      "serious": 1,
+      "moderate": 0,
+      "minor": 0
+     },
+     "nodesByImpact": {
+      "critical": 0,
+      "serious": 3,
+      "moderate": 0,
+      "minor": 0
+     },
+     "rules": [
+      {
+       "id": "color-contrast",
+       "impact": "serious",
+       "pages": 1,
+       "nodes": 3,
+       "help": "Elements must meet minimum color contrast ratio thresholds",
+       "sample": ".tracking-\\[0\\.2em\\]",
+       "samplePath": "/"
+      }
+     ]
+    },
+    "console": {
+     "pages": 0,
+     "top": []
+    },
+    "badSubresources": [],
+    "whatsapp": {
+     "pagesWithLink": 0,
+     "of": 37,
+     "numbers": [],
+     "texts": [],
+     "fabPages": 0
+    },
+    "leadForms": {
+     "pagesWithLeadForm": 1,
+     "newsletterPages": 1,
+     "of": 37
+    },
+    "wordsMedian": 1076,
+    "shots": 14
+   },
+   "local": {
+    "reachable": true,
+    "health": {
+     "ok": true,
+     "degraded": true,
+     "site": "guide",
+     "host": "guide.localhost:3100",
+     "db": "down",
+     "secret": "weak",
+     "email": "console",
+     "crm": "off",
+     "time": "2026-09-28T19:45:21.438Z"
+    },
+    "sitemap": {
+     "status": 200,
+     "count": 37,
+     "hosts": [
+      "paraguayresidencyguide.com"
+     ]
+    },
+    "crawled": 37,
+    "fromSitemapUnion": 37,
+    "discovered": 0,
+    "discoveredNotCrawled": 0,
+    "statuses": {
+     "200": 37
+    },
+    "errored": [],
+    "indexable": 37,
+    "issues": {
+     "missingTitle": [],
+     "longTitle": [
+      {
+       "path": "/insider",
+       "len": 72,
+       "title": "Paraguay Residency Insider — the membership that keeps the guide current"
+      }
+     ],
+     "shortTitle": [],
+     "dupTitle": [],
+     "missingDesc": [],
+     "longDesc": [],
+     "shortDesc": [
+      {
+       "path": "/refunds",
+       "len": 69,
+       "description": "14 days, no questions. How to ask for a refund and what happens next."
+      }
+     ],
+     "dupDesc": [],
+     "h1Missing": [],
+     "h1Multiple": [],
+     "canonicalMissing": [],
+     "canonicalWrong": [],
+     "noindexInSitemap": [],
+     "noindexPages": [],
+     "wrongLang": [],
+     "thin": [
+      {
+       "path": "/about",
+       "words": 220,
+       "template": "page"
+      },
+      {
+       "path": "/contact",
+       "words": 92,
+       "template": "conversion"
+      },
+      {
+       "path": "/privacy",
+       "words": 280,
+       "template": "legal"
+      },
+      {
+       "path": "/refunds",
+       "words": 150,
+       "template": "legal"
+      },
+      {
+       "path": "/route-finder",
+       "words": 72,
+       "template": "conversion"
+      },
+      {
+       "path": "/terms",
+       "words": 236,
+       "template": "legal"
+      }
+     ],
+     "notInSitemap": [],
+     "sitemapNon200": [],
+     "jsonldParseErrors": [],
+     "noOgImage": [],
+     "orphans": [],
+     "noBodyInbound": []
+    },
+    "schema": {
+     "types": {
+      "FAQPage": 30,
+      "Product": 2,
+      "Organization": 37,
+      "WebSite": 37,
+      "BreadcrumbList": 29,
+      "Article": 28
+     },
+     "homeTypes": [
+      "FAQPage",
+      "Product",
+      "Organization",
+      "WebSite"
+     ],
+     "articlesWithBreadcrumb": 28,
+     "articlesWithArticleType": 28,
+     "articles": 28,
+     "pagesWithFaq": 30,
+     "localBusiness": false,
+     "organization": true
+    },
+    "broken": [
+     {
+      "url": "https://paraguayresidency.co.uk/contact",
+      "status": null,
+      "kind": "sibling",
+      "error": "TypeError | fetch failed | EAI_AGAIN | getaddrinfo EAI_AGAIN paraguayresidency.c",
+      "fromCount": 29,
+      "from": [
+       "/",
+       "/blog/5000-deposit",
+       "/blog/apostille-for-paraguay-residency"
+      ]
+     },
+     {
+      "url": "https://paraguayresidency.co.uk/",
+      "status": null,
+      "kind": "sibling",
+      "error": "TypeError | fetch failed | EAI_AGAIN | getaddrinfo EAI_AGAIN paraguayresidency.c",
+      "fromCount": 37,
+      "from": [
+       "/",
+       "/about",
+       "/blog"
+      ]
+     },
+     {
+      "url": "https://paraguayinvestorpass.com/",
+      "status": null,
+      "kind": "sibling",
+      "error": "TypeError | fetch failed | EAI_AGAIN | getaddrinfo EAI_AGAIN paraguayinvestorpas",
+      "fromCount": 37,
+      "from": [
+       "/",
+       "/about",
+       "/blog"
+      ]
+     }
+    ],
+    "redirects": [],
+    "linksChecked": 47,
+    "axe": {
+     "violationsByImpact": {
+      "critical": 0,
+      "serious": 37,
+      "moderate": 0,
+      "minor": 0
+     },
+     "nodesByImpact": {
+      "critical": 0,
+      "serious": 69,
+      "moderate": 0,
+      "minor": 0
+     },
+     "rules": [
+      {
+       "id": "color-contrast",
+       "impact": "serious",
+       "pages": 37,
+       "nodes": 69,
+       "help": "Elements must meet minimum color contrast ratio thresholds",
+       "sample": ".tracking-\\[0\\.2em\\]",
+       "samplePath": "/"
+      }
+     ]
+    },
+    "console": {
+     "pages": 0,
+     "top": []
+    },
+    "badSubresources": [],
+    "whatsapp": {
+     "pagesWithLink": 37,
+     "of": 37,
+     "numbers": [
+      "…0000"
+     ],
+     "texts": [
+      "Hi, I have a question about Paraguay residency."
+     ],
+     "fabPages": 37
+    },
+    "leadForms": {
+     "pagesWithLeadForm": 1,
+     "newsletterPages": 1,
+     "of": 37
+    },
+    "wordsMedian": 1082,
+    "shots": 14
+   },
+   "diff": {
+    "onlyLiveSitemap": [],
+    "onlyLocalSitemap": [],
+    "statusDiff": [],
+    "titleDiff": [],
+    "h1Diff": [],
+    "descDiff": 0,
+    "wordDelta": [
+     {
+      "path": "/insider",
+      "live": 427,
+      "local": 369
+     }
+    ],
+    "compared": 37
+   }
+  },
+  "frontier": {
+   "domain": "paraguayfrontier.com",
+   "live": {
+    "reachable": true,
+    "health": {
+     "ok": true,
+     "degraded": true,
+     "site": "frontier",
+     "host": "paraguayfrontier.com",
+     "db": "ok",
+     "secret": "ok",
+     "email": "console",
+     "crm": "off",
+     "time": "2026-09-28T19:46:32.179Z"
+    },
+    "sitemap": {
+     "status": 200,
+     "count": 25,
+     "hosts": [
+      "paraguayfrontier.com"
+     ]
+    },
+    "crawled": 25,
+    "fromSitemapUnion": 25,
+    "discovered": 0,
+    "discoveredNotCrawled": 0,
+    "statuses": {
+     "200": 25
+    },
+    "errored": [],
+    "indexable": 25,
+    "issues": {
+     "missingTitle": [
+      "/documents/checklist"
+     ],
+     "longTitle": [],
+     "shortTitle": [],
+     "dupTitle": [],
+     "missingDesc": [
+      "/documents/checklist"
+     ],
+     "longDesc": [],
+     "shortDesc": [],
+     "dupDesc": [],
+     "h1Missing": [],
+     "h1Multiple": [],
+     "canonicalMissing": [
+      "/documents/checklist"
+     ],
+     "canonicalWrong": [],
+     "noindexInSitemap": [],
+     "noindexPages": [],
+     "wrongLang": [
+      {
+       "path": "/documents/checklist",
+       "lang": null
+      }
+     ],
+     "thin": [
+      {
+       "path": "/about",
+       "words": 224,
+       "template": "page"
+      },
+      {
+       "path": "/contact",
+       "words": 103,
+       "template": "conversion"
+      },
+      {
+       "path": "/documents/checklist",
+       "words": 13,
+       "template": "page"
+      },
+      {
+       "path": "/guide",
+       "words": 103,
+       "template": "page"
+      },
+      {
+       "path": "/privacy",
+       "words": 279,
+       "template": "legal"
+      },
+      {
+       "path": "/route-finder",
+       "words": 77,
+       "template": "conversion"
+      },
+      {
+       "path": "/terms",
+       "words": 211,
+       "template": "legal"
+      }
+     ],
+     "notInSitemap": [],
+     "sitemapNon200": [],
+     "jsonldParseErrors": [],
+     "noOgImage": [
+      "/documents/checklist"
+     ],
+     "orphans": [],
+     "noBodyInbound": []
+    },
+    "schema": {
+     "types": {
+      "FAQPage": 13,
+      "Organization": 24,
+      "ProfessionalService": 24,
+      "WebSite": 24,
+      "BreadcrumbList": 19,
+      "Service": 3,
+      "CollectionPage": 1,
+      "Article": 11
+     },
+     "homeTypes": [
+      "FAQPage",
+      "Organization",
+      "ProfessionalService",
+      "WebSite"
+     ],
+     "articlesWithBreadcrumb": 11,
+     "articlesWithArticleType": 11,
+     "articles": 11,
+     "pagesWithFaq": 13,
+     "localBusiness": true,
+     "organization": true
+    },
+    "broken": [
+     {
+      "url": "https://paraguayinvestorpass.com/",
+      "status": null,
+      "kind": "sibling",
+      "error": "TypeError | fetch failed | EAI_AGAIN | getaddrinfo EAI_AGAIN paraguayinvestorpas",
+      "fromCount": 24,
+      "from": [
+       "/",
+       "/about",
+       "/contact"
+      ]
+     },
+     {
+      "url": "https://paraguayresidency.co.uk/",
+      "status": null,
+      "kind": "sibling",
+      "error": "TypeError | fetch failed | EAI_AGAIN | getaddrinfo EAI_AGAIN paraguayresidency.c",
+      "fromCount": 24,
+      "from": [
+       "/",
+       "/about",
+       "/contact"
+      ]
+     },
+     {
+      "url": "https://paraguayresidency.co.uk/residency/temporary-residency",
+      "status": null,
+      "kind": "sibling",
+      "error": "TypeError | fetch failed | EAI_AGAIN | getaddrinfo EAI_AGAIN paraguayresidency.c",
+      "fromCount": 1,
+      "from": [
+       "/routes"
+      ]
+     },
+     {
+      "url": "https://paraguayresidency.co.uk/residency/permanent-residency",
+      "status": null,
+      "kind": "sibling",
+      "error": "TypeError | fetch failed | EAI_AGAIN | getaddrinfo EAI_AGAIN paraguayresidency.c",
+      "fromCount": 1,
+      "from": [
+       "/routes"
+      ]
+     }
+    ],
+    "redirects": [],
+    "linksChecked": 35,
+    "axe": {
+     "violationsByImpact": {
+      "critical": 0,
+      "serious": 2,
+      "moderate": 0,
+      "minor": 0
+     },
+     "nodesByImpact": {
+      "critical": 0,
+      "serious": 2,
+      "moderate": 0,
+      "minor": 0
+     },
+     "rules": [
+      {
+       "id": "document-title",
+       "impact": "serious",
+       "pages": 1,
+       "nodes": 1,
+       "help": "Documents must have <title> element to aid in navigation",
+       "sample": "#__next_error__",
+       "samplePath": "/documents/checklist"
+      },
+      {
+       "id": "html-has-lang",
+       "impact": "serious",
+       "pages": 1,
+       "nodes": 1,
+       "help": "<html> element must have a lang attribute",
+       "sample": "#__next_error__",
+       "samplePath": "/documents/checklist"
+      }
+     ]
+    },
+    "console": {
+     "pages": 1,
+     "top": [
+      [
+       "pageerror: Unknown encoding: base64url",
+       1
+      ]
+     ]
+    },
+    "badSubresources": [],
+    "whatsapp": {
+     "pagesWithLink": 0,
+     "of": 25,
+     "numbers": [],
+     "texts": [],
+     "fabPages": 0
+    },
+    "leadForms": {
+     "pagesWithLeadForm": 4,
+     "newsletterPages": 0,
+     "of": 25
+    },
+    "wordsMedian": 625,
+    "shots": 16
+   },
+   "local": {
+    "reachable": true,
+    "health": {
+     "ok": true,
+     "degraded": true,
+     "site": "frontier",
+     "host": "frontier.localhost:3100",
+     "db": "down",
+     "secret": "weak",
+     "email": "console",
+     "crm": "off",
+     "time": "2026-09-28T19:47:27.494Z"
+    },
+    "sitemap": {
+     "status": 200,
+     "count": 25,
+     "hosts": [
+      "paraguayfrontier.com"
+     ]
+    },
+    "crawled": 25,
+    "fromSitemapUnion": 25,
+    "discovered": 0,
+    "discoveredNotCrawled": 0,
+    "statuses": {
+     "200": 25
+    },
+    "errored": [],
+    "indexable": 25,
+    "issues": {
+     "missingTitle": [
+      "/documents/checklist"
+     ],
+     "longTitle": [],
+     "shortTitle": [],
+     "dupTitle": [],
+     "missingDesc": [
+      "/documents/checklist"
+     ],
+     "longDesc": [],
+     "shortDesc": [],
+     "dupDesc": [],
+     "h1Missing": [],
+     "h1Multiple": [],
+     "canonicalMissing": [
+      "/documents/checklist"
+     ],
+     "canonicalWrong": [],
+     "noindexInSitemap": [],
+     "noindexPages": [],
+     "wrongLang": [
+      {
+       "path": "/documents/checklist",
+       "lang": null
+      }
+     ],
+     "thin": [
+      {
+       "path": "/about",
+       "words": 224,
+       "template": "page"
+      },
+      {
+       "path": "/contact",
+       "words": 107,
+       "template": "conversion"
+      },
+      {
+       "path": "/documents/checklist",
+       "words": 13,
+       "template": "page"
+      },
+      {
+       "path": "/guide",
+       "words": 103,
+       "template": "page"
+      },
+      {
+       "path": "/privacy",
+       "words": 279,
+       "template": "legal"
+      },
+      {
+       "path": "/route-finder",
+       "words": 77,
+       "template": "conversion"
+      },
+      {
+       "path": "/terms",
+       "words": 211,
+       "template": "legal"
+      }
+     ],
+     "notInSitemap": [],
+     "sitemapNon200": [],
+     "jsonldParseErrors": [],
+     "noOgImage": [
+      "/documents/checklist"
+     ],
+     "orphans": [],
+     "noBodyInbound": []
+    },
+    "schema": {
+     "types": {
+      "FAQPage": 13,
+      "Organization": 24,
+      "ProfessionalService": 24,
+      "WebSite": 24,
+      "BreadcrumbList": 19,
+      "Service": 3,
+      "CollectionPage": 1,
+      "Article": 11
+     },
+     "homeTypes": [
+      "FAQPage",
+      "Organization",
+      "ProfessionalService",
+      "WebSite"
+     ],
+     "articlesWithBreadcrumb": 11,
+     "articlesWithArticleType": 11,
+     "articles": 11,
+     "pagesWithFaq": 13,
+     "localBusiness": true,
+     "organization": true
+    },
+    "broken": [
+     {
+      "url": "https://paraguayinvestorpass.com/",
+      "status": null,
+      "kind": "sibling",
+      "error": "TypeError | fetch failed | EAI_AGAIN | getaddrinfo EAI_AGAIN paraguayinvestorpas",
+      "fromCount": 24,
+      "from": [
+       "/",
+       "/about",
+       "/contact"
+      ]
+     },
+     {
+      "url": "https://paraguayresidency.co.uk/",
+      "status": null,
+      "kind": "sibling",
+      "error": "TypeError | fetch failed | EAI_AGAIN | getaddrinfo EAI_AGAIN paraguayresidency.c",
+      "fromCount": 24,
+      "from": [
+       "/",
+       "/about",
+       "/contact"
+      ]
+     },
+     {
+      "url": "https://paraguayresidency.co.uk/residency/temporary-residency",
+      "status": null,
+      "kind": "sibling",
+      "error": "TypeError | fetch failed | EAI_AGAIN | getaddrinfo EAI_AGAIN paraguayresidency.c",
+      "fromCount": 1,
+      "from": [
+       "/routes"
+      ]
+     },
+     {
+      "url": "https://paraguayresidency.co.uk/residency/permanent-residency",
+      "status": null,
+      "kind": "sibling",
+      "error": "TypeError | fetch failed | EAI_AGAIN | getaddrinfo EAI_AGAIN paraguayresidency.c",
+      "fromCount": 1,
+      "from": [
+       "/routes"
+      ]
+     }
+    ],
+    "redirects": [],
+    "linksChecked": 35,
+    "axe": {
+     "violationsByImpact": {
+      "critical": 0,
+      "serious": 26,
+      "moderate": 0,
+      "minor": 0
+     },
+     "nodesByImpact": {
+      "critical": 0,
+      "serious": 39,
+      "moderate": 0,
+      "minor": 0
+     },
+     "rules": [
+      {
+       "id": "color-contrast",
+       "impact": "serious",
+       "pages": 24,
+       "nodes": 37,
+       "help": "Elements must meet minimum color contrast ratio thresholds",
+       "sample": "a[data-placement=\"inline\"]",
+       "samplePath": "/"
+      },
+      {
+       "id": "document-title",
+       "impact": "serious",
+       "pages": 1,
+       "nodes": 1,
+       "help": "Documents must have <title> element to aid in navigation",
+       "sample": "#__next_error__",
+       "samplePath": "/documents/checklist"
+      },
+      {
+       "id": "html-has-lang",
+       "impact": "serious",
+       "pages": 1,
+       "nodes": 1,
+       "help": "<html> element must have a lang attribute",
+       "sample": "#__next_error__",
+       "samplePath": "/documents/checklist"
+      }
+     ]
+    },
+    "console": {
+     "pages": 1,
+     "top": [
+      [
+       "pageerror: Unknown encoding: base64url",
+       1
+      ]
+     ]
+    },
+    "badSubresources": [],
+    "whatsapp": {
+     "pagesWithLink": 24,
+     "of": 25,
+     "numbers": [
+      "…0000"
+     ],
+     "texts": [
+      "Hi — I have a question about a second residency in Paraguay.",
+      "Hi, I have a question about Paraguay residency."
+     ],
+     "fabPages": 24
+    },
+    "leadForms": {
+     "pagesWithLeadForm": 4,
+     "newsletterPages": 0,
+     "of": 25
+    },
+    "wordsMedian": 631,
+    "shots": 16
+   },
+   "diff": {
+    "onlyLiveSitemap": [],
+    "onlyLocalSitemap": [],
+    "statusDiff": [],
+    "titleDiff": [],
+    "h1Diff": [],
+    "descDiff": 0,
+    "wordDelta": [],
+    "compared": 25
+   }
+  },
+  "residenciaes": {
+   "domain": "residenciaenparaguay.es",
+   "live": {
+    "reachable": true,
+    "health": {
+     "ok": true,
+     "degraded": true,
+     "site": "residenciaes",
+     "host": "residenciaenparaguay.es",
+     "db": "ok",
+     "secret": "ok",
+     "email": "console",
+     "crm": "off",
+     "time": "2026-09-28T19:48:54.998Z"
+    },
+    "sitemap": {
+     "status": 200,
+     "count": 46,
+     "hosts": [
+      "residenciaenparaguay.es"
+     ]
+    },
+    "crawled": 47,
+    "fromSitemapUnion": 46,
+    "discovered": 1,
+    "discoveredNotCrawled": 0,
+    "statuses": {
+     "200": 47
+    },
+    "errored": [],
+    "indexable": 46,
+    "issues": {
+     "missingTitle": [
+      "/",
+      "/documentos/lista",
+      "/familia",
+      "/nosotros"
+     ],
+     "longTitle": [
+      {
+       "path": "/precios",
+       "len": 72,
+       "title": "Precios de la Residencia en Paraguay — Honorarios Fijos, Cotizados Antes"
+      },
+      {
+       "path": "/residencia/permanente",
+       "len": 63,
+       "title": "Residencia Permanente en Paraguay — La Cédula de Larga Duración"
+      }
+     ],
+     "shortTitle": [],
+     "dupTitle": [
+      {
+       "title": "",
+       "n": 4,
+       "paths": [
+        "/",
+        "/documentos/lista",
+        "/familia",
+        "/nosotros"
+       ]
+      }
+     ],
+     "missingDesc": [
+      "/",
+      "/documentos/lista",
+      "/familia",
+      "/nosotros"
+     ],
+     "longDesc": [
+      {
+       "path": "/precios",
+       "len": 197
+      }
+     ],
+     "shortDesc": [],
+     "dupDesc": [],
+     "h1Missing": [],
+     "h1Multiple": [],
+     "canonicalMissing": [
+      "/",
+      "/documentos/lista",
+      "/familia",
+      "/nosotros"
+     ],
+     "canonicalWrong": [],
+     "noindexInSitemap": [],
+     "noindexPages": [
+      "/pase-inversor"
+     ],
+     "wrongLang": [
+      {
+       "path": "/",
+       "lang": null
+      },
+      {
+       "path": "/documentos/lista",
+       "lang": null
+      },
+      {
+       "path": "/familia",
+       "lang": null
+      },
+      {
+       "path": "/nosotros",
+       "lang": null
+      }
+     ],
+     "thin": [
+      {
+       "path": "/",
+       "words": 13,
+       "template": "home"
+      },
+      {
+       "path": "/contact",
+       "words": 90,
+       "template": "conversion"
+      },
+      {
+       "path": "/documentos/lista",
+       "words": 13,
+       "template": "page"
+      },
+      {
+       "path": "/familia",
+       "words": 13,
+       "template": "page"
+      },
+      {
+       "path": "/guias",
+       "words": 34,
+       "template": "page"
+      },
+      {
+       "path": "/guias/comparativas",
+       "words": 227,
+       "template": "article"
+      },
+      {
+       "path": "/guias/impuestos",
+       "words": 164,
+       "template": "article"
+      },
+      {
+       "path": "/guias/vivir-en-paraguay",
+       "words": 172,
+       "template": "article"
+      },
+      {
+       "path": "/nosotros",
+       "words": 13,
+       "template": "page"
+      },
+      {
+       "path": "/privacy",
+       "words": 279,
+       "template": "legal"
+      },
+      {
+       "path": "/route-finder",
+       "words": 79,
+       "template": "conversion"
+      },
+      {
+       "path": "/terms",
+       "words": 226,
+       "template": "legal"
+      }
+     ],
+     "notInSitemap": [
+      {
+       "path": "/pase-inversor",
+       "status": 200,
+       "noindex": true,
+       "source": "discovered"
+      }
+     ],
+     "sitemapNon200": [],
+     "jsonldParseErrors": [],
+     "noOgImage": [
+      "/",
+      "/documentos/lista",
+      "/familia",
+      "/nosotros"
+     ],
+     "orphans": [],
+     "noBodyInbound": []
+    },
+    "schema": {
+     "types": {
+      "Organization": 43,
+      "ProfessionalService": 42,
+      "WebSite": 42,
+      "BreadcrumbList": 39,
+      "CollectionPage": 5,
+      "FAQPage": 31,
+      "Article": 26,
+      "Service": 4
+     },
+     "homeTypes": [],
+     "articlesWithBreadcrumb": 30,
+     "articlesWithArticleType": 26,
+     "articles": 30,
+     "pagesWithFaq": 31,
+     "localBusiness": true,
+     "organization": true
+    },
+    "broken": [
+     {
+      "url": "https://paraguayresidency.co.uk/",
+      "status": null,
+      "kind": "sibling",
+      "error": "TypeError | fetch failed | EAI_AGAIN | getaddrinfo EAI_AGAIN paraguayresidency.c",
+      "fromCount": 43,
+      "from": [
+       "/contact",
+       "/guias",
+       "/guias/comparativas"
+      ]
+     },
+     {
+      "url": "https://paraguayinvestorpass.com/",
+      "status": null,
+      "kind": "sibling",
+      "error": "TypeError | fetch failed | EAI_AGAIN | getaddrinfo EAI_AGAIN paraguayinvestorpas",
+      "fromCount": 43,
+      "from": [
+       "/contact",
+       "/guias",
+       "/guias/comparativas"
+      ]
+     }
+    ],
+    "redirects": [],
+    "linksChecked": 49,
+    "axe": {
+     "violationsByImpact": {
+      "critical": 0,
+      "serious": 9,
+      "moderate": 0,
+      "minor": 0
+     },
+     "nodesByImpact": {
+      "critical": 0,
+      "serious": 31,
+      "moderate": 0,
+      "minor": 0
+     },
+     "rules": [
+      {
+       "id": "document-title",
+       "impact": "serious",
+       "pages": 4,
+       "nodes": 4,
+       "help": "Documents must have <title> element to aid in navigation",
+       "sample": "#__next_error__",
+       "samplePath": "/"
+      },
+      {
+       "id": "html-has-lang",
+       "impact": "serious",
+       "pages": 4,
+       "nodes": 4,
+       "help": "<html> element must have a lang attribute",
+       "sample": "#__next_error__",
+       "samplePath": "/"
+      },
+      {
+       "id": "target-size",
+       "impact": "serious",
+       "pages": 1,
+       "nodes": 23,
+       "help": "All touch targets must be 24px large, or leave sufficient space",
+       "sample": ".sr-only",
+       "samplePath": "/residencia/cedula"
+      }
+     ]
+    },
+    "console": {
+     "pages": 5,
+     "top": [
+      [
+       "Failed to load resource: the server responded with a status of 404 ()",
+       17
+      ],
+      [
+       "Refused to execute script from '<url> because its MIME type ('text/plain') is not executable, and strict MIME type checking is enabled.",
+       13
+      ],
+      [
+       "Refused to apply style from '<url> because its MIME type ('text/plain') is not a supported stylesheet MIME type, and strict MIME checking is",
+       4
+      ],
+      [
+       "pageerror: Failed to load chunk /_next/static/chunks/1f2pjn91fe2m-.js from module 64893",
+       2
+      ],
+      [
+       "pageerror: Failed to load chunk /_next/static/chunks/2358rfplipud8.js from module 64893",
+       1
+      ],
+      [
+       "pageerror: Unknown encoding: base64url",
+       1
+      ]
+     ]
+    },
+    "badSubresources": [
+     [
+      "404 script https://residenciaenparaguay.es/_next/static/chunks/2358rfplipud8.js",
+      7
+     ],
+     [
+      "404 script https://residenciaenparaguay.es/_next/static/chunks/1f2pjn91fe2m-.js",
+      6
+     ],
+     [
+      "404 xhr https://residenciaenparaguay.es/_next/static/chunks/38ug1q3c-tgpv.css",
+      4
+     ]
+    ],
+    "whatsapp": {
+     "pagesWithLink": 0,
+     "of": 47,
+     "numbers": [],
+     "texts": [],
+     "fabPages": 0
+    },
+    "leadForms": {
+     "pagesWithLeadForm": 7,
+     "newsletterPages": 0,
+     "of": 47
+    },
+    "wordsMedian": 1249,
+    "shots": 16
+   },
+   "local": {
+    "reachable": true,
+    "health": {
+     "ok": true,
+     "degraded": true,
+     "site": "residenciaes",
+     "host": "residenciaes.localhost:3100",
+     "db": "down",
+     "secret": "weak",
+     "email": "console",
+     "crm": "off",
+     "time": "2026-09-28T19:49:57.950Z"
+    },
+    "sitemap": {
+     "status": 200,
+     "count": 46,
+     "hosts": [
+      "residenciaenparaguay.es"
+     ]
+    },
+    "crawled": 47,
+    "fromSitemapUnion": 46,
+    "discovered": 1,
+    "discoveredNotCrawled": 0,
+    "statuses": {
+     "200": 47
+    },
+    "errored": [],
+    "indexable": 46,
+    "issues": {
+     "missingTitle": [
+      "/documentos/lista"
+     ],
+     "longTitle": [
+      {
+       "path": "/",
+       "len": 69,
+       "title": "Residencia en Paraguay para Españoles — Temporal, Permanente y Cédula"
+      },
+      {
+       "path": "/precios",
+       "len": 72,
+       "title": "Precios de la Residencia en Paraguay — Honorarios Fijos, Cotizados Antes"
+      },
+      {
+       "path": "/residencia/permanente",
+       "len": 63,
+       "title": "Residencia Permanente en Paraguay — La Cédula de Larga Duración"
+      }
+     ],
+     "shortTitle": [],
+     "dupTitle": [],
+     "missingDesc": [
+      "/documentos/lista"
+     ],
+     "longDesc": [
+      {
+       "path": "/precios",
+       "len": 197
+      }
+     ],
+     "shortDesc": [],
+     "dupDesc": [],
+     "h1Missing": [],
+     "h1Multiple": [],
+     "canonicalMissing": [
+      "/documentos/lista"
+     ],
+     "canonicalWrong": [],
+     "noindexInSitemap": [],
+     "noindexPages": [
+      "/pase-inversor"
+     ],
+     "wrongLang": [
+      {
+       "path": "/documentos/lista",
+       "lang": null
+      }
+     ],
+     "thin": [
+      {
+       "path": "/contact",
+       "words": 93,
+       "template": "conversion"
+      },
+      {
+       "path": "/documentos/lista",
+       "words": 13,
+       "template": "page"
+      },
+      {
+       "path": "/guias",
+       "words": 34,
+       "template": "page"
+      },
+      {
+       "path": "/guias/comparativas",
+       "words": 227,
+       "template": "article"
+      },
+      {
+       "path": "/guias/impuestos",
+       "words": 164,
+       "template": "article"
+      },
+      {
+       "path": "/guias/vivir-en-paraguay",
+       "words": 172,
+       "template": "article"
+      },
+      {
+       "path": "/nosotros",
+       "words": 240,
+       "template": "page"
+      },
+      {
+       "path": "/privacy",
+       "words": 279,
+       "template": "legal"
+      },
+      {
+       "path": "/route-finder",
+       "words": 79,
+       "template": "conversion"
+      },
+      {
+       "path": "/terms",
+       "words": 226,
+       "template": "legal"
+      }
+     ],
+     "notInSitemap": [
+      {
+       "path": "/pase-inversor",
+       "status": 200,
+       "noindex": true,
+       "source": "discovered"
+      }
+     ],
+     "sitemapNon200": [],
+     "jsonldParseErrors": [],
+     "noOgImage": [
+      "/documentos/lista"
+     ],
+     "orphans": [],
+     "noBodyInbound": []
+    },
+    "schema": {
+     "types": {
+      "FAQPage": 33,
+      "Organization": 46,
+      "ProfessionalService": 46,
+      "WebSite": 46,
+      "BreadcrumbList": 41,
+      "Service": 5,
+      "CollectionPage": 5,
+      "Article": 26
+     },
+     "homeTypes": [
+      "FAQPage",
+      "Organization",
+      "ProfessionalService",
+      "WebSite"
+     ],
+     "articlesWithBreadcrumb": 30,
+     "articlesWithArticleType": 26,
+     "articles": 30,
+     "pagesWithFaq": 33,
+     "localBusiness": true,
+     "organization": true
+    },
+    "broken": [
+     {
+      "url": "https://paraguayresidency.co.uk/",
+      "status": null,
+      "kind": "sibling",
+      "error": "TypeError | fetch failed | EAI_AGAIN | getaddrinfo EAI_AGAIN paraguayresidency.c",
+      "fromCount": 46,
+      "from": [
+       "/",
+       "/contact",
+       "/familia"
+      ]
+     },
+     {
+      "url": "https://paraguayinvestorpass.com/",
+      "status": null,
+      "kind": "sibling",
+      "error": "TypeError | fetch failed | EAI_AGAIN | getaddrinfo EAI_AGAIN paraguayinvestorpas",
+      "fromCount": 46,
+      "from": [
+       "/",
+       "/contact",
+       "/familia"
+      ]
+     }
+    ],
+    "redirects": [],
+    "linksChecked": 54,
+    "axe": {
+     "violationsByImpact": {
+      "critical": 0,
+      "serious": 48,
+      "moderate": 0,
+      "minor": 0
+     },
+     "nodesByImpact": {
+      "critical": 0,
+      "serious": 76,
+      "moderate": 0,
+      "minor": 0
+     },
+     "rules": [
+      {
+       "id": "color-contrast",
+       "impact": "serious",
+       "pages": 46,
+       "nodes": 74,
+       "help": "Elements must meet minimum color contrast ratio thresholds",
+       "sample": "a[data-placement=\"lead-panel\"]",
+       "samplePath": "/"
+      },
+      {
+       "id": "document-title",
+       "impact": "serious",
+       "pages": 1,
+       "nodes": 1,
+       "help": "Documents must have <title> element to aid in navigation",
+       "sample": "#__next_error__",
+       "samplePath": "/documentos/lista"
+      },
+      {
+       "id": "html-has-lang",
+       "impact": "serious",
+       "pages": 1,
+       "nodes": 1,
+       "help": "<html> element must have a lang attribute",
+       "sample": "#__next_error__",
+       "samplePath": "/documentos/lista"
+      }
+     ]
+    },
+    "console": {
+     "pages": 1,
+     "top": [
+      [
+       "pageerror: Unknown encoding: base64url",
+       1
+      ]
+     ]
+    },
+    "badSubresources": [],
+    "whatsapp": {
+     "pagesWithLink": 46,
+     "of": 47,
+     "numbers": [
+      "…0000"
+     ],
+     "texts": [
+      "Hola, me gustaría saber más sobre la residencia en Paraguay.",
+      "Hola, tengo una pregunta sobre la residencia en Paraguay."
+     ],
+     "fabPages": 46
+    },
+    "leadForms": {
+     "pagesWithLeadForm": 9,
+     "newsletterPages": 0,
+     "of": 47
+    },
+    "wordsMedian": 1255,
+    "shots": 16
+   },
+   "diff": {
+    "onlyLiveSitemap": [],
+    "onlyLocalSitemap": [],
+    "statusDiff": [],
+    "titleDiff": [
+     {
+      "path": "/",
+      "live": "",
+      "local": "Residencia en Paraguay para Españoles — Temporal, Permanente y Cédula"
+     },
+     {
+      "path": "/familia",
+      "live": "",
+      "local": "Residencia en Paraguay para Cónyuges, Hijos y Dependientes"
+     },
+     {
+      "path": "/nosotros",
+      "live": "",
+      "local": "Sobre Residencia Paraguay — Quién Tramita tu Caso"
+     }
+    ],
+    "h1Diff": [
+     {
+      "path": "/",
+      "live": [
+       "This page couldn’t load"
+      ],
+      "local": [
+       "Residencia en Paraguay, sin vueltas."
+      ]
+     },
+     {
+      "path": "/familia",
+      "live": [
+       "This page couldn’t load"
+      ],
+      "local": [
+       "Traer a tu familia contigo"
+      ]
+     },
+     {
+      "path": "/nosotros",
+      "live": [
+       "This page couldn’t load"
+      ],
+      "local": [
+       "Un equipo en Asunción, haciendo esto cada semana"
+      ]
+     }
+    ],
+    "descDiff": 3,
+    "wordDelta": [
+     {
+      "path": "/",
+      "live": 13,
+      "local": 586
+     },
+     {
+      "path": "/familia",
+      "live": 13,
+      "local": 990
+     },
+     {
+      "path": "/nosotros",
+      "live": 13,
+      "local": 240
+     }
+    ],
+    "compared": 47
+   }
+  },
+  "residenciapt": {
+   "domain": "vidanoparaguai.com",
+   "live": {
+    "reachable": false,
+    "reason": "Error | page.goto: net::ERR_NAME_NOT_RESOLVED at https://vidanoparaguai.com/\nCall log:\n\u001b[2m  - navigating to \"https://vidanoparaguai.com/\", waiting until \"load\"\u001b[22m\n",
+    "health": null
+   },
+   "local": {
+    "reachable": true,
+    "health": {
+     "ok": true,
+     "degraded": true,
+     "site": "residenciapt",
+     "host": "residenciapt.localhost:3100",
+     "db": "down",
+     "secret": "weak",
+     "email": "console",
+     "crm": "off",
+     "time": "2026-09-28T19:52:48.335Z"
+    },
+    "sitemap": {
+     "status": 200,
+     "count": 31,
+     "hosts": [
+      "vidanoparaguai.com"
+     ]
+    },
+    "crawled": 32,
+    "fromSitemapUnion": 31,
+    "discovered": 1,
+    "discoveredNotCrawled": 0,
+    "statuses": {
+     "200": 32
+    },
+    "errored": [],
+    "indexable": 31,
+    "issues": {
+     "missingTitle": [
+      "/documentos/lista"
+     ],
+     "longTitle": [],
+     "shortTitle": [],
+     "dupTitle": [],
+     "missingDesc": [
+      "/documentos/lista"
+     ],
+     "longDesc": [],
+     "shortDesc": [],
+     "dupDesc": [],
+     "h1Missing": [],
+     "h1Multiple": [],
+     "canonicalMissing": [
+      "/documentos/lista"
+     ],
+     "canonicalWrong": [],
+     "noindexInSitemap": [],
+     "noindexPages": [
+      "/investor-pass"
+     ],
+     "wrongLang": [
+      {
+       "path": "/documentos/lista",
+       "lang": null
+      }
+     ],
+     "thin": [
+      {
+       "path": "/contact",
+       "words": 100,
+       "template": "conversion"
+      },
+      {
+       "path": "/documentos/lista",
+       "words": 13,
+       "template": "page"
+      },
+      {
+       "path": "/guias",
+       "words": 34,
+       "template": "page"
+      },
+      {
+       "path": "/guias/comparativos",
+       "words": 81,
+       "template": "article"
+      },
+      {
+       "path": "/guias/documentos",
+       "words": 114,
+       "template": "article"
+      },
+      {
+       "path": "/guias/impostos",
+       "words": 42,
+       "template": "article"
+      },
+      {
+       "path": "/guias/morar-no-paraguai",
+       "words": 176,
+       "template": "article"
+      },
+      {
+       "path": "/privacy",
+       "words": 276,
+       "template": "legal"
+      },
+      {
+       "path": "/route-finder",
+       "words": 80,
+       "template": "conversion"
+      },
+      {
+       "path": "/sobre",
+       "words": 270,
+       "template": "page"
+      },
+      {
+       "path": "/terms",
+       "words": 234,
+       "template": "legal"
+      }
+     ],
+     "notInSitemap": [
+      {
+       "path": "/investor-pass",
+       "status": 200,
+       "noindex": true,
+       "source": "discovered"
+      }
+     ],
+     "sitemapNon200": [],
+     "jsonldParseErrors": [],
+     "noOgImage": [
+      "/documentos/lista"
+     ],
+     "orphans": [],
+     "noBodyInbound": []
+    },
+    "schema": {
+     "types": {
+      "FAQPage": 17,
+      "Organization": 31,
+      "ProfessionalService": 31,
+      "WebSite": 31,
+      "BreadcrumbList": 26,
+      "Service": 6,
+      "CollectionPage": 5,
+      "Article": 10
+     },
+     "homeTypes": [
+      "FAQPage",
+      "Organization",
+      "ProfessionalService",
+      "WebSite"
+     ],
+     "articlesWithBreadcrumb": 14,
+     "articlesWithArticleType": 10,
+     "articles": 14,
+     "pagesWithFaq": 17,
+     "localBusiness": true,
+     "organization": true
+    },
+    "broken": [
+     {
+      "url": "https://paraguayresidency.co.uk/",
+      "status": null,
+      "kind": "sibling",
+      "error": "TypeError | fetch failed | EAI_AGAIN | getaddrinfo EAI_AGAIN paraguayresidency.c",
+      "fromCount": 31,
+      "from": [
+       "/",
+       "/contact",
+       "/custo-de-vida"
+      ]
+     },
+     {
+      "url": "https://paraguayinvestorpass.com/",
+      "status": null,
+      "kind": "sibling",
+      "error": "TypeError | fetch failed | EAI_AGAIN | getaddrinfo EAI_AGAIN paraguayinvestorpas",
+      "fromCount": 31,
+      "from": [
+       "/",
+       "/contact",
+       "/custo-de-vida"
+      ]
+     }
+    ],
+    "redirects": [],
+    "linksChecked": 39,
+    "axe": {
+     "violationsByImpact": {
+      "critical": 0,
+      "serious": 33,
+      "moderate": 0,
+      "minor": 0
+     },
+     "nodesByImpact": {
+      "critical": 0,
+      "serious": 45,
+      "moderate": 0,
+      "minor": 0
+     },
+     "rules": [
+      {
+       "id": "color-contrast",
+       "impact": "serious",
+       "pages": 31,
+       "nodes": 43,
+       "help": "Elements must meet minimum color contrast ratio thresholds",
+       "sample": "a[data-placement=\"lead-panel\"]",
+       "samplePath": "/"
+      },
+      {
+       "id": "document-title",
+       "impact": "serious",
+       "pages": 1,
+       "nodes": 1,
+       "help": "Documents must have <title> element to aid in navigation",
+       "sample": "#__next_error__",
+       "samplePath": "/documentos/lista"
+      },
+      {
+       "id": "html-has-lang",
+       "impact": "serious",
+       "pages": 1,
+       "nodes": 1,
+       "help": "<html> element must have a lang attribute",
+       "sample": "#__next_error__",
+       "samplePath": "/documentos/lista"
+      }
+     ]
+    },
+    "console": {
+     "pages": 1,
+     "top": [
+      [
+       "pageerror: Unknown encoding: base64url",
+       1
+      ]
+     ]
+    },
+    "badSubresources": [],
+    "whatsapp": {
+     "pagesWithLink": 31,
+     "of": 32,
+     "numbers": [
+      "…0000"
+     ],
+     "texts": [
+      "Olá, tenho uma dúvida sobre residência no Paraguai.",
+      "Olá — tenho uma dúvida sobre residência no Paraguai.",
+      "Olá — tenho uma dúvida sobre residência familiar no paraguai.",
+      "Olá — tenho uma dúvida sobre rota mercosul para residência no paraguai.",
+      "Olá — tenho uma dúvida sobre residência fiscal e ruc no paraguai.",
+      "Olá — tenho uma dúvida sobre pedido de cédula paraguaia."
+     ],
+     "fabPages": 31
+    },
+    "leadForms": {
+     "pagesWithLeadForm": 10,
+     "newsletterPages": 0,
+     "of": 32
+    },
+    "wordsMedian": 677,
+    "shots": 16
+   },
+   "diff": null
+  },
+  "flytta": {
+   "domain": "flyttatillparaguay.se",
+   "live": {
+    "reachable": false,
+    "reason": "Error | page.goto: net::ERR_NAME_NOT_RESOLVED at https://flyttatillparaguay.se/\nCall log:\n\u001b[2m  - navigating to \"https://flyttatillparaguay.se/\", waiting until \"load\"\u001b[22m\n",
+    "health": null
+   },
+   "local": {
+    "reachable": true,
+    "health": {
+     "ok": true,
+     "degraded": true,
+     "site": "flytta",
+     "host": "flytta.localhost:3100",
+     "db": "down",
+     "secret": "weak",
+     "email": "console",
+     "crm": "off",
+     "time": "2026-09-28T19:55:39.664Z"
+    },
+    "sitemap": {
+     "status": 200,
+     "count": 55,
+     "hosts": [
+      "flyttatillparaguay.se"
+     ]
+    },
+    "crawled": 55,
+    "fromSitemapUnion": 55,
+    "discovered": 0,
+    "discoveredNotCrawled": 0,
+    "statuses": {
+     "200": 55
+    },
+    "errored": [],
+    "indexable": 55,
+    "issues": {
+     "missingTitle": [],
+     "longTitle": [
+      {
+       "path": "/guide",
+       "len": 64,
+       "title": "Inte redo att höra av dig än? Läs Paraguay Residency Guide först"
+      },
+      {
+       "path": "/process",
+       "len": 67,
+       "title": "Så går processen till — uppehållstillstånd i Paraguay steg för steg"
+      },
+      {
+       "path": "/route-finder",
+       "len": 66,
+       "title": "Hitta din väg — vilket paraguayanskt uppehållstillstånd passar dig"
+      },
+      {
+       "path": "/skatt",
+       "len": 73,
+       "title": "Skatt i Paraguay för svenskar — territoriell skatt och svensk utflyttning"
+      },
+      {
+       "path": "/uppehallstillstand",
+       "len": 72,
+       "title": "Uppehållstillstånd i Paraguay — tillfälligt, permanent och Investor Pass"
+      }
+     ],
+     "shortTitle": [
+      {
+       "path": "/guider/vad-du-inte-flyr-ifran",
+       "len": 22,
+       "title": "Vad du inte flyr ifrån"
+      }
+     ],
+     "dupTitle": [],
+     "missingDesc": [],
+     "longDesc": [],
+     "shortDesc": [],
+     "dupDesc": [],
+     "h1Missing": [],
+     "h1Multiple": [],
+     "canonicalMissing": [],
+     "canonicalWrong": [],
+     "noindexInSitemap": [],
+     "noindexPages": [],
+     "wrongLang": [],
+     "thin": [
+      {
+       "path": "/contact",
+       "words": 92,
+       "template": "conversion"
+      },
+      {
+       "path": "/guide",
+       "words": 64,
+       "template": "page"
+      },
+      {
+       "path": "/privacy",
+       "words": 268,
+       "template": "legal"
+      },
+      {
+       "path": "/route-finder",
+       "words": 67,
+       "template": "conversion"
+      },
+      {
+       "path": "/stader",
+       "words": 236,
+       "template": "page"
+      },
+      {
+       "path": "/terms",
+       "words": 201,
+       "template": "legal"
+      }
+     ],
+     "notInSitemap": [],
+     "sitemapNon200": [],
+     "jsonldParseErrors": [],
+     "noOgImage": [],
+     "orphans": [
+      "/guide"
+     ],
+     "noBodyInbound": []
+    },
+    "schema": {
+     "types": {
+      "FAQPage": 45,
+      "Organization": 55,
+      "ProfessionalService": 55,
+      "WebSite": 55,
+      "BreadcrumbList": 50,
+      "Service": 4,
+      "CollectionPage": 2,
+      "Article": 40
+     },
+     "homeTypes": [
+      "FAQPage",
+      "Organization",
+      "ProfessionalService",
+      "WebSite"
+     ],
+     "articlesWithBreadcrumb": 40,
+     "articlesWithArticleType": 40,
+     "articles": 40,
+     "pagesWithFaq": 45,
+     "localBusiness": true,
+     "organization": true
+    },
+    "broken": [
+     {
+      "url": "https://paraguayinvestorpass.com/",
+      "status": null,
+      "kind": "sibling",
+      "error": "TypeError | fetch failed | EAI_AGAIN | getaddrinfo EAI_AGAIN paraguayinvestorpas",
+      "fromCount": 2,
+      "from": [
+       "/",
+       "/uppehallstillstand"
+      ]
+     },
+     {
+      "url": "https://paraguayresidency.co.uk/",
+      "status": null,
+      "kind": "sibling",
+      "error": "TypeError | fetch failed | EAI_AGAIN | getaddrinfo EAI_AGAIN paraguayresidency.c",
+      "fromCount": 55,
+      "from": [
+       "/",
+       "/contact",
+       "/familj"
+      ]
+     }
+    ],
+    "redirects": [],
+    "linksChecked": 64,
+    "axe": {
+     "violationsByImpact": {
+      "critical": 0,
+      "serious": 55,
+      "moderate": 0,
+      "minor": 0
+     },
+     "nodesByImpact": {
+      "critical": 0,
+      "serious": 97,
+      "moderate": 0,
+      "minor": 0
+     },
+     "rules": [
+      {
+       "id": "color-contrast",
+       "impact": "serious",
+       "pages": 55,
+       "nodes": 97,
+       "help": "Elements must meet minimum color contrast ratio thresholds",
+       "sample": "a[data-placement=\"lead-panel\"]",
+       "samplePath": "/"
+      }
+     ]
+    },
+    "console": {
+     "pages": 0,
+     "top": []
+    },
+    "badSubresources": [],
+    "whatsapp": {
+     "pagesWithLink": 55,
+     "of": 55,
+     "numbers": [
+      "…0000"
+     ],
+     "texts": [
+      "Hej! Jag har en fråga om att flytta till Paraguay.",
+      "Hej! Jag har en fråga om familjeansökan för uppehållstillstånd i paraguay.",
+      "Hej! Jag har en fråga om kostnadsgenomgång inför flytt till paraguay.",
+      "Hej! Jag har en fråga om skatterättslig vägledning inför flytt till paraguay.",
+      "Hej! Jag har en fråga om uppehållstillstånd i paraguay.",
+      "Hej! Jag läste er historia och vill veta mer om att flytta till Paraguay."
+     ],
+     "fabPages": 55
+    },
+    "leadForms": {
+     "pagesWithLeadForm": 7,
+     "newsletterPages": 0,
+     "of": 55
+    },
+    "wordsMedian": 1102,
+    "shots": 14
+   },
+   "diff": null
+  }
+ },
+ "crossBrandDuplicateTitles": [],
+ "lighthouse": [
+  {
+   "brand": "residency",
+   "kind": "home",
+   "url": "https://paraguayresidency.co.uk/",
+   "run": false,
+   "reason": "DNS: paraguayresidency.co.uk does not resolve"
+  },
+  {
+   "brand": "residency",
+   "kind": "article",
+   "url": "https://paraguayresidency.co.uk/guides/documents/apostille-uk-documents-for-paraguay",
+   "run": false,
+   "reason": "DNS: paraguayresidency.co.uk does not resolve"
+  },
+  {
+   "brand": "investorpass",
+   "kind": "home",
+   "url": "https://paraguayinvestorpass.com/",
+   "run": false,
+   "reason": "DNS: paraguayinvestorpass.com does not resolve"
+  },
+  {
+   "brand": "investorpass",
+   "kind": "article",
+   "url": "https://paraguayinvestorpass.com/insights/what-the-investor-pass-is",
+   "run": false,
+   "reason": "DNS: paraguayinvestorpass.com does not resolve"
+  },
+  {
+   "brand": "guide",
+   "kind": "home",
+   "url": "https://paraguayresidencyguide.com/",
+   "run": true,
+   "finalUrl": "https://paraguayresidencyguide.com/",
+   "performance": 53,
+   "accessibility": 96,
+   "seo": 100,
+   "bestPractices": 100,
+   "lcpMs": 5856,
+   "tbtMs": 901,
+   "cls": 0,
+   "fcpMs": 1855,
+   "lcpElement": {
+    "selector": "div > main#main > section.relative > img.absolute",
+    "snippet": "<img src=\"https://paraguayresidencyguide.com/images/arrival/guide-hero-reading-terra…\" srcset=\"/images/arrival/guide-hero-reading-terrace-asuncion-1200.webp 1200w, /imag…\" sizes=\"100vw\" width=\"2400\" h",
+    "label": "Woman reading a printed guide on a terrace under jacaranda trees in Asunción"
+   },
+   "lcpBreakdown": {
+    "timeToFirstByte": 362,
+    "resourceLoadDelay": 154,
+    "resourceLoadDuration": 151,
+    "elementRenderDelay": 2183
+   },
+   "runWarnings": [
+    "The tested device appears to have a slower CPU than  Lighthouse expects. This can negatively affect your performance score. Learn more about [calibrating an appropriate CPU slowdown multiplier](https://github.com/GoogleChrome/lighthouse/blob/main/docs/throttling.md#cpu-throttling)."
+   ],
+   "runtimeError": null,
+   "note": null,
+   "fetchTime": "2026-09-28T20:20:50.784Z",
+   "lighthouseVersion": "13.5.0"
+  },
+  {
+   "brand": "guide",
+   "kind": "article",
+   "url": "https://paraguayresidencyguide.com/blog/paraguay-residency-cost",
+   "run": true,
+   "finalUrl": "https://paraguayresidencyguide.com/blog/paraguay-residency-cost",
+   "performance": 99,
+   "accessibility": 100,
+   "seo": 100,
+   "bestPractices": 100,
+   "lcpMs": 1718,
+   "tbtMs": 100,
+   "cls": 0,
+   "fcpMs": 1118,
+   "lcpElement": {
+    "selector": "div.mx-auto > div.mx-auto > header.mt-[var(--space-8)] > h1.font-[family-name:var(--display-font)]",
+    "snippet": "<h1 class=\"font-[family-name:var(--display-font)] leading-[var(--leading-tight)] text…\">",
+    "label": "How much does Paraguay residency cost in 2026?"
+   },
+   "lcpBreakdown": {
+    "timeToFirstByte": 197,
+    "elementRenderDelay": 622
+   },
+   "runWarnings": [],
+   "runtimeError": null,
+   "note": null,
+   "fetchTime": "2026-09-28T20:22:55.207Z",
+   "lighthouseVersion": "13.5.0"
+  },
+  {
+   "brand": "frontier",
+   "kind": "home",
+   "url": "https://paraguayfrontier.com/",
+   "run": true,
+   "finalUrl": "https://paraguayfrontier.com/",
+   "performance": 81,
+   "accessibility": 100,
+   "seo": 100,
+   "bestPractices": 100,
+   "lcpMs": 4864,
+   "tbtMs": 101,
+   "cls": 0,
+   "fcpMs": 1097,
+   "lcpElement": {
+    "selector": "div > main#main > section.relative > img.absolute",
+    "snippet": "<img src=\"https://paraguayfrontier.com/images/arrival/frontier-hero-red-earth-road-1…\" srcset=\"/images/arrival/frontier-hero-red-earth-road-1200.webp 1200w, /images/arri…\" sizes=\"100vw\" width=\"2400\" h",
+    "label": "Red-earth road through green countryside in rural Paraguay at golden hour"
+   },
+   "lcpBreakdown": {
+    "timeToFirstByte": 378,
+    "resourceLoadDelay": 9,
+    "resourceLoadDuration": 123,
+    "elementRenderDelay": 708
+   },
+   "runWarnings": [
+    "The tested device appears to have a slower CPU than  Lighthouse expects. This can negatively affect your performance score. Learn more about [calibrating an appropriate CPU slowdown multiplier](https://github.com/GoogleChrome/lighthouse/blob/main/docs/throttling.md#cpu-throttling)."
+   ],
+   "runtimeError": null,
+   "note": null,
+   "fetchTime": "2026-09-28T20:23:25.074Z",
+   "lighthouseVersion": "13.5.0"
+  },
+  {
+   "brand": "frontier",
+   "kind": "article",
+   "url": "https://paraguayfrontier.com/stories/american-first-90-days",
+   "run": true,
+   "finalUrl": "https://paraguayfrontier.com/stories/american-first-90-days",
+   "performance": 87,
+   "accessibility": 100,
+   "seo": 100,
+   "bestPractices": 100,
+   "lcpMs": 3610,
+   "tbtMs": 181,
+   "cls": 0,
+   "fcpMs": 1138,
+   "lcpElement": {
+    "selector": "div.mx-auto > div.mx-auto > header.mt-[var(--space-8)] > p.mt-[var(--space-4)]",
+    "snippet": "<p class=\"mt-[var(--space-4)] text-(length:--text-lg) text-[var(--fg-muted)]\">",
+    "label": "What actually happens in the early stages of a US citizen's Paraguay residency …"
+   },
+   "lcpBreakdown": {
+    "timeToFirstByte": 215,
+    "elementRenderDelay": 776
+   },
+   "runWarnings": [],
+   "runtimeError": null,
+   "note": null,
+   "fetchTime": "2026-09-28T20:23:58.980Z",
+   "lighthouseVersion": "13.5.0"
+  },
+  {
+   "brand": "residenciaes",
+   "kind": "home",
+   "url": "https://residenciaenparaguay.es/",
+   "run": true,
+   "finalUrl": "https://residenciaenparaguay.es/",
+   "performance": 88,
+   "accessibility": 96,
+   "seo": 100,
+   "bestPractices": 96,
+   "lcpMs": 2868,
+   "tbtMs": 311,
+   "cls": 0,
+   "fcpMs": 1176,
+   "lcpElement": {
+    "selector": "div.mx-auto > div.mx-auto > ul.mt-[var(--space-6)] > li",
+    "snippet": "<li>",
+    "label": "Para nacionales del Mercosur, la vía de residencia es la siguiente: la nacional…"
+   },
+   "lcpBreakdown": {
+    "timeToFirstByte": 204,
+    "elementRenderDelay": 1013
+   },
+   "runWarnings": [
+    "The tested device appears to have a slower CPU than  Lighthouse expects. This can negatively affect your performance score. Learn more about [calibrating an appropriate CPU slowdown multiplier](https://github.com/GoogleChrome/lighthouse/blob/main/docs/throttling.md#cpu-throttling)."
+   ],
+   "runtimeError": null,
+   "note": null,
+   "fetchTime": "2026-09-28T20:24:36.770Z",
+   "lighthouseVersion": "13.5.0"
+  },
+  {
+   "brand": "residenciaes",
+   "kind": "article",
+   "url": "https://residenciaenparaguay.es/guias/documentos/como-obtener-la-residencia-en-paraguay-paso-a-paso",
+   "run": true,
+   "finalUrl": "https://residenciaenparaguay.es/guias/documentos/como-obtener-la-residencia-en-paraguay-paso-a-paso",
+   "performance": 73,
+   "accessibility": 100,
+   "seo": 100,
+   "bestPractices": 100,
+   "lcpMs": 4373,
+   "tbtMs": 467,
+   "cls": 0,
+   "fcpMs": 1286,
+   "lcpElement": {
+    "selector": "div.mx-auto > div.mx-auto > header.mt-[var(--space-8)] > p.mt-[var(--space-4)]",
+    "snippet": "<p class=\"mt-[var(--space-4)] text-(length:--text-lg) text-[var(--fg-muted)]\">",
+    "label": "Los pasos concretos para conseguir la residencia en Paraguay, con la tabla de p…"
+   },
+   "lcpBreakdown": {
+    "timeToFirstByte": 206,
+    "elementRenderDelay": 1366
+   },
+   "runWarnings": [
+    "The tested device appears to have a slower CPU than  Lighthouse expects. This can negatively affect your performance score. Learn more about [calibrating an appropriate CPU slowdown multiplier](https://github.com/GoogleChrome/lighthouse/blob/main/docs/throttling.md#cpu-throttling)."
+   ],
+   "runtimeError": null,
+   "note": null,
+   "fetchTime": "2026-09-28T20:25:23.061Z",
+   "lighthouseVersion": "13.5.0"
+  },
+  {
+   "brand": "residenciapt",
+   "kind": "home",
+   "url": "https://vidanoparaguai.com/",
+   "run": false,
+   "reason": "DNS: vidanoparaguai.com does not resolve"
+  },
+  {
+   "brand": "residenciapt",
+   "kind": "article",
+   "url": "https://vidanoparaguai.com/guias/documentos/rotas-de-residencia-temporaria-permanente-mercosul",
+   "run": false,
+   "reason": "DNS: vidanoparaguai.com does not resolve"
+  },
+  {
+   "brand": "flytta",
+   "kind": "home",
+   "url": "https://flyttatillparaguay.se/",
+   "run": false,
+   "reason": "DNS: flyttatillparaguay.se does not resolve"
+  },
+  {
+   "brand": "flytta",
+   "kind": "article",
+   "url": "https://flyttatillparaguay.se/guider/residency-i-paraguay-komplett-guide",
+   "run": false,
+   "reason": "DNS: flyttatillparaguay.se does not resolve"
+  }
+ ],
+ "conversion": {
+  "guide": {
+   "local": {
+    "reachable": true,
+    "at": "2026-09-28T20:05:54.843Z",
+    "whatsapp": {
+     "390": {
+      "fab": {
+       "present": true,
+       "visible": true,
+       "inViewport": true,
+       "box": {
+        "x": 318,
+        "y": 772,
+        "width": 56,
+        "height": 56
+       }
+      },
+      "links": [
+       {
+        "number": "…0000",
+        "text": "Hi, I have a question about Paraguay residency.",
+        "language": "en (exact brand prefill)",
+        "placement": "floating",
+        "visible": true
+       }
+      ],
+      "numbers": [
+       "…0000"
+      ],
+      "stickyCta": 0,
+      "plausible": {
+       "script": false,
+       "pageviewEvents": 0,
+       "whatsappClickEvents": null,
+       "allEvents": []
+      },
+      "abortedWhatsappNavigations": 0
+     },
+     "1440": {
+      "fab": {
+       "present": true,
+       "visible": true,
+       "inViewport": true,
+       "box": {
+        "x": 1272.90625,
+        "y": 820,
+        "width": 143.09375,
+        "height": 56
+       }
+      },
+      "links": [
+       {
+        "number": "…0000",
+        "text": "Hi, I have a question about Paraguay residency.",
+        "language": "en (exact brand prefill)",
+        "placement": "floating",
+        "visible": true
+       }
+      ],
+      "numbers": [
+       "…0000"
+      ],
+      "stickyCta": 0,
+      "plausible": {
+       "script": false,
+       "pageviewEvents": 0,
+       "whatsappClickEvents": null,
+       "allEvents": []
+      },
+      "abortedWhatsappNavigations": 0
+     }
+    },
+    "leadForm": {
+     "path": "/contact",
+     "status": 200,
+     "renders": true,
+     "enhanced": true,
+     "kind": "contact",
+     "fields": [
+      "name",
+      "email*",
+      "phone*",
+      "message"
+     ],
+     "noValidate": true,
+     "actionAttr": "javascript:throw new Error('A React form was unexpectedly su",
+     "clientValidation": {
+      "postAttemptedWithInvalidEmail": true,
+      "endpoint": {
+       "url": "http://guide.localhost:3100/contact",
+       "serverAction": true,
+       "contentType": null
+      },
+      "invalidFields": [],
+      "visibleError": []
+     },
+     "submission": {
+      "httpStatus": 200,
+      "success": true,
+      "statusText": "Got it. A person reads every one of these. You will hear back within one working day, usually sooner. Want an answer sooner? Send us a WhatsApp from the number you entered, and it lands on the same case. Continue on WhatsApp now",
+      "errorText": "",
+      "url": "/contact?lead=ok",
+      "continueOnWhatsapp": 1
+     }
+    },
+    "routeFinder": {
+     "steps": 6,
+     "questions": [
+      "Which passport will you apply with?",
+      "What do you actually want out of this?",
+      "How soon do you need the card in your hand?",
+      "How much capital could you put into a qualifying investment?",
+      "Who is coming with you?",
+      "Is tax residency part of the reason?"
+     ],
+     "reachedResult": true,
+     "resultPath": "/route-finder/result?r=permanent&a=…",
+     "h1": "Aim straight at permanent residency",
+     "next": {
+      "whatsapp": 0,
+      "whatsappFab": 1,
+      "leadForm": 1,
+      "book": 0,
+      "contact": 0,
+      "checkout": 0,
+      "buttons": [
+       "Read the permanent residency page",
+       "Have someone check this"
+      ]
+     }
+    },
+    "guideBuy": {
+     "/": {
+      "path": "/",
+      "controls": [
+       {
+        "tag": "span",
+        "text": "Checkout opens shortly",
+        "disabled": null
+       }
+      ],
+      "priceText": "2026 EDITION The Paraguay Residency Guide Every step, document and cost, written down once and kept current. 12 CHAPTERS · CHECKLISTS THE COMPLETE GUIDE $7, once ✓ All 12 chapters online in your member area, plus the PDF to keep ✓ Real figures with their official source and the date we checked them ✓ Document checklists by nationality, ready to print ✓ Free updates for 12 months when the rules cha",
+      "hasBuyButton": false
+     },
+     "/insider": {
+      "path": "/insider",
+      "controls": [
+       {
+        "tag": "span",
+        "text": "Checkout opens shortly",
+        "disabled": null
+       }
+      ],
+      "priceText": "$7/mo Cancel anytime, keep access through the period you paid for 14-day refund on your first charge, no questions Everything in the guide, plus the updates feed, deep dives and case studies Checkout opens shortly",
+      "hasBuyButton": false
+     }
+    },
+    "plausibleNote": "NEXT_PUBLIC_PLAUSIBLE_ENABLED is unset locally, so no Plausible script by design"
+   },
+   "live": {
+    "reachable": true,
+    "at": "2026-09-28T20:06:23.478Z",
+    "whatsapp": {
+     "390": {
+      "fab": {
+       "present": false,
+       "visible": false,
+       "inViewport": false,
+       "box": null
+      },
+      "links": [],
+      "numbers": [],
+      "stickyCta": 0,
+      "plausible": {
+       "script": false,
+       "pageviewEvents": 0,
+       "whatsappClickEvents": null,
+       "allEvents": []
+      },
+      "abortedWhatsappNavigations": 0
+     },
+     "1440": {
+      "fab": {
+       "present": false,
+       "visible": false,
+       "inViewport": false,
+       "box": null
+      },
+      "links": [],
+      "numbers": [],
+      "stickyCta": 0,
+      "plausible": {
+       "script": false,
+       "pageviewEvents": 0,
+       "whatsappClickEvents": null,
+       "allEvents": []
+      },
+      "abortedWhatsappNavigations": 0
+     }
+    },
+    "leadForm": {
+     "path": "/contact",
+     "status": 200,
+     "renders": true,
+     "enhanced": true,
+     "kind": "contact",
+     "fields": [
+      "name",
+      "email*",
+      "phone*",
+      "message"
+     ],
+     "noValidate": true,
+     "actionAttr": "javascript:throw new Error('A React form was unexpectedly su",
+     "clientValidation": {
+      "postAttemptedWithInvalidEmail": true,
+      "endpoint": {
+       "url": "https://paraguayresidencyguide.com/contact",
+       "serverAction": true,
+       "contentType": "multipart/form-data; boundary=----WebKitFormBoundaryukf1NuFTvuXCiAd7"
+      },
+      "invalidFields": [],
+      "visibleError": []
+     },
+     "submission": "not tested — needs Anton's OK (a live submission creates a real lead)"
+    },
+    "routeFinder": {
+     "steps": 6,
+     "questions": [
+      "Which passport will you apply with?",
+      "What do you actually want out of this?",
+      "How soon do you need the card in your hand?",
+      "How much capital could you put into a qualifying investment?",
+      "Who is coming with you?",
+      "Is tax residency part of the reason?"
+     ],
+     "reachedResult": true,
+     "resultPath": "/route-finder/result?r=permanent&a=…",
+     "h1": "Aim straight at permanent residency",
+     "next": {
+      "whatsapp": 0,
+      "whatsappFab": 0,
+      "leadForm": 1,
+      "book": 0,
+      "contact": 0,
+      "checkout": 0,
+      "buttons": [
+       "Read the permanent residency page",
+       "Have someone check this"
+      ]
+     }
+    },
+    "guideBuy": {
+     "/": {
+      "path": "/",
+      "controls": [
+       {
+        "tag": "span",
+        "text": "Checkout opens shortly",
+        "disabled": null
+       }
+      ],
+      "priceText": "2026 EDITION The Paraguay Residency Guide Every step, document and cost, written down once and kept current. 12 CHAPTERS · CHECKLISTS THE COMPLETE GUIDE $49, once ✓ All 12 chapters online in your member area, plus the PDF to keep ✓ Real figures with their official source and the date we checked them ✓ Document checklists by nationality, ready to print ✓ Free updates for 12 months when the rules ch",
+      "hasBuyButton": false
+     },
+     "/insider": {
+      "path": "/insider",
+      "controls": [
+       {
+        "tag": "span",
+        "text": "Insider opens shortly",
+        "disabled": null
+       }
+      ],
+      "priceText": "$9/mo Cancel anytime, keep access through the period you paid for 14-day refund on your first charge, no questions Everything in the guide, plus the updates feed, deep dives and case studies Insider opens shortly",
+      "hasBuyButton": false
+     }
+    }
+   }
+  },
+  "residency": {
+   "local": {
+    "reachable": true,
+    "at": "2026-09-28T20:04:53.932Z",
+    "whatsapp": {
+     "390": {
+      "fab": {
+       "present": true,
+       "visible": true,
+       "inViewport": true,
+       "box": {
+        "x": 318,
+        "y": 772,
+        "width": 56,
+        "height": 56
+       }
+      },
+      "links": [
+       {
+        "number": "…0000",
+        "text": "Hi — I have a question about Paraguay residency.",
+        "language": "custom text (check)",
+        "placement": "hero",
+        "visible": true
+       },
+       {
+        "number": "…0000",
+        "text": "Hi — I have a question about Paraguay residency.",
+        "language": "custom text (check)",
+        "placement": "lead-panel",
+        "visible": true
+       },
+       {
+        "number": "…0000",
+        "text": "Hi — I have a question about Paraguay residency.",
+        "language": "custom text (check)",
+        "placement": null,
+        "visible": true
+       },
+       {
+        "number": "…0000",
+        "text": "Hi, I have a question about Paraguay residency.",
+        "language": "en (exact brand prefill)",
+        "placement": "floating",
+        "visible": true
+       }
+      ],
+      "numbers": [
+       "…0000"
+      ],
+      "stickyCta": 0,
+      "plausible": {
+       "script": false,
+       "pageviewEvents": 0,
+       "whatsappClickEvents": null,
+       "allEvents": []
+      },
+      "abortedWhatsappNavigations": 0
+     },
+     "1440": {
+      "fab": {
+       "present": true,
+       "visible": true,
+       "inViewport": true,
+       "box": {
+        "x": 1272.90625,
+        "y": 820,
+        "width": 143.09375,
+        "height": 56
+       }
+      },
+      "links": [
+       {
+        "number": "…0000",
+        "text": "Hi — I have a question about Paraguay residency.",
+        "language": "custom text (check)",
+        "placement": "hero",
+        "visible": true
+       },
+       {
+        "number": "…0000",
+        "text": "Hi — I have a question about Paraguay residency.",
+        "language": "custom text (check)",
+        "placement": "lead-panel",
+        "visible": true
+       },
+       {
+        "number": "…0000",
+        "text": "Hi — I have a question about Paraguay residency.",
+        "language": "custom text (check)",
+        "placement": null,
+        "visible": true
+       },
+       {
+        "number": "…0000",
+        "text": "Hi, I have a question about Paraguay residency.",
+        "language": "en (exact brand prefill)",
+        "placement": "floating",
+        "visible": true
+       }
+      ],
+      "numbers": [
+       "…0000"
+      ],
+      "stickyCta": 0,
+      "plausible": {
+       "script": false,
+       "pageviewEvents": 0,
+       "whatsappClickEvents": null,
+       "allEvents": []
+      },
+      "abortedWhatsappNavigations": 0
+     }
+    },
+    "leadForm": {
+     "path": "/contact",
+     "status": 200,
+     "renders": true,
+     "enhanced": true,
+     "kind": "contact",
+     "fields": [
+      "name",
+      "email*",
+      "phone*",
+      "message"
+     ],
+     "noValidate": true,
+     "actionAttr": "javascript:throw new Error('A React form was unexpectedly su",
+     "clientValidation": {
+      "postAttemptedWithInvalidEmail": true,
+      "endpoint": {
+       "url": "http://residency.localhost:3100/contact",
+       "serverAction": true,
+       "contentType": null
+      },
+      "invalidFields": [],
+      "visibleError": []
+     },
+     "submission": {
+      "httpStatus": 200,
+      "success": true,
+      "statusText": "Got it. A person reads every one of these. You will hear back within one working day, usually sooner. Want an answer sooner? Send us a WhatsApp from the number you entered, and it lands on the same case. Continue on WhatsApp now",
+      "errorText": "",
+      "url": "/contact?lead=ok",
+      "continueOnWhatsapp": 1
+     }
+    },
+    "routeFinder": {
+     "steps": 6,
+     "questions": [
+      "Which passport will you apply with?",
+      "What do you actually want out of this?",
+      "How soon do you need the card in your hand?",
+      "How much capital could you put into a qualifying investment?",
+      "Who is coming with you?",
+      "Is tax residency part of the reason?"
+     ],
+     "reachedResult": true,
+     "resultPath": "/route-finder/result?r=permanent&a=…",
+     "h1": "Aim straight at permanent residency",
+     "next": {
+      "whatsapp": 0,
+      "whatsappFab": 1,
+      "leadForm": 1,
+      "book": 0,
+      "contact": 0,
+      "checkout": 0,
+      "buttons": [
+       "Read the permanent residency page",
+       "Have someone check this"
+      ]
+     }
+    },
+    "plausibleNote": "NEXT_PUBLIC_PLAUSIBLE_ENABLED is unset locally, so no Plausible script by design"
+   },
+   "live": {
+    "reachable": false,
+    "reason": "DNS: paraguayresidency.co.uk does not resolve (EAI_AGAIN)"
+   }
+  },
+  "investorpass": {
+   "local": {
+    "reachable": true,
+    "at": "2026-09-28T20:05:26.489Z",
+    "whatsapp": {
+     "390": {
+      "fab": {
+       "present": true,
+       "visible": true,
+       "inViewport": true,
+       "box": {
+        "x": 318,
+        "y": 772,
+        "width": 56,
+        "height": 56
+       }
+      },
+      "links": [
+       {
+        "number": "…0000",
+        "text": "Hi — I have a question about the Paraguay Investor Pass.",
+        "language": "custom text (check)",
+        "placement": "hero",
+        "visible": true
+       },
+       {
+        "number": "…0000",
+        "text": "Hi — I have a question about the Investor Pass.",
+        "language": "custom text (check)",
+        "placement": null,
+        "visible": true
+       },
+       {
+        "number": "…0000",
+        "text": "Hi, I have a question about Paraguay residency.",
+        "language": "en (exact brand prefill)",
+        "placement": "floating",
+        "visible": true
+       }
+      ],
+      "numbers": [
+       "…0000"
+      ],
+      "stickyCta": 0,
+      "plausible": {
+       "script": false,
+       "pageviewEvents": 0,
+       "whatsappClickEvents": null,
+       "allEvents": []
+      },
+      "abortedWhatsappNavigations": 0
+     },
+     "1440": {
+      "fab": {
+       "present": true,
+       "visible": true,
+       "inViewport": true,
+       "box": {
+        "x": 1272.90625,
+        "y": 820,
+        "width": 143.09375,
+        "height": 56
+       }
+      },
+      "links": [
+       {
+        "number": "…0000",
+        "text": "Hi — I have a question about the Paraguay Investor Pass.",
+        "language": "custom text (check)",
+        "placement": "hero",
+        "visible": true
+       },
+       {
+        "number": "…0000",
+        "text": "Hi — I have a question about the Investor Pass.",
+        "language": "custom text (check)",
+        "placement": null,
+        "visible": true
+       },
+       {
+        "number": "…0000",
+        "text": "Hi, I have a question about Paraguay residency.",
+        "language": "en (exact brand prefill)",
+        "placement": "floating",
+        "visible": true
+       }
+      ],
+      "numbers": [
+       "…0000"
+      ],
+      "stickyCta": 0,
+      "plausible": {
+       "script": false,
+       "pageviewEvents": 0,
+       "whatsappClickEvents": null,
+       "allEvents": []
+      },
+      "abortedWhatsappNavigations": 0
+     }
+    },
+    "leadForm": {
+     "path": "/contact",
+     "status": 200,
+     "renders": true,
+     "enhanced": true,
+     "kind": "investor_inquiry",
+     "fields": [
+      "name",
+      "email*",
+      "phone*",
+      "nationality",
+      "investmentRange",
+      "investmentRoute",
+      "message"
+     ],
+     "noValidate": true,
+     "actionAttr": "javascript:throw new Error('A React form was unexpectedly su",
+     "clientValidation": {
+      "postAttemptedWithInvalidEmail": true,
+      "endpoint": {
+       "url": "http://investorpass.localhost:3100/contact",
+       "serverAction": true,
+       "contentType": null
+      },
+      "invalidFields": [],
+      "visibleError": []
+     },
+     "submission": {
+      "httpStatus": 200,
+      "success": true,
+      "statusText": "Got it. A person reads every one of these. You will hear back within one working day, usually sooner. Want an answer sooner? Send us a WhatsApp from the number you entered, and it lands on the same case. Continue on WhatsApp now",
+      "errorText": "",
+      "url": "/contact?lead=ok",
+      "continueOnWhatsapp": 1
+     }
+    },
+    "routeFinder": {
+     "steps": 6,
+     "questions": [
+      "Which passport will you apply with?",
+      "What do you actually want out of this?",
+      "How soon do you need the card in your hand?",
+      "How much capital could you put into a qualifying investment?",
+      "Who is coming with you?",
+      "Is tax residency part of the reason?"
+     ],
+     "reachedResult": true,
+     "resultPath": "/route-finder/result?r=permanent&a=…",
+     "h1": "Aim straight at permanent residency",
+     "next": {
+      "whatsapp": 0,
+      "whatsappFab": 1,
+      "leadForm": 1,
+      "book": 0,
+      "contact": 0,
+      "checkout": 0,
+      "buttons": [
+       "Read the permanent residency page",
+       "Have someone check this"
+      ]
+     }
+    },
+    "plausibleNote": "NEXT_PUBLIC_PLAUSIBLE_ENABLED is unset locally, so no Plausible script by design"
+   },
+   "live": {
+    "reachable": false,
+    "reason": "DNS: paraguayinvestorpass.com does not resolve (EAI_AGAIN)"
+   }
+  },
+  "frontier": {
+   "local": {
+    "reachable": true,
+    "at": "2026-09-28T20:09:56.602Z",
+    "whatsapp": {
+     "390": {
+      "fab": {
+       "present": true,
+       "visible": true,
+       "inViewport": true,
+       "box": {
+        "x": 318,
+        "y": 772,
+        "width": 56,
+        "height": 56
+       }
+      },
+      "links": [
+       {
+        "number": "…0000",
+        "text": "Hi — I have a question about a second residency in Paraguay.",
+        "language": "custom text (check)",
+        "placement": "hero",
+        "visible": true
+       },
+       {
+        "number": "…0000",
+        "text": "Hi — I have a question about a second residency in Paraguay.",
+        "language": "custom text (check)",
+        "placement": "inline",
+        "visible": true
+       },
+       {
+        "number": "…0000",
+        "text": "Hi — I have a question about a second residency in Paraguay.",
+        "language": "custom text (check)",
+        "placement": null,
+        "visible": true
+       },
+       {
+        "number": "…0000",
+        "text": "Hi, I have a question about Paraguay residency.",
+        "language": "en (exact brand prefill)",
+        "placement": "floating",
+        "visible": true
+       }
+      ],
+      "numbers": [
+       "…0000"
+      ],
+      "stickyCta": 0,
+      "plausible": {
+       "script": false,
+       "pageviewEvents": 0,
+       "whatsappClickEvents": null,
+       "allEvents": []
+      },
+      "abortedWhatsappNavigations": 0
+     },
+     "1440": {
+      "fab": {
+       "present": true,
+       "visible": true,
+       "inViewport": true,
+       "box": {
+        "x": 1272.90625,
+        "y": 820,
+        "width": 143.09375,
+        "height": 56
+       }
+      },
+      "links": [
+       {
+        "number": "…0000",
+        "text": "Hi — I have a question about a second residency in Paraguay.",
+        "language": "custom text (check)",
+        "placement": "hero",
+        "visible": true
+       },
+       {
+        "number": "…0000",
+        "text": "Hi — I have a question about a second residency in Paraguay.",
+        "language": "custom text (check)",
+        "placement": "inline",
+        "visible": true
+       },
+       {
+        "number": "…0000",
+        "text": "Hi — I have a question about a second residency in Paraguay.",
+        "language": "custom text (check)",
+        "placement": null,
+        "visible": true
+       },
+       {
+        "number": "…0000",
+        "text": "Hi, I have a question about Paraguay residency.",
+        "language": "en (exact brand prefill)",
+        "placement": "floating",
+        "visible": true
+       }
+      ],
+      "numbers": [
+       "…0000"
+      ],
+      "stickyCta": 0,
+      "plausible": {
+       "script": false,
+       "pageviewEvents": 0,
+       "whatsappClickEvents": null,
+       "allEvents": []
+      },
+      "abortedWhatsappNavigations": 0
+     }
+    },
+    "leadForm": {
+     "path": "/contact",
+     "status": 200,
+     "renders": true,
+     "enhanced": true,
+     "kind": "contact",
+     "fields": [
+      "name",
+      "email*",
+      "phone*",
+      "message"
+     ],
+     "noValidate": true,
+     "actionAttr": "javascript:throw new Error('A React form was unexpectedly su",
+     "clientValidation": {
+      "postAttemptedWithInvalidEmail": true,
+      "endpoint": {
+       "url": "http://frontier.localhost:3100/contact",
+       "serverAction": true,
+       "contentType": null
+      },
+      "invalidFields": [],
+      "visibleError": []
+     },
+     "submission": {
+      "httpStatus": 200,
+      "success": true,
+      "statusText": "Got it. A person reads every one of these. You will hear back within one working day, usually sooner. Want an answer sooner? Send us a WhatsApp from the number you entered, and it lands on the same case. Continue on WhatsApp now",
+      "errorText": "",
+      "url": "/contact?lead=ok",
+      "continueOnWhatsapp": 1
+     }
+    },
+    "routeFinder": {
+     "steps": 6,
+     "questions": [
+      "Which passport will you apply with?",
+      "What do you actually want out of this?",
+      "How soon do you need the card in your hand?",
+      "How much capital could you put into a qualifying investment?",
+      "Who is coming with you?",
+      "Is tax residency part of the reason?"
+     ],
+     "reachedResult": true,
+     "resultPath": "/route-finder/result?r=permanent&a=…",
+     "h1": "Aim straight at permanent residency",
+     "next": {
+      "whatsapp": 0,
+      "whatsappFab": 1,
+      "leadForm": 1,
+      "book": 0,
+      "contact": 0,
+      "checkout": 0,
+      "buttons": [
+       "Read the permanent residency page",
+       "Have someone check this"
+      ]
+     }
+    },
+    "plausibleNote": "NEXT_PUBLIC_PLAUSIBLE_ENABLED is unset locally, so no Plausible script by design"
+   },
+   "live": {
+    "reachable": true,
+    "at": "2026-09-28T20:07:16.656Z",
+    "whatsapp": {
+     "390": {
+      "fab": {
+       "present": false,
+       "visible": false,
+       "inViewport": false,
+       "box": null
+      },
+      "links": [],
+      "numbers": [],
+      "stickyCta": 0,
+      "plausible": {
+       "script": false,
+       "pageviewEvents": 0,
+       "whatsappClickEvents": null,
+       "allEvents": []
+      },
+      "abortedWhatsappNavigations": 0
+     },
+     "1440": {
+      "fab": {
+       "present": false,
+       "visible": false,
+       "inViewport": false,
+       "box": null
+      },
+      "links": [],
+      "numbers": [],
+      "stickyCta": 0,
+      "plausible": {
+       "script": false,
+       "pageviewEvents": 0,
+       "whatsappClickEvents": null,
+       "allEvents": []
+      },
+      "abortedWhatsappNavigations": 0
+     }
+    },
+    "leadForm": {
+     "path": "/contact",
+     "status": 200,
+     "renders": true,
+     "enhanced": true,
+     "kind": "contact",
+     "fields": [
+      "name",
+      "email*",
+      "phone*",
+      "message"
+     ],
+     "noValidate": true,
+     "actionAttr": "javascript:throw new Error('A React form was unexpectedly su",
+     "clientValidation": {
+      "postAttemptedWithInvalidEmail": true,
+      "endpoint": {
+       "url": "https://paraguayfrontier.com/contact",
+       "serverAction": true,
+       "contentType": "multipart/form-data; boundary=----WebKitFormBoundary7BF5431NRjRWK2AW"
+      },
+      "invalidFields": [],
+      "visibleError": []
+     },
+     "submission": "not tested — needs Anton's OK (a live submission creates a real lead)"
+    },
+    "routeFinder": {
+     "steps": 6,
+     "questions": [
+      "Which passport will you apply with?",
+      "What do you actually want out of this?",
+      "How soon do you need the card in your hand?",
+      "How much capital could you put into a qualifying investment?",
+      "Who is coming with you?",
+      "Is tax residency part of the reason?"
+     ],
+     "reachedResult": true,
+     "resultPath": "/route-finder/result?r=permanent&a=…",
+     "h1": "Aim straight at permanent residency",
+     "next": {
+      "whatsapp": 0,
+      "whatsappFab": 0,
+      "leadForm": 1,
+      "book": 0,
+      "contact": 0,
+      "checkout": 0,
+      "buttons": [
+       "Read the permanent residency page",
+       "Have someone check this"
+      ]
+     }
+    }
+   }
+  },
+  "residenciaes": {
+   "local": {
+    "reachable": true,
+    "at": "2026-09-28T20:07:32.351Z",
+    "whatsapp": {
+     "390": {
+      "fab": {
+       "present": true,
+       "visible": true,
+       "inViewport": true,
+       "box": {
+        "x": 318,
+        "y": 772,
+        "width": 56,
+        "height": 56
+       }
+      },
+      "links": [
+       {
+        "number": "…0000",
+        "text": "Hola, me gustaría saber más sobre la residencia en Paraguay.",
+        "language": "custom text (check)",
+        "placement": "hero",
+        "visible": true
+       },
+       {
+        "number": "…0000",
+        "text": "Hola, me gustaría saber más sobre la residencia en Paraguay.",
+        "language": "custom text (check)",
+        "placement": "lead-panel",
+        "visible": true
+       },
+       {
+        "number": "…0000",
+        "text": "Hola, me gustaría saber más sobre la residencia en Paraguay.",
+        "language": "custom text (check)",
+        "placement": null,
+        "visible": true
+       },
+       {
+        "number": "…0000",
+        "text": "Hola, tengo una pregunta sobre la residencia en Paraguay.",
+        "language": "es (exact brand prefill)",
+        "placement": "floating",
+        "visible": true
+       }
+      ],
+      "numbers": [
+       "…0000"
+      ],
+      "stickyCta": 0,
+      "plausible": {
+       "script": false,
+       "pageviewEvents": 0,
+       "whatsappClickEvents": null,
+       "allEvents": []
+      },
+      "abortedWhatsappNavigations": 0
+     },
+     "1440": {
+      "fab": {
+       "present": true,
+       "visible": true,
+       "inViewport": true,
+       "box": {
+        "x": 1272.90625,
+        "y": 820,
+        "width": 143.09375,
+        "height": 56
+       }
+      },
+      "links": [
+       {
+        "number": "…0000",
+        "text": "Hola, me gustaría saber más sobre la residencia en Paraguay.",
+        "language": "custom text (check)",
+        "placement": "hero",
+        "visible": true
+       },
+       {
+        "number": "…0000",
+        "text": "Hola, me gustaría saber más sobre la residencia en Paraguay.",
+        "language": "custom text (check)",
+        "placement": "lead-panel",
+        "visible": true
+       },
+       {
+        "number": "…0000",
+        "text": "Hola, me gustaría saber más sobre la residencia en Paraguay.",
+        "language": "custom text (check)",
+        "placement": null,
+        "visible": true
+       },
+       {
+        "number": "…0000",
+        "text": "Hola, tengo una pregunta sobre la residencia en Paraguay.",
+        "language": "es (exact brand prefill)",
+        "placement": "floating",
+        "visible": true
+       }
+      ],
+      "numbers": [
+       "…0000"
+      ],
+      "stickyCta": 0,
+      "plausible": {
+       "script": false,
+       "pageviewEvents": 0,
+       "whatsappClickEvents": null,
+       "allEvents": []
+      },
+      "abortedWhatsappNavigations": 0
+     }
+    },
+    "leadForm": {
+     "path": "/contact",
+     "status": 200,
+     "renders": true,
+     "enhanced": true,
+     "kind": "contact",
+     "fields": [
+      "name",
+      "email*",
+      "phone*",
+      "message"
+     ],
+     "noValidate": true,
+     "actionAttr": "javascript:throw new Error('A React form was unexpectedly su",
+     "clientValidation": {
+      "postAttemptedWithInvalidEmail": true,
+      "endpoint": {
+       "url": "http://residenciaes.localhost:3100/contact",
+       "serverAction": true,
+       "contentType": null
+      },
+      "invalidFields": [],
+      "visibleError": []
+     },
+     "submission": {
+      "httpStatus": 200,
+      "success": true,
+      "statusText": "Recibido. Una persona lee cada uno de estos mensajes. Tendrás respuesta en un día laborable, normalmente antes. ¿Quieres respuesta antes? Escríbenos por WhatsApp desde el número que pusiste y queda en el mismo caso. Seguir ahora por WhatsApp",
+      "errorText": "",
+      "url": "/contact?lead=ok",
+      "continueOnWhatsapp": 1
+     }
+    },
+    "routeFinder": {
+     "steps": 6,
+     "questions": [
+      "¿Con qué pasaporte vas a hacer el trámite?",
+      "¿Qué quieres conseguir realmente con esto?",
+      "¿Con qué rapidez necesitas la cédula en la mano?",
+      "¿Cuánto capital podrías destinar a una inversión que califique?",
+      "¿Quién viene contigo?",
+      "¿La residencia fiscal es parte del motivo?"
+     ],
+     "reachedResult": true,
+     "resultPath": "/route-finder/result?r=permanent&a=…",
+     "h1": "Ve directo a la residencia permanente",
+     "next": {
+      "whatsapp": 0,
+      "whatsappFab": 1,
+      "leadForm": 1,
+      "book": 0,
+      "contact": 0,
+      "checkout": 0,
+      "buttons": [
+       "Ver la página de residencia permanente",
+       "Que alguien lo revise"
+      ]
+     }
+    },
+    "plausibleNote": "NEXT_PUBLIC_PLAUSIBLE_ENABLED is unset locally, so no Plausible script by design"
+   },
+   "live": {
+    "reachable": true,
+    "at": "2026-09-28T20:07:57.301Z",
+    "whatsapp": {
+     "390": {
+      "fab": {
+       "present": false,
+       "visible": false,
+       "inViewport": false,
+       "box": null
+      },
+      "links": [],
+      "numbers": [],
+      "stickyCta": 0,
+      "plausible": {
+       "script": false,
+       "pageviewEvents": 0,
+       "whatsappClickEvents": null,
+       "allEvents": []
+      },
+      "abortedWhatsappNavigations": 0
+     },
+     "1440": {
+      "fab": {
+       "present": false,
+       "visible": false,
+       "inViewport": false,
+       "box": null
+      },
+      "links": [],
+      "numbers": [],
+      "stickyCta": 0,
+      "plausible": {
+       "script": false,
+       "pageviewEvents": 0,
+       "whatsappClickEvents": null,
+       "allEvents": []
+      },
+      "abortedWhatsappNavigations": 0
+     }
+    },
+    "leadForm": {
+     "path": "/contact",
+     "status": 200,
+     "renders": true,
+     "enhanced": true,
+     "kind": "contact",
+     "fields": [
+      "name",
+      "email*",
+      "phone*",
+      "message"
+     ],
+     "noValidate": true,
+     "actionAttr": "javascript:throw new Error('A React form was unexpectedly su",
+     "clientValidation": {
+      "postAttemptedWithInvalidEmail": true,
+      "endpoint": {
+       "url": "https://residenciaenparaguay.es/contact",
+       "serverAction": true,
+       "contentType": "multipart/form-data; boundary=----WebKitFormBoundaryWfNz8GmHV4qerarK"
+      },
+      "invalidFields": [],
+      "visibleError": []
+     },
+     "submission": "not tested — needs Anton's OK (a live submission creates a real lead)"
+    },
+    "routeFinder": {
+     "steps": 6,
+     "questions": [
+      "¿Con qué pasaporte vas a hacer el trámite?",
+      "¿Qué quieres conseguir realmente con esto?",
+      "¿Con qué rapidez necesitas la cédula en la mano?",
+      "¿Cuánto capital podrías destinar a una inversión que califique?",
+      "¿Quién viene contigo?",
+      "¿La residencia fiscal es parte del motivo?"
+     ],
+     "reachedResult": true,
+     "resultPath": "/route-finder/result?r=permanent&a=…",
+     "h1": "Ve directo a la residencia permanente",
+     "next": {
+      "whatsapp": 0,
+      "whatsappFab": 0,
+      "leadForm": 1,
+      "book": 0,
+      "contact": 0,
+      "checkout": 0,
+      "buttons": [
+       "Ver la página de residencia permanente",
+       "Que alguien lo revise"
+      ]
+     }
+    }
+   }
+  },
+  "residenciapt": {
+   "local": {
+    "reachable": true,
+    "at": "2026-09-28T20:08:12.416Z",
+    "whatsapp": {
+     "390": {
+      "fab": {
+       "present": true,
+       "visible": true,
+       "inViewport": true,
+       "box": {
+        "x": 318,
+        "y": 772,
+        "width": 56,
+        "height": 56
+       }
+      },
+      "links": [
+       {
+        "number": "…0000",
+        "text": "Olá, tenho uma dúvida sobre residência no Paraguai.",
+        "language": "pt (exact brand prefill)",
+        "placement": "hero",
+        "visible": true
+       },
+       {
+        "number": "…0000",
+        "text": "Olá — tenho uma dúvida sobre residência no Paraguai.",
+        "language": "custom text (check)",
+        "placement": "lead-panel",
+        "visible": true
+       },
+       {
+        "number": "…0000",
+        "text": "Olá — tenho uma dúvida sobre residência no Paraguai.",
+        "language": "custom text (check)",
+        "placement": null,
+        "visible": true
+       },
+       {
+        "number": "…0000",
+        "text": "Olá, tenho uma dúvida sobre residência no Paraguai.",
+        "language": "pt (exact brand prefill)",
+        "placement": "floating",
+        "visible": true
+       }
+      ],
+      "numbers": [
+       "…0000"
+      ],
+      "stickyCta": 0,
+      "plausible": {
+       "script": false,
+       "pageviewEvents": 0,
+       "whatsappClickEvents": null,
+       "allEvents": []
+      },
+      "abortedWhatsappNavigations": 0
+     },
+     "1440": {
+      "fab": {
+       "present": true,
+       "visible": true,
+       "inViewport": true,
+       "box": {
+        "x": 1272.90625,
+        "y": 820,
+        "width": 143.09375,
+        "height": 56
+       }
+      },
+      "links": [
+       {
+        "number": "…0000",
+        "text": "Olá, tenho uma dúvida sobre residência no Paraguai.",
+        "language": "pt (exact brand prefill)",
+        "placement": "hero",
+        "visible": true
+       },
+       {
+        "number": "…0000",
+        "text": "Olá — tenho uma dúvida sobre residência no Paraguai.",
+        "language": "custom text (check)",
+        "placement": "lead-panel",
+        "visible": true
+       },
+       {
+        "number": "…0000",
+        "text": "Olá — tenho uma dúvida sobre residência no Paraguai.",
+        "language": "custom text (check)",
+        "placement": null,
+        "visible": true
+       },
+       {
+        "number": "…0000",
+        "text": "Olá, tenho uma dúvida sobre residência no Paraguai.",
+        "language": "pt (exact brand prefill)",
+        "placement": "floating",
+        "visible": true
+       }
+      ],
+      "numbers": [
+       "…0000"
+      ],
+      "stickyCta": 0,
+      "plausible": {
+       "script": false,
+       "pageviewEvents": 0,
+       "whatsappClickEvents": null,
+       "allEvents": []
+      },
+      "abortedWhatsappNavigations": 0
+     }
+    },
+    "leadForm": {
+     "path": "/contact",
+     "status": 200,
+     "renders": true,
+     "enhanced": true,
+     "kind": "contact",
+     "fields": [
+      "name",
+      "email*",
+      "phone*",
+      "message"
+     ],
+     "noValidate": true,
+     "actionAttr": "javascript:throw new Error('A React form was unexpectedly su",
+     "clientValidation": {
+      "postAttemptedWithInvalidEmail": true,
+      "endpoint": {
+       "url": "http://residenciapt.localhost:3100/contact",
+       "serverAction": true,
+       "contentType": null
+      },
+      "invalidFields": [],
+      "visibleError": []
+     },
+     "submission": {
+      "httpStatus": 200,
+      "success": true,
+      "statusText": "Recebido. Uma pessoa lê cada uma dessas mensagens. Você terá resposta em um dia útil, normalmente antes. Quer resposta mais rápido? Mande um WhatsApp do número que você informou e ele entra no mesmo caso. Continuar agora no WhatsApp",
+      "errorText": "",
+      "url": "/contact?lead=ok",
+      "continueOnWhatsapp": 1
+     }
+    },
+    "routeFinder": {
+     "steps": 6,
+     "questions": [
+      "Com qual passaporte você vai dar entrada?",
+      "O que você quer de verdade com isso?",
+      "Em quanto tempo você precisa da cédula na mão?",
+      "Quanto capital você poderia colocar em um investimento que qualifica?",
+      "Quem vai com você?",
+      "A residência fiscal faz parte do motivo?"
+     ],
+     "reachedResult": true,
+     "resultPath": "/route-finder/result?r=permanent&a=…",
+     "h1": "Vá direto para a residência permanente",
+     "next": {
+      "whatsapp": 0,
+      "whatsappFab": 1,
+      "leadForm": 1,
+      "book": 0,
+      "contact": 0,
+      "checkout": 0,
+      "buttons": [
+       "Ver a página de residência permanente",
+       "Peça uma conferida"
+      ]
+     }
+    },
+    "plausibleNote": "NEXT_PUBLIC_PLAUSIBLE_ENABLED is unset locally, so no Plausible script by design"
+   },
+   "live": {
+    "reachable": false,
+    "reason": "DNS: vidanoparaguai.com does not resolve (ENOTFOUND)"
+   }
+  },
+  "flytta": {
+   "local": {
+    "reachable": true,
+    "at": "2026-09-28T20:08:37.709Z",
+    "whatsapp": {
+     "390": {
+      "fab": {
+       "present": true,
+       "visible": true,
+       "inViewport": true,
+       "box": {
+        "x": 318,
+        "y": 772,
+        "width": 56,
+        "height": 56
+       }
+      },
+      "links": [
+       {
+        "number": "…0000",
+        "text": "Hej! Jag har en fråga om att flytta till Paraguay.",
+        "language": "sv (exact brand prefill)",
+        "placement": "hero",
+        "visible": true
+       },
+       {
+        "number": "…0000",
+        "text": "Hej! Jag har en fråga om att flytta till Paraguay.",
+        "language": "sv (exact brand prefill)",
+        "placement": "lead-panel",
+        "visible": true
+       },
+       {
+        "number": "…0000",
+        "text": "Hej! Jag har en fråga om att flytta till Paraguay.",
+        "language": "sv (exact brand prefill)",
+        "placement": null,
+        "visible": true
+       },
+       {
+        "number": "…0000",
+        "text": "Hej! Jag har en fråga om att flytta till Paraguay.",
+        "language": "sv (exact brand prefill)",
+        "placement": "floating",
+        "visible": true
+       }
+      ],
+      "numbers": [
+       "…0000"
+      ],
+      "stickyCta": 0,
+      "plausible": {
+       "script": false,
+       "pageviewEvents": 0,
+       "whatsappClickEvents": null,
+       "allEvents": []
+      },
+      "abortedWhatsappNavigations": 0
+     },
+     "1440": {
+      "fab": {
+       "present": true,
+       "visible": true,
+       "inViewport": true,
+       "box": {
+        "x": 1272.90625,
+        "y": 820,
+        "width": 143.09375,
+        "height": 56
+       }
+      },
+      "links": [
+       {
+        "number": "…0000",
+        "text": "Hej! Jag har en fråga om att flytta till Paraguay.",
+        "language": "sv (exact brand prefill)",
+        "placement": "hero",
+        "visible": true
+       },
+       {
+        "number": "…0000",
+        "text": "Hej! Jag har en fråga om att flytta till Paraguay.",
+        "language": "sv (exact brand prefill)",
+        "placement": "lead-panel",
+        "visible": true
+       },
+       {
+        "number": "…0000",
+        "text": "Hej! Jag har en fråga om att flytta till Paraguay.",
+        "language": "sv (exact brand prefill)",
+        "placement": null,
+        "visible": true
+       },
+       {
+        "number": "…0000",
+        "text": "Hej! Jag har en fråga om att flytta till Paraguay.",
+        "language": "sv (exact brand prefill)",
+        "placement": "floating",
+        "visible": true
+       }
+      ],
+      "numbers": [
+       "…0000"
+      ],
+      "stickyCta": 0,
+      "plausible": {
+       "script": false,
+       "pageviewEvents": 0,
+       "whatsappClickEvents": null,
+       "allEvents": []
+      },
+      "abortedWhatsappNavigations": 0
+     }
+    },
+    "leadForm": {
+     "path": "/contact",
+     "status": 200,
+     "renders": true,
+     "enhanced": true,
+     "kind": "contact",
+     "fields": [
+      "name",
+      "email*",
+      "phone*",
+      "message"
+     ],
+     "noValidate": true,
+     "actionAttr": "javascript:throw new Error('A React form was unexpectedly su",
+     "clientValidation": {
+      "postAttemptedWithInvalidEmail": true,
+      "endpoint": {
+       "url": "http://flytta.localhost:3100/contact",
+       "serverAction": true,
+       "contentType": null
+      },
+      "invalidFields": [],
+      "visibleError": []
+     },
+     "submission": {
+      "httpStatus": 200,
+      "success": true,
+      "statusText": "Tack, den kom fram. En människa läser varenda en av de här. Du hör från oss inom en arbetsdag, oftast tidigare. Vill du ha svar snabbare? Skicka ett WhatsApp från numret du angav, så hamnar det i samma ärende. Fortsätt på WhatsApp nu",
+      "errorText": "",
+      "url": "/contact?lead=ok",
+      "continueOnWhatsapp": 1
+     }
+    },
+    "routeFinder": {
+     "steps": 6,
+     "questions": [
+      "Vilket pass ska du söka med?",
+      "Vad vill du faktiskt få ut av det här?",
+      "Hur snart behöver du kortet i handen?",
+      "Hur mycket kapital skulle du kunna lägga i en kvalificerande investering?",
+      "Vem följer med?",
+      "Är skatterättslig hemvist en del av skälet?"
+     ],
+     "reachedResult": true,
+     "resultPath": "/route-finder/result?r=permanent&a=…",
+     "h1": "Sikta direkt på permanent uppehållstillstånd",
+     "next": {
+      "whatsapp": 0,
+      "whatsappFab": 1,
+      "leadForm": 1,
+      "book": 0,
+      "contact": 0,
+      "checkout": 0,
+      "buttons": [
+       "Läs sidan om permanent uppehållstillstånd",
+       "Låt någon titta på det"
+      ]
+     }
+    },
+    "plausibleNote": "NEXT_PUBLIC_PLAUSIBLE_ENABLED is unset locally, so no Plausible script by design"
+   },
+   "live": {
+    "reachable": false,
+    "reason": "DNS: flyttatillparaguay.se does not resolve (ENOTFOUND)"
+   }
+  }
+ }
+}

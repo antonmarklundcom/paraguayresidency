@@ -129,6 +129,7 @@ export const sites: Record<SiteKey, SiteConfig> = {
             { labelKey: 'nav.cedula', href: '/residency/cedula' },
             { labelKey: 'nav.taxResidency', href: '/residency/tax-residency' },
             { labelKey: 'nav.family', href: '/residency/family' },
+            { labelKey: 'nav.citizenship', href: '/residency/citizenship' },
             { labelKey: 'nav.documents', href: '/documents/checklist' },
           ],
         },

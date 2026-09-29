@@ -52,7 +52,14 @@ export function ServicePage({
           <Heading level={2}>Talk to us about your case</Heading>
           <p className="mt-[var(--space-2)] text-[var(--fg-muted)]">
             Tell us your nationality and timeline. We tell you the route, the documents and the
-            fee before you commit to anything.
+            fee before you commit to anything. Comparing providers?{' '}
+            <a
+              href="/guides/documents/choosing-a-paraguay-residency-agent"
+              className="text-[var(--accent)] underline underline-offset-2"
+            >
+              Here is what to check
+            </a>
+            .
           </p>
           {whatsapp && (
             <a
