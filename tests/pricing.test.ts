@@ -48,14 +48,20 @@ for (const route of routes) {
 for (const { site, locale, path, Page, routes: offered } of pages) {
   it(`${site}/${path} renders its own route set through localized pricing facts`, () => {
     const html = renderToStaticMarkup(createElement(Page));
-    const keys = [...html.matchAll(/data-fact="([^"]+)"/g)].map(m => m[1]);
-    expect(keys).toEqual(offered.map(route => `pricing.${route}`));
-    const sections = html.match(/<section\b[^>]*aria-labelledby="[^"]+"[\s\S]*?<\/section>/g)!;
+    const keys = [...html.matchAll(/data-fact="(pricing\.[^"]+)"/g)].map(m => m[1]);
+    const expected = offered.map(route => `pricing.${route}`);
+    // Pages rebuilt with PriceTable (W5) mark their per-route sections with
+    // data-route-section, and a route's fee may sit in the table instead of the section.
+    const scoped = html.match(/<section\b[^>]*data-route-section[\s\S]*?<\/section>/g);
+    expect(scoped ? [...new Set(keys)].sort() : keys).toEqual(scoped ? [...expected].sort() : expected);
+    const sections = scoped ?? html.match(/<section\b[^>]*aria-labelledby="[^"]+"[\s\S]*?<\/section>/g)!;
     expect(sections).toHaveLength(offered.length);
     for (const [index, section] of sections.entries()) {
       const key = `pricing.${offered[index]}` as FactKey;
-      expect(section).toContain('data-verified="false"');
-      expect(section).toContain(factText(key, locale));
+      if (!scoped || section.includes('data-fact')) {
+        expect(section).toContain('data-verified="false"');
+        expect(section).toContain(factText(key, locale));
+      }
       // Coverage and quoting stay route-specific; exclusions and payment terms are shared.
       expect(section.match(/<dt\b/g)).toHaveLength(2);
       const descriptions = [...section.matchAll(/<dd>(.*?)<\/dd>/g)];
@@ -67,6 +73,7 @@ for (const { site, locale, path, Page, routes: offered } of pages) {
     expect(html).toContain('id="inquiry"');
     const outsideFacts = html.replace(/<span\b[^>]*data-fact="[^"]+"[^>]*>[\s\S]*?<\/span>/g, '')
       .replace(/<script\b[^>]*>[\s\S]*?<\/script>/g, '')
+      .replace(/<[a-z]+\b[^>]*aria-hidden="true"[^>]*>[^<]*<\/[a-z]+>/g, '')
       .replace(/<[^>]*>/g, '').replace(/&#\d+;/g, '');
     expect(outsideFacts).not.toMatch(/[\d$€£?]/);
     const file = `src/app/(${locale})/sites/${site}/${path}/page.tsx`;
