@@ -382,7 +382,7 @@ export const facts = {
       "https://www.rediex.gov.py/paraguay-fortalece-la-atraccion-de-inversiones-extranjeras-con-el-nuevo-investor-pass/",
       "https://www.ferrere.com/es/novedades/residencia-permanente-por-inversion-paraguay-agiliza-el-acceso-a-la-constancia-de-inversionista-extranjero/"
     ],
-    "note": "Research 2026-09-26 (high confidence): Industry, commerce or services. SUACE requirement sheets add an execution schedule with the investment implemented within max 24 months (see suace.status)."
+    "note": "Research 2026-09-26 (high confidence): Industry, commerce or services. SUACE requirement sheets add an execution schedule with the investment implemented within max 24 months (the 24-month window from the old regime was dropped; see suace.status)."
   },
   "investorpass.route_financial_usd": {
     "key": "investorpass.route_financial_usd",
@@ -1298,10 +1298,10 @@ export const facts = {
       "sv": "SUACE-investerarväg — nuvarande status"
     },
     "display": {
-      "en": "still open as the productive route inside the Investor Pass: from USD 70,000, at least 5 formal jobs, investment executed within 24 months",
-      "es": "sigue vigente como vía productiva dentro del Investor Pass: desde USD 70.000, al menos 5 empleos formales e inversión ejecutada en un plazo máximo de 24 meses",
-      "pt": "continua vigente como rota produtiva dentro do Investor Pass: a partir de USD 70.000, pelo menos 5 empregos formais e investimento executado em até 24 meses",
-      "sv": "fortfarande öppen som den produktiva vägen inom Investor Pass: från USD 70 000, minst 5 formella anställningar och investeringen genomförd inom 24 månader"
+      "en": "still open as the productive route inside the Investor Pass: from USD 70,000, at least 5 formal jobs",
+      "es": "sigue vigente como vía productiva dentro del Investor Pass: desde USD 70.000, al menos 5 empleos formales",
+      "pt": "continua vigente como rota produtiva dentro do Investor Pass: a partir de USD 70.000, pelo menos 5 empregos formais",
+      "sv": "fortfarande öppen som den produktiva vägen inom Investor Pass: från USD 70 000, minst 5 formella anställningar"
     },
     "hedged": {
       "en": "the qualifying investment amount, job requirement and completion window for this route, which we confirm for your case",
@@ -1321,7 +1321,7 @@ export const facts = {
       "https://migraciones.gov.py/residencia-permanente-para-inversionistas-extranjeros-suace/",
       "https://www.ferrere.com/es/novedades/residencia-permanente-por-inversion-paraguay-agiliza-el-acceso-a-la-constancia-de-inversionista-extranjero/"
     ],
-    "note": "Research 2026-09-26 (medium confidence): 24-month execution schedule is from the 2025 SUACE sheet under Res. 1052/2025 (now repealed); confirm Res. 0283 keeps it."
+    "note": "Research 2026-09-28 (high confidence): the 24-month execution window is NOT stated in Res. 0283/2026, which sets no fixed execution deadline; it came from the repealed 2025 regime (Res. 1052/2025), so it is removed from the display."
   },
   "tax.irp_brackets": {
     "key": "tax.irp_brackets",

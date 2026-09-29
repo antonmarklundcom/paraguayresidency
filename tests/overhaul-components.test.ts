@@ -4,14 +4,15 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import imagery from '../docs/imagery-manifest.json';
 
-// Pretend the W3 AVIF encodes of one hero exist, without touching the disk.
+// Make sure the AVIF encodes of one hero exist, and those of another do not, whatever is on disk.
 const AVIF_HERO = 'frontier-hero-red-earth-road';
+const PLAIN_HERO = 'guide-hero-reading-terrace-asuncion';
 vi.mock('node:fs', async (importOriginal) => {
   const fs = await importOriginal<typeof import('node:fs')>();
   const readdirSync = ((path: string, ...rest: unknown[]) => {
     const list = (fs.readdirSync as (...args: unknown[]) => unknown)(path, ...rest);
     return String(path).replace(/\\/g, '/').endsWith('public/images/arrival') && Array.isArray(list)
-      ? [...list, `${AVIF_HERO}-1200.avif`, `${AVIF_HERO}-2400.avif`]
+      ? [...new Set([...list, `${AVIF_HERO}-1200.avif`, `${AVIF_HERO}-2400.avif`])].filter((f) => !String(f).startsWith(`${PLAIN_HERO}-`) || !String(f).endsWith('.avif'))
       : list;
   }) as typeof fs.readdirSync;
   return { ...fs, default: { ...fs, readdirSync }, readdirSync };
@@ -156,7 +157,7 @@ describe('PhotoHero', () => {
     const out = html(createElement(PhotoHero, { ...base, image: AVIF_HERO }));
     expect(out).toContain(`<source type="image/avif" srcSet="/images/arrival/${AVIF_HERO}-1200.avif 1200w, /images/arrival/${AVIF_HERO}-2400.avif 2400w"`);
     expect(out).toContain(`src="/images/arrival/${AVIF_HERO}-2400.webp"`);
-    const plain = html(createElement(PhotoHero, { ...base, image: 'guide-hero-reading-terrace-asuncion' }));
+    const plain = html(createElement(PhotoHero, { ...base, image: PLAIN_HERO }));
     expect(plain).not.toContain('image/avif');
     expect(plain).toContain('srcSet="/images/arrival/guide-hero-reading-terrace-asuncion-1200.webp 1200w, /images/arrival/guide-hero-reading-terrace-asuncion-2400.webp 2400w"');
   });

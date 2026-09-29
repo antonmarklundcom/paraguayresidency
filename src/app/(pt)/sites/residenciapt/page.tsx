@@ -73,7 +73,7 @@ export default function Page() {
   return (
     <>
       <PhotoHero
-        image="frontier-hero-red-earth-road"
+        image="residenciapt-hero-family-veranda-terere"
         locale="pt"
         position="upper-left"
         eyebrow="Vida no Paraguai"
@@ -88,10 +88,10 @@ export default function Page() {
         title="Por onde você começa?"
         intro="Escolha seu ponto de partida. Na dúvida, o teste de rota responde em dois minutos."
         tiles={[
-          { label: 'Qual rota é a minha?', note: 'Seis perguntas, dois minutos', href: '/route-finder', image: 'guide-tile-route-fork' },
-          { label: 'Rota Mercosul', note: 'O que simplifica para brasileiros', href: '/mercosul', image: 'frontier-tile-three-roads' },
-          { label: 'Residência temporária', note: 'O primeiro passo padrão', href: '/residencia/temporaria', image: 'guide-tile-documents-desk' },
-          { label: 'Custo de vida', note: 'O que custa morar aqui', href: '/custo-de-vida', image: 'guide-tile-market-asuncion' },
+          { label: 'Qual rota é a minha?', note: 'Seis perguntas, dois minutos', href: '/route-finder', image: 'residenciapt-tile-bifurcacao-estrada-terra' },
+          { label: 'Rota Mercosul', note: 'O que simplifica para brasileiros', href: '/mercosul', image: 'residenciapt-tile-ponte-rio-fronteira' },
+          { label: 'Residência temporária', note: 'O primeiro passo padrão', href: '/residencia/temporaria', image: 'residenciapt-tile-documentos-terere-mesa' },
+          { label: 'Custo de vida', note: 'O que custa morar aqui', href: '/custo-de-vida', image: 'residenciapt-tile-feira-ciudad-del-este' },
         ]}
       />
 

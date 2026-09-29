@@ -1,6 +1,7 @@
-/* eslint-disable @next/next/no-img-element -- Responsive local Arrival images. */
+ 
 import type { Locale } from '@/i18n/locales';
 import { arrivalImage } from '@/lib/imagery';
+import { arrivalVariants } from '@/lib/arrival-files';
 
 export interface IntentTile { label: string; href: string; image: string; /** One short line under the label. */ note?: string }
 
@@ -27,9 +28,14 @@ export function IntentTiles({ title, intro, tiles, locale = 'en' }: { title: str
           {tiles.map((tile, index) => {
             const asset = arrivalImage(tile.image, locale);
             const feature = index === 0;
+            const sizes = feature ? '(min-width: 768px) 50vw, 82vw' : '(min-width: 768px) 25vw, 82vw';
+            const avif = arrivalVariants(tile.image).avif.filter((w) => w <= 800);
             return (
               <a key={tile.href} href={tile.href} className={`group relative isolate flex aspect-[4/5] min-h-11 min-w-0 snap-start flex-col justify-between overflow-hidden rounded-[calc(var(--radius-brand)+4px)] bg-black p-5 text-white shadow-[var(--shadow)] focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent)] md:aspect-auto md:p-7 ${span(index, tiles.length)}`}>
-                <img src={`/images/arrival/${tile.image}-800.webp`} srcSet={`/images/arrival/${tile.image}-480.webp 480w, /images/arrival/${tile.image}-800.webp 800w`} sizes={feature ? '(min-width: 768px) 50vw, 82vw' : '(min-width: 768px) 25vw, 82vw'} width={800} height={1000} alt={asset.alt} loading="lazy" className="absolute inset-0 -z-20 h-full w-full object-cover transition-transform duration-[1.2s] ease-[var(--ease)] motion-safe:group-hover:scale-[1.06]" />
+                <picture>
+                  {avif.length > 0 && <source type="image/avif" srcSet={avif.map((w) => `/images/arrival/${tile.image}-${w}.avif ${w}w`).join(', ')} sizes={sizes} />}
+                  <img src={`/images/arrival/${tile.image}-800.webp`} srcSet={`/images/arrival/${tile.image}-480.webp 480w, /images/arrival/${tile.image}-800.webp 800w`} sizes={sizes} width={800} height={1000} alt={asset.alt} loading="lazy" className="absolute inset-0 -z-20 h-full w-full object-cover transition-transform duration-[1.2s] ease-[var(--ease)] motion-safe:group-hover:scale-[1.06]" />
+                </picture>
                 <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_top,rgba(0,0,0,.9),rgba(0,0,0,.45)_40%,rgba(0,0,0,.05)_70%,rgba(0,0,0,.25))] transition-opacity duration-500 group-hover:opacity-90" />
                 <span aria-hidden="true" className="self-start rounded-full bg-black/30 px-2.5 py-1 text-[11px] font-medium tracking-[.2em] text-white/90 backdrop-blur-sm">{String(index + 1).padStart(2, '0')}</span>
                 <span className="flex w-full items-end justify-between gap-4">
