@@ -1,6 +1,6 @@
 import { t } from '@/i18n';
 import type { ReactNode } from 'react';
-import { Button, StickyCta, Breadcrumbs, Container, FAQ, Heading, JsonLd, LeadForm, Prose, Section, type FaqItem } from '@/components';
+import { Button, StickyCta, Breadcrumbs, Container, FAQ, Heading, JsonLd, LeadForm, NextSteps, Prose, Section, type FaqItem } from '@/components';
 import { serviceJsonLd } from '@/lib/metadata';
 import { whatsappHref } from '@/lib/whatsapp';
 import type { LeadVariant } from '@/components/LeadForm';
@@ -47,6 +47,7 @@ export function ServicoPage({
         <div className="mt-[var(--space-16)]">
           <FAQ title="Perguntas frequentes" items={faq} />
         </div>
+        <NextSteps site="residenciapt" path={path} />
         <div id="inquiry" className="scroll-mt-6 mt-[var(--space-16)] rounded-[var(--radius-brand)] border border-[var(--border)] bg-[var(--surface-alt)] p-[var(--space-8)]">
           <Heading level={2}>Conte o seu caso</Heading>
           <p className="mt-[var(--space-2)] text-[var(--fg-muted)]">

@@ -42,6 +42,7 @@ export function WhatsAppFab({ site }: { site: SiteKey }) {
       target="_blank"
       data-whatsapp
       data-wa-fab
+      data-wa-page
       data-placement="floating"
       aria-label={t(site, 'whatsapp.cta')}
       className="group fixed right-4 bottom-[calc(1rem+env(safe-area-inset-bottom))] z-40 flex size-14 items-center justify-center gap-2 rounded-full bg-[var(--wa)] text-[var(--wa-fg)] shadow-[0_12px_30px_-8px_rgba(0,0,0,.45)] transition-[width,background-color] duration-300 hover:bg-[var(--wa-hover)] sm:right-6 sm:bottom-6 md:w-auto md:px-5"
