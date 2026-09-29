@@ -9,7 +9,7 @@ const PATH = '/skatt';
 
 export function generateMetadata(): Metadata {
   return siteMetadata(SITE, {
-    title: 'Skatt i Paraguay för svenskar — territoriell skatt och svensk utflyttning',
+    title: 'Skatt i Paraguay för svenskar: territoriell beskattning',
     description:
       'Hur paraguayansk territoriell skatt fungerar, och varför den inte automatiskt löser din svenska skattefråga. Stäm alltid av med en skatterådgivare.',
     path: PATH,

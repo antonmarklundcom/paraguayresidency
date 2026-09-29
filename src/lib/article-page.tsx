@@ -4,9 +4,10 @@ import type { Metadata } from 'next';
 import { Breadcrumbs, Container, FAQ, Heading, NextSteps, Prose, Section, WhatsAppButton } from '@/components';
 import { whatsappHref } from '@/lib/whatsapp';
 import { Mdx } from '@/content/mdx';
-import { getPage } from '@/content';
+import { getPage, getPages } from '@/content';
 import { siteMetadata } from '@/lib/metadata';
 import { contentHref } from '@/lib/site-pages';
+import { articleParentCrumbs } from '@/lib/article-crumbs';
 import { t, INTL_LOCALE } from '@/i18n';
 import { getSite, siteOrigin, type SiteKey } from '@/sites/registry';
 import { JsonLd } from '@/components/JsonLd';
@@ -77,6 +78,32 @@ export interface ArticleLink {
   href: string;
 }
 
+/** Guides an article points on to, so no article is a dead end. */
+export const RELATED_GUIDES_MAX = 4;
+
+/**
+ * The "related guides" list: the editor's `related` picks first, then the
+ * article's hub siblings, then the brand's newest articles, never the article
+ * itself and never a link twice. Always at least two while the brand has two
+ * other articles, which is what keeps the link graph free of dead ends.
+ */
+export function relatedGuides(site: SiteKey, slugPath: string, picked: ArticleLink[] = []): ArticleLink[] {
+  const self = contentHref(site, slugPath);
+  const hub = slugPath.split('/')[0];
+  const all = getPages(site);
+  const ranked = [...all.filter((page) => page.hub === hub), ...all.filter((page) => page.hub !== hub)];
+  const seen = new Set<string>([self]);
+  const out: ArticleLink[] = [];
+  const push = (link: ArticleLink) => {
+    if (seen.has(link.href) || out.length >= RELATED_GUIDES_MAX) return;
+    seen.add(link.href);
+    out.push(link);
+  };
+  picked.forEach(push);
+  ranked.forEach((page) => push({ label: page.frontmatter.title, href: contentHref(site, page.slugPath) }));
+  return out;
+}
+
 /**
  * Optional "continue reading" block (plan §6.1 quality bar: every article
  * links to its hub + 2 related + one service page + the Route Finder). Purely
@@ -114,6 +141,7 @@ export function ArticlePage({
     .matchAll(/\{\{fact:([\w.]+)\}\}/g);
   // Figures with a citation get listed under the article: the named source
   // and the date it was checked are what an answer engine quotes back.
+  const related = relatedGuides(site, slugPath, relatedLinks);
   const cited = [...new Set([...factKeysIn(page.body), ...[...tokenKeys].map((m) => m[1]).filter((k) => k in facts)])]
     .map((key) => facts[key as keyof typeof facts] as FactEntry)
     .filter((fact) => fact.sourced);
@@ -123,7 +151,10 @@ export function ArticlePage({
       <Container width="narrow">
         <Breadcrumbs
           site={site}
-          items={[{ label: frontmatter.title, href: contentHref(site, slugPath) }]}
+          items={[
+            ...articleParentCrumbs(site, page.hub),
+            { label: frontmatter.title, href: contentHref(site, slugPath) },
+          ]}
         />
         <header className="mt-[var(--space-8)]">
           <Heading level={1}>{frontmatter.title}</Heading>
@@ -217,12 +248,16 @@ export function ArticlePage({
             )}
           </div>
         </aside>
-        {(relatedLinks?.length || serviceLink) && (
-          <nav
-            aria-label="Continue reading"
-            className="mt-[var(--space-16)] grid gap-[var(--space-6)] border-t border-[var(--border)] pt-[var(--space-8)] sm:grid-cols-2"
-          >
-            {relatedLinks?.map((link) => (
+        {related.length > 0 && (
+          <section aria-labelledby="related-guides" data-related-guides className="mt-[var(--space-16)] border-t border-[var(--border)] pt-[var(--space-8)]">
+            <h2 id="related-guides" className="font-[family-name:var(--display-font)] text-(length:--text-xl)">
+              {t(site, 'article.relatedGuides')}
+            </h2>
+            <nav
+              aria-label={t(site, 'article.relatedGuides')}
+              className="mt-[var(--space-6)] grid gap-[var(--space-6)] sm:grid-cols-2"
+            >
+            {related.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
@@ -236,7 +271,8 @@ export function ArticlePage({
                 </span>
               </Link>
             ))}
-          </nav>
+            </nav>
+          </section>
         )}
         {(serviceLink || routeFinderHref) && (
           <div className="mt-[var(--space-8)] flex flex-wrap gap-[var(--space-3)]">

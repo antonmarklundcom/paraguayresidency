@@ -1,6 +1,7 @@
 import {
   AfterYouMessage,
   Band,
+  Breadcrumbs,
   Eyebrow,
   Heading,
   OfficeStrip,
@@ -27,6 +28,7 @@ export function BrandContactPage({ site, whatsappMessage, eyebrow }: { site: Sit
       <Band>
         <div className="grid gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] lg:gap-20">
           <div className="lg:pt-4">
+            <Breadcrumbs site={site} items={[{ label: t(site, 'contact.h1'), href: '/contact' }]} />
             <Eyebrow>{eyebrow}</Eyebrow>
             <Heading level={1} className="mt-4">{t(site, 'contact.h1')}</Heading>
             <p className="mt-6 max-w-[52ch] text-(length:--step-1) leading-relaxed text-[var(--fg-muted)]">{t(site, 'contact.sub')}</p>

@@ -10,7 +10,7 @@ const PATH = '/residencia/permanente';
 
 export function generateMetadata(): Metadata {
   return siteMetadata('residenciaes', {
-    title: 'Residencia Permanente en Paraguay — La Cédula de Larga Duración',
+    title: 'Residencia permanente en Paraguay y cédula de larga duración',
     description:
       'Residencia permanente en Paraguay tras la temporal, o directa vía el Pase de Inversor. Qué significa de verdad la regla de presencia.',
     path: PATH,

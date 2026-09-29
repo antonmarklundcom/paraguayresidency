@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Container, Heading, Prose, Section } from '@/components';
+import { Breadcrumbs, Container, Heading, Prose, Section } from '@/components';
 import { siteMetadata } from '@/lib/metadata';
 import { getSite, type SiteKey } from '@/sites/registry';
 
@@ -22,7 +22,8 @@ export function PrivacyPage({ site }: { site: SiteKey }) {
   return (
     <Section>
       <Container width="narrow">
-        <Heading level={1}>Privacy Policy</Heading>
+        <Breadcrumbs site={site} items={[{ label: 'Privacy Policy', href: '/privacy' }]} />
+        <Heading level={1} className="mt-[var(--space-8)]">Privacy Policy</Heading>
         <p className="mt-[var(--space-4)] text-[var(--fg-muted)]">Last updated 2026-09-07.</p>
         <Prose className="mt-[var(--space-8)]">
           <h2>What we collect</h2>
@@ -83,7 +84,8 @@ export function TermsPage({ site }: { site: SiteKey }) {
   return (
     <Section>
       <Container width="narrow">
-        <Heading level={1}>Terms of Service</Heading>
+        <Breadcrumbs site={site} items={[{ label: 'Terms of Service', href: '/terms' }]} />
+        <Heading level={1} className="mt-[var(--space-8)]">Terms of Service</Heading>
         <p className="mt-[var(--space-4)] text-[var(--fg-muted)]">Last updated 2026-09-07.</p>
         <Prose className="mt-[var(--space-8)]">
           <h2>What we provide</h2>
@@ -142,7 +144,8 @@ export function GuideTermsPage({ site }: { site: SiteKey }) {
   return (
     <Section>
       <Container width="narrow">
-        <Heading level={1}>Terms of Service</Heading>
+        <Breadcrumbs site={site} items={[{ label: 'Terms of Service', href: '/terms' }]} />
+        <Heading level={1} className="mt-[var(--space-8)]">Terms of Service</Heading>
         <p className="mt-[var(--space-4)] text-[var(--fg-muted)]">Last updated 2026-09-07.</p>
         <Prose className="mt-[var(--space-8)]">
           <h2>What you are buying</h2>

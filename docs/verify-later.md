@@ -181,6 +181,14 @@ _Nothing yet from other agents._ Each row: text · file:line · what to confirm.
 - Price line is the `pricing.*` fact chosen by page path (`priceKeyFor`, `src/lib/reply-window.ts`): hedged wording until Anton verifies each fee in `content/shared/facts.ts`; articles default to `pricing.temporary` unless the slug names another route.
 - Page-aware WhatsApp text ("Hi, I was reading "{page}" ...") uses the page title, set on click by `WhatsAppClickTracker` · `whatsapp.prefillPage` · confirm the wording in es/pt/sv.
 
+### B. SEO gates and structured data (S24-B)
+
+| # | What | Where | Confirm |
+|---|---|---|---|
+| FB1 | Street address, Google Maps link, Google review rating and count, and public profile links (LinkedIn etc.) for Anton, Yanina and Diana. The Organization/LocalBusiness JSON-LD emits `streetAddress`, `hasMap`, `aggregateRating` and extra `sameAs` **only** once these are filled, and never before. | `content/shared/proof.ts` (`office`, `stats.googleRating`), `src/content/team.ts` (`sameAs`) | Supply the real values. Nothing is invented while they are null. Google does not show star snippets for a business rating its own site; the markup is still correct and matches the visible TrustBar. |
+| FB2 | Page titles and descriptions edited to meet the length gate (titles at most 60 characters, descriptions 70 to 160). Wording is shorter, meaning unchanged: guide `/insider` and `/refunds`, investorpass `/pricing`, frontier `/pricing`, `/documents/checklist` and the banking story, residenciaes `/precios` and `/residencia/permanente`, flytta `/guide`, `/process`, `/route-finder`, `/skatt`, `/uppehallstillstand`. | the page files under `src/app/**/sites/*` | Skim the Spanish and Swedish rewrites. |
+| FB3 | residenciapt hub `morar-no-paraguai` articles now end on the "Residência temporária" service link instead of `/custo-de-vida`, so every article links to a real service page. | `src/app/(pt)/sites/residenciapt/guias/[hub]/[slug]/page.tsx` | Confirm temporary residency is the CTA you want for the life-in-Paraguay hub. |
+| FB4 | flytta `/guide` (the English guide bridge) is now linked from the end of `/process`, so it is no longer an orphan. | `src/app/(sv)/sites/flytta/process/page.tsx` | Confirm the guide bridge should be reachable from the main site. |
 ### C. Content batch S24-C (intent pages, 2026-09-29)
 
 No new fact keys. Two existing facts gained es/pt/sv wording (`residency.criminal_record_refusal`, `driving.resident_licence`), translated from the English entry; a native reader should check them. Prose claims that are not a `<Fact>`:

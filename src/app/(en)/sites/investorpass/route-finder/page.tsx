@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Container, Heading, Section } from '@/components';
+import { Breadcrumbs, Container, Heading, Section } from '@/components';
 import { Quiz } from '@/features/quiz/Quiz';
 import { t } from '@/i18n';
 import { siteMetadata } from '@/lib/metadata';
@@ -18,7 +18,8 @@ export default function Page() {
   return (
     <Section>
       <Container>
-        <Heading level={1}>{t(SITE, 'quiz.h1')}</Heading>
+        <Breadcrumbs site={SITE} items={[{ label: t(SITE, 'quiz.h1'), href: '/route-finder' }]} />
+        <Heading level={1} className="mt-[var(--space-8)]">{t(SITE, 'quiz.h1')}</Heading>
         <p className="mt-[var(--space-4)] max-w-[var(--measure)] text-[var(--fg-muted)]">
           {t(SITE, 'quiz.sub')}
         </p>

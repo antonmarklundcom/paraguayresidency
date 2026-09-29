@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Container, Heading, Prose, Section } from '@/components';
+import { Breadcrumbs, Container, Heading, Prose, Section } from '@/components';
 import { siteMetadata } from '@/lib/metadata';
 
 const PATH = '/refunds';
@@ -7,7 +7,7 @@ const PATH = '/refunds';
 export function generateMetadata(): Metadata {
   return siteMetadata('guide', {
     title: 'Refund Policy — Paraguay Residency Guide',
-    description: '14 days, no questions. How to ask for a refund and what happens next.',
+    description: 'Our 14-day, no-questions refund policy for the Paraguay Residency Guide: how to ask for a refund and what happens next.',
     path: PATH,
   });
 }
@@ -16,7 +16,8 @@ export default function Page() {
   return (
     <Section>
       <Container width="narrow">
-        <Heading level={1}>Refund Policy</Heading>
+        <Breadcrumbs site="guide" items={[{ label: 'Refund Policy', href: '/refunds' }]} />
+        <Heading level={1} className="mt-[var(--space-8)]">Refund Policy</Heading>
         <p className="mt-[var(--space-4)] text-(length:--text-lg) text-[var(--fg-muted)]">
           14 days, no questions.
         </p>

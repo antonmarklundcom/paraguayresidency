@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Container, Heading, Prose, Section } from '@/components';
+import { Breadcrumbs, Container, Heading, Prose, Section } from '@/components';
 import { siteMetadata } from '@/lib/metadata';
 
 const PATH = '/privacy';
@@ -17,7 +17,8 @@ export default function Page() {
   return (
     <Section>
       <Container width="narrow">
-        <Heading level={1}>Política de Privacidad</Heading>
+        <Breadcrumbs site="residenciaes" items={[{ label: 'Política de Privacidad', href: '/privacy' }]} />
+        <Heading level={1} className="mt-[var(--space-8)]">Política de Privacidad</Heading>
         <p className="mt-[var(--space-4)] text-[var(--fg-muted)]">Última actualización: 09/09/2026.</p>
         <Prose className="mt-[var(--space-8)]">
           <h2>Qué recogemos</h2>

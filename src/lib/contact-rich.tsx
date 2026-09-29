@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { AfterYouMessage, Heading, OfficeStrip, Section, TrustBar, WhatsAppButton } from '@/components';
+import { AfterYouMessage, Breadcrumbs, Heading, OfficeStrip, Section, TrustBar, WhatsAppButton } from '@/components';
 import { LeadForm } from '@/components/LeadForm';
 import { t } from '@/i18n';
 import { whatsappHref } from '@/lib/whatsapp';
@@ -28,7 +28,8 @@ export function RichContactPage({ site, whatsappMessage, checklist, after = fals
       <Section>
         <div className="grid gap-[var(--space-12)] lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:items-start">
           <div>
-            <Heading level={1}>{t(site, 'contact.h1')}</Heading>
+            <Breadcrumbs site={site} items={[{ label: t(site, 'contact.h1'), href: '/contact' }]} />
+            <Heading level={1} className="mt-[var(--space-8)]">{t(site, 'contact.h1')}</Heading>
             <p className="mt-[var(--space-4)] max-w-[60ch] text-(length:--text-lg) text-[var(--fg-muted)]">{t(site, 'contact.sub')}</p>
             <div className="mt-[var(--space-8)] flex flex-wrap items-center gap-x-4 gap-y-3">
               <WhatsAppButton site={site} message={message} placement="contact" />

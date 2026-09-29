@@ -8,7 +8,7 @@ const PATH = '/process';
 
 export function generateMetadata(): Metadata {
   return siteMetadata(SITE, {
-    title: 'Så går processen till — uppehållstillstånd i Paraguay steg för steg',
+    title: 'Processen steg för steg — uppehållstillstånd i Paraguay',
     description:
       'Från första meddelandet till cédulan i handen: processen för uppehållstillstånd i Paraguay, steg för steg, med dokumentchecklistan.',
     path: PATH,
@@ -104,7 +104,11 @@ export default function Page() {
           <a href="/route-finder" className="text-[var(--accent)] underline underline-offset-2">
             Route Finder
           </a>{' '}
-          först.
+          först. Vill du hellre läsa på själv innan du skriver till oss finns{' '}
+          <a href="/guide" className="text-[var(--accent)] underline underline-offset-2">
+            Paraguay Residency Guide
+          </a>{' '}
+          på engelska.
         </p>
           <ProcessTimeline site="flytta" route="standard" />
         </Container>

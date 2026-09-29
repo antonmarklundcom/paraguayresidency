@@ -235,6 +235,7 @@
   "whatsapp.continueHint": "Vill du ha svar snabbare? Skicka ett WhatsApp från numret du angav, så hamnar det i samma ärende.",
   "whatsapp.afterForm": "Hej! Jag skickade just formuläret på {domain}. Kort om mitt fall:",
   "article.ctaTitle": "Frågor om just ditt fall?",
+  "article.relatedGuides": "Relaterade guider",
   "article.ctaBody": "Skriv till oss på WhatsApp eller skicka formuläret. En namngiven person svarar skriftligt inom en arbetsdag, även när det ärliga svaret är ”inte än”.",
   "article.orForm": "eller skicka formuläret",
   "nav.documents": "Dokument",
