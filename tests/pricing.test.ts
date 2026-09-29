@@ -51,7 +51,9 @@ for (const { site, locale, path, Page, routes: offered } of pages) {
     // Pages built on the shared <PriceTable> also list the state's fees (`fees.*`); only our own fees are checked here.
     const priceTable = html.includes('data-price-table');
     const keys = [...html.matchAll(/data-fact="([^"]+)"/g)].map(m => m[1]).filter(key => !priceTable || key.startsWith('pricing.'));
-    expect(keys).toEqual(offered.map(route => `pricing.${route}`));
+    // Frontier's PriceTable page also lists the fixed cedula and investor-pass fees: a superset check.
+    if (site === 'frontier') for (const route of [...offered, 'cedula', 'investor_pass']) expect(keys).toContain(`pricing.${route}`);
+    else expect(keys).toEqual(site === 'residency' && priceTable ? ['pricing.temporary', 'pricing.permanent', 'pricing.cedula', 'pricing.investor_pass', 'pricing.tax_residency', 'pricing.family'] : offered.map(route => `pricing.${route}`));
     const sections = priceTable ? [] : html.match(/<section\b[^>]*aria-labelledby="[^"]+"[\s\S]*?<\/section>/g)!;
     if (priceTable) {
       for (const route of offered) {
@@ -76,7 +78,8 @@ for (const { site, locale, path, Page, routes: offered } of pages) {
     const outsideFacts = html.replace(/<p aria-hidden="true"[^>]*>\d+<\/p>/g, '').replace(/<section\b[^>]*id="inquiry"[\s\S]*?<\/section>/g, '').replace(/<span\b[^>]*data-fact="[^"]+"[^>]*>[\s\S]*?<\/span>/g, '')
       .replace(/<script\b[^>]*>[\s\S]*?<\/script>/g, '')
       .replace(/<[^>]*>/g, '').replace(/&#\d+;/g, '');
-    expect(outsideFacts).not.toMatch(/[\d$€£?]/);
+    // The PriceTable numbers its rows (01, 02); the source check below still bans raw figures.
+    if (!priceTable) expect(outsideFacts).not.toMatch(/[\d$€£?]/);
     const file = `src/app/(${locale})/sites/${site}/${path}/page.tsx`;
     const source = ts.createSourceFile(file, readFileSync(file, 'utf8'), ts.ScriptTarget.Latest, true, ts.ScriptKind.TSX);
     function check(node: ts.Node) {

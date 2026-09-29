@@ -97,6 +97,7 @@ const staticPaths: Record<SiteKey, string[]> = {
     '/privacy',
     '/terms',
     '/about',
+    '/pricing',
     '/investor-pass/requirements',
     '/investor-pass/investment-routes',
     '/investor-pass/process',
