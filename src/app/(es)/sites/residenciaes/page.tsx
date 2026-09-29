@@ -1,25 +1,31 @@
-import { getPages } from '@/content';
-import { contentHref } from '@/lib/site-pages';
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import {
-  HeroContact,
+  AfterYouMessage,
   ArticleCards,
+  Band,
   Button,
   Disclosure,
+  Eyebrow,
   Fact,
   FAQ,
+  Guarantee,
   Heading,
+  HeroContact,
   IntentTiles,
   LeadPanel,
   PhotoHero,
-  heroTrust,
-  Reasons,
+  PriceTable,
   Section,
-  Steps,
-  TeamStrip,
+  SectionHeader,
+  TeamSection,
+  TrustBar,
+  heroTrust,
 } from '@/components';
+import { curatedArticles } from '@/lib/curated-articles';
 import { siteMetadata } from '@/lib/metadata';
 import { t } from '@/i18n';
+import { NationalityPicker } from './_lib/por-pais';
 
 const SITE = 'residenciaes' as const;
 
@@ -35,12 +41,12 @@ const FAQ_ITEMS = [
   {
     question: '¿Cómo sé qué ruta me conviene?',
     answer:
-      'Haz el test de ruta — seis preguntas, dos minutos — o escríbenos y te lo decimos directamente, incluido cuándo la ruta estándar no te conviene.',
+      'Mira primero tu nacionalidad: si tu país está en la lista Mercosur, tu ruta suele ser la residencia Mercosur; si no, la residencia temporal general. Para confirmarlo, haz el test de ruta —seis preguntas, dos minutos— o escríbenos y te lo decimos directamente, incluido cuándo la ruta estándar no te conviene.',
   },
   {
     question: '¿Cuánto cuesta esto?',
     answer:
-      'Un honorario fijo por ruta, cotizado en euros antes de que te comprometas, según tu nacionalidad y tu situación. Consulta la página de precios para ver qué cubre cada ruta.',
+      'Un honorario fijo por ruta, cotizado por escrito antes de que te comprometas, más las tasas oficiales, que van directas al Estado. La página de precios explica qué incluye cada ruta y qué no.',
   },
   {
     question: '¿Tengo que mudarme a Paraguay para conseguir la residencia?',
@@ -54,75 +60,121 @@ const FAQ_ITEMS = [
   },
 ];
 
-const STEPS = [
-  { title: 'Un mensaje', body: 'Confirmamos tu ruta y tu honorario fijo, en euros, por escrito, antes de que te comprometas.' },
-  { title: 'Tus documentos', body: 'Una lista hecha para tu nacionalidad: apostillas y traducciones en el orden correcto.' },
-  { title: 'Asunción', body: 'Presentamos el expediente y te acompañamos a las citas. Tú vienes; nosotros hacemos el resto.' },
-  { title: 'Tu cédula', body: 'Aprobada la residencia, tramitamos tu cédula paraguaya y te decimos qué sigue.' },
-];
+const link = 'text-[var(--accent)] underline underline-offset-2';
+const label = 'text-(length:--step--2) font-medium uppercase tracking-[.16em] text-[var(--fg-muted)]';
 
 export default function Page() {
-  const latest = getPages(SITE).slice(0, 3);
   const actions = (
     <>
-      <Button href="/route-finder">Descubre tu ruta</Button>
+      <Button href="/guias/por-pais">Elige tu nacionalidad</Button>
       <HeroContact site={SITE} message="Hola, me gustaría saber más sobre la residencia en Paraguay." fallbackHref="#contact" />
     </>
   );
 
+  const guides = curatedArticles(SITE, [
+    { slugPath: 'documentos/cuanto-cuesta-la-residencia-en-paraguay', eyebrow: 'Costes' },
+    { slugPath: 'documentos/como-obtener-la-residencia-en-paraguay-paso-a-paso', eyebrow: 'Paso a paso' },
+    { slugPath: 'comparativas/residencia-mercosur-o-residencia-temporal', eyebrow: 'Mercosur' },
+    { slugPath: 'comparativas/paraguay-vs-espana', eyebrow: 'Comparativa' },
+    { slugPath: 'vivir-en-paraguay/costo-de-vida-en-paraguay', eyebrow: 'Vivir aquí' },
+    { slugPath: 'impuestos/sistema-tributario-territorial', eyebrow: 'Impuestos' },
+  ]);
+
   return (
     <>
       <PhotoHero
-        image="guide-hero-reading-terrace-asuncion"
+        image="residenciaes-hero-cafe-arcade-plaza"
         locale="es"
-        focus="65% center"
-        eyebrow="Residencia Paraguay"
+        focus="62% center"
+        video={{ id: 'residenciaes-hero-cafe-arcade-plaza' }}
+        eyebrow="Residencia en Paraguay"
         title="Residencia en Paraguay, sin vueltas."
-        sub="Residencia temporal, permanente y cédula, tramitadas por un equipo que lo hace cada semana en Asunción. Tú vienes a las citas. Nosotros hacemos el resto."
+        sub="Dinos de qué país eres y te decimos tu ruta, tus documentos y tu honorario fijo, por escrito, antes de que decidas nada. Tú vienes a las citas; el resto lo hacemos nosotros, desde Asunción."
         actions={actions}
         trust={heroTrust(SITE)}
       />
 
+      <TrustBar site={SITE} />
+
+      <Band tone="alt" labelledBy="pais-title" data-nationality-picker>
+        <SectionHeader
+          id="pais-title"
+          eyebrow="Por país"
+          title="¿De dónde eres?"
+          intro="Tu pasaporte decide más de lo que parece: la ruta, quién emite tus certificados y dónde se apostillan. Elige tu país y lo vemos con tu caso."
+          aside={<Link href="/guias/por-pais" className={`inline-flex min-h-11 items-center gap-2 font-medium ${link}`}>Todas las nacionalidades <span aria-hidden="true">→</span></Link>}
+        />
+        <NationalityPicker />
+      </Band>
+
+      <Band labelledBy="mercosur-title" data-mercosur-block>
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] lg:gap-20">
+          <div>
+            <Eyebrow>Vía Mercosur</Eyebrow>
+            <h2 id="mercosur-title" className="mt-4 font-[family-name:var(--display-font)] text-(length:--step-4) leading-[1.06] text-balance">
+              Si tu país está en el Mercosur, empieza por aquí.
+            </h2>
+            <p className="mt-5 max-w-[52ch] text-(length:--step-1) leading-relaxed text-[var(--fg-muted)]">
+              Es la ruta corta: menos papeles y una tasa oficial reducida. Antes de nada te decimos si tu nacionalidad entra, porque la lista no es la que mucha gente supone.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Button href="/mercosur">Ver la vía Mercosur</Button>
+              <Button href="/route-finder" variant="secondary">Hacer el test de ruta</Button>
+            </div>
+          </div>
+          <dl className="grid gap-px overflow-hidden rounded-[var(--radius-brand)] border border-[var(--border)] bg-[var(--border)] shadow-[var(--elev-1)]">
+            <div className="bg-[var(--surface)] p-6 md:p-8">
+              <dt className={label}>La ruta</dt>
+              <dd className="mt-2 leading-relaxed first-letter:uppercase"><Fact k="mercosur.residency_route" site={SITE} /></dd>
+            </div>
+            <div className="bg-[var(--surface)] p-6 md:p-8">
+              <dt className={label}>La tasa oficial</dt>
+              <dd className="mt-2 leading-relaxed first-letter:uppercase"><Fact k="fees.mercosur_residency" site={SITE} /></dd>
+            </div>
+            <div className="bg-[var(--surface)] p-6 md:p-8">
+              <dt className={label}>El plazo que no se puede perder</dt>
+              <dd className="mt-2 leading-relaxed first-letter:uppercase"><Fact k="mercosur.conversion_deadline" site={SITE} /></dd>
+            </div>
+          </dl>
+        </div>
+      </Band>
+
+      <PriceTable
+        site={SITE}
+        tone="alt"
+        routes={['temporary', 'permanent', 'cedula']}
+        title="Un honorario fijo por trámite, por escrito antes de empezar"
+        intro="Sabes lo que pagas antes de empezar. Las tasas oficiales van directas al Estado y se detallan aparte, así que nada queda escondido en nuestro honorario."
+      />
+
       <IntentTiles
         locale="es"
-        title="¿Por dónde empiezas?"
-        intro="Elige tu punto de partida. Si no lo tienes claro, el test de ruta te lo dice en dos minutos."
+        title="¿Qué necesitas resolver?"
+        intro="Cuatro puntos de partida. Si no lo tienes claro, el test de ruta te orienta en dos minutos."
         tiles={[
-          { label: '¿Qué ruta me conviene?', note: 'Seis preguntas, dos minutos', href: '/route-finder', image: 'guide-tile-route-fork' },
-          { label: 'Residencia temporal', note: 'El primer paso habitual', href: '/residencia/temporal', image: 'guide-tile-documents-desk' },
-          { label: 'Residencia permanente', note: 'Con reglas de presencia claras', href: '/residencia/permanente', image: 'frontier-tile-open-door-patio' },
-          { label: 'Vía Mercosur', note: 'Si tienes nacionalidad del Mercosur', href: '/mercosur', image: 'frontier-tile-three-roads' },
+          { label: 'Residencia temporal', note: 'El primer paso habitual', href: '/residencia/temporal', image: 'residenciaes-tile-esquina-centro-historico' },
+          { label: 'Documentos y apostillas', note: 'En el orden en que caducan', href: '/guias/documentos', image: 'residenciaes-tile-pasaporte-apostilla' },
+          { label: 'Residencia permanente', note: 'Con la regla de presencia clara', href: '/residencia/permanente', image: 'residenciaes-tile-llaves-puerta-colonial' },
+          { label: 'Vía Mercosur', note: 'Si tu país está en la lista', href: '/mercosur', image: 'residenciaes-tile-terminal-omnibus-viajeros' },
         ]}
       />
 
-      <Reasons
-        title="Por qué Paraguay"
-        intro="Sin promesas de folleto: esto es lo que la ley ofrece hoy, y lo confirmamos contigo antes de presentar nada."
-        reasons={[
-          { title: 'Un primer paso claro', body: <>Duración de la residencia temporal: <Fact k="temporary.duration" site={SITE} />.</> },
-          { title: 'Una permanente que dura', body: <>La permanente tiene una regla de presencia: <Fact k="permanent.presence_rule" site={SITE} />.</> },
-          {
-            title: 'Vía propia para el Mercosur',
-            body: (
-              <>
-                Para nacionales del Mercosur, la vía de residencia es la siguiente:{' '}
-                <Fact k="mercosur.residency_route" site={SITE} /> —{' '}
-                <a href="/mercosur" className="text-[var(--accent)] underline underline-offset-2">mira si te aplica</a>.
-              </>
-            ),
-          },
-        ]}
-      />
-
-      <Steps
+      <AfterYouMessage
+        site={SITE}
         tone="alt"
-        title="Cómo funciona"
-        intro="Cuatro pasos, en el orden en que de verdad ocurren."
-        steps={STEPS}
-        link={{ href: '/proceso', label: 'El proceso completo, paso a paso' }}
+        message="Hola, me gustaría saber más sobre la residencia en Paraguay."
       />
 
-      <TeamStrip site={SITE} />
+      <ArticleCards
+        site={SITE}
+        title="Lo que más nos preguntan"
+        articles={guides}
+        more={{ href: '/guias', label: 'Todas las guías' }}
+      />
+
+      <TeamSection site={SITE} tone="alt" />
+
+      <Guarantee site={SITE} />
 
       <Section width="narrow">
         <Heading level={2} className="mb-[var(--space-6)]">Los detalles</Heading>
@@ -130,41 +182,31 @@ export default function Page() {
           <p>
             Personas que se trasladan por trabajo, jubilación o familia; nómadas y autónomos que
             quieren una base legal y un RUC que puedan usar de verdad; nacionales del Mercosur con
-            una vía propia (busca tu país en la <a href="/guias/por-pais" className="text-[var(--accent)] underline underline-offset-2">guía por nacionalidad</a>);
-            e inversores que prefieren ir directos a la permanente. Si no sabes
-            cuál de estos eres, el{' '}
-            <a href="/route-finder" className="text-[var(--accent)] underline underline-offset-2">
-              test de ruta
-            </a>{' '}
-            te lo dice en dos minutos.
+            una vía propia (busca tu país en la <Link href="/guias/por-pais" className={link}>guía por nacionalidad</Link>);
+            e inversores que prefieren ir directos a la permanente. Si no sabes cuál de estos eres,
+            el <Link href="/route-finder" className={link}>test de ruta</Link> te lo dice en dos minutos.
           </p>
         </Disclosure>
         <Disclosure title="¿Inviertes capital? El Pase de Inversor">
           <p>
             Con una inversión que califique puedes ir directo a la residencia permanente. Es una
             marca aparte con el mismo equipo:{' '}
-            <a href="/pase-inversor" className="text-[var(--accent)] underline underline-offset-2">
-              mira cómo funciona
-            </a>
-            .
+            <Link href="/pase-inversor" className={link}>mira cómo funciona</Link>.
+          </p>
+        </Disclosure>
+        <Disclosure title="¿Vienes de España?">
+          <p>
+            Tenemos guías pensadas para quien sale de España: los certificados y la apostilla, el
+            ángulo fiscal y la comparación con quedarse.{' '}
+            <Link href="/guias/documentos/documentos-y-apostillas-para-espanoles" className={link}>Documentos y apostillas para españoles</Link>,{' '}
+            <Link href="/guias/impuestos/irse-de-espana-a-paraguay-fiscalidad" className={link}>irse de España a Paraguay: fiscalidad</Link> y{' '}
+            <Link href="/guias/vivir-en-paraguay/vivir-en-paraguay-siendo-espanol" className={link}>vivir en Paraguay siendo español</Link>.
           </p>
         </Disclosure>
         <Disclosure title="Preguntas frecuentes">
           <FAQ items={FAQ_ITEMS} />
         </Disclosure>
       </Section>
-
-      <ArticleCards
-        site={SITE}
-        title="Lee antes de decidir"
-        articles={latest.map((post) => ({
-          title: post.frontmatter.title,
-          description: post.frontmatter.description,
-          href: contentHref(SITE, post.slugPath),
-          hub: post.hub,
-        }))}
-        more={{ href: '/guias', label: 'Todas las guías' }}
-      />
 
       <LeadPanel
         site={SITE}
