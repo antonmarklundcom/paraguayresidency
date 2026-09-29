@@ -2055,7 +2055,7 @@ To pull a figure off every page at once, delete its `sourced` block.
 - **Shows (en):** a fixed service fee quoted in writing — we confirm the scope and separate costs before you commit
 - **Proposed figure (en):** fixed service fee confirmed in writing
 - **Note:** No approved service price supplied. Confirm the route scope and separate costs with the team before entering a figure or verifying. Government fees and document-provider charges are not this service fee.
-- **Where it appears (32):**
+- **Where it appears (33):**
   - guide member area — members/costs-and-timeline/real-costs (`content/guide/members/costs-and-timeline/real-costs.mdx`)
   - guide member area — members/costs-and-timeline/timeline-week-by-week (`content/guide/members/costs-and-timeline/timeline-week-by-week.mdx`)
   - guide member area — members/getting-started/the-routes-compared (`content/guide/members/getting-started/the-routes-compared.mdx`)
@@ -2088,6 +2088,7 @@ To pull a figure off every page at once, delete its `sourced` block.
   - https://vidanoparaguai.com/guias/documentos/quanto-custa-a-residencia-no-paraguai (`content/residenciapt/documentos/quanto-custa-a-residencia-no-paraguai.mdx`)
   - https://vidanoparaguai.com/guias/documentos/rotas-de-residencia-temporaria-permanente-mercosul (`content/residenciapt/documentos/rotas-de-residencia-temporaria-permanente-mercosul.mdx`)
   - shared code, shown on several pages (`src/components/PriceTable.tsx`)
+  - shared code, shown on several pages (`src/lib/reply-window.ts`)
 
 ### Permanent residency — service fee
 
@@ -2095,13 +2096,14 @@ To pull a figure off every page at once, delete its `sourced` block.
 - **Shows (en):** a fixed service fee quoted in writing — we confirm the scope and separate costs before you commit
 - **Proposed figure (en):** fixed service fee confirmed in writing
 - **Note:** No approved service price supplied. Confirm the route scope and separate costs with the team before entering a figure or verifying. Government fees and document-provider charges are not this service fee.
-- **Where it appears (6):**
+- **Where it appears (7):**
   - https://paraguayfrontier.com/stories/the-real-cost-of-holding-a-paraguay-plan-b (`content/frontier/stories/the-real-cost-of-holding-a-paraguay-plan-b.mdx`)
   - https://residenciaenparaguay.es/guias/documentos/de-residencia-temporal-a-permanente (`content/residenciaes/documentos/de-residencia-temporal-a-permanente.mdx`)
   - https://residenciaenparaguay.es/guias/documentos/residencia-permanente-requisitos-2026 (`content/residenciaes/documentos/residencia-permanente-requisitos-2026.mdx`)
   - https://residenciaenparaguay.es/guias/documentos/rutas-de-residencia (`content/residenciaes/documentos/rutas-de-residencia.mdx`)
   - https://residenciaenparaguay.es/guias/vivir-en-paraguay/jubilarse-en-paraguay (`content/residenciaes/vivir-en-paraguay/jubilarse-en-paraguay.mdx`)
   - shared code, shown on several pages (`src/components/PriceTable.tsx`)
+  - shared code, shown on several pages (`src/lib/reply-window.ts`)
 
 ### Cédula de identidad — service fee
 
@@ -2109,13 +2111,14 @@ To pull a figure off every page at once, delete its `sourced` block.
 - **Shows (en):** a fixed service fee quoted in writing — we confirm the scope and separate costs before you commit
 - **Proposed figure (en):** fixed service fee confirmed in writing
 - **Note:** No approved service price supplied. Confirm the route scope and separate costs with the team before entering a figure or verifying. Government fees and document-provider charges are not this service fee.
-- **Where it appears (6):**
+- **Where it appears (7):**
   - guide member area — members/after-approval/cedula-and-ruc (`content/guide/members/after-approval/cedula-and-ruc.mdx`)
   - guide member area — members/costs-and-timeline/real-costs (`content/guide/members/costs-and-timeline/real-costs.mdx`)
   - https://residenciaenparaguay.es/guias/documentos/cedula-paraguaya-para-extranjeros (`content/residenciaes/documentos/cedula-paraguaya-para-extranjeros.mdx`)
   - https://residenciaenparaguay.es/guias/documentos/rutas-de-residencia (`content/residenciaes/documentos/rutas-de-residencia.mdx`)
   - https://vidanoparaguai.com/guias/documentos/cedula-paraguaia-para-brasileiros (`content/residenciapt/documentos/cedula-paraguaia-para-brasileiros.mdx`)
   - shared code, shown on several pages (`src/components/PriceTable.tsx`)
+  - shared code, shown on several pages (`src/lib/reply-window.ts`)
 
 ### Tax residency and RUC — service fee
 
@@ -2123,7 +2126,7 @@ To pull a figure off every page at once, delete its `sourced` block.
 - **Shows (en):** a fixed service fee quoted in writing — we confirm the scope and separate costs before you commit
 - **Proposed figure (en):** fixed service fee confirmed in writing
 - **Note:** No approved service price supplied. Confirm the route scope and separate costs with the team before entering a figure or verifying. Government fees and document-provider charges are not this service fee.
-- **Where it appears (13):**
+- **Where it appears (14):**
   - guide member area — members/after-approval/cedula-and-ruc (`content/guide/members/after-approval/cedula-and-ruc.mdx`)
   - guide member area — members/after-approval/taxes-for-residents (`content/guide/members/after-approval/taxes-for-residents.mdx`)
   - guide member area — members/costs-and-timeline/real-costs (`content/guide/members/costs-and-timeline/real-costs.mdx`)
@@ -2137,6 +2140,7 @@ To pull a figure off every page at once, delete its `sourced` block.
   - https://residenciaenparaguay.es/precios (`src/app/(es)/sites/residenciaes/precios/page.tsx`)
   - https://vidanoparaguai.com/guias/impostos/residencia-fiscal-no-paraguai-morando-no-brasil (`content/residenciapt/impostos/residencia-fiscal-no-paraguai-morando-no-brasil.mdx`)
   - https://vidanoparaguai.com/precos (`src/app/(pt)/sites/residenciapt/precos/page.tsx`)
+  - shared code, shown on several pages (`src/lib/reply-window.ts`)
 
 ### Family filing — service fee
 
@@ -2144,7 +2148,7 @@ To pull a figure off every page at once, delete its `sourced` block.
 - **Shows (en):** a fixed service fee quoted in writing — we confirm the scope and separate costs before you commit
 - **Proposed figure (en):** fixed service fee confirmed in writing
 - **Note:** No approved service price supplied. Confirm the route scope and separate costs with the team before entering a figure or verifying. Government fees and document-provider charges are not this service fee.
-- **Where it appears (8):**
+- **Where it appears (9):**
   - guide member area — members/after-approval/family (`content/guide/members/after-approval/family.mdx`)
   - https://flyttatillparaguay.se/priser (`src/app/(sv)/sites/flytta/priser/page.tsx`)
   - https://paraguayfrontier.com/pricing (`src/app/(en)/sites/frontier/pricing/page.tsx`)
@@ -2153,6 +2157,7 @@ To pull a figure off every page at once, delete its `sourced` block.
   - https://residenciaenparaguay.es/precios (`src/app/(es)/sites/residenciaes/precios/page.tsx`)
   - https://vidanoparaguai.com/guias/documentos/residencia-no-paraguai-em-familia-conjuge-e-filhos (`content/residenciapt/documentos/residencia-no-paraguai-em-familia-conjuge-e-filhos.mdx`)
   - https://vidanoparaguai.com/precos (`src/app/(pt)/sites/residenciapt/precos/page.tsx`)
+  - shared code, shown on several pages (`src/lib/reply-window.ts`)
 
 ### Investor Pass — service fee
 
@@ -2160,9 +2165,10 @@ To pull a figure off every page at once, delete its `sourced` block.
 - **Shows (en):** a fixed service fee quoted in writing — we confirm the scope and separate costs before you commit
 - **Proposed figure (en):** fixed service fee confirmed in writing
 - **Note:** No approved service price supplied. Added by the design overhaul (W4) so the PriceTable's Investor Pass row reads from the register like the other routes. The investment itself and government fees are not this service fee.
-- **Where it appears (2):**
+- **Where it appears (3):**
   - https://paraguayinvestorpass.com/insights/what-the-investor-pass-really-costs (`content/investorpass/insights/what-the-investor-pass-really-costs.mdx`)
   - shared code, shown on several pages (`src/components/PriceTable.tsx`)
+  - shared code, shown on several pages (`src/lib/reply-window.ts`)
 
 ### Residency application — processing window
 
