@@ -25,6 +25,7 @@ describe('content/shared/proof.ts ships empty', () => {
   it('has no stat, review, photo, office, credential, press or guarantee', () => {
     expect(PROOF.stats).toEqual({ residenciesFiled: null, yearsInBusiness: null, googleRating: null });
     expect(PROOF.reviews).toEqual([]);
+    expect(PROOF.cases).toEqual([]);
     expect(PROOF.office).toEqual({ address: null, mapsUrl: null, photos: [] });
     expect(PROOF.credentials).toEqual([]);
     expect(PROOF.press).toEqual([]);

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { AfterYouMessage, Breadcrumbs, Button, Container, Guarantee, Heading, OfficeStrip, Prose, Section, StatRow, TeamSection, TrustBar } from '@/components';
+import { AfterYouMessage, Breadcrumbs, Button, Container, Guarantee, Heading, OfficeStrip, Prose, Section, StatRow, TeamSection, TrustBar, Testimonials, CaseSnapshots } from '@/components';
 import { arrivalPicture } from '@/lib/arrival-files';
 import { siteMetadata } from '@/lib/metadata';
 import { whatsappHref } from '@/lib/whatsapp';
@@ -151,6 +151,8 @@ export default function Page() {
     <TrustBar site={SITE} />
     <TeamSection site={SITE} tone="alt" />
     <OfficeStrip site={SITE} />
+    <Testimonials site={SITE} tone="alt" />
+    <CaseSnapshots site={SITE} />
     <Guarantee site={SITE} />
     <AfterYouMessage site={SITE} tone="alt" />
     </>

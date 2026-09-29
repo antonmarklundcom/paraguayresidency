@@ -1,6 +1,6 @@
 import { t } from '@/i18n';
 import type { ReactNode } from 'react';
-import { Button, StickyCta, Breadcrumbs, Container, FAQ, Heading, JsonLd, LeadForm, NextSteps, Prose, Section, type FaqItem } from '@/components';
+import { Button, StickyCta, Breadcrumbs, Container, FAQ, Heading, JsonLd, LeadForm, NextSteps, Prose, Section, ServiceOffer, ServiceProof, type FaqItem } from '@/components';
 import { serviceJsonLd } from '@/lib/metadata';
 import type { LeadVariant } from '@/components/LeadForm';
 
@@ -33,6 +33,7 @@ export function ServicePage({
   formVariant?: LeadVariant;
 }) {
   return (
+    <>
     <Section className="pb-[calc(4rem+env(safe-area-inset-bottom))] md:pb-[var(--space-16)]">
       <Container width="narrow">
         <Breadcrumbs site="residenciaes" items={[{ label: crumbLabel, href: path }]} />
@@ -43,6 +44,7 @@ export function ServicePage({
           </p>
         </header>
         <div className="my-[var(--space-6)] flex flex-wrap gap-[var(--space-3)]" data-service-cta><Button href="#inquiry">Habla con nosotros</Button><Button href="/route-finder" variant="secondary">Descubre tu ruta</Button></div>
+        <ServiceOffer site="residenciaes" path={path} />
         <Prose className="mt-[var(--space-12)]">{children}</Prose>
         <div className="mt-[var(--space-16)]">
           <FAQ title="Preguntas frecuentes" items={faq} />
@@ -69,5 +71,7 @@ export function ServicePage({
       <StickyCta formId="inquiry" label="Escríbenos" />
       </Container>
     </Section>
+    <ServiceProof site="residenciaes" />
+    </>
   );
 }

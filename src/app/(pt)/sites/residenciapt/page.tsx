@@ -21,6 +21,8 @@ import {
   TeamSection,
   TrustBar,
   heroTrust,
+  Testimonials,
+  CaseSnapshots,
 } from '@/components';
 import { curatedArticles } from '@/lib/curated-articles';
 import { siteMetadata } from '@/lib/metadata';
@@ -236,6 +238,8 @@ export default function Page() {
       )}
 
       <TeamSection site={SITE} />
+      <Testimonials site={SITE} tone="alt" />
+      <CaseSnapshots site={SITE} />
 
       <Guarantee site={SITE} tone="alt" />
 

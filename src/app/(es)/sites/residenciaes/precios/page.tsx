@@ -6,7 +6,6 @@ import {
   Breadcrumbs,
   Button,
   Eyebrow,
-  Fact,
   Guarantee,
   Heading,
   LeadForm,
@@ -14,6 +13,10 @@ import {
   SectionHeader,
   StickyCta,
   TrustBar,
+  CompareTable,
+  Testimonials,
+  CaseSnapshots,
+  FromPrice,
 } from '@/components';
 import { siteMetadata } from '@/lib/metadata';
 import { termLabel, textLink } from '@/lib/text-styles';
@@ -114,7 +117,7 @@ export default function Page() {
           <Detail id="tax_residency" route="tax_residency" title="Residencia fiscal y RUC" href="/residencia-fiscal">
             <p className="mt-4">
               <span className={term}>Honorario del servicio</span><br />
-              <span className="font-medium first-letter:uppercase"><Fact k="pricing.tax_residency" site={SITE} /></span>
+              <span className="font-medium first-letter:uppercase"><FromPrice site={SITE} route="tax_residency" /></span>
             </p>
             <dl className="mt-3 space-y-3">
               <div><dt className="font-semibold">Qué cubre el honorario fijo</dt><dd>Damos de alta tu RUC y explicamos el sistema territorial en términos generales, coordinando el trabajo administrativo con tu trámite de residencia.</dd></div>
@@ -125,7 +128,7 @@ export default function Page() {
           <Detail id="family" route="family" title="Trámite familiar" href="/familia">
             <p className="mt-4">
               <span className={term}>Honorario del servicio</span><br />
-              <span className="font-medium first-letter:uppercase"><Fact k="pricing.family" site={SITE} /></span>
+              <span className="font-medium first-letter:uppercase"><FromPrice site={SITE} route="family" /></span>
             </p>
             <dl className="mt-3 space-y-3">
               <div><dt className="font-semibold">Qué cubre el honorario fijo</dt><dd>Coordinamos la lista de documentos de cada familiar, aclaramos quién puede solicitar como dependiente y agrupamos las citas cuando la oficina lo permite. Cada persona necesita su propio expediente.</dd></div>
@@ -142,8 +145,11 @@ export default function Page() {
           </p>
         </div>
       </Band>
+      <CompareTable site={SITE} />
 
       <AfterYouMessage site={SITE} tone="alt" />
+      <Testimonials site={SITE} tone="alt" />
+      <CaseSnapshots site={SITE} />
 
       <Guarantee site={SITE} />
 

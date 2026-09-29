@@ -4,7 +4,6 @@ import {
   Breadcrumbs,
   Button,
   Container,
-  Fact,
   Guarantee,
   Heading,
   HeroContact,
@@ -13,6 +12,10 @@ import {
   Section,
   StickyCta,
   TrustBar,
+  CompareTable,
+  Testimonials,
+  CaseSnapshots,
+  FromPrice,
 } from '@/components';
 import { siteMetadata } from '@/lib/metadata';
 
@@ -92,7 +95,7 @@ export default function Page() {
           {ALSO.map((item) => (
             <li key={item.id} id={item.id} className="rounded-[var(--radius-brand)] bg-[var(--surface)] p-[var(--space-6)] shadow-[var(--elev-0)]">
               <Heading level={3}><a href={item.href} className="text-[var(--accent)] underline underline-offset-4">{item.label}</a></Heading>
-              <p className="mt-[var(--space-3)] font-medium">Service fee: <Fact k={item.fee} site="residency" /></p>
+              <p className="mt-[var(--space-3)] font-medium">Service fee: <FromPrice site="residency" route={item.id} /></p>
               <p className="mt-[var(--space-3)] text-[var(--fg-muted)]">{item.body}</p>
             </li>
           ))}
@@ -107,8 +110,11 @@ export default function Page() {
           <a href="/guides/documents/uk-police-certificate-acro-for-paraguay" className="text-[var(--accent)] underline underline-offset-2">ACRO police certificate</a>.
         </p>
       </Section>
+      <CompareTable site="residency" />
 
       <AfterYouMessage site="residency" tone="alt" message={QUOTE_MESSAGE} />
+      <Testimonials site="residency" tone="alt" />
+      <CaseSnapshots site="residency" />
       <Guarantee site="residency" />
 
       <Section tone="alt" width="narrow" className="pb-[calc(4rem+env(safe-area-inset-bottom))] md:pb-[var(--space-16)]">

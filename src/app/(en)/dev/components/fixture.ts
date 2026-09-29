@@ -88,6 +88,10 @@ export const PROOF_FIXTURE: Proof = {
       permission: true,
     },
   ],
+  cases: [
+    { countryCode: 'GB', route: 'temporary', weeks: 9, month: '2026-06', permission: true, outcome: { en: 'Fixture case: temporary residency approved.', es: 'Caso de prueba: residencia temporal aprobada.', pt: 'Caso de teste: residência temporária aprovada.', sv: 'Testfall: tillfälligt uppehållstillstånd beviljat.' } },
+    { countryCode: 'SE', route: 'cedula', weeks: 3, month: '2026-05', permission: true, outcome: { en: 'Fixture case: cédula issued.', sv: 'Testfall: cédula utfärdad.' } },
+  ],
   office: {
     address: 'Fixture address, line one\nAsunción, Paraguay',
     mapsUrl: 'https://example.com/fixture-map',

@@ -1,4 +1,4 @@
-import { AfterYouMessage, Band, Breadcrumbs, LeadForm, OfficeStrip, WhatsAppButton } from '@/components';
+import { AfterYouMessage, Band, Breadcrumbs, Guarantee, LeadForm, OfficeStrip, TrustBar, WhatsAppButton } from '@/components';
 import type { LeadVariant } from '@/components/LeadFormFields';
 import { t } from '@/i18n';
 import { whatsappHref } from '@/lib/whatsapp';
@@ -48,8 +48,10 @@ export function ContactLayout({ site, variant, message }: { site: SiteKey; varia
           </div>
         </div>
       </Band>
+      <TrustBar site={site} />
       <AfterYouMessage site={site} tone="alt" message={message} />
       <OfficeStrip site={site} />
+      <Guarantee site={site} tone="alt" />
     </>
   );
 }

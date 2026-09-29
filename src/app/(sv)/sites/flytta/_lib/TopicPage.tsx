@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { Button, StickyCta, Breadcrumbs, Container, FAQ, Heading, JsonLd, LeadForm, NextSteps, Prose, Section, type FaqItem } from '@/components';
+import { Button, StickyCta, Breadcrumbs, Container, FAQ, Heading, JsonLd, LeadForm, NextSteps, Prose, Section, ServiceOffer, ServiceProof, type FaqItem } from '@/components';
 import { serviceJsonLd } from '@/lib/metadata';
 import { whatsappHref } from '@/lib/whatsapp';
 import { t } from '@/i18n';
@@ -37,6 +37,7 @@ export function TopicPage({
 }) {
   const whatsapp = whatsappHref(`Hej! Jag har en fråga om ${serviceName.toLowerCase()}.`);
   return (
+    <>
     <Section className="pb-[calc(4rem+env(safe-area-inset-bottom))] md:pb-[var(--space-16)]">
       <Container width="narrow">
         <Breadcrumbs site={SITE} items={[{ label: crumbLabel, href: path }]} />
@@ -47,6 +48,7 @@ export function TopicPage({
           </p>
         </header>
         <div className="my-[var(--space-6)] flex flex-wrap gap-[var(--space-3)]" data-service-cta><Button href="#inquiry">Hör av dig</Button><Button href="/route-finder" variant="secondary">Hitta din väg</Button></div>
+        <ServiceOffer site={SITE} path={path} />
         <Prose className="mt-[var(--space-12)]">{children}</Prose>
         <div className="mt-[var(--space-16)]">
           <FAQ title={t(SITE, 'common.faqTitle')} items={faq} />
@@ -82,5 +84,7 @@ export function TopicPage({
       <StickyCta formId="inquiry" label="Hör av dig" />
       </Container>
     </Section>
+    <ServiceProof site={SITE} />
+    </>
   );
 }

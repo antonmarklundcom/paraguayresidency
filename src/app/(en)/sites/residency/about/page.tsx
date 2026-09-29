@@ -10,6 +10,8 @@ import {
   Section,
   TeamSection,
   TrustBar,
+  Testimonials,
+  CaseSnapshots,
 } from '@/components';
 import { t } from '@/i18n';
 import { siteMetadata } from '@/lib/metadata';
@@ -70,6 +72,8 @@ export default function Page() {
         </div>
       </Section>
 
+      <Testimonials site="residency" tone="alt" />
+      <CaseSnapshots site="residency" />
       <Guarantee site="residency" tone="alt" />
       <OfficeStrip site="residency" />
       <AfterYouMessage site="residency" tone="alt" />

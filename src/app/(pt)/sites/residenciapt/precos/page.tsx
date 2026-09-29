@@ -6,7 +6,6 @@ import {
   Breadcrumbs,
   Button,
   Eyebrow,
-  Fact,
   Guarantee,
   Heading,
   LeadForm,
@@ -14,6 +13,10 @@ import {
   SectionHeader,
   StickyCta,
   TrustBar,
+  CompareTable,
+  Testimonials,
+  CaseSnapshots,
+  FromPrice,
 } from '@/components';
 import { siteMetadata } from '@/lib/metadata';
 import { termLabel, textLink } from '@/lib/text-styles';
@@ -118,7 +121,7 @@ export default function Page() {
           <Detail id="tax_residency" route="tax_residency" title="Residência fiscal e RUC" href="/residencia-fiscal">
             <p className="mt-4">
               <span className={term}>Honorário do serviço</span><br />
-              <span className="font-medium first-letter:uppercase"><Fact k="pricing.tax_residency" site={SITE} /></span>
+              <span className="font-medium first-letter:uppercase"><FromPrice site={SITE} route="tax_residency" /></span>
             </p>
             <dl className="mt-3 space-y-3">
               <div><dt className="font-semibold">O que o honorário fixo cobre</dt><dd>Explicamos a diferença entre residência migratória e fiscal e registramos o RUC quando sua atividade exige. Combinamos esse trabalho administrativo com seu processo de residência.</dd></div>
@@ -129,7 +132,7 @@ export default function Page() {
           <Detail id="family" route="family" title="Residência em família" href="/familia">
             <p className="mt-4">
               <span className={term}>Honorário do serviço</span><br />
-              <span className="font-medium first-letter:uppercase"><Fact k="pricing.family" site={SITE} /></span>
+              <span className="font-medium first-letter:uppercase"><FromPrice site={SITE} route="family" /></span>
             </p>
             <dl className="mt-3 space-y-3">
               <div><dt className="font-semibold">O que o honorário fixo cobre</dt><dd>Montamos um checklist por pessoa e organizamos a ordem de protocolo do titular e dos dependentes. Consideramos os documentos de vínculo e as autorizações necessárias para cada familiar.</dd></div>
@@ -145,8 +148,11 @@ export default function Page() {
           </p>
         </div>
       </Band>
+      <CompareTable site={SITE} />
 
       <AfterYouMessage site={SITE} tone="alt" />
+      <Testimonials site={SITE} tone="alt" />
+      <CaseSnapshots site={SITE} />
 
       <Guarantee site={SITE} />
 

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { AfterYouMessage, Band, Breadcrumbs, Button, Eyebrow, Fact, Guarantee, LeadPanel, PriceTable, SectionHeader } from '@/components';
+import { AfterYouMessage, Band, Breadcrumbs, Button, Eyebrow, Guarantee, LeadPanel, PriceTable, SectionHeader, CompareTable, Testimonials, CaseSnapshots, TrustBar, FromPrice } from '@/components';
 import { siteMetadata } from '@/lib/metadata';
 
 const PATH = '/pricing';
@@ -16,7 +16,7 @@ export function generateMetadata(): Metadata {
 
 const EXTRAS = [
   {
-    id: 'tax_residency',
+    id: 'tax_residency' as const,
     title: 'Tax residency and RUC',
     href: '/tax',
     fee: 'pricing.tax_residency' as const,
@@ -24,7 +24,7 @@ const EXTRAS = [
     quote: 'Tell us your planned activity and the RUC work you need; we quote it in writing. Your own accountant handles advice about obligations in your home country.',
   },
   {
-    id: 'family',
+    id: 'family' as const,
     title: 'Family filing',
     href: '/routes',
     fee: 'pricing.family' as const,
@@ -58,6 +58,8 @@ export default function Page() {
           </div>
         </div>
       </Band>
+      <TrustBar site="frontier" />
+
 
       <PriceTable site="frontier" tone="alt" />
 
@@ -69,7 +71,7 @@ export default function Page() {
               <h3 className="font-[family-name:var(--display-font)] text-(length:--step-2) leading-tight">
                 <a href={extra.href} className="hover:text-[var(--accent)]">{extra.title}</a>
               </h3>
-              <p className="mt-4 font-medium">Service fee: <Fact k={extra.fee} site="frontier" /></p>
+              <p className="mt-4 font-medium">Service fee: <FromPrice site="frontier" route={extra.id} /></p>
               <dl className="mt-4 space-y-4 leading-relaxed">
                 <div><dt className="font-semibold">What the fixed fee covers</dt><dd className="mt-1 text-[var(--fg-muted)]">{extra.covers}</dd></div>
                 <div><dt className="font-semibold">How we quote it</dt><dd className="mt-1 text-[var(--fg-muted)]">{extra.quote}</dd></div>
@@ -101,8 +103,11 @@ export default function Page() {
           </div>
         </dl>
       </Band>
+      <CompareTable site="frontier" />
 
       <AfterYouMessage site="frontier" message={MESSAGE} />
+      <Testimonials site="frontier" tone="alt" />
+      <CaseSnapshots site="frontier" />
       <Guarantee site="frontier" tone="alt" />
 
       <LeadPanel

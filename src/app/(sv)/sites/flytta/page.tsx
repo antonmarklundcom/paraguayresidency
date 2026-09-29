@@ -20,6 +20,9 @@ import {
   TeamSection,
   TrustBar,
   heroTrust,
+  Testimonials,
+  CaseSnapshots,
+  Guarantee,
 } from '@/components';
 import { siteMetadata } from '@/lib/metadata';
 import { arrivalPicture } from '@/lib/arrival-files';
@@ -228,6 +231,9 @@ export default function Page() {
       />
 
       <TeamSection site={SITE} tone="alt" />
+      <Testimonials site={SITE} />
+      <CaseSnapshots site={SITE} tone="alt" />
+      <Guarantee site={SITE} />
 
       <ArticleCards
         site={SITE}
