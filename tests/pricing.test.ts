@@ -48,10 +48,14 @@ for (const route of routes) {
 for (const { site, locale, path, Page, routes: offered } of pages) {
   it(`${site}/${path} renders its own route set through localized pricing facts`, () => {
     const html = renderToStaticMarkup(createElement(Page));
-    const keys = [...html.matchAll(/data-fact="([^"]+)"/g)].map(m => m[1]);
-    expect(keys).toEqual(offered.map(route => `pricing.${route}`));
-    const sections = html.match(/<section\b[^>]*aria-labelledby="[^"]+"[\s\S]*?<\/section>/g)!;
-    expect(sections).toHaveLength(offered.length);
+    // The hub uses the W4 PriceTable (route rows with our fee and the state's fee) plus two
+    // "also quoted" cards, so it is checked by its pricing facts, not by per-route sections.
+    const table = html.includes('data-price-table');
+    const keys = [...html.matchAll(/data-fact="([^"]+)"/g)].map(m => m[1]).filter(key => !table || key.startsWith('pricing.'));
+    expect(keys).toEqual(table ? ['pricing.temporary', 'pricing.permanent', 'pricing.cedula', 'pricing.investor_pass', 'pricing.tax_residency', 'pricing.family'] : offered.map(route => `pricing.${route}`));
+    const sections = table ? [] : html.match(/<section\b[^>]*aria-labelledby="[^"]+"[\s\S]*?<\/section>/g)!;
+    if (table) for (const route of offered) expect(html).toContain(factText(`pricing.${route}` as FactKey, locale));
+    else expect(sections).toHaveLength(offered.length);
     for (const [index, section] of sections.entries()) {
       const key = `pricing.${offered[index]}` as FactKey;
       expect(section).toContain('data-verified="false"');
@@ -65,7 +69,8 @@ for (const { site, locale, path, Page, routes: offered } of pages) {
     expect(html.match(/data-fee-terms/g)).toHaveLength(1);
     expect(html).toContain('href="#inquiry"');
     expect(html).toContain('id="inquiry"');
-    const outsideFacts = html.replace(/<span\b[^>]*data-fact="[^"]+"[^>]*>[\s\S]*?<\/span>/g, '')
+    // Row numbers (01, 02) in the PriceTable are aria-hidden markup, not figures.
+    const outsideFacts = html.replace(/<p aria-hidden="true"[^>]*>\d+<\/p>/g, '').replace(/<span\b[^>]*data-fact="[^"]+"[^>]*>[\s\S]*?<\/span>/g, '')
       .replace(/<script\b[^>]*>[\s\S]*?<\/script>/g, '')
       .replace(/<[^>]*>/g, '').replace(/&#\d+;/g, '');
     expect(outsideFacts).not.toMatch(/[\d$€£?]/);

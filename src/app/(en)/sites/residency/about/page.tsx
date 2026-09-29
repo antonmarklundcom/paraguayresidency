@@ -11,6 +11,7 @@ import {
   TeamSection,
   TrustBar,
 } from '@/components';
+import { t } from '@/i18n';
 import { siteMetadata } from '@/lib/metadata';
 
 const PATH = '/about';
@@ -53,6 +54,7 @@ export default function Page() {
             <p className="mt-[var(--space-4)] text-[var(--fg-muted)]">
               One fixed fee per route, quoted before you commit. A document checklist built for your nationality, not a generic PDF. And when the standard route is wrong for your case, we tell you in your first message, and point you to the Investor Pass, or to waiting, rather than filing something that will not serve you.
             </p>
+            <p className="mt-[var(--space-4)] text-[var(--fg-muted)]">{t('residency', 'about.teamBody')}</p>
             <p className="mt-[var(--space-4)] text-[var(--fg-muted)]">
               Comparing us with other providers? Our guide to{' '}
               <a href="/guides/documents/choosing-a-paraguay-residency-agent" className={link}>choosing a Paraguay residency agent</a>{' '}

@@ -69,7 +69,7 @@ export default function Page() {
       <PriceTable
         site="residency"
         title="What each route costs, and what it covers"
-        intro="Our fee is one line per route. The state's fee is a separate line, so you can see who is paid what."
+        intro="Our fee is one line per route. The state’s fee is a separate line, so you can see who is paid what."
       />
 
       <Section tone="alt" width="narrow">
@@ -81,7 +81,7 @@ export default function Page() {
             <div><dt className="font-semibold">What you pay the state and what you pay us</dt><dd>You pay the applicable official application fees directly to the Paraguayan state. You pay us for the preparation and coordination described here. Apostilles and translations are paid separately to their providers.</dd></div>
           </dl>
           <p className="mt-[var(--space-4)] text-[var(--fg-muted)]">
-            Your own accountant&apos;s advice is separate. For RUC, we confirm whether any official registration charge applies in writing for your case.
+            Your own accountant’s advice is separate. For RUC, we confirm whether any official registration charge applies in writing for your case.
           </p>
         </div>
       </Section>
@@ -101,9 +101,9 @@ export default function Page() {
           <a href="/investor-pass" className="text-[var(--accent)] underline underline-offset-2">Investor Pass work has its own scope and quote. See the Investor Pass route.</a>
         </p>
         <p className="mt-[var(--space-4)] max-w-3xl text-[var(--fg-muted)]">
-          Comparing quotes from several providers? Our guide to{' '}
+          Comparing quotes from several providers: our guide to{' '}
           <a href="/guides/documents/choosing-a-paraguay-residency-agent" className="text-[var(--accent)] underline underline-offset-2">choosing a Paraguay residency agent</a>{' '}
-          lists what to check in any quote, ours included. Applying from the UK? Start with the{' '}
+          lists what to check in any quote, ours included. Applying from the UK, start with the{' '}
           <a href="/guides/documents/uk-police-certificate-acro-for-paraguay" className="text-[var(--accent)] underline underline-offset-2">ACRO police certificate</a>.
         </p>
       </Section>
