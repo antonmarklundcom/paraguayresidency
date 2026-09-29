@@ -120,7 +120,18 @@ const nextConfig: NextConfig = {
   // `output: 'standalone'`: Next warns that `next start` does not support it,
   // nothing here runs `.next/standalone/server.js`, and it only moved the cwd
   // away from `private/` and `public/`.
-  experimental: { globalNotFound: true },
+  experimental: {
+    globalNotFound: true,
+    // Next defaults build workers to os.cpus().length - 1, which on Hostinger's
+    // shared box is the host's core count, not this account's share. Each worker
+    // is a Node process, and every process AND thread counts against the
+    // account-wide 200 "Max Processes" cap.
+    cpus: 1,
+  },
+  // Nothing renders through next/image (pages use pre-sized files under
+  // public/images), so the /_next/image optimizer is closed rather than left for
+  // anyone to drive — it runs sharp threads against the same cap.
+  images: { unoptimized: true },
   // Next 16 otherwise rewrites CLAUDE.md on every dev start; this repo's
   // CLAUDE.md is hand-written project law (plan §4).
   agentRules: false,

@@ -37,6 +37,9 @@ async function heroDataUri(site: SiteKey): Promise<string | undefined> {
   try {
     const file = join(process.cwd(), 'public/images/arrival', `${HERO[site]}-1200.webp`);
     const { default: sharp } = await import('sharp');
+    // One libvips thread: every thread counts against the Hostinger account's
+    // 200 "Max Processes" cap (see next.config.ts).
+    sharp.concurrency(1);
     const jpeg = await sharp(await readFile(file)).resize(1200, 630, { fit: 'cover' }).jpeg({ quality: 70 }).toBuffer();
     return `data:image/jpeg;base64,${jpeg.toString('base64')}`;
   } catch {
