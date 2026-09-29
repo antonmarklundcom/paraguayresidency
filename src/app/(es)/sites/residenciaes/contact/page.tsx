@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
-import { ContactPage, contactMetadata } from '@/lib/conversion-pages';
+import { BrandContactPage } from '@/lib/brand-contact';
+import { contactMetadata } from '@/lib/conversion-pages';
 
 const SITE = 'residenciaes' as const;
 
@@ -8,5 +9,5 @@ export function generateMetadata(): Metadata {
 }
 
 export default function Page() {
-  return <ContactPage site={SITE} whatsappMessage="Hola, me gustaría saber más sobre la residencia en Paraguay." />;
+  return <BrandContactPage site={SITE} eyebrow="Escríbenos" whatsappMessage="Hola, me gustaría saber más sobre la residencia en Paraguay." />;
 }

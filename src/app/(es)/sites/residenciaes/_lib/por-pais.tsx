@@ -174,3 +174,40 @@ export function NationalityGrid() {
     </ul>
   );
 }
+
+/**
+ * "¿De dónde eres?" on the homepage: the same list as the selector, as a dense
+ * chip grid (flag, country, a Mercosur mark), so the first click already
+ * knows the visitor's passport.
+ */
+export function NationalityPicker() {
+  return (
+    <ul className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
+      {NATIONALITIES.map((n) => (
+        <li key={n.id} className="min-w-0">
+          <Link
+            href={contentHref('residenciaes', n.slugPath)}
+            className="group flex min-h-16 items-center gap-3 rounded-[var(--radius-brand)] border border-[var(--border)] bg-[var(--surface)] px-4 py-3 shadow-[var(--elev-0)] transition-[border-color,box-shadow] duration-[var(--dur-2)] hover:border-[var(--accent)] hover:shadow-[var(--elev-1)] focus-visible:outline-2 focus-visible:outline-offset-2"
+          >
+            <span aria-hidden="true" className="text-3xl leading-none">{n.flag}</span>
+            <span className="min-w-0">
+              <span className="block font-[family-name:var(--display-font)] text-(length:--step-1) leading-tight">{n.country}</span>
+              <span className={`block text-(length:--step--2) ${n.mercosur ? 'font-medium text-[var(--accent)]' : 'text-[var(--fg-muted)]'}`}>
+                {n.mercosur ? 'Vía Mercosur' : 'Vía general'}
+              </span>
+            </span>
+          </Link>
+        </li>
+      ))}
+      <li className="min-w-0">
+        <Link
+          href="/route-finder"
+          className="flex min-h-16 items-center justify-between gap-3 rounded-[var(--radius-brand)] border border-dashed border-[var(--accent)] px-4 py-3 font-medium text-[var(--accent)] hover:bg-[var(--accent-soft)] focus-visible:outline-2 focus-visible:outline-offset-2"
+        >
+          <span>¿Otro país? Haz el test de ruta</span>
+          <span aria-hidden="true">→</span>
+        </Link>
+      </li>
+    </ul>
+  );
+}

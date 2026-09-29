@@ -1,7 +1,7 @@
-import { t } from '@/i18n';
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { Breadcrumbs, Button, Container, Heading, Prose, Section, StatRow } from '@/components';
+import { AfterYouMessage, Breadcrumbs, Button, Container, Guarantee, Heading, OfficeStrip, Prose, Section, StatRow, TeamSection, TrustBar } from '@/components';
+import { arrivalPicture } from '@/lib/arrival-files';
 import { siteMetadata } from '@/lib/metadata';
 import { whatsappHref } from '@/lib/whatsapp';
 
@@ -32,15 +32,32 @@ const STATS = [
  * "vårt team i Asunción", not by Anton alone (registry `siblings`, home hero).
  */
 export default function Page() {
+  const photo = arrivalPicture('flytta-tile-par-veranda-skymning', 'sv', { maxWidth: 800 });
   const whatsapp = whatsappHref('Hej! Jag läste er historia och vill veta mer om att flytta till Paraguay.');
 
   return (
+    <>
     <Section>
       <Container width="narrow">
         <Breadcrumbs site={SITE} items={[{ label: 'Vår historia', href: PATH }]} />
         <header className="mt-[var(--space-8)]">
           <Heading level={1}>Vi flyttade till Paraguay. Så här gick det till.</Heading>
         </header>
+
+        <picture>
+          {photo.avifSrcSet && <source type="image/avif" srcSet={photo.avifSrcSet} sizes="(min-width: 768px) 720px, 100vw" />}
+          <img
+            src={photo.src}
+            srcSet={photo.srcSet}
+            sizes="(min-width: 768px) 720px, 100vw"
+            width={photo.width}
+            height={photo.height}
+            alt={photo.alt}
+            loading="eager"
+            fetchPriority="high"
+            className="mt-[var(--space-8)] aspect-[16/10] w-full rounded-[var(--radius-brand)] object-cover shadow-[var(--elev-0)]"
+          />
+        </picture>
 
         <Prose className="mt-[var(--space-12)]">
           <h2>Hur vi hamnade i Paraguay</h2>
@@ -110,17 +127,6 @@ export default function Page() {
           </p>
         </Prose>
 
-        <section className="mt-[var(--space-12)]">
-          <Heading level={2}>{t('flytta', 'about.teamTitle')}</Heading>
-          <ul className="mt-[var(--space-4)] list-disc pl-5 text-[var(--fg-muted)]">
-            <li>Anton Marklund</li>
-            <li>Yanina Alvarez</li>
-            <li>Diana Davalos</li>
-          </ul>
-          <p className="mt-[var(--space-4)] text-[var(--fg-muted)]">{t('flytta', 'about.teamBody')}</p>
-        </section>
-
-
         <div className="mt-[var(--space-12)]">
           <StatRow stats={STATS} />
         </div>
@@ -142,5 +148,11 @@ export default function Page() {
         </div>
       </Container>
     </Section>
+    <TrustBar site={SITE} />
+    <TeamSection site={SITE} tone="alt" />
+    <OfficeStrip site={SITE} />
+    <Guarantee site={SITE} />
+    <AfterYouMessage site={SITE} tone="alt" />
+    </>
   );
 }

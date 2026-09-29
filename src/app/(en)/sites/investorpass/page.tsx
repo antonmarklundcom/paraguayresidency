@@ -1,25 +1,37 @@
-import { ProcessTimeline } from '@/components/ProcessTimeline';
 import type { Metadata } from 'next';
+import type { FactKey } from '@content/shared/facts';
 import {
   HeroContact,
   Button,
   PhotoHero,
   heroTrust,
-  IntentTiles,
+  TrustBar,
+  PriceTable,
+  AfterYouMessage,
+  ArticleCards,
   TeamStrip,
+  Guarantee,
+  Testimonials,
   Fact,
   FAQ,
   Heading,
   JsonLd,
-  LeadForm,
+  LeadPanel,
   Disclosure,
+  Band,
+  Eyebrow,
+  SectionHeader,
   Section,
 } from '@/components';
+import { ProcessTimeline } from '@/components/ProcessTimeline';
+import { getPages } from '@/content';
+import { contentHref } from '@/lib/content-href';
 import { siteMetadata, serviceOfferJsonLd } from '@/lib/metadata';
-import { whatsappHref } from '@/lib/whatsapp';
 import { siteOrigin } from '@/sites/registry';
+import { RouteIndex, type IndexRoute } from './_lib/RouteIndex';
 
 const PATH = '/';
+const MESSAGE = 'Hi — I have a question about the Investor Pass.';
 
 export function generateMetadata(): Metadata {
   return siteMetadata('investorpass', {
@@ -30,31 +42,53 @@ export function generateMetadata(): Metadata {
   });
 }
 
-const ROUTES = [
+const ROUTES: IndexRoute[] = [
   {
     id: 'real_estate',
-    eyebrow: 'Real estate',
     title: 'Property that qualifies',
-    factKey: 'investorpass.route_real_estate_usd' as const,
+    body: 'Title and purchase price are clean records, so this is usually the simplest route to document.',
+    image: 'investorpass-tile-residential-lobby-dusk',
+    factKey: 'investorpass.route_real_estate_usd',
   },
   {
     id: 'productive_business',
-    eyebrow: 'Productive business',
     title: 'An operating business',
-    factKey: 'investorpass.route_business_usd' as const,
+    body: 'A real, productive concern, not a shell holding cash. Suits investors who already run something similar.',
+    image: 'investorpass-tile-agro-silos-blue-hour',
+    factKey: 'investorpass.route_business_usd',
   },
   {
     id: 'financial_instruments',
-    eyebrow: 'Financial instruments',
     title: 'Qualifying instruments',
-    factKey: 'investorpass.route_financial_usd' as const,
+    body: 'More paperwork to prove the investment is real and productive, and often the most liquid to hold.',
+    image: 'investorpass-tile-private-meeting-room',
+    factKey: 'investorpass.route_financial_usd',
   },
   {
     id: 'tourism',
-    eyebrow: 'Tourism',
     title: 'A tourism project',
-    factKey: 'investorpass.route_tourism_usd' as const,
+    body: 'Lodges, hospitality and visitor infrastructure, structured and documented as a productive project.',
+    image: 'investorpass-tile-river-lodge-dusk',
+    factKey: 'investorpass.route_tourism_usd',
   },
+];
+
+const SPEC_ROWS: { label: string; fact: FactKey }[] = [
+  { label: 'Qualifying investment', fact: 'investorpass.min_investment_usd' },
+  { label: 'Legal basis', fact: 'investorpass.legal_instrument' },
+  { label: 'Launched', fact: 'investorpass.launch_date' },
+  { label: 'What you get', fact: 'investorpass.validity_years' },
+  { label: 'Cédula', fact: 'cedula.timeline' },
+];
+
+/** The five W6 articles, read against the 2026 resolution, in reading order. */
+const FEATURED = [
+  'what-the-investor-pass-is',
+  'investor-pass-resolution-explained',
+  'investor-pass-vs-suace',
+  'paraguay-golden-visa',
+  'paraguay-citizenship-by-investment',
+  'financial-instruments-and-tourism-routes',
 ];
 
 const FAQ_ITEMS = [
@@ -81,89 +115,125 @@ const FAQ_ITEMS = [
 ];
 
 export default function Page() {
-  const whatsapp = whatsappHref('Hi — I have a question about the Investor Pass.');
+  const pages = getPages('investorpass');
+  const articles = FEATURED.flatMap((slug) => {
+    const post = pages.find((page) => !page.frontmatter.draft && page.slugPath.endsWith(`/${slug}`));
+    return post ? [{ title: post.frontmatter.title, description: post.frontmatter.description, href: contentHref('investorpass', post.slugPath), hub: 'insights' }] : [];
+  });
 
   return (
     <>
-      <PhotoHero image="investorpass-hero-asuncion-river-dusk"
+      <PhotoHero
+        layout="editorial-dark"
+        image="investorpass-hero-business-district-blue-hour"
+        video={{ id: 'investorpass-hero-business-district-blue-hour' }}
+        eyebrow="Paraguay Investor Pass"
         title="Permanent residency in Paraguay, in one step."
         sub="Qualifying investors skip temporary residency. We structure, file and stay until your card arrives."
-        actions={<><Button href="#inquiry">See if you qualify</Button><HeroContact site="investorpass" message="Hi — I have a question about the Paraguay Investor Pass." fallbackHref="#inquiry" /></>}
+        actions={
+          <>
+            <Button href="#inquiry">Private consultation</Button>
+            <HeroContact site="investorpass" message={MESSAGE} fallbackHref="#inquiry" />
+          </>
+        }
         trust={heroTrust('investorpass')}
       />
-      <IntentTiles title="Four ways to qualify" tiles={[
-        { label: 'Invest in real estate', href: '/investor-pass/investment-routes#real_estate', image: 'investorpass-tile-real-estate' },
-        { label: 'Build a productive business', href: '/investor-pass/investment-routes#productive_business', image: 'investorpass-tile-productive-business' },
-        { label: 'Explore financial instruments', href: '/investor-pass/investment-routes#financial_instruments', image: 'investorpass-tile-financial-instruments' },
-        { label: 'Back a tourism project', href: '/investor-pass/investment-routes#tourism', image: 'investorpass-tile-tourism-lodge' },
-      ]} />
-      {/* At a glance, open on the page: the four thresholds are the first thing an
-          investor (and an answer engine) looks for, so they are not behind a toggle. */}
-      <Section width="narrow" spacing="tight">
-        <Heading level={2}>Investor Pass at a glance</Heading>
-        <div className="mt-[var(--space-6)] overflow-x-auto rounded-[var(--radius-brand)] border border-[var(--border)]">
-          <table className="w-full border-collapse text-left text-(length:--text-sm)">
-            <caption className="sr-only">Investor Pass qualifying routes and programme rules</caption>
-            <tbody>
-              <tr className="border-b border-[var(--border)] bg-[var(--surface-alt)]">
-                <th scope="row" className="w-1/3 px-4 py-3 align-top font-semibold text-[var(--fg)]">Qualifying investment</th>
-                <td className="px-4 py-3 align-top text-[var(--fg)]"><Fact k="investorpass.min_investment_usd" site="investorpass" /></td>
-              </tr>
-              {ROUTES.map((route) => (
-                <tr key={route.id} className="border-b border-[var(--border)]">
-                  <th scope="row" className="w-1/3 px-4 py-3 align-top font-semibold text-[var(--fg)]">{route.eyebrow}</th>
-                  <td className="px-4 py-3 align-top text-[var(--fg-muted)]"><Fact k={route.factKey} site="investorpass" /></td>
-                </tr>
-              ))}
-              <tr className="border-b border-[var(--border)]">
-                <th scope="row" className="px-4 py-3 align-top font-semibold text-[var(--fg)]">Legal basis</th>
-                <td className="px-4 py-3 align-top text-[var(--fg-muted)]"><Fact k="investorpass.legal_instrument" site="investorpass" /></td>
-              </tr>
-              <tr className="border-b border-[var(--border)]">
-                <th scope="row" className="px-4 py-3 align-top font-semibold text-[var(--fg)]">Launched</th>
-                <td className="px-4 py-3 align-top text-[var(--fg-muted)]"><Fact k="investorpass.launch_date" site="investorpass" /></td>
-              </tr>
-              <tr className="border-b border-[var(--border)]">
-                <th scope="row" className="px-4 py-3 align-top font-semibold text-[var(--fg)]">What you get</th>
-                <td className="px-4 py-3 align-top text-[var(--fg-muted)]"><Fact k="investorpass.validity_years" site="investorpass" /></td>
-              </tr>
-              <tr>
-                <th scope="row" className="px-4 py-3 align-top font-semibold text-[var(--fg)]">Cédula</th>
-                <td className="px-4 py-3 align-top text-[var(--fg-muted)]"><Fact k="cedula.timeline" site="investorpass" /></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <a className="mt-[var(--space-4)] inline-flex min-h-11 items-center text-[var(--accent)] underline" href="/investor-pass/requirements">Full requirements</a>
-        <p className="mt-[var(--space-2)] text-[var(--fg-muted)]">Searching for a Paraguay golden visa? It is this program. <a className="text-[var(--accent)] underline" href="/insights/paraguay-golden-visa">The golden visa, explained</a>.</p>
-      </Section>
-      <Section tone="alt"><Heading level={2}>From first message to card</Heading><ol className="my-10 grid gap-8 sm:grid-cols-3">{['Confirm your route and investment', 'File for permanent residency', 'Collect your cédula after approval'].map((step, index) => <li key={step} className="flex items-center gap-4"><span aria-hidden="true" className="flex size-12 shrink-0 items-center justify-center rounded-full border border-[var(--border)] text-2xl text-[var(--accent)]">{['◇', '↗', '✓'][index]}</span><h3>{step}</h3></li>)}</ol><Button href="/investor-pass/process" variant="secondary">See the process</Button></Section>
-      <TeamStrip site="investorpass" />
-      <Section width="narrow" spacing="tight"><Disclosure title="Frequently asked"><FAQ items={FAQ_ITEMS} /></Disclosure></Section>
-      <Section id="inquiry" tone="accent" width="narrow">
-        <Heading level={2}>See if you qualify</Heading>
-        <p className="mt-[var(--space-4)] text-[var(--fg-muted)]">
-          Tell us your capital and goal. We send the route, cost and exit options in writing.
-        </p>
-        {whatsapp && (
-          <p className="mt-[var(--space-4)] text-(length:--text-sm)">
-            <a href={whatsapp} rel="noopener" className="text-[var(--accent)] underline underline-offset-2">
-              Or message us on WhatsApp
+      <TrustBar site="investorpass" />
+
+      {/* I to IV: the four routes as an index, the first thing an investor decides. */}
+      <Band labelledBy="routes-title" id="routes">
+        <SectionHeader
+          id="routes-title"
+          eyebrow="Four ways to qualify"
+          title="Choose the route that fits your capital"
+          intro="Each route has its own threshold and its own paperwork. Message us with your rough capital and goal, and we tell you which one to file, or that the standard route suits you better."
+          aside={<Button href="/route-finder" variant="secondary">Take the Route Finder</Button>}
+        />
+        <RouteIndex routes={ROUTES} />
+      </Band>
+
+      {/* The spec sheet: open on the page, not behind a toggle. */}
+      <Band tone="alt" labelledBy="spec-title" id="spec">
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,4fr)_minmax(0,7fr)] lg:gap-16">
+          <div>
+            <Eyebrow>Spec sheet</Eyebrow>
+            <h2 id="spec-title" className="mt-5 font-[family-name:var(--display-font)] text-(length:--step-4) leading-[1.06] text-balance">Investor Pass at a glance</h2>
+            <p className="mt-5 max-w-[42ch] leading-relaxed text-[var(--fg-muted)]">
+              Searching for a Paraguay golden visa? It is this programme.{' '}
+              <a className="text-[var(--accent)] underline underline-offset-4" href="/insights/paraguay-golden-visa">The golden visa, explained</a>.
+            </p>
+            <a className="mt-4 inline-flex min-h-11 items-center gap-2 font-medium text-[var(--accent)] underline-offset-4 hover:underline" href="/investor-pass/requirements">
+              Full requirements <span aria-hidden="true">→</span>
             </a>
-          </p>
-        )}
-        <div className="mt-[var(--space-8)]">
-          <LeadForm site="investorpass" variant="investor_inquiry" pagePath={PATH} />
+          </div>
+          <div className="overflow-x-auto border-y border-[var(--accent)]/40">
+            <table className="w-full border-collapse text-left">
+              <caption className="sr-only">Investor Pass qualifying routes and programme rules</caption>
+              <tbody>
+                {SPEC_ROWS.map((row) => (
+                  <tr key={row.label} className="border-b border-[var(--border)]">
+                    <th scope="row" className="w-2/5 py-4 pr-4 align-top font-[family-name:var(--font-mono)] text-(length:--step--2) font-medium uppercase tracking-[.14em] text-[var(--fg-muted)]">{row.label}</th>
+                    <td className="py-4 align-top text-(length:--step--1) text-[var(--fg)]"><Fact k={row.fact} site="investorpass" /></td>
+                  </tr>
+                ))}
+                <tr>
+                  <th scope="row" className="py-4 pr-4 align-top font-[family-name:var(--font-mono)] text-(length:--step--2) font-medium uppercase tracking-[.14em] text-[var(--fg-muted)]">Standard route</th>
+                  <td className="py-4 align-top text-(length:--step--1) text-[var(--fg)]">
+                    Temporary first, then permanent. <a className="text-[var(--accent)] underline underline-offset-4" href="/investor-pass/vs-standard-residency">Compare the two</a>.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
-        <p className="mt-[var(--space-8)] text-(length:--text-sm) text-[var(--fg-muted)]">
-          Not investing? See{' '}
-          <a href={siteOrigin('residency')} className="text-[var(--accent)] underline underline-offset-2">
-            standard residency routes
-          </a>{' '}
-          on paraguayresidency.co.uk instead.
+      </Band>
+
+      <PriceTable
+        site="investorpass"
+        title="One fixed service fee, in writing before you commit"
+        intro="The fee covers structuring and filing. Your investment, government fees, apostilles and translations are separate and listed in the quote."
+      />
+
+      <AfterYouMessage site="investorpass" tone="alt" message={MESSAGE} />
+
+      <ArticleCards
+        site="investorpass"
+        title="Read against Resolution 0283/2026"
+        articles={articles}
+        more={{ href: '/insights', label: 'All Investor Pass insights' }}
+      />
+
+      <Testimonials site="investorpass" tone="alt" />
+      <Guarantee site="investorpass" />
+      <TeamStrip site="investorpass" />
+
+      <Section width="narrow" tone="alt">
+        <Heading level={2}>Frequently asked</Heading>
+        <FAQ items={FAQ_ITEMS} />
+        <p className="mt-[var(--space-6)] flex flex-wrap gap-x-6 gap-y-1">
+          <a className="inline-flex min-h-11 items-center text-[var(--accent)] underline underline-offset-4" href="/investor-pass/process">The full process</a>
+          <a className="inline-flex min-h-11 items-center text-[var(--accent)] underline underline-offset-4" href="/investor-pass/for-agents">For migration agents</a>
         </p>
-        <Disclosure title="The full process"><ProcessTimeline site="investorpass" route="investor" /></Disclosure>
+        <div className="mt-[var(--space-6)]">
+          <Disclosure title="The full process"><ProcessTimeline site="investorpass" route="investor" /></Disclosure>
+        </div>
       </Section>
+
+      <LeadPanel
+        site="investorpass"
+        variant="investor_inquiry"
+        id="inquiry"
+        title="See if you qualify"
+        intro="Tell us your capital and goal. We send the route, cost and exit options in writing."
+        whatsappMessage={MESSAGE}
+        footnote={
+          <>
+            Not investing? See{' '}
+            <a href={siteOrigin('residency')} className="text-[var(--accent)] underline underline-offset-2">standard residency routes</a>{' '}
+            on paraguayresidency.co.uk instead.
+          </>
+        }
+      />
 
       <JsonLd
         data={serviceOfferJsonLd('investorpass', {

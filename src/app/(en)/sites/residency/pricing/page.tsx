@@ -1,8 +1,23 @@
 import type { Metadata } from 'next';
-import { Breadcrumbs, Button, StickyCta, Container, Fact, Heading, LeadForm, Section } from '@/components';
+import {
+  AfterYouMessage,
+  Breadcrumbs,
+  Button,
+  Container,
+  Fact,
+  Guarantee,
+  Heading,
+  HeroContact,
+  LeadForm,
+  PriceTable,
+  Section,
+  StickyCta,
+  TrustBar,
+} from '@/components';
 import { siteMetadata } from '@/lib/metadata';
 
 const PATH = '/pricing';
+const QUOTE_MESSAGE = 'Hi — I would like a written quote for Paraguay residency.';
 
 export function generateMetadata(): Metadata {
   return siteMetadata('residency', {
@@ -13,70 +28,97 @@ export function generateMetadata(): Metadata {
   });
 }
 
+const ALSO = [
+  {
+    id: 'tax_residency',
+    href: '/residency/tax-residency',
+    label: 'Tax residency and RUC',
+    fee: 'pricing.tax_residency',
+    body: 'We register your RUC and explain the territorial system in general terms, coordinating the administrative work with your residency filing. Your own accountant handles advice about obligations in your home country.',
+  },
+  {
+    id: 'family',
+    href: '/residency/family',
+    label: 'Family filing',
+    fee: 'pricing.family',
+    body: 'We coordinate the document checklist for each relative and schedule family appointments together where the office permits. Each person still needs their own file, and we quote the additional people alongside the main applicant.',
+  },
+] as const;
+
 export default function Page() {
   return (
-    <Section className="pb-[calc(4rem+env(safe-area-inset-bottom))] md:pb-[var(--space-16)]">
-      <Container width="narrow">
-        <Breadcrumbs site="residency" items={[{ label: 'Pricing', href: PATH }]} />
-        <Heading level={1} className="mt-[var(--space-8)]">A fixed service fee, with separate costs explained before you commit</Heading>
-        <p className="mt-[var(--space-4)] text-(length:--text-lg) text-[var(--fg-muted)]">Your quote starts with a message about your nationality, documents, route and travel plans. We agree the work and fixed service fee before you commit. There is no self-service calculator: the document checklist and the people applying determine the scope.</p>
-        <div data-service-cta className="my-[var(--space-6)] flex flex-wrap gap-[var(--space-3)]"><Button href="#inquiry">Talk to us</Button><Button href="/route-finder" variant="secondary">Find your route</Button></div>
-        <section data-fee-terms className="mt-[var(--space-8)] rounded-[var(--radius-brand)] bg-[var(--surface-alt)] p-[var(--space-6)]"><Heading level={2}>What every fee covers</Heading><p className="mt-[var(--space-4)]">The agreed preparation, coordination and guidance for your route, as described below.</p><dl className="mt-[var(--space-4)] space-y-[var(--space-4)]"><div><dt className="font-semibold">What it never covers</dt><dd>Government fees, apostilles and required translations are never included in our service fee. We identify which document costs apply to this application before you decide.</dd></div><div><dt className="font-semibold">What you pay the state and what you pay us</dt><dd>You pay the applicable official application fees directly to the Paraguayan state. You pay us for the preparation and coordination described here. Apostilles and translations are paid separately to their providers, not treated as our service fee.</dd></div></dl><p className="mt-[var(--space-4)]">Your own accountant’s advice is separate. For RUC, we confirm whether any official registration charge applies in writing for your case.</p></section>
-        <section className="mt-[var(--space-6)] border-t border-[var(--border)] pt-[var(--space-6)]" aria-labelledby="temporary">
-          <Heading level={2} id="temporary"><a href="/residency/temporary-residency" className="text-[var(--accent)] underline">Temporary residency</a></Heading>
-          <p className="mt-[var(--space-4)] font-medium">Service fee: <Fact k="pricing.temporary" site="residency" /></p>
-          <dl className="mt-[var(--space-3)] space-y-[var(--space-3)]">
-            <div><dt className="font-semibold">What the fixed fee covers</dt><dd>We prepare your nationality-specific document checklist, coordinate appointments in Asunción and file your temporary-residency application. Document sequencing is part of that work.</dd></div>
-            <div><dt className="font-semibold">How we quote this route</dt><dd>Tell us your passport nationality and the documents you already have; we quote the filing work in writing before you commit.</dd></div>
-          </dl>
-        </section>
+    <>
+      <Section spacing="tight">
+        <Container>
+          <Breadcrumbs site="residency" items={[{ label: 'Pricing', href: PATH }]} />
+          <div className="mt-[var(--space-8)] max-w-3xl">
+            <Heading level={1}>A fixed service fee, with separate costs explained before you commit</Heading>
+            <p className="mt-[var(--space-4)] text-(length:--text-lg) text-[var(--fg-muted)]">
+              Your quote starts with a message about your nationality, documents, route and travel plans. We agree the work and the fixed service fee before you commit. There is no self-service calculator: the checklist and the people applying decide the scope.
+            </p>
+            <div data-service-cta className="mt-[var(--space-6)] flex flex-wrap items-center gap-[var(--space-3)]">
+              <HeroContact site="residency" message={QUOTE_MESSAGE} fallbackHref="#inquiry" />
+              <Button href="/route-finder" variant="secondary">Find your route</Button>
+            </div>
+          </div>
+        </Container>
+      </Section>
 
-        <section className="mt-[var(--space-6)] border-t border-[var(--border)] pt-[var(--space-6)]" aria-labelledby="permanent">
-          <Heading level={2} id="permanent"><a href="/residency/permanent-residency" className="text-[var(--accent)] underline">Permanent residency</a></Heading>
-          <p className="mt-[var(--space-4)] font-medium">Service fee: <Fact k="pricing.permanent" site="residency" /></p>
-          <dl className="mt-[var(--space-3)] space-y-[var(--space-3)]">
-            <div><dt className="font-semibold">What the fixed fee covers</dt><dd>We file your permanent-residency application once you qualify, explain the presence rule for your travel plans and coordinate the timing with your cédula renewal.</dd></div>
-            <div><dt className="font-semibold">How we quote this route</dt><dd>Tell us your current status and eligibility; we quote the permanent application in writing, separately from any earlier temporary filing.</dd></div>
-          </dl>
-        </section>
+      <TrustBar site="residency" />
 
-        <section className="mt-[var(--space-6)] border-t border-[var(--border)] pt-[var(--space-6)]" aria-labelledby="cedula">
-          <Heading level={2} id="cedula"><a href="/residency/cedula" className="text-[var(--accent)] underline">Cédula de identidad</a></Heading>
-          <p className="mt-[var(--space-4)] font-medium">Service fee: <Fact k="pricing.cedula" site="residency" /></p>
-          <dl className="mt-[var(--space-3)] space-y-[var(--space-3)]">
-            <div><dt className="font-semibold">What the fixed fee covers</dt><dd>We coordinate the application after residency approval, including photo, biometric and appointment logistics. We flag the renewal timing so you know what follows.</dd></div>
-            <div><dt className="font-semibold">How we quote this route</dt><dd>Tell us your residency stage; we confirm in writing whether cédula coordination is already included in your residency quote, so the same work is not quoted again.</dd></div>
-          </dl>
-        </section>
+      <PriceTable
+        site="residency"
+        title="What each route costs, and what it covers"
+        intro="Our fee is one line per route. The state’s fee is a separate line, so you can see who is paid what."
+      />
 
-        <section className="mt-[var(--space-6)] border-t border-[var(--border)] pt-[var(--space-6)]" aria-labelledby="tax_residency">
-          <Heading level={2} id="tax_residency"><a href="/residency/tax-residency" className="text-[var(--accent)] underline">Tax residency and RUC</a></Heading>
-          <p className="mt-[var(--space-4)] font-medium">Service fee: <Fact k="pricing.tax_residency" site="residency" /></p>
-          <dl className="mt-[var(--space-3)] space-y-[var(--space-3)]">
-            <div><dt className="font-semibold">What the fixed fee covers</dt><dd>We register your RUC and explain the territorial system in general terms, coordinating the administrative work with your residency filing.</dd></div>
-            <div><dt className="font-semibold">How we quote this route</dt><dd>Tell us your planned activity and the RUC work you need; we quote it in writing. Your own accountant handles advice about obligations in your home country.</dd></div>
+      <Section tone="alt" width="narrow">
+        <div data-fee-terms>
+          <Heading level={2}>What every fee covers</Heading>
+          <p className="mt-[var(--space-4)]">The agreed preparation, coordination and guidance for your route, as described above.</p>
+          <dl className="mt-[var(--space-4)] space-y-[var(--space-4)]">
+            <div><dt className="font-semibold">What it never covers</dt><dd>Government fees, apostilles and required translations are never included in our service fee. We identify which document costs apply to this application before you decide.</dd></div>
+            <div><dt className="font-semibold">What you pay the state and what you pay us</dt><dd>You pay the applicable official application fees directly to the Paraguayan state. You pay us for the preparation and coordination described here. Apostilles and translations are paid separately to their providers.</dd></div>
           </dl>
-        </section>
+          <p className="mt-[var(--space-4)] text-[var(--fg-muted)]">
+            Your own accountant’s advice is separate. For RUC, we confirm whether any official registration charge applies in writing for your case.
+          </p>
+        </div>
+      </Section>
 
-        <section className="mt-[var(--space-6)] border-t border-[var(--border)] pt-[var(--space-6)]" aria-labelledby="family">
-          <Heading level={2} id="family"><a href="/residency/family" className="text-[var(--accent)] underline">Family filing</a></Heading>
-          <p className="mt-[var(--space-4)] font-medium">Service fee: <Fact k="pricing.family" site="residency" /></p>
-          <dl className="mt-[var(--space-3)] space-y-[var(--space-3)]">
-            <div><dt className="font-semibold">What the fixed fee covers</dt><dd>We coordinate the document checklist for each relative, clarify who can apply as a dependent and schedule family appointments together where the office permits. Each person still needs their own file.</dd></div>
-            <div><dt className="font-semibold">How we quote this route</dt><dd>Tell us about each family member and their documents; we quote the additional-person service in writing alongside the primary applicant and identify exactly who is covered.</dd></div>
-          </dl>
-        </section>
+      <Section>
+        <Heading level={2}>Also quoted separately</Heading>
+        <ul className="mt-[var(--space-6)] grid gap-[var(--space-6)] md:grid-cols-2">
+          {ALSO.map((item) => (
+            <li key={item.id} id={item.id} className="rounded-[var(--radius-brand)] bg-[var(--surface)] p-[var(--space-6)] shadow-[var(--elev-0)]">
+              <Heading level={3}><a href={item.href} className="text-[var(--accent)] underline underline-offset-4">{item.label}</a></Heading>
+              <p className="mt-[var(--space-3)] font-medium">Service fee: <Fact k={item.fee} site="residency" /></p>
+              <p className="mt-[var(--space-3)] text-[var(--fg-muted)]">{item.body}</p>
+            </li>
+          ))}
+        </ul>
+        <p className="mt-[var(--space-8)]">
+          <a href="/investor-pass" className="text-[var(--accent)] underline underline-offset-2">Investor Pass work has its own scope and quote. See the Investor Pass route.</a>
+        </p>
+        <p className="mt-[var(--space-4)] max-w-3xl text-[var(--fg-muted)]">
+          Comparing quotes from several providers: our guide to{' '}
+          <a href="/guides/documents/choosing-a-paraguay-residency-agent" className="text-[var(--accent)] underline underline-offset-2">choosing a Paraguay residency agent</a>{' '}
+          lists what to check in any quote, ours included. Applying from the UK, start with the{' '}
+          <a href="/guides/documents/uk-police-certificate-acro-for-paraguay" className="text-[var(--accent)] underline underline-offset-2">ACRO police certificate</a>.
+        </p>
+      </Section>
 
-        <p className="mt-[var(--space-8)]"><a href="/investor-pass" className="text-[var(--accent)] underline">Investor Pass work has its own scope and quote through our sibling brand. See the Investor Pass route.</a></p>
-        <p className="mt-[var(--space-4)] text-[var(--fg-muted)]">If you are comparing quotes from several providers, our guide to <a href="/guides/documents/choosing-a-paraguay-residency-agent" className="text-[var(--accent)] underline">choosing a Paraguay residency agent</a> lists what to check in any quote, ours included.</p>
-        <div id="inquiry" className="scroll-mt-6 mt-[var(--space-16)] rounded-[var(--radius-brand)] border border-[var(--border)] bg-[var(--surface-alt)] p-[var(--space-8)]">
+      <AfterYouMessage site="residency" tone="alt" message={QUOTE_MESSAGE} />
+      <Guarantee site="residency" />
+
+      <Section tone="alt" width="narrow" className="pb-[calc(4rem+env(safe-area-inset-bottom))] md:pb-[var(--space-16)]">
+        <div id="inquiry" className="scroll-mt-6">
           <Heading level={2}>Get your written quote</Heading>
-          <p className="mt-[var(--space-4)]">Tell us your nationality, route and timeline — on WhatsApp or the form. We confirm the service scope, then set out the fixed fee and separate costs in writing before you decide.</p>
-          <div className="mt-[var(--space-6)]"><Button href="/contact">Message us</Button></div>
+          <p className="mt-[var(--space-4)]">Tell us your nationality, route and timeline, on WhatsApp or the form. We confirm the scope, then set out the fixed fee and separate costs in writing before you decide.</p>
           <div className="mt-[var(--space-8)]"><LeadForm site="residency" variant="consultation" pagePath={PATH} /></div>
         </div>
-      <StickyCta formId="inquiry" label="Talk to us" />
-      </Container>
-    </Section>
+        <StickyCta formId="inquiry" label="Talk to us" />
+      </Section>
+    </>
   );
 }

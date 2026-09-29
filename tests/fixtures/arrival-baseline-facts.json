@@ -11,10 +11,18 @@
     "investorpass.route_real_estate_usd",
     "investorpass.route_tourism_usd",
     "investorpass.timeline",
-    "investorpass.validity_years"
+    "investorpass.validity_years",
+    "pricing.investor_pass"
   ],
   "frontier": [
+    "fees.cedula_first",
+    "fees.permanent_residency",
+    "fees.temporary_residency",
     "permanent.presence_rule",
+    "pricing.cedula",
+    "pricing.investor_pass",
+    "pricing.permanent",
+    "pricing.temporary",
     "tax.foreign_income_treatment",
     "tax.territorial_rate",
     "temporary.duration"

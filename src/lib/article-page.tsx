@@ -11,7 +11,38 @@ import { t, INTL_LOCALE } from '@/i18n';
 import { getSite, siteOrigin, type SiteKey } from '@/sites/registry';
 import { JsonLd } from '@/components/JsonLd';
 import { TEAM, personJsonLd } from '@/content/team';
+import { arrivalPicture } from '@/lib/arrival-files';
+import { articleImage } from '@/lib/article-images';
 import { facts, interpolateFacts, localized, type Fact as FactEntry } from '@content/shared/facts';
+
+/** The lead photo of an article: its own, else its hub's. Never blocks the page. */
+function ArticleLead({ site, slugPath }: { site: SiteKey; slugPath: string }) {
+  let picture: ReturnType<typeof arrivalPicture>;
+  try {
+    picture = arrivalPicture(articleImage(site, slugPath).id, getSite(site).locale, { maxWidth: 1200 });
+  } catch {
+    return null;
+  }
+  const sizes = '(min-width: 1024px) 768px, 100vw';
+  return (
+      <figure data-article-image className="mt-[var(--space-8)]">
+        <picture>
+          {picture.avifSrcSet && <source type="image/avif" srcSet={picture.avifSrcSet} sizes={sizes} />}
+          <img
+            src={picture.src}
+            srcSet={picture.srcSet}
+            sizes={sizes}
+            width={picture.width}
+            height={picture.height}
+            alt={picture.alt}
+            loading="eager"
+            fetchPriority="high"
+            className="aspect-[16/9] w-full rounded-[var(--radius-brand)] object-cover shadow-[var(--elev-0)]"
+          />
+        </picture>
+      </figure>
+  );
+}
 
 /** Fact keys an article body renders, in order of first use. */
 export function factKeysIn(body: string): string[] {
@@ -111,6 +142,7 @@ export function ArticlePage({
             <time dateTime={updated}>{t(site, 'article.updated', { date: formatDate(updated, site) })}</time>
           </p>
         </header>
+        <ArticleLead site={site} slugPath={slugPath} />
         {summary && (
           <section
             aria-labelledby="short-answer"

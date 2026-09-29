@@ -1,3 +1,5 @@
+import { readFile } from 'node:fs/promises';
+import { join } from 'node:path';
 import { ImageResponse } from 'next/og';
 import { getSite, type SiteKey } from '@/sites/registry';
 import { t } from '@/i18n';
@@ -16,9 +18,36 @@ const palette: Record<SiteKey, { bg: string; fg: string; muted: string; accent: 
   flytta: { bg: '#f7f8fa', fg: '#131a24', muted: '#55606f', accent: '#0b4f8a' },
 };
 
-export function ogImage(site: SiteKey) {
+/** Each brand's own hero photo (public/images/arrival/<id>-1200.webp). */
+const HERO: Record<SiteKey, string> = {
+  residency: 'residency-hero-asuncion-colonnade',
+  investorpass: 'investorpass-hero-business-district-blue-hour',
+  guide: 'guide-hero-reading-desk-asuncion',
+  frontier: 'frontier-hero-red-earth-ranch-gate',
+  residenciaes: 'residenciaes-hero-cafe-arcade-plaza',
+  residenciapt: 'residenciapt-hero-family-veranda-terere',
+  flytta: 'flytta-hero-veranda-moving-boxes',
+};
+
+/**
+ * The hero as a 1200x630 JPEG data URI (Satori cannot read WebP). Any failure
+ * (no file, no sharp) returns undefined and the card stays text-only.
+ */
+async function heroDataUri(site: SiteKey): Promise<string | undefined> {
+  try {
+    const file = join(process.cwd(), 'public/images/arrival', `${HERO[site]}-1200.webp`);
+    const { default: sharp } = await import('sharp');
+    const jpeg = await sharp(await readFile(file)).resize(1200, 630, { fit: 'cover' }).jpeg({ quality: 70 }).toBuffer();
+    return `data:image/jpeg;base64,${jpeg.toString('base64')}`;
+  } catch {
+    return undefined;
+  }
+}
+
+export async function ogImage(site: SiteKey) {
   const config = getSite(site);
   const colors = palette[site];
+  const photo = await heroDataUri(site);
 
   return new ImageResponse(
     (
@@ -30,18 +59,37 @@ export function ogImage(site: SiteKey) {
           flexDirection: 'column',
           justifyContent: 'space-between',
           background: colors.bg,
-          color: colors.fg,
+          color: photo ? '#ffffff' : colors.fg,
           padding: 72,
           fontFamily: 'sans-serif',
+          position: 'relative',
         }}
       >
-        <div style={{ display: 'flex', fontSize: 28, letterSpacing: 4, color: colors.accent }}>
+        {photo && (
+          <>
+            {/* eslint-disable-next-line @next/next/no-img-element -- Satori renders plain img tags. */}
+            <img src={photo} width={1200} height={630} alt="" style={{ position: 'absolute', top: 0, left: 0, width: 1200, height: 630 }} />
+            <div
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: 1200,
+                height: 630,
+                display: 'flex',
+                background: 'linear-gradient(90deg, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0.15) 100%)',
+              }}
+            />
+            <div style={{ position: 'absolute', top: 0, left: 0, width: 12, height: 630, display: 'flex', background: colors.accent }} />
+          </>
+        )}
+        <div style={{ display: 'flex', fontSize: 28, letterSpacing: 4, color: photo ? '#ffffff' : colors.accent }}>
           {config.canonicalHost.toUpperCase()}
         </div>
         <div style={{ display: 'flex', fontSize: 68, lineHeight: 1.1, maxWidth: 900 }}>
           {t(site, 'home.h1')}
         </div>
-        <div style={{ display: 'flex', fontSize: 30, color: colors.muted }}>{config.name}</div>
+        <div style={{ display: 'flex', fontSize: 30, color: photo ? 'rgba(255,255,255,0.85)' : colors.muted }}>{config.name}</div>
       </div>
     ),
     ogImageSize,

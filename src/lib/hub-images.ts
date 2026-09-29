@@ -56,9 +56,9 @@ export const BRAND_CARD_IMAGE: Record<SiteKey, string> = {
   investorpass: 'investorpass-tile-real-estate',
   guide: 'guide-tile-hammock-reading',
   frontier: 'frontier-tile-open-door-patio',
-  residenciaes: 'guide-tile-route-fork',
-  residenciapt: 'frontier-tile-three-roads',
-  flytta: 'guide-tile-documents-desk',
+  residenciaes: 'residenciaes-tile-esquina-centro-historico',
+  residenciapt: 'residenciapt-tile-bifurcacao-estrada-terra',
+  flytta: 'flytta-tile-pass-dokumentmapp',
 };
 
 export function hubImage(site: SiteKey, hub?: string): string {
@@ -75,9 +75,9 @@ export const BRAND_CARD_POOL: Record<SiteKey, string[]> = {
   investorpass: ['investorpass-tile-real-estate', 'investorpass-tile-productive-business', 'investorpass-tile-financial-instruments', 'investorpass-tile-tourism-lodge'],
   guide: ['guide-tile-hammock-reading', 'guide-tile-documents-desk', 'guide-tile-route-fork', 'guide-tile-market-asuncion', 'guide-tile-terere-cafe'],
   frontier: ['frontier-tile-open-door-patio', 'frontier-tile-three-roads', 'frontier-tile-home-office', 'frontier-tile-airport-window'],
-  residenciaes: ['guide-tile-route-fork', 'guide-tile-documents-desk', 'frontier-tile-open-door-patio', 'frontier-tile-three-roads'],
-  residenciapt: ['frontier-tile-three-roads', 'guide-tile-documents-desk', 'guide-tile-market-asuncion', 'guide-tile-route-fork'],
-  flytta: ['guide-tile-documents-desk', 'guide-tile-market-asuncion', 'guide-tile-hammock-reading', 'guide-tile-route-fork'],
+  residenciaes: ['residenciaes-tile-esquina-centro-historico', 'residenciaes-tile-pasaporte-apostilla', 'residenciaes-tile-llaves-puerta-colonial', 'residenciaes-tile-terminal-omnibus-viajeros'],
+  residenciapt: ['residenciapt-tile-bifurcacao-estrada-terra', 'residenciapt-tile-ponte-rio-fronteira', 'residenciapt-tile-documentos-terere-mesa', 'residenciapt-tile-feira-ciudad-del-este'],
+  flytta: ['flytta-tile-pass-dokumentmapp', 'flytta-tile-matkasse-marknad-asuncion', 'flytta-tile-par-veranda-skymning', 'flytta-tile-kompass-anteckningsbok'],
 };
 
 /**

@@ -5,8 +5,6 @@ import { Nav } from '@/components/Nav';
 import { Footer } from '@/components/Footer';
 import { SITE_KEYS, getSite, siteOrigin } from '@/sites/registry';
 import { t } from '@/i18n';
-import { getPages } from '@/content';
-import { contentHref } from '@/lib/site-pages';
 import Residency from '@/app/(en)/sites/residency/page';
 import Frontier from '@/app/(en)/sites/frontier/page';
 import * as residency from '@/app/(en)/sites/residency/guides/page';
@@ -54,22 +52,18 @@ it('links the formerly orphaned hubs from each brand shell', () => {
   }
 });
 
-it('shows the newest published articles above the closing CTA', () => {
-  for (const [site, Page, cta] of [
-    ['residency', Residency, 'Ready to find your route?'],
-    ['frontier', Frontier, 'Ready to find your route?'],
-  ] as const) {
-    const html = renderToStaticMarkup(createElement(Page));
-    const block = html.slice(html.indexOf('Latest articles'), html.indexOf(cta, html.indexOf('Latest articles')));
-    const expected = getPages(site).filter(p => !p.frontmatter.draft)
-      .sort((a, b) => Date.parse(b.frontmatter.publishedAt) - Date.parse(a.frontmatter.publishedAt)).slice(0, 3);
-    let previous = -1;
-    for (const post of expected) {
-      const index = block.indexOf(`href="${contentHref(site, post.slugPath)}"`);
-      expect(index).toBeGreaterThan(previous);
-      previous = index;
-    }
-    expect(block.match(/<li(?:\s[^>]*)?>/g)).toHaveLength(3);
+it('hub homepage links the UK articles, citizenship and the agent guide', () => {
+  const html = renderToStaticMarkup(createElement(Residency));
+  for (const href of ['/guides/documents/uk-police-certificate-acro-for-paraguay', '/guides/documents/apostille-uk-documents-for-paraguay',
+    '/guides/taxes/uk-tax-when-moving-to-paraguay', '/residency/citizenship', '/guides/documents/choosing-a-paraguay-residency-agent']) {
+    expect(html).toContain(`href="${href}"`);
+  }
+});
+
+it('links every W6 frontier story from the frontier homepage', () => {
+  const html = renderToStaticMarkup(createElement(Frontier));
+  for (const slug of ['moving-to-paraguay-from-australia', 'paraguay-citizenship-and-a-second-passport', 'paraguay-residency-for-canadians', 'paraguay-residency-reddit-questions-answered', 'paraguay-vs-costa-rica-and-ecuador-for-a-plan-b', 'retiring-in-paraguay-on-social-security', 'the-real-cost-of-holding-a-paraguay-plan-b', 'us-taxes-while-holding-paraguay-residency']) {
+    expect(html).toContain(`href="/stories/${slug}"`);
   }
 });
 
