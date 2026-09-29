@@ -14,6 +14,8 @@ import {
   ServiceUpsell,
   TeamSection,
   Testimonials,
+  CaseSnapshots,
+  CompareTable,
   TocPreview,
   TrustBar,
   WhatsAppButton,
@@ -132,10 +134,12 @@ function Demo({ site, withBar }: { site: SiteKey; withBar: boolean }) {
       ) : (
         <>
           <PriceTable site={site} />
+          <CompareTable site={site} tone="alt" />
           <AfterYouMessage site={site} tone="alt" />
           <Testimonials site={site} proof={PROOF_FIXTURE} />
-          <TeamSection site={site} proof={PROOF_FIXTURE} tone="alt" />
-          <Guarantee site={site} proof={PROOF_FIXTURE} />
+          <CaseSnapshots site={site} proof={PROOF_FIXTURE} tone="alt" />
+          <TeamSection site={site} proof={PROOF_FIXTURE} />
+          <Guarantee site={site} proof={PROOF_FIXTURE} tone="alt" />
           <OfficeStrip site={site} proof={PROOF_FIXTURE} tone="alt" />
         </>
       )}

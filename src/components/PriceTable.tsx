@@ -4,6 +4,7 @@ import { t } from '@/i18n';
 import { whatsappHref } from '@/lib/whatsapp';
 import type { SiteKey } from '@/sites/registry';
 import { Fact } from './Fact';
+import { FromPrice } from './FromPrice';
 import { Band, Eyebrow, SectionHeader } from './SectionKit';
 import { WhatsAppIcon } from './WhatsAppIcon';
 
@@ -12,8 +13,6 @@ export type PriceRoute = 'temporary' | 'permanent' | 'cedula' | 'investor_pass';
 interface RouteSpec {
   /** Route name, from the nav labels every locale already has. */
   label: string;
-  /** Our service fee: hedged wording until Anton verifies `pricing.*`. */
-  fee: FactKey;
   /** The state's fee, where the register has one. */
   gov?: FactKey;
   included: string[];
@@ -22,25 +21,21 @@ interface RouteSpec {
 const ROUTES: Record<PriceRoute, RouteSpec> = {
   temporary: {
     label: 'nav.temporary',
-    fee: 'pricing.temporary',
     gov: 'fees.temporary_residency',
     included: ['price.temporary.1', 'price.temporary.2', 'price.temporary.3'],
   },
   permanent: {
     label: 'nav.permanent',
-    fee: 'pricing.permanent',
     gov: 'fees.permanent_residency',
     included: ['price.permanent.1', 'price.permanent.2', 'price.permanent.3'],
   },
   cedula: {
     label: 'nav.cedula',
-    fee: 'pricing.cedula',
     gov: 'fees.cedula_first',
     included: ['price.cedula.1', 'price.cedula.2', 'price.cedula.3'],
   },
   investor_pass: {
     label: 'nav.investorPass',
-    fee: 'pricing.investor_pass',
     included: ['price.investor_pass.1', 'price.investor_pass.2', 'price.investor_pass.3'],
   },
 };
@@ -90,7 +85,7 @@ export function PriceTable({ site, routes = PRICE_ROUTES[site], title, intro, to
                 <h3 className="mt-2 font-[family-name:var(--display-font)] text-(length:--step-3) leading-tight">{label}</h3>
                 <p className="mt-5 text-(length:--step--2) font-medium uppercase tracking-[.16em] text-[var(--fg-muted)]">{t(site, 'price.fee')}</p>
                 <p className="mt-1.5 max-w-[34ch] text-(length:--step-1) leading-snug text-[var(--fg)] first-letter:uppercase">
-                  <Fact k={spec.fee} site={site} />
+                  <FromPrice site={site} route={route} />
                 </p>
               </div>
               <div>

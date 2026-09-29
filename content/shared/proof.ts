@@ -56,6 +56,20 @@
  *                                    from …". Nothing is ever machine-translated
  *                                    on the fly.
  *
+ * cases                  One entry per finished case you may describe, ONLY with
+ *                          the client's permission (`permission: true`, a
+ *                          required literal, like reviews). Anonymous by
+ *                          design: no name, only nationality.
+ *                          `countryCode` ISO code of their nationality ('GB').
+ *                          `route`   which service it was (see ReviewRoute).
+ *                          `weeks`   whole weeks from the day the file was
+ *                                    filed to the outcome named below.
+ *                          `outcome` one plain sentence per locale, e.g.
+ *                                    `{ en: 'Temporary residency approved, cédula issued.' }`.
+ *                                    A brand shows only cases that have a
+ *                                    sentence in its own language.
+ *                          `month`   when it finished, 'YYYY-MM'.
+ *
  * office.address           The street address exactly as it should print.
  * office.mapsUrl           The Google Maps link for that address.
  * office.photos            Real photos of the office or the team at work, in
@@ -145,6 +159,21 @@ export interface Review {
   translations?: Partial<Record<ProofLocale, string>>;
 }
 
+/** A finished case, anonymous, shown by `<CaseSnapshots>`. */
+export interface CaseSnapshot {
+  /** Nationality, ISO 3166-1 alpha-2, upper case. */
+  countryCode: string;
+  route: ReviewRoute;
+  /** Whole weeks from filing to the outcome. */
+  weeks: number;
+  /** One plain sentence per locale; a locale left out shows no case on that brand. */
+  outcome: Partial<Record<ProofLocale, string>>;
+  /** 'YYYY-MM'. */
+  month: string;
+  /** Required and always true: no written permission, no entry. */
+  permission: true;
+}
+
 export interface ProofOffice {
   address: string | null;
   mapsUrl: string | null;
@@ -169,6 +198,7 @@ export interface Proof {
   stats: ProofStats;
   team: ProofTeamMember[];
   reviews: Review[];
+  cases: CaseSnapshot[];
   office: ProofOffice;
   credentials: Credential[];
   press: PressMention[];
@@ -189,6 +219,7 @@ export const PROOF: Proof = {
     { key: 'diana', photo: null, languages: [], bio: noBio() },
   ],
   reviews: [],
+  cases: [],
   office: {
     address: null,
     mapsUrl: null,

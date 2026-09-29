@@ -20,6 +20,8 @@ import {
   FAQ,
   Heading,
   Section,
+  Testimonials,
+  CaseSnapshots,
 } from '@/components';
 import { siteMetadata } from '@/lib/metadata';
 
@@ -116,6 +118,8 @@ export default function Page() {
       <AfterYouMessage site="residency" tone="alt" message="Hi — I have a question about Paraguay residency." />
 
       <TeamSection site="residency" />
+      <Testimonials site="residency" tone="alt" />
+      <CaseSnapshots site="residency" />
 
       <Guarantee site="residency" tone="alt" />
 

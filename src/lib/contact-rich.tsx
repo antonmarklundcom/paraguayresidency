@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { AfterYouMessage, Breadcrumbs, Heading, OfficeStrip, Section, TrustBar, WhatsAppButton } from '@/components';
+import { AfterYouMessage, Breadcrumbs, Guarantee, Heading, OfficeStrip, Section, TrustBar, WhatsAppButton } from '@/components';
 import { LeadForm } from '@/components/LeadForm';
 import { t } from '@/i18n';
 import { whatsappHref } from '@/lib/whatsapp';
@@ -63,6 +63,7 @@ export function RichContactPage({ site, whatsappMessage, checklist, after = fals
       <TrustBar site={site} />
       {after && <AfterYouMessage site={site} tone="alt" message={message} />}
       <OfficeStrip site={site} tone={after ? 'default' : 'alt'} />
+      {after && <Guarantee site={site} tone={after ? 'alt' : 'default'} />}
     </>
   );
 }

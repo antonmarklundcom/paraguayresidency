@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { AfterYouMessage, Band, Breadcrumbs, Button, Eyebrow, Guarantee, LeadPanel, PriceTable, SectionHeader } from '@/components';
+import { AfterYouMessage, Band, Breadcrumbs, Button, Eyebrow, Guarantee, LeadPanel, PriceTable, SectionHeader, CompareTable, Testimonials, CaseSnapshots, TrustBar } from '@/components';
 import { siteMetadata } from '@/lib/metadata';
 
 const PATH = '/pricing';
@@ -38,6 +38,8 @@ export default function Page() {
           </div>
         </div>
       </Band>
+      <TrustBar site="investorpass" />
+
 
       <PriceTable site="investorpass" tone="alt" title="The Investor Pass service fee" intro="The routes have different thresholds and paperwork, so the quote follows your route. What is fixed is our fee, agreed in writing first." />
 
@@ -58,8 +60,11 @@ export default function Page() {
           </div>
         </dl>
       </Band>
+      <CompareTable site="investorpass" />
 
       <AfterYouMessage site="investorpass" tone="alt" message={MESSAGE} />
+      <Testimonials site="investorpass" tone="alt" />
+      <CaseSnapshots site="investorpass" />
       <Guarantee site="investorpass" />
 
       <LeadPanel

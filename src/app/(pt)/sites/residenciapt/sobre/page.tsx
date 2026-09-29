@@ -12,6 +12,8 @@ import {
   OfficeStrip,
   TeamSection,
   TrustBar,
+  Testimonials,
+  CaseSnapshots,
 } from '@/components';
 import { siteMetadata } from '@/lib/metadata';
 
@@ -87,6 +89,8 @@ export default function Page() {
         </div>
       </Band>
 
+      <Testimonials site={SITE} tone="alt" />
+      <CaseSnapshots site={SITE} />
       <Guarantee site={SITE} tone="alt" />
       <OfficeStrip site={SITE} />
       <AfterYouMessage site={SITE} tone="alt" />

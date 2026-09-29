@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Band, Breadcrumbs, Button, Eyebrow, Guarantee, OfficeStrip, TeamSection, TrustBar } from '@/components';
+import { Band, Breadcrumbs, Button, Eyebrow, Guarantee, OfficeStrip, TeamSection, TrustBar, Testimonials, CaseSnapshots } from '@/components';
 import { siteMetadata } from '@/lib/metadata';
 import { t } from '@/i18n';
 import { siteOrigin } from '@/sites/registry';
@@ -65,6 +65,8 @@ export default function Page() {
       </Band>
 
       <OfficeStrip site="investorpass" tone="alt" />
+      <Testimonials site="investorpass" tone="alt" />
+      <CaseSnapshots site="investorpass" />
       <Guarantee site="investorpass" />
 
       <Band tone="alt" labelledBy="rest-title">

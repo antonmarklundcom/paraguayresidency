@@ -22,6 +22,7 @@ import {
   Eyebrow,
   SectionHeader,
   Section,
+  CaseSnapshots,
 } from '@/components';
 import { ProcessTimeline } from '@/components/ProcessTimeline';
 import { getPages } from '@/content';
@@ -204,6 +205,7 @@ export default function Page() {
       />
 
       <Testimonials site="investorpass" tone="alt" />
+      <CaseSnapshots site="investorpass" />
       <Guarantee site="investorpass" />
       <TeamStrip site="investorpass" />
 

@@ -7,13 +7,17 @@ import {
   Button,
   Container,
   Eyebrow,
-  Fact,
   Guarantee,
   Heading,
   HeroContact,
   LeadPanel,
   PriceTable,
   SectionHeader,
+  CompareTable,
+  Testimonials,
+  CaseSnapshots,
+  TrustBar,
+  FromPrice,
 } from '@/components';
 import { siteMetadata } from '@/lib/metadata';
 
@@ -34,14 +38,14 @@ const EXTRAS = [
     id: 'tax_residency',
     title: 'Skatterättslig vägledning och RUC',
     href: '/skatt',
-    fee: <Fact k="pricing.tax_residency" site={SITE} />,
+    fee: <FromPrice site={SITE} route="tax_residency" />,
     body: 'Vi går igenom RUC-registreringen och samordnar den med din ansökan när den behövs. Din egen rådgivare bedömer frågor om svensk utflyttning och anknytning.',
   },
   {
     id: 'family',
     title: 'Familjeansökan',
     href: '/familj',
-    fee: <Fact k="pricing.family" site={SITE} />,
+    fee: <FromPrice site={SITE} route="family" />,
     body: 'Dokumentlistan för partner och barn, med vigselbevis, födelsebevis och samtycken när de behövs. Offerten anger vilka personer som omfattas.',
   },
 ] as const;
@@ -68,6 +72,8 @@ export default function Page() {
           </div>
         </Container>
       </Band>
+      <TrustBar site={SITE} />
+
 
       <PriceTable site={SITE} tone="alt" />
 
@@ -128,6 +134,9 @@ export default function Page() {
           </Link>
         </p>
       </Band>
+      <CompareTable site={SITE} />
+      <Testimonials site={SITE} tone="alt" />
+      <CaseSnapshots site={SITE} />
 
       <Guarantee site={SITE} />
       <AfterYouMessage site={SITE} tone="alt" />

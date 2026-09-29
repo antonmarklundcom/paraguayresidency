@@ -22,6 +22,7 @@ import {
   SectionHeader,
   Section,
   WhatsAppButton,
+  CaseSnapshots,
 } from '@/components';
 import { getPages } from '@/content';
 import { contentHref } from '@/lib/content-href';
@@ -236,6 +237,7 @@ export default function Page() {
       />
 
       <Testimonials site="frontier" tone="alt" />
+      <CaseSnapshots site="frontier" />
       <Guarantee site="frontier" />
       <TeamStrip site="frontier" />
 

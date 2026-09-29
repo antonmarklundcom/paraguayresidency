@@ -3,6 +3,7 @@ import {
   Band,
   Breadcrumbs,
   Eyebrow,
+  Guarantee,
   Heading,
   OfficeStrip,
   TrustBar,
@@ -59,6 +60,7 @@ export function BrandContactPage({ site, whatsappMessage, eyebrow }: { site: Sit
       <TrustBar site={site} />
       <AfterYouMessage site={site} tone="alt" message={message} />
       <OfficeStrip site={site} />
+      <Guarantee site={site} tone="alt" />
     </>
   );
 }
