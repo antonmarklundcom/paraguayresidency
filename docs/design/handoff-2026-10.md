@@ -19,36 +19,21 @@ Read this first, then `docs/design/overhaul-2026-10-plan.md` and `docs/design/w5
 - **Fixes**: HTML cache capped at 10 min (the ES homepage was unstyled from a year-long CDN cache), the document
   checklist crash, and `.claude/` kept out of lint, tsc and git.
 
-## Not finished: continue here
+## Status update 2026-09-29
 
-1. **W5 per-brand recomposition (the biggest remaining item).** Four builders were stopped mid-work. Their branches
-   are local only (not pushed):
-   - `worktree-agent-a8b9ef662abc9027f`: W5-A hub + guide, 2 clean commits (hub homepage, guide sales letter started)
-   - `worktree-agent-a0362dfc0ff3eb94e`: W5-B investorpass + frontier, 1 commit + 1 WIP commit
-   - `worktree-agent-a18cf2f46c8a1f544`: W5-C es + pt, 1 commit + 1 WIP commit
-   - `worktree-agent-afd185b20ce47ea87`: W5-D flytta + shared templates (article template, `src/lib/article-images.ts`,
-     hub index pages, per-brand OG routes, footer language switch, schema helper), 1 WIP commit
-   For each: check it out (or read its diff against `design/overhaul-2026-10`), finish the brief in `docs/design/w5-brief.md`,
-   run `npm run verify`, screenshot at 1440/390 and merge it into a new branch. The WIP commits are unverified.
-   Merge W5-D first (shared templates), then the brand builders. Expect `common.json` conflicts (keys namespaced
-   `w5a…w5d`) and `src/lib/hub-images.ts` (take the version on `design/overhaul-2026-10`; it already points every hub at
-   its new image).
-2. **Article images, 217 generated and reviewed, not yet on the site.** Records: `docs/design/article-image-slots-2026-10.json`
-   (key `<site>/<hub>/<slug>` → id, prompt, alt en/es/pt/sv) and `docs/design/article-image-jobs-2026-10.json` (job ids
-   + result urls; 224 and 316 were regenerated; for 316 take the job `2f0db8fd-6d2c-4fcd-acd4-0bb1bc51dd4c`, whose url
-   is not recorded yet: `jobs_wait` it). Source PNGs may still be in `%TEMP%\pyimg\a-<index>.png` (index = the `i` field);
-   otherwise re-download from the urls (they are cloudfront, no regeneration needed). Convert with
-   `npx -y github:antonmarklundcom/webimg convert <png> --name <id> --alt "<alt_en>" --widths 480,800,1200 --out public/images/arrival --public-path /images/arrival`
-   (delete `public/images/arrival/manifest.json` afterwards), add manifest rows (`"set": "overhaul-2026-10", "kind": "article"`,
-   the 4 alts), then fill `src/lib/article-images.json` (created by W5-D) with `{ key: id }`. Budget: AVIF 800 ≈ 30–60 KB.
-3. **Performance**: Lighthouse mobile is 0.80–0.82 on hub/guide (live guide 0.53). The LCP is the hero photo. Switch the
-   homepages to the new AVIF heroes (W5 does this), and check the guide's client JS.
-4. **Content consistency** flagged by writers, fixed in the W5-B WIP but unverified: suace.status "24 months", the
-   off-plan purchase in the real-estate deep dive, "renewing-and-converting-to-permanent" vs Res. 0283/2026, and the
-   frontier Interpol-myth story vs `fees.interpol_certificate`.
-5. **Keyword data**: Anton will attach Google Keyword Planner CSVs. Cluster them by intent per market, map each
-   cluster to an existing page (and note whether it ranks) or to a new page, and re-rank `docs/audit/2026-10/seo-gap.md`.
-   Then write the next content wave (same rules as W6: `<Fact>` only, native language, answer-first template).
+Done and on `main`: PR #78 (overhaul), #80 (217 article images + `src/lib/article-images.json`), #81 (W5 per-brand
+homepages, pricing, about, contact for all seven brands, shared article template, hub index page, brand-hero OG
+images, AVIF for every hero and tile). CI Lighthouse mobile on #81: 0.94-0.99 on nine of ten pages (frontier
+home 0.89 in CI, 0.95 locally; treat as noise). The content-consistency items (suace 24 months, off-plan, renewing
+vs converting, frontier Interpol) are fixed.
+
+## Still to do
+
+1. **Dutch brand `emigreren`** on `emigrerennaarparaguay.nl` (aliases `woneninparaguay.nl`). Plan: `docs/design/nl-brand-plan.md`.
+   Needs an Opus foundation session first (new SiteKey enum migration, `nl` locale, registry, theme), then Sonnet builders for pages and articles.
+2. **Swedish domain**: connect `flyttatillparaguay.se`; check every domain resolves.
+3. **Keyword data**: Anton will attach Google Keyword Planner CSVs per market. Cluster, map to pages, write the next content wave.
+4. **Guide client JS** (only if a real Lighthouse regression shows up); per-brand `hreflang` is not needed (brands are not translations).
 
 ## Only Anton can do these
 
