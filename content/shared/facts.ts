@@ -2947,8 +2947,18 @@ export const facts = {
     "key": "residency.criminal_record_refusal",
     "label": "Criminal record — grounds for refusing residency",
     "title": "Criminal record — grounds for refusing residency",
-    "display": "the migration office may refuse temporary or permanent residency to anyone prosecuted or convicted, in Paraguay or abroad, for an intentional offence that carries more than 2 years in prison under Paraguayan law, and to anyone with a pattern of repeat offending (Ley 6984/2022, arts. 50 and 52)",
-    "hedged": "Paraguayan law lets the migration office refuse residency over certain criminal records, and we tell you how yours is likely to be read before you file",
+    "display": {
+      "en": "the migration office may refuse temporary or permanent residency to anyone prosecuted or convicted, in Paraguay or abroad, for an intentional offence that carries more than 2 years in prison under Paraguayan law, and to anyone with a pattern of repeat offending (Ley 6984/2022, arts. 50 and 52)",
+      "es": "la oficina de migraciones puede denegar la residencia temporal o permanente a quien haya sido procesado o condenado, en Paraguay o en el extranjero, por un hecho punible doloso que según la ley paraguaya merezca una pena de prisión mayor a 2 años, y a quien registre una conducta reiterante (Ley 6984/2022, arts. 50 y 52)",
+      "pt": "a Migração pode negar a residência temporária ou permanente a quem tenha sido processado ou condenado, no Paraguai ou no exterior, por crime doloso que, pela lei paraguaia, mereça pena de prisão superior a 2 anos, e a quem tenha conduta reiterada (Ley 6984/2022, arts. 50 e 52)",
+      "sv": "migrationsmyndigheten kan neka tillfälligt eller permanent uppehållstillstånd till den som är åtalad eller dömd, i Paraguay eller utomlands, för ett uppsåtligt brott som enligt paraguayansk lag ger mer än 2 års fängelse, och till den som har upprepade brott bakom sig (Ley 6984/2022, art. 50 och 52)"
+    },
+    "hedged": {
+      "en": "Paraguayan law lets the migration office refuse residency over certain criminal records, and we tell you how yours is likely to be read before you file",
+      "es": "la ley paraguaya permite a migraciones denegar la residencia por ciertos antecedentes penales, y te decimos cómo es probable que se lea el tuyo antes de presentar el expediente",
+      "pt": "a lei paraguaia permite que a Migração negue a residência por certos antecedentes criminais, e dizemos como o seu tende a ser lido antes de você protocolar",
+      "sv": "paraguayansk lag låter migrationsmyndigheten neka uppehållstillstånd vid vissa brottsregister, och vi berättar hur ditt sannolikt läses innan du lämnar in"
+    },
     "verified": false,
     "sourced": {
       "label": "Ley 6984/2022 de Migraciones, arts. 50 and 52",
@@ -3071,8 +3081,18 @@ export const facts = {
     "key": "driving.resident_licence",
     "label": "Paraguayan driving licence for residents",
     "title": "Paraguayan driving licence for residents",
-    "display": "residents exchange a valid foreign licence for a Paraguayan one at the municipality where they live, usually without driving tests, once they hold a cédula",
-    "hedged": "a Paraguayan licence issued by the municipality where you live, once your residency paperwork allows it, with the current requirements confirmed for your case",
+    "display": {
+      "en": "residents exchange a valid foreign licence for a Paraguayan one at the municipality where they live, usually without driving tests, once they hold a cédula",
+      "es": "los residentes canjean un carnet extranjero vigente por uno paraguayo en la municipalidad donde viven, por lo general sin exámenes de manejo, una vez que tienen la cédula",
+      "pt": "residentes trocam uma carteira de motorista estrangeira válida por uma paraguaia na prefeitura do município onde moram, em geral sem prova de direção, depois de ter a cédula",
+      "sv": "bosatta byter ett giltigt utländskt körkort mot ett paraguayanskt hos kommunen där de bor, oftast utan körprov, när de väl har cédulan"
+    },
+    "hedged": {
+      "en": "a Paraguayan licence issued by the municipality where you live, once your residency paperwork allows it, with the current requirements confirmed for your case",
+      "es": "un carnet paraguayo emitido por la municipalidad donde vives, cuando tu residencia lo permita, con los requisitos vigentes confirmados para tu caso",
+      "pt": "uma carteira paraguaia emitida pela prefeitura do município onde você mora, quando a sua residência permitir, com os requisitos atuais confirmados para o seu caso",
+      "sv": "ett paraguayanskt körkort som utfärdas av kommunen där du bor, när ditt uppehållstillstånd tillåter det, med gällande krav bekräftade för ditt fall"
+    },
     "verified": false,
     "sources": [
       "https://www.asuncion.gov.py/f-a-q/requisitos-para-obtencion-de-licencias-de-conducir",
