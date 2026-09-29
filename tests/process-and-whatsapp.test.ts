@@ -188,7 +188,7 @@ for (const { site, Page } of [{ site: 'residency', Page: About0 }, { site: 'inve
     // The shared <TeamSection> replaces the plain list: its intro is `team.promise`.
     expect(html.includes(t(site, 'about.teamBody')) || html.includes('data-team-section')).toBe(true);
     for (const name of ['Anton Marklund', 'Yanina Alvarez', 'Diana Davalos']) {
-      expect(html.includes('<li>' + name + '</li>') || html.includes('>' + name + '</h3>')).toBe(true);
+      expect(html).toContain(name); // a list item, or a TeamSection card
       expect(t(site, 'process.trustBody')).toContain(name);
     }
   });

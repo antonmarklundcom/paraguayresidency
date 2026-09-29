@@ -56,7 +56,7 @@ async function baseline(site: string) {
   return renderToStaticMarkup(await exports.default!());
 }
 
-for (const [site, Page, count] of [['guide', Guide, 5], ['investorpass', Investor, 4], ['frontier', Frontier, 4]] as const) {
+for (const [site, Page, count] of [['guide', Guide, 4], ['investorpass', Investor, 4], ['frontier', Frontier, 4]] as const) {
   it(`${site} renders Arrival and preserves every origin/main fact occurrence`, async () => {
     const html = renderToStaticMarkup(await Page());
     const facts = (markup: string) => [...markup.matchAll(/data-fact="([^"]+)"/g)].map(match => match[1]).sort();

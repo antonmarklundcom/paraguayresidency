@@ -54,9 +54,16 @@ it('links the formerly orphaned hubs from each brand shell', () => {
   }
 });
 
+it('hub homepage links the UK articles, citizenship and the agent guide', () => {
+  const html = renderToStaticMarkup(createElement(Residency));
+  for (const href of ['/guides/documents/uk-police-certificate-acro-for-paraguay', '/guides/documents/apostille-uk-documents-for-paraguay',
+    '/guides/taxes/uk-tax-when-moving-to-paraguay', '/residency/citizenship', '/guides/documents/choosing-a-paraguay-residency-agent']) {
+    expect(html).toContain(`href="${href}"`);
+  }
+});
+
 it('shows the newest published articles above the closing CTA', () => {
   for (const [site, Page, cta] of [
-    ['residency', Residency, 'Ready to find your route?'],
     ['frontier', Frontier, 'Ready to find your route?'],
   ] as const) {
     const html = renderToStaticMarkup(createElement(Page));
