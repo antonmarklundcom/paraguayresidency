@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { Button, StickyCta, Breadcrumbs, Container, FAQ, Heading, JsonLd, LeadForm, Prose, Section, type FaqItem } from '@/components';
+import { Button, StickyCta, Breadcrumbs, Container, FAQ, Heading, JsonLd, LeadForm, NextSteps, Prose, Section, type FaqItem } from '@/components';
 import { serviceJsonLd } from '@/lib/metadata';
 import { whatsappHref } from '@/lib/whatsapp';
 import { t } from '@/i18n';
@@ -51,6 +51,7 @@ export function TopicPage({
         <div className="mt-[var(--space-16)]">
           <FAQ title={t(SITE, 'common.faqTitle')} items={faq} />
         </div>
+        <NextSteps site={SITE} path={path} />
         <div id="inquiry" className="scroll-mt-6 mt-[var(--space-16)] rounded-[var(--radius-brand)] border border-[var(--border)] bg-[var(--surface-alt)] p-[var(--space-8)]">
           <Heading level={2}>Berätta hur du tänker</Heading>
           <p className="mt-[var(--space-2)] text-[var(--fg-muted)]">
