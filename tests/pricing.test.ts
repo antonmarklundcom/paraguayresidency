@@ -48,10 +48,17 @@ for (const route of routes) {
 for (const { site, locale, path, Page, routes: offered } of pages) {
   it(`${site}/${path} renders its own route set through localized pricing facts`, () => {
     const html = renderToStaticMarkup(createElement(Page));
-    const keys = [...html.matchAll(/data-fact="([^"]+)"/g)].map(m => m[1]);
+    // Pages built on the shared <PriceTable> also list the state's fees (`fees.*`); only our own fees are checked here.
+    const priceTable = html.includes('data-price-table');
+    const keys = [...html.matchAll(/data-fact="([^"]+)"/g)].map(m => m[1]).filter(key => !priceTable || key.startsWith('pricing.'));
     expect(keys).toEqual(offered.map(route => `pricing.${route}`));
-    const sections = html.match(/<section\b[^>]*aria-labelledby="[^"]+"[\s\S]*?<\/section>/g)!;
-    expect(sections).toHaveLength(offered.length);
+    const sections = priceTable ? [] : html.match(/<section\b[^>]*aria-labelledby="[^"]+"[\s\S]*?<\/section>/g)!;
+    if (priceTable) {
+      for (const route of offered) {
+        expect(html).toContain(`data-fact="pricing.${route}" data-verified="false"`);
+        expect(html).toContain(factText(`pricing.${route}` as FactKey, locale));
+      }
+    } else expect(sections).toHaveLength(offered.length);
     for (const [index, section] of sections.entries()) {
       const key = `pricing.${offered[index]}` as FactKey;
       expect(section).toContain('data-verified="false"');
@@ -65,7 +72,8 @@ for (const { site, locale, path, Page, routes: offered } of pages) {
     expect(html.match(/data-fee-terms/g)).toHaveLength(1);
     expect(html).toContain('href="#inquiry"');
     expect(html).toContain('id="inquiry"');
-    const outsideFacts = html.replace(/<span\b[^>]*data-fact="[^"]+"[^>]*>[\s\S]*?<\/span>/g, '')
+    // Row numerals (01, 02) and the lead form's own copy are layout, not published figures.
+    const outsideFacts = html.replace(/<p aria-hidden="true"[^>]*>\d+<\/p>/g, '').replace(/<section\b[^>]*id="inquiry"[\s\S]*?<\/section>/g, '').replace(/<span\b[^>]*data-fact="[^"]+"[^>]*>[\s\S]*?<\/span>/g, '')
       .replace(/<script\b[^>]*>[\s\S]*?<\/script>/g, '')
       .replace(/<[^>]*>/g, '').replace(/&#\d+;/g, '');
     expect(outsideFacts).not.toMatch(/[\d$€£?]/);

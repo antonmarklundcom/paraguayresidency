@@ -1,5 +1,20 @@
+import Link from 'next/link';
 import type { Metadata } from 'next';
-import { Breadcrumbs, Button, StickyCta, Container, Fact, Heading, LeadForm, Section } from '@/components';
+import {
+  AfterYouMessage,
+  Band,
+  Breadcrumbs,
+  Button,
+  Container,
+  Eyebrow,
+  Fact,
+  Guarantee,
+  Heading,
+  HeroContact,
+  LeadPanel,
+  PriceTable,
+  SectionHeader,
+} from '@/components';
 import { siteMetadata } from '@/lib/metadata';
 
 const SITE = 'flytta' as const;
@@ -14,69 +29,118 @@ export function generateMetadata(): Metadata {
   });
 }
 
+const EXTRAS = [
+  {
+    id: 'tax_residency',
+    title: 'Skatterättslig vägledning och RUC',
+    href: '/skatt',
+    fee: <Fact k="pricing.tax_residency" site={SITE} />,
+    body: 'Vi går igenom RUC-registreringen och samordnar den med din ansökan när den behövs. Din egen rådgivare bedömer frågor om svensk utflyttning och anknytning.',
+  },
+  {
+    id: 'family',
+    title: 'Familjeansökan',
+    href: '/familj',
+    fee: <Fact k="pricing.family" site={SITE} />,
+    body: 'Dokumentlistan för partner och barn, med vigselbevis, födelsebevis och samtycken när de behövs. Offerten anger vilka personer som omfattas.',
+  },
+] as const;
+
 export default function Page() {
   return (
-    <Section className="pb-[calc(4rem+env(safe-area-inset-bottom))] md:pb-[var(--space-16)]">
-      <Container width="narrow">
-        <Breadcrumbs site="flytta" items={[{ label: 'Priser', href: PATH }]} />
-        <Heading level={1} className="mt-[var(--space-8)]">Ett fast arvode, med separata kostnader förklarade innan du bestämmer dig</Heading>
-        <p className="mt-[var(--space-4)] text-(length:--text-lg) text-[var(--fg-muted)]">Offerten börjar med ett meddelande till oss — på WhatsApp eller i formuläret — om ditt medborgarskap, dina dokument, din väg och dina resplaner. Vi kommer överens om arbetet och det fasta arvodet skriftligt innan du bestämmer dig. Det finns ingen automatisk kalkylator: dokumenten och vilka som ansöker avgör omfattningen.</p>
-        <div data-service-cta className="my-[var(--space-6)] flex flex-wrap gap-[var(--space-3)]"><Button href="#inquiry">Hör av dig</Button><Button href="/route-finder" variant="secondary">Hitta din väg</Button></div>
-        <section data-fee-terms className="mt-[var(--space-8)] rounded-[var(--radius-brand)] bg-[var(--surface-alt)] p-[var(--space-6)]"><Heading level={2}>Vad varje arvode täcker</Heading><p className="mt-[var(--space-4)]">Den överenskomna förberedelsen, samordningen och vägledningen för din väg, enligt beskrivningen nedan.</p><dl className="mt-[var(--space-4)] space-y-[var(--space-4)]"><div><dt className="font-semibold">Vad som aldrig ingår</dt><dd>Myndighetsavgifter, apostiller och nödvändiga översättningar ingår aldrig i vårt arvode. Vi listar dokumentkostnaderna för just din ansökan innan du bestämmer dig. Resa och boende betalar du också separat.</dd></div><div><dt className="font-semibold">Vad du betalar till staten och till oss</dt><dd>Du betalar tillämpliga officiella ansökningsavgifter direkt till paraguayanska staten. Du betalar oss för förberedelsen och samordningen som beskrivs här. Apostiller och översättningar betalas separat till dem som utför arbetet.</dd></div></dl><p className="mt-[var(--space-4)]">Din egen skatterådgivares arbete betalas separat. För RUC bekräftar vi skriftligt om någon officiell registreringsavgift gäller.</p></section>
-        <section className="mt-[var(--space-6)] border-t border-[var(--border)] pt-[var(--space-6)]" aria-labelledby="temporary">
-          <Heading level={2} id="temporary"><a href="/uppehallstillstand" className="text-[var(--accent)] underline">Tillfälligt uppehållstillstånd</a></Heading>
-          <p className="mt-[var(--space-4)] font-medium">Arvode för tjänsten: <Fact k="pricing.temporary" site="flytta" /></p>
-          <dl className="mt-[var(--space-3)] space-y-[var(--space-3)]">
-            <div><dt className="font-semibold">Vad det fasta arvodet täcker</dt><dd>Vi tar fram dokumentlistan för ditt medborgarskap, förbereder ansökan och samordnar myndighetsbesöken i Asunción för inlämningen.</dd></div>
-            <div><dt className="font-semibold">Så tar vi fram offerten</dt><dd>Skriftligt går vi igenom dina svenska dokument och vad du redan har ordnat. Därefter offererar vi förberedelsen och inlämningen.</dd></div>
-          </dl>
-        </section>
+    <>
+      <Band tone="default" className="!pb-[var(--space-8)]">
+        <Container width="narrow">
+          <Breadcrumbs site={SITE} items={[{ label: 'Priser', href: PATH }]} />
+          <Eyebrow className="mt-[var(--space-8)]">Priser</Eyebrow>
+          <Heading level={1} className="mt-[var(--space-4)]">
+            Ett fast arvode, med separata kostnader förklarade innan du bestämmer dig
+          </Heading>
+          <p className="mt-[var(--space-4)] text-(length:--text-lg) text-[var(--fg-muted)]">
+            Offerten börjar med ett meddelande till oss — på WhatsApp eller i formuläret — om ditt
+            medborgarskap, dina dokument, din väg och dina resplaner. Vi kommer överens om arbetet
+            och det fasta arvodet skriftligt innan du bestämmer dig. Det finns ingen automatisk
+            kalkylator: dokumenten och vilka som ansöker avgör omfattningen.
+          </p>
+          <div data-service-cta className="mt-[var(--space-6)] flex flex-wrap items-center gap-[var(--space-3)]">
+            <HeroContact site={SITE} fallbackHref="#inquiry" />
+            <Button href="/route-finder" variant="secondary">Hitta din väg</Button>
+          </div>
+        </Container>
+      </Band>
 
-        <section className="mt-[var(--space-6)] border-t border-[var(--border)] pt-[var(--space-6)]" aria-labelledby="permanent">
-          <Heading level={2} id="permanent"><a href="/uppehallstillstand" className="text-[var(--accent)] underline">Permanent uppehållstillstånd</a></Heading>
-          <p className="mt-[var(--space-4)] font-medium">Arvode för tjänsten: <Fact k="pricing.permanent" site="flytta" /></p>
-          <dl className="mt-[var(--space-3)] space-y-[var(--space-3)]">
-            <div><dt className="font-semibold">Vad det fasta arvodet täcker</dt><dd>Vi förbereder och lämnar in ansökan om permanent uppehållstillstånd när du kvalificerar dig. Vi går igenom närvarokravet utifrån ditt resmönster.</dd></div>
-            <div><dt className="font-semibold">Så tar vi fram offerten</dt><dd>Skriftligt går vi igenom din nuvarande status och när du kan ansöka. Den permanenta ansökan offereras separat från en tidigare tillfällig ansökan.</dd></div>
-          </dl>
-        </section>
+      <PriceTable site={SITE} tone="alt" />
 
-        <section className="mt-[var(--space-6)] border-t border-[var(--border)] pt-[var(--space-6)]" aria-labelledby="cedula">
-          <Heading level={2} id="cedula"><a href="/uppehallstillstand" className="text-[var(--accent)] underline">Cédula de identidad</a></Heading>
-          <p className="mt-[var(--space-4)] font-medium">Arvode för tjänsten: <Fact k="pricing.cedula" site="flytta" /></p>
-          <dl className="mt-[var(--space-3)] space-y-[var(--space-3)]">
-            <div><dt className="font-semibold">Vad det fasta arvodet täcker</dt><dd>Vi samordnar cédulaansökan efter att uppehållstillståndet beviljats och håller dig uppdaterad om nästa steg. Omfattningen bekräftas tillsammans med din övriga ansökan.</dd></div>
-            <div><dt className="font-semibold">Så tar vi fram offerten</dt><dd>Skriftligt kontrollerar vi var du är i processen och om cédulan redan omfattas av din offert, så att samma arbete inte offereras igen.</dd></div>
-          </dl>
-        </section>
+      <Band tone="default" labelledBy="extras-title">
+        <SectionHeader id="extras-title" eyebrow="Vid behov" title="Två saker som ofta hör ihop med ansökan" />
+        <ul className="mt-12 grid gap-8 md:grid-cols-2">
+          {EXTRAS.map((extra) => (
+            <li key={extra.id} id={extra.id} className="border-t-2 border-[var(--accent)] pt-5">
+              <h3 className="font-[family-name:var(--display-font)] text-(length:--step-2) leading-tight">
+                <Link href={extra.href} className="underline-offset-4 hover:underline">{extra.title}</Link>
+              </h3>
+              <p className="mt-3 font-medium">
+                Arvode för tjänsten: {extra.fee}
+              </p>
+              <p className="mt-3 text-[var(--fg-muted)]">{extra.body}</p>
+            </li>
+          ))}
+        </ul>
+      </Band>
 
-        <section className="mt-[var(--space-6)] border-t border-[var(--border)] pt-[var(--space-6)]" aria-labelledby="tax_residency">
-          <Heading level={2} id="tax_residency"><a href="/skatt" className="text-[var(--accent)] underline">Skatterättslig vägledning och RUC</a></Heading>
-          <p className="mt-[var(--space-4)] font-medium">Arvode för tjänsten: <Fact k="pricing.tax_residency" site="flytta" /></p>
-          <dl className="mt-[var(--space-3)] space-y-[var(--space-3)]">
-            <div><dt className="font-semibold">Vad det fasta arvodet täcker</dt><dd>Vi går igenom RUC-registreringen och samordnar den med din ansökan när den behövs. Vi förklarar vilka frågor som behöver tas vidare till din egen skatterådgivare.</dd></div>
-            <div><dt className="font-semibold">Så tar vi fram offerten</dt><dd>Skriftligt går vi igenom din planerade verksamhet och behovet av RUC. Din egen rådgivare bedömer frågor om svensk utflyttning och anknytning.</dd></div>
-          </dl>
-        </section>
+      <Band tone="alt" labelledBy="terms-title" data-fee-terms>
+        <SectionHeader id="terms-title" eyebrow="Vad som gäller" title="Vad varje arvode täcker, och vad det aldrig gör" />
+        <dl className="mt-12 grid gap-x-12 gap-y-8 md:grid-cols-2">
+          <div>
+            <dt className="font-semibold">Vad arvodet täcker</dt>
+            <dd className="mt-2 text-[var(--fg-muted)]">
+              Den överenskomna förberedelsen, samordningen och vägledningen för din väg. Skriftligt
+              går vi först igenom dina svenska dokument och vad du redan har ordnat.
+            </dd>
+          </div>
+          <div>
+            <dt className="font-semibold">Vad som aldrig ingår</dt>
+            <dd className="mt-2 text-[var(--fg-muted)]">
+              Myndighetsavgifter, apostiller och nödvändiga översättningar ingår aldrig i vårt
+              arvode. Vi listar dokumentkostnaderna för just din ansökan innan du bestämmer dig.
+              Resa och boende betalar du också separat.
+            </dd>
+          </div>
+          <div>
+            <dt className="font-semibold">Vad du betalar till staten och till oss</dt>
+            <dd className="mt-2 text-[var(--fg-muted)]">
+              Du betalar tillämpliga officiella ansökningsavgifter direkt till paraguayanska
+              staten. Du betalar oss för förberedelsen och samordningen som beskrivs här.
+              Apostiller och översättningar betalas separat till dem som utför arbetet.
+            </dd>
+          </div>
+          <div>
+            <dt className="font-semibold">Skatt och RUC</dt>
+            <dd className="mt-2 text-[var(--fg-muted)]">
+              Din egen skatterådgivares arbete betalas separat. För RUC bekräftar vi skriftligt om
+              någon officiell registreringsavgift gäller.
+            </dd>
+          </div>
+        </dl>
+        <p className="mt-10">
+          <Link href="/uppehallstillstand" className="font-medium text-[var(--accent)] underline underline-offset-4">
+            Investor Pass hanteras av vårt systervarumärke med egen omfattning och offert. Läs om Investor Pass och de andra vägarna.
+          </Link>
+        </p>
+      </Band>
 
-        <section className="mt-[var(--space-6)] border-t border-[var(--border)] pt-[var(--space-6)]" aria-labelledby="family">
-          <Heading level={2} id="family"><a href="/familj" className="text-[var(--accent)] underline">Familjeansökan</a></Heading>
-          <p className="mt-[var(--space-4)] font-medium">Arvode för tjänsten: <Fact k="pricing.family" site="flytta" /></p>
-          <dl className="mt-[var(--space-3)] space-y-[var(--space-3)]">
-            <div><dt className="font-semibold">Vad det fasta arvodet täcker</dt><dd>Vi tar fram dokumentlistan för partner och barn, inklusive vigselbevis, födelsebevis och samtycken när de behövs. Vi samordnar myndighetsbesöken under samma resa där myndigheten tillåter det.</dd></div>
-            <div><dt className="font-semibold">Så tar vi fram offerten</dt><dd>Skriftligt går vi igenom varje familjemedlem och vårdnadsformen. Offerten anger vilka personer som omfattas och arvodet för medföljande, tillsammans med huvudansökan.</dd></div>
-          </dl>
-        </section>
+      <Guarantee site={SITE} />
+      <AfterYouMessage site={SITE} tone="alt" />
 
-        <p className="mt-[var(--space-8)]"><a href="/uppehallstillstand" className="text-[var(--accent)] underline">Investor Pass hanteras av vårt systervarumärke med egen omfattning och offert. Läs om Investor Pass och de andra vägarna.</a></p>
-        <div id="inquiry" className="scroll-mt-6 mt-[var(--space-16)] rounded-[var(--radius-brand)] border border-[var(--border)] bg-[var(--surface-alt)] p-[var(--space-8)]">
-          <Heading level={2}>Få din skriftliga offert</Heading>
-          <p className="mt-[var(--space-4)]">Berätta om ditt medborgarskap, din väg och din tidsplan. Skriftligt bekräftar vi omfattningen och beskriver sedan arvodet och de separata kostnaderna innan du bestämmer dig.</p>
-          <div className="mt-[var(--space-6)]"><Button href="/contact">Skriv till oss</Button></div>
-          <div className="mt-[var(--space-8)]"><LeadForm site="flytta" variant="consultation" pagePath={PATH} /></div>
-        </div>
-      <StickyCta formId="inquiry" label="Hör av dig" />
-      </Container>
-    </Section>
+      <LeadPanel
+        site={SITE}
+        id="inquiry"
+        variant="consultation"
+        title="Få din skriftliga offert"
+        intro="Berätta om ditt medborgarskap, din väg och din tidsplan. Skriftligt bekräftar vi omfattningen och beskriver sedan arvodet och de separata kostnaderna innan du bestämmer dig."
+        whatsappMessage="Hej! Jag vill ha en skriftlig offert för att flytta till Paraguay."
+        pagePath={PATH}
+      />
+    </>
   );
 }

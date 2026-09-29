@@ -30,6 +30,7 @@ const additions = new Set([
   'src/app/(sv)/sites/flytta/feed.xml/route.ts',
   'src/app/(sv)/sites/flytta/guider/page.tsx',
   'src/app/(sv)/sites/flytta/stader/page.tsx',
+  'src/lib/article-images.ts', 'src/lib/hub-index.tsx',
   'src/lib/rss.ts', 'tests/collection-metadata.test.ts', 'tests/rss.test.ts',
 ]);
 function allowed(path: string): boolean {

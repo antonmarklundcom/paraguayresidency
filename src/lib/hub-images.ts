@@ -58,7 +58,7 @@ export const BRAND_CARD_IMAGE: Record<SiteKey, string> = {
   frontier: 'frontier-tile-open-door-patio',
   residenciaes: 'guide-tile-route-fork',
   residenciapt: 'frontier-tile-three-roads',
-  flytta: 'guide-tile-documents-desk',
+  flytta: 'flytta-tile-pass-dokumentmapp',
 };
 
 export function hubImage(site: SiteKey, hub?: string): string {
@@ -77,7 +77,7 @@ export const BRAND_CARD_POOL: Record<SiteKey, string[]> = {
   frontier: ['frontier-tile-open-door-patio', 'frontier-tile-three-roads', 'frontier-tile-home-office', 'frontier-tile-airport-window'],
   residenciaes: ['guide-tile-route-fork', 'guide-tile-documents-desk', 'frontier-tile-open-door-patio', 'frontier-tile-three-roads'],
   residenciapt: ['frontier-tile-three-roads', 'guide-tile-documents-desk', 'guide-tile-market-asuncion', 'guide-tile-route-fork'],
-  flytta: ['guide-tile-documents-desk', 'guide-tile-market-asuncion', 'guide-tile-hammock-reading', 'guide-tile-route-fork'],
+  flytta: ['flytta-tile-pass-dokumentmapp', 'flytta-tile-matkasse-marknad-asuncion', 'flytta-tile-par-veranda-skymning', 'flytta-tile-kompass-anteckningsbok'],
 };
 
 /**

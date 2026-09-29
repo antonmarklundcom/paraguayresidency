@@ -1,26 +1,30 @@
-/* eslint-disable @next/next/no-img-element -- Responsive local Arrival images. */
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import {
-  HeroContact,
+  AfterYouMessage,
   ArticleCards,
   Button,
   Disclosure,
+  Eyebrow,
   Fact,
   FAQ,
   Heading,
+  HeroContact,
   IntentTiles,
   LeadPanel,
   PhotoHero,
-  heroTrust,
+  PriceTable,
   Reasons,
   Section,
   Steps,
-  TeamStrip,
+  TeamSection,
+  TrustBar,
+  heroTrust,
 } from '@/components';
 import { siteMetadata } from '@/lib/metadata';
-import { arrivalImage } from '@/lib/imagery';
-import { getPages } from '@/content';
+import { arrivalPicture } from '@/lib/arrival-files';
+import { articleOwnImage } from '@/lib/article-images';
+import { getPage, getPages } from '@/content';
 import { contentHref } from '@/lib/site-pages';
 import { siteOrigin } from '@/sites/registry';
 import { t } from '@/i18n';
@@ -58,18 +62,50 @@ const FAQ_ITEMS = [
   },
 ];
 
+/** "Vår resa": only what /var-historia already tells, in the order it happened. */
+const JOURNEY = [
+  { when: '2022', title: 'Första resan', body: 'Vi åkte hit utan plan och tänkte stanna några veckor. Röd jord, långa eftermiddagar och priser som fick oss att räkna om två gånger.' },
+  { when: 'Sedan', title: 'Vi stannade', body: 'Inte för kostnadsläget, utan för att vi för första gången på länge kände att vi hade tid. Något bestämt på måndagen kunde vara påbörjat på onsdagen.' },
+  { when: 'Ansökan', title: 'Vi gjorde allt fel', body: 'På egen hand, utan spanska, med dokument i fel ordning. Det kostade en extra resa och några månader.' },
+  { when: 'Nu', title: 'Vi hjälper andra svenskar', body: 'Allt vi gjorde fel blev en lista. Vårt team i Asunción använder den med varje ny familj.' },
+];
+
 const STEPS = [
   { title: 'Ett meddelande', body: 'Skriv till oss på WhatsApp eller i formuläret. Vi bekräftar din väg och ditt fasta pris i kronor skriftligt innan du bestämmer dig.' },
-  { title: 'Dokumenten', body: 'Apostille och översättning i Sverige, i rätt ordning, efter en lista gjord för dig.' },
+  { title: 'Dokumenten och Skatteverket', body: 'Apostille och översättning i Sverige, i rätt ordning. Flyttar du på riktigt förklarar vi också vad som gäller mot Skatteverket, och du bestämmer själv när du anmäler.' },
   { title: 'Veckan i Asunción', body: 'Vi lämnar in ärendet och följer med dig på besöken. Du kommer hit; vi sköter resten.' },
   { title: 'Cédulan', body: 'När uppehållstillståndet är beviljat ordnar vi din cédula och säger vad som kommer sedan.' },
 ];
 
+const TAX_SLUGS = [
+  'guider/kan-man-slippa-skatt-genom-att-flytta-till-paraguay',
+  'guider/anmala-utflyttning-till-skatteverket',
+  'guider/svensk-pension-i-paraguay',
+];
+const LIFE_SLUGS = [
+  'guider/paraguay-eller-thailand-spanien-for-pensionarer',
+  'guider/paraguayanskt-medborgarskap-och-pass',
+  'guider/residency-i-paraguay-komplett-guide',
+];
+
+function cards(slugPaths: string[], eyebrow: string) {
+  return slugPaths.flatMap((slugPath) => {
+    const page = getPage(SITE, slugPath);
+    if (!page) return [];
+    return [{
+      eyebrow,
+      title: page.frontmatter.title,
+      description: page.frontmatter.description,
+      href: contentHref(SITE, page.slugPath),
+      hub: page.hub,
+      image: articleOwnImage(SITE, page.slugPath),
+    }];
+  });
+}
+
 export default function Page() {
-  const pages = getPages(SITE);
-  const guides = pages.filter((page) => page.hub === 'guider').slice(0, 3);
-  const cities = pages.filter((page) => page.hub === 'stader').slice(0, 3);
-  const story = arrivalImage('guide-tile-terere-cafe', 'sv');
+  const cities = getPages(SITE).filter((page) => page.hub === 'stader').slice(0, 3);
+  const couple = arrivalPicture('flytta-tile-par-veranda-skymning', 'sv', { maxWidth: 800 });
 
   const actions = (
     <>
@@ -81,62 +117,99 @@ export default function Page() {
   return (
     <>
       <PhotoHero
-        image="guide-hero-reading-terrace-asuncion"
+        image="flytta-hero-veranda-moving-boxes"
+        video={{ id: 'flytta-hero-veranda-moving-boxes' }}
         locale="sv"
-        focus="65% center"
-        eyebrow="Flytta till Paraguay"
+        focus="60% center"
+        eyebrow="Ett brev från Asunción"
         title={t(SITE, 'home.h1')}
         sub={t(SITE, 'home.sub')}
         actions={actions}
         trust={heroTrust(SITE)}
       />
+      <TrustBar site={SITE} />
 
-      <IntentTiles
-        locale="sv"
-        title="Var vill du börja?"
-        intro="Välj det som ligger närmast. Vet du inte, så säger vägvalstestet det på två minuter."
-        tiles={[
-          { label: 'Vilken väg passar mig?', note: 'Sex frågor, två minuter', href: '/route-finder', image: 'guide-tile-route-fork' },
-          { label: 'Uppehållstillstånd', note: 'Tillfälligt, permanent och cédula', href: '/uppehallstillstand', image: 'guide-tile-documents-desk' },
-          { label: 'Vad det kostar', note: 'Att leva här, på riktigt', href: '/kostnader', image: 'guide-tile-market-asuncion' },
-          { label: 'Vår historia', note: 'Varför vi flyttade hit', href: '/var-historia', image: 'guide-tile-hammock-reading' },
-        ]}
-      />
-
-      <section className="bg-[var(--bg)] pb-16 md:pb-24">
-        <div className="mx-auto grid max-w-[var(--container)] items-center gap-10 px-5 sm:px-8 md:grid-cols-2 md:gap-16">
-          <img
-            src={`/images/arrival/${story.id}-800.webp`}
-            srcSet={`/images/arrival/${story.id}-480.webp 480w, /images/arrival/${story.id}-800.webp 800w`}
-            sizes="(min-width: 768px) 40vw, 90vw"
-            width={800}
-            height={1000}
-            alt={story.alt}
-            loading="lazy"
-            className="aspect-[4/5] w-full max-w-md rounded-[var(--radius-brand)] object-cover shadow-[var(--shadow-lg)] md:justify-self-end"
-          />
-          <div className="max-w-lg">
-            <Heading level={2}>Vi bor här. Det är hela poängen.</Heading>
-            <p className="mt-[var(--space-4)] text-(length:--text-lg) text-[var(--fg-muted)]">
-              Vi flyttade hit utan att kunna svaret på hälften av det vi undrade. Allt vi lärde oss
-              av det sitter nu i den här sajten och i checklistorna vårt team i Asunción använder
-              med varje ny familj.
-            </p>
+      {/* The letter: first person plural, on a narrow measure, with the photo beside it. */}
+      <section className="bg-[var(--bg)] py-[var(--space-section)]" aria-labelledby="letter-title">
+        <div className="mx-auto grid max-w-[var(--container)] items-start gap-10 px-[var(--space-gutter)] md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] md:gap-16">
+          <picture>
+            {couple.avifSrcSet && <source type="image/avif" srcSet={couple.avifSrcSet} sizes="(min-width: 768px) 40vw, 90vw" />}
+            <img
+              src={couple.src}
+              srcSet={couple.srcSet}
+              sizes="(min-width: 768px) 40vw, 90vw"
+              width={couple.width}
+              height={couple.height}
+              alt={couple.alt}
+              loading="lazy"
+              className="aspect-[4/5] w-full max-w-md rounded-[var(--radius-brand)] object-cover shadow-[var(--elev-0)]"
+            />
+          </picture>
+          <div className="max-w-[60ch]">
+            <Eyebrow>Hej</Eyebrow>
+            <h2 id="letter-title" className="mt-3 font-[family-name:var(--display-font)] text-(length:--step-4) leading-[1.06] text-balance">
+              Vi bor här. Det är hela poängen.
+            </h2>
+            <div className="mt-[var(--space-6)] space-y-[var(--space-4)] text-(length:--step-0) leading-relaxed text-[var(--fg-muted)]">
+              <p>
+                Vi flyttade hit utan att kunna svaret på hälften av det vi undrade. Vår egen ansökan
+                gjorde vi på det dummaste sättet som finns, och lärde oss av varje misstag.
+              </p>
+              <p>
+                Allt det sitter nu i den här sajten och i checklistorna vårt team i Asunción
+                använder med varje ny familj. Vi är inte jurister eller skatterådgivare, och vi
+                säger hellre det rakt ut än låtsas kunna svara på allt.
+              </p>
+            </div>
             <Link
               href="/var-historia"
               className="mt-[var(--space-6)] inline-flex min-h-11 items-center gap-2 font-medium text-[var(--accent)] underline-offset-4 hover:underline"
             >
-              Läs vår historia <span aria-hidden="true">→</span>
+              Läs hela vår historia <span aria-hidden="true">→</span>
             </Link>
           </div>
         </div>
       </section>
+
+      <section className="bg-[var(--surface-alt)] py-[var(--space-section)]" aria-labelledby="journey-title" data-journey>
+        <div className="mx-auto max-w-[var(--container)] px-[var(--space-gutter)]">
+          <Eyebrow>Vår resa</Eyebrow>
+          <h2 id="journey-title" className="mt-3 max-w-2xl font-[family-name:var(--display-font)] text-(length:--step-4) leading-[1.06] text-balance">
+            Från fel kö till en lista som fungerar
+          </h2>
+          <ol className="mt-12 grid gap-10 md:grid-cols-4 md:gap-8">
+            {JOURNEY.map((item) => (
+              <li key={item.title} className="border-l-2 border-[var(--accent)] pl-5">
+                <p className="text-(length:--step--2) font-medium uppercase tracking-[.16em] text-[var(--accent)]">{item.when}</p>
+                <h3 className="mt-2 font-[family-name:var(--display-font)] text-(length:--step-2) leading-tight">{item.title}</h3>
+                <p className="mt-3 text-[var(--fg-muted)]">{item.body}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      <PriceTable site={SITE} />
 
       <Steps
         tone="alt"
         title="Fyra steg, i den ordning de faktiskt händer"
         steps={STEPS}
         link={{ href: '/process', label: 'Processen steg för steg' }}
+      />
+
+      <AfterYouMessage site={SITE} />
+
+      <IntentTiles
+        locale="sv"
+        title="Var vill du börja?"
+        intro="Välj det som ligger närmast. Vet du inte, så säger vägvalstestet det på två minuter."
+        tiles={[
+          { label: 'Vilken väg passar mig?', note: 'Sex frågor, två minuter', href: '/route-finder', image: 'flytta-tile-kompass-anteckningsbok' },
+          { label: 'Uppehållstillstånd', note: 'Tillfälligt, permanent och cédula', href: '/uppehallstillstand', image: 'flytta-tile-pass-dokumentmapp' },
+          { label: 'Vad det kostar', note: 'Att leva här, på riktigt', href: '/kostnader', image: 'flytta-tile-matkasse-marknad-asuncion' },
+          { label: 'Vår historia', note: 'Varför vi flyttade hit', href: '/var-historia', image: 'flytta-tile-par-veranda-skymning' },
+        ]}
       />
 
       <Reasons
@@ -154,24 +227,25 @@ export default function Page() {
         }
       />
 
-      <TeamStrip site={SITE} />
+      <TeamSection site={SITE} tone="alt" />
 
       <ArticleCards
         site={SITE}
-        title="Läs på innan du bestämmer dig"
-        articles={guides.map((page) => ({
-          eyebrow: 'Guider',
-          title: page.frontmatter.title,
-          description: page.frontmatter.description,
-          href: contentHref(SITE, page.slugPath),
-          hub: page.hub,
-        }))}
+        title="Skatt, utflyttning och pension"
+        articles={cards(TAX_SLUGS, 'Guider')}
         more={{ href: '/guider', label: 'Alla guider' }}
       />
 
       <ArticleCards
         site={SITE}
         tone="alt"
+        title="Pass, pension och hela vägen"
+        articles={cards(LIFE_SLUGS, 'Guider')}
+        more={{ href: '/guider', label: 'Alla guider' }}
+      />
+
+      <ArticleCards
+        site={SITE}
         title="Var i Paraguay svenskar brukar landa"
         articles={cities.map((page) => ({
           eyebrow: 'Städer',
@@ -179,6 +253,7 @@ export default function Page() {
           description: page.frontmatter.description,
           href: contentHref(SITE, page.slugPath),
           hub: page.hub,
+          image: articleOwnImage(SITE, page.slugPath),
         }))}
         more={{ href: '/stader', label: 'Alla städer' }}
       />
