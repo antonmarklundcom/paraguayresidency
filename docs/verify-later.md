@@ -218,6 +218,12 @@ No new fact keys. Two existing facts gained es/pt/sv wording (`residency.crimina
 - Also fill in `content/shared/proof.ts`: `stats.residenciesFiled`, `stats.yearsInBusiness`, `stats.googleRating` (TrustBar); `team[].photo/languages/bio` (TeamSection, TrustBar faces); `reviews` (Testimonials, now on every service brand's home, pricing, about and service pages); `office.address/mapsUrl/photos` (OfficeStrip, on about and contact); `guarantee` (Guarantee, on home, pricing, about, contact and service pages). Everything stays hidden until then.
 - Service-page fee box maps a page path to a route (`/residency/temporary-residency` -> temporary, `/uppehallstillstand` -> temporary, and so on) · `src/lib/service-routes.ts` · Confirm flytta `/uppehallstillstand` should quote the temporary fee, and that citizenship, cost-of-living and for-agents pages show no fee.
 
+### D. Speed and visual QA (S24-D)
+
+- Lighthouse in CI now audits the heaviest page per brand (pricing page, or the longest article for the guide) as well as every homepage; it is still non-blocking (`continue-on-error`) · `.github/workflows/verify.yml` · decide when to make it blocking; the local floor on a homepage is about 0.94, CI has scored a few points lower.
+- Phone tile rows now show 74% of a tile at a time (was 82%) so the next tile peeks more; tiles after the first render only when near the screen · `src/components/IntentTiles.tsx`, `src/app/globals.css` · glance at a homepage on a real phone and confirm the swipe row feels right.
+- On service pages the "What happens next" block no longer repeats the fee line, because the fee box above it already shows it (one price per page) · `src/components/NextSteps.tsx` · confirm you prefer the box to the line.
+
 ## G. Added by the Opus O24 run (appended by the session)
 
 _Nothing yet._ Each row: text · file:line · what to confirm. Database work lives in `docs/db-work-later.md`.

@@ -11,6 +11,8 @@ import { Band, Eyebrow, SectionHeader } from './SectionKit';
 
 /** Cover art from W3. Until the file lands the cover shows the brand colour. */
 export const GUIDE_COVER = '/images/arrival/guide-cover-art-river-topography-1200.webp';
+/** The same art as AVIF, 600 wide for 1x screens and 1200 for 2x: about a fifth of the WebP on a desktop, under two thirds on a phone. */
+const GUIDE_COVER_SET = 'image-set(url(/images/arrival/guide-cover-art-river-topography-600.avif) type("image/avif") 1x, url(/images/arrival/guide-cover-art-river-topography-1200.avif) type("image/avif") 2x)';
 
 /**
  * The product, drawn in CSS: a 3D book with a spine hinge, page edges and a
@@ -30,7 +32,7 @@ export function BookMockup({ site, className = '' }: { site: SiteKey; className?
         {/* Front board. */}
         <div
           className="absolute inset-0 overflow-hidden rounded-[3px_8px_8px_3px] bg-[var(--accent)] bg-cover bg-center [transform:translateZ(14px)] shadow-[inset_0_0_0_1px_rgb(255_255_255/0.08)]"
-          style={{ backgroundImage: `url(${GUIDE_COVER})` }}
+          style={{ backgroundImage: GUIDE_COVER_SET }}
         >
           {/* Legibility over any art, then the hinge and a paper sheen. */}
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgb(10_14_12/0.72)_0%,rgb(10_14_12/0.18)_42%,rgb(10_14_12/0.2)_62%,rgb(10_14_12/0.78)_100%)]" />

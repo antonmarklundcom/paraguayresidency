@@ -90,6 +90,19 @@ body {
 }
 
 /*
+ * Intent tiles: the first tile is the one a reader sees first; the rest skip
+ * rendering (and so their photos' lazy load) until they are near the screen.
+ * Without this a phone fetches all four photos while the hero is still
+ * loading, because the tile row starts just below the hero. Size comes from
+ * the grid (aspect ratio on phones, fixed rows on desktop), so nothing shifts
+ * when a tile wakes up.
+ */
+[data-intent-tiles] a:not(:first-child) {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 320px;
+}
+
+/*
  * Phones get one fixed action bar (MobileWhatsAppBar, from SiteShell). The
  * floating WhatsApp button is desktop-only there, a page with its own form
  * bar (StickyCta) shows that bar instead of the shell's, and the footer gets
