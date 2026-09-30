@@ -522,6 +522,7 @@ Exit: `grep -rn` (excluding `node_modules`, `.next`, `.git`, `plan.md`, `prompts
 - S22 | 2026-09-15 | [PR #40](https://github.com/antonmarklundcom/paraguayresidency/pull/40) | [docs/log/s22.md](docs/log/s22.md)
 - S23 | 2026-09-15 | [PR #41](https://github.com/antonmarklundcom/paraguayresidency/pull/41) | [docs/log/s23.md](docs/log/s23.md)
 - Answer engines + content (interactive) | 2026-09-26 | [PR #74](https://github.com/antonmarklundcom/paraguayresidency/pull/74), [#75](https://github.com/antonmarklundcom/paraguayresidency/pull/75), [#76](https://github.com/antonmarklundcom/paraguayresidency/pull/76) and follow-ups | [docs/log/answer-engines.md](docs/log/answer-engines.md)
+- O24 items 1+2 (lead delivery queue, WhatsApp lead kind, Step 0 review) | 2026-09-30 | [PR #93](https://github.com/antonmarklundcom/paraguayresidency/pull/93) | [docs/log/o24.md](docs/log/o24.md)
 
 ## 10. Backlog
 
