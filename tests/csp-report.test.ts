@@ -41,22 +41,22 @@ describe('the policy points at the collector', () => {
     expect(REPORTING_ENDPOINTS.value).toBe(`csp-endpoint="${CSP_REPORT_PATH}"`);
   });
 
-  it('serves that header on the public tree, next to the report-only policy', async () => {
+  it('serves that header on the public tree, next to the public policy', async () => {
     const rules = await nextConfig.headers!();
     const publicRule = rules.find((rule) =>
-      rule.headers.some((header) => header.key === 'Content-Security-Policy-Report-Only'),
+      rule.headers.some((header) => header.key === 'Content-Security-Policy' && header.value === PUBLIC_CSP),
     );
     expect(publicRule).toBeDefined();
     const keys = publicRule!.headers.map((header) => header.key);
     expect(keys).toContain('Reporting-Endpoints');
   });
 
-  it('is still REPORT-ONLY: the flip to enforcing is a separate, evidence-gated decision', async () => {
+  it('is ENFORCING since O24 (after a zero-violation crawl), and still reports', async () => {
     const rules = await nextConfig.headers!();
-    const publicRule = rules.find((rule) =>
-      rule.headers.some((header) => header.key === 'Content-Security-Policy-Report-Only'),
-    );
-    expect(publicRule!.headers.map((h) => h.key)).not.toContain('Content-Security-Policy');
+    const keys = rules.flatMap((rule) => rule.headers.map((h) => h.key));
+    expect(keys).not.toContain('Content-Security-Policy-Report-Only');
+    expect(PUBLIC_CSP).toContain('report-uri /api/csp-report');
+    expect(PUBLIC_CSP).toContain('report-to csp-endpoint');
   });
 
   it('leaves the enforcing private policy alone — a block there is already visible', () => {

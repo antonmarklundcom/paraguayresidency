@@ -381,7 +381,14 @@ reports to read. The enforcing `PRIVATE_CSP` was left without a destination on
 purpose: a violation there is a real block on a page a signed-in admin is
 looking at, which is already visible.
 
-## OPEN — `tests/abuse.mjs` is not wired into CI (O18, by design)
+## CLEARED in O24 — `tests/abuse.mjs` now runs in CI
+
+Since O24 (item 9) the `verify` job boots the build it just made with `next
+start` (no database) and runs `scripts/smoke-hosts.mjs --all-sitemap-urls` and
+`tests/abuse.mjs` against it — one job, no second install or build. The
+history below is why it was out of CI before.
+
+### (history) `tests/abuse.mjs` was not wired into CI (O18, by design)
 
 The scripted probe needs a server on a port and spends real limiter windows in a
 real process, so it is a pre/post-deploy tool rather than a per-push check
@@ -397,7 +404,16 @@ changes it the probe prints `could not find the server-action id` and fails
 rather than reporting a false pass — that message means "update the probe", not
 "the limiter broke".
 
-## OPEN — the CSP allows Plausible before Plausible is rendered (O18)
+## CLEARED in O24 — the public CSP is enforcing
+
+The flip plan §14.2.4 gated on evidence happened in O24 (item 9): a production
+build with Plausible, WhatsApp and the hero video switched on, every sitemap URL
+of all seven brands loaded in Chromium by `tests/csp-crawl.mjs`, zero
+violations. It still reports to `/api/csp-report`. Re-run the crawl before
+adding any third party. Plausible is now actually rendered when
+`NEXT_PUBLIC_PLAUSIBLE_ENABLED=true` (S6), so the allowance below is used.
+
+### (history) the CSP allowed Plausible before Plausible was rendered (O18)
 
 `src/sites/registry.ts` has an `analytics.plausibleDomain` field but no brand
 renders the script yet; S6 adds it (plan §6.4). The report-only policy already

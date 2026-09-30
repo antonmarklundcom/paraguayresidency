@@ -219,10 +219,10 @@ describe('security headers (§14.2.4)', () => {
     expect(HSTS.value).toContain('max-age=63072000');
   });
 
-  it('puts a REPORT-ONLY policy on the public tree, and Plausible is allowed', async () => {
+  it('puts an ENFORCING policy on the public tree (O24 item 9), and Plausible is allowed', async () => {
     const headers = await headersFor('/pricing');
-    expect(headers['content-security-policy-report-only']).toBe(PUBLIC_CSP);
-    expect(headers['content-security-policy']).toBeUndefined();
+    expect(headers['content-security-policy']).toBe(PUBLIC_CSP);
+    expect(headers['content-security-policy-report-only']).toBeUndefined();
     expect(PUBLIC_CSP).toContain('https://plausible.io');
   });
 

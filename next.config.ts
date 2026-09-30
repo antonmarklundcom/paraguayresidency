@@ -75,26 +75,26 @@ const PRIVATE_CSP = [
 ].join('; ');
 
 /**
- * REPORT-ONLY for the public tree, on purpose (plan §14.2.4).
+ * ENFORCING on the public tree since O24 (item 9, plan §14.2.4).
  *
- * S6 or S15 flips this to `Content-Security-Policy` after a week of clean
- * reports — the flip is this one constant name in the header key below, and
- * nothing else. It is report-only first because the public pages are the ones
- * that carry Plausible, per-brand fonts and MDX content, so the first real
- * violation should arrive as a report rather than as a blank page on a live
- * brand.
+ * It shipped report-only from O18 so the first real violation would arrive as
+ * a report rather than as a broken page. The flip was gated on evidence, and
+ * the evidence was gathered in a production build with the third parties
+ * switched on (Plausible, WhatsApp, per-brand fonts, the hero video): every
+ * sitemap URL of all seven brands loaded in Chromium by `tests/csp-crawl.mjs`
+ * raised zero violations. Everything the pages load is same-origin except
+ * Plausible, which is allowed below. Run that crawl again before adding any
+ * third party (an embed, a chat widget, a map).
  *
  * `'unsafe-inline'`/`'unsafe-eval'` in `script-src` are Next's App Router
  * requirements, not a preference: the framework ships an inline bootstrap and
  * inline flight data on every page. Tightening them means a nonce, which means
- * every page becomes dynamic — exactly what O19 is removing. Revisit with O19's
- * rendering work, not before.
+ * every page becomes dynamic — exactly what O19 removed.
  *
- * Since O20 it also has somewhere to report to. Only the report-only policy
- * carries the directives: a violation under `PRIVATE_CSP` is a real block on a
- * page a signed-in admin is looking at, which surfaces as a broken page and a
- * browser console error immediately — the collector exists for the violations
- * nobody is watching for.
+ * It still reports: `report-uri`/`report-to` keep sending every violation to
+ * `/api/csp-report`, so a block on a live page shows up in the log (and on
+ * `/admin/readiness` as an error count) rather than only in a visitor's
+ * console.
  */
 const PUBLIC_CSP = [
   "default-src 'self'",
@@ -149,15 +149,15 @@ const nextConfig: NextConfig = {
         headers: [...BASELINE, ...(isProduction ? [HSTS] : [])],
       },
       {
-        // The public tree only: the negative lookahead keeps the report-only
-        // policy off `/admin` and `/members`, so those two carry exactly one
-        // CSP and a violation there is a real block rather than a report.
+        // The public tree only: the negative lookahead keeps this policy off
+        // `/admin` and `/members`, so those two carry exactly one CSP — the
+        // stricter private one below.
         // These sources match the PUBLIC path, before `src/middleware.ts`
         // rewrites `/members` into `/sites/guide/members` — verified against
         // `next start`, not assumed.
         source: '/((?!admin$|admin/|members$|members/).*)',
         headers: [
-          { key: 'Content-Security-Policy-Report-Only', value: PUBLIC_CSP },
+          { key: 'Content-Security-Policy', value: PUBLIC_CSP },
           // Names the group `report-to` above points at. Without this header
           // `report-to` is inert in Chrome, which is most of the traffic.
           REPORTING_ENDPOINTS,
