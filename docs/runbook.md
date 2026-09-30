@@ -61,6 +61,15 @@ flyttatillparaguay.se, www.flyttatillparaguay.se {
 `www` → apex redirects happen in `src/proxy.ts`, not Caddy: every host above
 must reach the app.
 
+**DNS cutover check (O24).** After pointing a domain at the app, run
+`npm run smoke:hosts` (or `node scripts/smoke-hosts.mjs --only flytta`). It
+fails loudly on anything wrong for each host: health answering as the right
+brand, `robots.txt` naming its own sitemap, the sitemap listing only its own
+origin, `<html lang>`, one page, `www.` → apex, `/admin` 404 off the hub, and
+the old-site 301s (`src/sites/redirects.ts`: the old flytta app's URLs and the
+old WordPress guide's). Against a local build: `--base http://127.0.0.1:3000`
+(add `--all-sitemap-urls` to fetch every sitemap URL; CI does this).
+
 **Analytics and Search Console.** `NEXT_PUBLIC_PLAUSIBLE_ENABLED=true` turns
 Plausible on for every brand at once; `SiteShell` mounts the script with each
 brand's own `canonicalHost` as `data-domain`, so add one Plausible site per

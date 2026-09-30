@@ -524,7 +524,8 @@ Exit: `grep -rn` (excluding `node_modules`, `.next`, `.git`, `plan.md`, `prompts
 - Answer engines + content (interactive) | 2026-09-26 | [PR #74](https://github.com/antonmarklundcom/paraguayresidency/pull/74), [#75](https://github.com/antonmarklundcom/paraguayresidency/pull/75), [#76](https://github.com/antonmarklundcom/paraguayresidency/pull/76) and follow-ups | [docs/log/answer-engines.md](docs/log/answer-engines.md)
 - O24 items 1+2 (lead delivery queue, WhatsApp lead kind, Step 0 review) | 2026-09-30 | [PR #93](https://github.com/antonmarklundcom/paraguayresidency/pull/93) | [docs/log/o24.md](docs/log/o24.md)
 - O24 items 3+10 (first-touch attribution, /admin/attribution, server-side A/B) | 2026-09-30 | [PR #94](https://github.com/antonmarklundcom/paraguayresidency/pull/94) | [docs/log/o24.md](docs/log/o24.md)
-- O24 items 4+8 (launch-readiness screen, structured logging + error reporting) | 2026-09-30 | PR #95 | [docs/log/o24.md](docs/log/o24.md)
+- O24 items 4+8 (launch-readiness screen, structured logging + error reporting) | 2026-09-30 | [PR #95](https://github.com/antonmarklundcom/paraguayresidency/pull/95) | [docs/log/o24.md](docs/log/o24.md)
+- O24 items 5+6 (legacy 301s, host cutover smoke, per-host sitemap/robots/llms tests) | 2026-09-30 | PR #96 | [docs/log/o24.md](docs/log/o24.md)
 
 ## 10. Backlog
 

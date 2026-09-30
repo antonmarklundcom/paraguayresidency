@@ -1,4 +1,5 @@
 import { HUB_SITE, isSiteKey, siteForHost, siteSellsProducts, sites, type SiteKey } from './registry';
+import { legacyRedirect } from './redirects';
 
 /** Internal route prefix the middleware rewrites into. Never a public URL. */
 export const SITE_ROUTE_PREFIX = '/sites';
@@ -84,9 +85,17 @@ export function resolveRequest(input: ResolveInput): Resolution {
   if (bareHost !== site.canonicalHost && bareHost === `www.${site.canonicalHost}`) {
     return {
       type: 'redirect',
-      url: `https://${site.canonicalHost}${pathname}${search}`,
+      // An old URL on `www.` goes straight to its new page: one hop, not two.
+      url: `https://${site.canonicalHost}${legacyRedirect(site.key, pathname) ?? pathname}${search}`,
       status: 301,
     };
+  }
+
+  // 5b. Old-site URLs (the WordPress guide, the old flytta app) 301 to their
+  //     new pages, in one hop, keeping the query (O24 item 5, `redirects.ts`).
+  const legacy = legacyRedirect(site.key, pathname);
+  if (legacy) {
+    return { type: 'redirect', url: `https://${site.canonicalHost}${legacy}${search}`, status: 301 };
   }
 
   // 6. /admin exists on the hub host only (plan §2).
