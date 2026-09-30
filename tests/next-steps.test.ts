@@ -60,3 +60,11 @@ describe.each(SITE_KEYS)('%s', (site) => {
     expect(out).toContain('href="/contact"');
   });
 });
+
+describe('fee shown once', () => {
+  it('NextSteps drops the price row on a service page that already shows the fee box, keeps it elsewhere', () => {
+    vi.stubEnv('NEXT_PUBLIC_WHATSAPP_NUMBER', '595981123456');
+    expect(html(createElement(NextSteps, { site: 'residency', path: '/residency/temporary-residency' }))).not.toContain('data-fact="pricing.');
+    expect(html(createElement(NextSteps, { site: 'residency', path: '/guides/documents/what-you-need-to-apply' }))).toContain('data-fact="pricing.temporary"');
+  });
+});

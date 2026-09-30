@@ -1,5 +1,6 @@
 import { t } from '@/i18n';
 import { priceKeyFor, replyHours } from '@/lib/reply-window';
+import { serviceRouteFor } from '@/lib/service-routes';
 import { whatsappHref } from '@/lib/whatsapp';
 import type { FactKey } from '@content/shared/facts';
 import type { SiteKey } from '@/sites/registry';
@@ -13,11 +14,14 @@ const STEPS = [1, 2, 3] as const;
  * article: three steps, who replies, how fast, and the price anchor (a
  * <Fact>, so it is the hedged wording until the fee is verified). The reply
  * time is config (`replyHours`): with no value set it promises no number.
- * WhatsApp when a number is set, otherwise the contact page.
+ * WhatsApp when a number is set, otherwise the contact page. On a service
+ * page that already shows the fee box (<ServiceOffer>) the price row is left
+ * out, so the fee appears once.
  */
 export function NextSteps({ site, path = '/', priceKey }: { site: SiteKey; path?: string; priceKey?: FactKey }) {
   const hours = replyHours();
   const key = priceKey ?? priceKeyFor(path);
+  const feeShownAbove = priceKey === undefined && serviceRouteFor(site, path) !== null;
   return (
     <section aria-labelledby="next-steps-title" data-next-steps className="mt-[var(--space-16)] rounded-[var(--radius-brand)] border border-[var(--border)] bg-[var(--surface-alt)] p-[var(--space-6)] sm:p-[var(--space-8)]">
       <h2 id="next-steps-title" className="font-[family-name:var(--display-font)] text-(length:--text-xl)">{t(site, 'nextSteps.title')}</h2>
@@ -39,8 +43,12 @@ export function NextSteps({ site, path = '/', priceKey }: { site: SiteKey; path?
         <dd data-reply-window={hours ?? 'none'} className="text-[var(--fg-muted)]">
           {hours ? t(site, 'nextSteps.reply.hours', { hours }) : t(site, 'nextSteps.reply.default')}
         </dd>
-        <dt className="font-medium">{t(site, 'nextSteps.price.label')}</dt>
-        <dd className="text-[var(--fg-muted)]"><Fact k={key} site={site} />. {t(site, 'nextSteps.price.note')}</dd>
+        {!feeShownAbove && (
+          <>
+            <dt className="font-medium">{t(site, 'nextSteps.price.label')}</dt>
+            <dd className="text-[var(--fg-muted)]"><Fact k={key} site={site} />. {t(site, 'nextSteps.price.note')}</dd>
+          </>
+        )}
       </dl>
       <div className="mt-[var(--space-5)]">
         {whatsappHref(t(site, 'whatsapp.prefill')) ? (
