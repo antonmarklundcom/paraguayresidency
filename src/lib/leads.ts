@@ -21,6 +21,7 @@ import {
   recordDelivery,
   type DeliveryChannel,
 } from './lead-delivery';
+import { log } from './log';
 
 /**
  * The single path every form on every brand takes (plan §5.2.1).
@@ -108,7 +109,7 @@ export async function createLead(
     // No DATABASE_URL (local dev, a preview build): the submission must still
     // reach a human, so the delivery side runs and the failure is loud in the
     // log rather than silent on screen.
-    console.error('[leads] DATABASE_URL is not set — lead not stored, delivering anyway');
+    log.error('[leads] DATABASE_URL is not set — lead not stored, delivering anyway', { site: input.site, kind: input.kind });
     await deliverLead(null, input, attribution, now);
     return { ok: true, leadId: null, stored: false };
   }
@@ -171,7 +172,7 @@ export async function createLead(
     // AND showed the visitor a stack trace, while the no-database branch above
     // did the right thing. Now both branches do: the delivery side still runs,
     // the failure is loud in the log, and the visitor sees success.
-    console.error('[leads] could not store the lead — delivering anyway', error);
+    log.error('[leads] could not store the lead — delivering anyway', { site: input.site, kind: input.kind, err: error });
     await deliverLead(null, input, attribution, now);
     return { ok: true, leadId: null, stored: false };
   }
@@ -197,7 +198,7 @@ async function findByDedupeKey(key: string): Promise<number | null> {
       .limit(1);
     return existing?.id ?? null;
   } catch (error) {
-    console.error('[leads] could not look up the duplicate lead', error);
+    log.error('[leads] could not look up the duplicate lead', { err: error });
     return null;
   }
 }
@@ -251,7 +252,7 @@ async function recordEvent(
   try {
     await getDb().insert(leadEvents).values({ leadId, type, payload: payload as object });
   } catch (error) {
-    console.error('[leads] could not record event', type, error);
+    log.error('[leads] could not record event', { leadId, event: type, err: error });
   }
 }
 
@@ -361,7 +362,7 @@ async function setCrmStatus(
       .set({ crmStatus, crmResponse: { ...outcome, at: now.toISOString() } })
       .where(eq(leads.id, leadId));
   } catch (error) {
-    console.error('[leads] could not record CRM status', error);
+    log.error('[leads] could not record CRM status', { leadId, err: error });
   }
 }
 
@@ -519,7 +520,7 @@ async function startRun(trigger: string): Promise<number | null> {
     const [row] = await getDb().insert(cronRuns).values({ job: 'lead-deliveries', ok: false, note: trigger.slice(0, 60) });
     return Number(row.insertId);
   } catch (error) {
-    console.error('[leads] could not record the queue run', error instanceof Error ? error.message : error);
+    log.error('[leads] could not record the queue run', { err: error });
     return null;
   }
 }
@@ -529,7 +530,7 @@ async function finishRun(runId: number | null, note: string): Promise<void> {
   try {
     await getDb().update(cronRuns).set({ ok: true, finishedAt: new Date(), note }).where(eq(cronRuns.id, runId));
   } catch (error) {
-    console.error('[leads] could not close the queue run', error instanceof Error ? error.message : error);
+    log.error('[leads] could not close the queue run', { err: error });
   }
 }
 

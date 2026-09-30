@@ -9,6 +9,7 @@ import {
   type ChannelOutcome,
   type DeliveryChannel,
 } from './lead-delivery-policy';
+import { log } from './log';
 
 export * from './lead-delivery-policy';
 
@@ -28,7 +29,7 @@ async function tableReady(): Promise<boolean> {
 
 function onTableError(error: unknown, what: string): void {
   if (isMissingTable(error)) forgetDbFeatures();
-  console.error(`[lead-delivery] could not ${what}`, error instanceof Error ? error.message : error);
+  log.error(`[lead-delivery] could not ${what}`, { err: error });
 }
 
 /**

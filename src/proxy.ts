@@ -4,6 +4,7 @@ import { clientIp, RATE_LIMIT_MESSAGE, takeLimit } from '@/lib/rate-limit';
 import { ATTRIBUTION_COOKIE, ATTRIBUTION_MAX_AGE_S, landingAttribution, serializeAttribution } from '@/lib/first-touch';
 import { ASSIGNMENT_MAX_AGE_S, newAssignments } from '@/lib/experiments';
 import type { SiteKey } from '@/sites/registry';
+import { REQUEST_ID_HEADER } from '@/lib/log';
 
 /**
  * Host → brand, plus the two things that must happen before any route runs
@@ -17,7 +18,10 @@ import type { SiteKey } from '@/sites/registry';
  *     never survives this function (`docs/improvement-report.md` §1.10).
  *  2. A coarse per-IP ceiling on `POST /api/*`, under every per-route limit, so
  *     a script that finds an endpoint nobody thought to limit still meets one.
- *  3. The two first-party cookies a page view may need (O24, items 3 and 10):
+ *  3. A request id (`x-request-id`) on every request and response, generated
+ *     here — a client's copy is replaced — so a log line, an error report and
+ *     the response a visitor saw can be matched (O24, item 8).
+ *  4. The two first-party cookies a page view may need (O24, items 3 and 10):
  *     first-touch attribution and A/B assignment. See `pageCookies`.
  */
 
@@ -116,10 +120,17 @@ function applyCookies(res: NextResponse, writes: CookieWrite[], secure: boolean)
   return res;
 }
 
+function withRequestId(res: NextResponse, requestId: string): NextResponse {
+  res.headers.set(REQUEST_ID_HEADER, requestId);
+  return res;
+}
+
 export function proxy(req: NextRequest) {
   const isDev = process.env.NODE_ENV !== 'production';
   const host = req.headers.get('x-forwarded-host') ?? req.headers.get('host');
   const headers = sanitizedHeaders(req.headers);
+  const requestId = crypto.randomUUID();
+  headers.set(REQUEST_ID_HEADER, requestId);
 
   // The coarse net. Only POSTs, only `/api/*`: a GET flood is a CDN/host
   // concern, and limiting page views here would punish a shared office NAT.
@@ -138,20 +149,20 @@ export function proxy(req: NextRequest) {
 
   switch (result.type) {
     case 'redirect':
-      return NextResponse.redirect(result.url, result.status);
+      return withRequestId(NextResponse.redirect(result.url, result.status), requestId);
 
     case 'blocked': {
       const url = req.nextUrl.clone();
       url.pathname = BLOCKED_ROUTE;
       url.search = '';
-      return NextResponse.rewrite(url, { request: { headers } });
+      return withRequestId(NextResponse.rewrite(url, { request: { headers } }), requestId);
     }
 
     case 'pass': {
       if (result.site) headers.set(SITE_HEADER, result.site);
       const res = NextResponse.next({ request: { headers } });
       if (result.site) res.headers.set(SITE_HEADER, result.site);
-      return res;
+      return withRequestId(res, requestId);
     }
 
     case 'rewrite': {
@@ -169,7 +180,7 @@ export function proxy(req: NextRequest) {
         referrer: req.headers.get('referer'),
         readCookie: (name) => req.cookies.get(name)?.value,
       });
-      return applyCookies(res, writes, !isDev);
+      return withRequestId(applyCookies(res, writes, !isDev), requestId);
     }
   }
 }

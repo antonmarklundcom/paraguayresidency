@@ -41,6 +41,9 @@ export default async function AdminLayout({ children }: { children: ReactNode })
                 <Link href="/admin/facts" className="hover:underline">
                   Facts
                 </Link>
+                <Link href="/admin/readiness" className="hover:underline">
+                  Readiness
+                </Link>
               </nav>
               <form action={logoutAction} className="ml-auto flex items-center gap-3">
                 <span className="text-[var(--fg-muted)]">{admin.email}</span>
