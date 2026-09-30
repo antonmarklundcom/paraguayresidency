@@ -55,15 +55,13 @@ deploy depends on it being public.
 `{/* IMAGE: … */}`) and per-brand heroes are not generated yet. Per the image pipeline rule, nothing is
 generated until the environment allows that host.
 
-## OPEN — hero photos are shared across brands (design uplift, 2026-09-24)
+## CLEARED (S24-D, 2026-09-30) — hero photos are no longer shared across brands
 
-Only three hero photos exist (guide, investorpass, frontier). The hub reuses
-the investorpass river-at-dusk hero; residenciaes and flytta both use the guide
-terrace; residenciapt uses the frontier red-earth road. Tiles are reused the
-same way. It reads fine per language, but each brand should get its own hero
-and tile set. Images are only generated when Anton asks for it explicitly
-("Generate image"); then add them to `docs/imagery-manifest.json` with
-`alt_en/es/pt/sv` and swap the `image` ids on the homepages.
+Checked against `docs/imagery-manifest.json`: each of the seven brands has its own hero and its own
+16-32 tile files under `public/images/arrival/` (`residency-`, `investorpass-`, `guide-`, `frontier-`,
+`residenciaes-`, `residenciapt-`, `flytta-` prefixes), and all 298 manifest entries carry `alt_en/es/pt/sv`.
+The older shared photos (guide terrace, investorpass river dusk, frontier red-earth road) remain in the
+manifest but the homepages use per-brand heroes. Still true: images are generated only when Anton asks.
 
 ## CLEARED in O20 — the webhook and fulfilment paths now have a live-MySQL test
 
