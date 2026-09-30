@@ -10,8 +10,7 @@ import { pack, unpack } from './signing';
  *    arrives implausibly fast, or from a form left open for days, is rejected.
  *    The timestamp is HMAC-signed so it cannot simply be rewritten.
  */
-export const HONEYPOT_FIELD = 'website';
-export const TIMESTAMP_FIELD = 'ts';
+export { HONEYPOT_FIELD, TIMESTAMP_FIELD } from './form-fields';
 const PURPOSE = 'form-timestamp';
 
 /** Faster than this and it was not a person typing. */

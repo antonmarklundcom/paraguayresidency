@@ -11,7 +11,7 @@ health, rate-limit and header sections are O18's.
 
 1. hPanel → Websites → Add Website → Node.js Apps → Import Git Repository →
    authorize GitHub → `antonmarklundcom/paraguayresidency`, branch `main`.
-2. Build command `npm run build`, start command `npm start` (`next start`
+2. Build command `npm run build` (webpack since 2026-09-30, see below), start command `npm start` (`next start`
    against the full `.next` output from the repo root). The cwd never moves, so
    `private/` and `public/` resolve with no extra steps. `next.config.ts` does
    not set `output: 'standalone'` (removed 2026-09-22); if the app was set up
@@ -29,6 +29,14 @@ health, rate-limit and header sections are O18's.
 5. DNS for each domain: A/AAAA (or CNAME, per hPanel) at apex and `www`. SSL
    issues automatically once DNS resolves.
 6. Redeploy after any env var change; hPanel does not hot-reload them.
+
+**Why the build uses webpack, not Turbopack (2026-09-30).** Hostinger's build
+failed at `globals.css` with `TurbopackInternalError … node process exited
+before we could connect to it`: Turbopack runs PostCSS in helper Node processes
+it spawns itself, and on the shared build box those processes die (every process
+and thread counts against the account's process cap; `experimental.cpus: 1` does
+not govern Turbopack's workers). `next build --webpack` runs PostCSS in-process
+and honours `cpus: 1`. `next dev` still uses Turbopack locally.
 
 **Shipping a merge.** As of 2026-09-22 a merge to `main` does **not** reach
 the live site by itself: the live guide was still missing #60 and #61 after
