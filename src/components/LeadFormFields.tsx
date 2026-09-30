@@ -1,6 +1,6 @@
 import { WhatsAppIcon } from './WhatsAppIcon';
 import { initialLeadState, type LeadFormState } from '@/app/actions/lead-state';
-import { HONEYPOT_FIELD, TIMESTAMP_FIELD } from '@/lib/form-guard';
+import { HONEYPOT_FIELD, TIMESTAMP_FIELD } from '@/lib/form-fields';
 import type { INVESTMENT_RANGES, LeadKind } from '@/lib/lead-schema';
 import type { SiteKey } from '@/sites/registry';
 

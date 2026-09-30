@@ -1,5 +1,5 @@
 import { initialSubscribeState, type SubscribeFormState } from '@/app/actions/lead-state';
-import { HONEYPOT_FIELD, TIMESTAMP_FIELD } from '@/lib/form-guard';
+import { HONEYPOT_FIELD, TIMESTAMP_FIELD } from '@/lib/form-fields';
 import type { SiteKey } from '@/sites/registry';
 
 export interface MagicLinkLabels {
