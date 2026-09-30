@@ -6,6 +6,10 @@ new path in this app (plan §6.8, §12.4). S15 turns this table into the
 per-site 301 map in the registry when `flyttatillparaguay.se` DNS moves over
 (plan §6.10 task 4) — this file is the data, not the redirect logic itself.
 
+**Wired in O24 (item 5):** these rows are live 301s in `src/sites/redirects.ts`, checked by
+`tests/host-cutover.test.ts`. One row was dropped: `/guider` → `/`, because the brand now has a live
+`/guider` index page and the redirect would hide it.
+
 Complete, not sampled: every route the old site's `app/` directory defined is
 listed below, including the one route it explicitly excluded from its own
 sitemap (`/tack`).

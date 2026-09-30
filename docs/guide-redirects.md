@@ -7,6 +7,9 @@ complete, not sampled. Follows the same pattern as `docs/flytta-redirects.md`: t
 is the data, not the redirect logic — wiring it into `src/proxy.ts` /
 `src/sites/registry.ts` as real 301s is a separate later phase, same as flytta's.
 
+**Wired in O24 (item 5):** every row whose target differs from its source is a live 301 in
+`src/sites/redirects.ts` (trailing slash and case ignored), checked by `tests/host-cutover.test.ts`.
+
 **Scope decision (Anton, 2026-09-12):** the old site sold a 3-tier concierge filing
 service ($495 / $695 / $2,950 — "Residency Essentials / Complete / Investor"). The
 `guide` brand does not sell that service (it sells a $7 guide + Insider subscription per
