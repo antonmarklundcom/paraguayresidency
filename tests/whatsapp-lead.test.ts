@@ -24,8 +24,8 @@ beforeEach(() => {
   mocks.crm.mockResolvedValue({ status: 'sent', httpStatus: 201 });
   mocks.email.mockResolvedValue({ ok: true, mode: 'console' });
 });
-it('accepts WhatsApp-only input and maps it to the existing contact storage kind', () => {
-  expect(parseLeadInput(input)).toMatchObject({ ok: true, data: { email: '', kind: 'contact', whatsapp: input.whatsapp } });
+it('accepts WhatsApp-only input as its own kind (O24 item 2)', () => {
+  expect(parseLeadInput(input)).toMatchObject({ ok: true, data: { email: '', kind: 'whatsapp', whatsapp: input.whatsapp } });
 });
 it('also accepts a phone identity, but refuses missing or invalid numbers', () => {
   expect(parseLeadInput({ ...input, whatsapp: '', phone: '+595981123456' }).ok).toBe(true);
@@ -38,10 +38,16 @@ it('still requires an email for every existing kind', () => {
   }
   expect(parseLeadInput({ ...input, email: 'invalid' }).ok).toBe(false);
 });
+// This mock database has no `information_schema` (no `execute`), which is
+// exactly an un-migrated production database to `dbFeatures()`: the lead is
+// stored as `contact` and marked `lead_kind: whatsapp` (tests/lead-delivery.test.ts
+// covers the migrated case).
 it('stores a phone-only lead, delivers to CRM and notifies the team without a visitor auto-reply', async () => {
   const result = await createLead(input, { timestamp: issueFormTimestamp(Date.now() - MIN_FILL_MS - 1000) });
   expect(result).toMatchObject({ ok: true, stored: true, leadId: 41 });
-  expect(mocks.rows).toHaveBeenCalledWith(leads, expect.objectContaining({ kind: 'contact', email: '', whatsapp: input.whatsapp }));
+  expect(mocks.rows).toHaveBeenCalledWith(leads, expect.objectContaining({
+    kind: 'contact', email: '', whatsapp: input.whatsapp, attribution: expect.objectContaining({ lead_kind: 'whatsapp' }),
+  }));
   // The site picks the brand's own VenderCRM key; the lead row id gives a
   // per-submission idempotency key that survives retries.
   expect(mocks.crm).toHaveBeenCalledWith(

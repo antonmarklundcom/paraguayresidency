@@ -51,7 +51,24 @@ describe('the O9 migration never drops a table that holds money', () => {
       entries: { tag: string; idx: number }[];
     };
     const tags = journal.entries.map((e) => e.tag);
-    expect(tags).toEqual(['0000_green_lord_hawal', '0001_o9_platform']);
+    // O24 appended 0002 (additive only, see the next describe block).
+    expect(tags.slice(0, 3)).toEqual(['0000_green_lord_hawal', '0001_o9_platform', '0002_o24_lead_engine']);
     expect(new Set(tags).size).toBe(tags.length);
+  });
+});
+
+describe('the O24 migration is additive and safe to run on a live database', () => {
+  const sql = readFileSync(join(DIR, '0002_o24_lead_engine.sql'), 'utf8');
+  const statements = sql.split('--> statement-breakpoint').map((s) => s.trim()).filter(Boolean);
+
+  it('only creates tables, adds indexes and widens the lead kind enum', () => {
+    for (const statement of statements) {
+      expect(statement, statement).toMatch(/^(CREATE TABLE `(lead_deliveries|site_events)`|CREATE INDEX|ALTER TABLE `leads` MODIFY COLUMN `kind`)/);
+    }
+  });
+
+  it('keeps every existing lead kind and adds whatsapp at the end', () => {
+    const alter = statements.find((s) => s.startsWith('ALTER TABLE `leads`'));
+    expect(alter).toContain("enum('consultation','investor_inquiry','contact','quiz','whatsapp') NOT NULL");
   });
 });

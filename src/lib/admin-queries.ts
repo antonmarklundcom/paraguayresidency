@@ -1,5 +1,5 @@
 import 'server-only';
-import { and, desc, eq, gte, inArray, like, lte, sql, type SQL } from 'drizzle-orm';
+import { and, desc, eq, gte, inArray, like, lte, or, sql, type SQL } from 'drizzle-orm';
 import { getDb, hasDatabase } from '@/db';
 import {
   factsVerification,
@@ -10,14 +10,14 @@ import {
   subscriptions,
   users,
 } from '@/db/schema';
-import { LEAD_KINDS, type LeadKind } from './lead-schema';
+import { ALL_LEAD_KINDS } from './lead-schema';
 import { isSiteKey, type SiteKey } from '@/sites/registry';
 
 /** Read models for the admin screens. No mutation lives here. */
 
 export interface LeadFilters {
   site?: SiteKey;
-  kind?: LeadKind;
+  kind?: (typeof ALL_LEAD_KINDS)[number];
   from?: string;
   to?: string;
   page?: number;
@@ -36,7 +36,9 @@ export function parseLeadFilters(params: Record<string, string | string[] | unde
   const page = Number.parseInt(one('page') ?? '1', 10);
   return {
     site: isSiteKey(site) ? site : undefined,
-    kind: (LEAD_KINDS as readonly string[]).includes(kind ?? '') ? (kind as LeadKind) : undefined,
+    kind: (ALL_LEAD_KINDS as readonly string[]).includes(kind ?? '')
+      ? (kind as (typeof ALL_LEAD_KINDS)[number])
+      : undefined,
     from: isDate(one('from')) ? one('from') : undefined,
     to: isDate(one('to')) ? one('to') : undefined,
     page: Number.isInteger(page) && page > 0 ? page : 1,
@@ -50,7 +52,18 @@ function isDate(value: string | undefined): boolean {
 function leadWhere(filters: LeadFilters): SQL | undefined {
   const clauses: SQL[] = [];
   if (filters.site) clauses.push(eq(leads.site, filters.site));
-  if (filters.kind) clauses.push(eq(leads.kind, filters.kind));
+  if (filters.kind === 'whatsapp') {
+    // Before migration 0002 a WhatsApp capture is stored as `contact` and
+    // marked on the attribution JSON (`createLead`); count both.
+    clauses.push(
+      or(
+        eq(leads.kind, 'whatsapp'),
+        and(eq(leads.kind, 'contact'), sql`JSON_UNQUOTE(JSON_EXTRACT(${leads.attribution}, '$.lead_kind')) = 'whatsapp'`),
+      )!,
+    );
+  } else if (filters.kind) {
+    clauses.push(eq(leads.kind, filters.kind));
+  }
   if (filters.from) clauses.push(gte(leads.createdAt, new Date(`${filters.from}T00:00:00Z`)));
   if (filters.to) clauses.push(lte(leads.createdAt, new Date(`${filters.to}T23:59:59Z`)));
   return clauses.length ? and(...clauses) : undefined;
@@ -200,16 +213,29 @@ export async function listFactVerification() {
   return { rows, unavailable: false as const };
 }
 
+/**
+ * A spreadsheet runs a cell that starts with `=`, `@`, `+` or `-` as a formula
+ * (CSV injection). A lead's name and message are typed by a stranger, so such a
+ * cell gets a leading `'`. A phone number (`+595 981 …`, digits and spacing
+ * only) is left alone: it is data Excel shows correctly either way.
+ */
+export function neutraliseFormula(text: string): string {
+  if (/^[=@\t\r]/.test(text)) return `'${text}`;
+  if (/^[+-]/.test(text) && !/^[+-][\d\s().-]*$/.test(text)) return `'${text}`;
+  return text;
+}
+
 /** RFC 4180 quoting. A lead's message can contain commas, quotes and newlines. */
 export function toCsv(rows: Record<string, unknown>[], columns: string[]): string {
   const cell = (value: unknown): string => {
     if (value === null || value === undefined) return '';
-    const text =
+    const text = neutraliseFormula(
       value instanceof Date
         ? value.toISOString()
         : typeof value === 'object'
           ? JSON.stringify(value)
-          : String(value);
+          : String(value),
+    );
     return /[",\n\r]/.test(text) ? `"${text.replace(/"/g, '""')}"` : text;
   };
   return [

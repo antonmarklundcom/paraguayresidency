@@ -226,4 +226,10 @@ No new fact keys. Two existing facts gained es/pt/sv wording (`residency.crimina
 
 ## G. Added by the Opus O24 run (appended by the session)
 
-_Nothing yet._ Each row: text · file:line · what to confirm. Database work lives in `docs/db-work-later.md`.
+Each row: text · file:line · what to confirm. Database work lives in `docs/db-work-later.md`.
+
+| # | Text / claim | Where | Confirm |
+|---|---|---|---|
+| G1 | `parentOrganization: "Paraguay Residency Group"` in every brand's Organization JSON-LD (found in the Step 0 review, written by an earlier phase) | `src/lib/metadata.ts` (`organizationJsonLd`) | Is this the real legal/trading name of the company behind the seven brands? If not, give the right one or it should be removed. |
+| G2 | The lead retry schedule: a failed CRM push or email is retried after 1, 5, 30, 120, 360 and 1440 minutes, then given up and shown in `/admin/leads` | `src/lib/lead-delivery-policy.ts` (`BACKOFF_MINUTES`) | Operational, not a public claim. Confirm ~33 hours is long enough to keep retrying a lead notification (the auto-reply to the visitor is retried on the same schedule — a reply a day late may read oddly). |
+

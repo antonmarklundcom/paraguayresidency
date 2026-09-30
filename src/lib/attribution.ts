@@ -22,6 +22,19 @@ export const ATTRIBUTION_KEYS = [
 export type Attribution = Partial<Record<(typeof ATTRIBUTION_KEYS)[number], string>>;
 
 /**
+ * What `leads.attribution` actually holds (O24): first touch from the cookie,
+ * plus what the server knows about the submission itself — the article slug
+ * (WhatsApp capture), the A/B variants the visitor was shown, and the real
+ * lead kind while the database cannot store it yet (`effectiveLeadKind`).
+ * None of these come from `vc_attr`; `parseAttribution` still drops them there.
+ */
+export type StoredAttribution = Attribution & {
+  article_slug?: string;
+  experiments?: Record<string, string>;
+  lead_kind?: string;
+};
+
+/**
  * Reads the CRM's `vc_attr` cookie. It is written by the visitor's browser, so
  * it is untrusted input: unknown keys, non-strings and oversized values are
  * dropped rather than stored, and a malformed cookie is simply no attribution.

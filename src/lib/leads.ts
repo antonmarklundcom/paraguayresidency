@@ -1,7 +1,7 @@
 import 'server-only';
-import { eq } from 'drizzle-orm';
+import { and, desc, eq, gte } from 'drizzle-orm';
 import { getDb, hasDatabase } from '@/db';
-import { leadEvents, leads, type Lead } from '@/db/schema';
+import { cronRuns, leadEvents, leads, type Lead } from '@/db/schema';
 import { getSite, type SiteKey } from '@/sites/registry';
 import { countryName } from './countries';
 import { describeQuizAnswers, parseLeadInput, type LeadInput } from './lead-schema';
@@ -10,8 +10,17 @@ import { leadIdempotencyKey } from './signing';
 import { leadAutoReply, leadNotification } from './email-templates';
 import { notifyTo, sendEmail, unsubscribeUrl } from './email';
 import { checkFormGuard, isSilentDrop, type GuardVerdict } from './form-guard';
-import { dedupeKey, firstTouch, hasAttribution, type Attribution } from './attribution';
+import { dedupeKey, firstTouch, hasAttribution, type Attribution, type StoredAttribution } from './attribution';
 import { isDuplicateKey } from './webhooks';
+import { dbFeatures } from './db-features';
+import {
+  crmChannelOutcome,
+  dueDeliveries,
+  emailChannelOutcome,
+  openDeliveries,
+  recordDelivery,
+  type DeliveryChannel,
+} from './lead-delivery';
 
 /**
  * The single path every form on every brand takes (plan §5.2.1).
@@ -31,6 +40,18 @@ export interface CreateLeadOptions {
   timestamp?: unknown;
   /** Injected in tests; production waits for delivery inside the request. */
   now?: Date;
+  /**
+   * What the lead came from beyond the page path (O24, items 2 and 10): the
+   * article slug a WhatsApp capture sat on and the A/B variants the visitor
+   * was shown. Stored on `leads.attribution`, sent to the CRM as fields.
+   */
+  context?: LeadContext;
+}
+
+export interface LeadContext {
+  articleSlug?: string | null;
+  /** `{ experimentId: variant }` — only experiments the visitor was exposed to. */
+  experiments?: Record<string, string>;
 }
 
 export type CreateLeadResult =
@@ -73,12 +94,15 @@ export async function createLead(
   // First-touch attribution, ported from flytta (plan §5.4.7). `leads.utm`
   // keeps last touch; this column keeps the session that actually earned the
   // lead, so a branded search on the way to converting cannot claim it.
-  const attribution = firstTouch({
-    cookie: options.attribution ?? {},
-    landingPath: input.pagePath,
-    referrer: options.referrer,
-    now,
-  });
+  const attribution: StoredAttribution = {
+    ...firstTouch({
+      cookie: options.attribution ?? {},
+      landingPath: input.pagePath,
+      referrer: options.referrer,
+      now,
+    }),
+    ...contextFields(options.context),
+  };
 
   if (!hasDatabase()) {
     // No DATABASE_URL (local dev, a preview build): the submission must still
@@ -95,11 +119,19 @@ export async function createLead(
   // two requests racing cannot both win (plan §5.4.7).
   const key = dedupeKey({ site: input.site, phone: input.phone ?? input.whatsapp, now });
 
+  // `whatsapp` is its own kind from migration 0002 on. Before it runs, the
+  // column rejects the value, so the lead is stored as `contact` and the real
+  // kind rides on the attribution JSON — the admin reports read it back from
+  // there (`effectiveLeadKind`). Never a failed insert because of the enum.
+  const storedKind =
+    input.kind === 'whatsapp' && !(await dbFeatures()).whatsappKind ? 'contact' : input.kind;
+  if (storedKind !== input.kind) attribution.lead_kind = input.kind;
+
   let leadId: number | null = null;
   try {
     const [result] = await db.insert(leads).values({
       site: input.site as SiteKey,
-      kind: input.kind,
+      kind: storedKind,
       name: input.name ?? null,
       email: input.email,
       phone: input.phone ?? null,
@@ -145,6 +177,7 @@ export async function createLead(
   }
 
   await recordEvent(leadId, 'created', { kind: input.kind, site: input.site });
+  await openDeliveries(leadId, deliveryChannels(input), now);
   await deliverLead(leadId, input, attribution, now);
 
   return { ok: true, leadId, stored: true };
@@ -167,6 +200,31 @@ async function findByDedupeKey(key: string): Promise<number | null> {
     console.error('[leads] could not look up the duplicate lead', error);
     return null;
   }
+}
+
+/** Experiment ids and variants are ours, but they arrive via a cookie: allowlist the shape. */
+const TOKEN = /^[a-z0-9_-]{1,40}$/i;
+
+export function contextFields(context: LeadContext | undefined): Partial<StoredAttribution> {
+  const out: Partial<StoredAttribution> = {};
+  const slug = context?.articleSlug?.trim();
+  if (slug && /^[a-z0-9][a-z0-9/_-]{0,190}$/i.test(slug)) out.article_slug = slug;
+  const experiments = Object.entries(context?.experiments ?? {}).filter(
+    ([id, variant]) => TOKEN.test(id) && TOKEN.test(variant),
+  );
+  if (experiments.length) out.experiments = Object.fromEntries(experiments.slice(0, 5));
+  return out;
+}
+
+/** The kind a report should show: `contact` rows written before 0002 may really be `whatsapp`. */
+export function effectiveLeadKind(row: { kind: string; attribution?: unknown }): string {
+  const stored = (row.attribution ?? null) as { lead_kind?: unknown } | null;
+  return row.kind === 'contact' && stored?.lead_kind === 'whatsapp' ? 'whatsapp' : row.kind;
+}
+
+/** Channels that apply to this lead. No visitor email, no auto-reply. */
+function deliveryChannels(input: LeadInput): DeliveryChannel[] {
+  return input.email ? ['crm', 'notify', 'autoreply'] : ['crm', 'notify'];
 }
 
 /**
@@ -200,24 +258,28 @@ async function recordEvent(
 /**
  * CRM + email. Both are awaited (a serverless request can be frozen the moment
  * the response is returned, so a detached promise is not reliably delivered),
- * but neither can throw out of here.
+ * but neither can throw out of here. Each channel's outcome goes onto its
+ * `lead_deliveries` row; a failure there is the queue's job from now on.
  */
 async function deliverLead(
   leadId: number | null,
   input: LeadInput,
-  attribution: Attribution,
+  attribution: StoredAttribution,
   now: Date,
+  channels: DeliveryChannel[] = deliveryChannels(input),
 ): Promise<void> {
   await Promise.allSettled([
-    pushToCrm(leadId, input, attribution, now),
-    notifyLead(leadId, input),
+    channels.includes('crm') ? pushToCrm(leadId, input, attribution, now) : null,
+    channels.includes('notify') || channels.includes('autoreply')
+      ? notifyLead(leadId, input, now, channels)
+      : null,
   ]);
 }
 
 async function pushToCrm(
   leadId: number | null,
   input: LeadInput,
-  attribution: Attribution,
+  attribution: StoredAttribution,
   now: Date,
 ): Promise<CrmOutcome> {
   const site = getSite(input.site as SiteKey);
@@ -246,12 +308,20 @@ async function pushToCrm(
       fields: {
         kind: input.kind,
         site: input.site,
+        brand: site.name,
         whatsapp: input.whatsapp,
         country: countryName(input.country) ?? input.country,
         nationality: countryName(input.nationality) ?? input.nationality,
         investment_range: input.investmentRange,
         investment_route: input.investmentRoute,
         route_finder_result: input.quizResult,
+        landing_page: attribution.landing_page,
+        first_seen: attribution.first_seen,
+        article_slug: attribution.article_slug,
+        // Last touch, for when it differs from the first-touch utm above.
+        last_utm_source: input.utm?.utm_source,
+        last_utm_campaign: input.utm?.utm_campaign,
+        ab_variants: experimentsLabel(attribution.experiments),
       },
     }, input.site);
   } catch (error) {
@@ -265,7 +335,14 @@ async function pushToCrm(
 
   await setCrmStatus(leadId, outcome, now);
   await recordEvent(leadId, `crm.${outcome.status}`, outcome);
+  await recordDelivery(leadId, 'crm', crmChannelOutcome(outcome), now);
   return outcome;
+}
+
+/** `{hero_cta: 'two_minutes'}` → `hero_cta:two_minutes`. */
+export function experimentsLabel(experiments: Record<string, string> | undefined): string | undefined {
+  const pairs = Object.entries(experiments ?? {});
+  return pairs.length ? pairs.map(([id, variant]) => `${id}:${variant}`).join(',') : undefined;
 }
 
 async function setCrmStatus(
@@ -289,12 +366,21 @@ async function setCrmStatus(
 }
 
 /** Internal notification + auto-reply. Logged, never fatal. */
-async function notifyLead(leadId: number | null, input: LeadInput): Promise<void> {
+async function notifyLead(
+  leadId: number | null,
+  input: LeadInput,
+  now: Date,
+  channels: DeliveryChannel[],
+): Promise<void> {
   const site = input.site as SiteKey;
   const to = notifyTo();
+  const wantNotify = channels.includes('notify');
+  const wantAutoReply = channels.includes('autoreply') && Boolean(input.email);
 
   const results = await Promise.allSettled([
-    to
+    !wantNotify
+      ? Promise.resolve({ skipped: 'not-requested' })
+      : to
       ? sendEmail({
           to,
           replyTo: input.email || undefined,
@@ -315,28 +401,21 @@ async function notifyLead(leadId: number | null, input: LeadInput): Promise<void
           }),
         })
       : Promise.resolve({ ok: false, mode: 'console' as const, error: 'EMAIL_NOTIFY_TO not set' }),
-    input.email ? sendEmail({
+    wantAutoReply ? sendEmail({
       to: input.email,
       ...leadAutoReply({ site, name: input.name, unsubscribeUrl: unsubscribeUrl(site, input.email) }),
     }) : Promise.resolve({ skipped: 'no-lead-email' }),
   ]);
 
-  const summary = results.map((r) => (r.status === 'fulfilled' ? r.value : { ok: false, error: String(r.reason) }));
+  const summary = results.map((r) => (r.status === 'fulfilled' ? r.value : { ok: false, mode: 'unknown', error: String(r.reason) }));
   await recordEvent(leadId, 'email.sent', { notification: summary[0], autoReply: summary[1] });
+  if (wantNotify) await recordDelivery(leadId, 'notify', emailChannelOutcome(summary[0] as never), now);
+  if (wantAutoReply) await recordDelivery(leadId, 'autoreply', emailChannelOutcome(summary[1] as never), now);
 }
 
-/**
- * Admin retry (plan §5.2.1). Re-runs delivery for one stored lead; the CRM
- * idempotency key comes from the lead row, so a retry at any time cannot
- * create a duplicate deal.
- */
-export async function retryLeadDelivery(leadId: number): Promise<CrmOutcome> {
-  if (!hasDatabase()) throw new Error('DATABASE_URL is not set');
-  const db = getDb();
-  const [lead] = await db.select().from(leads).where(eq(leads.id, leadId)).limit(1);
-  if (!lead) throw new Error(`Lead ${leadId} not found`);
-
-  const input: LeadInput = {
+/** A stored lead back into the shape the delivery functions take. */
+function leadInputFromRow(lead: Lead): LeadInput {
+  return {
     site: lead.site,
     kind: lead.kind,
     name: lead.name ?? undefined,
@@ -351,9 +430,107 @@ export async function retryLeadDelivery(leadId: number): Promise<CrmOutcome> {
     pagePath: lead.pagePath ?? undefined,
     utm: (lead.utm as Record<string, string>) ?? undefined,
   };
+}
+
+/**
+ * Admin retry (plan §5.2.1). Re-runs the CRM push for one stored lead; the CRM
+ * idempotency key comes from the lead row, so a retry at any time cannot
+ * create a duplicate deal.
+ */
+export async function retryLeadDelivery(leadId: number): Promise<CrmOutcome> {
+  if (!hasDatabase()) throw new Error('DATABASE_URL is not set');
+  const db = getDb();
+  const [lead] = await db.select().from(leads).where(eq(leads.id, leadId)).limit(1);
+  if (!lead) throw new Error(`Lead ${leadId} not found`);
 
   await recordEvent(leadId, 'crm.retry', { by: 'admin' });
-  return pushToCrm(leadId, input, (lead.attribution as Attribution) ?? {}, new Date());
+  return pushToCrm(leadId, leadInputFromRow(lead), (lead.attribution as StoredAttribution) ?? {}, new Date());
+}
+
+/* ------------------------------------------------------------ the queue */
+
+export interface QueueRunResult {
+  mode: 'table' | 'legacy' | 'none';
+  attempted: number;
+  /** `lead:channel` pairs attempted, for the log and the CLI. */
+  items: string[];
+}
+
+/**
+ * One pass of the retry queue (O24, item 1): every due `failed` row, every
+ * `pending` row a crashed request abandoned, and — with `includeSkipped` —
+ * every `skipped` row of the last 30 days (run it once after setting the CRM
+ * key). Triggered by `POST /api/leads/deliveries` (a cron hits it), by
+ * `npm run leads:retry`, and by the button on `/admin/leads`.
+ *
+ * Before migration 0002 there is no queue table; the pass falls back to
+ * re-pushing leads whose `crm_status` is `failed` from the last 7 days, which
+ * is exactly what the old per-lead Retry button did, in bulk.
+ */
+export async function runLeadDeliveryQueue(options: {
+  now?: Date;
+  limit?: number;
+  includeSkipped?: boolean;
+  trigger?: string;
+} = {}): Promise<QueueRunResult> {
+  if (!hasDatabase()) return { mode: 'none', attempted: 0, items: [] };
+  const now = options.now ?? new Date();
+  const limit = Math.min(Math.max(options.limit ?? 25, 1), 200);
+  const db = getDb();
+  const runId = await startRun(options.trigger ?? 'manual');
+
+  const due = await dueDeliveries(now, limit, { includeSkipped: options.includeSkipped });
+  let result: QueueRunResult;
+
+  if (due === null) {
+    const failed = await db
+      .select()
+      .from(leads)
+      .where(and(eq(leads.crmStatus, 'failed'), gte(leads.createdAt, new Date(now.getTime() - 7 * 86_400_000))))
+      .orderBy(desc(leads.createdAt))
+      .limit(limit);
+    for (const lead of failed) {
+      await recordEvent(lead.id, 'crm.retry', { by: 'queue' });
+      await pushToCrm(lead.id, leadInputFromRow(lead), (lead.attribution as StoredAttribution) ?? {}, now);
+    }
+    result = { mode: 'legacy', attempted: failed.length, items: failed.map((lead) => `${lead.id}:crm`) };
+  } else {
+    // Group per lead so one lead's channels share one row read.
+    const byLead = new Map<number, DeliveryChannel[]>();
+    for (const row of due) byLead.set(row.leadId, [...(byLead.get(row.leadId) ?? []), row.channel]);
+    const items: string[] = [];
+    for (const [leadId, channels] of byLead) {
+      const [lead] = await db.select().from(leads).where(eq(leads.id, leadId)).limit(1);
+      if (!lead) continue;
+      await recordEvent(leadId, 'delivery.retry', { channels, by: options.trigger ?? 'manual' });
+      await deliverLead(leadId, leadInputFromRow(lead), (lead.attribution as StoredAttribution) ?? {}, now, channels);
+      items.push(...channels.map((channel) => `${leadId}:${channel}`));
+    }
+    result = { mode: 'table', attempted: items.length, items };
+  }
+
+  await finishRun(runId, `${result.mode}: ${result.attempted} attempted`);
+  return result;
+}
+
+/** `cron_runs` makes "the queue never ran" distinguishable from "nothing was due". */
+async function startRun(trigger: string): Promise<number | null> {
+  try {
+    const [row] = await getDb().insert(cronRuns).values({ job: 'lead-deliveries', ok: false, note: trigger.slice(0, 60) });
+    return Number(row.insertId);
+  } catch (error) {
+    console.error('[leads] could not record the queue run', error instanceof Error ? error.message : error);
+    return null;
+  }
+}
+
+async function finishRun(runId: number | null, note: string): Promise<void> {
+  if (runId === null) return;
+  try {
+    await getDb().update(cronRuns).set({ ok: true, finishedAt: new Date(), note }).where(eq(cronRuns.id, runId));
+  } catch (error) {
+    console.error('[leads] could not close the queue run', error instanceof Error ? error.message : error);
+  }
 }
 
 export type { Lead };

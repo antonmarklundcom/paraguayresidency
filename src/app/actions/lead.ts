@@ -7,6 +7,8 @@ import { POST as requestMagicLink } from '@/app/(en)/api/auth/magic/route';
 import { createLead } from '@/lib/leads';
 import { pickUtm } from '@/lib/lead-schema';
 import { parseAttribution } from '@/lib/attribution';
+import { readExposures } from '@/lib/experiments';
+import { articleSlugFromPath } from '@/lib/site-events';
 import { HONEYPOT_FIELD, TIMESTAMP_FIELD } from '@/lib/form-guard';
 import { subscribe } from '@/lib/subscribers';
 import {
@@ -49,8 +51,10 @@ export async function submitLeadAction(
   if (!limit.ok) return { status: 'error', errors: { form: RATE_LIMIT_MESSAGE } };
 
   const cookieStore = await cookies();
-  const attribution = parseAttribution(cookieStore.get('vc_attr')?.value);
+  const cookie = (name: string) => cookieStore.get(name)?.value;
+  const attribution = parseAttribution(cookie('vc_attr'));
   const referrer = h.get('referer');
+  const pagePath = str(form, 'pagePath');
 
   const quizAnswersRaw = str(form, 'quizAnswers');
   let quizAnswers: Record<string, string> | undefined;
@@ -78,7 +82,7 @@ export async function submitLeadAction(
       investmentRoute: str(form, 'investmentRoute'),
       quizResult: str(form, 'quizResult'),
       quizAnswers,
-      pagePath: str(form, 'pagePath'),
+      pagePath,
       utm: pickUtm(Object.fromEntries(new URLSearchParams(str(form, 'utm')))),
     },
     {
@@ -86,6 +90,13 @@ export async function submitLeadAction(
       referrer,
       honeypot: form.get(HONEYPOT_FIELD),
       timestamp: form.get(TIMESTAMP_FIELD),
+      // O24 items 2 and 10 (`docs/conversion-core.md`, "WhatsApp-first
+      // capture"): the article the form sat on, and the variants the visitor
+      // was actually shown — read from our cookies, never from the form.
+      context: {
+        articleSlug: str(form, 'articleSlug') || articleSlugFromPath(pagePath.split(/[?#]/)[0]),
+        experiments: readExposures(cookie),
+      },
     },
   );
 

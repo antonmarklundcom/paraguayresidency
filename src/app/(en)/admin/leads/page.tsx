@@ -1,10 +1,12 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { requireAdminPage } from '../guard';
-import { retryLeadAction } from '../actions';
+import { retryLeadAction, runDeliveryQueueAction } from '../actions';
 import { ActionButton, panel, table, td, th } from '../ui';
-import { LEAD_KINDS } from '@/lib/lead-schema';
+import { ALL_LEAD_KINDS } from '@/lib/lead-schema';
 import { listLeads, parseLeadFilters } from '@/lib/admin-queries';
+import { effectiveLeadKind } from '@/lib/leads';
+import { deliveriesForLeads, deliveryHealth, recentDeliveryFailures } from '@/lib/lead-delivery';
 import { SITE_KEYS } from '@/sites/registry';
 import type { SearchParams } from '@/lib/conversion-pages';
 
@@ -16,6 +18,9 @@ export default async function Page({ searchParams }: { searchParams: SearchParam
   const params = await searchParams;
   const filters = parseLeadFilters(params);
   const { rows, total, page, pages, unavailable } = await listLeads(filters);
+  const [deliveries, health, failures] = unavailable
+    ? [new Map<number, Record<string, string>>(), null, []]
+    : await Promise.all([deliveriesForLeads(rows.map((row) => row.id)), deliveryHealth(), recentDeliveryFailures(10)]);
 
   const query = new URLSearchParams(
     Object.entries(filters)
@@ -36,6 +41,48 @@ export default async function Page({ searchParams }: { searchParams: SearchParam
         </a>
       </div>
 
+      {health ? (
+        <section className={`${panel} mt-4 p-4 text-(length:--text-sm)`}>
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
+            <strong>Delivery queue</strong>
+            <span>
+              last success: {health.lastSuccessAt ? health.lastSuccessAt.slice(0, 16).replace('T', ' ') : 'never'}
+            </span>
+            <span className={health.failed24h ? 'text-[var(--danger)]' : ''}>failed 24 h: {health.failed24h}</span>
+            <span className={health.dead ? 'text-[var(--danger)]' : ''}>gave up: {health.dead}</span>
+            <span className={health.backlog ? 'text-[var(--danger)]' : ''}>
+              oldest undelivered:{' '}
+              {health.oldestUndeliveredAt ? health.oldestUndeliveredAt.slice(0, 16).replace('T', ' ') : 'none'}
+            </span>
+            {health.queue === 'legacy' ? (
+              <span className="text-[var(--fg-muted)]">
+                (migration 0002 not applied: CRM status only — see docs/db-work-later.md)
+              </span>
+            ) : null}
+          </div>
+          <div className="mt-3 flex flex-wrap gap-3">
+            <ActionButton action={runDeliveryQueueAction} name="includeSkipped" value="0" label="Run queue now" />
+            <ActionButton
+              action={runDeliveryQueueAction}
+              name="includeSkipped"
+              value="1"
+              label="Run queue incl. skipped (after setting CRM/mail keys)"
+            />
+          </div>
+          {failures.length ? (
+            <ul className="mt-3 space-y-1 text-(length:--text-xs) text-[var(--fg-muted)]">
+              {failures.map((failure) => (
+                <li key={`${failure.leadId}-${failure.channel}`}>
+                  lead {failure.leadId} · {failure.channel} · {failure.status} after {failure.attempts} attempt(s)
+                  {failure.nextAttemptAt ? ` · next ${failure.nextAttemptAt.toISOString().slice(0, 16).replace('T', ' ')}` : ''}
+                  {failure.lastError ? ` · ${failure.lastError}` : ''}
+                </li>
+              ))}
+            </ul>
+          ) : null}
+        </section>
+      ) : null}
+
       <form method="get" className={`${panel} mt-4 flex flex-wrap items-end gap-3 p-4`}>
         <label className="text-(length:--text-xs) text-[var(--fg-muted)]">
           Site
@@ -52,7 +99,7 @@ export default async function Page({ searchParams }: { searchParams: SearchParam
           Kind
           <select name="kind" defaultValue={filters.kind ?? ''} className={select}>
             <option value="">All</option>
-            {LEAD_KINDS.map((kind) => (
+            {ALL_LEAD_KINDS.map((kind) => (
               <option key={kind} value={kind}>
                 {kind}
               </option>
@@ -100,14 +147,17 @@ export default async function Page({ searchParams }: { searchParams: SearchParam
                   <td className={td}>
                     {lead.site}
                     <br />
-                    <span className="text-[var(--fg-muted)]">{lead.kind}</span>
+                    <span className="text-[var(--fg-muted)]">{effectiveLeadKind(lead)}</span>
                   </td>
                   <td className={td}>
                     {lead.name ?? '—'}
                     <br />
-                    <a href={`mailto:${lead.email}`} className="underline underline-offset-2">
-                      {lead.email}
-                    </a>
+                    {lead.email ? (
+                      <a href={`mailto:${lead.email}`} className="underline underline-offset-2">
+                        {lead.email}
+                      </a>
+                    ) : null}
+                    {lead.whatsapp ? <div>WhatsApp {lead.whatsapp}</div> : null}
                     {lead.phone ? (
                       <>
                         <br />
@@ -133,6 +183,13 @@ export default async function Page({ searchParams }: { searchParams: SearchParam
                     >
                       {lead.crmStatus}
                     </span>
+                    {deliveries.get(lead.id) ? (
+                      <div className="mt-1 text-(length:--text-xs) text-[var(--fg-muted)]">
+                        {Object.entries(deliveries.get(lead.id)!)
+                          .map(([channel, status]) => `${channel}: ${status}`)
+                          .join(' · ')}
+                      </div>
+                    ) : null}
                     <div className="mt-1">
                       <ActionButton
                         action={retryLeadAction}

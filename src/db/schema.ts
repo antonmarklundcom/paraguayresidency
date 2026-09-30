@@ -21,6 +21,12 @@ import {
  * every column S10–S15 will ever need exists here now, including the ones only
  * S14's member area uses. Nothing is retrofitted later, and no Sonnet phase
  * may touch this file (plan §4.7).
+ *
+ * O24 is the one sanctioned exception (`prompts/opus-24-lead-engine.md`,
+ * "Database rule"): `lead_deliveries`, `site_events` and the `whatsapp` lead
+ * kind, each additive, each feature-detected at runtime so the code runs on a
+ * database that has not been migrated yet. Every migration is listed in
+ * `docs/db-work-later.md`; build sessions never apply one.
  */
 
 /**
@@ -116,12 +122,21 @@ export const providerCustomers = mysqlTable(
 
 /* ------------------------------------------------------------------- leads */
 
+/**
+ * `whatsapp` added in O24 (item 2): the one-field WhatsApp-first capture is its
+ * own kind rather than a `contact` in disguise. A production database that has
+ * not run `drizzle/0002_o24_lead_engine.sql` yet rejects the value, so
+ * `src/lib/leads.ts` feature-detects it (`src/lib/db-features.ts`) and stores
+ * `contact` with `attribution.lead_kind = 'whatsapp'` until then.
+ */
+export const leadKindEnum = ['consultation', 'investor_inquiry', 'contact', 'quiz', 'whatsapp'] as const;
+
 export const leads = mysqlTable(
   'leads',
   {
     id: id(),
     site: mysqlEnum('site', siteEnum).notNull(),
-    kind: mysqlEnum('kind', ['consultation', 'investor_inquiry', 'contact', 'quiz']).notNull(),
+    kind: mysqlEnum('kind', leadKindEnum).notNull(),
     name: varchar('name', { length: 160 }),
     email: varchar('email', { length: 255 }).notNull(),
     phone: varchar('phone', { length: 40 }),
@@ -169,6 +184,75 @@ export const leadEvents = mysqlTable(
     createdAt: createdAt(),
   },
   (t) => [index('lead_events_lead_id_idx').on(t.leadId)],
+);
+
+/**
+ * The retry queue behind "a failed CRM or email never fails the form" (O24,
+ * item 1). One row per lead and channel; `createLead` writes it after the
+ * first attempt, `runDeliveryQueue` (`src/lib/lead-delivery.ts`) re-attempts
+ * `failed` rows whose `next_attempt_at` has passed, with backoff, until
+ * `dead`. `skipped` means nothing was wrong with the lead (the CRM or mail is
+ * not configured) and is only replayed on request.
+ *
+ * Added by migration `0002_o24_lead_engine.sql`. Until that runs, the table is
+ * absent and every writer and reader here degrades to the O18 behaviour
+ * (`leads.crm_status` + `lead_events`) — see `docs/db-work-later.md`.
+ */
+export const deliveryChannelEnum = ['crm', 'notify', 'autoreply'] as const;
+export const deliveryStatusEnum = ['pending', 'sent', 'failed', 'dead', 'skipped'] as const;
+
+export const leadDeliveries = mysqlTable(
+  'lead_deliveries',
+  {
+    id: id(),
+    leadId: fk('lead_id').notNull(),
+    channel: mysqlEnum('channel', deliveryChannelEnum).notNull(),
+    status: mysqlEnum('status', deliveryStatusEnum).notNull().default('pending'),
+    attempts: int('attempts').notNull().default(0),
+    nextAttemptAt: datetime('next_attempt_at'),
+    lastAttemptAt: datetime('last_attempt_at'),
+    deliveredAt: datetime('delivered_at'),
+    /** Short, PII-free: an HTTP status and the provider's error text. */
+    lastError: varchar('last_error', { length: 500 }),
+    createdAt: createdAt(),
+    updatedAt: updatedAt(),
+  },
+  (t) => [
+    uniqueIndex('lead_deliveries_lead_channel_uq').on(t.leadId, t.channel),
+    index('lead_deliveries_due_idx').on(t.status, t.nextAttemptAt),
+    index('lead_deliveries_delivered_idx').on(t.deliveredAt),
+  ],
+);
+
+/**
+ * Anonymous conversion signals that are not leads (O24, item 2): today only
+ * `whatsapp_click`, posted by `WhatsAppClickTracker` to `/api/track`. A click
+ * carries no personal data — page, placement, article slug, A/B variant and a
+ * first-touch source — so `/admin/attribution` can show which pages start
+ * WhatsApp conversations next to which pages produce form leads.
+ *
+ * Added by `0002_o24_lead_engine.sql`; the beacon answers 204 and stores
+ * nothing until it exists.
+ */
+export const siteEvents = mysqlTable(
+  'site_events',
+  {
+    id: id(),
+    site: mysqlEnum('site', siteEnum).notNull(),
+    type: varchar('type', { length: 40 }).notNull(),
+    path: varchar('path', { length: 512 }),
+    placement: varchar('placement', { length: 40 }),
+    slug: varchar('slug', { length: 191 }),
+    /** `experiment:variant` pairs, comma-separated, e.g. `hero_cta:two_minutes`. */
+    variant: varchar('variant', { length: 120 }),
+    /** utm_source, else the referrer's host, else null (direct). */
+    source: varchar('source', { length: 120 }),
+    createdAt: createdAt(),
+  },
+  (t) => [
+    index('site_events_type_created_idx').on(t.type, t.createdAt),
+    index('site_events_site_idx').on(t.site),
+  ],
 );
 
 export const subscribers = mysqlTable(
@@ -470,6 +554,8 @@ export type DownloadToken = typeof downloadTokens.$inferSelect;
 export type Subscriber = typeof subscribers.$inferSelect;
 export type WebhookEvent = typeof webhookEvents.$inferSelect;
 export type CronRun = typeof cronRuns.$inferSelect;
+export type LeadDelivery = typeof leadDeliveries.$inferSelect;
+export type SiteEvent = typeof siteEvents.$inferSelect;
 export type Module = typeof modules.$inferSelect;
 export type Lesson = typeof lessons.$inferSelect;
 export type LessonProgress = typeof lessonProgress.$inferSelect;
