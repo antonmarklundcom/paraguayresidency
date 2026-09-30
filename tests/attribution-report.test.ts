@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { externalReferrer, landingAttribution, parseAttribution, serializeAttribution } from '@/lib/first-touch';
-import { pageCookies } from '@/proxy';
+import { NextRequest } from 'next/server';
+import { pageCookies, proxy } from '@/proxy';
 import {
   attributionCsvRow,
   buildAttributionReport,
@@ -48,6 +49,28 @@ describe('the first-touch cookie', () => {
     expect(externalReferrer('https://t.co/abc?token=secret', 'x.com')).toBe('https://t.co/abc');
     expect(externalReferrer('android-app://com.google.android.gm/', 'x.com')).toBeNull();
     expect(externalReferrer('garbage', 'x.com')).toBeNull();
+  });
+});
+
+describe('the cookie survives the real proxy and Next\'s cookie reader', () => {
+  it('round-trips first touch: proxy Set-Cookie → next request → parseAttribution', () => {
+    const res = proxy(
+      new NextRequest('https://paraguayresidency.co.uk/residency/cedula?utm_source=newsletter', {
+        headers: { host: 'paraguayresidency.co.uk', referer: 'https://www.reddit.com/r/expats/x%20y?z=1' },
+      }),
+    );
+    expect(res.headers.get('cache-control')).toBe('private, no-store');
+    const sent = res.cookies.get('vc_attr');
+    expect(sent?.httpOnly).toBe(true);
+    const header = res.headers.getSetCookie().find((c) => c.startsWith('vc_attr='))!;
+    const next = new NextRequest('https://paraguayresidency.co.uk/contact', {
+      headers: { cookie: header.split(';')[0] },
+    });
+    expect(parseAttribution(next.cookies.get('vc_attr')?.value)).toMatchObject({
+      utm_source: 'newsletter',
+      referrer: 'https://www.reddit.com/r/expats/x%20y',
+      landing_page: '/residency/cedula',
+    });
   });
 });
 

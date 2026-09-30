@@ -99,7 +99,12 @@ export function externalReferrer(referrer: string | null | undefined, host: stri
   return `${url.origin}${url.pathname}`.slice(0, 500);
 }
 
-/** Cookie value: the same encoding `parseAttribution` reads. */
+/**
+ * Cookie value: the same encoding `parseAttribution` reads. Next's cookie
+ * writer URL-encodes it once more on the wire and its reader decodes that
+ * layer, so the server sees exactly this string (round-trip pinned by
+ * `tests/attribution-report.test.ts`).
+ */
 export function serializeAttribution(value: Attribution): string {
   return encodeURIComponent(JSON.stringify(value));
 }
