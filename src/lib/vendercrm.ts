@@ -1,6 +1,7 @@
 import 'server-only';
 import type { SiteKey } from '@/sites/registry';
 import { idempotencyKey } from './signing';
+import { log } from './log';
 
 /**
  * VenderCRM lead push (`vendercrm-lead-capture` skill).
@@ -117,12 +118,12 @@ export async function sendToVenderCrm(lead: CrmLead, site?: SiteKey | string | n
 
     // 200 is an idempotency replay: that is the retry working, not a failure.
     if (!response.ok) {
-      console.error('[vendercrm] lead rejected', response.status, text.slice(0, 500));
+      log.error('[vendercrm] lead rejected', { site: site ?? null, status: response.status, body: text.slice(0, 500) });
       return { status: 'failed', httpStatus: response.status, error: text.slice(0, 500) };
     }
     return { status: 'sent', httpStatus: response.status, body };
   } catch (error) {
-    console.error('[vendercrm] unreachable', error);
+    log.error('[vendercrm] unreachable', { site: site ?? null, err: error });
     return {
       status: 'failed',
       httpStatus: 0,

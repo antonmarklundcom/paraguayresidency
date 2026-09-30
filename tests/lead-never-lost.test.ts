@@ -87,10 +87,11 @@ describe('createLead against a failing database', () => {
 
   it('makes the failure loud in the log — the lead is only in the CRM now', async () => {
     await createLead(lead, { ...guard(), now: NOW });
-    expect(console.error).toHaveBeenCalledWith(
-      expect.stringContaining('could not store the lead'),
-      expect.anything(),
-    );
+    // One structured JSON line (O24 item 8), carrying the error but no lead PII.
+    expect(console.error).toHaveBeenCalledWith(expect.stringContaining('could not store the lead'));
+    const line = vi.mocked(console.error).mock.calls.map((c) => String(c[0])).find((l) => l.includes('could not store the lead'))!;
+    expect(JSON.parse(line)).toMatchObject({ level: 'error', site: 'residency', err: { message: expect.stringContaining('ECONNRESET') } });
+    expect(line).not.toContain('ana@example.com');
   });
 
   it('a working insert still stores and still reports stored:true', async () => {

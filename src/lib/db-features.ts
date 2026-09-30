@@ -1,6 +1,7 @@
 import 'server-only';
 import { sql } from 'drizzle-orm';
 import { getDb, hasDatabase } from '@/db';
+import { log } from './log';
 
 /**
  * What the CONNECTED database can actually hold, as opposed to what
@@ -95,7 +96,7 @@ export async function dbFeatures(now = Date.now()): Promise<DbFeatures> {
     const rows = (Array.isArray(result) && Array.isArray(result[0]) ? result[0] : []) as ColumnRow[];
     cache = { at: now, value: featuresFromColumns(rows) };
   } catch (error) {
-    console.error('[db-features] probe failed — assuming the pre-O24 schema', error instanceof Error ? error.message : error);
+    log.warn('[db-features] probe failed — assuming the pre-O24 schema', { err: error });
     cache = { at: now, value: NO_FEATURES };
   }
   return cache.value;

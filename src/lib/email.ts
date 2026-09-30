@@ -1,6 +1,7 @@
 import 'server-only';
 import { getSite, siteOrigin, type SiteKey } from '@/sites/registry';
 import { pack } from './signing';
+import { log } from './log';
 
 /**
  * Resend → SMTP → console, decided at call time from the environment
@@ -68,7 +69,7 @@ export async function sendEmail(message: EmailMessage): Promise<EmailOutcome> {
     if (mode === 'smtp') return await sendViaSmtp(message, to);
   } catch (error) {
     const detail = error instanceof Error ? error.message : String(error);
-    console.error(`[email] ${mode} send failed`, detail);
+    log.error(`[email] ${mode} send failed`, { mode, detail });
     return { ok: false, mode, error: detail };
   }
 
@@ -125,7 +126,7 @@ async function sendViaResend(message: EmailMessage, to: string[]): Promise<Email
   });
   const body = (await response.json().catch(() => ({}))) as { id?: string; message?: string };
   if (!response.ok) {
-    console.error('[email] resend rejected', response.status, body);
+    log.error('[email] resend rejected', { status: response.status, body });
     return { ok: false, mode: 'resend', error: body.message ?? `HTTP ${response.status}` };
   }
   return { ok: true, mode: 'resend', id: body.id };

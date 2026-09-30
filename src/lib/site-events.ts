@@ -3,6 +3,7 @@ import { getDb, hasDatabase } from '@/db';
 import { siteEvents } from '@/db/schema';
 import type { SiteKey } from '@/sites/registry';
 import { dbFeatures, forgetDbFeatures, isMissingTable } from './db-features';
+import { log } from './log';
 
 /**
  * Anonymous conversion signals (O24, item 2). Today one type: a click on a
@@ -84,7 +85,7 @@ export async function recordSiteEvent(
     return 'stored';
   } catch (error) {
     if (isMissingTable(error)) forgetDbFeatures();
-    console.error('[site-events] could not store event', error instanceof Error ? error.message : error);
+    log.error('[site-events] could not store event', { site, err: error });
     return 'skipped';
   }
 }

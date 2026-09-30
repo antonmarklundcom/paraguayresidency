@@ -159,6 +159,32 @@ setting the CRM key for the first time, run it once with `--include-skipped`
 (or the "incl. skipped" button) so leads that arrived before the key was set
 reach the CRM too. Every run is a `cron_runs` row with `job = 'lead-deliveries'`.
 
+## Logs and error reports (O24)
+
+Every server log line is one JSON object: `time`, `level`, `msg`, and where
+known `reqId`, `host`, `route`, `leadId`, `site`, `err`. `src/proxy.ts` gives
+every request an `x-request-id` (also on the response, so a visitor's report
+can be matched to the log). Unhandled errors from pages, route handlers,
+server actions and the proxy are reported once by `src/instrumentation.ts`.
+
+Lead PII never reaches a log: keys like `email`, `phone`, `name`, `message`
+are redacted and addresses/phone numbers inside text are masked.
+
+Where to read them: hPanel → the Node.js app → Logs (search for
+`"level":"error"`). To keep them longer, set `LOG_SINK_URL` (and
+`LOG_SINK_TOKEN`) to a JSON-ingesting log service; lines are batched there as
+well. `/admin/readiness` shows how many errors this process logged in the last
+hour and 24 hours (it resets on a restart).
+
+## Launch readiness (O24)
+
+`/admin/readiness` (hub only) lists, read-only: which credentials are missing
+(never their values), whether the database answers and migration 0002 is
+applied, lead delivery health, errors since the last restart, every domain's
+`/api/health` fetched from the server (DNS + HTTPS + hPanel attachment in one
+check), the empty trust fields in `content/shared/proof.ts`, and how many facts
+are verified. Open it after every env change and redeploy.
+
 ## Rate limits
 
 All of them live in one table, `LIMITS` in `src/lib/rate-limit.ts`. They are a
