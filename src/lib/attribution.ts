@@ -1,5 +1,7 @@
 import { createHash } from 'node:crypto';
-import { UTM_KEYS } from './lead-schema';
+import type { Attribution } from './first-touch';
+
+export { ATTRIBUTION_KEYS, parseAttribution, type Attribution } from './first-touch';
 
 /**
  * First-touch attribution and submit deduplication, ported from
@@ -10,16 +12,6 @@ import { UTM_KEYS } from './lead-schema';
  * signed-timestamp and honeypot guard still run first, and the local `leads`
  * row is still written before anything leaves the server.
  */
-
-/** Keys the attribution cookie may carry. Anything else is dropped. */
-export const ATTRIBUTION_KEYS = [
-  ...UTM_KEYS,
-  'landing_page',
-  'referrer',
-  'first_seen',
-] as const;
-
-export type Attribution = Partial<Record<(typeof ATTRIBUTION_KEYS)[number], string>>;
 
 /**
  * What `leads.attribution` actually holds (O24): first touch from the cookie,
@@ -33,31 +25,6 @@ export type StoredAttribution = Attribution & {
   experiments?: Record<string, string>;
   lead_kind?: string;
 };
-
-/**
- * Reads the CRM's `vc_attr` cookie. It is written by the visitor's browser, so
- * it is untrusted input: unknown keys, non-strings and oversized values are
- * dropped rather than stored, and a malformed cookie is simply no attribution.
- */
-export function parseAttribution(cookieValue: string | undefined | null): Attribution {
-  if (!cookieValue) return {};
-  let parsed: unknown;
-  try {
-    parsed = JSON.parse(decodeURIComponent(cookieValue));
-  } catch {
-    return {};
-  }
-  if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) return {};
-
-  const allowed = new Set<string>(ATTRIBUTION_KEYS);
-  const out: Attribution = {};
-  for (const [key, value] of Object.entries(parsed as Record<string, unknown>)) {
-    if (!allowed.has(key)) continue;
-    if (typeof value !== 'string' || value === '') continue;
-    out[key as keyof Attribution] = value.slice(0, 500);
-  }
-  return out;
-}
 
 /**
  * The row we store on `leads.attribution`.
@@ -117,3 +84,4 @@ export function dedupeKey(input: {
   const bucket = Math.floor((input.now ?? new Date()).getTime() / DEDUPE_WINDOW_MS);
   return createHash('sha256').update(`${input.site}|${digits}|${bucket}`).digest('hex');
 }
+

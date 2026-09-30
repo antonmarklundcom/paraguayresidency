@@ -7,9 +7,12 @@ import {
   products,
   providerCustomers,
   purchases,
+  siteEvents,
   subscriptions,
   users,
 } from '@/db/schema';
+import { dbFeatures } from './db-features';
+import type { ClickRow, LeadRow } from './attribution-report';
 import { ALL_LEAD_KINDS } from './lead-schema';
 import { isSiteKey, type SiteKey } from '@/sites/registry';
 
@@ -260,3 +263,50 @@ export const LEAD_CSV_COLUMNS = [
   'pagePath',
   'message',
 ];
+
+/**
+ * The rows behind `/admin/attribution` (O24 items 3, 10): every lead and
+ * every WhatsApp click of the last 30 days, attribution columns only. The
+ * report itself is built in JS (`attribution-report.ts`) — at this volume a
+ * few thousand small rows are cheaper to reason about than JSON_EXTRACT
+ * grouping, and the same function is unit-tested.
+ */
+export async function attributionData(now = new Date()): Promise<{
+  unavailable: boolean;
+  leads: LeadRow[];
+  clicks: ClickRow[];
+  clicksAvailable: boolean;
+}> {
+  if (!hasDatabase()) return { unavailable: true, leads: [], clicks: [], clicksAvailable: false };
+  const db = getDb();
+  const since = new Date(now.getTime() - 30 * 86_400_000);
+  const leadRows = await db
+    .select({
+      id: leads.id,
+      site: leads.site,
+      kind: leads.kind,
+      pagePath: leads.pagePath,
+      attribution: leads.attribution,
+      utm: leads.utm,
+      createdAt: leads.createdAt,
+    })
+    .from(leads)
+    .where(gte(leads.createdAt, since))
+    .orderBy(desc(leads.id))
+    .limit(20_000);
+  const clicksAvailable = (await dbFeatures()).siteEvents;
+  const clicks = clicksAvailable
+    ? await db
+        .select({
+          site: siteEvents.site,
+          path: siteEvents.path,
+          source: siteEvents.source,
+          variant: siteEvents.variant,
+          createdAt: siteEvents.createdAt,
+        })
+        .from(siteEvents)
+        .where(and(eq(siteEvents.type, 'whatsapp_click'), gte(siteEvents.createdAt, since)))
+        .limit(50_000)
+    : [];
+  return { unavailable: false, leads: leadRows, clicks, clicksAvailable };
+}
