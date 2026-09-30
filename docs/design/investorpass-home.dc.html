@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#DDE2E5;font-family:'Schibsted Grotesk',system-ui,sans-serif;color:#0F1A1E;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:#0A4A57;text-decoration:underline;text-underline-offset:3px}
+a:hover{color:#06323B}
+input,select,textarea,button{font-family:inherit}
+</style>
+</helmet>
+
+<div style="display:flex;flex-direction:column;align-items:flex-start;gap:24px;padding:80px">
+
+<div style="font-family:'IBM Plex Mono',monospace;font-size:14px;letter-spacing:0.06em;text-transform:uppercase;color:#2B363B">Home — desktop · 1440</div>
+
+<!-- ================= DESKTOP ================= -->
+<div data-screen-label="Home — desktop" style="width:1440px;background:#FFFFFF;box-shadow:0 1px 3px rgba(15,26,30,0.12);font-variant-numeric:tabular-nums">
+
+  <header style="border-bottom:1px solid #0F1A1E">
+    <div style="max-width:1200px;margin:0 auto;height:72px;display:flex;align-items:center;justify-content:space-between;gap:32px">
+      <a href="#top-d" style="display:flex;align-items:center;gap:12px;text-decoration:none;color:#0F1A1E">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;letter-spacing:0.04em;padding:5px 7px;background:#0A4A57;color:#FFFFFF">PY·IP</span>
+        <span style="font-size:18px;font-weight:600;letter-spacing:-0.01em">Paraguay Investor Pass</span>
+      </a>
+      <nav style="display:flex;align-items:center;gap:28px;font-size:15px">
+        <a href="#routes-d" style="color:#0F1A1E;text-decoration:none">Routes</a>
+        <a href="#timeline-d" style="color:#0F1A1E;text-decoration:none">Timeline</a>
+        <a href="#writing-d" style="color:#0F1A1E;text-decoration:none">In writing</a>
+        <a href="#docs-d" style="color:#0F1A1E;text-decoration:none">Documents</a>
+        <a href="#agents-d" style="color:#0F1A1E;text-decoration:none">Agents &amp; family offices</a>
+        <a href="#faq-d" style="color:#0F1A1E;text-decoration:none">FAQ</a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:12px">
+        <a href="#qualify-d" style="display:inline-flex;align-items:center;height:44px;padding:0 16px;border:1px solid #0F1A1E;color:#0F1A1E;text-decoration:none;font-size:15px;font-weight:500">WhatsApp</a>
+        <a href="#qualify-d" style="display:inline-flex;align-items:center;height:44px;padding:0 18px;background:#0A4A57;color:#FFFFFF;text-decoration:none;font-size:15px;font-weight:500" style-hover="background:#06323B">See if you qualify</a>
+      </div>
+    </div>
+  </header>
+
+  <div id="top-d" style="border-bottom:1px solid #C9D1D5">
+    <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;padding:16px 0">
+      <div style="display:flex;flex-direction:column;gap:4px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:#4B575D">Subject</span><span style="font-size:14px">Direct permanent residency via the 2026 Investor Pass</span></div>
+      <div style="display:flex;flex-direction:column;gap:4px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:#4B575D">Prepared by</span><span style="font-size:14px">Residency team, Asunción</span></div>
+      <div style="display:flex;flex-direction:column;gap:4px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:#4B575D">Status</span><span style="font-size:14px">Programme is new; implementing rules still being issued</span></div>
+      <div style="display:flex;flex-direction:column;gap:4px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:#4B575D">Rules last reviewed</span><span><span style="display:inline-flex;align-items:center;padding:2px 8px;border:1px dashed #6B777D;border-radius:3px;background:#F2F4F5;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#3E4A50">DD · MM · 2026</span></span></div>
+    </div>
+  </div>
+
+  <section style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:72px;padding:88px 0 96px">
+    <div style="display:flex;flex-direction:column;gap:32px;padding-top:8px">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#0A4A57">Decision memo · Investor Pass 2026</span>
+      <h1 style="margin:0;font-size:68px;line-height:1.02;font-weight:600;letter-spacing:-0.025em;text-wrap:balance">Permanent residency in Paraguay, in one step.</h1>
+      <p style="margin:0;font-size:20px;line-height:1.5;color:#2B363B;max-width:600px;text-wrap:pretty">The Investor Pass lets qualifying investors skip temporary residency entirely. We structure the investment, file the application and stay with you until the permanent card is in your hand.</p>
+      <div style="display:flex;gap:12px">
+        <a href="#qualify-d" style="display:inline-flex;align-items:center;height:52px;padding:0 24px;background:#0A4A57;color:#FFFFFF;text-decoration:none;font-size:16px;font-weight:500" style-hover="background:#06323B">See if you qualify</a>
+        <a href="#routes-d" style="display:inline-flex;align-items:center;height:52px;padding:0 24px;border:1px solid #0F1A1E;color:#0F1A1E;text-decoration:none;font-size:16px;font-weight:500" style-hover="background:#F2F4F5">Investment routes</a>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;border-top:1px solid #0F1A1E;padding-top:20px;margin-top:16px">
+        <div style="display:flex;flex-direction:column;gap:8px"><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#0A4A57">01</span><span style="font-size:15px;line-height:1.45">Four qualifying routes (real estate, productive business, financial instruments, tourism) matched to your capital and goals</span></div>
+        <div style="display:flex;flex-direction:column;gap:8px"><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#0A4A57">02</span><span style="font-size:15px;line-height:1.45">Thresholds and rules quoted in writing, not from a stale page</span></div>
+        <div style="display:flex;flex-direction:column;gap:8px"><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#0A4A57">03</span><span style="font-size:15px;line-height:1.45">Nothing filed until you have seen cost, timeline and exit options in writing</span></div>
+      </div>
+    </div>
+
+    <div style="border:1px solid #0F1A1E;background:#FFFFFF;display:flex;flex-direction:column;align-self:start">
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:16px 24px;border-bottom:1px solid #C9D1D5">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase">Qualify in 6 questions</span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#4B575D">{{ qCounter }}</span>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:4px;padding:16px 24px 0">
+        <sc-for list="{{ qProgress }}" as="p" hint-placeholder-count="6"><div style="height:4px;background:{{ p.bg }}"></div></sc-for>
+      </div>
+      <sc-if value="{{ qActive }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex;flex-direction:column;gap:20px;padding:24px">
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <span style="font-size:22px;font-weight:600;line-height:1.25;letter-spacing:-0.01em">{{ qTitle }}</span>
+            <span style="font-size:14px;line-height:1.45;color:#4B575D">{{ qHelp }}</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <sc-for list="{{ qOptions }}" as="o" hint-placeholder-count="5">
+              <button onClick="{{ o.onSelect }}" style="display:flex;align-items:center;gap:14px;min-height:52px;padding:10px 16px;border:1px solid {{ o.bd }};background:{{ o.bg }};text-align:left;cursor:pointer;color:#0F1A1E">
+                <span style="width:18px;height:18px;border-radius:50%;border:1.5px solid {{ o.bd }};display:flex;align-items:center;justify-content:center;flex:none"><span style="width:8px;height:8px;border-radius:50%;background:{{ o.dot }}"></span></span>
+                <span style="flex:1;font-size:15px;font-weight:500">{{ o.label }}</span>
+                <sc-if value="{{ o.hasSub }}"><span style="padding:2px 8px;border:1px dashed #6B777D;border-radius:3px;background:#F2F4F5;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#3E4A50;white-space:nowrap">{{ o.sub }}</span></sc-if>
+              </button>
+            </sc-for>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding-top:4px">
+            <button onClick="{{ qBack }}" style="height:48px;padding:0 18px;border:1px solid #C9D1D5;background:#FFFFFF;font-size:15px;color:{{ qBackColor }};cursor:pointer">Back</button>
+            <button onClick="{{ qNext }}" style="height:48px;padding:0 22px;border:none;background:{{ qNextBg }};color:{{ qNextColor }};font-size:15px;font-weight:500;cursor:pointer">{{ qNextLabel }}</button>
+          </div>
+        </div>
+      </sc-if>
+      <sc-if value="{{ qDone }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;flex-direction:column;gap:16px;padding:24px">
+          <span style="font-size:22px;font-weight:600;line-height:1.25">Six answers recorded.</span>
+          <span style="font-size:15px;line-height:1.5;color:#2B363B">Send them to the Asunción team and we reply in writing within one working day with the routes that fit and what we could not yet confirm.</span>
+          <a href="#qualify-d" style="display:inline-flex;align-items:center;justify-content:center;height:52px;background:#0A4A57;color:#FFFFFF;text-decoration:none;font-size:16px;font-weight:500">Send for a written assessment</a>
+          <button onClick="{{ qRestart }}" style="height:44px;border:1px solid #C9D1D5;background:#FFFFFF;font-size:14px;color:#0F1A1E;cursor:pointer">Start again</button>
+        </div>
+      </sc-if>
+      <div style="padding:14px 24px;border-top:1px solid #C9D1D5;background:#F2F4F5;font-size:13px;line-height:1.45;color:#3E4A50">Bands follow the programme thresholds as currently published. Nothing is stored until you choose to send.</div>
+    </div>
+  </section>
+
+  <section id="routes-d" style="border-top:1px solid #0F1A1E">
+    <div style="max-width:1200px;margin:0 auto;padding:72px 0 96px;display:flex;flex-direction:column;gap:40px">
+      <div style="display:grid;grid-template-columns:minmax(0,3fr) minmax(0,9fr);gap:24px">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#0A4A57">§ 01 · Routes</span>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <h2 style="margin:0;font-size:40px;line-height:1.1;font-weight:600;letter-spacing:-0.02em">Four routes, compared on the same terms.</h2>
+          <p style="margin:0;font-size:17px;line-height:1.5;color:#2B363B;max-width:720px">Which assets and projects qualify is set by the authority and is still being clarified. Treat this as orientation; we confirm eligibility for your case in writing.</p>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:220px 150px repeat(3,minmax(0,1fr)) minmax(0,1.3fr);border-top:1px solid #0F1A1E">
+        <div style="padding:14px 16px 14px 0;border-bottom:1px solid #0F1A1E;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:#4B575D">Route</div>
+        <div style="padding:14px 16px;border-bottom:1px solid #0F1A1E;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:#4B575D">Minimum capital</div>
+        <div style="padding:14px 16px;border-bottom:1px solid #0F1A1E;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:#4B575D">Capital is</div>
+        <div style="padding:14px 16px;border-bottom:1px solid #0F1A1E;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:#4B575D">Operating burden</div>
+        <div style="padding:14px 16px;border-bottom:1px solid #0F1A1E;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:#4B575D">Holding costs</div>
+        <div style="padding:14px 0 14px 16px;border-bottom:1px solid #0F1A1E;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:#4B575D">Best for</div>
+        <sc-for list="{{ routes }}" as="r" hint-placeholder-count="4">
+          <div style="padding:22px 16px 22px 0;border-bottom:1px solid #C9D1D5;display:flex;gap:12px;align-items:baseline"><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#0A4A57">{{ r.no }}</span><span style="font-size:19px;font-weight:600;letter-spacing:-0.01em">{{ r.name }}</span></div>
+          <div style="padding:22px 16px;border-bottom:1px solid #C9D1D5"><span style="display:inline-flex;padding:2px 8px;border:1px dashed #6B777D;border-radius:3px;background:#F2F4F5;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#3E4A50;white-space:nowrap">USD —</span></div>
+          <div style="padding:22px 16px;border-bottom:1px solid #C9D1D5;display:flex;flex-direction:column;gap:4px"><span style="font-size:15px;font-weight:600">{{ r.capital }}</span><span style="font-size:14px;line-height:1.4;color:#4B575D">{{ r.capitalNote }}</span></div>
+          <div style="padding:22px 16px;border-bottom:1px solid #C9D1D5;display:flex;flex-direction:column;gap:4px"><span style="font-size:15px;font-weight:600">{{ r.burden }}</span><span style="font-size:14px;line-height:1.4;color:#4B575D">{{ r.burdenNote }}</span></div>
+          <div style="padding:22px 16px;border-bottom:1px solid #C9D1D5;display:flex;flex-direction:column;gap:4px"><span style="font-size:15px;font-weight:600">{{ r.holding }}</span><span style="font-size:14px;line-height:1.4;color:#4B575D">{{ r.holdingNote }}</span></div>
+          <div style="padding:22px 0 22px 16px;border-bottom:1px solid #C9D1D5;font-size:15px;line-height:1.45">{{ r.best }}</div>
+        </sc-for>
+      </div>
+      <span style="font-size:13px;color:#4B575D">Dashed chips are placeholders. Thresholds are quoted in writing with the source and date of the rule.</span>
+    </div>
+  </section>
+
+  <section id="timeline-d" style="background:#F2F4F5;border-top:1px solid #C9D1D5;border-bottom:1px solid #C9D1D5">
+    <div style="max-width:1200px;margin:0 auto;padding:72px 0 88px;display:flex;flex-direction:column;gap:48px">
+      <div style="display:grid;grid-template-columns:minmax(0,3fr) minmax(0,9fr);gap:24px">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#0A4A57">§ 02 · Timeline</span>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <h2 style="margin:0;font-size:40px;line-height:1.1;font-weight:600;letter-spacing:-0.02em">One application instead of two.</h2>
+          <p style="margin:0;font-size:17px;line-height:1.5;color:#2B363B;max-width:720px">The standard path runs through temporary residency before you can apply for permanent status. Under the Pass, as currently published, qualifying investors apply for permanent residency directly.</p>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:28px">
+        <div style="display:grid;grid-template-columns:220px minmax(0,1fr);gap:24px;align-items:center">
+          <div style="display:flex;flex-direction:column;gap:4px"><span style="font-size:17px;font-weight:600">Standard residency</span><span style="font-size:14px;color:#4B575D">Temporary, then permanent</span></div>
+          <div style="display:flex;align-items:stretch;height:76px;gap:3px">
+            <div style="flex:1.1;background:#C9D1D5;padding:10px 12px;display:flex;flex-direction:column;justify-content:space-between"><span style="font-size:13px;font-weight:500;line-height:1.2">Temporary application</span><span style="align-self:flex-start;padding:1px 6px;border:1px dashed #6B777D;background:#FFFFFF;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#3E4A50">— wks</span></div>
+            <div style="flex:5.4;background:repeating-linear-gradient(135deg,#DDE2E5 0 6px,#E9ECEE 6px 12px);border:1px solid #C9D1D5;padding:10px 12px;display:flex;flex-direction:column;justify-content:space-between"><span style="font-size:13px;font-weight:500">Temporary residency held before you may apply for permanent status</span><span style="align-self:flex-start;padding:1px 6px;border:1px dashed #6B777D;background:#FFFFFF;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#3E4A50">— yrs</span></div>
+            <div style="flex:1.3;background:#C9D1D5;padding:10px 12px;display:flex;flex-direction:column;justify-content:space-between"><span style="font-size:13px;font-weight:500;line-height:1.2">Permanent application</span><span style="align-self:flex-start;padding:1px 6px;border:1px dashed #6B777D;background:#FFFFFF;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#3E4A50">— wks</span></div>
+            <div style="width:120px;border-left:2px solid #0F1A1E;padding:10px 12px;display:flex;align-items:center;font-size:13px;font-weight:600">Permanent card</div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:220px minmax(0,1fr);gap:24px;align-items:center">
+          <div style="display:flex;flex-direction:column;gap:4px"><span style="font-size:17px;font-weight:600;color:#0A4A57">Investor Pass</span><span style="font-size:14px;color:#4B575D">Permanent, directly</span></div>
+          <div style="display:flex;align-items:stretch;height:76px;gap:3px">
+            <div style="flex:1.2;background:#0A4A57;color:#FFFFFF;padding:10px 12px;display:flex;flex-direction:column;justify-content:space-between"><span style="font-size:13px;font-weight:500;line-height:1.2">Investment structured</span><span style="align-self:flex-start;padding:1px 6px;border:1px dashed #0A4A57;background:#FFFFFF;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#0A4A57">— wks</span></div>
+            <div style="flex:1.5;background:#0A4A57;color:#FFFFFF;padding:10px 12px;display:flex;flex-direction:column;justify-content:space-between"><span style="font-size:13px;font-weight:500;line-height:1.2">Pass application filed and processed</span><span style="align-self:flex-start;padding:1px 6px;border:1px dashed #0A4A57;background:#FFFFFF;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#0A4A57">— wks</span></div>
+            <div style="width:120px;border-left:2px solid #0A4A57;padding:10px 12px;display:flex;align-items:center;font-size:13px;font-weight:600;color:#0A4A57">Permanent card</div>
+            <div style="flex:5.1;border-top:1px dashed #9AA5AA;align-self:center"></div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:220px minmax(0,1fr);gap:24px">
+          <span></span>
+          <div style="display:flex;justify-content:space-between;border-top:1px solid #0F1A1E;padding-top:10px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:#4B575D"><span>Start</span><span>Illustrative proportions · durations quoted in writing per case</span><span>Time →</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="writing-d">
+    <div style="max-width:1200px;margin:0 auto;padding:88px 0;display:grid;grid-template-columns:minmax(0,3fr) minmax(0,9fr);gap:24px">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#0A4A57">§ 03 · In writing</span>
+      <div style="display:flex;flex-direction:column;gap:40px">
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <h2 style="margin:0;font-size:40px;line-height:1.1;font-weight:600;letter-spacing:-0.02em">What you get in writing before anything is filed</h2>
+          <p style="margin:0;font-size:17px;line-height:1.5;color:#2B363B;max-width:720px">One written brief, dated, with the rule sources it relies on. Where a point is not yet settled by the authority, the brief says so.</p>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:48px;border-top:1px solid #0F1A1E">
+          <sc-for list="{{ checklist }}" as="c" hint-placeholder-count="4">
+            <div style="display:grid;grid-template-columns:28px minmax(0,1fr);gap:16px;padding:24px 0;border-bottom:1px solid #C9D1D5">
+              <span style="width:22px;height:22px;border:1.5px solid #0A4A57;display:flex;align-items:center;justify-content:center;color:#0A4A57;font-size:14px;font-weight:700;margin-top:2px">✓</span>
+              <div style="display:flex;flex-direction:column;gap:6px"><span style="font-size:19px;font-weight:600">{{ c.t }}</span><span style="font-size:15px;line-height:1.5;color:#2B363B">{{ c.d }}</span></div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="docs-d" style="border-top:1px solid #0F1A1E">
+    <div style="max-width:1200px;margin:0 auto;padding:72px 0 88px;display:grid;grid-template-columns:minmax(0,3fr) minmax(0,9fr);gap:24px">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#0A4A57">§ 04 · Documents</span>
+      <div style="display:flex;flex-direction:column;gap:32px">
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <h2 style="margin:0;font-size:40px;line-height:1.1;font-weight:600;letter-spacing:-0.02em">Documents by route</h2>
+          <p style="margin:0;font-size:17px;line-height:1.5;color:#2B363B;max-width:720px">Indicative. The final list depends on route, nationality and current guidance, and is confirmed in your brief.</p>
+        </div>
+        <div style="display:flex;gap:0;border-bottom:1px solid #0F1A1E">
+          <sc-for list="{{ docTabsD }}" as="t" hint-placeholder-count="4">
+            <button onClick="{{ t.onClick }}" style="height:48px;padding:0 20px;border:none;border-bottom:3px solid {{ t.bd }};margin-bottom:-1px;background:transparent;font-size:15px;font-weight:{{ t.fw }};color:{{ t.color }};cursor:pointer">{{ t.name }}</button>
+          </sc-for>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:48px">
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:#4B575D">Every applicant, typically</span>
+            <div style="display:flex;flex-direction:column;border-top:1px solid #C9D1D5">
+              <sc-for list="{{ docsCommon }}" as="d" hint-placeholder-count="5"><div style="display:grid;grid-template-columns:32px minmax(0,1fr);padding:12px 0;border-bottom:1px solid #C9D1D5;font-size:15px;line-height:1.4"><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#4B575D;padding-top:2px">{{ d.n }}</span><span>{{ d.t }}</span></div></sc-for>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:#0A4A57">{{ docRouteLabelD }}</span>
+            <div style="display:flex;flex-direction:column;border-top:1px solid #0A4A57">
+              <sc-for list="{{ docsRouteD }}" as="d" hint-placeholder-count="4"><div style="display:grid;grid-template-columns:32px minmax(0,1fr);padding:12px 0;border-bottom:1px solid #C9D1D5;font-size:15px;line-height:1.4"><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#0A4A57;padding-top:2px">{{ d.n }}</span><span>{{ d.t }}</span></div></sc-for>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="agents-d" style="background:#0F1A1E;color:#FFFFFF">
+    <div style="max-width:1200px;margin:0 auto;padding:64px 0;display:grid;grid-template-columns:minmax(0,3fr) minmax(0,4fr) minmax(0,4fr) minmax(0,1fr);gap:24px;align-items:start">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#9FD0DA">§ 05 · For agents and family offices</span>
+      <div style="display:flex;flex-direction:column;gap:10px;border-top:1px solid #56666D;padding-top:16px"><span style="font-size:20px;font-weight:600">Migration agents</span><span style="font-size:15px;line-height:1.5;color:#D4DCDF">Refer a client and keep the relationship. We handle the filing in Asunción and report to you in writing at each stage. Referral terms are agreed in writing up front.</span></div>
+      <div style="display:flex;flex-direction:column;gap:10px;border-top:1px solid #56666D;padding-top:16px"><span style="font-size:20px;font-weight:600">Family offices</span><span style="font-size:15px;line-height:1.5;color:#D4DCDF">Several principals or family members, one coordinated plan. Each person gets their own written file on route, documents and exit, so advisers can review it line by line.</span></div>
+      <a href="#qualify-d" style="display:inline-flex;align-items:center;justify-content:center;height:48px;padding:0 16px;border:1px solid #FFFFFF;color:#FFFFFF;text-decoration:none;font-size:15px;font-weight:500;white-space:nowrap" style-hover="background:#1E2B30">Write to us</a>
+    </div>
+  </section>
+
+  <section id="faq-d">
+    <div style="max-width:1200px;margin:0 auto;padding:88px 0;display:grid;grid-template-columns:minmax(0,3fr) minmax(0,9fr);gap:24px">
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#0A4A57">§ 06 · FAQ</span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:32px">
+        <h2 style="margin:0;font-size:40px;line-height:1.1;font-weight:600;letter-spacing:-0.02em">Questions we are asked first</h2>
+        <div style="display:flex;flex-direction:column;border-top:1px solid #0F1A1E">
+          <sc-for list="{{ faqD }}" as="f" hint-placeholder-count="5">
+            <div style="border-bottom:1px solid #C9D1D5">
+              <button onClick="{{ f.onToggle }}" style="width:100%;display:grid;grid-template-columns:40px minmax(0,1fr) 32px;align-items:center;min-height:68px;padding:12px 0;border:none;background:transparent;text-align:left;cursor:pointer;color:#0F1A1E">
+                <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#4B575D">{{ f.n }}</span>
+                <span style="font-size:19px;font-weight:600">{{ f.q }}</span>
+                <span style="font-size:22px;font-weight:400;text-align:center;color:#0A4A57">{{ f.sign }}</span>
+              </button>
+              <sc-if value="{{ f.open }}">
+                <div style="padding:0 72px 24px 40px;display:flex;flex-direction:column;gap:16px">
+                  <p style="margin:0;font-size:16px;line-height:1.55;color:#2B363B;max-width:760px">{{ f.a }}</p>
+                  <sc-if value="{{ f.hasChips }}">
+                    <div style="display:flex;gap:24px">
+                      <sc-for list="{{ f.chips }}" as="c"><div style="display:flex;align-items:center;gap:10px;font-size:14px"><span style="color:#4B575D">{{ c.l }}</span><span style="padding:2px 8px;border:1px dashed #6B777D;border-radius:3px;background:#F2F4F5;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#3E4A50">{{ c.v }}</span></div></sc-for>
+                    </div>
+                  </sc-if>
+                </div>
+              </sc-if>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="qualify-d" style="background:#E4EEF0;border-top:1px solid #0A4A57">
+    <div style="max-width:1200px;margin:0 auto;padding:88px 0;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:72px">
+      <div style="display:flex;flex-direction:column;gap:20px">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#0A4A57">§ 07 · Qualification</span>
+        <h2 style="margin:0;font-size:48px;line-height:1.05;font-weight:600;letter-spacing:-0.02em">See if you qualify.</h2>
+        <p style="margin:0;font-size:17px;line-height:1.55;color:#1E2B30">Send a few facts about your capital and family. A member of the Asunción team replies in writing within one working day with the routes that fit and what is not yet confirmed. We do not book sales calls.</p>
+        <div style="display:flex;flex-direction:column;gap:8px;border-top:1px solid #0A4A57;padding-top:20px;margin-top:8px">
+          <span style="font-size:15px;font-weight:600">Prefer WhatsApp?</span>
+          <a href="#qualify-d" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;height:52px;width:280px;border:1px solid #0F1A1E;background:#FFFFFF;color:#0F1A1E;text-decoration:none;font-size:16px;font-weight:500" style-hover="background:#F2F4F5">Message us on WhatsApp</a>
+          <span style="display:flex;align-items:center;gap:8px;font-size:13px;color:#2B363B">Number <span style="padding:1px 6px;border:1px dashed #6B777D;background:#FFFFFF;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#3E4A50">+595 — — —</span></span>
+        </div>
+      </div>
+      <form style="background:#FFFFFF;border:1px solid #0F1A1E;padding:32px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px">
+        <label style="display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:500">Full name<input type="text" style="height:48px;border:1px solid #9AA5AA;padding:0 12px;font-size:15px"></label>
+        <label style="display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:500">Email<input type="email" style="height:48px;border:1px solid #9AA5AA;padding:0 12px;font-size:15px"></label>
+        <label style="display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:500">Nationality (all passports)<input type="text" style="height:48px;border:1px solid #9AA5AA;padding:0 12px;font-size:15px"></label>
+        <label style="display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:500">Capital band<select style="height:48px;border:1px solid #9AA5AA;padding:0 10px;font-size:15px;background:#FFFFFF;color:#0F1A1E"><option>Choose a band</option><option>Band A · USD — to —</option><option>Band B · USD — to —</option><option>Band C · USD — to —</option><option>Band D · USD — and above</option><option>Not decided yet</option></select></label>
+        <label style="grid-column:1 / -1;display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:500">Anything we should know<textarea rows="3" style="border:1px solid #9AA5AA;padding:10px 12px;font-size:15px;resize:vertical"></textarea></label>
+        <div style="grid-column:1 / -1;display:flex;align-items:center;justify-content:space-between;gap:24px">
+          <span style="font-size:13px;line-height:1.45;color:#3E4A50;max-width:340px">Used only to answer you. Written reply within one working day.</span>
+          <button type="button" style="height:52px;padding:0 28px;border:none;background:#0A4A57;color:#FFFFFF;font-size:16px;font-weight:500;cursor:pointer" style-hover="background:#06323B">Send for a written assessment</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <footer style="border-top:1px solid #0F1A1E">
+    <div style="max-width:1200px;margin:0 auto;padding:56px 0 40px;display:flex;flex-direction:column;gap:40px">
+      <div style="display:grid;grid-template-columns:minmax(0,5fr) minmax(0,3fr) minmax(0,4fr);gap:48px">
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <span style="display:flex;align-items:center;gap:12px"><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;padding:5px 7px;background:#0A4A57;color:#FFFFFF">PY·IP</span><span style="font-size:18px;font-weight:600">Paraguay Investor Pass</span></span>
+          <span style="font-size:14px;line-height:1.5;color:#3E4A50;max-width:420px">Run by a residency team in Asunción. Information on this site is general, not legal advice. The programme is new and its rules may change; approval is decided by the authority, not by us.</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px;font-size:14px">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:#4B575D">This site</span>
+          <a href="#routes-d" style="color:#0F1A1E">Investment routes</a><a href="#timeline-d" style="color:#0F1A1E">Timeline</a><a href="#faq-d" style="color:#0F1A1E">FAQ</a><a href="#qualify-d" style="color:#0F1A1E">See if you qualify</a>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px;font-size:14px">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:#4B575D">Sister sites</span>
+          <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 24px">
+            <a href="#" style="color:#0F1A1E">Paraguay Residency</a><a href="#" style="color:#0F1A1E">Paraguay Residency Guide</a><a href="#" style="color:#0F1A1E">Paraguay Frontier</a><a href="#" style="color:#0F1A1E">Residencia en Paraguay</a><a href="#" style="color:#0F1A1E">Vida no Paraguai</a><a href="#" style="color:#0F1A1E">Flytta till Paraguay</a>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;justify-content:space-between;border-top:1px solid #C9D1D5;padding-top:16px;font-size:13px;color:#4B575D"><span>© 2026 paraguayinvestorpass.com</span><span style="display:flex;gap:24px"><a href="#" style="color:#4B575D">Privacy</a><a href="#" style="color:#4B575D">Terms</a><a href="#" style="color:#4B575D">Imprint</a></span></div>
+    </div>
+  </footer>
+</div>
+
+<div style="font-family:'IBM Plex Mono',monospace;font-size:14px;letter-spacing:0.06em;text-transform:uppercase;color:#2B363B;margin-top:56px">Home — mobile · 390</div>
+
+<!-- ================= MOBILE ================= -->
+<div data-screen-label="Home — mobile" style="width:390px;background:#FFFFFF;box-shadow:0 1px 3px rgba(15,26,30,0.12);font-variant-numeric:tabular-nums">
+
+  <header style="height:60px;border-bottom:1px solid #0F1A1E;display:flex;align-items:center;justify-content:space-between;padding:0 8px 0 20px">
+    <span style="display:flex;align-items:center;gap:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:500;padding:4px 6px;background:#0A4A57;color:#FFFFFF">PY·IP</span><span style="font-size:16px;font-weight:600">Paraguay Investor Pass</span></span>
+    <button style="height:44px;min-width:64px;padding:0 12px;border:none;background:transparent;font-size:15px;font-weight:500;color:#0F1A1E">Menu</button>
+  </header>
+  <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 20px;border-bottom:1px solid #C9D1D5;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:#4B575D"><span>Rules reviewed</span><span style="padding:1px 6px;border:1px dashed #6B777D;background:#F2F4F5;color:#3E4A50">DD · MM · 2026</span></div>
+
+  <section style="padding:32px 20px 40px;display:flex;flex-direction:column;gap:24px">
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:#0A4A57">Decision memo · Investor Pass 2026</span>
+    <h1 style="margin:0;font-size:40px;line-height:1.04;font-weight:600;letter-spacing:-0.025em;text-wrap:balance">Permanent residency in Paraguay, in one step.</h1>
+
+    <div style="border:1px solid #0F1A1E;display:flex;flex-direction:column">
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 16px;border-bottom:1px solid #C9D1D5">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase">Qualify in 6 questions</span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#4B575D">{{ qCounter }}</span>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:3px;padding:14px 16px 0">
+        <sc-for list="{{ qProgress }}" as="p" hint-placeholder-count="6"><div style="height:4px;background:{{ p.bg }}"></div></sc-for>
+      </div>
+      <sc-if value="{{ qActive }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex;flex-direction:column;gap:16px;padding:18px 16px">
+          <div style="display:flex;flex-direction:column;gap:6px"><span style="font-size:19px;font-weight:600;line-height:1.25">{{ qTitle }}</span><span style="font-size:14px;line-height:1.45;color:#4B575D">{{ qHelp }}</span></div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <sc-for list="{{ qOptions }}" as="o" hint-placeholder-count="5">
+              <button onClick="{{ o.onSelect }}" style="display:flex;align-items:center;gap:12px;min-height:52px;padding:10px 12px;border:1px solid {{ o.bd }};background:{{ o.bg }};text-align:left;cursor:pointer;color:#0F1A1E">
+                <span style="width:18px;height:18px;border-radius:50%;border:1.5px solid {{ o.bd }};display:flex;align-items:center;justify-content:center;flex:none"><span style="width:8px;height:8px;border-radius:50%;background:{{ o.dot }}"></span></span>
+                <span style="flex:1;display:flex;flex-direction:column;gap:4px"><span style="font-size:15px;font-weight:500">{{ o.label }}</span><sc-if value="{{ o.hasSub }}"><span style="align-self:flex-start;padding:1px 6px;border:1px dashed #6B777D;background:#F2F4F5;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#3E4A50">{{ o.sub }}</span></sc-if></span>
+              </button>
+            </sc-for>
+          </div>
+          <div style="display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px">
+            <button onClick="{{ qBack }}" style="height:48px;padding:0 16px;border:1px solid #C9D1D5;background:#FFFFFF;font-size:15px;color:{{ qBackColor }}">Back</button>
+            <button onClick="{{ qNext }}" style="height:48px;border:none;background:{{ qNextBg }};color:{{ qNextColor }};font-size:15px;font-weight:500">{{ qNextLabel }}</button>
+          </div>
+        </div>
+      </sc-if>
+      <sc-if value="{{ qDone }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;flex-direction:column;gap:12px;padding:18px 16px">
+          <span style="font-size:19px;font-weight:600">Six answers recorded.</span>
+          <span style="font-size:15px;line-height:1.5;color:#2B363B">Send them and we reply in writing within one working day.</span>
+          <a href="#qualify-m" style="display:flex;align-items:center;justify-content:center;height:52px;background:#0A4A57;color:#FFFFFF;text-decoration:none;font-size:16px;font-weight:500">Send for a written assessment</a>
+          <button onClick="{{ qRestart }}" style="height:44px;border:1px solid #C9D1D5;background:#FFFFFF;font-size:14px;color:#0F1A1E">Start again</button>
+        </div>
+      </sc-if>
+    </div>
+
+    <p style="margin:0;font-size:17px;line-height:1.5;color:#2B363B;text-wrap:pretty">The Investor Pass lets qualifying investors skip temporary residency entirely. We structure the investment, file the application and stay with you until the permanent card is in your hand.</p>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <a href="#qualify-m" style="display:flex;align-items:center;justify-content:center;height:52px;background:#0A4A57;color:#FFFFFF;text-decoration:none;font-size:16px;font-weight:500">See if you qualify</a>
+      <a href="#routes-m" style="display:flex;align-items:center;justify-content:center;height:52px;border:1px solid #0F1A1E;color:#0F1A1E;text-decoration:none;font-size:16px;font-weight:500">Investment routes</a>
+    </div>
+    <div style="display:flex;flex-direction:column;border-top:1px solid #0F1A1E">
+      <div style="display:grid;grid-template-columns:32px minmax(0,1fr);padding:14px 0;border-bottom:1px solid #C9D1D5"><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#0A4A57">01</span><span style="font-size:15px;line-height:1.45">Four qualifying routes (real estate, productive business, financial instruments, tourism) matched to your capital and goals</span></div>
+      <div style="display:grid;grid-template-columns:32px minmax(0,1fr);padding:14px 0;border-bottom:1px solid #C9D1D5"><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#0A4A57">02</span><span style="font-size:15px;line-height:1.45">Thresholds and rules quoted in writing, not from a stale page</span></div>
+      <div style="display:grid;grid-template-columns:32px minmax(0,1fr);padding:14px 0;border-bottom:1px solid #C9D1D5"><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#0A4A57">03</span><span style="font-size:15px;line-height:1.45">Nothing filed until you have seen cost, timeline and exit options in writing</span></div>
+    </div>
+  </section>
+
+  <section id="routes-m" style="border-top:1px solid #0F1A1E;padding:40px 0;display:flex;flex-direction:column;gap:20px">
+    <div style="padding:0 20px;display:flex;flex-direction:column;gap:10px">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:#0A4A57">§ 01 · Routes</span>
+      <h2 style="margin:0;font-size:28px;line-height:1.12;font-weight:600;letter-spacing:-0.02em">Four routes, compared on the same terms.</h2>
+      <p style="margin:0;font-size:15px;line-height:1.5;color:#2B363B">Qualifying assets are set by the authority and still being clarified. We confirm eligibility in writing.</p>
+    </div>
+    <div style="display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 20px 8px;scroll-padding:0 20px">
+      <sc-for list="{{ routes }}" as="r" hint-placeholder-count="4">
+        <div style="flex:none;width:310px;scroll-snap-align:start;border:1px solid #0F1A1E;display:flex;flex-direction:column">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;padding:14px 16px;border-bottom:1px solid #0F1A1E"><span style="font-size:19px;font-weight:600">{{ r.name }}</span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#4B575D">{{ r.pos }}</span></div>
+          <div style="display:grid;grid-template-columns:110px minmax(0,1fr);gap:12px;padding:12px 16px;border-bottom:1px solid #C9D1D5;align-items:center"><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:#4B575D">Min. capital</span><span><span style="padding:2px 8px;border:1px dashed #6B777D;background:#F2F4F5;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#3E4A50">USD —</span></span></div>
+          <div style="display:grid;grid-template-columns:110px minmax(0,1fr);gap:12px;padding:12px 16px;border-bottom:1px solid #C9D1D5"><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:#4B575D;padding-top:3px">Capital is</span><span style="font-size:14px;line-height:1.4"><b style="font-weight:600">{{ r.capital }}.</b> {{ r.capitalNote }}</span></div>
+          <div style="display:grid;grid-template-columns:110px minmax(0,1fr);gap:12px;padding:12px 16px;border-bottom:1px solid #C9D1D5"><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:#4B575D;padding-top:3px">Operating burden</span><span style="font-size:14px;line-height:1.4"><b style="font-weight:600">{{ r.burden }}.</b> {{ r.burdenNote }}</span></div>
+          <div style="display:grid;grid-template-columns:110px minmax(0,1fr);gap:12px;padding:12px 16px;border-bottom:1px solid #C9D1D5"><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:#4B575D;padding-top:3px">Holding costs</span><span style="font-size:14px;line-height:1.4"><b style="font-weight:600">{{ r.holding }}.</b> {{ r.holdingNote }}</span></div>
+          <div style="display:flex;flex-direction:column;gap:6px;padding:12px 16px 16px;background:#F2F4F5;flex:1"><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:#0A4A57">Best for</span><span style="font-size:14px;line-height:1.45">{{ r.best }}</span></div>
+        </div>
+      </sc-for>
+    </div>
+    <span style="padding:0 20px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:#4B575D">Swipe for all four routes →</span>
+  </section>
+
+  <section id="timeline-m" style="background:#F2F4F5;border-top:1px solid #C9D1D5;border-bottom:1px solid #C9D1D5;padding:40px 20px;display:flex;flex-direction:column;gap:24px">
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:#0A4A57">§ 02 · Timeline</span>
+      <h2 style="margin:0;font-size:28px;line-height:1.12;font-weight:600;letter-spacing:-0.02em">One application instead of two.</h2>
+      <p style="margin:0;font-size:15px;line-height:1.5;color:#2B363B">Under the Pass, as currently published, qualifying investors apply for permanent residency directly.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <span style="font-size:16px;font-weight:600">Standard residency</span>
+      <div style="display:grid;grid-template-columns:10px minmax(0,1fr);column-gap:14px">
+        <div style="background:#9AA5AA;height:56px"></div><div style="display:flex;justify-content:space-between;align-items:center;gap:8px;border-bottom:1px solid #C9D1D5;font-size:14px"><span>Temporary application</span><span style="padding:1px 6px;border:1px dashed #6B777D;background:#FFFFFF;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#3E4A50">— wks</span></div>
+        <div style="background:repeating-linear-gradient(135deg,#9AA5AA 0 4px,#C9D1D5 4px 8px);height:160px"></div><div style="display:flex;justify-content:space-between;align-items:center;gap:8px;border-bottom:1px solid #C9D1D5;font-size:14px"><span>Temporary residency held</span><span style="padding:1px 6px;border:1px dashed #6B777D;background:#FFFFFF;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#3E4A50">— yrs</span></div>
+        <div style="background:#9AA5AA;height:56px"></div><div style="display:flex;justify-content:space-between;align-items:center;gap:8px;border-bottom:1px solid #C9D1D5;font-size:14px"><span>Permanent application</span><span style="padding:1px 6px;border:1px dashed #6B777D;background:#FFFFFF;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#3E4A50">— wks</span></div>
+        <div style="height:40px;border-bottom:2px solid #0F1A1E"></div><div style="display:flex;align-items:center;font-size:14px;font-weight:600">Permanent card</div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <span style="font-size:16px;font-weight:600;color:#0A4A57">Investor Pass</span>
+      <div style="display:grid;grid-template-columns:10px minmax(0,1fr);column-gap:14px">
+        <div style="background:#0A4A57;height:56px"></div><div style="display:flex;justify-content:space-between;align-items:center;gap:8px;border-bottom:1px solid #C9D1D5;font-size:14px"><span>Investment structured</span><span style="padding:1px 6px;border:1px dashed #0A4A57;background:#FFFFFF;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#0A4A57">— wks</span></div>
+        <div style="background:#0A4A57;height:72px"></div><div style="display:flex;justify-content:space-between;align-items:center;gap:8px;border-bottom:1px solid #C9D1D5;font-size:14px"><span>Pass application filed and processed</span><span style="padding:1px 6px;border:1px dashed #0A4A57;background:#FFFFFF;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#0A4A57">— wks</span></div>
+        <div style="height:40px;border-bottom:2px solid #0A4A57"></div><div style="display:flex;align-items:center;font-size:14px;font-weight:600;color:#0A4A57">Permanent card</div>
+      </div>
+    </div>
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:#4B575D;line-height:1.5">Illustrative proportions · durations quoted in writing per case</span>
+  </section>
+
+  <section id="writing-m" style="padding:40px 20px;display:flex;flex-direction:column;gap:20px">
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:#0A4A57">§ 03 · In writing</span>
+    <h2 style="margin:0;font-size:28px;line-height:1.12;font-weight:600;letter-spacing:-0.02em">What you get in writing before anything is filed</h2>
+    <div style="display:flex;flex-direction:column;border-top:1px solid #0F1A1E">
+      <sc-for list="{{ checklist }}" as="c" hint-placeholder-count="4">
+        <div style="display:grid;grid-template-columns:28px minmax(0,1fr);gap:12px;padding:18px 0;border-bottom:1px solid #C9D1D5">
+          <span style="width:22px;height:22px;border:1.5px solid #0A4A57;display:flex;align-items:center;justify-content:center;color:#0A4A57;font-size:14px;font-weight:700">✓</span>
+          <div style="display:flex;flex-direction:column;gap:4px"><span style="font-size:17px;font-weight:600">{{ c.t }}</span><span style="font-size:14px;line-height:1.5;color:#2B363B">{{ c.d }}</span></div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section id="docs-m" style="border-top:1px solid #0F1A1E;padding:40px 0;display:flex;flex-direction:column;gap:16px">
+    <div style="padding:0 20px;display:flex;flex-direction:column;gap:10px">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:#0A4A57">§ 04 · Documents</span>
+      <h2 style="margin:0;font-size:28px;line-height:1.12;font-weight:600;letter-spacing:-0.02em">Documents by route</h2>
+      <p style="margin:0;font-size:15px;line-height:1.5;color:#2B363B">Indicative. Confirmed per route and nationality in your brief.</p>
+    </div>
+    <div style="display:flex;gap:8px;overflow-x:auto;padding:0 20px 4px">
+      <sc-for list="{{ docTabsM }}" as="t" hint-placeholder-count="4">
+        <button onClick="{{ t.onClick }}" style="flex:none;height:44px;padding:0 14px;border:1px solid {{ t.chipBd }};background:{{ t.chipBg }};color:{{ t.chipColor }};font-size:14px;font-weight:500">{{ t.name }}</button>
+      </sc-for>
+    </div>
+    <div style="padding:0 20px;display:flex;flex-direction:column;gap:20px">
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:#0A4A57">{{ docRouteLabelM }}</span>
+        <div style="display:flex;flex-direction:column;border-top:1px solid #0A4A57">
+          <sc-for list="{{ docsRouteM }}" as="d" hint-placeholder-count="4"><div style="display:grid;grid-template-columns:28px minmax(0,1fr);padding:11px 0;border-bottom:1px solid #C9D1D5;font-size:14px;line-height:1.4"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#0A4A57;padding-top:2px">{{ d.n }}</span><span>{{ d.t }}</span></div></sc-for>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:#4B575D">Every applicant, typically</span>
+        <div style="display:flex;flex-direction:column;border-top:1px solid #C9D1D5">
+          <sc-for list="{{ docsCommon }}" as="d" hint-placeholder-count="5"><div style="display:grid;grid-template-columns:28px minmax(0,1fr);padding:11px 0;border-bottom:1px solid #C9D1D5;font-size:14px;line-height:1.4"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#4B575D;padding-top:2px">{{ d.n }}</span><span>{{ d.t }}</span></div></sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="agents-m" style="background:#0F1A1E;color:#FFFFFF;padding:40px 20px;display:flex;flex-direction:column;gap:20px">
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:#9FD0DA">§ 05 · For agents and family offices</span>
+    <div style="display:flex;flex-direction:column;gap:8px;border-top:1px solid #56666D;padding-top:14px"><span style="font-size:18px;font-weight:600">Migration agents</span><span style="font-size:15px;line-height:1.5;color:#D4DCDF">Refer a client and keep the relationship. We handle the filing in Asunción and report to you in writing at each stage. Referral terms are agreed in writing up front.</span></div>
+    <div style="display:flex;flex-direction:column;gap:8px;border-top:1px solid #56666D;padding-top:14px"><span style="font-size:18px;font-weight:600">Family offices</span><span style="font-size:15px;line-height:1.5;color:#D4DCDF">Several principals or family members, one coordinated plan. Each person gets their own written file on route, documents and exit.</span></div>
+    <a href="#qualify-m" style="display:flex;align-items:center;justify-content:center;height:48px;border:1px solid #FFFFFF;color:#FFFFFF;text-decoration:none;font-size:15px;font-weight:500">Write to us</a>
+  </section>
+
+  <section id="faq-m" style="padding:40px 20px;display:flex;flex-direction:column;gap:20px">
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:#0A4A57">§ 06 · FAQ</span>
+    <h2 style="margin:0;font-size:28px;line-height:1.12;font-weight:600;letter-spacing:-0.02em">Questions we are asked first</h2>
+    <div style="display:flex;flex-direction:column;border-top:1px solid #0F1A1E">
+      <sc-for list="{{ faqM }}" as="f" hint-placeholder-count="5">
+        <div style="border-bottom:1px solid #C9D1D5">
+          <button onClick="{{ f.onToggle }}" style="width:100%;display:grid;grid-template-columns:minmax(0,1fr) 28px;align-items:center;gap:8px;min-height:60px;padding:12px 0;border:none;background:transparent;text-align:left;color:#0F1A1E">
+            <span style="font-size:16px;font-weight:600;line-height:1.3">{{ f.q }}</span>
+            <span style="font-size:22px;text-align:center;color:#0A4A57">{{ f.sign }}</span>
+          </button>
+          <sc-if value="{{ f.open }}">
+            <div style="padding:0 0 18px;display:flex;flex-direction:column;gap:12px">
+              <p style="margin:0;font-size:15px;line-height:1.55;color:#2B363B">{{ f.a }}</p>
+              <sc-if value="{{ f.hasChips }}">
+                <div style="display:flex;flex-direction:column;gap:8px">
+                  <sc-for list="{{ f.chips }}" as="c"><div style="display:flex;justify-content:space-between;align-items:center;font-size:14px"><span style="color:#4B575D">{{ c.l }}</span><span style="padding:2px 8px;border:1px dashed #6B777D;background:#F2F4F5;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#3E4A50">{{ c.v }}</span></div></sc-for>
+                </div>
+              </sc-if>
+            </div>
+          </sc-if>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section id="qualify-m" style="background:#E4EEF0;border-top:1px solid #0A4A57;padding:40px 20px;display:flex;flex-direction:column;gap:20px">
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:#0A4A57">§ 07 · Qualification</span>
+    <h2 style="margin:0;font-size:32px;line-height:1.08;font-weight:600;letter-spacing:-0.02em">See if you qualify.</h2>
+    <p style="margin:0;font-size:15px;line-height:1.55;color:#1E2B30">A member of the Asunción team replies in writing within one working day. We do not book sales calls.</p>
+    <form style="background:#FFFFFF;border:1px solid #0F1A1E;padding:20px 16px;display:flex;flex-direction:column;gap:16px">
+      <label style="display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:500">Full name<input type="text" style="height:48px;border:1px solid #9AA5AA;padding:0 12px;font-size:16px"></label>
+      <label style="display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:500">Email<input type="email" style="height:48px;border:1px solid #9AA5AA;padding:0 12px;font-size:16px"></label>
+      <label style="display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:500">Nationality (all passports)<input type="text" style="height:48px;border:1px solid #9AA5AA;padding:0 12px;font-size:16px"></label>
+      <label style="display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:500">Capital band<select style="height:48px;border:1px solid #9AA5AA;padding:0 10px;font-size:16px;background:#FFFFFF;color:#0F1A1E"><option>Choose a band</option><option>Band A · USD — to —</option><option>Band B · USD — to —</option><option>Band C · USD — to —</option><option>Band D · USD — and above</option><option>Not decided yet</option></select></label>
+      <button type="button" style="height:52px;border:none;background:#0A4A57;color:#FFFFFF;font-size:16px;font-weight:500">Send for a written assessment</button>
+      <span style="font-size:13px;line-height:1.45;color:#3E4A50">Used only to answer you.</span>
+    </form>
+    <a href="#qualify-m" style="display:flex;align-items:center;justify-content:center;height:52px;border:1px solid #0F1A1E;background:#FFFFFF;color:#0F1A1E;text-decoration:none;font-size:16px;font-weight:500">Message us on WhatsApp</a>
+  </section>
+
+  <footer style="border-top:1px solid #0F1A1E;padding:32px 20px 24px;display:flex;flex-direction:column;gap:24px">
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <span style="font-size:17px;font-weight:600">Paraguay Investor Pass</span>
+      <span style="font-size:13px;line-height:1.5;color:#3E4A50">Run by a residency team in Asunción. General information, not legal advice. The programme is new and its rules may change; approval is decided by the authority.</span>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:4px">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:#4B575D;padding-bottom:4px">Sister sites</span>
+      <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:16px;font-size:14px">
+        <a href="#" style="display:flex;align-items:center;min-height:44px;color:#0F1A1E">Paraguay Residency</a><a href="#" style="display:flex;align-items:center;min-height:44px;color:#0F1A1E">Paraguay Residency Guide</a><a href="#" style="display:flex;align-items:center;min-height:44px;color:#0F1A1E">Paraguay Frontier</a><a href="#" style="display:flex;align-items:center;min-height:44px;color:#0F1A1E">Residencia en Paraguay</a><a href="#" style="display:flex;align-items:center;min-height:44px;color:#0F1A1E">Vida no Paraguai</a><a href="#" style="display:flex;align-items:center;min-height:44px;color:#0F1A1E">Flytta till Paraguay</a>
+      </div>
+    </div>
+    <div style="display:flex;justify-content:space-between;border-top:1px solid #C9D1D5;padding-top:12px;font-size:12px;color:#4B575D"><span>© 2026 paraguayinvestorpass.com</span><span style="display:flex;gap:16px"><a href="#" style="color:#4B575D">Privacy</a><a href="#" style="color:#4B575D">Terms</a></span></div>
+  </footer>
+
+  <div style="position:sticky;bottom:0;background:#FFFFFF;border-top:1px solid #0F1A1E;padding:10px 12px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;z-index:5">
+    <a href="#qualify-m" style="display:flex;align-items:center;justify-content:center;height:52px;background:#0A4A57;color:#FFFFFF;text-decoration:none;font-size:16px;font-weight:500">See if you qualify</a>
+    <a href="#qualify-m" style="display:flex;align-items:center;justify-content:center;height:52px;padding:0 14px;border:1px solid #0F1A1E;color:#0F1A1E;text-decoration:none;font-size:15px;font-weight:500">WhatsApp</a>
+  </div>
+</div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { step: 0, answers: {}, faqD: 0, faqM: -1, docD: 0, docM: 0 };
+
+  Q = [
+    { t: 'How much capital are you prepared to commit?', h: 'Bands follow the programme thresholds. Exact figures are confirmed in writing.', o: [['Band A', 'USD — to —'], ['Band B', 'USD — to —'], ['Band C', 'USD — to —'], ['Band D', 'USD — and above'], ['Not decided yet', '']] },
+    { t: 'Which route interests you most?', h: 'You can change this later. The brief compares all four.', o: [['Real estate', ''], ['Productive business', ''], ['Financial instruments', ''], ['Tourism', ''], ['No preference yet', '']] },
+    { t: 'Can you document the lawful origin of the funds?', h: 'Origin of funds is typically reviewed by the authority.', o: [['Yes, fully documented', ''], ['Partly', ''], ['Not yet', '']] },
+    { t: 'Who would apply?', h: 'Rules on including family are still being clarified.', o: [['Only me', ''], ['Me and a spouse or partner', ''], ['Me, a partner and dependent children', ''], ['Several principals', '']] },
+    { t: 'Which passport(s) do you hold?', h: 'Document requirements vary by nationality.', o: [['EU / EEA / Switzerland', ''], ['UK, US or Canada', ''], ['Latin America', ''], ['Other', '']] },
+    { t: 'When would you want to file?', h: 'Nothing is filed until you have read our written brief.', o: [['As soon as the brief is ready', ''], ['Later this year', ''], ['Researching for now', '']] },
+  ];
+
+  routes = [
+    { no: 'R1', name: 'Real estate', capital: 'Locked', capitalNote: 'Held in property for the required period', burden: 'Low', burdenNote: 'Rental or management can be delegated', holding: 'Moderate', holdingNote: 'Property tax, upkeep, management', best: 'Investors who want a tangible asset and possibly a base in the country' },
+    { no: 'R2', name: 'Productive business', capital: 'Productive', capitalNote: 'Deployed in operations and staff', burden: 'High', burdenNote: 'Staffing, tax and compliance reporting', holding: 'Variable', holdingNote: 'Tied to how the business performs', best: 'Operators expanding into the region who would invest anyway' },
+    { no: 'R3', name: 'Financial instruments', capital: 'Locked', capitalNote: 'Held for the required term', burden: 'Low', burdenNote: 'Largely passive once placed', holding: 'Low', holdingNote: 'Custody and account fees', best: 'Passive investors and family offices wanting the simplest structure' },
+    { no: 'R4', name: 'Tourism', capital: 'Productive', capitalNote: 'Placed in a tourism or hospitality project', burden: 'Medium to high', burdenNote: 'Project delivery and licensing', holding: 'Moderate to high', holdingNote: 'Operating costs until the project runs', best: 'Investors with hospitality experience or an existing project' },
+  ];
+
+  checklist = [
+    { t: 'Cost', d: 'Every line itemised: the investment itself, government fees, our fee, translations and apostilles, and the holding costs of the asset.' },
+    { t: 'Timeline', d: 'Each stage in order, what it depends on, and where the authority sets the pace rather than us.' },
+    { t: 'Exit options', d: 'What happens if you sell, withdraw or the rules change, and how each choice may affect your residency status.' },
+    { t: 'Documents per nationality', d: 'The list for your passport(s), which papers need apostille or legalisation, and what each family member needs.' },
+  ];
+
+  common = ['Valid passport', 'Birth certificate, apostilled or legalised', 'Criminal record certificate from country of residence', 'Proof of lawful origin of funds', 'Sworn translations into Spanish where required'];
+  byRoute = [
+    ['Purchase contract and title deed', 'Independent valuation of the property', 'Proof of transfer of funds', 'Registration of the title'],
+    ['Company incorporation documents', 'Business plan and investment schedule', 'Proof of capital transfer into the company', 'Local tax registration'],
+    ['Certificate from the holding institution', 'Confirmation of term and amount', 'Proof of transfer of funds'],
+    ['Project description and investment plan', 'Registration with the tourism authority', 'Proof of transfer of funds', 'Licences for the project site'],
+  ];
+
+  faq = [
+    { q: 'Is the programme stable?', a: 'It is new. The Investor Pass was introduced in 2026 and its implementing rules are still being issued and adjusted. We quote the rules in force on the day we write to you, with their source, and flag what could change before you file.' },
+    { q: 'Can family be included?', a: 'In general a spouse and dependent children can apply alongside the main investor, but conditions and documents differ and have not been settled for every case. We confirm your family\u2019s position in writing before anything is filed.' },
+    { q: 'Can I exit the investment?', a: 'Exit terms depend on the route and on minimum holding requirements that are still being clarified. Selling early may affect your status. Your brief sets out what is known, what is unconfirmed, and the consequences of each exit.' },
+    { q: 'How is the investment verified?', a: 'Typically through documentary evidence such as deeds, bank certificates or company filings, together with proof of the lawful origin of the funds, reviewed by the migration authority. We assemble and check this file before submission.' },
+    { q: 'What does the standard route cost instead?', a: 'The standard route goes through temporary residency first. Upfront costs are usually lower, but the process takes longer and involves a second application. We quote both side by side for your case.', chips: [{ l: 'Standard route, total', v: 'USD —' }, { l: 'Investor Pass, total', v: 'USD —' }] },
+  ];
+
+  select = (i) => this.setState(s => ({ answers: { ...s.answers, [s.step]: i } }));
+  next = () => this.setState(s => (s.answers[s.step] === undefined ? null : { step: s.step + 1 }));
+  back = () => this.setState(s => ({ step: Math.max(0, s.step - 1) }));
+  restart = () => this.setState({ step: 0, answers: {} });
+
+  faqList(key) {
+    const open = this.state[key];
+    return this.faq.map((f, i) => ({
+      ...f, n: String(i + 1).padStart(2, '0'), open: open === i, sign: open === i ? '−' : '+',
+      hasChips: !!f.chips, chips: f.chips || [],
+      onToggle: () => this.setState({ [key]: open === i ? -1 : i }),
+    }));
+  }
+
+  docTabs(key) {
+    const cur = this.state[key];
+    return this.routes.map((r, i) => {
+      const on = cur === i;
+      return {
+        name: r.name, onClick: () => this.setState({ [key]: i }),
+        bd: on ? '#0A4A57' : 'transparent', color: on ? '#0A4A57' : '#2B363B', fw: on ? 600 : 500,
+        chipBd: on ? '#0A4A57' : '#9AA5AA', chipBg: on ? '#0A4A57' : '#FFFFFF', chipColor: on ? '#FFFFFF' : '#0F1A1E',
+      };
+    });
+  }
+
+  renderVals() {
+    const { step, answers } = this.state;
+    const done = step >= this.Q.length;
+    const q = this.Q[Math.min(step, this.Q.length - 1)];
+    const sel = answers[step];
+    const has = sel !== undefined;
+    const pad = n => String(n).padStart(2, '0');
+    const docs = list => list.map((t, i) => ({ n: pad(i + 1), t }));
+    const commonStart = 0;
+    return {
+      qActive: !done, qDone: done,
+      qCounter: done ? '06 / 06' : `${pad(step + 1)} / 06`,
+      qProgress: this.Q.map((_, i) => ({ bg: i < step || done ? '#0A4A57' : i === step ? '#6F9AA3' : '#DDE2E5' })),
+      qTitle: q.t, qHelp: q.h,
+      qOptions: q.o.map(([label, sub], i) => {
+        const on = sel === i;
+        return { label, sub, hasSub: !!sub, onSelect: () => this.select(i), bd: on ? '#0A4A57' : '#9AA5AA', bg: on ? '#E4EEF0' : '#FFFFFF', dot: on ? '#0A4A57' : 'transparent' };
+      }),
+      qBack: this.back, qNext: this.next, qRestart: this.restart,
+      qBackColor: step === 0 ? '#6B777D' : '#0F1A1E',
+      qNextBg: has ? '#0A4A57' : '#DDE2E5', qNextColor: has ? '#FFFFFF' : '#3E4A50',
+      qNextLabel: step === this.Q.length - 1 ? 'See result' : 'Continue',
+      routes: this.routes.map((r, i) => ({ ...r, pos: `${i + 1} / 4` })),
+      checklist: this.checklist,
+      docsCommon: docs(this.common).slice(commonStart),
+      docTabsD: this.docTabs('docD'), docTabsM: this.docTabs('docM'),
+      docsRouteD: docs(this.byRoute[this.state.docD]), docsRouteM: docs(this.byRoute[this.state.docM]),
+      docRouteLabelD: 'Plus, for ' + this.routes[this.state.docD].name.toLowerCase(),
+      docRouteLabelM: 'For ' + this.routes[this.state.docM].name.toLowerCase(),
+      faqD: this.faqList('faqD'), faqM: this.faqList('faqM'),
+    };
+  }
+}
+</script>
+</body>
+</html>
