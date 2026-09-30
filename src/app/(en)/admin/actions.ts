@@ -7,7 +7,7 @@ import { eq } from 'drizzle-orm';
 import { getDb, hasDatabase } from '@/db';
 import { factsVerification } from '@/db/schema';
 import { currentAdmin, login, logout, requireRole } from '@/lib/auth';
-import { retryLeadDelivery } from '@/lib/leads';
+import { retryLeadDelivery, runLeadDeliveryQueue } from '@/lib/leads';
 import { resendDownload } from '@/lib/purchases';
 import { grantTierUntil } from '@/lib/member-admin';
 import { clientIp, RATE_LIMIT_MESSAGE, resetLimit, takeBoth } from '@/lib/rate-limit';
@@ -89,6 +89,30 @@ export async function retryLeadAction(_prev: ActionState, form: FormData): Promi
     return { message: `CRM push for lead ${id}: ${outcome.status}` };
   } catch (error) {
     return { error: error instanceof Error ? error.message : 'Retry failed' };
+  }
+}
+
+/**
+ * One pass of the lead delivery queue (O24, item 1) — the same pass the cron
+ * endpoint runs. `includeSkipped` replays leads that were skipped because the
+ * CRM or mail was not configured yet.
+ */
+export async function runDeliveryQueueAction(_prev: ActionState, form: FormData): Promise<ActionState> {
+  try {
+    await requireAdmin();
+    const result = await runLeadDeliveryQueue({
+      includeSkipped: form.get('includeSkipped') === '1',
+      trigger: 'admin',
+    });
+    revalidatePath('/admin/leads');
+    return {
+      message:
+        result.mode === 'none'
+          ? 'No database.'
+          : `${result.attempted} delivery attempt(s)${result.mode === 'legacy' ? ' (CRM only — migration 0002 not applied yet)' : ''}.`,
+    };
+  } catch (error) {
+    return { error: error instanceof Error ? error.message : 'Queue run failed' };
   }
 }
 

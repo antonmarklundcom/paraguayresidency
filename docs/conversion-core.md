@@ -49,6 +49,80 @@ success state. The **site** is in the key because the same person enquiring on
 two brands is two leads for two teams. A lead with no usable phone gets a NULL
 key and is never merged with anything.
 
+### Delivery queue (O24, item 1)
+
+Steps 6 and 7 above are now **first attempts**, not the only ones. Right
+after the lead row, `createLead` opens one `lead_deliveries` row per channel
+(`crm`, `notify`, `autoreply` — the last only when the visitor gave an email)
+in `pending`, then attempts each and records the outcome
+(`src/lib/lead-delivery-policy.ts`):
+
+| Outcome | Row becomes | Next |
+|---|---|---|
+| delivered | `sent` | done |
+| CRM 5xx, timeout, refused; mail transport error | `failed` | retried after 1, 5, 30, 120, 360, 1440 min |
+| 7th failure, or a 4xx the CRM will always answer (not 408/429) | `dead` | shown in `/admin/leads`; the per-lead Retry still works |
+| CRM or mail not configured, no phone | `skipped` | replayed only on request (`includeSkipped`) |
+
+The queue runs from three places, all calling `runLeadDeliveryQueue()`:
+`POST /api/leads/deliveries` with `Authorization: Bearer $LEAD_QUEUE_SECRET`
+(an hPanel cron every 5 minutes, `docs/runbook.md`), `npm run leads:retry`
+(which calls that endpoint), and the **Run queue now** button on
+`/admin/leads`. Each run is a `cron_runs` row (`job = 'lead-deliveries'`).
+A `pending` row older than 10 minutes means a request died mid-delivery and is
+picked up too. `/api/health` → `leads` reports last success, failures in 24 h,
+gave-ups and the oldest undelivered lead; `backlog: true` (over an hour) sets
+`degraded`.
+
+**Before migration 0002 runs** there is no `lead_deliveries` table.
+`src/lib/db-features.ts` probes `information_schema` (cached; a "no" for a
+minute), and every queue function returns quietly: the form path is exactly
+O18's, the queue re-pushes `crm_status = 'failed'` leads of the last 7 days,
+and health reads `leads.crm_status` (`queue: "legacy"`).
+
+### WhatsApp-first capture — the contract (O24, item 2)
+
+A one-field lead: the visitor leaves a WhatsApp number (and optionally a
+name) and the team writes to them first. It is `leads.kind = 'whatsapp'`.
+The visible form is `<LeadForm variant="whatsapp" pagePath={…} />` (Sonnet's
+side: bar, links, placement); it posts to the same server actions as every
+lead form, so it works with JavaScript off (`submitLeadFormAction` redirects
+back with `?lead=ok`).
+
+Field names the form posts (FormData):
+
+| Field | Required | Notes |
+|---|---|---|
+| `site` | yes | SiteKey, hidden |
+| `kind` | yes | `whatsapp`, hidden |
+| `whatsapp` | yes | the number; `00` becomes `+`. `phone` is accepted instead |
+| `name` | no | |
+| `message` | no | one line |
+| `pagePath` | yes | the public path the form sits on, hidden |
+| `articleSlug` | no | hidden; if absent the server derives it from `pagePath` (last segment of a path two or more deep) |
+| `ts` (signed timestamp), `website` (honeypot, empty) | yes | the usual form guard (`src/lib/form-guard.ts`) |
+
+Never posted, always attached by the server: brand (`site` → registry), the
+first-touch attribution (`vc_attr` cookie), the last-touch UTM, and the A/B
+variants the visitor was **shown** (`abx_<experiment>` cookies,
+`src/lib/experiments.ts`). All of it lands on `leads.attribution`
+(`article_slug`, `experiments`) and goes to VenderCRM as fields
+(`landing_page`, `first_seen`, `article_slug`, `ab_variants`, `brand`, `kind`).
+No email is asked for, so no auto-reply is sent; the team notification is.
+
+Before migration 0002 the row is stored as `kind = 'contact'` with
+`attribution.lead_kind = 'whatsapp'`; `effectiveLeadKind()` and the admin
+filters read both forms, so nothing is lost across the switch.
+
+**The click beacon.** A tap on any `wa.me` link is not a lead (the
+conversation happens in WhatsApp), but it is the signal of which page started
+one. `WhatsAppClickTracker` posts `{"type":"whatsapp_click","path","placement"}`
+with `navigator.sendBeacon` to `POST /api/track`. The server adds brand, slug,
+exposed variant and first-touch source and stores a `site_events` row (no IP,
+no user agent, no id); it always answers 204 and is limited to 60 per 10
+minutes per IP. With JavaScript off the link still works and simply is not
+counted.
+
 ## Purchases (was `orders` — renamed in O9)
 
 ```
@@ -126,7 +200,9 @@ and flipping a `verified` flag stays a reviewed edit in a PR (plan §1.10).
 | Missing | Behaviour |
 |---|---|
 | `DATABASE_URL` | Forms still deliver by email; the failure is loud in the log. Admin lists say so plainly. |
-| `VENDERCRM_*` | Leads are stored locally, `crm_status` stays `pending`. |
+| `VENDERCRM_*` | Leads are stored locally, `crm_status` stays `pending`, the `crm` delivery row is `skipped`. |
+| `LEAD_QUEUE_SECRET` | `/api/leads/deliveries` answers 503; the queue runs only from `/admin/leads`. |
+| Migration 0002 not applied | Leads, WhatsApp leads and admin all work on the old schema (see "Delivery queue"); clicks are not stored. |
 | `RESEND_API_KEY` / SMTP | Messages are logged to the console in full. |
 | `STRIPE_SECRET_KEY` | The buy button renders "Checkout opens shortly". |
 | `STRIPE_WEBHOOK_SECRET` | The webhook refuses every delivery with 503 rather than trusting an unsigned one. |

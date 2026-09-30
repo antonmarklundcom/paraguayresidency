@@ -19,6 +19,8 @@
     "db:push": "drizzle-kit push",
     "db:seed": "tsx --env-file-if-exists=.env scripts/seed.ts",
     "reconcile:tiers": "tsx --env-file-if-exists=.env scripts/reconcile-tiers.ts",
+    "leads:retry": "node scripts/retry-lead-deliveries.mjs",
+    "smoke:hosts": "node scripts/smoke-hosts.mjs",
     "import:pararesi": "tsx --env-file-if-exists=.env scripts/import-pararesi.ts",
     "facts:report": "tsx scripts/facts-report.ts",
     "guide:pdf": "tsx scripts/build-guide-pdf.ts"

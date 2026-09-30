@@ -9,6 +9,8 @@ import { QUESTION_IDS, ROUTES, sanitizeAnswers } from '@/features/quiz/scoring';
  */
 
 export const LEAD_KINDS = ['consultation', 'investor_inquiry', 'contact', 'quiz'] as const;
+/** Every kind a lead can have. `whatsapp` needs only a number (O24 item 2, `docs/conversion-core.md`). */
+export const ALL_LEAD_KINDS = [...LEAD_KINDS, 'whatsapp'] as const;
 export type LeadKind = (typeof LEAD_KINDS)[number];
 
 /** Bands, not figures — the real thresholds are unverified (`facts.ts`). */
@@ -48,7 +50,7 @@ const phone = z
 
 export const leadInputSchema = z.object({
   site: z.enum(SITE_KEYS as unknown as [string, ...string[]]),
-  kind: z.enum([...LEAD_KINDS, 'whatsapp']),
+  kind: z.enum(ALL_LEAD_KINDS),
   name: optionalTrimmed(160),
   email: z.union([z.string().trim().toLowerCase().email('Enter a valid email address').max(255), z.literal('')]).default(''),
   phone,
@@ -78,12 +80,10 @@ export const leadInputSchema = z.object({
   if (input.kind !== 'whatsapp' && !input.phone && !input.whatsapp) {
     ctx.addIssue({ code: 'custom', path: ['phone'], message: 'Enter your WhatsApp or phone number' });
   }
-}).transform((input) => ({
-  ...input,
-  // WhatsApp is a short contact form, not a new database enum value.
-  // The existing NOT NULL email column stores absence as an empty string.
-  kind: input.kind === 'whatsapp' ? 'contact' as const : input.kind,
-}));
+});
+// `whatsapp` is stored as its own `leads.kind` since O24 (item 2); the NOT NULL
+// email column stores its absence as an empty string. On a database that has
+// not run migration 0002, `createLead` stores `contact` instead — see there.
 
 export type LeadInput = z.infer<typeof leadInputSchema>;
 

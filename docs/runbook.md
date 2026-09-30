@@ -102,6 +102,14 @@ current `DATABASE_URL`, change the password, update the hPanel env var, then
   "secret": "ok",
   "email": "resend",
   "crm": "on",
+  "leads": {
+    "queue": "table",
+    "lastSuccessAt": "2026-09-30T11:58:00.000Z",
+    "failed24h": 0,
+    "dead": 0,
+    "oldestUndeliveredAt": null,
+    "backlog": false
+  },
   "time": "2026-09-11T12:00:00.000Z"
 }
 ```
@@ -114,6 +122,9 @@ current `DATABASE_URL`, change the password, update the hPanel env var, then
 | `db` | `"ok"` | `"down"`: `DATABASE_URL` unset or wrong, or MySQL unreachable. Forms still accept and still reach the CRM and your inbox (plan §1.6), but nothing is being **stored** — fix it before you lose a day of leads. |
 | `secret` | `"ok"` | `"weak"`: `SESSION_SECRET` missing or under 32 chars. In production every session, magic link, unsubscribe link and download token refuses to sign, so `/admin` and `/members` are down. Set a 32+ char secret and redeploy. |
 | `email` | `"resend"` or `"smtp"` | `"console"` in production means **nothing is being delivered**: no confirmation mail, no receipt, no sign-in link, no lead notification. Set `RESEND_API_KEY` (or the three `SMTP_*` vars) and redeploy. |
+| `leads.backlog` | `false` | `true`: a lead (CRM push or email) has been undelivered for over an hour; also sets `degraded`. Open `/admin/leads` → Delivery queue for the error, fix the CRM/mail credential, press **Run queue now**. |
+| `leads.queue` | `"table"` | `"legacy"`: migration 0002 is not applied (`docs/db-work-later.md`) — health is read off `leads.crm_status` only. `"none"`/`"error"`: no database. |
+| `leads.dead` | `0` | Deliveries the queue gave up on (7 attempts over ~33 h, or a 4xx the CRM will always refuse). Each is listed on `/admin/leads` with its error; the per-lead Retry still works. |
 | `crm` | `"on"` | `"off"`: VenderCRM is not configured. Leads are still stored and still emailed; `leads.crm_status` stays `pending`, so `/admin/leads` → Retry replays them once the key is set. |
 
 **The IP behind Hostinger's proxy.** Everything that limits per IP reads the
@@ -127,6 +138,26 @@ perfectly healthy, so the symptom to recognise is "everyone is getting `Too many
 attempts`". The header is client-supplied and therefore spoofable, which is fine
 for a limiter (a spoofer only splits their own bucket) and is why it is never
 used as an identity.
+
+## Lead delivery queue (O24)
+
+A failed CRM push or lead email is retried with backoff (1, 5, 30, 120, 360,
+1440 minutes, then it gives up and shows on `/admin/leads`). Something has to
+run the queue. In hPanel → Advanced → Cron Jobs, every 5 minutes:
+
+```
+curl -fsS -X POST -H "Authorization: Bearer <LEAD_QUEUE_SECRET>" https://paraguayresidency.co.uk/api/leads/deliveries > /dev/null
+```
+
+If hPanel's cron cannot reach the app with `curl`, any external scheduler
+(cron-job.org and the like) calling the same URL with the same header works.
+`LEAD_QUEUE_SECRET` is an app env var (24+ characters, `openssl rand -hex 24`);
+without it the endpoint answers 503. The same pass runs from
+`npm run leads:retry` (reads the secret from the environment or `.env`; exits 1
+on a backlog) and from the **Run queue now** button on `/admin/leads`. After
+setting the CRM key for the first time, run it once with `--include-skipped`
+(or the "incl. skipped" button) so leads that arrived before the key was set
+reach the CRM too. Every run is a `cron_runs` row with `job = 'lead-deliveries'`.
 
 ## Rate limits
 

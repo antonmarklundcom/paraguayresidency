@@ -160,6 +160,10 @@ export const LIMITS = {
   lead: { max: 10, windowMs: 60 * 60 * 1000 },
   /** Magic sign-in link requests, per email **and** per IP. */
   magicLink: { max: 5, windowMs: 15 * 60 * 1000 },
+  /** WhatsApp click beacons (`/api/track`, O24), per IP: a person clicks a few times, a script thousands. */
+  track: { max: 60, windowMs: 10 * 60 * 1000 },
+  /** The delivery-queue trigger (`/api/leads/deliveries`, O24), per IP: a cron calls it every few minutes. */
+  deliveryQueue: { max: 20, windowMs: 10 * 60 * 1000 },
   /** The coarse middleware net over every `POST /api/*`, per IP. */
   apiPost: { max: 120, windowMs: 60 * 1000 },
 } as const satisfies Record<string, { max: number; windowMs: number }>;
