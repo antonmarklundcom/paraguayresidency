@@ -1,14 +1,15 @@
 # Design prompts — 2026-09-30
 
 Standalone Claude Design prompts. Every prompt carries its full brief, so each one can be pasted on its
-own. For each brand, run the desktop prompt first, then the mobile prompt in the same project.
+own. Brand 1 (done) has separate desktop and mobile prompts; brands 2–4 are ONE prompt each that puts
+desktop and mobile in the same zoomable canvas file, mobile under desktop.
 
 The offer-strategy prompt moved to `docs/offer-session-prompt.md`.
 
 - 1. paraguayresidency.co.uk — Paraguay Residency (the hub, British English)
-- 2. vidanoparaguai.com — Vida no Paraguai (Brazilian Portuguese)
-- 3. residenciaenparaguay.es — Residencia en Paraguay (Spanish from Spain)
-- 4. emigrerennaarparaguay.nl — Emigreren naar Paraguay (Dutch)
+- 2. vidanoparaguai.com — Vida no Paraguai (Brazilian Portuguese) — one prompt
+- 3. residenciaenparaguay.es — Residencia en Paraguay (Spanish from Spain) — one prompt
+- 4. emigrerennaarparaguay.nl — Emigreren naar Paraguay (Dutch) — one prompt
 
 ---
 
@@ -162,17 +163,28 @@ expanded.
 
 ---
 
-## 2a. vidanoparaguai.com — desktop home (1440)
+## 2. vidanoparaguai.com — desktop + mobile in one file
 
 ```
-Design the desktop homepage (1440 px wide) for "Vida no Paraguai", vidanoparaguai.com. All copy in
-Brazilian Portuguese, written natively (it must not read as a translation).
+Design the homepage for "Vida no Paraguai", vidanoparaguai.com, as ONE canvas file containing BOTH
+the desktop version and the mobile version. All copy in Brazilian Portuguese, written natively (it
+must not read as a translation).
+
+CANVAS LAYOUT (important)
+- Use canvas mode (design_doc_mode = canvas) so the preview can zoom in, zoom out and fit to
+  screen, and be panned.
+- Frame 1 at the top: "Home — desktop · 1440", the full desktop homepage, 1440 px wide.
+- Frame 2 directly UNDER it, left-aligned: "Home — mobile · 390", the full mobile homepage, 390 px
+  wide. Beside the mobile frame, small extra frames: the open mobile menu and the quiz states.
+- Last, under everything: a spec board with colour tokens, type scale, spacing, radius, button and
+  chip styles.
+- Both frames share the same tokens, type and copy; only the layout adapts.
 
 WHAT THE BRAND IS
-One of seven Paraguay-residency websites run by a small residency team in Asunción. This one serves
-Brazilians who want to live, work or run a business in Paraguay. It is lead generation: WhatsApp and
-a short form. We are NOT a law firm: never write advogado or escritório de advocacia. Never promise
-approval or tax savings, never use "paraíso fiscal".
+One of eight Paraguay-residency websites run by a small residency team in Asunción. This one serves
+Brazilians who want to live, work or run a business in Paraguay. Lead generation: WhatsApp (primary)
+and a short form. We are NOT a law firm: never write advogado or escritório de advocacia. Never
+promise approval or tax savings, never use "paraíso fiscal".
 
 AUDIENCE
 - empresários: small and mid-size business owners, e-commerce, agro, profissionais liberais tired of
@@ -181,44 +193,44 @@ AUDIENCE
   (Foz ↔ Ciudad del Este, Ponta Porã ↔ Pedro Juan Caballero),
 - aposentados and remote workers looking for lower cost of living and segurança.
 Many have seen "Paraguai é o novo destino" on YouTube and Instagram and are half-convinced. They need
-a trustworthy team that speaks Portuguese and a clear path, not more hype.
+a trustworthy team that speaks Portuguese and a clear path, not more hype. Most arrive on a phone.
 
 VOICE
-Caloroso, direto, "você", like a friend who already made the move. WhatsApp is the PRIMARY call to
-action; the form is secondary. Prices in R$ first, then USD.
+Caloroso, direto, "você", like a friend who already made the move. WhatsApp first. Prices in R$
+first, then USD.
 
 SIGNATURE INTERACTION — "Seu plano de mudança em 3 perguntas"
 Three tap-only questions: Qual é o seu perfil? (empresário / trabalho remoto / aposentado / família)
 · Onde você mora hoje? (estado) · Quando quer se mudar? (3 meses / 6 meses / 1 ano ou mais). The
 section then rebuilds in place into a personal 3-step roadmap (documents from Brazil → residência no
 Paraguai → what comes next for your profile) with a button "Receber meu plano no WhatsApp" that opens
-WhatsApp with a pre-filled message. Show the question state and the result state side by side and
-annotate it.
+WhatsApp with a pre-filled message.
+Desktop: question state and result state side by side. Mobile: one question per full-width card
+with big tap targets and progress dots; show question 1, question 3 and the result as small frames.
+Annotate how it works.
 
-SECONDARY
-- "Brasil × Paraguai, lado a lado": a clean comparison table (abrir empresa, impostos, energia, custo
-  de vida, tempo até a residência); every value is a dated placeholder chip with a source line.
-- "Onde os brasileiros moram": an illustrated SVG map of Paraguay with Asunción, Ciudad del Este,
-  Encarnación and Pedro Juan Caballero, one-line profile each.
-
-SECTIONS, IN ORDER
-1. Header: wordmark, nav (Como funciona, Para empresários, Para famílias, Preços, Perguntas), primary
-   WhatsApp button.
+SECTIONS, IN ORDER (both frames)
+1. Header — desktop: wordmark, nav (Como funciona, Para empresários, Para famílias, Preços,
+   Perguntas), WhatsApp button. Mobile: wordmark, WhatsApp icon button, menu button.
 2. Hero: promise, WhatsApp button, secondary "Fazer as 3 perguntas", badge "Atendimento em
-   português", line "Resposta por escrito em até um dia útil".
+   português", line "Resposta por escrito em até um dia útil". Buttons full-width on mobile.
 3. Seu plano de mudança em 3 perguntas.
-4. Brasil × Paraguai, lado a lado.
+4. "Brasil × Paraguai, lado a lado": abrir empresa, impostos, energia, custo de vida, tempo até a
+   residência. Desktop: a clean table. Mobile: one card per topic. Every value is a dated
+   placeholder chip with a source line.
 5. Para empresários: company and residency together.
 6. Para famílias: schools, health, safety (general information).
-7. Onde os brasileiros moram (map).
-8. A equipe: a Portuguese-speaking team member, photo placeholders, a short video slot shown as a
-   poster image with a play button (click-to-load).
-9. Como funciona + preços "a partir de [PRICE]".
+7. "Onde os brasileiros moram": illustrated SVG map of Paraguay with Asunción, Ciudad del Este,
+   Encarnación, Pedro Juan Caballero and a one-line profile each (tappable pins on mobile).
+8. A equipe: a Portuguese-speaking team member, photo placeholders, a video slot shown as a poster
+   with a play button (click-to-load).
+9. Como funciona + preços "a partir de [PRICE]" (stacked cards on mobile).
 10. Histórias de clientes — dashed box "HIDDEN UNTIL REAL".
-11. Perguntas: Posso manter minha empresa no Brasil? E o CPF? Conta bancária? Escola para os filhos?
-    Saúde?
+11. Perguntas (accordion): Posso manter minha empresa no Brasil? E o CPF? Conta bancária? Escola
+    para os filhos? Saúde?
 12. Final WhatsApp call to action plus a short form (nome, e-mail, WhatsApp, sua situação).
 13. Footer: sister brands, privacy, terms, "Informação geral, não é assessoria jurídica".
+14. Mobile only: sticky bottom bar with a WhatsApp button, always visible, not covering content.
 
 VISUAL DIRECTION
 Warm, sunny, modern and a little bold, like a good Brazilian fintech or lifestyle brand, not a
@@ -226,7 +238,7 @@ government site. Motif: the lapacho (ipê), Paraguay's flowering tree that Brazi
 pink and violet blossom against terracotta red earth and a deep evergreen. Absolutely no
 green-and-yellow flag palette. One display font with personality (friendly grotesk or rounded
 serif). It must look different from the sister sites Paraguay Residency Guide (cream/green book
-feel) and Paraguay Investor Pass (white/teal memo feel).
+feel), Paraguay Investor Pass (white/teal memo feel) and Paraguay Residency (navy/paper/brass).
 
 HARD RULES
 - Never invent a legal or financial number (taxes, energy prices, fees, durations, prices). Each is a
@@ -235,89 +247,32 @@ HARD RULES
 - One web display font (one weight), system body font, system monospace.
 - Fast page: at most one hero image, no autoplay video, no carousel, no scroll-jacking, CSS-only
   motion respecting prefers-reduced-motion.
-- WCAG AA contrast, visible focus, targets at least 44 px.
+- WCAG AA contrast, visible focus, targets at least 44 px; on mobile body text at least 16 px and no
+  horizontal scroll.
 - No influencer hype ("fique rico"), no stock beaches, no flags.
-
-DELIVERABLE
-The full desktop homepage in one frame, plus a spec board: colour tokens, type scale, spacing,
-radius, button and chip styles.
-```
-
-## 2b. vidanoparaguai.com — mobile home (390)
-
-```
-Design the mobile homepage (390 px wide) for "Vida no Paraguai", vidanoparaguai.com, all copy in
-native Brazilian Portuguese. If a desktop version already exists in this project, match its tokens,
-type and copy exactly and adapt the layout; otherwise create the design from this brief.
-
-WHAT THE BRAND IS
-One of seven Paraguay-residency sites run by a small residency team in Asunción, for Brazilians who
-want to live, work or run a business in Paraguay. Lead generation via WhatsApp (primary) and a short
-form. NOT a law firm: never "advogado". Never promise approval or tax savings; never "paraíso
-fiscal".
-
-AUDIENCE
-Brazilian empresários (e-commerce, agro, profissionais liberais), border-state families (PR, MS, SC,
-RS), aposentados and remote workers. They arrive on a phone from Instagram, YouTube or a WhatsApp
-link, half-convinced, looking for a team they can trust that speaks Portuguese.
-
-VOICE
-Caloroso, direto, "você". WhatsApp first. Prices in R$ first, then USD.
-
-SIGNATURE INTERACTION — "Seu plano de mudança em 3 perguntas" (mobile form)
-One question per screen-width card with big tap targets: perfil (empresário / trabalho remoto /
-aposentado / família) → estado → quando (3 meses / 6 meses / 1 ano ou mais), with a small progress
-indicator. The card then turns into a personal 3-step roadmap and a full-width button "Receber meu
-plano no WhatsApp" (opens WhatsApp with a pre-filled message). Show question 1, question 3 and the
-result as three small frames beside the main frame.
-
-SECTIONS, IN ORDER
-1. Compact header: wordmark, WhatsApp icon button, menu button (show the open menu as a small
-   frame).
-2. Hero: promise, full-width WhatsApp button, secondary "Fazer as 3 perguntas", badge "Atendimento
-   em português", line "Resposta por escrito em até um dia útil".
-3. Seu plano de mudança em 3 perguntas.
-4. Brasil × Paraguai: on mobile, one comparison card per topic (abrir empresa, impostos, energia,
-   custo de vida, tempo até a residência) with Brasil and Paraguai values as dated placeholder chips.
-5. Para empresários and Para famílias as two short cards.
-6. Onde os brasileiros moram: simplified SVG map with four tappable city pins.
-7. A equipe: team photo placeholders and a video poster with play button (click-to-load).
-8. Preços "a partir de [PRICE]" as stacked cards.
-9. Histórias de clientes — dashed box "HIDDEN UNTIL REAL".
-10. Perguntas accordion (empresa no Brasil, CPF, conta bancária, escola, saúde).
-11. Short form: nome, e-mail, WhatsApp, sua situação.
-12. Footer with sister brands and legal links.
-13. Sticky bottom bar with a green WhatsApp button, always visible, not covering content.
-
-VISUAL DIRECTION
-Warm, sunny, modern, a little bold. Lapacho/ipê blossom (pink and violet) against terracotta red
-earth and deep evergreen. No green-and-yellow flag palette, no beaches, no flags. One display font
-with personality. Must differ from the sister sites Paraguay Residency Guide (cream/green) and
-Paraguay Investor Pass (white/teal).
-
-HARD RULES
-- Never invent a legal or financial number; every tax, price, fee and duration is a dashed
-  placeholder chip ([FACT: …], [PRICE], [DURATION]).
-- No invented testimonials, counts, ratings, logos or awards.
-- One web display font (one weight), system body font, system monospace.
-- Mobile performance: at most one small hero image, no autoplay video, no carousel, CSS-only motion
-  respecting prefers-reduced-motion.
-- WCAG AA contrast, touch targets at least 44 px, body text at least 16 px, no horizontal scroll.
-
-DELIVERABLE
-The full mobile homepage as one tall frame, plus the open-menu frame and the three quiz frames.
 ```
 
 ---
 
-## 3a. residenciaenparaguay.es — desktop home (1440)
+## 3. residenciaenparaguay.es — desktop + mobile in one file
 
 ```
-Design the desktop homepage (1440 px wide) for "Residencia en Paraguay", residenciaenparaguay.es.
-All copy in Spanish from Spain (castellano peninsular), written natively.
+Design the homepage for "Residencia en Paraguay", residenciaenparaguay.es, as ONE canvas file
+containing BOTH the desktop version and the mobile version. All copy in Spanish from Spain
+(castellano peninsular), written natively.
+
+CANVAS LAYOUT (important)
+- Use canvas mode (design_doc_mode = canvas) so the preview can zoom in, zoom out and fit to
+  screen, and be panned.
+- Frame 1 at the top: "Home — desktop · 1440", the full desktop homepage, 1440 px wide.
+- Frame 2 directly UNDER it, left-aligned: "Home — mobile · 390", the full mobile homepage, 390 px
+  wide. Beside the mobile frame, small extra frames: the open mobile menu and the checklist states.
+- Last, under everything: a spec board with colour tokens, type scale, spacing, radius, button and
+  chip styles.
+- Both frames share the same tokens, type and copy; only the layout adapts.
 
 WHAT THE BRAND IS
-One of seven Paraguay-residency websites run by a small residency team in Asunción. This one serves
+One of eight Paraguay-residency websites run by a small residency team in Asunción. This one serves
 Spaniards. Lead generation: WhatsApp and a short form. We are NOT a law firm: never write abogado or
 despacho. Never promise approval or tax outcomes; the Paraguayan authority decides.
 
@@ -334,44 +289,46 @@ papeleo. Spain vocabulary (móvil, piso, gestoría, empadronamiento, apostilla d
 Latin American vocabulary as default, never stiff corporate "usted". Prices in EUR.
 
 SIGNATURE INTERACTION — "Tu papeleo, de Madrid a Asunción"
-An interactive checklist drawn as a flight route across the page. Left side "En España" (documents to
-request, apostilla, translations if needed — item names generic, no invented rules), right side "En
-Paraguay" (presentación del expediente, biometría, cédula, RUC). A small plane moves along a dotted
-line as the user ticks items; ticks are remembered in the browser. At the end: "¿Lo hacemos por
-ti?" → WhatsApp / form, and a quieter "Prefiero hacerlo yo" → Paraguay Residency Guide. Show an
-empty and a half-ticked state and annotate them.
+An interactive checklist drawn as a flight route. "En España" items (documents to request, apostilla,
+translations if needed — generic names, no invented rules), then "En Paraguay" items (presentación
+del expediente, biometría, cédula, RUC). A small plane moves along a dotted line as items are ticked;
+ticks are remembered in the browser. At the end: "¿Lo hacemos por ti?" → WhatsApp / form, and a
+quieter "Prefiero hacerlo yo" → Paraguay Residency Guide.
+Desktop: the route runs left (España) to right (Paraguay) across the page. Mobile: vertical, with the
+dotted line down the left edge. Show an empty and a half-ticked state; annotate how it works.
 
-SECONDARY — "Un mes en Asunción vs. un mes en tu ciudad"
-Pick Madrid / Barcelona / Valencia / Sevilla / otra; a side-by-side of alquiler, comida, transporte,
-luz. Every value is a dated placeholder chip with a source line.
-
-SECTIONS, IN ORDER
-1. Header: wordmark, nav (Cómo funciona, Autónomos, Jubilados, Precios, Preguntas), WhatsApp button,
-   primary button "Pide tu valoración por escrito".
+SECTIONS, IN ORDER (both frames)
+1. Header — desktop: wordmark, nav (Cómo funciona, Autónomos, Jubilados, Precios, Preguntas),
+   WhatsApp button, primary "Pide tu valoración por escrito". Mobile: wordmark, WhatsApp icon
+   button, menu button.
 2. Hero: promise ("Mudarte a Paraguay, en tu idioma" or better), two buttons, line "Te respondemos
-   por escrito en un día laborable".
+   por escrito en un día laborable". Buttons full-width on mobile.
 3. "En tu idioma": why Spaniards specifically — language, culture, flights and time difference as
    placeholder chips.
 4. Tu papeleo, de Madrid a Asunción.
 5. Para autónomos.
 6. Para jubilados.
-7. Un mes en Asunción vs. un mes en tu ciudad.
+7. "Un mes en Asunción vs. un mes en tu ciudad": pick Madrid / Barcelona / Valencia / Sevilla / otra
+   (chip row); alquiler, comida, transporte, luz side by side. Every value a dated placeholder chip
+   with a source line.
 8. El equipo: photo placeholders, office in Asunción.
-9. Servicios y precios "desde [PRICE]".
+9. Servicios y precios "desde [PRICE]" (stacked cards on mobile).
 10. Historias de clientes — dashed box "HIDDEN UNTIL REAL".
-11. Preguntas: ¿Pierdo la Seguridad Social? ¿Qué pasa con Hacienda? (general information, not
-    advice) ¿Puedo ir con mi familia? ¿Vuelos?
+11. Preguntas (accordion): ¿Pierdo la Seguridad Social? ¿Qué pasa con Hacienda? (general
+    information, not advice) ¿Puedo ir con mi familia? ¿Vuelos?
 12. Final call to action with WhatsApp and a short form (nombre, email, WhatsApp, tu situación).
 13. Footer: sister brands, privacidad, aviso legal, "Información general, no asesoramiento
     jurídico".
+14. Mobile only: sticky bottom bar with WhatsApp + "Valoración por escrito", always visible, not
+    covering content.
 
 VISUAL DIRECTION
 A Spanish editorial magazine rather than a consultancy: bold condensed display type, generous white
 space, strong photography slots. Palette from Paraguay seen through Spanish eyes: cal (lime white),
 tierra roja (Paraguay's red earth), verde yerba (yerba mate and tereré), one ink colour. A subtle
 ñandutí lace pattern (Paraguayan lace) as ornament. No red-and-yellow Spanish flag palette. Must
-differ from the sister sites Paraguay Residency Guide (cream/green book feel) and Paraguay Investor
-Pass (white/teal memo feel).
+differ from the sister sites Paraguay Residency Guide (cream/green book feel), Paraguay Investor
+Pass (white/teal memo feel) and Paraguay Residency (navy/paper/brass).
 
 HARD RULES
 - Never invent a legal or financial number (fees, costs, tax, durations, prices, flight times). Each
@@ -380,85 +337,28 @@ HARD RULES
 - One web display font (one weight), system body font, system monospace.
 - Fast page: at most one hero image, no autoplay video, no carousel, no scroll-jacking, CSS-only
   motion respecting prefers-reduced-motion.
-- WCAG AA contrast, visible focus, targets at least 44 px.
-
-DELIVERABLE
-The full desktop homepage in one frame, plus a spec board: colour tokens, type scale, spacing,
-radius, button and chip styles.
-```
-
-## 3b. residenciaenparaguay.es — mobile home (390)
-
-```
-Design the mobile homepage (390 px wide) for "Residencia en Paraguay", residenciaenparaguay.es, all
-copy in native castellano peninsular. If a desktop version already exists in this project, match its
-tokens, type and copy exactly and adapt the layout; otherwise create the design from this brief.
-
-WHAT THE BRAND IS
-One of seven Paraguay-residency sites run by a small residency team in Asunción, for Spaniards. Lead
-generation via WhatsApp and a short form. NOT a law firm: never "abogado". Never promise approval or
-tax outcomes.
-
-AUDIENCE
-Autónomos and online businesses squeezed by the cuota, professionals 30–50 wanting a Plan B,
-jubilados wanting a calmer life in their own language, people with Paraguayan partners. Angle:
-"Mudarte a Paraguay, en tu idioma." They arrive on a phone from Google, YouTube or WhatsApp.
-
-VOICE
-Castellano peninsular, "tú", frank, dry humour. Spain vocabulary (móvil, piso, gestoría,
-empadronamiento, apostilla de La Haya). Prices in EUR.
-
-SIGNATURE INTERACTION — "Tu papeleo, de Madrid a Asunción" (mobile form)
-A vertical checklist with a dotted flight line running down the left edge: "En España" items first,
-a small plane icon at the crossing point, then "En Paraguay" items (expediente, biometría, cédula,
-RUC). The plane moves down as items are ticked; ticks remembered in the browser. Ends with a
-full-width "¿Lo hacemos por ti?" button (WhatsApp) and a quieter "Prefiero hacerlo yo" link to
-Paraguay Residency Guide. Show an empty and a half-ticked state as two small frames.
-
-SECTIONS, IN ORDER
-1. Compact header: wordmark, WhatsApp icon button, menu button (show the open menu as a small
-   frame).
-2. Hero: promise, full-width primary "Pide tu valoración por escrito", secondary "WhatsApp", line
-   "Te respondemos por escrito en un día laborable".
-3. "En tu idioma": three short reasons with icons (language, culture, flights/time difference as
-   placeholder chips).
-4. Tu papeleo, de Madrid a Asunción.
-5. Para autónomos and Para jubilados as two cards.
-6. Un mes en Asunción vs. tu ciudad: a city chip row (Madrid, Barcelona, Valencia, Sevilla, otra) and
-   one comparison card with alquiler, comida, transporte, luz as dated placeholder chips.
-7. El equipo: round photo placeholders, one sentence.
-8. Servicios y precios "desde [PRICE]" as stacked cards.
-9. Historias de clientes — dashed box "HIDDEN UNTIL REAL".
-10. Preguntas accordion (Seguridad Social, Hacienda — general, not advice, familia, vuelos).
-11. Short form: nombre, email, WhatsApp, tu situación.
-12. Footer with sister brands and legal links.
-13. Sticky bottom bar: WhatsApp + "Valoración por escrito", always visible, not covering content.
-
-VISUAL DIRECTION
-Spanish editorial magazine: bold condensed display type, white space. Cal (lime white), tierra roja,
-verde yerba, one ink colour, subtle ñandutí lace ornament. No Spanish flag palette. Must differ from
-the sister sites Paraguay Residency Guide (cream/green) and Paraguay Investor Pass (white/teal).
-
-HARD RULES
-- Never invent a legal or financial number; every cost, fee, duration and price is a dashed
-  placeholder chip ([FACT: …], [PRICE], [DURATION]).
-- No invented testimonials, counts, ratings, logos or awards.
-- One web display font (one weight), system body font, system monospace.
-- Mobile performance: at most one small hero image, no autoplay video, no carousel, CSS-only motion
-  respecting prefers-reduced-motion.
-- WCAG AA contrast, touch targets at least 44 px, body text at least 16 px, no horizontal scroll.
-
-DELIVERABLE
-The full mobile homepage as one tall frame, plus the open-menu frame and the two checklist states.
+- WCAG AA contrast, visible focus, targets at least 44 px; on mobile body text at least 16 px and no
+  horizontal scroll.
 ```
 
 ---
 
-## 4a. emigrerennaarparaguay.nl — desktop home (1440)
+## 4. emigrerennaarparaguay.nl — desktop + mobile in one file
 
 ```
-Design the desktop homepage (1440 px wide) for "Emigreren naar Paraguay", emigrerennaarparaguay.nl.
-All copy in Dutch (Netherlands), written natively, not translated.
+Design the homepage for "Emigreren naar Paraguay", emigrerennaarparaguay.nl, as ONE canvas file
+containing BOTH the desktop version and the mobile version. All copy in Dutch (Netherlands), written
+natively, not translated.
+
+CANVAS LAYOUT (important)
+- Use canvas mode (design_doc_mode = canvas) so the preview can zoom in, zoom out and fit to
+  screen, and be panned.
+- Frame 1 at the top: "Home — desktop · 1440", the full desktop homepage, 1440 px wide.
+- Frame 2 directly UNDER it, left-aligned: "Home — mobile · 390", the full mobile homepage, 390 px
+  wide. Beside the mobile frame, small extra frames: the open mobile menu and the quiz states.
+- Last, under everything: a spec board with colour tokens, type scale, spacing, radius, button and
+  chip styles.
+- Both frames share the same tokens, type and copy; only the layout adapts.
 
 WHAT THE BRAND IS
 One of eight Paraguay-residency websites run by a small residency team in Asunción. This one serves
@@ -472,47 +372,51 @@ AUDIENCE
 - agrariërs and rural entrepreneurs who look at land and space abroad,
 - ondernemers and remote workers who want a second base,
 - families who want more space and a slower life.
-Many have watched emigration TV and are wary of drama and cowboys. They want the honest story:
-what is good, what is hard, what it costs, how long it takes.
+Many have watched emigration TV and are wary of drama and cowboys. They want the honest story: what
+is good, what is hard, what it costs, how long it takes.
 
 VOICE
-Nuchter, direct, "je", honest to the point of saying who Paraguay is NOT for. A little dry humour,
-no hype, no superlatives. Prices in EUR.
+Nuchter, direct, "je", honest to the point of saying who Paraguay is NOT for. A little dry humour, no
+hype, no superlatives. Prices in EUR.
 
 SIGNATURE INTERACTION — "Past Paraguay bij jou? De eerlijke check"
 Six quick tap questions (budget per month, work or retired, family, climate tolerance, Spanish,
 timeline). The result is an honest verdict in three bands — "Goede match", "Kan, maar let op",
 "Waarschijnlijk niet voor jou" — with two or three plain reasons each, and a button "Bespreek je
-situatie via WhatsApp". The "not for you" outcome must look as respectable as the others. Show the
-question state and one result state side by side and annotate them.
+situatie via WhatsApp". The "not for you" result must look as respectable as the others.
+Desktop: question state and one result side by side. Mobile: one question per full-width card with
+progress dots; show question 1 and two different results as small frames. Annotate how it works.
 
-SECONDARY — "Nederland vs. Paraguay, zonder sausje"
-A clean comparison (woonlasten, boodschappen, energie, belasting in hoofdlijnen, ruimte/grond,
-tijd tot verblijfsvergunning). Every value is a dated placeholder chip with a source line.
-
-SECTIONS, IN ORDER
-1. Header: wordmark, nav (Hoe het werkt, De eerlijke check, Kosten, Over ons, Vragen), WhatsApp
-   button, primary button "Vraag een schriftelijk advies".
-2. Hero: an honest promise, two buttons, line "Je krijgt binnen één werkdag schriftelijk antwoord".
+SECTIONS, IN ORDER (both frames)
+1. Header — desktop: wordmark, nav (Hoe het werkt, De eerlijke check, Kosten, Over ons, Vragen),
+   WhatsApp button, primary "Vraag een schriftelijk advies". Mobile: wordmark, WhatsApp icon button,
+   menu button.
+2. Hero: an honest promise, primary "Doe de eerlijke check", secondary WhatsApp, line "Je krijgt
+   binnen één werkdag schriftelijk antwoord". Buttons full-width on mobile.
 3. De eerlijke check.
-4. Nederland vs. Paraguay, zonder sausje.
-5. "Wat meevalt en wat tegenvalt": two honest columns.
-6. Hoe het werkt: the residency steps from documents in the Netherlands (apostille, translations)
-   to cédula, durations as placeholder chips.
+4. "Nederland vs. Paraguay, zonder sausje": woonlasten, boodschappen, energie, belasting in
+   hoofdlijnen, ruimte/grond, tijd tot verblijfsvergunning. Desktop: a clean table. Mobile: one card
+   per topic. Every value a dated placeholder chip with a source line.
+5. "Wat meevalt en wat tegenvalt": two honest columns on desktop, a two-tab toggle on mobile.
+6. Hoe het werkt: the steps from documents in the Netherlands (apostille, translations) to cédula,
+   durations as placeholder chips (vertical on mobile).
 7. Het team: photo placeholders, office in Asunción.
-8. Diensten en prijzen "vanaf [PRICE]".
+8. Diensten en prijzen "vanaf [PRICE]" (stacked cards on mobile).
 9. Verhalen van klanten — dashed box "HIDDEN UNTIL REAL".
-10. Vragen: AOW en pensioen in het buitenland, uitschrijven uit de BRP, zorgverzekering, belasting
-    (general information, not advice), rijbewijs, huisdieren.
+10. Vragen (accordion): AOW en pensioen in het buitenland, uitschrijven uit de BRP,
+    zorgverzekering, belasting (general information, not advice), rijbewijs, huisdieren.
 11. Final call to action with WhatsApp and a short form (naam, e-mail, WhatsApp, je situatie).
 12. Footer: sister brands, privacy, voorwaarden, "Algemene informatie, geen juridisch advies".
+13. Mobile only: sticky bottom bar with WhatsApp + "Schriftelijk advies", always visible, not
+    covering content.
 
 VISUAL DIRECTION
 Dutch graphic design tradition: a strong grid, confident sans-serif display type, lots of air, one
 saturated accent. Palette: polder-sky grey-blue, Paraguay's red earth (terracotta), the deep green of
 the Chaco, off-white. Photography slots: wide skies and open land, a real Asunción street, the team.
-No windmills, no tulips, no clogs, no flag orange-overload. Must differ from the sister sites
-Paraguay Residency Guide (cream/green book feel) and Paraguay Investor Pass (white/teal memo feel).
+No windmills, no tulips, no clogs, no orange overload. Must differ from the sister sites Paraguay
+Residency Guide (cream/green book feel), Paraguay Investor Pass (white/teal memo feel) and Paraguay
+Residency (navy/paper/brass).
 
 HARD RULES
 - Never invent a legal or financial number (costs, tax, pension rules, durations, prices). Each is a
@@ -521,77 +425,6 @@ HARD RULES
 - One web display font (one weight), system body font, system monospace.
 - Fast page: at most one hero image, no autoplay video, no carousel, no scroll-jacking, CSS-only
   motion respecting prefers-reduced-motion.
-- WCAG AA contrast, visible focus, targets at least 44 px.
-
-DELIVERABLE
-The full desktop homepage in one frame, plus a spec board: colour tokens, type scale, spacing,
-radius, button and chip styles.
-```
-
-## 4b. emigrerennaarparaguay.nl — mobile home (390)
-
-```
-Design the mobile homepage (390 px wide) for "Emigreren naar Paraguay", emigrerennaarparaguay.nl,
-all copy in native Dutch (Netherlands). If a desktop version already exists in this project, match
-its tokens, type and copy exactly and adapt the layout; otherwise create the design from this brief.
-
-WHAT THE BRAND IS
-One of eight Paraguay-residency sites run by a small residency team in Asunción, for people in the
-Netherlands and Flanders seriously considering emigration. Lead generation via WhatsApp and a short
-form. NOT a law firm: never "advocaat". Never promise approval or tax outcomes.
-
-AUDIENCE
-45–70-year-olds tired of the housing shortage and costs, early retirees, agrariërs looking for land
-and space, ondernemers and remote workers, families wanting a slower life. Wary of emigration-TV
-drama and cowboys; they want the honest story. They arrive on a phone from Google, YouTube, Facebook
-groups or WhatsApp.
-
-VOICE
-Nuchter, direct, "je", honest about who Paraguay is NOT for, dry humour, no hype. Prices in EUR.
-
-SIGNATURE INTERACTION — "Past Paraguay bij jou? De eerlijke check" (mobile form)
-Six tap questions, one per card, big targets, progress dots (budget per month, work or retired,
-family, climate, Spanish, timeline). Result card with one of three honest verdicts — "Goede match",
-"Kan, maar let op", "Waarschijnlijk niet voor jou" — two or three plain reasons, and a full-width
-"Bespreek je situatie via WhatsApp" button. Show question 1 and two different results as small
-frames beside the main frame.
-
-SECTIONS, IN ORDER
-1. Compact header: wordmark, WhatsApp icon button, menu button (show the open menu as a small
-   frame).
-2. Hero: honest promise, full-width primary "Doe de eerlijke check", secondary "WhatsApp", line "Je
-   krijgt binnen één werkdag schriftelijk antwoord".
-3. De eerlijke check.
-4. Nederland vs. Paraguay: one card per topic (woonlasten, boodschappen, energie, belasting in
-   hoofdlijnen, ruimte/grond, tijd tot verblijfsvergunning) with both values as dated placeholder
-   chips.
-5. "Wat meevalt / wat tegenvalt" as a two-tab toggle.
-6. Hoe het werkt: vertical steps from documents in the Netherlands to cédula, durations as
-   placeholder chips.
-7. Het team: round photo placeholders, one sentence, office in Asunción.
-8. Diensten en prijzen "vanaf [PRICE]" as stacked cards.
-9. Verhalen van klanten — dashed box "HIDDEN UNTIL REAL".
-10. Vragen accordion (AOW en pensioen, uitschrijven BRP, zorgverzekering, belasting — general, not
-    advice, rijbewijs, huisdieren).
-11. Short form: naam, e-mail, WhatsApp, je situatie.
-12. Footer with sister brands and legal links.
-13. Sticky bottom bar: WhatsApp + "Schriftelijk advies", always visible, not covering content.
-
-VISUAL DIRECTION
-Dutch graphic design: strong grid, confident sans display type, air, one saturated accent.
-Polder-sky grey-blue, terracotta red earth, deep Chaco green, off-white. No windmills, tulips, clogs
-or orange overload. Must differ from the sister sites Paraguay Residency Guide (cream/green) and
-Paraguay Investor Pass (white/teal).
-
-HARD RULES
-- Never invent a legal or financial number; every cost, tax, pension rule, duration and price is a
-  dashed placeholder chip ([FACT: …], [PRICE], [DURATION]).
-- No invented testimonials, counts, ratings, logos or awards.
-- One web display font (one weight), system body font, system monospace.
-- Mobile performance: at most one small hero image, no autoplay video, no carousel, CSS-only motion
-  respecting prefers-reduced-motion.
-- WCAG AA contrast, touch targets at least 44 px, body text at least 16 px, no horizontal scroll.
-
-DELIVERABLE
-The full mobile homepage as one tall frame, plus the open-menu frame and the three quiz frames.
+- WCAG AA contrast, visible focus, targets at least 44 px; on mobile body text at least 16 px and no
+  horizontal scroll.
 ```
