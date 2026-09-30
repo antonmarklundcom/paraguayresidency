@@ -7,9 +7,10 @@
  *   SESSION_SECRET=$(openssl rand -base64 48) npx next start -p 3111 &
  *   node tests/abuse.mjs http://127.0.0.1:3111
  *
- * It is deliberately NOT part of `npm run verify` or CI: it needs a server on a
- * port and it spends real windows in a real process, so it is a thing you run
- * before a deploy and after one (S20 decides what CI carries — plan §14.4).
+ * It is not part of `npm run verify` (it needs a server on a port), but since
+ * O24 (item 9) CI runs it after the build, against `next start` with no
+ * database, in the same `verify` job (`.github/workflows/verify.yml`). Run it
+ * by hand before and after a deploy too.
  * The same limits are asserted in-process, with an injected clock, by
  * `tests/abuse-limits.test.ts` and `tests/abuse-surfaces.test.ts`.
  *
@@ -211,7 +212,7 @@ async function coarseRun() {
 
 async function headerRun() {
   const checks = [
-    ['/', HUB, 'content-security-policy-report-only'],
+    ['/', HUB, 'content-security-policy'],
     ['/', HUB, 'x-content-type-options'],
     ['/', HUB, 'referrer-policy'],
     ['/', HUB, 'permissions-policy'],
@@ -232,7 +233,7 @@ async function headerRun() {
   console.log(
     missing.length
       ? `      missing: ${missing.join(', ')}`
-      : '      baseline + report-only CSP on the public tree, enforcing CSP on /admin and /members.',
+      : '      baseline + enforcing CSP on the public tree (reporting to /api/csp-report) and on /admin and /members.',
   );
 }
 

@@ -23,6 +23,24 @@ jobs:
       # No database and no network beyond npm: the app opens a DB connection
       # lazily at request time only (plan §4.5).
       - run: npm run verify
+      # O24 items 6 and 9: the checks that need a real server, run against the
+      # build `npm run verify` just made — same job, no second install or build,
+      # still no database (every probe below runs before any query).
+      - name: Boot the built app (no database)
+        run: |
+          SESSION_SECRET=ci-only-session-secret-never-used-for-anything-real npx next start -p 3111 > "$RUNNER_TEMP/next.log" 2>&1 &
+          for attempt in $(seq 1 60); do
+            curl -fsS -o /dev/null -H 'x-forwarded-host: paraguayresidency.co.uk' http://127.0.0.1:3111/api/health && exit 0
+            sleep 1
+          done
+          echo 'next start did not become ready'; exit 1
+      - name: Every host, every sitemap URL answers 200; redirects and robots per host
+        run: node scripts/smoke-hosts.mjs --base http://127.0.0.1:3111 --all-sitemap-urls
+      - name: Abuse limits and security headers against the running server
+        run: node tests/abuse.mjs http://127.0.0.1:3111
+      - name: Server log (on failure)
+        if: failure()
+        run: tail -n 200 "$RUNNER_TEMP/next.log" || true
       - name: Audit production dependencies
         run: npm audit --omit=dev --audit-level=high
 

@@ -525,7 +525,9 @@ Exit: `grep -rn` (excluding `node_modules`, `.next`, `.git`, `plan.md`, `prompts
 - O24 items 1+2 (lead delivery queue, WhatsApp lead kind, Step 0 review) | 2026-09-30 | [PR #93](https://github.com/antonmarklundcom/paraguayresidency/pull/93) | [docs/log/o24.md](docs/log/o24.md)
 - O24 items 3+10 (first-touch attribution, /admin/attribution, server-side A/B) | 2026-09-30 | [PR #94](https://github.com/antonmarklundcom/paraguayresidency/pull/94) | [docs/log/o24.md](docs/log/o24.md)
 - O24 items 4+8 (launch-readiness screen, structured logging + error reporting) | 2026-09-30 | [PR #95](https://github.com/antonmarklundcom/paraguayresidency/pull/95) | [docs/log/o24.md](docs/log/o24.md)
-- O24 items 5+6 (legacy 301s, host cutover smoke, per-host sitemap/robots/llms tests) | 2026-09-30 | PR #96 | [docs/log/o24.md](docs/log/o24.md)
+- O24 items 5+6 (legacy 301s, host cutover smoke, per-host sitemap/robots/llms tests) | 2026-09-30 | [PR #96](https://github.com/antonmarklundcom/paraguayresidency/pull/96) | [docs/log/o24.md](docs/log/o24.md)
+- O24 hotfix: Hostinger build via webpack | 2026-09-30 | [PR #97](https://github.com/antonmarklundcom/paraguayresidency/pull/97) | [docs/log/o24.md](docs/log/o24.md)
+- O24 item 9 (enforcing CSP, smoke + abuse probes in CI) | 2026-09-30 | PR #98 | [docs/log/o24.md](docs/log/o24.md)
 
 ## 10. Backlog
 

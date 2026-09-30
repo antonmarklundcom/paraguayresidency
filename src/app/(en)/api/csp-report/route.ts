@@ -4,7 +4,11 @@ export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
 /**
- * Where the report-only CSP reports to (KNOWN-ISSUES "the report-only CSP has
+ * Where the public CSP reports to — enforcing since O24 item 9, so a report
+ * here is now a real block on a live page; before that it was report-only
+ * (the history below).
+ *
+ * Where the report-only CSP reported to (KNOWN-ISSUES "the report-only CSP has
  * nowhere to report to", raised by O18; the policy itself is plan §14.2.4).
  *
  * `next.config.ts` has shipped `Content-Security-Policy-Report-Only` on the
