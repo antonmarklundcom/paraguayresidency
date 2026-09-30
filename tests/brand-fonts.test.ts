@@ -9,7 +9,7 @@ const TOKENS: Record<string, string> = {
   '--font-fraunces': 'fraunces',
   '--font-inter-tight': 'inter-tight',
   '--font-bricolage': 'bricolage',
-  '--font-instrument': 'instrument-serif',
+  '--font-schibsted': 'schibsted-grotesk',
 };
 
 const fontsCss = readFileSync('src/styles/fonts.css', 'utf8');

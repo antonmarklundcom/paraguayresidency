@@ -9,7 +9,7 @@ import type { SiteKey } from '@/sites/registry';
  */
 export const BRAND_FONT: Record<SiteKey, string> = {
   residency: 'newsreader-500',
-  investorpass: 'instrument-serif-400',
+  investorpass: 'schibsted-grotesk-600',
   guide: 'fraunces-500',
   frontier: 'inter-tight-600',
   residenciaes: 'fraunces-500',

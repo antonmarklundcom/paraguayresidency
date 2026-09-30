@@ -1,23 +1,36 @@
-/* Investor Pass: dark editorial. Ivory type on near-black, one gold, hairline
-   rules (overhaul plan §1.1). Dark text on the gold button.
+/* Investor Pass: white and teal "decision memo" (Anton, 2026-09-30; replaces the
+   dark + gold choice of overhaul plan §1.1 for this brand only). Near-black ink
+   on white, one deep teal, hairline rules, mono small-caps labels. White text on
+   the teal button. Design: docs/design/investorpass-home.dc.html.
    check-contrast: accent-2 decorative */
 [data-theme='investorpass'] {
-  --bg: #0b0d10;
-  --surface: #12151a;
-  --surface-alt: #1a1f26;
-  --fg: #efe9dc;
-  --fg-muted: #a8a397;
-  --border: #2a3038;
-  --accent: #c9a54a;
-  --accent-fg: #0b0d10;
-  --accent-soft: #171a1f;
-  --accent-2: #2a3038;
-  --accent-2-on-dark: #2a3038;
-  --accent-2-fg: #efe9dc;
-  --display-font: var(--font-instrument);
-  --display-weight: 400;
-  --display-tracking: -0.01em;
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --surface-alt: #f2f4f5;
+  --fg: #0f1a1e;
+  --fg-muted: #4b575d;
+  --border: #c9d1d5;
+  --accent: #0a4a57;
+  --accent-fg: #ffffff;
+  --accent-soft: #e4eef0;
+  --accent-2: #c9d1d5;
+  --accent-2-on-dark: #9fd0da;
+  --accent-2-fg: #0f1a1e;
+  --display-font: var(--font-schibsted);
+  --display-weight: 600;
+  --display-tracking: -0.02em;
   --body-font: var(--font-system);
-  --radius-brand: var(--radius-sm);
-  --hero-pattern: radial-gradient(120% 80% at 70% 0%, #1a1f26 0%, #0b0d10 70%);
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --radius-brand: 0;
+  --hero-pattern: none;
+  /* Memo palette used by the home page and the header/footer below. */
+  --rule-strong: #0f1a1e;
+  --accent-hover: #06323b;
+  --fg-soft: #2b363b;
+  --panel-dark: #0f1a1e;
+  /* Per-element defaults for the timeline stages (set inline / per tone on the page). */
+  --bar: var(--border);
+  --barfg: var(--fg);
+  --fx: 1;
+  --hm: 56px;
 }

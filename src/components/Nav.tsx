@@ -35,7 +35,7 @@ export function Nav({ site }: { site: SiteKey }) {
           href="/"
           className="inline-flex min-h-11 min-w-0 items-center gap-2.5 font-[family-name:var(--display-font)] text-(length:--text-lg) leading-none md:min-h-0"
         >
-          <span aria-hidden="true" className="size-2.5 shrink-0 rounded-full bg-[var(--accent)]" />
+          <span aria-hidden="true" className="brand-mark size-2.5 shrink-0 rounded-full bg-[var(--accent)]" />
           <span className="truncate">{config.name}</span>
         </Link>
         <nav aria-label="Main" className="flex items-center gap-[var(--space-6)]">

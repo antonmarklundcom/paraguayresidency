@@ -21,6 +21,8 @@ import imagery from '../docs/imagery-manifest.json';
 
 // Isolate external/request boundaries; render real layout, images, facts and timeline.
 vi.mock('@/components/LeadForm', () => ({ LeadForm: () => null }));
+// The Investor Pass hero embeds the real quiz, a client component that needs an app router.
+vi.mock('next/navigation', async (original) => ({ ...(await original<typeof import('next/navigation')>()), useRouter: () => ({ push: () => {} }) }));
 vi.mock('@/components/NewsletterForm', () => ({ NewsletterForm: () => null }));
 vi.mock('@/components/CheckoutButton', () => ({ CheckoutButton: () => null }));
 vi.mock('@/lib/purchases', async importOriginal => ({
@@ -69,12 +71,13 @@ for (const [site, Page, count] of [['guide', Guide, 4], ['investorpass', Investo
       writeFileSync(fixture, JSON.stringify(all, null, 2) + '\n');
     }
     expect(facts(html)).toEqual(JSON.parse(readFileSync(fixture, 'utf8'))[site]);
-    expect(html.match(/<img\b[^>]*fetchPriority="high"/gi)).toHaveLength(1);
-    // Investor Pass (W5-B) shows its four routes as a numbered index, not IntentTiles.
+    // S25-IP (Anton, 2026-09-30): the Investor Pass home is the text-only "decision memo",
+    // so it has no hero photo and its four routes are a comparison table, not an image index.
+    expect(html.match(/<img\b[^>]*fetchPriority="high"/gi) ?? []).toHaveLength(site === 'investorpass' ? 0 : 1);
     if (count === 0) {
-      const index = html.match(/<ol class="mt-12 border-b[\s\S]*?<\/ol>/)?.[0];
-      expect(index!.match(/<a\s/g)).toHaveLength(4);
-      expect(index!.match(/loading="lazy"/g)).toHaveLength(4);
+      const table = html.match(/<table class="ipm-routes"[\s\S]*?<\/table>/)?.[0];
+      expect(table!.match(/<tbody>[\s\S]*<\/tbody>/)![0].match(/<tr>/g)).toHaveLength(4);
+      expect(table!.match(/data-fact="investorpass\.route_[a-z_]+_usd"/g)).toHaveLength(4);
     } else {
       const block = html.match(/<section data-intent-tiles[\s\S]*?<\/section>/)?.[0];
       expect(block).toBeDefined();

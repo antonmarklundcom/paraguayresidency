@@ -11,7 +11,8 @@ export function Footer({ site }: { site: SiteKey }) {
       <div className="mx-auto w-full max-w-[var(--container)] px-5 sm:px-8">
         <div className="grid gap-[var(--space-8)] sm:grid-cols-2 lg:grid-cols-4">
           <div>
-            <p className="font-[family-name:var(--display-font)] text-(length:--text-lg)">
+            <p className="footer-brand font-[family-name:var(--display-font)] text-(length:--text-lg)">
+              <span aria-hidden="true" className="brand-mark hidden" />
               {config.name}
             </p>
             <p className="mt-[var(--space-2)] max-w-[36ch] text-[var(--fg-muted)]">
@@ -21,7 +22,7 @@ export function Footer({ site }: { site: SiteKey }) {
 
           {config.footer.columns.map((column) => (
             <div key={column.titleKey}>
-              <p className="text-(length:--text-xs) tracking-[0.14em] text-[var(--fg-muted)] uppercase">
+              <p className="footer-title text-(length:--text-xs) tracking-[0.14em] text-[var(--fg-muted)] uppercase">
                 {t(site, column.titleKey)}
               </p>
               <ul className="mt-[var(--space-3)] space-y-1 sm:space-y-[var(--space-2)]">
@@ -38,7 +39,7 @@ export function Footer({ site }: { site: SiteKey }) {
 
           {/* Cross-brand links from the site registry. */}
           <div>
-            <p className="text-(length:--text-xs) tracking-[0.14em] text-[var(--fg-muted)] uppercase">
+            <p className="footer-title text-(length:--text-xs) tracking-[0.14em] text-[var(--fg-muted)] uppercase">
               {t(site, 'footer.siblings')}
             </p>
             <ul className="mt-[var(--space-3)] space-y-1 sm:space-y-[var(--space-2)]">
@@ -67,7 +68,7 @@ export function Footer({ site }: { site: SiteKey }) {
             ))}
           </ul>
         </div>
-        <p className="mt-[var(--space-4)] max-w-[var(--measure)] text-(length:--text-xs) text-[var(--fg-muted)]">
+        <p className="footer-disclaimer mt-[var(--space-4)] max-w-[var(--measure)] text-(length:--text-xs) text-[var(--fg-muted)]">
           {t(site, 'footer.disclaimer')}
         </p>
       </div>

@@ -15,6 +15,7 @@
 @import '../styles/themes/residenciaes.css';
 @import '../styles/themes/residenciapt.css';
 @import '../styles/themes/flytta.css';
+@import '../styles/investorpass-memo.css';
 
 @theme inline {
   --color-bg: var(--bg);

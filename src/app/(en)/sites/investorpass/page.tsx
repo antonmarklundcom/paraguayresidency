@@ -1,35 +1,19 @@
 import type { Metadata } from 'next';
-import type { FactKey } from '@content/shared/facts';
-import {
-  HeroContact,
-  Button,
-  PhotoHero,
-  heroTrust,
-  TrustBar,
-  PriceTable,
-  AfterYouMessage,
-  ArticleCards,
-  TeamStrip,
-  Guarantee,
-  Testimonials,
-  Fact,
-  FAQ,
-  Heading,
-  JsonLd,
-  LeadPanel,
-  Disclosure,
-  Band,
-  Eyebrow,
-  SectionHeader,
-  Section,
-  CaseSnapshots,
-} from '@/components';
+import Link from 'next/link';
+import { ArticleCards, CaseSnapshots, Disclosure, Fact, Guarantee, JsonLd, LeadPanel, TeamStrip, Testimonials, TrustBar } from '@/components';
 import { ProcessTimeline } from '@/components/ProcessTimeline';
 import { getPages } from '@/content';
 import { contentHref } from '@/lib/content-href';
 import { siteMetadata, serviceOfferJsonLd } from '@/lib/metadata';
 import { siteOrigin } from '@/sites/registry';
-import { RouteIndex, type IndexRoute } from './_lib/RouteIndex';
+import { Agents } from './_lib/Agents';
+import { Documents } from './_lib/Documents';
+import { InWriting } from './_lib/InWriting';
+import { MemoFaq, type MemoFaqItem } from './_lib/MemoFaq';
+import { MemoStrip } from './_lib/MemoStrip';
+import { Qualifier } from './_lib/Qualifier';
+import { RoutesTable } from './_lib/RoutesTable';
+import { Timeline } from './_lib/Timeline';
 
 const PATH = '/';
 const MESSAGE = 'Hi — I have a question about the Investor Pass.';
@@ -43,46 +27,7 @@ export function generateMetadata(): Metadata {
   });
 }
 
-const ROUTES: IndexRoute[] = [
-  {
-    id: 'real_estate',
-    title: 'Property that qualifies',
-    body: 'Title and purchase price are clean records, so this is usually the simplest route to document.',
-    image: 'investorpass-tile-residential-lobby-dusk',
-    factKey: 'investorpass.route_real_estate_usd',
-  },
-  {
-    id: 'productive_business',
-    title: 'An operating business',
-    body: 'A real, productive concern, not a shell holding cash. Suits investors who already run something similar.',
-    image: 'investorpass-tile-agro-silos-blue-hour',
-    factKey: 'investorpass.route_business_usd',
-  },
-  {
-    id: 'financial_instruments',
-    title: 'Qualifying instruments',
-    body: 'More paperwork to prove the investment is real and productive, and often the most liquid to hold.',
-    image: 'investorpass-tile-private-meeting-room',
-    factKey: 'investorpass.route_financial_usd',
-  },
-  {
-    id: 'tourism',
-    title: 'A tourism project',
-    body: 'Lodges, hospitality and visitor infrastructure, structured and documented as a productive project.',
-    image: 'investorpass-tile-river-lodge-dusk',
-    factKey: 'investorpass.route_tourism_usd',
-  },
-];
-
-const SPEC_ROWS: { label: string; fact: FactKey }[] = [
-  { label: 'Qualifying investment', fact: 'investorpass.min_investment_usd' },
-  { label: 'Legal basis', fact: 'investorpass.legal_instrument' },
-  { label: 'Launched', fact: 'investorpass.launch_date' },
-  { label: 'What you get', fact: 'investorpass.validity_years' },
-  { label: 'Cédula', fact: 'cedula.timeline' },
-];
-
-/** The five W6 articles, read against the 2026 resolution, in reading order. */
+/** Read against the 2026 resolution, in reading order; the block shows the first three. */
 const FEATURED = [
   'what-the-investor-pass-is',
   'investor-pass-resolution-explained',
@@ -92,21 +37,36 @@ const FEATURED = [
   'financial-instruments-and-tourism-routes',
 ];
 
-const FAQ_ITEMS = [
+const FAQ_ITEMS: MemoFaqItem[] = [
   {
-    question: 'Is the minimum investment fixed?',
+    question: 'Is the programme stable?',
     answer:
-      'Do not assume the routes share a single minimum. We review the eligibility of your proposed investment and give you a written breakdown of the capital and documents your chosen route requires.',
+      'It is new. The Investor Pass was introduced in 2026 and its implementing rules are still being issued and adjusted. We quote the rules in force on the day we write to you, with their source, and flag what could change before you file.',
   },
   {
-    question: 'Does the Investor Pass really skip temporary residency?',
+    question: 'Can family be included?',
     answer:
-      'Yes — that is its point. A qualifying investment lets you apply directly for permanent residency instead of serving the standard temporary stage first.',
+      'In general a spouse and dependent children can apply alongside the main investor, but conditions and documents differ and have not been settled for every case. We confirm your family’s position in writing before anything is filed.',
   },
   {
-    question: 'What if I am not sure which route fits?',
+    question: 'Can I exit the investment?',
     answer:
-      'Take the Route Finder, or send an inquiry with your rough capital and timeline. We tell you which of the four routes fits, or tell you honestly that the standard residency route is the better deal for your case.',
+      'Exit terms depend on the route and on minimum holding requirements that are still being clarified. Selling early may affect your status. Your brief sets out what is known, what is unconfirmed, and the consequences of each exit.',
+  },
+  {
+    question: 'How is the investment verified?',
+    answer:
+      'Typically through documentary evidence such as deeds, bank certificates or company filings, together with proof of the lawful origin of the funds, reviewed by the migration authority. We assemble and check this file before submission.',
+  },
+  {
+    question: 'What does the standard route cost instead?',
+    answer:
+      'The standard route goes through temporary residency first. Upfront costs are usually lower, but the process takes longer and involves a second application. We quote both side by side for your case.',
+    after: (
+      <p>
+        <Link href="/investor-pass/vs-standard-residency">Compare the two routes</Link> or see <Link href="/pricing">how we price the service</Link>.
+      </p>
+    ),
   },
   {
     question: 'Is this the same team as paraguayresidency.co.uk?',
@@ -120,122 +80,155 @@ export default function Page() {
   const articles = FEATURED.flatMap((slug) => {
     const post = pages.find((page) => !page.frontmatter.draft && page.slugPath.endsWith(`/${slug}`));
     return post ? [{ title: post.frontmatter.title, description: post.frontmatter.description, href: contentHref('investorpass', post.slugPath), hub: 'insights' }] : [];
-  });
+  }).slice(0, 3);
 
   return (
-    <>
-      <PhotoHero
-        layout="editorial-dark"
-        image="investorpass-hero-business-district-blue-hour"
-        video={{ id: 'investorpass-hero-business-district-blue-hour' }}
-        eyebrow="Paraguay Investor Pass"
-        title="Permanent residency in Paraguay, in one step."
-        sub="Qualifying investors skip temporary residency. We structure, file and stay until your card arrives."
-        actions={
-          <>
-            <Button href="#inquiry">Private consultation</Button>
-            <HeroContact site="investorpass" message={MESSAGE} fallbackHref="#inquiry" />
-          </>
-        }
-        trust={heroTrust('investorpass')}
-      />
+    <div className="ipm">
+      <MemoStrip />
+
+      <div className="ipm-wrap">
+        <section className="ipm-hero" aria-labelledby="hero-title">
+          <div className="ipm-hero-copy">
+            <p className="ipm-sec" style={{ margin: 0 }}>Decision memo · Investor Pass 2026</p>
+            <h1 id="hero-title" className="ipm-h1">Permanent residency in Paraguay, in one step.</h1>
+            <p className="ipm-lede">
+              The Investor Pass lets qualifying investors skip temporary residency entirely. We structure the investment, file the application and stay with you until the permanent card is in your hand.
+            </p>
+            <div className="ipm-actions">
+              <a href="#qualify" className="ipm-btn ipm-btn-primary">See if you qualify</a>
+              <a href="#routes" className="ipm-btn">Investment routes</a>
+            </div>
+            <ol className="ipm-points">
+              <li><span>01</span><span>Four qualifying routes (real estate, productive business, financial instruments, tourism) matched to your capital and goals</span></li>
+              <li><span>02</span><span>Thresholds and rules quoted in writing, not from a stale page</span></li>
+              <li><span>03</span><span>Nothing filed until you have seen cost, timeline and exit options in writing</span></li>
+            </ol>
+          </div>
+          <Qualifier />
+        </section>
+      </div>
+
+      {/* Proof strip: renders nothing until content/shared/proof.ts has real values. */}
       <TrustBar site="investorpass" />
 
-      {/* I to IV: the four routes as an index, the first thing an investor decides. */}
-      <Band labelledBy="routes-title" id="routes">
-        <SectionHeader
-          id="routes-title"
-          eyebrow="Four ways to qualify"
-          title="Choose the route that fits your capital"
-          intro="Each route has its own threshold and its own paperwork. Message us with your rough capital and goal, and we tell you which one to file, or that the standard route suits you better."
-          aside={<Button href="/route-finder" variant="secondary">Take the Route Finder</Button>}
-        />
-        <RouteIndex routes={ROUTES} />
-      </Band>
-
-      {/* The spec sheet: open on the page, not behind a toggle. */}
-      <Band tone="alt" labelledBy="spec-title" id="spec">
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,4fr)_minmax(0,7fr)] lg:gap-16">
-          <div>
-            <Eyebrow>Spec sheet</Eyebrow>
-            <h2 id="spec-title" className="mt-5 font-[family-name:var(--display-font)] text-(length:--step-4) leading-[1.06] text-balance">Investor Pass at a glance</h2>
-            <p className="mt-5 max-w-[42ch] leading-relaxed text-[var(--fg-muted)]">
-              Searching for a Paraguay golden visa? It is this programme.{' '}
-              <a className="text-[var(--accent)] underline underline-offset-4" href="/insights/paraguay-golden-visa">The golden visa, explained</a>.
-            </p>
-            <a className="mt-4 inline-flex min-h-11 items-center gap-2 font-medium text-[var(--accent)] underline-offset-4 hover:underline" href="/investor-pass/requirements">
-              Full requirements <span aria-hidden="true">→</span>
-            </a>
+      {/* §01 */}
+      <section id="routes" aria-labelledby="routes-title" className="ipm-rule-top scroll-mt-20">
+        <div className="ipm-wrap ipm-band">
+          <div className="ipm-hd">
+            <p className="ipm-sec" style={{ margin: 0 }}>§ 01 · Routes</p>
+            <div>
+              <h2 id="routes-title" className="ipm-h2">Four routes, compared on the same terms.</h2>
+              <p className="ipm-lede">Which assets and projects qualify is set by the authority and is still being clarified. Treat this as orientation; we confirm eligibility for your case in writing.</p>
+            </div>
           </div>
-          <div className="overflow-x-auto border-y border-[var(--accent)]/40">
-            <table className="w-full border-collapse text-left">
-              <caption className="sr-only">Investor Pass qualifying routes and programme rules</caption>
-              <tbody>
-                {SPEC_ROWS.map((row) => (
-                  <tr key={row.label} className="border-b border-[var(--border)]">
-                    <th scope="row" className="w-2/5 py-4 pr-4 align-top font-[family-name:var(--font-mono)] text-(length:--step--2) font-medium uppercase tracking-[.14em] text-[var(--fg-muted)]">{row.label}</th>
-                    <td className="py-4 align-top text-(length:--step--1) text-[var(--fg)]"><Fact k={row.fact} site="investorpass" /></td>
-                  </tr>
-                ))}
-                <tr>
-                  <th scope="row" className="py-4 pr-4 align-top font-[family-name:var(--font-mono)] text-(length:--step--2) font-medium uppercase tracking-[.14em] text-[var(--fg-muted)]">Standard route</th>
-                  <td className="py-4 align-top text-(length:--step--1) text-[var(--fg)]">
-                    Temporary first, then permanent. <a className="text-[var(--accent)] underline underline-offset-4" href="/investor-pass/vs-standard-residency">Compare the two</a>.
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+          <RoutesTable />
+          <p className="ipm-note" style={{ marginTop: 16 }}>
+            Minimum investment, as currently published: <Fact k="investorpass.min_investment_usd" site="investorpass" />. Thresholds are quoted in writing with the source and date of the rule. <Link href="/investor-pass/investment-routes" className="text-[var(--accent)] underline">The routes in detail</Link>.
+          </p>
+        </div>
+      </section>
+
+      {/* §02 */}
+      <section id="timeline" aria-labelledby="timeline-title" className="ipm-alt scroll-mt-20">
+        <div className="ipm-wrap ipm-band">
+          <div className="ipm-hd">
+            <p className="ipm-sec" style={{ margin: 0 }}>§ 02 · Timeline</p>
+            <div>
+              <h2 id="timeline-title" className="ipm-h2">One application instead of two.</h2>
+              <p className="ipm-lede">The standard path runs through temporary residency before you can apply for permanent status. Under the Pass, as currently published, qualifying investors apply for permanent residency directly.</p>
+            </div>
+          </div>
+          <Timeline />
+        </div>
+      </section>
+
+      {/* §03 */}
+      <section id="writing" aria-labelledby="writing-title" className="scroll-mt-20">
+        <div className="ipm-wrap ipm-band">
+          <div className="ipm-hd">
+            <p className="ipm-sec" style={{ margin: 0 }}>§ 03 · In writing</p>
+            <div className="ipm-body">
+              <div style={{ display: 'grid', gap: 12 }}>
+                <h2 id="writing-title" className="ipm-h2">What you get in writing before anything is filed</h2>
+                <p className="ipm-lede">One written brief, dated, with the rule sources it relies on. Where a point is not yet settled by the authority, the brief says so.</p>
+              </div>
+              <InWriting />
+            </div>
           </div>
         </div>
-      </Band>
+      </section>
 
-      <PriceTable
-        site="investorpass"
-        title="One fixed service fee, in writing before you commit"
-        intro="The fee covers structuring and filing. Your investment, government fees, apostilles and translations are separate and listed in the quote."
-      />
+      {/* Real people and real cases: each hides itself until content/shared/proof.ts has entries. */}
+      <TeamStrip site="investorpass" />
+      <Testimonials site="investorpass" />
+      <CaseSnapshots site="investorpass" />
+      <Guarantee site="investorpass" />
 
-      <AfterYouMessage site="investorpass" tone="alt" message={MESSAGE} />
+      {/* §04 */}
+      <section id="documents" aria-labelledby="documents-title" className="ipm-rule-top scroll-mt-20">
+        <div className="ipm-wrap ipm-band">
+          <div className="ipm-hd">
+            <p className="ipm-sec" style={{ margin: 0 }}>§ 04 · Documents</p>
+            <div className="ipm-body">
+              <div style={{ display: 'grid', gap: 12 }}>
+                <h2 id="documents-title" className="ipm-h2">Documents by route</h2>
+                <p className="ipm-lede">Indicative. The final list depends on route, nationality and current guidance, and is confirmed in your brief.</p>
+              </div>
+              <Documents />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* §05 */}
+      <Agents />
+
+      {/* §06 */}
+      <section id="faq" aria-labelledby="faq-title" className="scroll-mt-20">
+        <div className="ipm-wrap ipm-band">
+          <div className="ipm-hd">
+            <p className="ipm-sec" style={{ margin: 0 }}>§ 06 · FAQ</p>
+            <div className="ipm-body">
+              <h2 id="faq-title" className="ipm-h2">Questions we are asked first</h2>
+              <MemoFaq items={FAQ_ITEMS} />
+              <p style={{ margin: 0, display: 'flex', flexWrap: 'wrap', gap: '4px 24px' }}>
+                <Link className="inline-flex min-h-11 items-center text-[var(--accent)] underline underline-offset-4" href="/investor-pass/process">The process, step by step</Link>
+                <Link className="inline-flex min-h-11 items-center text-[var(--accent)] underline underline-offset-4" href="/investor-pass/requirements">Requirements</Link>
+                <Link className="inline-flex min-h-11 items-center text-[var(--accent)] underline underline-offset-4" href="/investor-pass/for-agents">For migration agents</Link>
+              </p>
+              <Disclosure title="The full process"><ProcessTimeline site="investorpass" route="investor" /></Disclosure>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <ArticleCards
         site="investorpass"
-        title="Read against Resolution 0283/2026"
+        title="Read the rules behind this page"
         articles={articles}
         more={{ href: '/insights', label: 'All Investor Pass insights' }}
+        tone="alt"
       />
 
-      <Testimonials site="investorpass" tone="alt" />
-      <CaseSnapshots site="investorpass" />
-      <Guarantee site="investorpass" />
-      <TeamStrip site="investorpass" />
-
-      <Section width="narrow" tone="alt">
-        <Heading level={2}>Frequently asked</Heading>
-        <FAQ items={FAQ_ITEMS} />
-        <p className="mt-[var(--space-6)] flex flex-wrap gap-x-6 gap-y-1">
-          <a className="inline-flex min-h-11 items-center text-[var(--accent)] underline underline-offset-4" href="/investor-pass/process">The full process</a>
-          <a className="inline-flex min-h-11 items-center text-[var(--accent)] underline underline-offset-4" href="/investor-pass/for-agents">For migration agents</a>
-        </p>
-        <div className="mt-[var(--space-6)]">
-          <Disclosure title="The full process"><ProcessTimeline site="investorpass" route="investor" /></Disclosure>
-        </div>
-      </Section>
-
-      <LeadPanel
-        site="investorpass"
-        variant="investor_inquiry"
-        id="inquiry"
-        title="See if you qualify"
-        intro="Tell us your capital and goal. We send the route, cost and exit options in writing."
-        whatsappMessage={MESSAGE}
-        footnote={
-          <>
-            Not investing? See{' '}
-            <a href={siteOrigin('residency')} className="text-[var(--accent)] underline underline-offset-2">standard residency routes</a>{' '}
-            on paraguayresidency.co.uk instead.
-          </>
-        }
-      />
+      {/* §07 — the existing lead form (variant investor_inquiry), restyled by CSS under .ipm-qualify. */}
+      <div className="ipm-qualify">
+        <LeadPanel
+          site="investorpass"
+          variant="investor_inquiry"
+          id="qualify"
+          eyebrow="§ 07 · Qualification"
+          title="See if you qualify."
+          intro="Send a few facts about your capital and family. A member of the Asunción team replies in writing within one working day with the routes that fit and what is not yet confirmed. We do not book sales calls."
+          whatsappMessage={MESSAGE}
+          footnote={
+            <>
+              Not investing? See{' '}
+              <a href={siteOrigin('residency')} className="text-[var(--accent)] underline underline-offset-2">standard residency routes</a>{' '}
+              on paraguayresidency.co.uk instead.
+            </>
+          }
+        />
+      </div>
 
       <JsonLd
         data={serviceOfferJsonLd('investorpass', {
@@ -245,6 +238,6 @@ export default function Page() {
           path: PATH,
         })}
       />
-    </>
+    </div>
   );
 }

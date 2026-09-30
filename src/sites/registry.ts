@@ -162,11 +162,11 @@ export const sites: Record<SiteKey, SiteConfig> = {
     theme: 'investorpass',
     cta: { labelKey: 'home.ctaPrimary', href: '/contact' },
     nav: [
-      { labelKey: 'nav.insights', href: '/insights' },
-      { labelKey: 'nav.requirements', href: '/investor-pass/requirements' },
       { labelKey: 'nav.investmentRoutes', href: '/investor-pass/investment-routes' },
+      { labelKey: 'nav.requirements', href: '/investor-pass/requirements' },
       { labelKey: 'nav.process', href: '/investor-pass/process' },
-      { labelKey: 'nav.routeFinder', href: '/route-finder' },
+      { labelKey: 'nav.forAgents', href: '/investor-pass/for-agents' },
+      { labelKey: 'nav.insights', href: '/insights' },
       { labelKey: 'nav.contact', href: '/contact' },
     ],
     footer: {
@@ -178,12 +178,14 @@ export const sites: Record<SiteKey, SiteConfig> = {
             { labelKey: 'nav.investmentRoutes', href: '/investor-pass/investment-routes' },
             { labelKey: 'nav.process', href: '/investor-pass/process' },
             { labelKey: 'nav.vsStandard', href: '/investor-pass/vs-standard-residency' },
+            { labelKey: 'nav.routeFinder', href: '/route-finder' },
           ],
         },
         {
           titleKey: 'footer.company',
           items: [
             { labelKey: 'nav.about', href: '/about' },
+            { labelKey: 'nav.insights', href: '/insights' },
             { labelKey: 'nav.contact', href: '/contact' },
             { labelKey: 'nav.forAgents', href: '/investor-pass/for-agents' },
           ],

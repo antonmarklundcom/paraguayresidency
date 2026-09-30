@@ -9,4 +9,4 @@ under the SIL Open Font License 1.1 (https://openfontlicense.org).
 | newsreader-500.woff2 | Newsreader | The Newsreader Project Authors |
 | fraunces-500.woff2 | Fraunces | The Fraunces Project Authors |
 | bricolage-600.woff2 | Bricolage Grotesque | The Bricolage Grotesque Project Authors |
-| instrument-serif-400.woff2 | Instrument Serif | The Instrument Serif Project Authors |
+| schibsted-grotesk-600.woff2 | Schibsted Grotesk | The Schibsted Grotesk Project Authors |

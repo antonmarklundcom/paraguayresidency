@@ -63,6 +63,8 @@ vi.mock('@/lib/form-guard', async importOriginal => ({
   ...await importOriginal<typeof import('@/lib/form-guard')>(), issueFormTimestamp: () => 'test-timestamp',
 }));
 vi.mock('@/app/actions/lead', () => ({ submitLeadFormAction: async () => {} }));
+// The Investor Pass hero embeds the real quiz, a client component that needs an app router.
+vi.mock('next/navigation', async (original) => ({ ...(await original<typeof import('next/navigation')>()), useRouter: () => ({ push: () => {} }) }));
 
 const services = [{ site: 'residency', path: '/residency/temporary-residency', route: 'temporary', Page: Page0 },
 { site: 'residency', path: '/residency/permanent-residency', route: 'permanent', Page: Page1 },
