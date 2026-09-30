@@ -10,7 +10,7 @@ import { LEAD_CSV_COLUMNS, parseLeadFilters, toCsv } from '@/lib/admin-queries';
  * the role check every mutating action runs (stack skill §2).
  */
 describe('admin is reachable on the hub host only', () => {
-  const adminPaths = ['/admin', '/admin/', '/admin/login', '/admin/leads', '/admin/leads/export'];
+  const adminPaths = ['/admin', '/admin/', '/admin/login', '/admin/leads', '/admin/leads/export', '/admin/attribution', '/admin/attribution/export'];
 
   it('passes /admin through on the hub', () => {
     for (const pathname of adminPaths) {

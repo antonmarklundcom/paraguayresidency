@@ -16,8 +16,12 @@ const COPY: Record<(typeof VARIANTS)[number], string> = {
  * minutes") lifts click-through on the Route Finder over the plain label.
  * `find_route` is the pre-existing copy, so a visitor who lands on the
  * control sees no change from before this test started.
+ *
+ * Since O24 (item 10) the assignment is server-side (experiment `hero_cta`
+ * in `src/lib/experiments.ts`) and every lead records which variant the
+ * visitor saw; the readout is on `/admin/attribution`.
  */
 export function ABHeroCta({ href }: { href: string }) {
-  const variant = useABVariant('hero_cta_residency', VARIANTS);
+  const variant = useABVariant('hero_cta', VARIANTS);
   return <Button href={href}>{COPY[variant]}</Button>;
 }

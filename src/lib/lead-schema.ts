@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { UTM_KEYS } from './utm';
 import { COUNTRIES } from './countries';
 import { SITE_KEYS } from '@/sites/registry';
 import { QUESTION_IDS, ROUTES, sanitizeAnswers } from '@/features/quiz/scoring';
@@ -115,15 +116,7 @@ export function parseLeadInput(
 }
 
 /** `utm_source` … `fbclid` off a query string, capped and deduplicated. */
-export const UTM_KEYS = [
-  'utm_source',
-  'utm_medium',
-  'utm_campaign',
-  'utm_term',
-  'utm_content',
-  'gclid',
-  'fbclid',
-] as const;
+export { UTM_KEYS } from './utm';
 
 export function pickUtm(params: URLSearchParams | Record<string, string>): Record<string, string> {
   const get = (key: string): string | null =>
