@@ -24,11 +24,14 @@ export function IntentTiles({ title, intro, tiles, locale = 'en' }: { title: str
           <h2 className="max-w-2xl font-[family-name:var(--display-font)] text-(length:--text-3xl) leading-[1.05] text-balance sm:text-(length:--text-4xl)">{title}</h2>
           {intro && <p className="text-[var(--fg-muted)] md:justify-self-end">{intro}</p>}
         </div>
-        <div className="-mx-2 grid auto-cols-[82%] grid-flow-col snap-x snap-mandatory gap-4 overflow-x-auto overscroll-x-contain p-2 md:h-[min(80vh,700px)] md:auto-cols-auto md:grid-flow-row md:grid-cols-4 md:grid-rows-2 md:overflow-visible">
+        <div className="-mx-2 grid auto-cols-[74%] grid-flow-col snap-x snap-mandatory gap-4 overflow-x-auto overscroll-x-contain p-2 md:h-[min(80vh,700px)] md:auto-cols-auto md:grid-flow-row md:grid-cols-4 md:grid-rows-2 md:overflow-visible">
           {tiles.map((tile, index) => {
             const asset = arrivalImage(tile.image, locale);
             const feature = index === 0;
-            const sizes = feature ? '(min-width: 768px) 50vw, 82vw' : '(min-width: 768px) 25vw, 82vw';
+            // Phone rows: a tile is 74% of the row, which is the viewport less the 2.5rem gutters and the
+            // scroller's 1rem padding. Saying so lets a 1.75x phone take the 480w file (about half the bytes).
+            const phone = 'calc((100vw - 3.5rem) * .74)';
+            const sizes = feature ? `(min-width: 768px) 50vw, ${phone}` : `(min-width: 768px) 25vw, ${phone}`;
             const avif = arrivalVariants(tile.image).avif.filter((w) => w <= 800);
             return (
               <a key={tile.href} href={tile.href} className={`group relative isolate flex aspect-[4/5] min-h-11 min-w-0 snap-start flex-col justify-between overflow-hidden rounded-[calc(var(--radius-brand)+4px)] bg-black p-5 text-white shadow-[var(--shadow)] focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent)] md:aspect-auto md:p-7 ${span(index, tiles.length)}`}>

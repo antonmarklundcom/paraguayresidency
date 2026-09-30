@@ -77,7 +77,7 @@ describe('guide sales parts', () => {
     expect(out).toContain('role="img"');
     expect(out).toContain('aria-label="The cover of The Paraguay Residency Guide, 2026 edition"');
     expect(out).toContain('The Paraguay Residency Guide');
-    expect(out).toContain('url(/images/arrival/guide-cover-art-river-topography-1200.webp)');
+    expect(out).toContain('guide-cover-art-river-topography-600.avif');
     expect(out).toContain('bg-[var(--accent)]');
   });
 
