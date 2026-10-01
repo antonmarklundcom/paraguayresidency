@@ -1,4 +1,4 @@
-import { HUB_SITE, isSiteKey, siteForHost, siteSellsProducts, sites, type SiteKey } from './registry';
+import { HUB_SITE, aliasForHost, isSiteKey, siteForHost, siteSellsProducts, sites, type SiteKey } from './registry';
 import { legacyRedirect } from './redirects';
 
 /** Internal route prefix the middleware rewrites into. Never a public URL. */
@@ -72,6 +72,15 @@ export function resolveRequest(input: ResolveInput): Resolution {
 
   if (isDev && isSiteKey(input.siteOverride)) {
     site = sites[input.siteOverride];
+  }
+
+  // 3b. Owned non-brand domains → their brand's canonical host (registry HOST_ALIASES).
+  if (!site) {
+    const alias = aliasForHost(input.host);
+    if (alias) {
+      const target = pathname === '/' && alias.rootPath ? alias.rootPath : pathname;
+      return { type: 'redirect', url: `https://${sites[alias.site].canonicalHost}${target}${search}`, status: 301 };
+    }
   }
 
   // 4. Unknown host → the hub apex (plan §2).

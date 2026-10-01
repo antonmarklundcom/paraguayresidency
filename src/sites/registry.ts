@@ -101,6 +101,10 @@ export const sites: Record<SiteKey, SiteConfig> = {
     hosts: [
       'paraguayresidency.co.uk',
       'www.paraguayresidency.co.uk',
+      // Interim hub host while `.co.uk` is not attached in Hostinger. Once `.co.uk` serves,
+      // move this line (and its www) into HOST_ALIASES so it 301s to the canonical host.
+      'paraguayresidency.uk',
+      'www.paraguayresidency.uk',
       'residency.localhost',
       'localhost',
     ],
@@ -462,6 +466,34 @@ export function getSite(key: SiteKey): SiteConfig {
  */
 export function siteSellsProducts(key: SiteKey): boolean {
   return (sites[key].products?.length ?? 0) > 0;
+}
+
+export interface HostAlias {
+  site: SiteKey;
+  /** Where `/` lands on the canonical host; every other path keeps its path. */
+  rootPath?: string;
+}
+
+/**
+ * Domains Anton owns that are NOT brands: they 301 to a brand's canonical host,
+ * keeping path and query. A domain here costs nothing; a brand costs a locale
+ * and (for a new `SiteKey`) a migration. `www.` variants are matched too.
+ * The three `.nl` domains point at the hub until a Dutch brand exists.
+ */
+export const HOST_ALIASES: Record<string, HostAlias> = {
+  'paraguayhq.com': { site: 'residency' },
+  'permanentresidencyparaguay.com': { site: 'residency', rootPath: '/residency/permanent-residency' },
+  'paraguayimmigrationlawyer.com': { site: 'residency', rootPath: '/contact' },
+  'woneninparaguay.nl': { site: 'residency' },
+  'wakkerinparaguay.nl': { site: 'residency' },
+  'emigrerennaarparaguay.nl': { site: 'residency' },
+};
+
+/** Alias lookup; `host` may include a port and a `www.` prefix. */
+export function aliasForHost(host: string | null | undefined): HostAlias | undefined {
+  if (!host) return undefined;
+  const bare = host.toLowerCase().split(':')[0].trim().replace(/^www\./, '');
+  return HOST_ALIASES[bare];
 }
 
 /** Brands that list a given product slug. */
