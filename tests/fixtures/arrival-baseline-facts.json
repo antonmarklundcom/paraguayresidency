@@ -2,17 +2,19 @@
   "guide": [],
   "investorpass": [
     "cedula.timeline",
-    "cedula.timeline",
-    "investorpass.launch_date",
-    "investorpass.legal_instrument",
+    "investorpass.cie_documents",
+    "investorpass.financial_conditions",
+    "investorpass.foreign_documents",
     "investorpass.min_investment_usd",
+    "investorpass.productive_conditions",
+    "investorpass.real_estate_evidence",
     "investorpass.route_business_usd",
     "investorpass.route_financial_usd",
     "investorpass.route_real_estate_usd",
     "investorpass.route_tourism_usd",
     "investorpass.timeline",
-    "investorpass.validity_years",
-    "pricing.investor_pass"
+    "investorpass.timeline",
+    "investorpass.tourism_conditions"
   ],
   "frontier": [
     "fees.cedula_first",

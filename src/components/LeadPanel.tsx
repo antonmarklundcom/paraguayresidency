@@ -12,7 +12,7 @@ import type { LeadVariant } from './LeadFormFields';
  * behind a disclosure (F-014). No booked calls: WhatsApp or the form. Presentation only —
  * the form, its action and the lead pipeline are untouched.
  */
-export function LeadPanel({ site, variant, title, intro, whatsappMessage, id = 'contact', pagePath = '/', footnote }: {
+export function LeadPanel({ site, variant, title, intro, whatsappMessage, id = 'contact', pagePath = '/', footnote, eyebrow }: {
   site: SiteKey;
   variant: Exclude<LeadVariant, 'whatsapp' | 'quiz'>;
   title: string;
@@ -21,6 +21,8 @@ export function LeadPanel({ site, variant, title, intro, whatsappMessage, id = '
   id?: string;
   pagePath?: string;
   footnote?: ReactNode;
+  /** Overrides the default "Start here" eyebrow. */
+  eyebrow?: string;
 }) {
   const whatsapp = whatsappHref(whatsappMessage);
   const points = ['lead.point.reply', 'lead.point.fee', 'lead.point.honest'];
@@ -28,7 +30,7 @@ export function LeadPanel({ site, variant, title, intro, whatsappMessage, id = '
     <section id={id} className="scroll-mt-20 bg-[var(--surface-alt)] py-16 md:py-24">
       <div className="mx-auto grid max-w-[var(--container)] gap-10 px-5 sm:px-8 lg:grid-cols-[5fr_7fr] lg:gap-16">
         <div className="lg:pt-6">
-          <p className="text-(length:--text-xs) font-medium uppercase tracking-[.18em] text-[var(--accent)]">{t(site, 'lead.eyebrow')}</p>
+          <p className="text-(length:--text-xs) font-medium uppercase tracking-[.18em] text-[var(--accent)]">{eyebrow ?? t(site, 'lead.eyebrow')}</p>
           <h2 className="mt-3 font-[family-name:var(--display-font)] text-(length:--text-2xl) leading-[var(--leading-tight)] text-balance sm:text-(length:--text-3xl)">{title}</h2>
           <p className="mt-4 text-[var(--fg-muted)]">{intro}</p>
           <ul className="mt-8 space-y-4">

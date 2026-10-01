@@ -90,7 +90,7 @@
   --font-bricolage: 'Bricolage Grotesque', 'Bricolage Grotesque Fallback', var(--font-system);
   --font-newsreader: 'Newsreader', 'Newsreader Fallback', var(--font-serif);
   --font-fraunces: 'Fraunces', 'Fraunces Fallback', var(--font-serif);
-  --font-instrument: 'Instrument Serif', 'Instrument Serif Fallback', var(--font-serif);
+  --font-schibsted: 'Schibsted Grotesk', 'Schibsted Grotesk Fallback', var(--font-system);
   --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
 
   /* Neutral defaults so anything rendered outside a themed wrapper still

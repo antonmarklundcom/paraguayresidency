@@ -528,6 +528,7 @@ Exit: `grep -rn` (excluding `node_modules`, `.next`, `.git`, `plan.md`, `prompts
 - O24 items 5+6 (legacy 301s, host cutover smoke, per-host sitemap/robots/llms tests) | 2026-09-30 | [PR #96](https://github.com/antonmarklundcom/paraguayresidency/pull/96) | [docs/log/o24.md](docs/log/o24.md)
 - O24 hotfix: Hostinger build via webpack | 2026-09-30 | [PR #97](https://github.com/antonmarklundcom/paraguayresidency/pull/97) | [docs/log/o24.md](docs/log/o24.md)
 - O24 item 9 (enforcing CSP, smoke + abuse probes in CI) | 2026-09-30 | PR #98 | [docs/log/o24.md](docs/log/o24.md)
+- S25-IP (Investor Pass homepage: white + teal "decision memo" redesign; replaces dark + gold for this brand only, Anton 2026-09-30) | 2026-09-30 | PR pending | [docs/log/s25-ip.md](docs/log/s25-ip.md)
 
 ## 10. Backlog
 
