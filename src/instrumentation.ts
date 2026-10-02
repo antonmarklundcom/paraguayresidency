@@ -1,6 +1,20 @@
 import type { Instrumentation } from 'next';
 
 /**
+ * Runs once per server process, Node runtime only (the import is lazy so the
+ * proxy's edge-style bundle never sees `node:diagnostics_channel`).
+ * `installProcessLifecycle` ends a copy whose launcher is gone and caps SIGTERM
+ * at 10 s — see `src/lib/process-lifecycle.ts` and
+ * `docs/hosting-process-cap-plan.md`.
+ */
+export async function register(): Promise<void> {
+  if (process.env.NEXT_RUNTIME === 'nodejs') {
+    const { installProcessLifecycle } = await import('@/lib/process-lifecycle');
+    installProcessLifecycle();
+  }
+}
+
+/**
  * Unhandled errors from every server component, route handler, server action
  * and the proxy, reported once, as one structured line (O24, item 8) —
  * with the request id the proxy stamped, the host and the route, and never the
