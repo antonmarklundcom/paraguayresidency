@@ -6,11 +6,11 @@ import { revalidatePath } from 'next/cache';
 import { eq } from 'drizzle-orm';
 import { getDb, hasDatabase } from '@/db';
 import { factsVerification } from '@/db/schema';
-import { currentAdmin, login, logout, requireRole } from '@/lib/auth';
+import { currentAdmin, isKnownAdminDevice, login, logout, rememberAdminDevice, requireRole } from '@/lib/auth';
 import { retryLeadDelivery, runLeadDeliveryQueue } from '@/lib/leads';
 import { resendDownload } from '@/lib/purchases';
 import { grantTierUntil } from '@/lib/member-admin';
-import { clientIp, RATE_LIMIT_MESSAGE, resetLimit, takeBoth } from '@/lib/rate-limit';
+import { adminLoginGate, adminLoginSucceeded, clientIp, RATE_LIMIT_MESSAGE } from '@/lib/rate-limit';
 import { factKeys } from '@content/shared/facts';
 
 /**
@@ -29,27 +29,29 @@ export interface LoginState {
 
 /**
  * The one password form in the whole app, so the one place bcrypt can be made
- * to burn CPU on demand (`docs/improvement-report.md` §1.7). Five attempts per
- * 15 minutes, counted against the IP **and** the email — both, always, so an
- * attacker cannot keep one bucket full to stop the other from filling
- * (plan §14.2.1).
+ * to burn CPU on demand (`docs/improvement-report.md` §1.7). Limited by
+ * `adminLoginGate` (O26 bug 4): 5 per 15 minutes per (email, IP) pair, 20 per
+ * IP, and a 30-per-hour per-email backstop that a browser which has signed in
+ * to that account before is exempt from — so a stranger spraying the admin's
+ * address cannot lock the admin out, and a botnet still cannot buy unlimited
+ * guesses at one account.
  *
  * Two details that are deliberate:
  *  - the ~250 ms delay is FIXED, not a backoff. A backoff is a timing oracle:
  *    it tells the caller which guesses were "closer". A constant pause costs a
  *    script 250 ms per try and costs the admin who mistyped their password
  *    a quarter of a second they will not notice.
- *  - a successful login forgets the counters, so the person who mistyped twice
- *    this morning is not four attempts from being locked out this afternoon.
+ *  - a successful login forgets the pair and IP counters, so the person who
+ *    mistyped twice this morning is not three attempts from a lockout this
+ *    afternoon, and marks this browser as a known device for the account.
  */
 const LOGIN_FAILURE_DELAY_MS = 250;
 
 export async function loginAction(_prev: LoginState, form: FormData): Promise<LoginState> {
   const email = String(form.get('email') ?? '').trim().toLowerCase();
   const ip = clientIp(await headers());
-  const keys: [string, string] = [`ip:${ip}`, `email:${email}`];
 
-  const limit = takeBoth('adminLogin', keys);
+  const limit = adminLoginGate({ ip, email, knownDevice: await isKnownAdminDevice(email) });
   if (!limit.ok) {
     await pause(LOGIN_FAILURE_DELAY_MS);
     return { error: RATE_LIMIT_MESSAGE };
@@ -61,7 +63,8 @@ export async function loginAction(_prev: LoginState, form: FormData): Promise<Lo
     return { error: result.error };
   }
 
-  for (const key of keys) resetLimit('adminLogin', key);
+  adminLoginSucceeded({ ip, email });
+  await rememberAdminDevice(email);
   redirect('/admin/leads');
 }
 

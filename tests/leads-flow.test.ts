@@ -58,7 +58,8 @@ describe('createLead', () => {
     expect(result.ok).toBe(false);
     if (result.ok) return;
     expect(result.guard).toBe('too-fast');
-    expect(result.errors.form).toMatch(/try again/i);
+    // A key, not a sentence: the action renders it in the form's language (O26 bug 1).
+    expect(result.errors.form).toBe('formError.tooFast');
   });
 
   it('returns field errors for invalid input and sends nothing', async () => {

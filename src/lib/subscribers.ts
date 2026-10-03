@@ -13,11 +13,12 @@ import { checkFormGuard, isSilentDrop } from './form-guard';
 
 export const subscribeInputSchema = z.object({
   site: z.enum(SITE_KEYS as unknown as [string, ...string[]]),
-  email: z.string().trim().toLowerCase().email('Enter a valid email address').max(255),
+  email: z.string().trim().toLowerCase().email('formError.email').max(255),
   name: z.string().trim().max(160).optional(),
   source: z.string().trim().max(120).optional(),
 });
 
+/** `error` is an i18n key (`src/lib/form-messages.ts`); the caller localises it. */
 export type SubscribeResult =
   | { ok: true; state: 'pending' | 'already-confirmed' | 'dropped' }
   | { ok: false; error: string };
@@ -32,17 +33,17 @@ export async function subscribe(
     now.getTime(),
   );
   if (isSilentDrop(guard)) return { ok: true, state: 'dropped' };
-  if (guard !== 'ok') return { ok: false, error: 'This form has expired. Please reload the page.' };
+  if (guard !== 'ok') return { ok: false, error: 'formError.expired' };
 
   const parsed = subscribeInputSchema.safeParse(raw);
   if (!parsed.success) {
-    return { ok: false, error: parsed.error.issues[0]?.message ?? 'Check the form and try again.' };
+    return { ok: false, error: parsed.error.issues[0]?.message ?? 'formError.generic' };
   }
   const { site, email, name, source } = parsed.data;
 
   if (!hasDatabase()) {
     console.error('[subscribers] DATABASE_URL is not set — subscription not stored');
-    return { ok: false, error: 'Subscriptions are temporarily unavailable. Please try again later.' };
+    return { ok: false, error: 'formError.unavailable' };
   }
 
   const db = getDb();

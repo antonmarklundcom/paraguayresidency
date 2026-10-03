@@ -430,10 +430,10 @@ not produce a wall of violation reports. If the analytics decision ever lands on
 something other than Plausible, the two allowances in `PUBLIC_CSP` are the only
 lines to change.
 
-## OPEN — two costs of limiting per IP and per email (O18, accepted)
+## OPEN — a shared IP shares a bucket (O18, accepted; the admin-lockout half CLEARED in O26)
 
-Both are inherent to the limits plan §14.2.1 specifies, not bugs in them. Named
-here so nobody re-diagnoses them from a support ticket.
+The first is inherent to the limits plan §14.2.1 specifies, not a bug in them.
+Named here so nobody re-diagnoses it from a support ticket.
 
 **Shared IPs share a bucket.** The lead forms are 10/hour per IP and
 `/api/subscribe` is 20/hour per IP. A company office, a co-working space or a
@@ -445,14 +445,20 @@ project exists to collect. If `/admin/leads` ever shows a suspicious gap, check
 the app log for the refusals before assuming a traffic drop; the number to raise
 is one line in `LIMITS`.
 
-**An admin can be locked out by someone spraying their email.** Admin login is
-5 per 15 minutes counted against the IP *and* the email, so anyone who knows
-(or guesses) Anton's admin address can keep that bucket full from anywhere and
-hold the door shut. The alternative — limiting per IP only — hands an attacker
-with a botnet unlimited bcrypt guesses at one account, which is the CPU-DoS this
-phase exists to close, so the trade is deliberate. The escape hatch is that the
-window is 15 minutes and the limiter is in-process: waiting it out works, and a
-redeploy clears it immediately.
+**CLEARED in O26 (2026-10-03) — an admin can no longer be locked out by someone
+spraying their email.** O18 counted admin login 5 per 15 minutes against the IP
+*and* the email, so anyone who knew Anton's address could keep the email bucket
+full from anywhere and hold the door shut. `adminLoginGate`
+(`src/lib/rate-limit.ts`) now counts three things on every attempt: 5 per 15
+minutes per (email, IP) pair, 20 per 15 minutes per IP, and a 30-per-hour
+per-email backstop. A browser that has signed in to that account before carries
+a sealed `pyrg_admin_device` cookie (`src/lib/auth.ts`, 90 days, path `/admin`)
+and is exempt from the backstop, so a stranger can only exhaust their own pair,
+their own IP and the backstop for devices that are not Anton's. Brute force stays
+bounded: one IP gets 5 guesses per account, and a botnet gets at most 30 an hour
+at one account. Remaining cost: during a live spray, Anton on a browser he has
+never signed in from waits out the hour (or a redeploy clears it). Tests:
+`tests/o26-admin-lockout.test.ts`, `tests/o26-admin-device-cookie.test.ts`.
 
 ## OPEN — the coarse middleware limit also covers the two webhook routes (O18)
 

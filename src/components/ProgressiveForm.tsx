@@ -18,8 +18,12 @@ function subscribeToQuery(change: () => void) {
   return () => window.removeEventListener('popstate', change);
 }
 
-/** Always loaded: query confirmation and a small visibility/focus trigger only. */
-export function ProgressiveForm({ base, success, ...props }: EnhancementProps & { base: ReactNode; success: ReactNode }) {
+/**
+ * Always loaded: query confirmation and a small visibility/focus trigger only.
+ * `errorMessage` is the no-JS `?<kind>=error` line, already in the brand's
+ * language (`formError.reload`) — this client component has no `t()`.
+ */
+export function ProgressiveForm({ base, success, errorMessage, ...props }: EnhancementProps & { base: ReactNode; success: ReactNode; errorMessage: string }) {
   const root = useRef<HTMLDivElement>(null);
   const snapshot = useRef<FormSnapshot>({ values: [] });
   const submitted = useRef(false);
@@ -88,7 +92,7 @@ export function ProgressiveForm({ base, success, ...props }: EnhancementProps & 
     <div ref={root} onFocusCapture={activate} onInputCapture={capture} onChangeCapture={capture}
       onSubmitCapture={() => { if (!root.current?.querySelector('[data-enhanced]')) { submitted.current = true; setActive(false); } }}>
       {result === 'ok' ? success : <>
-        {result === 'error' ? <p role="alert" className="mb-3 text-(length:--text-sm) text-[var(--danger)]">Check the form and try again. If it has expired, reload the page.</p> : null}
+        {result === 'error' ? <p role="alert" className="mb-3 text-(length:--text-sm) text-[var(--danger)]">{errorMessage}</p> : null}
         <BaseContext.Provider value={{ base, capture }}>
           {active ? <Enhancement {...props} snapshot={snapshot} /> : <Base />}
         </BaseContext.Provider>

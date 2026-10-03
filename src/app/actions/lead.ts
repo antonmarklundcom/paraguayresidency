@@ -11,13 +11,8 @@ import { readExposures } from '@/lib/experiments';
 import { articleSlugFromPath } from '@/lib/site-events';
 import { HONEYPOT_FIELD, TIMESTAMP_FIELD } from '@/lib/form-guard';
 import { subscribe } from '@/lib/subscribers';
-import {
-  clientIp,
-  RATE_LIMIT_MESSAGE,
-  SUBSCRIBE_PENDING_MESSAGE,
-  subscribeLimit,
-  takeLimit,
-} from '@/lib/rate-limit';
+import { clientIp, subscribeLimit, takeLimit } from '@/lib/rate-limit';
+import { formMessage, localizeErrors } from '@/lib/form-messages';
 import type { LeadFormState, SubscribeFormState } from './lead-state';
 
 /**
@@ -40,15 +35,17 @@ const str = (form: FormData, key: string): string => String(form.get(key) ?? '')
  *
  * `state.errors.form` and `state.message` are what `LeadFormFields` and
  * `NewsletterFormFields` already render, so a refusal arrives as a sentence in
- * the form rather than as a thrown error.
+ * the form rather than as a thrown error. Every such sentence goes through
+ * `formMessage(site, key)`, so it is in the form's language (O26 bug 1).
  */
 export async function submitLeadAction(
   _prev: LeadFormState,
   form: FormData,
 ): Promise<LeadFormState> {
   const h = await headers();
+  const site = str(form, 'site');
   const limit = takeLimit('lead', clientIp(h));
-  if (!limit.ok) return { status: 'error', errors: { form: RATE_LIMIT_MESSAGE } };
+  if (!limit.ok) return { status: 'error', errors: { form: formMessage(site, 'formError.rateLimited') } };
 
   const cookieStore = await cookies();
   const cookie = (name: string) => cookieStore.get(name)?.value;
@@ -69,7 +66,7 @@ export async function submitLeadAction(
 
   const result = await createLead(
     {
-      site: str(form, 'site'),
+      site,
       kind: str(form, 'kind'),
       name: str(form, 'name'),
       email: str(form, 'email'),
@@ -100,7 +97,7 @@ export async function submitLeadAction(
     },
   );
 
-  if (!result.ok) return { status: 'error', errors: result.errors };
+  if (!result.ok) return { status: 'error', errors: localizeErrors(site, result.errors) };
   return { status: 'ok' };
 }
 
@@ -113,11 +110,11 @@ export async function subscribeAction(
   const email = str(form, 'email');
 
   const gate = subscribeLimit({ ip: clientIp(h), email, site });
-  if (gate === 'limited') return { status: 'error', message: RATE_LIMIT_MESSAGE };
+  if (gate === 'limited') return { status: 'error', message: formMessage(site, 'formError.rateLimited') };
   // Already mailed inside the hour: the address is pending, it has the link,
   // and a second identical mail is the inbox-bombing the limit exists to stop.
   // The visitor is told the same thing either way — the truth is unchanged.
-  if (gate === 'already-sent') return { status: 'ok', message: SUBSCRIBE_PENDING_MESSAGE };
+  if (gate === 'already-sent') return { status: 'ok', message: formMessage(site, 'newsletter.pending') };
 
   const result = await subscribe(
     {
@@ -129,12 +126,10 @@ export async function subscribeAction(
     { honeypot: form.get(HONEYPOT_FIELD), timestamp: form.get(TIMESTAMP_FIELD) },
   );
 
-  if (!result.ok) return { status: 'error', message: result.error };
+  if (!result.ok) return { status: 'error', message: formMessage(site, result.error) };
   return {
     status: 'ok',
-    message: result.state === 'already-confirmed'
-        ? 'You are already on the list.'
-        : SUBSCRIBE_PENDING_MESSAGE,
+    message: formMessage(site, result.state === 'already-confirmed' ? 'newsletter.alreadySubscribed' : 'newsletter.pending'),
   };
 }
 
@@ -178,7 +173,7 @@ export async function magicLinkAction(_prev: SubscribeFormState, form: FormData)
       [HONEYPOT_FIELD]: str(form, HONEYPOT_FIELD),
     }),
   }));
-  return response.ok ? { status: 'ok' } : { status: 'error', message: 'Check your email address and try again.' };
+  return response.ok ? { status: 'ok' } : { status: 'error', message: formMessage(str(form, 'site'), 'formError.checkEmail') };
 }
 
 export async function magicLinkFormAction(form: FormData): Promise<void> {

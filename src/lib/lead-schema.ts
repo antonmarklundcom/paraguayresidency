@@ -31,7 +31,7 @@ const countryCode = z
   .string()
   .trim()
   .toUpperCase()
-  .refine((v) => v === '' || countryCodes.has(v), { message: 'Unknown country' })
+  .refine((v) => v === '' || countryCodes.has(v), { message: 'formError.country' })
   .transform((v) => (v === '' ? undefined : v))
   .optional();
 
@@ -45,7 +45,7 @@ const phone = z
   .string()
   .trim()
   .max(40)
-  .refine((v) => v === '' || /^[+()\d][\d\s()+.-]{5,}$/.test(v), { message: 'Enter a valid phone number' })
+  .refine((v) => v === '' || /^[+()\d][\d\s()+.-]{5,}$/.test(v), { message: 'formError.phone' })
   .transform((v) => (v === '' ? undefined : v.replace(/^00/, '+')))
   .optional();
 
@@ -53,7 +53,7 @@ export const leadInputSchema = z.object({
   site: z.enum(SITE_KEYS as unknown as [string, ...string[]]),
   kind: z.enum(ALL_LEAD_KINDS),
   name: optionalTrimmed(160),
-  email: z.union([z.string().trim().toLowerCase().email('Enter a valid email address').max(255), z.literal('')]).default(''),
+  email: z.union([z.string().trim().toLowerCase().email('formError.email').max(255), z.literal('')]).default(''),
   phone,
   whatsapp: phone,
   country: countryCode,
@@ -73,13 +73,13 @@ export const leadInputSchema = z.object({
   utm: z.record(z.string(), z.string()).optional(),
 }).superRefine((input, ctx) => {
   if (input.kind !== 'whatsapp' && !input.email) {
-    ctx.addIssue({ code: 'custom', path: ['email'], message: 'Enter a valid email address' });
+    ctx.addIssue({ code: 'custom', path: ['email'], message: 'formError.email' });
   }
   if (input.kind === 'whatsapp' && !input.phone && !input.whatsapp) {
-    ctx.addIssue({ code: 'custom', path: ['whatsapp'], message: 'Enter a valid WhatsApp number' });
+    ctx.addIssue({ code: 'custom', path: ['whatsapp'], message: 'formError.whatsapp' });
   }
   if (input.kind !== 'whatsapp' && !input.phone && !input.whatsapp) {
-    ctx.addIssue({ code: 'custom', path: ['phone'], message: 'Enter your WhatsApp or phone number' });
+    ctx.addIssue({ code: 'custom', path: ['phone'], message: 'formError.phoneRequired' });
   }
 });
 // `whatsapp` is stored as its own `leads.kind` since O24 (item 2); the NOT NULL
@@ -90,7 +90,9 @@ export type LeadInput = z.infer<typeof leadInputSchema>;
 
 /**
  * Parses raw form/JSON input. Returns field-keyed errors so the form can show
- * them next to the input that caused them.
+ * them next to the input that caused them. The messages are i18n keys
+ * (`formError.*`, `src/lib/form-messages.ts`), not sentences: the server action
+ * renders them in the form's language (O26 bug 1).
  */
 export function parseLeadInput(
   raw: unknown,

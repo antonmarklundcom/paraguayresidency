@@ -141,8 +141,18 @@ export function clientIp(headers: { get(name: string): string | null }): string 
  * does.
  */
 export const LIMITS = {
-  /** Admin password login, per IP **and** per email (both are counted). */
-  adminLogin: { max: 5, windowMs: 15 * 60 * 1000 },
+  /**
+   * Admin password login — three counters, all spent on every attempt
+   * (O26 bug 4, `adminLoginGate` below):
+   *  - per (email, IP) pair: where a person mistyping their own password lives;
+   *  - per IP, across emails: one address spraying many accounts;
+   *  - per email, from anywhere: the botnet backstop. A device that has signed
+   *    in to that account before is exempt from it, so it can never lock the
+   *    real admin out.
+   */
+  adminLoginPair: { max: 5, windowMs: 15 * 60 * 1000 },
+  adminLoginIp: { max: 20, windowMs: 15 * 60 * 1000 },
+  adminLoginEmail: { max: 30, windowMs: 60 * 60 * 1000 },
   /** Newsletter signup, per email. */
   subscribeEmail: { max: 3, windowMs: 60 * 60 * 1000 },
   /** Newsletter signup, per IP — the shared-NAT-friendly ceiling. */
@@ -194,6 +204,11 @@ export function resetLimit(name: LimitName, key: string): void {
 /**
  * The one message every limited surface shows. Deliberately plain and free of
  * numbers: telling a script the exact window is telling it how long to sleep.
+ *
+ * English, so it is for the English-only surfaces (admin, the proxy's plain
+ * 429, the checkout API the English Guide calls). A public form shows the same
+ * sentence in its own language through the `formError.rateLimited` key
+ * (`src/lib/form-messages.ts`, O26 bug 1).
  */
 export const RATE_LIMIT_MESSAGE = 'Too many attempts. Please wait a little and try again.';
 
@@ -217,6 +232,61 @@ export function takeBoth(
   const over = !first.ok ? first : second;
   const other = over === first ? second : first;
   return other.ok ? over : { ...over, retryAfterSeconds: Math.max(over.retryAfterSeconds, other.retryAfterSeconds) };
+}
+
+/**
+ * The admin login gate (O26 bug 4, clearing the KNOWN-ISSUES lockout entry).
+ *
+ * The O18 scheme counted 5 attempts per IP and 5 per email. The email bucket
+ * is global, so anyone who knew Anton's address could keep it full from their
+ * own machine and hold him out indefinitely. Now:
+ *
+ *  - the strict limit is per (email, IP) pair: a stranger filling their pair
+ *    has no effect on Anton's pair;
+ *  - a per-IP cap stops one address trying many accounts (or one account under
+ *    many spellings) without bound;
+ *  - the per-email backstop still stops a botnet — many IPs, each under its
+ *    own pair limit — from buying unlimited bcrypt guesses at one account, but
+ *    it only refuses UNKNOWN devices. A browser that has signed in to that
+ *    account before carries a sealed device cookie (`src/lib/auth.ts`,
+ *    `isKnownAdminDevice`) and is never refused by the backstop.
+ *
+ * So a third party can exhaust only their own pair, their own IP and the
+ * backstop for devices that are not Anton's. The cost that remains: during a
+ * live spray, Anton on a brand-new browser waits for the hour window (or a
+ * redeploy) like before — on any browser he has used, he gets straight in.
+ *
+ * All three counters are spent on every attempt — never `a() || b()`, for the
+ * reason `takeBoth` documents.
+ */
+export function adminLoginGate(input: {
+  ip: string;
+  email: string;
+  knownDevice: boolean;
+  now?: number;
+}): RateLimitResult {
+  const now = input.now ?? Date.now();
+  const email = input.email.trim().toLowerCase();
+  const verdicts = [
+    takeLimit('adminLoginPair', `${email}|${input.ip}`, now),
+    takeLimit('adminLoginIp', input.ip, now),
+    input.knownDevice ? null : takeLimit('adminLoginEmail', email, now),
+  ].filter((v): v is RateLimitResult => v !== null);
+  const refused = verdicts.filter((v) => !v.ok);
+  if (!refused.length) return verdicts[0];
+  return { ...refused[0], retryAfterSeconds: Math.max(...refused.map((v) => v.retryAfterSeconds)) };
+}
+
+/**
+ * After a SUCCESSFUL login: forget the pair and the IP so the person who
+ * mistyped twice this morning is not three attempts from a lockout this
+ * afternoon. The per-email backstop is left alone — it measures what strangers
+ * are doing to the account, and a known device is exempt from it anyway.
+ */
+export function adminLoginSucceeded(input: { ip: string; email: string }): void {
+  const email = input.email.trim().toLowerCase();
+  resetLimit('adminLoginPair', `${email}|${input.ip}`);
+  resetLimit('adminLoginIp', input.ip);
 }
 
 /**
@@ -248,9 +318,6 @@ export function claimConfirmationSend(site: string, email: string, now = Date.no
  * starved by keeping the other full.
  */
 export type SubscribeGate = 'ok' | 'limited' | 'already-sent';
-
-export const SUBSCRIBE_PENDING_MESSAGE =
-  'Check your inbox — click the link in the confirmation email to finish.';
 
 export function subscribeLimit(input: {
   ip: string;

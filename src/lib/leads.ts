@@ -67,9 +67,9 @@ export type CreateLeadResult =
   | { ok: false; errors: Record<string, string>; guard?: GuardVerdict };
 
 const GUARD_MESSAGES: Record<Exclude<GuardVerdict, 'ok' | 'honeypot'>, string> = {
-  'too-fast': 'That was submitted a little too quickly. Please try again.',
-  stale: 'This form has been open for a while. Please reload the page and resend.',
-  'bad-token': 'This form has expired. Please reload the page and resend.',
+  'too-fast': 'formError.tooFast',
+  stale: 'formError.stale',
+  'bad-token': 'formError.expired',
 };
 
 export async function createLead(

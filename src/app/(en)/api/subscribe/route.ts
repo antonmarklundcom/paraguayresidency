@@ -1,12 +1,8 @@
 import { NextResponse, type NextRequest } from 'next/server';
 import { subscribe } from '@/lib/subscribers';
 import { currentSite } from '@/lib/current-site';
-import {
-  clientIp,
-  LIMITS,
-  RATE_LIMIT_MESSAGE,
-  subscribeLimit,
-} from '@/lib/rate-limit';
+import { clientIp, LIMITS, subscribeLimit } from '@/lib/rate-limit';
+import { formMessage } from '@/lib/form-messages';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -29,7 +25,7 @@ export async function POST(request: NextRequest) {
   const gate = subscribeLimit({ ip: clientIp(request.headers), email, site });
   if (gate === 'limited') {
     return NextResponse.json(
-      { ok: false, error: 'rate-limited', message: RATE_LIMIT_MESSAGE },
+      { ok: false, error: 'rate-limited', message: formMessage(site, 'formError.rateLimited') },
       {
         status: 429,
         headers: { 'retry-after': String(Math.ceil(LIMITS.subscribeEmail.windowMs / 1000)) },
@@ -48,6 +44,9 @@ export async function POST(request: NextRequest) {
     { honeypot: body.website, timestamp: body.ts },
   );
 
-  if (!result.ok) return NextResponse.json({ ok: false, error: result.error }, { status: 422 });
+  // `error` is the stable key, `message` the sentence in the brand's language.
+  if (!result.ok) {
+    return NextResponse.json({ ok: false, error: result.error, message: formMessage(site, result.error) }, { status: 422 });
+  }
   return NextResponse.json({ ok: true, state: result.state });
 }

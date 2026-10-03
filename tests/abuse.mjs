@@ -181,7 +181,7 @@ async function loginRun() {
     ok: (counts.limited ?? 0) > 0,
     note:
       (counts.limited ?? 0) > 0
-        ? '"Too many attempts" after 5 in 15 minutes — a server action returns form state, not 429.\n      (re-running inside 15 minutes shows it limited from call one: the email key is shared.)'
+        ? '"Too many attempts" after 5 in 15 minutes — a server action returns form state, not 429.\n      (re-running inside 15 minutes shows it limited from call one: the (email, IP) pair key is shared.)'
         : 'expected the limiter to refuse after 5 attempts in 15 minutes',
   }));
 }

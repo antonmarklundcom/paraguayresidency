@@ -1,4 +1,5 @@
 import { getSite, siteOrigin, type SiteKey } from '@/sites/registry';
+import type { Locale } from '@/i18n/locales';
 
 /**
  * Email bodies as pure functions (no transport, no env, no DB) so they can be
@@ -10,6 +11,17 @@ export interface EmailBody {
   html: string;
   text: string;
 }
+
+/**
+ * The footer link, in the brand's language (O26 bug 2). Every email a visitor
+ * of any brand can receive goes through `layout`, so this is the one place.
+ */
+const UNSUBSCRIBE: Record<Locale, string> = {
+  en: 'Unsubscribe',
+  es: 'Darse de baja',
+  pt: 'Cancelar inscrição',
+  sv: 'Avsluta prenumerationen',
+};
 
 const esc = (value: unknown): string =>
   String(value ?? '')
@@ -27,7 +39,7 @@ function layout(site: SiteKey, heading: string, blocks: string[], unsubscribeUrl
     ...blocks,
     `<hr style="border:none;border-top:1px solid #e5e5e5;margin:28px 0 12px">`,
     `<p style="font-size:12px;color:#777;margin:0">${esc(config.name)} · <a href="${esc(siteOrigin(site))}" style="color:#777">${esc(config.canonicalHost)}</a><br>`,
-    `<a href="${esc(unsubscribeUrl)}" style="color:#777">${config.locale === 'es' ? 'Darse de baja' : 'Unsubscribe'}</a></p>`,
+    `<a href="${esc(unsubscribeUrl)}" style="color:#777">${esc(UNSUBSCRIBE[config.locale])}</a></p>`,
     `</div>`,
   ].join('');
 }
@@ -86,7 +98,51 @@ export function leadNotification(input: {
   return { subject, html, text };
 }
 
-/** Auto-reply to the person who filled the form. */
+/**
+ * The generic auto-reply, per locale. Spanish has its own function below
+ * because its free-guide branch has no counterpart in the other languages.
+ * Portuguese uses você, Swedish du (plan §1.3).
+ */
+const AUTO_REPLY: Record<Exclude<Locale, 'es'>, {
+  greeting: (name?: string | null) => string;
+  subject: (brand: string) => string;
+  heading: string;
+  lines: [string, string];
+  signoff: (brand: string) => string;
+}> = {
+  en: {
+    greeting: (name) => (name ? `Hi ${name},` : 'Hi,'),
+    subject: (brand) => `We have your enquiry — ${brand}`,
+    heading: 'Thanks — we have your enquiry',
+    lines: [
+      'A person reads every enquiry here. You will get a reply within one working day, usually sooner.',
+      'If anything changed in the meantime, just reply to this email — it reaches the same inbox.',
+    ],
+    signoff: (brand) => `— The team at ${brand}`,
+  },
+  pt: {
+    greeting: (name) => (name ? `Olá, ${name}!` : 'Olá!'),
+    subject: (brand) => `Recebemos sua mensagem — ${brand}`,
+    heading: 'Obrigado — recebemos sua mensagem',
+    lines: [
+      'Uma pessoa lê cada mensagem aqui. Você receberá uma resposta em até um dia útil, geralmente antes.',
+      'Se algo mudou nesse meio-tempo, é só responder a este e-mail — ele chega à mesma caixa de entrada.',
+    ],
+    signoff: (brand) => `— A equipe do ${brand}`,
+  },
+  sv: {
+    greeting: (name) => (name ? `Hej ${name},` : 'Hej,'),
+    subject: (brand) => `Vi har tagit emot din förfrågan — ${brand}`,
+    heading: 'Tack — vi har tagit emot din förfrågan',
+    lines: [
+      'En människa läser varje förfrågan här. Du får svar inom en arbetsdag, oftast tidigare.',
+      'Om något har ändrats under tiden kan du bara svara på det här mejlet — det går till samma inkorg.',
+    ],
+    signoff: (brand) => `— Teamet på ${brand}`,
+  },
+};
+
+/** Auto-reply to the person who filled the form, in the brand's language. */
 export function leadAutoReply(input: {
   site: SiteKey;
   name?: string | null;
@@ -96,28 +152,17 @@ export function leadAutoReply(input: {
 }): EmailBody {
   const config = getSite(input.site);
   if (config.locale === 'es') return leadAutoReplyEs({ ...input, config });
-  const greeting = input.name ? `Hi ${input.name},` : 'Hi,';
-  const subject = `We have your enquiry — ${config.name}`;
+  const copy = AUTO_REPLY[config.locale];
+  const greeting = copy.greeting(input.name);
+  const subject = copy.subject(config.name);
+  const signoff = copy.signoff(config.name);
   const html = layout(
     input.site,
-    'Thanks — we have your enquiry',
-    [
-      p(esc(greeting)),
-      p('A person reads every enquiry here. You will get a reply within one working day, usually sooner.'),
-      p(
-        'If anything changed in the meantime, just reply to this email — it reaches the same inbox.',
-      ),
-      p(`— The team at ${esc(config.name)}`),
-    ],
+    copy.heading,
+    [p(esc(greeting)), p(esc(copy.lines[0])), p(esc(copy.lines[1])), p(esc(signoff))],
     input.unsubscribeUrl,
   );
-  const text = `${greeting}
-
-A person reads every enquiry here. You will get a reply within one working day, usually sooner.
-
-If anything changed in the meantime, just reply to this email — it reaches the same inbox.
-
-— The team at ${config.name}`;
+  const text = [greeting, '', copy.lines[0], '', copy.lines[1], '', signoff].join('\n');
   return { subject, html, text };
 }
 
@@ -206,30 +251,79 @@ Want it done for you instead? Message the team that wrote it (WhatsApp or the fo
   return { subject, html, text };
 }
 
+/**
+ * The newsletter confirmation, per locale: any brand's footer or `/confirm`
+ * page can start a subscription, so a Spanish, Portuguese or Swedish visitor
+ * gets this mail too (O26 bug 2). The purchase, sign-in and Insider mails stay
+ * English-only: only `guide` sells (`siteSellsProducts`), and it is English.
+ */
+const SUBSCRIBE_CONFIRM: Record<Locale, {
+  subject: (brand: string) => string;
+  heading: string;
+  ask: string;
+  intro: (brand: string) => string;
+  button: string;
+  ignore: string;
+}> = {
+  en: {
+    subject: (brand) => `Confirm your subscription — ${brand}`,
+    heading: 'One click to confirm',
+    ask: 'You asked for updates. Confirm the address so we know it is really yours.',
+    intro: (brand) => `You asked for updates from ${brand}. Confirm the address so we know it is really yours:`,
+    button: 'Confirm subscription',
+    ignore: 'If you did not ask for this, ignore this email — nothing is sent until you confirm.',
+  },
+  es: {
+    subject: (brand) => `Confirma tu suscripción — ${brand}`,
+    heading: 'Un clic para confirmar',
+    ask: 'Pediste recibir novedades. Confirma la dirección para que sepamos que es realmente tuya.',
+    intro: (brand) => `Pediste recibir novedades de ${brand}. Confirma la dirección para que sepamos que es realmente tuya:`,
+    button: 'Confirmar suscripción',
+    ignore: 'Si no lo pediste, ignora este correo: no se envía nada hasta que confirmes.',
+  },
+  pt: {
+    subject: (brand) => `Confirme sua inscrição — ${brand}`,
+    heading: 'Um clique para confirmar',
+    ask: 'Você pediu para receber novidades. Confirme o endereço para sabermos que ele é realmente seu.',
+    intro: (brand) => `Você pediu para receber novidades do ${brand}. Confirme o endereço para sabermos que ele é realmente seu:`,
+    button: 'Confirmar inscrição',
+    ignore: 'Se você não pediu isso, ignore este e-mail — nada é enviado até você confirmar.',
+  },
+  sv: {
+    subject: (brand) => `Bekräfta din prenumeration — ${brand}`,
+    heading: 'Ett klick för att bekräfta',
+    ask: 'Du har bett om uppdateringar. Bekräfta adressen så att vi vet att den verkligen är din.',
+    intro: (brand) => `Du har bett om uppdateringar från ${brand}. Bekräfta adressen så att vi vet att den verkligen är din:`,
+    button: 'Bekräfta prenumerationen',
+    ignore: 'Om du inte har bett om detta kan du ignorera det här mejlet — inget skickas förrän du bekräftar.',
+  },
+};
+
 export function subscribeConfirmEmail(input: {
   site: SiteKey;
   confirmUrl: string;
   unsubscribeUrl: string;
 }): EmailBody {
   const config = getSite(input.site);
-  const subject = `Confirm your subscription — ${config.name}`;
+  const copy = SUBSCRIBE_CONFIRM[config.locale];
+  const subject = copy.subject(config.name);
   const html = layout(
     input.site,
-    'One click to confirm',
+    copy.heading,
     [
-      p('You asked for updates. Confirm the address so we know it is really yours.'),
+      p(esc(copy.ask)),
       p(
-        `<a href="${esc(input.confirmUrl)}" style="display:inline-block;background:#111;color:#fff;padding:12px 20px;border-radius:6px;text-decoration:none">Confirm subscription</a>`,
+        `<a href="${esc(input.confirmUrl)}" style="display:inline-block;background:#111;color:#fff;padding:12px 20px;border-radius:6px;text-decoration:none">${esc(copy.button)}</a>`,
       ),
-      p('If you did not ask for this, ignore this email — nothing is sent until you confirm.'),
+      p(esc(copy.ignore)),
     ],
     input.unsubscribeUrl,
   );
-  const text = `You asked for updates from ${config.name}. Confirm the address so we know it is really yours:
+  const text = `${copy.intro(config.name)}
 
 ${input.confirmUrl}
 
-If you did not ask for this, ignore this email — nothing is sent until you confirm.`;
+${copy.ignore}`;
   return { subject, html, text };
 }
 

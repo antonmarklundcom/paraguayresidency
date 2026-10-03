@@ -9,7 +9,7 @@ vi.mock('next/navigation', () => ({ redirect: (url: string) => { mocks.redirect(
 vi.mock('@/lib/leads', () => ({ createLead: mocks.lead }));
 vi.mock('@/lib/subscribers', () => ({ subscribe: mocks.subscribe }));
 vi.mock('@/app/(en)/api/auth/magic/route', () => ({ POST: mocks.magic }));
-vi.mock('@/lib/rate-limit', () => ({ clientIp: () => 'local', takeLimit: () => ({ ok: true }), subscribeLimit: () => 'allowed', SUBSCRIBE_PENDING_MESSAGE: 'Check your inbox.', RATE_LIMIT_MESSAGE: 'Try later.' }));
+vi.mock('@/lib/rate-limit', () => ({ clientIp: () => 'local', takeLimit: () => ({ ok: true }), subscribeLimit: () => 'allowed' }));
 import { submitLeadAction, submitLeadFormAction, subscribeFormAction, magicLinkFormAction } from '@/app/actions/lead';
 
 beforeEach(() => {
@@ -35,8 +35,8 @@ it('native LeadForm validation failure redirects with an error indicator', async
   expect(mocks.redirect).toHaveBeenCalledWith('/contact?utm_source=test&lead=error');
 });
 it('enhanced lead submissions retain inline field errors and never redirect', async () => {
-  mocks.lead.mockResolvedValue({ ok: false, errors: { email: 'Invalid email' } });
-  expect(await submitLeadAction({ status: 'idle' }, form())).toEqual({ status: 'error', errors: { email: 'Invalid email' } });
+  mocks.lead.mockResolvedValue({ ok: false, errors: { email: 'formError.email' } });
+  expect(await submitLeadAction({ status: 'idle' }, form())).toEqual({ status: 'error', errors: { email: 'Enter a valid email address.' } });
   expect(mocks.redirect).not.toHaveBeenCalled();
 });
 it('native newsletter signup redirects after the subscription succeeds', async () => {

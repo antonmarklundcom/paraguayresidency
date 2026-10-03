@@ -13,7 +13,7 @@ vi.mock('next/dynamic', () => ({ default: () => () => null }));
 import { ProgressiveForm } from '@/components/ProgressiveForm';
 function render(kind: 'newsletter' | 'magic') {
   const fields = { site: 'guide' as const, timestamp: 'fixture', id: 'query-test', source: 'inline', labels: { email: 'Email', submit: 'Send', sending: 'Sending', note: 'Note', sentTitle: 'Sent', sentBody: 'Check inbox' } };
-  return renderToStaticMarkup(createElement(ProgressiveForm, { kind, fields, base: createElement('form', null, 'Base form'), success: createElement('p', { role: 'status' }, 'Existing success message') }));
+  return renderToStaticMarkup(createElement(ProgressiveForm, { kind, fields, base: createElement('form', null, 'Base form'), success: createElement('p', { role: 'status' }, 'Existing success message'), errorMessage: 'Revisa el formulario.' }));
 }
 afterEach(() => { mode.client = false; vi.unstubAllGlobals(); });
 it('server output and initial hydration retain the base form even when the browser URL has a result', () => {

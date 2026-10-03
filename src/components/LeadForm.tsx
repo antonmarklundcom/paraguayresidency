@@ -75,7 +75,7 @@ export function LeadForm({
     timestamp: issueFormTimestamp(), id: 'lead-' + randomUUID(),
     countryOptions: COUNTRIES.map((country) => <option key={country.code} value={country.code}>{country.name}</option>),
   };
-  return <ProgressiveForm kind="lead" fields={fields}
+  return <ProgressiveForm kind="lead" fields={fields} errorMessage={t(site, 'formError.reload')}
     base={<LeadFormFields {...fields} action={submitLeadFormAction} />}
     success={<LeadFormFields {...fields} action={submitLeadFormAction} state={{ status: 'ok' }} />} />;
 }

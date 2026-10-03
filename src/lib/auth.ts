@@ -1,6 +1,6 @@
 import 'server-only';
 import { cookies } from 'next/headers';
-import { getIronSession, type IronSession, type SessionOptions } from 'iron-session';
+import { getIronSession, sealData, unsealData, type IronSession, type SessionOptions } from 'iron-session';
 import { eq } from 'drizzle-orm';
 import bcrypt from 'bcryptjs';
 import { getDb, hasDatabase } from '@/db';
@@ -12,9 +12,9 @@ import { hasStrongSecret, signingSecret } from './signing';
  * (stack skill §2 — the lighter option, no OAuth). Role checks always run on
  * the server; hiding a button is UX, not security.
  *
- * The host restriction is separate and comes first: `src/middleware.ts` 404s
+ * The host restriction is separate and comes first: `src/proxy.ts` 404s
  * `/admin` on any host that is not the hub (plan §2), so nothing here is even
- * reachable from the other two brands.
+ * reachable from the other six brands.
  */
 
 export interface AdminSession {
@@ -37,6 +37,40 @@ export function sessionOptions(): SessionOptions {
       path: '/admin',
     },
   };
+}
+
+/**
+ * The "this browser has signed in to this account before" cookie (O26 bug 4).
+ * Sealed with the session secret, so it cannot be forged or moved to another
+ * address; it carries the email only, never a credential, and grants nothing
+ * on its own — it only exempts the login form from the per-email backstop in
+ * `adminLoginGate` (`src/lib/rate-limit.ts`), which is what lets a stranger
+ * spraying Anton's address leave him able to sign in.
+ */
+export const DEVICE_COOKIE = 'pyrg_admin_device';
+const DEVICE_TTL_SECONDS = 60 * 60 * 24 * 90;
+
+export async function rememberAdminDevice(email: string): Promise<void> {
+  if (!hasStrongSecret()) return;
+  const sealed = await sealData({ email: email.trim().toLowerCase() }, { password: signingSecret(), ttl: DEVICE_TTL_SECONDS });
+  (await cookies()).set(DEVICE_COOKIE, sealed, {
+    httpOnly: true,
+    sameSite: 'lax',
+    secure: process.env.NODE_ENV === 'production',
+    path: '/admin',
+    maxAge: DEVICE_TTL_SECONDS,
+  });
+}
+
+export async function isKnownAdminDevice(email: string): Promise<boolean> {
+  const sealed = (await cookies()).get(DEVICE_COOKIE)?.value;
+  if (!sealed || !hasStrongSecret()) return false;
+  try {
+    const data = await unsealData<{ email?: string }>(sealed, { password: signingSecret(), ttl: DEVICE_TTL_SECONDS });
+    return !!data.email && data.email === email.trim().toLowerCase();
+  } catch {
+    return false;
+  }
 }
 
 export async function getSession(): Promise<IronSession<AdminSession>> {
