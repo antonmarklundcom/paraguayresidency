@@ -3,8 +3,8 @@ import type { NextConfig } from 'next';
 /**
  * Security headers (plan §14.2.4).
  *
- * They are set here rather than in `src/middleware.ts` on purpose: the
- * middleware matcher deliberately excludes `_next/static` and the image
+ * They are set here rather than in `src/proxy.ts` on purpose: the
+ * proxy matcher deliberately excludes `_next/static` and the image
  * extensions, and a `Content-Security-Policy` that does not cover the script
  * and font files a page loads is not a policy. `headers()` covers every
  * response Next serves.
@@ -122,6 +122,10 @@ const nextConfig: NextConfig = {
   // away from `private/` and `public/`.
   experimental: {
     globalNotFound: true,
+    // `forbidden()` (403 + `admin/forbidden.tsx`) for a signed-in staff user
+    // without the page's role — before O26 they were redirected to the login
+    // page, which redirected them straight back.
+    authInterrupts: true,
     // Next defaults build workers to os.cpus().length - 1, which on Hostinger's
     // shared box is the host's core count, not this account's share. Each worker
     // is a Node process, and every process AND thread counts against the
@@ -152,7 +156,7 @@ const nextConfig: NextConfig = {
         // The public tree only: the negative lookahead keeps this policy off
         // `/admin` and `/members`, so those two carry exactly one CSP — the
         // stricter private one below.
-        // These sources match the PUBLIC path, before `src/middleware.ts`
+        // These sources match the PUBLIC path, before `src/proxy.ts`
         // rewrites `/members` into `/sites/guide/members` — verified against
         // `next start`, not assumed.
         source: '/((?!admin$|admin/|members$|members/).*)',
