@@ -6,6 +6,7 @@ import { ActionButton, panel, table, td, th } from '../ui';
 import { ALL_LEAD_KINDS } from '@/lib/lead-schema';
 import { listLeads, parseLeadFilters } from '@/lib/admin-queries';
 import { effectiveLeadKind } from '@/lib/leads';
+import { crmStatusLabel } from '@/lib/crm-status';
 import { deliveriesForLeads, deliveryHealth, recentDeliveryFailures } from '@/lib/lead-delivery';
 import { SITE_KEYS } from '@/sites/registry';
 import type { SearchParams } from '@/lib/conversion-pages';
@@ -181,7 +182,7 @@ export default async function Page({ searchParams }: { searchParams: SearchParam
                             : 'text-[var(--fg-muted)]'
                       }
                     >
-                      {lead.crmStatus}
+                      {crmStatusLabel(lead.crmStatus, lead.crmResponse)}
                     </span>
                     {deliveries.get(lead.id) ? (
                       <div className="mt-1 text-(length:--text-xs) text-[var(--fg-muted)]">
