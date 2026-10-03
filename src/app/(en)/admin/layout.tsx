@@ -5,11 +5,11 @@ import { logoutAction } from './actions';
 
 /**
  * Admin chrome. The host restriction is enforced upstream in
- * `src/middleware.ts` — `/admin` 404s on the two non-hub brands (plan §2), so
+ * `src/proxy.ts` — `/admin` 404s on every non-hub brand (plan §2), so
  * this layout only ever renders on the hub.
  *
  * It deliberately does NOT use the brand shell: the admin is a tool, not a
- * page of any of the three sites.
+ * page of any of the seven brands.
  */
 export const dynamic = 'force-dynamic';
 

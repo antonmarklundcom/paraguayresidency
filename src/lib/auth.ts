@@ -12,9 +12,9 @@ import { hasStrongSecret, signingSecret } from './signing';
  * (stack skill §2 — the lighter option, no OAuth). Role checks always run on
  * the server; hiding a button is UX, not security.
  *
- * The host restriction is separate and comes first: `src/middleware.ts` 404s
+ * The host restriction is separate and comes first: `src/proxy.ts` 404s
  * `/admin` on any host that is not the hub (plan §2), so nothing here is even
- * reachable from the other two brands.
+ * reachable from the other six brands.
  */
 
 export interface AdminSession {

@@ -46,7 +46,7 @@ function isPassthrough(pathname: string): boolean {
 /**
  * Pure host+path → action resolver. The whole multi-domain product rests on
  * this function, so it is unit-tested rather than only exercised through
- * `middleware.ts`.
+ * `src/proxy.ts`.
  */
 export function resolveRequest(input: ResolveInput): Resolution {
   const { pathname } = input;
