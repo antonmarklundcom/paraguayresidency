@@ -24,12 +24,12 @@ const HOUR = 60 * MINUTE;
 beforeEach(() => __resetAllForTests());
 
 describe('takeLimit — the numbers plan §14.2.1 names', () => {
-  it('admin login is 5 per 15 minutes', () => {
-    expect(LIMITS.adminLogin).toEqual({ max: 5, windowMs: 15 * MINUTE });
-    for (let i = 1; i <= 5; i += 1) expect(takeLimit('adminLogin', 'ip:1.1.1.1', t0).ok).toBe(true);
-    expect(takeLimit('adminLogin', 'ip:1.1.1.1', t0).ok).toBe(false);
+  it('admin login is 5 per 15 minutes per (email, IP) pair', () => {
+    expect(LIMITS.adminLoginPair).toEqual({ max: 5, windowMs: 15 * MINUTE });
+    for (let i = 1; i <= 5; i += 1) expect(takeLimit('adminLoginPair', 'a@b|1.1.1.1', t0).ok).toBe(true);
+    expect(takeLimit('adminLoginPair', 'a@b|1.1.1.1', t0).ok).toBe(false);
     // …and the sixth attempt a quarter of an hour later is fine again.
-    expect(takeLimit('adminLogin', 'ip:1.1.1.1', t0 + 15 * MINUTE + 1).ok).toBe(true);
+    expect(takeLimit('adminLoginPair', 'a@b|1.1.1.1', t0 + 15 * MINUTE + 1).ok).toBe(true);
   });
 
   it('names every limit the plan asked for, at the value it asked for', () => {
@@ -65,14 +65,14 @@ describe('takeBoth — the short-circuit that made the magic-link limiter leak',
   });
 
   it('refuses when EITHER key is over, and reports the longer wait', () => {
-    for (let i = 0; i < 5; i += 1) takeLimit('adminLogin', 'ip:hot', t0);
-    const verdict = takeBoth('adminLogin', ['ip:hot', 'email:cold@example.com'], t0);
+    for (let i = 0; i < 5; i += 1) takeLimit('magicLink', 'ip:hot', t0);
+    const verdict = takeBoth('magicLink', ['ip:hot', 'email:cold@example.com'], t0);
     expect(verdict.ok).toBe(false);
     expect(verdict.retryAfterSeconds).toBeGreaterThan(0);
   });
 
   it('allows while both keys are under', () => {
-    expect(takeBoth('adminLogin', ['ip:a', 'email:b@example.com'], t0).ok).toBe(true);
+    expect(takeBoth('magicLink', ['ip:a', 'email:b@example.com'], t0).ok).toBe(true);
   });
 });
 
@@ -130,16 +130,16 @@ describe('subscribeLimit — one gate for the action and the API route', () => {
 
 describe('resetLimit — what a successful login forgets', () => {
   it('clears the named limit without touching its neighbours', () => {
-    for (let i = 0; i < 5; i += 1) takeLimit('adminLogin', 'ip:2.2.2.2', t0);
-    for (let i = 0; i < 5; i += 1) takeLimit('adminLogin', 'email:someone@example.com', t0);
-    expect(takeLimit('adminLogin', 'ip:2.2.2.2', t0).ok).toBe(false);
+    for (let i = 0; i < 5; i += 1) takeLimit('adminLoginPair', 'me@example.com|2.2.2.2', t0);
+    for (let i = 0; i < 5; i += 1) takeLimit('adminLoginPair', 'someone@example.com|2.2.2.2', t0);
+    expect(takeLimit('adminLoginPair', 'me@example.com|2.2.2.2', t0).ok).toBe(false);
 
-    resetLimit('adminLogin', 'ip:2.2.2.2');
+    resetLimit('adminLoginPair', 'me@example.com|2.2.2.2');
 
     // The person who finally typed their password correctly starts fresh…
-    expect(takeLimit('adminLogin', 'ip:2.2.2.2', t0).ok).toBe(true);
+    expect(takeLimit('adminLoginPair', 'me@example.com|2.2.2.2', t0).ok).toBe(true);
     // …and nothing else was forgotten.
-    expect(takeLimit('adminLogin', 'email:someone@example.com', t0).ok).toBe(false);
+    expect(takeLimit('adminLoginPair', 'someone@example.com|2.2.2.2', t0).ok).toBe(false);
   });
 
   it('applies the same key namespace takeLimit does', () => {
