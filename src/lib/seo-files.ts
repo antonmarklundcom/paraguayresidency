@@ -143,6 +143,7 @@ const staticPaths: Record<SiteKey, string[]> = {
     '/precios',
     '/nosotros',
     '/documentos/lista',
+    '/guia-gratis',
     // /pase-inversor is a thin, noindex bridge (plan §6.6) — excluded from
     // the sitemap, the same treatment the hub gives its own /investor-pass.
   ],

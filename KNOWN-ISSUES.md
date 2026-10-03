@@ -3,6 +3,13 @@
 Non-blocking findings. Each entry names the phase that found it and, where it
 matters, the phase that should clear it.
 
+## OPEN — residenciaenparaguay.es may still be attached to propia.node in hPanel (2026-10-03)
+
+propia.node served this domain from 2026-10-01 to 2026-10-03 and its checks saw `/guias/<hub>/<slug>`
+return 500. Nothing in this repo explains a 500 on those routes; the overlap does. propia removed the door
+in code on 2026-10-03. Anton: detach the domain from the propia site in hPanel if it is still mapped, purge
+the CDN and re-validate in Search Console. Details and checklist: `docs/log/2026-10-03-propia-handoff-residenciaes.md`.
+
 ## TEMPORARY — FREE_ACCESS_MODE bypasses Stripe on the Guide entry product
 
 Added outside the phase table (direct request from Anton, 2026-09-10), ahead

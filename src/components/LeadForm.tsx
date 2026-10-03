@@ -28,6 +28,7 @@ export function LeadForm({
   pagePath,
   quizResult,
   quizAnswers,
+  copy,
 }: {
   site: SiteKey;
   variant: LeadVariant;
@@ -35,6 +36,8 @@ export function LeadForm({
   pagePath: string;
   quizResult?: string;
   quizAnswers?: string;
+  /** Per-page wording on top of the brand's form labels (a lead magnet's button and success state). */
+  copy?: Partial<Pick<LeadFormLabels, 'submit' | 'message' | 'nextStep' | 'successTitle' | 'successBody' | 'successLinkHref' | 'successLinkLabel'>>;
 }) {
   const labels: LeadFormLabels = {
     name: t(site, 'form.name'),
@@ -64,6 +67,7 @@ export function LeadForm({
       id,
       label: t(site, `form.route.${id}`),
     })),
+    ...copy,
   };
 
   const fields = {
