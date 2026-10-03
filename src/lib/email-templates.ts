@@ -27,7 +27,7 @@ function layout(site: SiteKey, heading: string, blocks: string[], unsubscribeUrl
     ...blocks,
     `<hr style="border:none;border-top:1px solid #e5e5e5;margin:28px 0 12px">`,
     `<p style="font-size:12px;color:#777;margin:0">${esc(config.name)} · <a href="${esc(siteOrigin(site))}" style="color:#777">${esc(config.canonicalHost)}</a><br>`,
-    `<a href="${esc(unsubscribeUrl)}" style="color:#777">Unsubscribe</a></p>`,
+    `<a href="${esc(unsubscribeUrl)}" style="color:#777">${config.locale === 'es' ? 'Darse de baja' : 'Unsubscribe'}</a></p>`,
     `</div>`,
   ].join('');
 }
@@ -90,9 +90,12 @@ export function leadNotification(input: {
 export function leadAutoReply(input: {
   site: SiteKey;
   name?: string | null;
+  /** The public path the form sat on; the free-guide form gets its link back. */
+  pagePath?: string | null;
   unsubscribeUrl: string;
 }): EmailBody {
   const config = getSite(input.site);
+  if (config.locale === 'es') return leadAutoReplyEs({ ...input, config });
   const greeting = input.name ? `Hi ${input.name},` : 'Hi,';
   const subject = `We have your enquiry — ${config.name}`;
   const html = layout(
@@ -115,6 +118,48 @@ A person reads every enquiry here. You will get a reply within one working day, 
 If anything changed in the meantime, just reply to this email — it reaches the same inbox.
 
 — The team at ${config.name}`;
+  return { subject, html, text };
+}
+
+/**
+ * The Spanish auto-reply (residenciaenparaguay.es). A lead from the free-guide
+ * form (`/guia-gratis`) gets the reading link, since that is what it asked for.
+ */
+function leadAutoReplyEs(input: {
+  site: SiteKey;
+  config: ReturnType<typeof getSite>;
+  name?: string | null;
+  pagePath?: string | null;
+  unsubscribeUrl: string;
+}): EmailBody {
+  const { config } = input;
+  const greeting = input.name ? `Hola ${input.name}:` : 'Hola:';
+  const guideUrl = input.pagePath?.startsWith('/guia-gratis') ? `${siteOrigin(input.site)}/guia-gratis/leer` : null;
+  const subject = guideUrl ? `Tu guía gratis de residencia en Paraguay — ${config.name}` : `Recibimos tu consulta — ${config.name}`;
+  const lines = guideUrl
+    ? [
+        'Gracias por pedir la guía. Aquí tienes el enlace para leerla cuando quieras:',
+        'Si al leerla te surge una duda sobre tu caso, responde a este correo o escríbenos por WhatsApp. Una persona del equipo te contesta por escrito en un día hábil.',
+      ]
+    : [
+        'Una persona lee cada consulta. Te respondemos por escrito en un día hábil, normalmente antes.',
+        'Si algo cambió mientras tanto, responde a este correo: llega a la misma bandeja.',
+      ];
+  const html = layout(
+    input.site,
+    guideUrl ? 'Tu guía gratis está lista' : 'Gracias, recibimos tu consulta',
+    [
+      p(esc(greeting)),
+      p(esc(lines[0])),
+      guideUrl
+        ? p(`<a href="${esc(guideUrl)}" style="display:inline-block;background:#111;color:#fff;padding:12px 20px;border-radius:6px;text-decoration:none">Abrir la guía</a>`)
+        : '',
+      p(esc(lines[1])),
+      p(`— El equipo de ${esc(config.name)}`),
+    ],
+    input.unsubscribeUrl,
+  );
+  const text = [greeting, '', lines[0], ...(guideUrl ? ['', guideUrl] : []), '', lines[1], '', `— El equipo de ${config.name}`].join('\n');
   return { subject, html, text };
 }
 

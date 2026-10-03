@@ -404,7 +404,7 @@ async function notifyLead(
       : Promise.resolve({ ok: false, mode: 'console' as const, error: 'EMAIL_NOTIFY_TO not set' }),
     wantAutoReply ? sendEmail({
       to: input.email,
-      ...leadAutoReply({ site, name: input.name, unsubscribeUrl: unsubscribeUrl(site, input.email) }),
+      ...leadAutoReply({ site, name: input.name, pagePath: input.pagePath, unsubscribeUrl: unsubscribeUrl(site, input.email) }),
     }) : Promise.resolve({ skipped: 'no-lead-email' }),
   ]);
 

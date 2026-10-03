@@ -32,6 +32,9 @@ export interface LeadFormLabels {
   whatsappContinueHref?: string | null;
   whatsappContinue?: string;
   whatsappContinueHint?: string;
+  /** A primary link shown on success, e.g. the free guide the form unlocked. */
+  successLinkHref?: string;
+  successLinkLabel?: string;
   optional: string;
   choose: string;
   investmentRanges: Record<(typeof INVESTMENT_RANGES)[number], string>;
@@ -92,6 +95,14 @@ export function LeadFormFields({
           {labels.successTitle}
         </p>
         <p className="mt-[var(--space-2)] text-[var(--fg-muted)]">{labels.successBody}</p>
+        {labels.successLinkHref && labels.successLinkLabel ? (
+          <a
+            href={labels.successLinkHref}
+            className="mt-[var(--space-4)] inline-flex min-h-11 items-center justify-center rounded-[var(--radius-brand)] bg-[var(--accent)] px-5 py-3 text-(length:--text-sm) font-medium text-[var(--accent-fg)] hover:opacity-90"
+          >
+            {labels.successLinkLabel}
+          </a>
+        ) : null}
         {labels.whatsappContinueHref ? (
           <div className="mt-[var(--space-4)]">
             <p className="text-(length:--text-sm) text-[var(--fg-muted)]">{labels.whatsappContinueHint}</p>
