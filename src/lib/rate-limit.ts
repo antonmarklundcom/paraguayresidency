@@ -194,6 +194,11 @@ export function resetLimit(name: LimitName, key: string): void {
 /**
  * The one message every limited surface shows. Deliberately plain and free of
  * numbers: telling a script the exact window is telling it how long to sleep.
+ *
+ * English, so it is for the English-only surfaces (admin, the proxy's plain
+ * 429, the checkout API the English Guide calls). A public form shows the same
+ * sentence in its own language through the `formError.rateLimited` key
+ * (`src/lib/form-messages.ts`, O26 bug 1).
  */
 export const RATE_LIMIT_MESSAGE = 'Too many attempts. Please wait a little and try again.';
 
@@ -248,9 +253,6 @@ export function claimConfirmationSend(site: string, email: string, now = Date.no
  * starved by keeping the other full.
  */
 export type SubscribeGate = 'ok' | 'limited' | 'already-sent';
-
-export const SUBSCRIBE_PENDING_MESSAGE =
-  'Check your inbox — click the link in the confirmation email to finish.';
 
 export function subscribeLimit(input: {
   ip: string;

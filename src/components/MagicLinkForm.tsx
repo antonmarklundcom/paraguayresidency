@@ -16,7 +16,7 @@ export function MagicLinkForm({ site }: { site: SiteKey }) {
     sentBody: t(site, 'login.sentBody'),
   };
   const fields = { site, labels, timestamp: issueFormTimestamp(), id: 'magic-' + randomUUID() };
-  return <ProgressiveForm kind="magic" fields={fields}
+  return <ProgressiveForm kind="magic" fields={fields} errorMessage={t(site, 'formError.reload')}
     base={<MagicLinkFormFields {...fields} action={magicLinkFormAction} />}
     success={<MagicLinkFormFields {...fields} action={magicLinkFormAction} state={{ status: 'ok' }} />} />;
 }
